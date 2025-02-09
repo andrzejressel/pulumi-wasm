@@ -154,91 +154,73 @@ pub mod virtual_network_gateway_nat_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualNetworkGatewayNatRuleArgs,
     ) -> VirtualNetworkGatewayNatRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let external_mappings_binding_1 = args.external_mappings.get_output(context);
-        let external_mappings_binding = external_mappings_binding_1.get_inner();
-        let internal_mappings_binding_1 = args.internal_mappings.get_output(context);
-        let internal_mappings_binding = internal_mappings_binding_1.get_inner();
-        let ip_configuration_id_binding_1 = args.ip_configuration_id.get_output(context);
-        let ip_configuration_id_binding = ip_configuration_id_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let virtual_network_gateway_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let external_mappings_binding = args.external_mappings.get_output(context);
+        let internal_mappings_binding = args.internal_mappings.get_output(context);
+        let ip_configuration_id_binding = args.ip_configuration_id.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let virtual_network_gateway_id_binding = args
             .virtual_network_gateway_id
             .get_output(context);
-        let virtual_network_gateway_id_binding = virtual_network_gateway_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalMappings".into(),
-                    value: &external_mappings_binding,
+                    value: external_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internalMappings".into(),
-                    value: &internal_mappings_binding,
+                    value: internal_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfigurationId".into(),
-                    value: &ip_configuration_id_binding,
+                    value: ip_configuration_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkGatewayId".into(),
-                    value: &virtual_network_gateway_id_binding,
+                    value: virtual_network_gateway_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualNetworkGatewayNatRuleResult {
-            external_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalMappings"),
-            ),
-            internal_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalMappings"),
-            ),
-            ip_configuration_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfigurationId"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            virtual_network_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkGatewayId"),
-            ),
+            external_mappings: o.get_field("externalMappings"),
+            internal_mappings: o.get_field("internalMappings"),
+            ip_configuration_id: o.get_field("ipConfigurationId"),
+            mode: o.get_field("mode"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            type_: o.get_field("type"),
+            virtual_network_gateway_id: o.get_field("virtualNetworkGatewayId"),
         }
     }
 }

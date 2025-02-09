@@ -64,37 +64,34 @@ pub mod hyper_v_site {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HyperVSiteArgs,
     ) -> HyperVSiteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
-        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let recovery_vault_id_binding = args.recovery_vault_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:siterecovery/hyperVSite:HyperVSite".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultId".into(),
-                    value: &recovery_vault_id_binding,
+                    value: recovery_vault_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HyperVSiteResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recovery_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryVaultId"),
-            ),
+            name: o.get_field("name"),
+            recovery_vault_id: o.get_field("recoveryVaultId"),
         }
     }
 }

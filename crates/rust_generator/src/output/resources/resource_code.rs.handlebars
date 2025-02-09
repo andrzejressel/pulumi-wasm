@@ -42,7 +42,7 @@ pub struct {{resource.struct_name}}Result {
 ///
 #[allow(non_snake_case, unused_imports, dead_code)]
 pub fn create(
-    context: &pulumi_gestalt_rust::PulumiContext,
+    context: &pulumi_gestalt_rust::Context,
     name: &str,
 {{#if resource.input_properties}}
     args: {{resource.struct_name}}Args
@@ -50,32 +50,33 @@ pub fn create(
 ) {{#if resource.output_properties}} -> {{resource.struct_name}}Result{{/if}} {
     use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
     use std::collections::HashMap;
+    use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
 
 {{#each resource.input_properties}}
-    let {{arg_name}}_binding_1 = args.{{arg_name}}.get_output(context);
-    let {{arg_name}}_binding = {{arg_name}}_binding_1.get_inner();
+    let {{arg_name}}_binding = args.{{arg_name}}.get_output(context);
 {{/each}}
 
-    let request = register_interface::RegisterResourceRequest {
+
+    let request = pulumi_gestalt_rust::RegisterResourceRequest {
         type_: "{{resource.type}}".into(),
         name: name.to_string(),
         version: {{resource.get_version}},
-        object: Vec::from([
+        object: &[
             {{#each resource.input_properties}}
-                register_interface::ObjectField { name: "{{name}}".into(), value: &{{arg_name}}_binding },
+                pulumi_gestalt_rust::ResourceRequestObjectField { name: "{{name}}".into(), value: {{arg_name}}_binding.get_id() },
             {{/each}}
-        ])
+        ]
     };
 
 {{#if resource.output_properties}}
-    let o = register_interface::register(context.get_inner(), &request);
+    let o = context.register_resource(request);
     {{resource.struct_name}}Result {
     {{#each resource.output_properties}}
-        {{arg_name}}: pulumi_gestalt_rust::__private::into_domain(o.extract_field("{{name}}")),
+        {{arg_name}}: o.get_field("{{name}}"),
     {{/each}}
     }
 {{else}}
-    register_interface::register(context.get_inner(), &request);
+    context.register_resource(request);
 {{/if}}
 }
 

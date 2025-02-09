@@ -49,65 +49,51 @@ pub mod get_query_log_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetQueryLogConfigArgs,
     ) -> GetQueryLogConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resolver_query_log_config_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resolver_query_log_config_id_binding = args
             .resolver_query_log_config_id
             .get_output(context);
-        let resolver_query_log_config_id_binding = resolver_query_log_config_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getQueryLogConfig:getQueryLogConfig".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverQueryLogConfigId".into(),
-                    value: &resolver_query_log_config_id_binding,
+                    value: resolver_query_log_config_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetQueryLogConfigResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            destination_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationArn"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            resolver_query_log_config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverQueryLogConfigId"),
-            ),
-            share_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareStatus"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            destination_arn: o.get_field("destinationArn"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            owner_id: o.get_field("ownerId"),
+            resolver_query_log_config_id: o.get_field("resolverQueryLogConfigId"),
+            share_status: o.get_field("shareStatus"),
+            tags: o.get_field("tags"),
         }
     }
 }

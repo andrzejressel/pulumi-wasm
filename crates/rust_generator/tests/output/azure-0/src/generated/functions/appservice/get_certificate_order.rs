@@ -61,83 +61,51 @@ pub mod get_certificate_order {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCertificateOrderArgs,
     ) -> GetCertificateOrderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:appservice/getCertificateOrder:getCertificateOrder".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCertificateOrderResult {
-            app_service_certificate_not_renewable_reasons: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceCertificateNotRenewableReasons"),
-            ),
-            auto_renew: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRenew"),
-            ),
-            certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificates"),
-            ),
-            csr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("csr")),
-            distinguished_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distinguishedName"),
-            ),
-            domain_verification_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainVerificationToken"),
-            ),
-            expiration_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationTime"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            intermediate_thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("intermediateThumbprint"),
-            ),
-            is_private_key_external: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isPrivateKeyExternal"),
-            ),
-            key_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySize"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            product_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productType"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            root_thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootThumbprint"),
-            ),
-            signed_certificate_thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signedCertificateThumbprint"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            validity_in_years: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validityInYears"),
-            ),
+            app_service_certificate_not_renewable_reasons: o
+                .get_field("appServiceCertificateNotRenewableReasons"),
+            auto_renew: o.get_field("autoRenew"),
+            certificates: o.get_field("certificates"),
+            csr: o.get_field("csr"),
+            distinguished_name: o.get_field("distinguishedName"),
+            domain_verification_token: o.get_field("domainVerificationToken"),
+            expiration_time: o.get_field("expirationTime"),
+            id: o.get_field("id"),
+            intermediate_thumbprint: o.get_field("intermediateThumbprint"),
+            is_private_key_external: o.get_field("isPrivateKeyExternal"),
+            key_size: o.get_field("keySize"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            product_type: o.get_field("productType"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            root_thumbprint: o.get_field("rootThumbprint"),
+            signed_certificate_thumbprint: o.get_field("signedCertificateThumbprint"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            validity_in_years: o.get_field("validityInYears"),
         }
     }
 }

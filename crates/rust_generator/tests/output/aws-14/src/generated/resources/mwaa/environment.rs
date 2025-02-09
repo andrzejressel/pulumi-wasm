@@ -211,293 +211,200 @@ pub mod environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let airflow_configuration_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let airflow_configuration_options_binding = args
             .airflow_configuration_options
             .get_output(context);
-        let airflow_configuration_options_binding = airflow_configuration_options_binding_1
-            .get_inner();
-        let airflow_version_binding_1 = args.airflow_version.get_output(context);
-        let airflow_version_binding = airflow_version_binding_1.get_inner();
-        let dag_s3_path_binding_1 = args.dag_s3_path.get_output(context);
-        let dag_s3_path_binding = dag_s3_path_binding_1.get_inner();
-        let endpoint_management_binding_1 = args.endpoint_management.get_output(context);
-        let endpoint_management_binding = endpoint_management_binding_1.get_inner();
-        let environment_class_binding_1 = args.environment_class.get_output(context);
-        let environment_class_binding = environment_class_binding_1.get_inner();
-        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
-        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
-        let kms_key_binding_1 = args.kms_key.get_output(context);
-        let kms_key_binding = kms_key_binding_1.get_inner();
-        let logging_configuration_binding_1 = args
+        let airflow_version_binding = args.airflow_version.get_output(context);
+        let dag_s3_path_binding = args.dag_s3_path.get_output(context);
+        let endpoint_management_binding = args.endpoint_management.get_output(context);
+        let environment_class_binding = args.environment_class.get_output(context);
+        let execution_role_arn_binding = args.execution_role_arn.get_output(context);
+        let kms_key_binding = args.kms_key.get_output(context);
+        let logging_configuration_binding = args
             .logging_configuration
             .get_output(context);
-        let logging_configuration_binding = logging_configuration_binding_1.get_inner();
-        let max_webservers_binding_1 = args.max_webservers.get_output(context);
-        let max_webservers_binding = max_webservers_binding_1.get_inner();
-        let max_workers_binding_1 = args.max_workers.get_output(context);
-        let max_workers_binding = max_workers_binding_1.get_inner();
-        let min_webservers_binding_1 = args.min_webservers.get_output(context);
-        let min_webservers_binding = min_webservers_binding_1.get_inner();
-        let min_workers_binding_1 = args.min_workers.get_output(context);
-        let min_workers_binding = min_workers_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_configuration_binding_1 = args
+        let max_webservers_binding = args.max_webservers.get_output(context);
+        let max_workers_binding = args.max_workers.get_output(context);
+        let min_webservers_binding = args.min_webservers.get_output(context);
+        let min_workers_binding = args.min_workers.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_configuration_binding = args
             .network_configuration
             .get_output(context);
-        let network_configuration_binding = network_configuration_binding_1.get_inner();
-        let plugins_s3_object_version_binding_1 = args
+        let plugins_s3_object_version_binding = args
             .plugins_s3_object_version
             .get_output(context);
-        let plugins_s3_object_version_binding = plugins_s3_object_version_binding_1
-            .get_inner();
-        let plugins_s3_path_binding_1 = args.plugins_s3_path.get_output(context);
-        let plugins_s3_path_binding = plugins_s3_path_binding_1.get_inner();
-        let requirements_s3_object_version_binding_1 = args
+        let plugins_s3_path_binding = args.plugins_s3_path.get_output(context);
+        let requirements_s3_object_version_binding = args
             .requirements_s3_object_version
             .get_output(context);
-        let requirements_s3_object_version_binding = requirements_s3_object_version_binding_1
-            .get_inner();
-        let requirements_s3_path_binding_1 = args
-            .requirements_s3_path
-            .get_output(context);
-        let requirements_s3_path_binding = requirements_s3_path_binding_1.get_inner();
-        let schedulers_binding_1 = args.schedulers.get_output(context);
-        let schedulers_binding = schedulers_binding_1.get_inner();
-        let source_bucket_arn_binding_1 = args.source_bucket_arn.get_output(context);
-        let source_bucket_arn_binding = source_bucket_arn_binding_1.get_inner();
-        let startup_script_s3_object_version_binding_1 = args
+        let requirements_s3_path_binding = args.requirements_s3_path.get_output(context);
+        let schedulers_binding = args.schedulers.get_output(context);
+        let source_bucket_arn_binding = args.source_bucket_arn.get_output(context);
+        let startup_script_s3_object_version_binding = args
             .startup_script_s3_object_version
             .get_output(context);
-        let startup_script_s3_object_version_binding = startup_script_s3_object_version_binding_1
-            .get_inner();
-        let startup_script_s3_path_binding_1 = args
+        let startup_script_s3_path_binding = args
             .startup_script_s3_path
             .get_output(context);
-        let startup_script_s3_path_binding = startup_script_s3_path_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let webserver_access_mode_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let webserver_access_mode_binding = args
             .webserver_access_mode
             .get_output(context);
-        let webserver_access_mode_binding = webserver_access_mode_binding_1.get_inner();
-        let weekly_maintenance_window_start_binding_1 = args
+        let weekly_maintenance_window_start_binding = args
             .weekly_maintenance_window_start
             .get_output(context);
-        let weekly_maintenance_window_start_binding = weekly_maintenance_window_start_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:mwaa/environment:Environment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "airflowConfigurationOptions".into(),
-                    value: &airflow_configuration_options_binding,
+                    value: airflow_configuration_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "airflowVersion".into(),
-                    value: &airflow_version_binding,
+                    value: airflow_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dagS3Path".into(),
-                    value: &dag_s3_path_binding,
+                    value: dag_s3_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointManagement".into(),
-                    value: &endpoint_management_binding,
+                    value: endpoint_management_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentClass".into(),
-                    value: &environment_class_binding,
+                    value: environment_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: &execution_role_arn_binding,
+                    value: execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: &kms_key_binding,
+                    value: kms_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfiguration".into(),
-                    value: &logging_configuration_binding,
+                    value: logging_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxWebservers".into(),
-                    value: &max_webservers_binding,
+                    value: max_webservers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxWorkers".into(),
-                    value: &max_workers_binding,
+                    value: max_workers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minWebservers".into(),
-                    value: &min_webservers_binding,
+                    value: min_webservers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minWorkers".into(),
-                    value: &min_workers_binding,
+                    value: min_workers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: &network_configuration_binding,
+                    value: network_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pluginsS3ObjectVersion".into(),
-                    value: &plugins_s3_object_version_binding,
+                    value: plugins_s3_object_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pluginsS3Path".into(),
-                    value: &plugins_s3_path_binding,
+                    value: plugins_s3_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requirementsS3ObjectVersion".into(),
-                    value: &requirements_s3_object_version_binding,
+                    value: requirements_s3_object_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requirementsS3Path".into(),
-                    value: &requirements_s3_path_binding,
+                    value: requirements_s3_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedulers".into(),
-                    value: &schedulers_binding,
+                    value: schedulers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceBucketArn".into(),
-                    value: &source_bucket_arn_binding,
+                    value: source_bucket_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startupScriptS3ObjectVersion".into(),
-                    value: &startup_script_s3_object_version_binding,
+                    value: startup_script_s3_object_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startupScriptS3Path".into(),
-                    value: &startup_script_s3_path_binding,
+                    value: startup_script_s3_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webserverAccessMode".into(),
-                    value: &webserver_access_mode_binding,
+                    value: webserver_access_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyMaintenanceWindowStart".into(),
-                    value: &weekly_maintenance_window_start_binding,
+                    value: weekly_maintenance_window_start_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentResult {
-            airflow_configuration_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("airflowConfigurationOptions"),
-            ),
-            airflow_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("airflowVersion"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            dag_s3_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dagS3Path"),
-            ),
-            database_vpc_endpoint_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseVpcEndpointService"),
-            ),
-            endpoint_management: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointManagement"),
-            ),
-            environment_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentClass"),
-            ),
-            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRoleArn"),
-            ),
-            kms_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKey"),
-            ),
-            last_updateds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdateds"),
-            ),
-            logging_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfiguration"),
-            ),
-            max_webservers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxWebservers"),
-            ),
-            max_workers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxWorkers"),
-            ),
-            min_webservers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minWebservers"),
-            ),
-            min_workers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minWorkers"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfiguration"),
-            ),
-            plugins_s3_object_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pluginsS3ObjectVersion"),
-            ),
-            plugins_s3_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pluginsS3Path"),
-            ),
-            requirements_s3_object_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requirementsS3ObjectVersion"),
-            ),
-            requirements_s3_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requirementsS3Path"),
-            ),
-            schedulers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedulers"),
-            ),
-            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRoleArn"),
-            ),
-            source_bucket_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceBucketArn"),
-            ),
-            startup_script_s3_object_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startupScriptS3ObjectVersion"),
-            ),
-            startup_script_s3_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startupScriptS3Path"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            webserver_access_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webserverAccessMode"),
-            ),
-            webserver_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webserverUrl"),
-            ),
-            webserver_vpc_endpoint_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webserverVpcEndpointService"),
-            ),
-            weekly_maintenance_window_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weeklyMaintenanceWindowStart"),
-            ),
+            airflow_configuration_options: o.get_field("airflowConfigurationOptions"),
+            airflow_version: o.get_field("airflowVersion"),
+            arn: o.get_field("arn"),
+            created_at: o.get_field("createdAt"),
+            dag_s3_path: o.get_field("dagS3Path"),
+            database_vpc_endpoint_service: o.get_field("databaseVpcEndpointService"),
+            endpoint_management: o.get_field("endpointManagement"),
+            environment_class: o.get_field("environmentClass"),
+            execution_role_arn: o.get_field("executionRoleArn"),
+            kms_key: o.get_field("kmsKey"),
+            last_updateds: o.get_field("lastUpdateds"),
+            logging_configuration: o.get_field("loggingConfiguration"),
+            max_webservers: o.get_field("maxWebservers"),
+            max_workers: o.get_field("maxWorkers"),
+            min_webservers: o.get_field("minWebservers"),
+            min_workers: o.get_field("minWorkers"),
+            name: o.get_field("name"),
+            network_configuration: o.get_field("networkConfiguration"),
+            plugins_s3_object_version: o.get_field("pluginsS3ObjectVersion"),
+            plugins_s3_path: o.get_field("pluginsS3Path"),
+            requirements_s3_object_version: o.get_field("requirementsS3ObjectVersion"),
+            requirements_s3_path: o.get_field("requirementsS3Path"),
+            schedulers: o.get_field("schedulers"),
+            service_role_arn: o.get_field("serviceRoleArn"),
+            source_bucket_arn: o.get_field("sourceBucketArn"),
+            startup_script_s3_object_version: o
+                .get_field("startupScriptS3ObjectVersion"),
+            startup_script_s3_path: o.get_field("startupScriptS3Path"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            webserver_access_mode: o.get_field("webserverAccessMode"),
+            webserver_url: o.get_field("webserverUrl"),
+            webserver_vpc_endpoint_service: o.get_field("webserverVpcEndpointService"),
+            weekly_maintenance_window_start: o.get_field("weeklyMaintenanceWindowStart"),
         }
     }
 }

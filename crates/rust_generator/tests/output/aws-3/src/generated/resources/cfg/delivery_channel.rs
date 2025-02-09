@@ -119,76 +119,60 @@ pub mod delivery_channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeliveryChannelArgs,
     ) -> DeliveryChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let s3_bucket_name_binding_1 = args.s3_bucket_name.get_output(context);
-        let s3_bucket_name_binding = s3_bucket_name_binding_1.get_inner();
-        let s3_key_prefix_binding_1 = args.s3_key_prefix.get_output(context);
-        let s3_key_prefix_binding = s3_key_prefix_binding_1.get_inner();
-        let s3_kms_key_arn_binding_1 = args.s3_kms_key_arn.get_output(context);
-        let s3_kms_key_arn_binding = s3_kms_key_arn_binding_1.get_inner();
-        let snapshot_delivery_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let s3_bucket_name_binding = args.s3_bucket_name.get_output(context);
+        let s3_key_prefix_binding = args.s3_key_prefix.get_output(context);
+        let s3_kms_key_arn_binding = args.s3_kms_key_arn.get_output(context);
+        let snapshot_delivery_properties_binding = args
             .snapshot_delivery_properties
             .get_output(context);
-        let snapshot_delivery_properties_binding = snapshot_delivery_properties_binding_1
-            .get_inner();
-        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
-        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cfg/deliveryChannel:DeliveryChannel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketName".into(),
-                    value: &s3_bucket_name_binding,
+                    value: s3_bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3KeyPrefix".into(),
-                    value: &s3_key_prefix_binding,
+                    value: s3_key_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3KmsKeyArn".into(),
-                    value: &s3_kms_key_arn_binding,
+                    value: s3_kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotDeliveryProperties".into(),
-                    value: &snapshot_delivery_properties_binding,
+                    value: snapshot_delivery_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArn".into(),
-                    value: &sns_topic_arn_binding,
+                    value: sns_topic_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeliveryChannelResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            s3_bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3BucketName"),
-            ),
-            s3_key_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3KeyPrefix"),
-            ),
-            s3_kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3KmsKeyArn"),
-            ),
-            snapshot_delivery_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotDeliveryProperties"),
-            ),
-            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsTopicArn"),
-            ),
+            name: o.get_field("name"),
+            s3_bucket_name: o.get_field("s3BucketName"),
+            s3_key_prefix: o.get_field("s3KeyPrefix"),
+            s3_kms_key_arn: o.get_field("s3KmsKeyArn"),
+            snapshot_delivery_properties: o.get_field("snapshotDeliveryProperties"),
+            sns_topic_arn: o.get_field("snsTopicArn"),
         }
     }
 }

@@ -53,61 +53,48 @@ pub mod vpc_network_performance_metric_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcNetworkPerformanceMetricSubscriptionArgs,
     ) -> VpcNetworkPerformanceMetricSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let metric_binding_1 = args.metric.get_output(context);
-        let metric_binding = metric_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let statistic_binding_1 = args.statistic.get_output(context);
-        let statistic_binding = statistic_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_binding = args.destination.get_output(context);
+        let metric_binding = args.metric.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let statistic_binding = args.statistic.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metric".into(),
-                    value: &metric_binding,
+                    value: metric_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statistic".into(),
-                    value: &statistic_binding,
+                    value: statistic_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcNetworkPerformanceMetricSubscriptionResult {
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            metric: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metric"),
-            ),
-            period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("period"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            statistic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statistic"),
-            ),
+            destination: o.get_field("destination"),
+            metric: o.get_field("metric"),
+            period: o.get_field("period"),
+            source: o.get_field("source"),
+            statistic: o.get_field("statistic"),
         }
     }
 }

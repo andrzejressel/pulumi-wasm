@@ -143,133 +143,97 @@ pub mod output_servicebus_topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OutputServicebusTopicArgs,
     ) -> OutputServicebusTopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_mode_binding_1 = args.authentication_mode.get_output(context);
-        let authentication_mode_binding = authentication_mode_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let property_columns_binding_1 = args.property_columns.get_output(context);
-        let property_columns_binding = property_columns_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let serialization_binding_1 = args.serialization.get_output(context);
-        let serialization_binding = serialization_binding_1.get_inner();
-        let servicebus_namespace_binding_1 = args
-            .servicebus_namespace
-            .get_output(context);
-        let servicebus_namespace_binding = servicebus_namespace_binding_1.get_inner();
-        let shared_access_policy_key_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_mode_binding = args.authentication_mode.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let property_columns_binding = args.property_columns.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let serialization_binding = args.serialization.get_output(context);
+        let servicebus_namespace_binding = args.servicebus_namespace.get_output(context);
+        let shared_access_policy_key_binding = args
             .shared_access_policy_key
             .get_output(context);
-        let shared_access_policy_key_binding = shared_access_policy_key_binding_1
-            .get_inner();
-        let shared_access_policy_name_binding_1 = args
+        let shared_access_policy_name_binding = args
             .shared_access_policy_name
             .get_output(context);
-        let shared_access_policy_name_binding = shared_access_policy_name_binding_1
-            .get_inner();
-        let stream_analytics_job_name_binding_1 = args
+        let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
             .get_output(context);
-        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
-            .get_inner();
-        let system_property_columns_binding_1 = args
+        let system_property_columns_binding = args
             .system_property_columns
             .get_output(context);
-        let system_property_columns_binding = system_property_columns_binding_1
-            .get_inner();
-        let topic_name_binding_1 = args.topic_name.get_output(context);
-        let topic_name_binding = topic_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let topic_name_binding = args.topic_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMode".into(),
-                    value: &authentication_mode_binding,
+                    value: authentication_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propertyColumns".into(),
-                    value: &property_columns_binding,
+                    value: property_columns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serialization".into(),
-                    value: &serialization_binding,
+                    value: serialization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicebusNamespace".into(),
-                    value: &servicebus_namespace_binding,
+                    value: servicebus_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyKey".into(),
-                    value: &shared_access_policy_key_binding,
+                    value: shared_access_policy_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyName".into(),
-                    value: &shared_access_policy_name_binding,
+                    value: shared_access_policy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: &stream_analytics_job_name_binding,
+                    value: stream_analytics_job_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemPropertyColumns".into(),
-                    value: &system_property_columns_binding,
+                    value: system_property_columns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicName".into(),
-                    value: &topic_name_binding,
+                    value: topic_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OutputServicebusTopicResult {
-            authentication_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationMode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            property_columns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("propertyColumns"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            serialization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serialization"),
-            ),
-            servicebus_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicebusNamespace"),
-            ),
-            shared_access_policy_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedAccessPolicyKey"),
-            ),
-            shared_access_policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedAccessPolicyName"),
-            ),
-            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobName"),
-            ),
-            system_property_columns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("systemPropertyColumns"),
-            ),
-            topic_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topicName"),
-            ),
+            authentication_mode: o.get_field("authenticationMode"),
+            name: o.get_field("name"),
+            property_columns: o.get_field("propertyColumns"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            serialization: o.get_field("serialization"),
+            servicebus_namespace: o.get_field("servicebusNamespace"),
+            shared_access_policy_key: o.get_field("sharedAccessPolicyKey"),
+            shared_access_policy_name: o.get_field("sharedAccessPolicyName"),
+            stream_analytics_job_name: o.get_field("streamAnalyticsJobName"),
+            system_property_columns: o.get_field("systemPropertyColumns"),
+            topic_name: o.get_field("topicName"),
         }
     }
 }

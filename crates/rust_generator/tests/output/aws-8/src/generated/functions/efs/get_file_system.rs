@@ -62,83 +62,53 @@ pub mod get_file_system {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFileSystemArgs,
     ) -> GetFileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let creation_token_binding_1 = args.creation_token.get_output(context);
-        let creation_token_binding = creation_token_binding_1.get_inner();
-        let file_system_id_binding_1 = args.file_system_id.get_output(context);
-        let file_system_id_binding = file_system_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let creation_token_binding = args.creation_token.get_output(context);
+        let file_system_id_binding = args.file_system_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:efs/getFileSystem:getFileSystem".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creationToken".into(),
-                    value: &creation_token_binding,
+                    value: creation_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: &file_system_id_binding,
+                    value: file_system_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFileSystemResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            availability_zone_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneName"),
-            ),
-            creation_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationToken"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            lifecycle_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecyclePolicies"),
-            ),
-            lifecycle_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecyclePolicy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            performance_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("performanceMode"),
-            ),
-            protections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protections"),
-            ),
-            provisioned_throughput_in_mibps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedThroughputInMibps"),
-            ),
-            size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sizeInBytes"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            throughput_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughputMode"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            availability_zone_name: o.get_field("availabilityZoneName"),
+            creation_token: o.get_field("creationToken"),
+            dns_name: o.get_field("dnsName"),
+            encrypted: o.get_field("encrypted"),
+            file_system_id: o.get_field("fileSystemId"),
+            id: o.get_field("id"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            lifecycle_policies: o.get_field("lifecyclePolicies"),
+            lifecycle_policy: o.get_field("lifecyclePolicy"),
+            name: o.get_field("name"),
+            performance_mode: o.get_field("performanceMode"),
+            protections: o.get_field("protections"),
+            provisioned_throughput_in_mibps: o.get_field("provisionedThroughputInMibps"),
+            size_in_bytes: o.get_field("sizeInBytes"),
+            tags: o.get_field("tags"),
+            throughput_mode: o.get_field("throughputMode"),
         }
     }
 }

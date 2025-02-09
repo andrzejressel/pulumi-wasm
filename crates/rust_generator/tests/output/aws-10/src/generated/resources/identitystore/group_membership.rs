@@ -74,51 +74,41 @@ pub mod group_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupMembershipArgs,
     ) -> GroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_id_binding_1 = args.group_id.get_output(context);
-        let group_id_binding = group_id_binding_1.get_inner();
-        let identity_store_id_binding_1 = args.identity_store_id.get_output(context);
-        let identity_store_id_binding = identity_store_id_binding_1.get_inner();
-        let member_id_binding_1 = args.member_id.get_output(context);
-        let member_id_binding = member_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_id_binding = args.group_id.get_output(context);
+        let identity_store_id_binding = args.identity_store_id.get_output(context);
+        let member_id_binding = args.member_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:identitystore/groupMembership:GroupMembership".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupId".into(),
-                    value: &group_id_binding,
+                    value: group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityStoreId".into(),
-                    value: &identity_store_id_binding,
+                    value: identity_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberId".into(),
-                    value: &member_id_binding,
+                    value: member_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupMembershipResult {
-            group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupId"),
-            ),
-            identity_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityStoreId"),
-            ),
-            member_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberId"),
-            ),
-            membership_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("membershipId"),
-            ),
+            group_id: o.get_field("groupId"),
+            identity_store_id: o.get_field("identityStoreId"),
+            member_id: o.get_field("memberId"),
+            membership_id: o.get_field("membershipId"),
         }
     }
 }

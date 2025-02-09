@@ -81,98 +81,55 @@ pub mod get_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterArgs,
     ) -> GetClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:elasticache/getCluster:getCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            cache_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheNodes"),
-            ),
-            cluster_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterAddress"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            configuration_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationEndpoint"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_discovery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipDiscovery"),
-            ),
-            log_delivery_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDeliveryConfigurations"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            network_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkType"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            notification_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationTopicArn"),
-            ),
-            num_cache_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numCacheNodes"),
-            ),
-            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterGroupName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preferred_outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredOutpostArn"),
-            ),
-            replication_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationGroupId"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            snapshot_retention_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotRetentionLimit"),
-            ),
-            snapshot_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotWindow"),
-            ),
-            subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            cache_nodes: o.get_field("cacheNodes"),
+            cluster_address: o.get_field("clusterAddress"),
+            cluster_id: o.get_field("clusterId"),
+            configuration_endpoint: o.get_field("configurationEndpoint"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            id: o.get_field("id"),
+            ip_discovery: o.get_field("ipDiscovery"),
+            log_delivery_configurations: o.get_field("logDeliveryConfigurations"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            network_type: o.get_field("networkType"),
+            node_type: o.get_field("nodeType"),
+            notification_topic_arn: o.get_field("notificationTopicArn"),
+            num_cache_nodes: o.get_field("numCacheNodes"),
+            parameter_group_name: o.get_field("parameterGroupName"),
+            port: o.get_field("port"),
+            preferred_outpost_arn: o.get_field("preferredOutpostArn"),
+            replication_group_id: o.get_field("replicationGroupId"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            snapshot_retention_limit: o.get_field("snapshotRetentionLimit"),
+            snapshot_window: o.get_field("snapshotWindow"),
+            subnet_group_name: o.get_field("subnetGroupName"),
+            tags: o.get_field("tags"),
         }
     }
 }

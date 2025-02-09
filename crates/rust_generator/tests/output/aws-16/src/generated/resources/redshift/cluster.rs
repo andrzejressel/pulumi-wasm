@@ -366,468 +366,320 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_version_upgrade_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_version_upgrade_binding = args
             .allow_version_upgrade
             .get_output(context);
-        let allow_version_upgrade_binding = allow_version_upgrade_binding_1.get_inner();
-        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
-        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
-        let aqua_configuration_status_binding_1 = args
+        let apply_immediately_binding = args.apply_immediately.get_output(context);
+        let aqua_configuration_status_binding = args
             .aqua_configuration_status
             .get_output(context);
-        let aqua_configuration_status_binding = aqua_configuration_status_binding_1
-            .get_inner();
-        let automated_snapshot_retention_period_binding_1 = args
+        let automated_snapshot_retention_period_binding = args
             .automated_snapshot_retention_period
             .get_output(context);
-        let automated_snapshot_retention_period_binding = automated_snapshot_retention_period_binding_1
-            .get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let availability_zone_relocation_enabled_binding_1 = args
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let availability_zone_relocation_enabled_binding = args
             .availability_zone_relocation_enabled
             .get_output(context);
-        let availability_zone_relocation_enabled_binding = availability_zone_relocation_enabled_binding_1
-            .get_inner();
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let cluster_parameter_group_name_binding_1 = args
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let cluster_parameter_group_name_binding = args
             .cluster_parameter_group_name
             .get_output(context);
-        let cluster_parameter_group_name_binding = cluster_parameter_group_name_binding_1
-            .get_inner();
-        let cluster_public_key_binding_1 = args.cluster_public_key.get_output(context);
-        let cluster_public_key_binding = cluster_public_key_binding_1.get_inner();
-        let cluster_revision_number_binding_1 = args
+        let cluster_public_key_binding = args.cluster_public_key.get_output(context);
+        let cluster_revision_number_binding = args
             .cluster_revision_number
             .get_output(context);
-        let cluster_revision_number_binding = cluster_revision_number_binding_1
-            .get_inner();
-        let cluster_subnet_group_name_binding_1 = args
+        let cluster_subnet_group_name_binding = args
             .cluster_subnet_group_name
             .get_output(context);
-        let cluster_subnet_group_name_binding = cluster_subnet_group_name_binding_1
-            .get_inner();
-        let cluster_type_binding_1 = args.cluster_type.get_output(context);
-        let cluster_type_binding = cluster_type_binding_1.get_inner();
-        let cluster_version_binding_1 = args.cluster_version.get_output(context);
-        let cluster_version_binding = cluster_version_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let default_iam_role_arn_binding_1 = args
-            .default_iam_role_arn
-            .get_output(context);
-        let default_iam_role_arn_binding = default_iam_role_arn_binding_1.get_inner();
-        let elastic_ip_binding_1 = args.elastic_ip.get_output(context);
-        let elastic_ip_binding = elastic_ip_binding_1.get_inner();
-        let encrypted_binding_1 = args.encrypted.get_output(context);
-        let encrypted_binding = encrypted_binding_1.get_inner();
-        let endpoint_binding_1 = args.endpoint.get_output(context);
-        let endpoint_binding = endpoint_binding_1.get_inner();
-        let enhanced_vpc_routing_binding_1 = args
-            .enhanced_vpc_routing
-            .get_output(context);
-        let enhanced_vpc_routing_binding = enhanced_vpc_routing_binding_1.get_inner();
-        let final_snapshot_identifier_binding_1 = args
+        let cluster_type_binding = args.cluster_type.get_output(context);
+        let cluster_version_binding = args.cluster_version.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let default_iam_role_arn_binding = args.default_iam_role_arn.get_output(context);
+        let elastic_ip_binding = args.elastic_ip.get_output(context);
+        let encrypted_binding = args.encrypted.get_output(context);
+        let endpoint_binding = args.endpoint.get_output(context);
+        let enhanced_vpc_routing_binding = args.enhanced_vpc_routing.get_output(context);
+        let final_snapshot_identifier_binding = args
             .final_snapshot_identifier
             .get_output(context);
-        let final_snapshot_identifier_binding = final_snapshot_identifier_binding_1
-            .get_inner();
-        let iam_roles_binding_1 = args.iam_roles.get_output(context);
-        let iam_roles_binding = iam_roles_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let logging_binding_1 = args.logging.get_output(context);
-        let logging_binding = logging_binding_1.get_inner();
-        let maintenance_track_name_binding_1 = args
+        let iam_roles_binding = args.iam_roles.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let logging_binding = args.logging.get_output(context);
+        let maintenance_track_name_binding = args
             .maintenance_track_name
             .get_output(context);
-        let maintenance_track_name_binding = maintenance_track_name_binding_1
-            .get_inner();
-        let manage_master_password_binding_1 = args
+        let manage_master_password_binding = args
             .manage_master_password
             .get_output(context);
-        let manage_master_password_binding = manage_master_password_binding_1
-            .get_inner();
-        let manual_snapshot_retention_period_binding_1 = args
+        let manual_snapshot_retention_period_binding = args
             .manual_snapshot_retention_period
             .get_output(context);
-        let manual_snapshot_retention_period_binding = manual_snapshot_retention_period_binding_1
-            .get_inner();
-        let master_password_binding_1 = args.master_password.get_output(context);
-        let master_password_binding = master_password_binding_1.get_inner();
-        let master_password_secret_kms_key_id_binding_1 = args
+        let master_password_binding = args.master_password.get_output(context);
+        let master_password_secret_kms_key_id_binding = args
             .master_password_secret_kms_key_id
             .get_output(context);
-        let master_password_secret_kms_key_id_binding = master_password_secret_kms_key_id_binding_1
-            .get_inner();
-        let master_username_binding_1 = args.master_username.get_output(context);
-        let master_username_binding = master_username_binding_1.get_inner();
-        let multi_az_binding_1 = args.multi_az.get_output(context);
-        let multi_az_binding = multi_az_binding_1.get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let number_of_nodes_binding_1 = args.number_of_nodes.get_output(context);
-        let number_of_nodes_binding = number_of_nodes_binding_1.get_inner();
-        let owner_account_binding_1 = args.owner_account.get_output(context);
-        let owner_account_binding = owner_account_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let preferred_maintenance_window_binding_1 = args
+        let master_username_binding = args.master_username.get_output(context);
+        let multi_az_binding = args.multi_az.get_output(context);
+        let node_type_binding = args.node_type.get_output(context);
+        let number_of_nodes_binding = args.number_of_nodes.get_output(context);
+        let owner_account_binding = args.owner_account.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
             .get_output(context);
-        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
-            .get_inner();
-        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
-        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
-        let skip_final_snapshot_binding_1 = args.skip_final_snapshot.get_output(context);
-        let skip_final_snapshot_binding = skip_final_snapshot_binding_1.get_inner();
-        let snapshot_arn_binding_1 = args.snapshot_arn.get_output(context);
-        let snapshot_arn_binding = snapshot_arn_binding_1.get_inner();
-        let snapshot_cluster_identifier_binding_1 = args
+        let publicly_accessible_binding = args.publicly_accessible.get_output(context);
+        let skip_final_snapshot_binding = args.skip_final_snapshot.get_output(context);
+        let snapshot_arn_binding = args.snapshot_arn.get_output(context);
+        let snapshot_cluster_identifier_binding = args
             .snapshot_cluster_identifier
             .get_output(context);
-        let snapshot_cluster_identifier_binding = snapshot_cluster_identifier_binding_1
-            .get_inner();
-        let snapshot_copy_binding_1 = args.snapshot_copy.get_output(context);
-        let snapshot_copy_binding = snapshot_copy_binding_1.get_inner();
-        let snapshot_identifier_binding_1 = args.snapshot_identifier.get_output(context);
-        let snapshot_identifier_binding = snapshot_identifier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        let snapshot_copy_binding = args.snapshot_copy.get_output(context);
+        let snapshot_identifier_binding = args.snapshot_identifier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowVersionUpgrade".into(),
-                    value: &allow_version_upgrade_binding,
+                    value: allow_version_upgrade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyImmediately".into(),
-                    value: &apply_immediately_binding,
+                    value: apply_immediately_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aquaConfigurationStatus".into(),
-                    value: &aqua_configuration_status_binding,
+                    value: aqua_configuration_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automatedSnapshotRetentionPeriod".into(),
-                    value: &automated_snapshot_retention_period_binding,
+                    value: automated_snapshot_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneRelocationEnabled".into(),
-                    value: &availability_zone_relocation_enabled_binding,
+                    value: availability_zone_relocation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterParameterGroupName".into(),
-                    value: &cluster_parameter_group_name_binding,
+                    value: cluster_parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterPublicKey".into(),
-                    value: &cluster_public_key_binding,
+                    value: cluster_public_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterRevisionNumber".into(),
-                    value: &cluster_revision_number_binding,
+                    value: cluster_revision_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterSubnetGroupName".into(),
-                    value: &cluster_subnet_group_name_binding,
+                    value: cluster_subnet_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterType".into(),
-                    value: &cluster_type_binding,
+                    value: cluster_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterVersion".into(),
-                    value: &cluster_version_binding,
+                    value: cluster_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultIamRoleArn".into(),
-                    value: &default_iam_role_arn_binding,
+                    value: default_iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticIp".into(),
-                    value: &elastic_ip_binding,
+                    value: elastic_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encrypted".into(),
-                    value: &encrypted_binding,
+                    value: encrypted_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: &endpoint_binding,
+                    value: endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedVpcRouting".into(),
-                    value: &enhanced_vpc_routing_binding,
+                    value: enhanced_vpc_routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalSnapshotIdentifier".into(),
-                    value: &final_snapshot_identifier_binding,
+                    value: final_snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoles".into(),
-                    value: &iam_roles_binding,
+                    value: iam_roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logging".into(),
-                    value: &logging_binding,
+                    value: logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceTrackName".into(),
-                    value: &maintenance_track_name_binding,
+                    value: maintenance_track_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageMasterPassword".into(),
-                    value: &manage_master_password_binding,
+                    value: manage_master_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualSnapshotRetentionPeriod".into(),
-                    value: &manual_snapshot_retention_period_binding,
+                    value: manual_snapshot_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterPassword".into(),
-                    value: &master_password_binding,
+                    value: master_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterPasswordSecretKmsKeyId".into(),
-                    value: &master_password_secret_kms_key_id_binding,
+                    value: master_password_secret_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterUsername".into(),
-                    value: &master_username_binding,
+                    value: master_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiAz".into(),
-                    value: &multi_az_binding,
+                    value: multi_az_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfNodes".into(),
-                    value: &number_of_nodes_binding,
+                    value: number_of_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerAccount".into(),
-                    value: &owner_account_binding,
+                    value: owner_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMaintenanceWindow".into(),
-                    value: &preferred_maintenance_window_binding,
+                    value: preferred_maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publiclyAccessible".into(),
-                    value: &publicly_accessible_binding,
+                    value: publicly_accessible_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFinalSnapshot".into(),
-                    value: &skip_final_snapshot_binding,
+                    value: skip_final_snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotArn".into(),
-                    value: &snapshot_arn_binding,
+                    value: snapshot_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotClusterIdentifier".into(),
-                    value: &snapshot_cluster_identifier_binding,
+                    value: snapshot_cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotCopy".into(),
-                    value: &snapshot_copy_binding,
+                    value: snapshot_copy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotIdentifier".into(),
-                    value: &snapshot_identifier_binding,
+                    value: snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            allow_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowVersionUpgrade"),
-            ),
-            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applyImmediately"),
-            ),
-            aqua_configuration_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aquaConfigurationStatus"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            automated_snapshot_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automatedSnapshotRetentionPeriod"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            availability_zone_relocation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneRelocationEnabled"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            cluster_namespace_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterNamespaceArn"),
-            ),
-            cluster_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterNodes"),
-            ),
-            cluster_parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterParameterGroupName"),
-            ),
-            cluster_public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterPublicKey"),
-            ),
-            cluster_revision_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterRevisionNumber"),
-            ),
-            cluster_subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterSubnetGroupName"),
-            ),
-            cluster_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterType"),
-            ),
-            cluster_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterVersion"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            default_iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultIamRoleArn"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            elastic_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticIp"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            enhanced_vpc_routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enhancedVpcRouting"),
-            ),
-            final_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalSnapshotIdentifier"),
-            ),
-            iam_roles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoles"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logging"),
-            ),
-            maintenance_track_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceTrackName"),
-            ),
-            manage_master_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manageMasterPassword"),
-            ),
-            manual_snapshot_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manualSnapshotRetentionPeriod"),
-            ),
-            master_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterPassword"),
-            ),
-            master_password_secret_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterPasswordSecretArn"),
-            ),
-            master_password_secret_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterPasswordSecretKmsKeyId"),
-            ),
-            master_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterUsername"),
-            ),
-            multi_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAz"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            number_of_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfNodes"),
-            ),
-            owner_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccount"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMaintenanceWindow"),
-            ),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            skip_final_snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipFinalSnapshot"),
-            ),
-            snapshot_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotArn"),
-            ),
-            snapshot_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotClusterIdentifier"),
-            ),
-            snapshot_copy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotCopy"),
-            ),
-            snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotIdentifier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
+            allow_version_upgrade: o.get_field("allowVersionUpgrade"),
+            apply_immediately: o.get_field("applyImmediately"),
+            aqua_configuration_status: o.get_field("aquaConfigurationStatus"),
+            arn: o.get_field("arn"),
+            automated_snapshot_retention_period: o
+                .get_field("automatedSnapshotRetentionPeriod"),
+            availability_zone: o.get_field("availabilityZone"),
+            availability_zone_relocation_enabled: o
+                .get_field("availabilityZoneRelocationEnabled"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            cluster_namespace_arn: o.get_field("clusterNamespaceArn"),
+            cluster_nodes: o.get_field("clusterNodes"),
+            cluster_parameter_group_name: o.get_field("clusterParameterGroupName"),
+            cluster_public_key: o.get_field("clusterPublicKey"),
+            cluster_revision_number: o.get_field("clusterRevisionNumber"),
+            cluster_subnet_group_name: o.get_field("clusterSubnetGroupName"),
+            cluster_type: o.get_field("clusterType"),
+            cluster_version: o.get_field("clusterVersion"),
+            database_name: o.get_field("databaseName"),
+            default_iam_role_arn: o.get_field("defaultIamRoleArn"),
+            dns_name: o.get_field("dnsName"),
+            elastic_ip: o.get_field("elasticIp"),
+            encrypted: o.get_field("encrypted"),
+            endpoint: o.get_field("endpoint"),
+            enhanced_vpc_routing: o.get_field("enhancedVpcRouting"),
+            final_snapshot_identifier: o.get_field("finalSnapshotIdentifier"),
+            iam_roles: o.get_field("iamRoles"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            logging: o.get_field("logging"),
+            maintenance_track_name: o.get_field("maintenanceTrackName"),
+            manage_master_password: o.get_field("manageMasterPassword"),
+            manual_snapshot_retention_period: o
+                .get_field("manualSnapshotRetentionPeriod"),
+            master_password: o.get_field("masterPassword"),
+            master_password_secret_arn: o.get_field("masterPasswordSecretArn"),
+            master_password_secret_kms_key_id: o
+                .get_field("masterPasswordSecretKmsKeyId"),
+            master_username: o.get_field("masterUsername"),
+            multi_az: o.get_field("multiAz"),
+            node_type: o.get_field("nodeType"),
+            number_of_nodes: o.get_field("numberOfNodes"),
+            owner_account: o.get_field("ownerAccount"),
+            port: o.get_field("port"),
+            preferred_maintenance_window: o.get_field("preferredMaintenanceWindow"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            skip_final_snapshot: o.get_field("skipFinalSnapshot"),
+            snapshot_arn: o.get_field("snapshotArn"),
+            snapshot_cluster_identifier: o.get_field("snapshotClusterIdentifier"),
+            snapshot_copy: o.get_field("snapshotCopy"),
+            snapshot_identifier: o.get_field("snapshotIdentifier"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
         }
     }
 }

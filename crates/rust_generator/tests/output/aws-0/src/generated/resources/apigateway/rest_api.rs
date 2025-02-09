@@ -123,154 +123,111 @@ pub mod rest_api {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RestApiArgs,
     ) -> RestApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_source_binding_1 = args.api_key_source.get_output(context);
-        let api_key_source_binding = api_key_source_binding_1.get_inner();
-        let binary_media_types_binding_1 = args.binary_media_types.get_output(context);
-        let binary_media_types_binding = binary_media_types_binding_1.get_inner();
-        let body_binding_1 = args.body.get_output(context);
-        let body_binding = body_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_execute_api_endpoint_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_key_source_binding = args.api_key_source.get_output(context);
+        let binary_media_types_binding = args.binary_media_types.get_output(context);
+        let body_binding = args.body.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disable_execute_api_endpoint_binding = args
             .disable_execute_api_endpoint
             .get_output(context);
-        let disable_execute_api_endpoint_binding = disable_execute_api_endpoint_binding_1
-            .get_inner();
-        let endpoint_configuration_binding_1 = args
+        let endpoint_configuration_binding = args
             .endpoint_configuration
             .get_output(context);
-        let endpoint_configuration_binding = endpoint_configuration_binding_1
-            .get_inner();
-        let fail_on_warnings_binding_1 = args.fail_on_warnings.get_output(context);
-        let fail_on_warnings_binding = fail_on_warnings_binding_1.get_inner();
-        let minimum_compression_size_binding_1 = args
+        let fail_on_warnings_binding = args.fail_on_warnings.get_output(context);
+        let minimum_compression_size_binding = args
             .minimum_compression_size
             .get_output(context);
-        let minimum_compression_size_binding = minimum_compression_size_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let put_rest_api_mode_binding_1 = args.put_rest_api_mode.get_output(context);
-        let put_rest_api_mode_binding = put_rest_api_mode_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let put_rest_api_mode_binding = args.put_rest_api_mode.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/restApi:RestApi".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKeySource".into(),
-                    value: &api_key_source_binding,
+                    value: api_key_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "binaryMediaTypes".into(),
-                    value: &binary_media_types_binding,
+                    value: binary_media_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: &body_binding,
+                    value: body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableExecuteApiEndpoint".into(),
-                    value: &disable_execute_api_endpoint_binding,
+                    value: disable_execute_api_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointConfiguration".into(),
-                    value: &endpoint_configuration_binding,
+                    value: endpoint_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failOnWarnings".into(),
-                    value: &fail_on_warnings_binding,
+                    value: fail_on_warnings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumCompressionSize".into(),
-                    value: &minimum_compression_size_binding,
+                    value: minimum_compression_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "putRestApiMode".into(),
-                    value: &put_rest_api_mode_binding,
+                    value: put_rest_api_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RestApiResult {
-            api_key_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKeySource"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            binary_media_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("binaryMediaTypes"),
-            ),
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_execute_api_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableExecuteApiEndpoint"),
-            ),
-            endpoint_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointConfiguration"),
-            ),
-            execution_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionArn"),
-            ),
-            fail_on_warnings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failOnWarnings"),
-            ),
-            minimum_compression_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumCompressionSize"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            put_rest_api_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("putRestApiMode"),
-            ),
-            root_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootResourceId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            api_key_source: o.get_field("apiKeySource"),
+            arn: o.get_field("arn"),
+            binary_media_types: o.get_field("binaryMediaTypes"),
+            body: o.get_field("body"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            disable_execute_api_endpoint: o.get_field("disableExecuteApiEndpoint"),
+            endpoint_configuration: o.get_field("endpointConfiguration"),
+            execution_arn: o.get_field("executionArn"),
+            fail_on_warnings: o.get_field("failOnWarnings"),
+            minimum_compression_size: o.get_field("minimumCompressionSize"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            policy: o.get_field("policy"),
+            put_rest_api_mode: o.get_field("putRestApiMode"),
+            root_resource_id: o.get_field("rootResourceId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

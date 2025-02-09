@@ -101,104 +101,79 @@ pub mod integration_runtime_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntegrationRuntimeRuleArgs,
     ) -> IntegrationRuntimeRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cleanup_enabled_binding_1 = args.cleanup_enabled.get_output(context);
-        let cleanup_enabled_binding = cleanup_enabled_binding_1.get_inner();
-        let compute_type_binding_1 = args.compute_type.get_output(context);
-        let compute_type_binding = compute_type_binding_1.get_inner();
-        let core_count_binding_1 = args.core_count.get_output(context);
-        let core_count_binding = core_count_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let time_to_live_min_binding_1 = args.time_to_live_min.get_output(context);
-        let time_to_live_min_binding = time_to_live_min_binding_1.get_inner();
-        let virtual_network_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cleanup_enabled_binding = args.cleanup_enabled.get_output(context);
+        let compute_type_binding = args.compute_type.get_output(context);
+        let core_count_binding = args.core_count.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let time_to_live_min_binding = args.time_to_live_min.get_output(context);
+        let virtual_network_enabled_binding = args
             .virtual_network_enabled
             .get_output(context);
-        let virtual_network_enabled_binding = virtual_network_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cleanupEnabled".into(),
-                    value: &cleanup_enabled_binding,
+                    value: cleanup_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeType".into(),
-                    value: &compute_type_binding,
+                    value: compute_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreCount".into(),
-                    value: &core_count_binding,
+                    value: core_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeToLiveMin".into(),
-                    value: &time_to_live_min_binding,
+                    value: time_to_live_min_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkEnabled".into(),
-                    value: &virtual_network_enabled_binding,
+                    value: virtual_network_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntegrationRuntimeRuleResult {
-            cleanup_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cleanupEnabled"),
-            ),
-            compute_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeType"),
-            ),
-            core_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreCount"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            time_to_live_min: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeToLiveMin"),
-            ),
-            virtual_network_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkEnabled"),
-            ),
+            cleanup_enabled: o.get_field("cleanupEnabled"),
+            compute_type: o.get_field("computeType"),
+            core_count: o.get_field("coreCount"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            time_to_live_min: o.get_field("timeToLiveMin"),
+            virtual_network_enabled: o.get_field("virtualNetworkEnabled"),
         }
     }
 }

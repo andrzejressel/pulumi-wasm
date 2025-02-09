@@ -314,244 +314,175 @@ pub mod vmware_replicated_vm {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VmwareReplicatedVmArgs,
     ) -> VmwareReplicatedVmResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let appliance_name_binding_1 = args.appliance_name.get_output(context);
-        let appliance_name_binding = appliance_name_binding_1.get_inner();
-        let default_log_storage_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let appliance_name_binding = args.appliance_name.get_output(context);
+        let default_log_storage_account_id_binding = args
             .default_log_storage_account_id
             .get_output(context);
-        let default_log_storage_account_id_binding = default_log_storage_account_id_binding_1
-            .get_inner();
-        let default_recovery_disk_type_binding_1 = args
+        let default_recovery_disk_type_binding = args
             .default_recovery_disk_type
             .get_output(context);
-        let default_recovery_disk_type_binding = default_recovery_disk_type_binding_1
-            .get_inner();
-        let default_target_disk_encryption_set_id_binding_1 = args
+        let default_target_disk_encryption_set_id_binding = args
             .default_target_disk_encryption_set_id
             .get_output(context);
-        let default_target_disk_encryption_set_id_binding = default_target_disk_encryption_set_id_binding_1
-            .get_inner();
-        let license_type_binding_1 = args.license_type.get_output(context);
-        let license_type_binding = license_type_binding_1.get_inner();
-        let managed_disks_binding_1 = args.managed_disks.get_output(context);
-        let managed_disks_binding = managed_disks_binding_1.get_inner();
-        let multi_vm_group_name_binding_1 = args.multi_vm_group_name.get_output(context);
-        let multi_vm_group_name_binding = multi_vm_group_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
-        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
-        let physical_server_credential_name_binding_1 = args
+        let license_type_binding = args.license_type.get_output(context);
+        let managed_disks_binding = args.managed_disks.get_output(context);
+        let multi_vm_group_name_binding = args.multi_vm_group_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_interfaces_binding = args.network_interfaces.get_output(context);
+        let physical_server_credential_name_binding = args
             .physical_server_credential_name
             .get_output(context);
-        let physical_server_credential_name_binding = physical_server_credential_name_binding_1
-            .get_inner();
-        let recovery_replication_policy_id_binding_1 = args
+        let recovery_replication_policy_id_binding = args
             .recovery_replication_policy_id
             .get_output(context);
-        let recovery_replication_policy_id_binding = recovery_replication_policy_id_binding_1
-            .get_inner();
-        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
-        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
-        let source_vm_name_binding_1 = args.source_vm_name.get_output(context);
-        let source_vm_name_binding = source_vm_name_binding_1.get_inner();
-        let target_availability_set_id_binding_1 = args
+        let recovery_vault_id_binding = args.recovery_vault_id.get_output(context);
+        let source_vm_name_binding = args.source_vm_name.get_output(context);
+        let target_availability_set_id_binding = args
             .target_availability_set_id
             .get_output(context);
-        let target_availability_set_id_binding = target_availability_set_id_binding_1
-            .get_inner();
-        let target_boot_diagnostics_storage_account_id_binding_1 = args
+        let target_boot_diagnostics_storage_account_id_binding = args
             .target_boot_diagnostics_storage_account_id
             .get_output(context);
-        let target_boot_diagnostics_storage_account_id_binding = target_boot_diagnostics_storage_account_id_binding_1
-            .get_inner();
-        let target_network_id_binding_1 = args.target_network_id.get_output(context);
-        let target_network_id_binding = target_network_id_binding_1.get_inner();
-        let target_proximity_placement_group_id_binding_1 = args
+        let target_network_id_binding = args.target_network_id.get_output(context);
+        let target_proximity_placement_group_id_binding = args
             .target_proximity_placement_group_id
             .get_output(context);
-        let target_proximity_placement_group_id_binding = target_proximity_placement_group_id_binding_1
-            .get_inner();
-        let target_resource_group_id_binding_1 = args
+        let target_resource_group_id_binding = args
             .target_resource_group_id
             .get_output(context);
-        let target_resource_group_id_binding = target_resource_group_id_binding_1
-            .get_inner();
-        let target_vm_name_binding_1 = args.target_vm_name.get_output(context);
-        let target_vm_name_binding = target_vm_name_binding_1.get_inner();
-        let target_vm_size_binding_1 = args.target_vm_size.get_output(context);
-        let target_vm_size_binding = target_vm_size_binding_1.get_inner();
-        let target_zone_binding_1 = args.target_zone.get_output(context);
-        let target_zone_binding = target_zone_binding_1.get_inner();
-        let test_network_id_binding_1 = args.test_network_id.get_output(context);
-        let test_network_id_binding = test_network_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let target_vm_name_binding = args.target_vm_name.get_output(context);
+        let target_vm_size_binding = args.target_vm_size.get_output(context);
+        let target_zone_binding = args.target_zone.get_output(context);
+        let test_network_id_binding = args.test_network_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applianceName".into(),
-                    value: &appliance_name_binding,
+                    value: appliance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLogStorageAccountId".into(),
-                    value: &default_log_storage_account_id_binding,
+                    value: default_log_storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRecoveryDiskType".into(),
-                    value: &default_recovery_disk_type_binding,
+                    value: default_recovery_disk_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTargetDiskEncryptionSetId".into(),
-                    value: &default_target_disk_encryption_set_id_binding,
+                    value: default_target_disk_encryption_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: &license_type_binding,
+                    value: license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDisks".into(),
-                    value: &managed_disks_binding,
+                    value: managed_disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiVmGroupName".into(),
-                    value: &multi_vm_group_name_binding,
+                    value: multi_vm_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaces".into(),
-                    value: &network_interfaces_binding,
+                    value: network_interfaces_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "physicalServerCredentialName".into(),
-                    value: &physical_server_credential_name_binding,
+                    value: physical_server_credential_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryReplicationPolicyId".into(),
-                    value: &recovery_replication_policy_id_binding,
+                    value: recovery_replication_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultId".into(),
-                    value: &recovery_vault_id_binding,
+                    value: recovery_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceVmName".into(),
-                    value: &source_vm_name_binding,
+                    value: source_vm_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetAvailabilitySetId".into(),
-                    value: &target_availability_set_id_binding,
+                    value: target_availability_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetBootDiagnosticsStorageAccountId".into(),
-                    value: &target_boot_diagnostics_storage_account_id_binding,
+                    value: target_boot_diagnostics_storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNetworkId".into(),
-                    value: &target_network_id_binding,
+                    value: target_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetProximityPlacementGroupId".into(),
-                    value: &target_proximity_placement_group_id_binding,
+                    value: target_proximity_placement_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceGroupId".into(),
-                    value: &target_resource_group_id_binding,
+                    value: target_resource_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVmName".into(),
-                    value: &target_vm_name_binding,
+                    value: target_vm_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVmSize".into(),
-                    value: &target_vm_size_binding,
+                    value: target_vm_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetZone".into(),
-                    value: &target_zone_binding,
+                    value: target_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testNetworkId".into(),
-                    value: &test_network_id_binding,
+                    value: test_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VmwareReplicatedVmResult {
-            appliance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applianceName"),
-            ),
-            default_log_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultLogStorageAccountId"),
-            ),
-            default_recovery_disk_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRecoveryDiskType"),
-            ),
-            default_target_disk_encryption_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTargetDiskEncryptionSetId"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            managed_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedDisks"),
-            ),
-            multi_vm_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiVmGroupName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaces"),
-            ),
-            physical_server_credential_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("physicalServerCredentialName"),
-            ),
-            recovery_replication_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryReplicationPolicyId"),
-            ),
-            recovery_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryVaultId"),
-            ),
-            source_vm_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceVmName"),
-            ),
-            target_availability_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetAvailabilitySetId"),
-            ),
-            target_boot_diagnostics_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetBootDiagnosticsStorageAccountId"),
-            ),
-            target_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetNetworkId"),
-            ),
-            target_proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetProximityPlacementGroupId"),
-            ),
-            target_resource_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceGroupId"),
-            ),
-            target_vm_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetVmName"),
-            ),
-            target_vm_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetVmSize"),
-            ),
-            target_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetZone"),
-            ),
-            test_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testNetworkId"),
-            ),
+            appliance_name: o.get_field("applianceName"),
+            default_log_storage_account_id: o.get_field("defaultLogStorageAccountId"),
+            default_recovery_disk_type: o.get_field("defaultRecoveryDiskType"),
+            default_target_disk_encryption_set_id: o
+                .get_field("defaultTargetDiskEncryptionSetId"),
+            license_type: o.get_field("licenseType"),
+            managed_disks: o.get_field("managedDisks"),
+            multi_vm_group_name: o.get_field("multiVmGroupName"),
+            name: o.get_field("name"),
+            network_interfaces: o.get_field("networkInterfaces"),
+            physical_server_credential_name: o.get_field("physicalServerCredentialName"),
+            recovery_replication_policy_id: o.get_field("recoveryReplicationPolicyId"),
+            recovery_vault_id: o.get_field("recoveryVaultId"),
+            source_vm_name: o.get_field("sourceVmName"),
+            target_availability_set_id: o.get_field("targetAvailabilitySetId"),
+            target_boot_diagnostics_storage_account_id: o
+                .get_field("targetBootDiagnosticsStorageAccountId"),
+            target_network_id: o.get_field("targetNetworkId"),
+            target_proximity_placement_group_id: o
+                .get_field("targetProximityPlacementGroupId"),
+            target_resource_group_id: o.get_field("targetResourceGroupId"),
+            target_vm_name: o.get_field("targetVmName"),
+            target_vm_size: o.get_field("targetVmSize"),
+            target_zone: o.get_field("targetZone"),
+            test_network_id: o.get_field("testNetworkId"),
         }
     }
 }

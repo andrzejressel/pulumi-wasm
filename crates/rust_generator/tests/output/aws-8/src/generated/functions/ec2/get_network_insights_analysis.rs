@@ -76,83 +76,54 @@ pub mod get_network_insights_analysis {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkInsightsAnalysisArgs,
     ) -> GetNetworkInsightsAnalysisResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let network_insights_analysis_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let network_insights_analysis_id_binding = args
             .network_insights_analysis_id
             .get_output(context);
-        let network_insights_analysis_id_binding = network_insights_analysis_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInsightsAnalysisId".into(),
-                    value: &network_insights_analysis_id_binding,
+                    value: network_insights_analysis_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkInsightsAnalysisResult {
-            alternate_path_hints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alternatePathHints"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            explanations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("explanations"),
-            ),
-            filter_in_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterInArns"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            forward_path_components: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardPathComponents"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            network_insights_analysis_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInsightsAnalysisId"),
-            ),
-            network_insights_path_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInsightsPathId"),
-            ),
-            path_found: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pathFound"),
-            ),
-            return_path_components: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("returnPathComponents"),
-            ),
-            start_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startDate"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            warning_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warningMessage"),
-            ),
+            alternate_path_hints: o.get_field("alternatePathHints"),
+            arn: o.get_field("arn"),
+            explanations: o.get_field("explanations"),
+            filter_in_arns: o.get_field("filterInArns"),
+            filters: o.get_field("filters"),
+            forward_path_components: o.get_field("forwardPathComponents"),
+            id: o.get_field("id"),
+            network_insights_analysis_id: o.get_field("networkInsightsAnalysisId"),
+            network_insights_path_id: o.get_field("networkInsightsPathId"),
+            path_found: o.get_field("pathFound"),
+            return_path_components: o.get_field("returnPathComponents"),
+            start_date: o.get_field("startDate"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
+            tags: o.get_field("tags"),
+            warning_message: o.get_field("warningMessage"),
         }
     }
 }

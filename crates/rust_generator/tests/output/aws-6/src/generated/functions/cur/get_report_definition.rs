@@ -46,66 +46,43 @@ pub mod get_report_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReportDefinitionArgs,
     ) -> GetReportDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let report_name_binding_1 = args.report_name.get_output(context);
-        let report_name_binding = report_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let report_name_binding = args.report_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cur/getReportDefinition:getReportDefinition".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reportName".into(),
-                    value: &report_name_binding,
+                    value: report_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReportDefinitionResult {
-            additional_artifacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalArtifacts"),
-            ),
-            additional_schema_elements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalSchemaElements"),
-            ),
-            compression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compression"),
-            ),
-            format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("format"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            refresh_closed_reports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("refreshClosedReports"),
-            ),
-            report_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportName"),
-            ),
-            report_versioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportVersioning"),
-            ),
-            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Bucket"),
-            ),
-            s3_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Prefix"),
-            ),
-            s3_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Region"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            time_unit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeUnit"),
-            ),
+            additional_artifacts: o.get_field("additionalArtifacts"),
+            additional_schema_elements: o.get_field("additionalSchemaElements"),
+            compression: o.get_field("compression"),
+            format: o.get_field("format"),
+            id: o.get_field("id"),
+            refresh_closed_reports: o.get_field("refreshClosedReports"),
+            report_name: o.get_field("reportName"),
+            report_versioning: o.get_field("reportVersioning"),
+            s3_bucket: o.get_field("s3Bucket"),
+            s3_prefix: o.get_field("s3Prefix"),
+            s3_region: o.get_field("s3Region"),
+            tags: o.get_field("tags"),
+            time_unit: o.get_field("timeUnit"),
         }
     }
 }

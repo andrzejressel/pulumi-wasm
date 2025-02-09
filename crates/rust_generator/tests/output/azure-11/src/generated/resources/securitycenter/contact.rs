@@ -70,60 +70,52 @@ pub mod contact {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContactArgs,
     ) -> ContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alert_notifications_binding_1 = args.alert_notifications.get_output(context);
-        let alert_notifications_binding = alert_notifications_binding_1.get_inner();
-        let alerts_to_admins_binding_1 = args.alerts_to_admins.get_output(context);
-        let alerts_to_admins_binding = alerts_to_admins_binding_1.get_inner();
-        let email_binding_1 = args.email.get_output(context);
-        let email_binding = email_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let phone_binding_1 = args.phone.get_output(context);
-        let phone_binding = phone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alert_notifications_binding = args.alert_notifications.get_output(context);
+        let alerts_to_admins_binding = args.alerts_to_admins.get_output(context);
+        let email_binding = args.email.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let phone_binding = args.phone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:securitycenter/contact:Contact".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertNotifications".into(),
-                    value: &alert_notifications_binding,
+                    value: alert_notifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertsToAdmins".into(),
-                    value: &alerts_to_admins_binding,
+                    value: alerts_to_admins_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: &email_binding,
+                    value: email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phone".into(),
-                    value: &phone_binding,
+                    value: phone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContactResult {
-            alert_notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alertNotifications"),
-            ),
-            alerts_to_admins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alertsToAdmins"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            phone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("phone")),
+            alert_notifications: o.get_field("alertNotifications"),
+            alerts_to_admins: o.get_field("alertsToAdmins"),
+            email: o.get_field("email"),
+            name: o.get_field("name"),
+            phone: o.get_field("phone"),
         }
     }
 }

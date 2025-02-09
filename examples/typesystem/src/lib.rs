@@ -6,6 +6,7 @@ mod tests {
         UnionCaseWithConst2,
     };
     use pulumi_gestalt_providers_typesystem::typesystem_server::TypesystemServerArgs;
+    use pulumi_gestalt_rust::GestaltOutput;
     use pulumi_gestalt_rust::{OneOf2, Output};
 
     #[test]
@@ -207,7 +208,7 @@ mod tests {
                 .build_struct();
     }
 
-    fn get_context() -> &'static pulumi_gestalt_rust::PulumiContext {
+    fn get_context() -> &'static pulumi_gestalt_rust::Context {
         todo!()
     }
 }

@@ -76,67 +76,52 @@ pub mod service_linked_role {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceLinkedRoleArgs,
     ) -> ServiceLinkedRoleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_service_name_binding_1 = args.aws_service_name.get_output(context);
-        let aws_service_name_binding = aws_service_name_binding_1.get_inner();
-        let custom_suffix_binding_1 = args.custom_suffix.get_output(context);
-        let custom_suffix_binding = custom_suffix_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_service_name_binding = args.aws_service_name.get_output(context);
+        let custom_suffix_binding = args.custom_suffix.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/serviceLinkedRole:ServiceLinkedRole".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsServiceName".into(),
-                    value: &aws_service_name_binding,
+                    value: aws_service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSuffix".into(),
-                    value: &custom_suffix_binding,
+                    value: custom_suffix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceLinkedRoleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsServiceName"),
-            ),
-            create_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createDate"),
-            ),
-            custom_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customSuffix"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            unique_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueId"),
-            ),
+            arn: o.get_field("arn"),
+            aws_service_name: o.get_field("awsServiceName"),
+            create_date: o.get_field("createDate"),
+            custom_suffix: o.get_field("customSuffix"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            path: o.get_field("path"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            unique_id: o.get_field("uniqueId"),
         }
     }
 }

@@ -119,90 +119,68 @@ pub mod secret {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecretArgs,
     ) -> SecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_type_binding_1 = args.content_type.get_output(context);
-        let content_type_binding = content_type_binding_1.get_inner();
-        let expiration_date_binding_1 = args.expiration_date.get_output(context);
-        let expiration_date_binding = expiration_date_binding_1.get_inner();
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let not_before_date_binding_1 = args.not_before_date.get_output(context);
-        let not_before_date_binding = not_before_date_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let value_binding_1 = args.value.get_output(context);
-        let value_binding = value_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let content_type_binding = args.content_type.get_output(context);
+        let expiration_date_binding = args.expiration_date.get_output(context);
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let not_before_date_binding = args.not_before_date.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let value_binding = args.value.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:keyvault/secret:Secret".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: &content_type_binding,
+                    value: content_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationDate".into(),
-                    value: &expiration_date_binding,
+                    value: expiration_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notBeforeDate".into(),
-                    value: &not_before_date_binding,
+                    value: not_before_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: &value_binding,
+                    value: value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecretResult {
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            not_before_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notBeforeDate"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            resource_versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceVersionlessId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionlessId"),
-            ),
+            content_type: o.get_field("contentType"),
+            expiration_date: o.get_field("expirationDate"),
+            key_vault_id: o.get_field("keyVaultId"),
+            name: o.get_field("name"),
+            not_before_date: o.get_field("notBeforeDate"),
+            resource_id: o.get_field("resourceId"),
+            resource_versionless_id: o.get_field("resourceVersionlessId"),
+            tags: o.get_field("tags"),
+            value: o.get_field("value"),
+            version: o.get_field("version"),
+            versionless_id: o.get_field("versionlessId"),
         }
     }
 }

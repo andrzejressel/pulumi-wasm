@@ -216,176 +216,128 @@ pub mod event_grid_data_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventGridDataConnectionArgs,
     ) -> EventGridDataConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blob_storage_event_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let blob_storage_event_type_binding = args
             .blob_storage_event_type
             .get_output(context);
-        let blob_storage_event_type_binding = blob_storage_event_type_binding_1
-            .get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let data_format_binding_1 = args.data_format.get_output(context);
-        let data_format_binding = data_format_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let database_routing_type_binding_1 = args
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let data_format_binding = args.data_format.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let database_routing_type_binding = args
             .database_routing_type
             .get_output(context);
-        let database_routing_type_binding = database_routing_type_binding_1.get_inner();
-        let eventgrid_resource_id_binding_1 = args
+        let eventgrid_resource_id_binding = args
             .eventgrid_resource_id
             .get_output(context);
-        let eventgrid_resource_id_binding = eventgrid_resource_id_binding_1.get_inner();
-        let eventhub_consumer_group_name_binding_1 = args
+        let eventhub_consumer_group_name_binding = args
             .eventhub_consumer_group_name
             .get_output(context);
-        let eventhub_consumer_group_name_binding = eventhub_consumer_group_name_binding_1
-            .get_inner();
-        let eventhub_id_binding_1 = args.eventhub_id.get_output(context);
-        let eventhub_id_binding = eventhub_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let managed_identity_resource_id_binding_1 = args
+        let eventhub_id_binding = args.eventhub_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let managed_identity_resource_id_binding = args
             .managed_identity_resource_id
             .get_output(context);
-        let managed_identity_resource_id_binding = managed_identity_resource_id_binding_1
-            .get_inner();
-        let mapping_rule_name_binding_1 = args.mapping_rule_name.get_output(context);
-        let mapping_rule_name_binding = mapping_rule_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let skip_first_record_binding_1 = args.skip_first_record.get_output(context);
-        let skip_first_record_binding = skip_first_record_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let table_name_binding_1 = args.table_name.get_output(context);
-        let table_name_binding = table_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let mapping_rule_name_binding = args.mapping_rule_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let skip_first_record_binding = args.skip_first_record.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let table_name_binding = args.table_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:kusto/eventGridDataConnection:EventGridDataConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobStorageEventType".into(),
-                    value: &blob_storage_event_type_binding,
+                    value: blob_storage_event_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFormat".into(),
-                    value: &data_format_binding,
+                    value: data_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseRoutingType".into(),
-                    value: &database_routing_type_binding,
+                    value: database_routing_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventgridResourceId".into(),
-                    value: &eventgrid_resource_id_binding,
+                    value: eventgrid_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubConsumerGroupName".into(),
-                    value: &eventhub_consumer_group_name_binding,
+                    value: eventhub_consumer_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubId".into(),
-                    value: &eventhub_id_binding,
+                    value: eventhub_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedIdentityResourceId".into(),
-                    value: &managed_identity_resource_id_binding,
+                    value: managed_identity_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mappingRuleName".into(),
-                    value: &mapping_rule_name_binding,
+                    value: mapping_rule_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFirstRecord".into(),
-                    value: &skip_first_record_binding,
+                    value: skip_first_record_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: &table_name_binding,
+                    value: table_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventGridDataConnectionResult {
-            blob_storage_event_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blobStorageEventType"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            data_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFormat"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            database_routing_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseRoutingType"),
-            ),
-            eventgrid_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventgridResourceId"),
-            ),
-            eventhub_consumer_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubConsumerGroupName"),
-            ),
-            eventhub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_identity_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedIdentityResourceId"),
-            ),
-            mapping_rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mappingRuleName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            skip_first_record: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipFirstRecord"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            table_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableName"),
-            ),
+            blob_storage_event_type: o.get_field("blobStorageEventType"),
+            cluster_name: o.get_field("clusterName"),
+            data_format: o.get_field("dataFormat"),
+            database_name: o.get_field("databaseName"),
+            database_routing_type: o.get_field("databaseRoutingType"),
+            eventgrid_resource_id: o.get_field("eventgridResourceId"),
+            eventhub_consumer_group_name: o.get_field("eventhubConsumerGroupName"),
+            eventhub_id: o.get_field("eventhubId"),
+            location: o.get_field("location"),
+            managed_identity_resource_id: o.get_field("managedIdentityResourceId"),
+            mapping_rule_name: o.get_field("mappingRuleName"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            skip_first_record: o.get_field("skipFirstRecord"),
+            storage_account_id: o.get_field("storageAccountId"),
+            table_name: o.get_field("tableName"),
         }
     }
 }

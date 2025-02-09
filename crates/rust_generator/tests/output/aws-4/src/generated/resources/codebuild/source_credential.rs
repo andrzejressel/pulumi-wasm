@@ -83,56 +83,47 @@ pub mod source_credential {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SourceCredentialArgs,
     ) -> SourceCredentialResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_type_binding_1 = args.auth_type.get_output(context);
-        let auth_type_binding = auth_type_binding_1.get_inner();
-        let server_type_binding_1 = args.server_type.get_output(context);
-        let server_type_binding = server_type_binding_1.get_inner();
-        let token_binding_1 = args.token.get_output(context);
-        let token_binding = token_binding_1.get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auth_type_binding = args.auth_type.get_output(context);
+        let server_type_binding = args.server_type.get_output(context);
+        let token_binding = args.token.get_output(context);
+        let user_name_binding = args.user_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codebuild/sourceCredential:SourceCredential".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authType".into(),
-                    value: &auth_type_binding,
+                    value: auth_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverType".into(),
-                    value: &server_type_binding,
+                    value: server_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "token".into(),
-                    value: &token_binding,
+                    value: token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SourceCredentialResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auth_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authType"),
-            ),
-            server_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverType"),
-            ),
-            token: pulumi_gestalt_rust::__private::into_domain(o.extract_field("token")),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            arn: o.get_field("arn"),
+            auth_type: o.get_field("authType"),
+            server_type: o.get_field("serverType"),
+            token: o.get_field("token"),
+            user_name: o.get_field("userName"),
         }
     }
 }

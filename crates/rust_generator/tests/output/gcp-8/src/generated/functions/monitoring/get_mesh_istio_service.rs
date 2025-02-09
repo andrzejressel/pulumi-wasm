@@ -52,69 +52,50 @@ pub mod get_mesh_istio_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetMeshIstioServiceArgs,
     ) -> GetMeshIstioServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mesh_uid_binding_1 = args.mesh_uid.get_output(context);
-        let mesh_uid_binding = mesh_uid_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let service_namespace_binding_1 = args.service_namespace.get_output(context);
-        let service_namespace_binding = service_namespace_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mesh_uid_binding = args.mesh_uid.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let service_namespace_binding = args.service_namespace.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:monitoring/getMeshIstioService:getMeshIstioService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshUid".into(),
-                    value: &mesh_uid_binding,
+                    value: mesh_uid_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNamespace".into(),
-                    value: &service_namespace_binding,
+                    value: service_namespace_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetMeshIstioServiceResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            mesh_uid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("meshUid"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceId"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            service_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceNamespace"),
-            ),
-            telemetries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("telemetries"),
-            ),
-            user_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userLabels"),
-            ),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            mesh_uid: o.get_field("meshUid"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            service_id: o.get_field("serviceId"),
+            service_name: o.get_field("serviceName"),
+            service_namespace: o.get_field("serviceNamespace"),
+            telemetries: o.get_field("telemetries"),
+            user_labels: o.get_field("userLabels"),
         }
     }
 }

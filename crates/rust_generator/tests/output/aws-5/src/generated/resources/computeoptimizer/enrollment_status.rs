@@ -55,54 +55,44 @@ pub mod enrollment_status {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnrollmentStatusArgs,
     ) -> EnrollmentStatusResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let include_member_accounts_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let include_member_accounts_binding = args
             .include_member_accounts
             .get_output(context);
-        let include_member_accounts_binding = include_member_accounts_binding_1
-            .get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let status_binding = args.status.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:computeoptimizer/enrollmentStatus:EnrollmentStatus".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeMemberAccounts".into(),
-                    value: &include_member_accounts_binding,
+                    value: include_member_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnrollmentStatusResult {
-            include_member_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeMemberAccounts"),
-            ),
-            number_of_member_accounts_opted_in: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfMemberAccountsOptedIn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            include_member_accounts: o.get_field("includeMemberAccounts"),
+            number_of_member_accounts_opted_in: o
+                .get_field("numberOfMemberAccountsOptedIn"),
+            status: o.get_field("status"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

@@ -101,75 +101,60 @@ pub mod risk_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RiskConfigurationArgs,
     ) -> RiskConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_takeover_risk_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_takeover_risk_configuration_binding = args
             .account_takeover_risk_configuration
             .get_output(context);
-        let account_takeover_risk_configuration_binding = account_takeover_risk_configuration_binding_1
-            .get_inner();
-        let client_id_binding_1 = args.client_id.get_output(context);
-        let client_id_binding = client_id_binding_1.get_inner();
-        let compromised_credentials_risk_configuration_binding_1 = args
+        let client_id_binding = args.client_id.get_output(context);
+        let compromised_credentials_risk_configuration_binding = args
             .compromised_credentials_risk_configuration
             .get_output(context);
-        let compromised_credentials_risk_configuration_binding = compromised_credentials_risk_configuration_binding_1
-            .get_inner();
-        let risk_exception_configuration_binding_1 = args
+        let risk_exception_configuration_binding = args
             .risk_exception_configuration
             .get_output(context);
-        let risk_exception_configuration_binding = risk_exception_configuration_binding_1
-            .get_inner();
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/riskConfiguration:RiskConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountTakeoverRiskConfiguration".into(),
-                    value: &account_takeover_risk_configuration_binding,
+                    value: account_takeover_risk_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: &client_id_binding,
+                    value: client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compromisedCredentialsRiskConfiguration".into(),
-                    value: &compromised_credentials_risk_configuration_binding,
+                    value: compromised_credentials_risk_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "riskExceptionConfiguration".into(),
-                    value: &risk_exception_configuration_binding,
+                    value: risk_exception_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RiskConfigurationResult {
-            account_takeover_risk_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountTakeoverRiskConfiguration"),
-            ),
-            client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientId"),
-            ),
-            compromised_credentials_risk_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compromisedCredentialsRiskConfiguration"),
-            ),
-            risk_exception_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("riskExceptionConfiguration"),
-            ),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
+            account_takeover_risk_configuration: o
+                .get_field("accountTakeoverRiskConfiguration"),
+            client_id: o.get_field("clientId"),
+            compromised_credentials_risk_configuration: o
+                .get_field("compromisedCredentialsRiskConfiguration"),
+            risk_exception_configuration: o.get_field("riskExceptionConfiguration"),
+            user_pool_id: o.get_field("userPoolId"),
         }
     }
 }

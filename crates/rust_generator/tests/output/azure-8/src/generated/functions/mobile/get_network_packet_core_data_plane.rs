@@ -39,56 +39,43 @@ pub mod get_network_packet_core_data_plane {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkPacketCoreDataPlaneArgs,
     ) -> GetNetworkPacketCoreDataPlaneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mobile_network_packet_core_control_plane_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mobile_network_packet_core_control_plane_id_binding = args
             .mobile_network_packet_core_control_plane_id
             .get_output(context);
-        let mobile_network_packet_core_control_plane_id_binding = mobile_network_packet_core_control_plane_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkPacketCoreControlPlaneId".into(),
-                    value: &mobile_network_packet_core_control_plane_id_binding,
+                    value: mobile_network_packet_core_control_plane_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkPacketCoreDataPlaneResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mobile_network_packet_core_control_plane_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobileNetworkPacketCoreControlPlaneId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_plane_access_ipv4_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Address"),
-            ),
-            user_plane_access_ipv4_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Gateway"),
-            ),
-            user_plane_access_ipv4_subnet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Subnet"),
-            ),
-            user_plane_access_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessName"),
-            ),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            mobile_network_packet_core_control_plane_id: o
+                .get_field("mobileNetworkPacketCoreControlPlaneId"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            user_plane_access_ipv4_address: o.get_field("userPlaneAccessIpv4Address"),
+            user_plane_access_ipv4_gateway: o.get_field("userPlaneAccessIpv4Gateway"),
+            user_plane_access_ipv4_subnet: o.get_field("userPlaneAccessIpv4Subnet"),
+            user_plane_access_name: o.get_field("userPlaneAccessName"),
         }
     }
 }

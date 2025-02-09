@@ -179,68 +179,51 @@ pub mod access_approval_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessApprovalSettingsArgs,
     ) -> AccessApprovalSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_key_version_binding_1 = args.active_key_version.get_output(context);
-        let active_key_version_binding = active_key_version_binding_1.get_inner();
-        let enrolled_services_binding_1 = args.enrolled_services.get_output(context);
-        let enrolled_services_binding = enrolled_services_binding_1.get_inner();
-        let notification_emails_binding_1 = args.notification_emails.get_output(context);
-        let notification_emails_binding = notification_emails_binding_1.get_inner();
-        let organization_id_binding_1 = args.organization_id.get_output(context);
-        let organization_id_binding = organization_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let active_key_version_binding = args.active_key_version.get_output(context);
+        let enrolled_services_binding = args.enrolled_services.get_output(context);
+        let notification_emails_binding = args.notification_emails.get_output(context);
+        let organization_id_binding = args.organization_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:organizations/accessApprovalSettings:AccessApprovalSettings"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeKeyVersion".into(),
-                    value: &active_key_version_binding,
+                    value: active_key_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrolledServices".into(),
-                    value: &enrolled_services_binding,
+                    value: enrolled_services_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationEmails".into(),
-                    value: &notification_emails_binding,
+                    value: notification_emails_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationId".into(),
-                    value: &organization_id_binding,
+                    value: organization_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessApprovalSettingsResult {
-            active_key_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeKeyVersion"),
-            ),
-            ancestor_has_active_key_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ancestorHasActiveKeyVersion"),
-            ),
-            enrolled_ancestor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enrolledAncestor"),
-            ),
-            enrolled_services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enrolledServices"),
-            ),
-            invalid_key_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invalidKeyVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_emails: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationEmails"),
-            ),
-            organization_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationId"),
-            ),
+            active_key_version: o.get_field("activeKeyVersion"),
+            ancestor_has_active_key_version: o.get_field("ancestorHasActiveKeyVersion"),
+            enrolled_ancestor: o.get_field("enrolledAncestor"),
+            enrolled_services: o.get_field("enrolledServices"),
+            invalid_key_version: o.get_field("invalidKeyVersion"),
+            name: o.get_field("name"),
+            notification_emails: o.get_field("notificationEmails"),
+            organization_id: o.get_field("organizationId"),
         }
     }
 }

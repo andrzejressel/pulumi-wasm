@@ -76,63 +76,48 @@ pub mod virtual_mfa_device {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualMfaDeviceArgs,
     ) -> VirtualMfaDeviceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_mfa_device_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let path_binding = args.path.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let virtual_mfa_device_name_binding = args
             .virtual_mfa_device_name
             .get_output(context);
-        let virtual_mfa_device_name_binding = virtual_mfa_device_name_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/virtualMfaDevice:VirtualMfaDevice".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMfaDeviceName".into(),
-                    value: &virtual_mfa_device_name_binding,
+                    value: virtual_mfa_device_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualMfaDeviceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            base32_string_seed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("base32StringSeed"),
-            ),
-            enable_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDate"),
-            ),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            qr_code_png: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qrCodePng"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
-            virtual_mfa_device_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMfaDeviceName"),
-            ),
+            arn: o.get_field("arn"),
+            base32_string_seed: o.get_field("base32StringSeed"),
+            enable_date: o.get_field("enableDate"),
+            path: o.get_field("path"),
+            qr_code_png: o.get_field("qrCodePng"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_name: o.get_field("userName"),
+            virtual_mfa_device_name: o.get_field("virtualMfaDeviceName"),
         }
     }
 }

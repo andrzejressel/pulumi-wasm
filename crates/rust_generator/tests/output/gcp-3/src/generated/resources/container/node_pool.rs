@@ -327,181 +327,127 @@ pub mod node_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NodePoolArgs,
     ) -> NodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_binding_1 = args.autoscaling.get_output(context);
-        let autoscaling_binding = autoscaling_binding_1.get_inner();
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let initial_node_count_binding_1 = args.initial_node_count.get_output(context);
-        let initial_node_count_binding = initial_node_count_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let management_binding_1 = args.management.get_output(context);
-        let management_binding = management_binding_1.get_inner();
-        let max_pods_per_node_binding_1 = args.max_pods_per_node.get_output(context);
-        let max_pods_per_node_binding = max_pods_per_node_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let network_config_binding_1 = args.network_config.get_output(context);
-        let network_config_binding = network_config_binding_1.get_inner();
-        let node_config_binding_1 = args.node_config.get_output(context);
-        let node_config_binding = node_config_binding_1.get_inner();
-        let node_count_binding_1 = args.node_count.get_output(context);
-        let node_count_binding = node_count_binding_1.get_inner();
-        let node_locations_binding_1 = args.node_locations.get_output(context);
-        let node_locations_binding = node_locations_binding_1.get_inner();
-        let placement_policy_binding_1 = args.placement_policy.get_output(context);
-        let placement_policy_binding = placement_policy_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let queued_provisioning_binding_1 = args.queued_provisioning.get_output(context);
-        let queued_provisioning_binding = queued_provisioning_binding_1.get_inner();
-        let upgrade_settings_binding_1 = args.upgrade_settings.get_output(context);
-        let upgrade_settings_binding = upgrade_settings_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_binding = args.autoscaling.get_output(context);
+        let cluster_binding = args.cluster.get_output(context);
+        let initial_node_count_binding = args.initial_node_count.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let management_binding = args.management.get_output(context);
+        let max_pods_per_node_binding = args.max_pods_per_node.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let network_config_binding = args.network_config.get_output(context);
+        let node_config_binding = args.node_config.get_output(context);
+        let node_count_binding = args.node_count.get_output(context);
+        let node_locations_binding = args.node_locations.get_output(context);
+        let placement_policy_binding = args.placement_policy.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let queued_provisioning_binding = args.queued_provisioning.get_output(context);
+        let upgrade_settings_binding = args.upgrade_settings.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:container/nodePool:NodePool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscaling".into(),
-                    value: &autoscaling_binding,
+                    value: autoscaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialNodeCount".into(),
-                    value: &initial_node_count_binding,
+                    value: initial_node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "management".into(),
-                    value: &management_binding,
+                    value: management_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxPodsPerNode".into(),
-                    value: &max_pods_per_node_binding,
+                    value: max_pods_per_node_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: &network_config_binding,
+                    value: network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeConfig".into(),
-                    value: &node_config_binding,
+                    value: node_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: &node_count_binding,
+                    value: node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeLocations".into(),
-                    value: &node_locations_binding,
+                    value: node_locations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementPolicy".into(),
-                    value: &placement_policy_binding,
+                    value: placement_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queuedProvisioning".into(),
-                    value: &queued_provisioning_binding,
+                    value: queued_provisioning_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradeSettings".into(),
-                    value: &upgrade_settings_binding,
+                    value: upgrade_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NodePoolResult {
-            autoscaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscaling"),
-            ),
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            initial_node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialNodeCount"),
-            ),
-            instance_group_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceGroupUrls"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_instance_group_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedInstanceGroupUrls"),
-            ),
-            management: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("management"),
-            ),
-            max_pods_per_node: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxPodsPerNode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfig"),
-            ),
-            node_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeConfig"),
-            ),
-            node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeCount"),
-            ),
-            node_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeLocations"),
-            ),
-            operation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operation"),
-            ),
-            placement_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementPolicy"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            queued_provisioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queuedProvisioning"),
-            ),
-            upgrade_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradeSettings"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            autoscaling: o.get_field("autoscaling"),
+            cluster: o.get_field("cluster"),
+            initial_node_count: o.get_field("initialNodeCount"),
+            instance_group_urls: o.get_field("instanceGroupUrls"),
+            location: o.get_field("location"),
+            managed_instance_group_urls: o.get_field("managedInstanceGroupUrls"),
+            management: o.get_field("management"),
+            max_pods_per_node: o.get_field("maxPodsPerNode"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            network_config: o.get_field("networkConfig"),
+            node_config: o.get_field("nodeConfig"),
+            node_count: o.get_field("nodeCount"),
+            node_locations: o.get_field("nodeLocations"),
+            operation: o.get_field("operation"),
+            placement_policy: o.get_field("placementPolicy"),
+            project: o.get_field("project"),
+            queued_provisioning: o.get_field("queuedProvisioning"),
+            upgrade_settings: o.get_field("upgradeSettings"),
+            version: o.get_field("version"),
         }
     }
 }

@@ -1,13 +1,14 @@
 use anyhow::Result;
 use pulumi_gestalt_providers_random::random_string;
 use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
-use pulumi_gestalt_rust::Output;
 use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_format};
-use pulumi_gestalt_rust::{pulumi_main, PulumiContext, ToOutput};
+use pulumi_gestalt_rust::{Context, Output};
+use pulumi_gestalt_rust::{GestaltOutput, ToOutput};
 
-pulumi_main!();
+#[cfg(target_arch = "wasm32")]
+pulumi_gestalt_rust::pulumi_main!();
 
-fn pulumi_main(context: &PulumiContext) -> Result<()> {
+fn pulumi_main(context: &Context) -> Result<()> {
     let length: Output<i32> = Output::new(context, &12).map(|i: i32| i * 3);
 
     let random_string = random_string::create(
@@ -16,7 +17,7 @@ fn pulumi_main(context: &PulumiContext) -> Result<()> {
         RandomStringArgs::builder().length(length).build_struct(),
     );
 
-    // Tests preview behaviour for unknown fields
+    // Tests preview behavior for unknown fields
     let t = random_string.result.map(|s| format!("Result: {s}"));
 
     // Tests number mapping

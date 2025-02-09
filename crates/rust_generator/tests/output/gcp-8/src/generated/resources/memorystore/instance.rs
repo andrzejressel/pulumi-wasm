@@ -421,205 +421,138 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_mode_binding_1 = args.authorization_mode.get_output(context);
-        let authorization_mode_binding = authorization_mode_binding_1.get_inner();
-        let deletion_protection_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorization_mode_binding = args.authorization_mode.get_output(context);
+        let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
             .get_output(context);
-        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
-            .get_inner();
-        let desired_psc_auto_connections_binding_1 = args
+        let desired_psc_auto_connections_binding = args
             .desired_psc_auto_connections
             .get_output(context);
-        let desired_psc_auto_connections_binding = desired_psc_auto_connections_binding_1
-            .get_inner();
-        let engine_configs_binding_1 = args.engine_configs.get_output(context);
-        let engine_configs_binding = engine_configs_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let persistence_config_binding_1 = args.persistence_config.get_output(context);
-        let persistence_config_binding = persistence_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let replica_count_binding_1 = args.replica_count.get_output(context);
-        let replica_count_binding = replica_count_binding_1.get_inner();
-        let shard_count_binding_1 = args.shard_count.get_output(context);
-        let shard_count_binding = shard_count_binding_1.get_inner();
-        let transit_encryption_mode_binding_1 = args
+        let engine_configs_binding = args.engine_configs.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let node_type_binding = args.node_type.get_output(context);
+        let persistence_config_binding = args.persistence_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let replica_count_binding = args.replica_count.get_output(context);
+        let shard_count_binding = args.shard_count.get_output(context);
+        let transit_encryption_mode_binding = args
             .transit_encryption_mode
             .get_output(context);
-        let transit_encryption_mode_binding = transit_encryption_mode_binding_1
-            .get_inner();
-        let zone_distribution_config_binding_1 = args
+        let zone_distribution_config_binding = args
             .zone_distribution_config
             .get_output(context);
-        let zone_distribution_config_binding = zone_distribution_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:memorystore/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationMode".into(),
-                    value: &authorization_mode_binding,
+                    value: authorization_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtectionEnabled".into(),
-                    value: &deletion_protection_enabled_binding,
+                    value: deletion_protection_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredPscAutoConnections".into(),
-                    value: &desired_psc_auto_connections_binding,
+                    value: desired_psc_auto_connections_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineConfigs".into(),
-                    value: &engine_configs_binding,
+                    value: engine_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistenceConfig".into(),
-                    value: &persistence_config_binding,
+                    value: persistence_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaCount".into(),
-                    value: &replica_count_binding,
+                    value: replica_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardCount".into(),
-                    value: &shard_count_binding,
+                    value: shard_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitEncryptionMode".into(),
-                    value: &transit_encryption_mode_binding,
+                    value: transit_encryption_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneDistributionConfig".into(),
-                    value: &zone_distribution_config_binding,
+                    value: zone_distribution_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            authorization_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationMode"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtectionEnabled"),
-            ),
-            desired_psc_auto_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredPscAutoConnections"),
-            ),
-            discovery_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("discoveryEndpoints"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            engine_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineConfigs"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeConfigs"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            persistence_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistenceConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            psc_auto_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscAutoConnections"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            replica_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaCount"),
-            ),
-            shard_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardCount"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateInfos"),
-            ),
-            transit_encryption_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitEncryptionMode"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            zone_distribution_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneDistributionConfig"),
-            ),
+            authorization_mode: o.get_field("authorizationMode"),
+            create_time: o.get_field("createTime"),
+            deletion_protection_enabled: o.get_field("deletionProtectionEnabled"),
+            desired_psc_auto_connections: o.get_field("desiredPscAutoConnections"),
+            discovery_endpoints: o.get_field("discoveryEndpoints"),
+            effective_labels: o.get_field("effectiveLabels"),
+            endpoints: o.get_field("endpoints"),
+            engine_configs: o.get_field("engineConfigs"),
+            engine_version: o.get_field("engineVersion"),
+            instance_id: o.get_field("instanceId"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            mode: o.get_field("mode"),
+            name: o.get_field("name"),
+            node_configs: o.get_field("nodeConfigs"),
+            node_type: o.get_field("nodeType"),
+            persistence_config: o.get_field("persistenceConfig"),
+            project: o.get_field("project"),
+            psc_auto_connections: o.get_field("pscAutoConnections"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            replica_count: o.get_field("replicaCount"),
+            shard_count: o.get_field("shardCount"),
+            state: o.get_field("state"),
+            state_infos: o.get_field("stateInfos"),
+            transit_encryption_mode: o.get_field("transitEncryptionMode"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            zone_distribution_config: o.get_field("zoneDistributionConfig"),
         }
     }
 }

@@ -339,300 +339,210 @@ pub mod pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PoolArgs,
     ) -> PoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let auto_scale_binding_1 = args.auto_scale.get_output(context);
-        let auto_scale_binding = auto_scale_binding_1.get_inner();
-        let certificates_binding_1 = args.certificates.get_output(context);
-        let certificates_binding = certificates_binding_1.get_inner();
-        let container_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let auto_scale_binding = args.auto_scale.get_output(context);
+        let certificates_binding = args.certificates.get_output(context);
+        let container_configuration_binding = args
             .container_configuration
             .get_output(context);
-        let container_configuration_binding = container_configuration_binding_1
-            .get_inner();
-        let data_disks_binding_1 = args.data_disks.get_output(context);
-        let data_disks_binding = data_disks_binding_1.get_inner();
-        let disk_encryptions_binding_1 = args.disk_encryptions.get_output(context);
-        let disk_encryptions_binding = disk_encryptions_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let extensions_binding_1 = args.extensions.get_output(context);
-        let extensions_binding = extensions_binding_1.get_inner();
-        let fixed_scale_binding_1 = args.fixed_scale.get_output(context);
-        let fixed_scale_binding = fixed_scale_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let inter_node_communication_binding_1 = args
+        let data_disks_binding = args.data_disks.get_output(context);
+        let disk_encryptions_binding = args.disk_encryptions.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let extensions_binding = args.extensions.get_output(context);
+        let fixed_scale_binding = args.fixed_scale.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let inter_node_communication_binding = args
             .inter_node_communication
             .get_output(context);
-        let inter_node_communication_binding = inter_node_communication_binding_1
-            .get_inner();
-        let license_type_binding_1 = args.license_type.get_output(context);
-        let license_type_binding = license_type_binding_1.get_inner();
-        let max_tasks_per_node_binding_1 = args.max_tasks_per_node.get_output(context);
-        let max_tasks_per_node_binding = max_tasks_per_node_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let mounts_binding_1 = args.mounts.get_output(context);
-        let mounts_binding = mounts_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_configuration_binding_1 = args
+        let license_type_binding = args.license_type.get_output(context);
+        let max_tasks_per_node_binding = args.max_tasks_per_node.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let mounts_binding = args.mounts.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_configuration_binding = args
             .network_configuration
             .get_output(context);
-        let network_configuration_binding = network_configuration_binding_1.get_inner();
-        let node_agent_sku_id_binding_1 = args.node_agent_sku_id.get_output(context);
-        let node_agent_sku_id_binding = node_agent_sku_id_binding_1.get_inner();
-        let node_placements_binding_1 = args.node_placements.get_output(context);
-        let node_placements_binding = node_placements_binding_1.get_inner();
-        let os_disk_placement_binding_1 = args.os_disk_placement.get_output(context);
-        let os_disk_placement_binding = os_disk_placement_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let start_task_binding_1 = args.start_task.get_output(context);
-        let start_task_binding = start_task_binding_1.get_inner();
-        let stop_pending_resize_operation_binding_1 = args
+        let node_agent_sku_id_binding = args.node_agent_sku_id.get_output(context);
+        let node_placements_binding = args.node_placements.get_output(context);
+        let os_disk_placement_binding = args.os_disk_placement.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let start_task_binding = args.start_task.get_output(context);
+        let stop_pending_resize_operation_binding = args
             .stop_pending_resize_operation
             .get_output(context);
-        let stop_pending_resize_operation_binding = stop_pending_resize_operation_binding_1
-            .get_inner();
-        let storage_image_reference_binding_1 = args
+        let storage_image_reference_binding = args
             .storage_image_reference
             .get_output(context);
-        let storage_image_reference_binding = storage_image_reference_binding_1
-            .get_inner();
-        let target_node_communication_mode_binding_1 = args
+        let target_node_communication_mode_binding = args
             .target_node_communication_mode
             .get_output(context);
-        let target_node_communication_mode_binding = target_node_communication_mode_binding_1
-            .get_inner();
-        let task_scheduling_policies_binding_1 = args
+        let task_scheduling_policies_binding = args
             .task_scheduling_policies
             .get_output(context);
-        let task_scheduling_policies_binding = task_scheduling_policies_binding_1
-            .get_inner();
-        let user_accounts_binding_1 = args.user_accounts.get_output(context);
-        let user_accounts_binding = user_accounts_binding_1.get_inner();
-        let vm_size_binding_1 = args.vm_size.get_output(context);
-        let vm_size_binding = vm_size_binding_1.get_inner();
-        let windows_binding_1 = args.windows.get_output(context);
-        let windows_binding = windows_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let user_accounts_binding = args.user_accounts.get_output(context);
+        let vm_size_binding = args.vm_size.get_output(context);
+        let windows_binding = args.windows.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:batch/pool:Pool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScale".into(),
-                    value: &auto_scale_binding,
+                    value: auto_scale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificates".into(),
-                    value: &certificates_binding,
+                    value: certificates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerConfiguration".into(),
-                    value: &container_configuration_binding,
+                    value: container_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataDisks".into(),
-                    value: &data_disks_binding,
+                    value: data_disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryptions".into(),
-                    value: &disk_encryptions_binding,
+                    value: disk_encryptions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensions".into(),
-                    value: &extensions_binding,
+                    value: extensions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fixedScale".into(),
-                    value: &fixed_scale_binding,
+                    value: fixed_scale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interNodeCommunication".into(),
-                    value: &inter_node_communication_binding,
+                    value: inter_node_communication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: &license_type_binding,
+                    value: license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxTasksPerNode".into(),
-                    value: &max_tasks_per_node_binding,
+                    value: max_tasks_per_node_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mounts".into(),
-                    value: &mounts_binding,
+                    value: mounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: &network_configuration_binding,
+                    value: network_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeAgentSkuId".into(),
-                    value: &node_agent_sku_id_binding,
+                    value: node_agent_sku_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePlacements".into(),
-                    value: &node_placements_binding,
+                    value: node_placements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osDiskPlacement".into(),
-                    value: &os_disk_placement_binding,
+                    value: os_disk_placement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTask".into(),
-                    value: &start_task_binding,
+                    value: start_task_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopPendingResizeOperation".into(),
-                    value: &stop_pending_resize_operation_binding,
+                    value: stop_pending_resize_operation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageImageReference".into(),
-                    value: &storage_image_reference_binding,
+                    value: storage_image_reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNodeCommunicationMode".into(),
-                    value: &target_node_communication_mode_binding,
+                    value: target_node_communication_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskSchedulingPolicies".into(),
-                    value: &task_scheduling_policies_binding,
+                    value: task_scheduling_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAccounts".into(),
-                    value: &user_accounts_binding,
+                    value: user_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmSize".into(),
-                    value: &vm_size_binding,
+                    value: vm_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windows".into(),
-                    value: &windows_binding,
+                    value: windows_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PoolResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            auto_scale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScale"),
-            ),
-            certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificates"),
-            ),
-            container_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerConfiguration"),
-            ),
-            data_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataDisks"),
-            ),
-            disk_encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptions"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            extensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extensions"),
-            ),
-            fixed_scale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fixedScale"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            inter_node_communication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interNodeCommunication"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            max_tasks_per_node: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxTasksPerNode"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            mounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mounts"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfiguration"),
-            ),
-            node_agent_sku_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeAgentSkuId"),
-            ),
-            node_placements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePlacements"),
-            ),
-            os_disk_placement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDiskPlacement"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            start_task: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTask"),
-            ),
-            stop_pending_resize_operation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stopPendingResizeOperation"),
-            ),
-            storage_image_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageImageReference"),
-            ),
-            target_node_communication_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetNodeCommunicationMode"),
-            ),
-            task_scheduling_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskSchedulingPolicies"),
-            ),
-            user_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userAccounts"),
-            ),
-            vm_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmSize"),
-            ),
-            windows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windows"),
-            ),
+            account_name: o.get_field("accountName"),
+            auto_scale: o.get_field("autoScale"),
+            certificates: o.get_field("certificates"),
+            container_configuration: o.get_field("containerConfiguration"),
+            data_disks: o.get_field("dataDisks"),
+            disk_encryptions: o.get_field("diskEncryptions"),
+            display_name: o.get_field("displayName"),
+            extensions: o.get_field("extensions"),
+            fixed_scale: o.get_field("fixedScale"),
+            identity: o.get_field("identity"),
+            inter_node_communication: o.get_field("interNodeCommunication"),
+            license_type: o.get_field("licenseType"),
+            max_tasks_per_node: o.get_field("maxTasksPerNode"),
+            metadata: o.get_field("metadata"),
+            mounts: o.get_field("mounts"),
+            name: o.get_field("name"),
+            network_configuration: o.get_field("networkConfiguration"),
+            node_agent_sku_id: o.get_field("nodeAgentSkuId"),
+            node_placements: o.get_field("nodePlacements"),
+            os_disk_placement: o.get_field("osDiskPlacement"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            start_task: o.get_field("startTask"),
+            stop_pending_resize_operation: o.get_field("stopPendingResizeOperation"),
+            storage_image_reference: o.get_field("storageImageReference"),
+            target_node_communication_mode: o.get_field("targetNodeCommunicationMode"),
+            task_scheduling_policies: o.get_field("taskSchedulingPolicies"),
+            user_accounts: o.get_field("userAccounts"),
+            vm_size: o.get_field("vmSize"),
+            windows: o.get_field("windows"),
         }
     }
 }

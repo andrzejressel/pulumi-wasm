@@ -21,30 +21,28 @@ pub mod get_trigger_schedules {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTriggerSchedulesArgs,
     ) -> GetTriggerSchedulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:datafactory/getTriggerSchedules:getTriggerSchedules".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTriggerSchedulesResult {
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            items: pulumi_gestalt_rust::__private::into_domain(o.extract_field("items")),
+            data_factory_id: o.get_field("dataFactoryId"),
+            id: o.get_field("id"),
+            items: o.get_field("items"),
         }
     }
 }

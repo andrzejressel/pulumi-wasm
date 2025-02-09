@@ -108,95 +108,72 @@ pub mod automation_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AutomationRuleArgs,
     ) -> AutomationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding_1 = args.actions.get_output(context);
-        let actions_binding = actions_binding_1.get_inner();
-        let criteria_binding_1 = args.criteria.get_output(context);
-        let criteria_binding = criteria_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let is_terminal_binding_1 = args.is_terminal.get_output(context);
-        let is_terminal_binding = is_terminal_binding_1.get_inner();
-        let rule_name_binding_1 = args.rule_name.get_output(context);
-        let rule_name_binding = rule_name_binding_1.get_inner();
-        let rule_order_binding_1 = args.rule_order.get_output(context);
-        let rule_order_binding = rule_order_binding_1.get_inner();
-        let rule_status_binding_1 = args.rule_status.get_output(context);
-        let rule_status_binding = rule_status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_binding = args.actions.get_output(context);
+        let criteria_binding = args.criteria.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let is_terminal_binding = args.is_terminal.get_output(context);
+        let rule_name_binding = args.rule_name.get_output(context);
+        let rule_order_binding = args.rule_order.get_output(context);
+        let rule_status_binding = args.rule_status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:securityhub/automationRule:AutomationRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: &actions_binding,
+                    value: actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "criteria".into(),
-                    value: &criteria_binding,
+                    value: criteria_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isTerminal".into(),
-                    value: &is_terminal_binding,
+                    value: is_terminal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: &rule_name_binding,
+                    value: rule_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleOrder".into(),
-                    value: &rule_order_binding,
+                    value: rule_order_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleStatus".into(),
-                    value: &rule_status_binding,
+                    value: rule_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AutomationRuleResult {
-            actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actions"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            criteria: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("criteria"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            is_terminal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isTerminal"),
-            ),
-            rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleName"),
-            ),
-            rule_order: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleOrder"),
-            ),
-            rule_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleStatus"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            actions: o.get_field("actions"),
+            arn: o.get_field("arn"),
+            criteria: o.get_field("criteria"),
+            description: o.get_field("description"),
+            is_terminal: o.get_field("isTerminal"),
+            rule_name: o.get_field("ruleName"),
+            rule_order: o.get_field("ruleOrder"),
+            rule_status: o.get_field("ruleStatus"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

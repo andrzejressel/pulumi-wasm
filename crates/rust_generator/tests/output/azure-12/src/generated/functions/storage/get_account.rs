@@ -214,310 +214,140 @@ pub mod get_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccountArgs,
     ) -> GetAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
-        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let min_tls_version_binding = args.min_tls_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:storage/getAccount:getAccount".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minTlsVersion".into(),
-                    value: &min_tls_version_binding,
+                    value: min_tls_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccountResult {
-            access_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessTier"),
-            ),
-            account_kind: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountKind"),
-            ),
-            account_replication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountReplicationType"),
-            ),
-            account_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountTier"),
-            ),
-            allow_nested_items_to_be_public: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowNestedItemsToBePublic"),
-            ),
-            azure_files_authentications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureFilesAuthentications"),
-            ),
-            custom_domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomains"),
-            ),
-            dns_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsEndpointType"),
-            ),
-            https_traffic_only_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsTrafficOnlyEnabled"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            infrastructure_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureEncryptionEnabled"),
-            ),
-            is_hns_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isHnsEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            min_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nfsv3_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nfsv3Enabled"),
-            ),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            primary_blob_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobConnectionString"),
-            ),
-            primary_blob_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobEndpoint"),
-            ),
-            primary_blob_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobHost"),
-            ),
-            primary_blob_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobInternetEndpoint"),
-            ),
-            primary_blob_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobInternetHost"),
-            ),
-            primary_blob_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobMicrosoftEndpoint"),
-            ),
-            primary_blob_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobMicrosoftHost"),
-            ),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            primary_dfs_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsEndpoint"),
-            ),
-            primary_dfs_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsHost"),
-            ),
-            primary_dfs_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsInternetEndpoint"),
-            ),
-            primary_dfs_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsInternetHost"),
-            ),
-            primary_dfs_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsMicrosoftEndpoint"),
-            ),
-            primary_dfs_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsMicrosoftHost"),
-            ),
-            primary_file_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileEndpoint"),
-            ),
-            primary_file_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileHost"),
-            ),
-            primary_file_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileInternetEndpoint"),
-            ),
-            primary_file_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileInternetHost"),
-            ),
-            primary_file_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileMicrosoftEndpoint"),
-            ),
-            primary_file_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileMicrosoftHost"),
-            ),
-            primary_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryLocation"),
-            ),
-            primary_queue_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryQueueEndpoint"),
-            ),
-            primary_queue_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryQueueHost"),
-            ),
-            primary_queue_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryQueueMicrosoftEndpoint"),
-            ),
-            primary_queue_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryQueueMicrosoftHost"),
-            ),
-            primary_table_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryTableEndpoint"),
-            ),
-            primary_table_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryTableHost"),
-            ),
-            primary_table_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryTableMicrosoftEndpoint"),
-            ),
-            primary_table_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryTableMicrosoftHost"),
-            ),
-            primary_web_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebEndpoint"),
-            ),
-            primary_web_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebHost"),
-            ),
-            primary_web_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebInternetEndpoint"),
-            ),
-            primary_web_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebInternetHost"),
-            ),
-            primary_web_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebMicrosoftEndpoint"),
-            ),
-            primary_web_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebMicrosoftHost"),
-            ),
-            queue_encryption_key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueEncryptionKeyType"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            secondary_blob_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobConnectionString"),
-            ),
-            secondary_blob_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobEndpoint"),
-            ),
-            secondary_blob_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobHost"),
-            ),
-            secondary_blob_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobInternetEndpoint"),
-            ),
-            secondary_blob_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobInternetHost"),
-            ),
-            secondary_blob_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobMicrosoftEndpoint"),
-            ),
-            secondary_blob_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobMicrosoftHost"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            secondary_dfs_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsEndpoint"),
-            ),
-            secondary_dfs_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsHost"),
-            ),
-            secondary_dfs_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsInternetEndpoint"),
-            ),
-            secondary_dfs_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsInternetHost"),
-            ),
-            secondary_dfs_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsMicrosoftEndpoint"),
-            ),
-            secondary_dfs_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsMicrosoftHost"),
-            ),
-            secondary_file_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileEndpoint"),
-            ),
-            secondary_file_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileHost"),
-            ),
-            secondary_file_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileInternetEndpoint"),
-            ),
-            secondary_file_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileInternetHost"),
-            ),
-            secondary_file_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileMicrosoftEndpoint"),
-            ),
-            secondary_file_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileMicrosoftHost"),
-            ),
-            secondary_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryLocation"),
-            ),
-            secondary_queue_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryQueueEndpoint"),
-            ),
-            secondary_queue_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryQueueHost"),
-            ),
-            secondary_queue_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryQueueMicrosoftEndpoint"),
-            ),
-            secondary_queue_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryQueueMicrosoftHost"),
-            ),
-            secondary_table_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryTableEndpoint"),
-            ),
-            secondary_table_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryTableHost"),
-            ),
-            secondary_table_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryTableMicrosoftEndpoint"),
-            ),
-            secondary_table_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryTableMicrosoftHost"),
-            ),
-            secondary_web_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebEndpoint"),
-            ),
-            secondary_web_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebHost"),
-            ),
-            secondary_web_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebInternetEndpoint"),
-            ),
-            secondary_web_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebInternetHost"),
-            ),
-            secondary_web_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebMicrosoftEndpoint"),
-            ),
-            secondary_web_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebMicrosoftHost"),
-            ),
-            table_encryption_key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableEncryptionKeyType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            access_tier: o.get_field("accessTier"),
+            account_kind: o.get_field("accountKind"),
+            account_replication_type: o.get_field("accountReplicationType"),
+            account_tier: o.get_field("accountTier"),
+            allow_nested_items_to_be_public: o.get_field("allowNestedItemsToBePublic"),
+            azure_files_authentications: o.get_field("azureFilesAuthentications"),
+            custom_domains: o.get_field("customDomains"),
+            dns_endpoint_type: o.get_field("dnsEndpointType"),
+            https_traffic_only_enabled: o.get_field("httpsTrafficOnlyEnabled"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            infrastructure_encryption_enabled: o
+                .get_field("infrastructureEncryptionEnabled"),
+            is_hns_enabled: o.get_field("isHnsEnabled"),
+            location: o.get_field("location"),
+            min_tls_version: o.get_field("minTlsVersion"),
+            name: o.get_field("name"),
+            nfsv3_enabled: o.get_field("nfsv3Enabled"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            primary_blob_connection_string: o.get_field("primaryBlobConnectionString"),
+            primary_blob_endpoint: o.get_field("primaryBlobEndpoint"),
+            primary_blob_host: o.get_field("primaryBlobHost"),
+            primary_blob_internet_endpoint: o.get_field("primaryBlobInternetEndpoint"),
+            primary_blob_internet_host: o.get_field("primaryBlobInternetHost"),
+            primary_blob_microsoft_endpoint: o.get_field("primaryBlobMicrosoftEndpoint"),
+            primary_blob_microsoft_host: o.get_field("primaryBlobMicrosoftHost"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            primary_dfs_endpoint: o.get_field("primaryDfsEndpoint"),
+            primary_dfs_host: o.get_field("primaryDfsHost"),
+            primary_dfs_internet_endpoint: o.get_field("primaryDfsInternetEndpoint"),
+            primary_dfs_internet_host: o.get_field("primaryDfsInternetHost"),
+            primary_dfs_microsoft_endpoint: o.get_field("primaryDfsMicrosoftEndpoint"),
+            primary_dfs_microsoft_host: o.get_field("primaryDfsMicrosoftHost"),
+            primary_file_endpoint: o.get_field("primaryFileEndpoint"),
+            primary_file_host: o.get_field("primaryFileHost"),
+            primary_file_internet_endpoint: o.get_field("primaryFileInternetEndpoint"),
+            primary_file_internet_host: o.get_field("primaryFileInternetHost"),
+            primary_file_microsoft_endpoint: o.get_field("primaryFileMicrosoftEndpoint"),
+            primary_file_microsoft_host: o.get_field("primaryFileMicrosoftHost"),
+            primary_location: o.get_field("primaryLocation"),
+            primary_queue_endpoint: o.get_field("primaryQueueEndpoint"),
+            primary_queue_host: o.get_field("primaryQueueHost"),
+            primary_queue_microsoft_endpoint: o
+                .get_field("primaryQueueMicrosoftEndpoint"),
+            primary_queue_microsoft_host: o.get_field("primaryQueueMicrosoftHost"),
+            primary_table_endpoint: o.get_field("primaryTableEndpoint"),
+            primary_table_host: o.get_field("primaryTableHost"),
+            primary_table_microsoft_endpoint: o
+                .get_field("primaryTableMicrosoftEndpoint"),
+            primary_table_microsoft_host: o.get_field("primaryTableMicrosoftHost"),
+            primary_web_endpoint: o.get_field("primaryWebEndpoint"),
+            primary_web_host: o.get_field("primaryWebHost"),
+            primary_web_internet_endpoint: o.get_field("primaryWebInternetEndpoint"),
+            primary_web_internet_host: o.get_field("primaryWebInternetHost"),
+            primary_web_microsoft_endpoint: o.get_field("primaryWebMicrosoftEndpoint"),
+            primary_web_microsoft_host: o.get_field("primaryWebMicrosoftHost"),
+            queue_encryption_key_type: o.get_field("queueEncryptionKeyType"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            secondary_blob_connection_string: o
+                .get_field("secondaryBlobConnectionString"),
+            secondary_blob_endpoint: o.get_field("secondaryBlobEndpoint"),
+            secondary_blob_host: o.get_field("secondaryBlobHost"),
+            secondary_blob_internet_endpoint: o
+                .get_field("secondaryBlobInternetEndpoint"),
+            secondary_blob_internet_host: o.get_field("secondaryBlobInternetHost"),
+            secondary_blob_microsoft_endpoint: o
+                .get_field("secondaryBlobMicrosoftEndpoint"),
+            secondary_blob_microsoft_host: o.get_field("secondaryBlobMicrosoftHost"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            secondary_dfs_endpoint: o.get_field("secondaryDfsEndpoint"),
+            secondary_dfs_host: o.get_field("secondaryDfsHost"),
+            secondary_dfs_internet_endpoint: o.get_field("secondaryDfsInternetEndpoint"),
+            secondary_dfs_internet_host: o.get_field("secondaryDfsInternetHost"),
+            secondary_dfs_microsoft_endpoint: o
+                .get_field("secondaryDfsMicrosoftEndpoint"),
+            secondary_dfs_microsoft_host: o.get_field("secondaryDfsMicrosoftHost"),
+            secondary_file_endpoint: o.get_field("secondaryFileEndpoint"),
+            secondary_file_host: o.get_field("secondaryFileHost"),
+            secondary_file_internet_endpoint: o
+                .get_field("secondaryFileInternetEndpoint"),
+            secondary_file_internet_host: o.get_field("secondaryFileInternetHost"),
+            secondary_file_microsoft_endpoint: o
+                .get_field("secondaryFileMicrosoftEndpoint"),
+            secondary_file_microsoft_host: o.get_field("secondaryFileMicrosoftHost"),
+            secondary_location: o.get_field("secondaryLocation"),
+            secondary_queue_endpoint: o.get_field("secondaryQueueEndpoint"),
+            secondary_queue_host: o.get_field("secondaryQueueHost"),
+            secondary_queue_microsoft_endpoint: o
+                .get_field("secondaryQueueMicrosoftEndpoint"),
+            secondary_queue_microsoft_host: o.get_field("secondaryQueueMicrosoftHost"),
+            secondary_table_endpoint: o.get_field("secondaryTableEndpoint"),
+            secondary_table_host: o.get_field("secondaryTableHost"),
+            secondary_table_microsoft_endpoint: o
+                .get_field("secondaryTableMicrosoftEndpoint"),
+            secondary_table_microsoft_host: o.get_field("secondaryTableMicrosoftHost"),
+            secondary_web_endpoint: o.get_field("secondaryWebEndpoint"),
+            secondary_web_host: o.get_field("secondaryWebHost"),
+            secondary_web_internet_endpoint: o.get_field("secondaryWebInternetEndpoint"),
+            secondary_web_internet_host: o.get_field("secondaryWebInternetHost"),
+            secondary_web_microsoft_endpoint: o
+                .get_field("secondaryWebMicrosoftEndpoint"),
+            secondary_web_microsoft_host: o.get_field("secondaryWebMicrosoftHost"),
+            table_encryption_key_type: o.get_field("tableEncryptionKeyType"),
+            tags: o.get_field("tags"),
         }
     }
 }

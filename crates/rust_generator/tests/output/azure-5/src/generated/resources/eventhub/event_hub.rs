@@ -107,94 +107,71 @@ pub mod event_hub {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventHubArgs,
     ) -> EventHubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capture_description_binding_1 = args.capture_description.get_output(context);
-        let capture_description_binding = capture_description_binding_1.get_inner();
-        let message_retention_binding_1 = args.message_retention.get_output(context);
-        let message_retention_binding = message_retention_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_id_binding_1 = args.namespace_id.get_output(context);
-        let namespace_id_binding = namespace_id_binding_1.get_inner();
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let partition_count_binding_1 = args.partition_count.get_output(context);
-        let partition_count_binding = partition_count_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capture_description_binding = args.capture_description.get_output(context);
+        let message_retention_binding = args.message_retention.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let namespace_id_binding = args.namespace_id.get_output(context);
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let partition_count_binding = args.partition_count.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:eventhub/eventHub:EventHub".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "captureDescription".into(),
-                    value: &capture_description_binding,
+                    value: capture_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageRetention".into(),
-                    value: &message_retention_binding,
+                    value: message_retention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceId".into(),
-                    value: &namespace_id_binding,
+                    value: namespace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionCount".into(),
-                    value: &partition_count_binding,
+                    value: partition_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventHubResult {
-            capture_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("captureDescription"),
-            ),
-            message_retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageRetention"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceId"),
-            ),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            partition_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionCount"),
-            ),
-            partition_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionIds"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            capture_description: o.get_field("captureDescription"),
+            message_retention: o.get_field("messageRetention"),
+            name: o.get_field("name"),
+            namespace_id: o.get_field("namespaceId"),
+            namespace_name: o.get_field("namespaceName"),
+            partition_count: o.get_field("partitionCount"),
+            partition_ids: o.get_field("partitionIds"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            status: o.get_field("status"),
         }
     }
 }

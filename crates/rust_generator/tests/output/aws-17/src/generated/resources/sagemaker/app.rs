@@ -92,86 +92,66 @@ pub mod app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppArgs,
     ) -> AppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_name_binding_1 = args.app_name.get_output(context);
-        let app_name_binding = app_name_binding_1.get_inner();
-        let app_type_binding_1 = args.app_type.get_output(context);
-        let app_type_binding = app_type_binding_1.get_inner();
-        let domain_id_binding_1 = args.domain_id.get_output(context);
-        let domain_id_binding = domain_id_binding_1.get_inner();
-        let resource_spec_binding_1 = args.resource_spec.get_output(context);
-        let resource_spec_binding = resource_spec_binding_1.get_inner();
-        let space_name_binding_1 = args.space_name.get_output(context);
-        let space_name_binding = space_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_profile_name_binding_1 = args.user_profile_name.get_output(context);
-        let user_profile_name_binding = user_profile_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_name_binding = args.app_name.get_output(context);
+        let app_type_binding = args.app_type.get_output(context);
+        let domain_id_binding = args.domain_id.get_output(context);
+        let resource_spec_binding = args.resource_spec.get_output(context);
+        let space_name_binding = args.space_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_profile_name_binding = args.user_profile_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/app:App".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appName".into(),
-                    value: &app_name_binding,
+                    value: app_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appType".into(),
-                    value: &app_type_binding,
+                    value: app_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: &domain_id_binding,
+                    value: domain_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSpec".into(),
-                    value: &resource_spec_binding,
+                    value: resource_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceName".into(),
-                    value: &space_name_binding,
+                    value: space_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userProfileName".into(),
-                    value: &user_profile_name_binding,
+                    value: user_profile_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppResult {
-            app_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appName"),
-            ),
-            app_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainId"),
-            ),
-            resource_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceSpec"),
-            ),
-            space_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spaceName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userProfileName"),
-            ),
+            app_name: o.get_field("appName"),
+            app_type: o.get_field("appType"),
+            arn: o.get_field("arn"),
+            domain_id: o.get_field("domainId"),
+            resource_spec: o.get_field("resourceSpec"),
+            space_name: o.get_field("spaceName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_profile_name: o.get_field("userProfileName"),
         }
     }
 }

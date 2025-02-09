@@ -237,183 +237,139 @@ pub mod spring_cloud_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudGatewayArgs,
     ) -> SpringCloudGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_metadata_binding_1 = args.api_metadata.get_output(context);
-        let api_metadata_binding = api_metadata_binding_1.get_inner();
-        let application_performance_monitoring_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_metadata_binding = args.api_metadata.get_output(context);
+        let application_performance_monitoring_ids_binding = args
             .application_performance_monitoring_ids
             .get_output(context);
-        let application_performance_monitoring_ids_binding = application_performance_monitoring_ids_binding_1
-            .get_inner();
-        let application_performance_monitoring_types_binding_1 = args
+        let application_performance_monitoring_types_binding = args
             .application_performance_monitoring_types
             .get_output(context);
-        let application_performance_monitoring_types_binding = application_performance_monitoring_types_binding_1
-            .get_inner();
-        let client_authorization_binding_1 = args
-            .client_authorization
-            .get_output(context);
-        let client_authorization_binding = client_authorization_binding_1.get_inner();
-        let cors_binding_1 = args.cors.get_output(context);
-        let cors_binding = cors_binding_1.get_inner();
-        let environment_variables_binding_1 = args
+        let client_authorization_binding = args.client_authorization.get_output(context);
+        let cors_binding = args.cors.get_output(context);
+        let environment_variables_binding = args
             .environment_variables
             .get_output(context);
-        let environment_variables_binding = environment_variables_binding_1.get_inner();
-        let https_only_binding_1 = args.https_only.get_output(context);
-        let https_only_binding = https_only_binding_1.get_inner();
-        let instance_count_binding_1 = args.instance_count.get_output(context);
-        let instance_count_binding = instance_count_binding_1.get_inner();
-        let local_response_cache_per_instance_binding_1 = args
+        let https_only_binding = args.https_only.get_output(context);
+        let instance_count_binding = args.instance_count.get_output(context);
+        let local_response_cache_per_instance_binding = args
             .local_response_cache_per_instance
             .get_output(context);
-        let local_response_cache_per_instance_binding = local_response_cache_per_instance_binding_1
-            .get_inner();
-        let local_response_cache_per_route_binding_1 = args
+        let local_response_cache_per_route_binding = args
             .local_response_cache_per_route
             .get_output(context);
-        let local_response_cache_per_route_binding = local_response_cache_per_route_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let quota_binding_1 = args.quota.get_output(context);
-        let quota_binding = quota_binding_1.get_inner();
-        let sensitive_environment_variables_binding_1 = args
+        let quota_binding = args.quota.get_output(context);
+        let sensitive_environment_variables_binding = args
             .sensitive_environment_variables
             .get_output(context);
-        let sensitive_environment_variables_binding = sensitive_environment_variables_binding_1
-            .get_inner();
-        let spring_cloud_service_id_binding_1 = args
+        let spring_cloud_service_id_binding = args
             .spring_cloud_service_id
             .get_output(context);
-        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
-            .get_inner();
-        let sso_binding_1 = args.sso.get_output(context);
-        let sso_binding = sso_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sso_binding = args.sso.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudGateway:SpringCloudGateway".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiMetadata".into(),
-                    value: &api_metadata_binding,
+                    value: api_metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationPerformanceMonitoringIds".into(),
-                    value: &application_performance_monitoring_ids_binding,
+                    value: application_performance_monitoring_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationPerformanceMonitoringTypes".into(),
-                    value: &application_performance_monitoring_types_binding,
+                    value: application_performance_monitoring_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAuthorization".into(),
-                    value: &client_authorization_binding,
+                    value: client_authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cors".into(),
-                    value: &cors_binding,
+                    value: cors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: &environment_variables_binding,
+                    value: environment_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: &https_only_binding,
+                    value: https_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: &instance_count_binding,
+                    value: instance_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localResponseCachePerInstance".into(),
-                    value: &local_response_cache_per_instance_binding,
+                    value: local_response_cache_per_instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localResponseCachePerRoute".into(),
-                    value: &local_response_cache_per_route_binding,
+                    value: local_response_cache_per_route_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quota".into(),
-                    value: &quota_binding,
+                    value: quota_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sensitiveEnvironmentVariables".into(),
-                    value: &sensitive_environment_variables_binding,
+                    value: sensitive_environment_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: &spring_cloud_service_id_binding,
+                    value: spring_cloud_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sso".into(),
-                    value: &sso_binding,
+                    value: sso_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudGatewayResult {
-            api_metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiMetadata"),
-            ),
-            application_performance_monitoring_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationPerformanceMonitoringIds"),
-            ),
-            application_performance_monitoring_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationPerformanceMonitoringTypes"),
-            ),
-            client_authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientAuthorization"),
-            ),
-            cors: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cors")),
-            environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentVariables"),
-            ),
-            https_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsOnly"),
-            ),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            local_response_cache_per_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localResponseCachePerInstance"),
-            ),
-            local_response_cache_per_route: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localResponseCachePerRoute"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            quota: pulumi_gestalt_rust::__private::into_domain(o.extract_field("quota")),
-            sensitive_environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sensitiveEnvironmentVariables"),
-            ),
-            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudServiceId"),
-            ),
-            sso: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sso")),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            api_metadata: o.get_field("apiMetadata"),
+            application_performance_monitoring_ids: o
+                .get_field("applicationPerformanceMonitoringIds"),
+            application_performance_monitoring_types: o
+                .get_field("applicationPerformanceMonitoringTypes"),
+            client_authorization: o.get_field("clientAuthorization"),
+            cors: o.get_field("cors"),
+            environment_variables: o.get_field("environmentVariables"),
+            https_only: o.get_field("httpsOnly"),
+            instance_count: o.get_field("instanceCount"),
+            local_response_cache_per_instance: o
+                .get_field("localResponseCachePerInstance"),
+            local_response_cache_per_route: o.get_field("localResponseCachePerRoute"),
+            name: o.get_field("name"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            quota: o.get_field("quota"),
+            sensitive_environment_variables: o
+                .get_field("sensitiveEnvironmentVariables"),
+            spring_cloud_service_id: o.get_field("springCloudServiceId"),
+            sso: o.get_field("sso"),
+            url: o.get_field("url"),
         }
     }
 }

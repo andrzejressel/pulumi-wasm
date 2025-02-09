@@ -45,56 +45,41 @@ pub mod get_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetConfigurationArgs,
     ) -> GetConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:maintenance/getConfiguration:getConfiguration".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetConfigurationResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            in_guest_user_patch_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inGuestUserPatchMode"),
-            ),
-            install_patches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("installPatches"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("properties"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibility"),
-            ),
-            windows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windows"),
-            ),
+            id: o.get_field("id"),
+            in_guest_user_patch_mode: o.get_field("inGuestUserPatchMode"),
+            install_patches: o.get_field("installPatches"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            properties: o.get_field("properties"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            scope: o.get_field("scope"),
+            tags: o.get_field("tags"),
+            visibility: o.get_field("visibility"),
+            windows: o.get_field("windows"),
         }
     }
 }

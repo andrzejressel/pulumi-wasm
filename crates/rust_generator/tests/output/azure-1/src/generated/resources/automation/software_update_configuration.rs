@@ -166,128 +166,95 @@ pub mod software_update_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SoftwareUpdateConfigurationArgs,
     ) -> SoftwareUpdateConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automation_account_id_binding = args
             .automation_account_id
             .get_output(context);
-        let automation_account_id_binding = automation_account_id_binding_1.get_inner();
-        let duration_binding_1 = args.duration.get_output(context);
-        let duration_binding = duration_binding_1.get_inner();
-        let linux_binding_1 = args.linux.get_output(context);
-        let linux_binding = linux_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let non_azure_computer_names_binding_1 = args
+        let duration_binding = args.duration.get_output(context);
+        let linux_binding = args.linux.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let non_azure_computer_names_binding = args
             .non_azure_computer_names
             .get_output(context);
-        let non_azure_computer_names_binding = non_azure_computer_names_binding_1
-            .get_inner();
-        let post_task_binding_1 = args.post_task.get_output(context);
-        let post_task_binding = post_task_binding_1.get_inner();
-        let pre_task_binding_1 = args.pre_task.get_output(context);
-        let pre_task_binding = pre_task_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let target_binding_1 = args.target.get_output(context);
-        let target_binding = target_binding_1.get_inner();
-        let virtual_machine_ids_binding_1 = args.virtual_machine_ids.get_output(context);
-        let virtual_machine_ids_binding = virtual_machine_ids_binding_1.get_inner();
-        let windows_binding_1 = args.windows.get_output(context);
-        let windows_binding = windows_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let post_task_binding = args.post_task.get_output(context);
+        let pre_task_binding = args.pre_task.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let target_binding = args.target.get_output(context);
+        let virtual_machine_ids_binding = args.virtual_machine_ids.get_output(context);
+        let windows_binding = args.windows.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountId".into(),
-                    value: &automation_account_id_binding,
+                    value: automation_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: &duration_binding,
+                    value: duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linux".into(),
-                    value: &linux_binding,
+                    value: linux_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nonAzureComputerNames".into(),
-                    value: &non_azure_computer_names_binding,
+                    value: non_azure_computer_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postTask".into(),
-                    value: &post_task_binding,
+                    value: post_task_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preTask".into(),
-                    value: &pre_task_binding,
+                    value: pre_task_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: &target_binding,
+                    value: target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineIds".into(),
-                    value: &virtual_machine_ids_binding,
+                    value: virtual_machine_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windows".into(),
-                    value: &windows_binding,
+                    value: windows_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SoftwareUpdateConfigurationResult {
-            automation_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountId"),
-            ),
-            duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duration"),
-            ),
-            error_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorCode"),
-            ),
-            error_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorMessage"),
-            ),
-            linux: pulumi_gestalt_rust::__private::into_domain(o.extract_field("linux")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            non_azure_computer_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nonAzureComputerNames"),
-            ),
-            post_task: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postTask"),
-            ),
-            pre_task: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preTask"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("target"),
-            ),
-            virtual_machine_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineIds"),
-            ),
-            windows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windows"),
-            ),
+            automation_account_id: o.get_field("automationAccountId"),
+            duration: o.get_field("duration"),
+            error_code: o.get_field("errorCode"),
+            error_message: o.get_field("errorMessage"),
+            linux: o.get_field("linux"),
+            name: o.get_field("name"),
+            non_azure_computer_names: o.get_field("nonAzureComputerNames"),
+            post_task: o.get_field("postTask"),
+            pre_task: o.get_field("preTask"),
+            schedule: o.get_field("schedule"),
+            target: o.get_field("target"),
+            virtual_machine_ids: o.get_field("virtualMachineIds"),
+            windows: o.get_field("windows"),
         }
     }
 }

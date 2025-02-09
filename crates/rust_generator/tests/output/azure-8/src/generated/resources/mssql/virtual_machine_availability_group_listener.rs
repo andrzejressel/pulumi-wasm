@@ -90,93 +90,73 @@ pub mod virtual_machine_availability_group_listener {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualMachineAvailabilityGroupListenerArgs,
     ) -> VirtualMachineAvailabilityGroupListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_group_name_binding = args
             .availability_group_name
             .get_output(context);
-        let availability_group_name_binding = availability_group_name_binding_1
-            .get_inner();
-        let load_balancer_configuration_binding_1 = args
+        let load_balancer_configuration_binding = args
             .load_balancer_configuration
             .get_output(context);
-        let load_balancer_configuration_binding = load_balancer_configuration_binding_1
-            .get_inner();
-        let multi_subnet_ip_configurations_binding_1 = args
+        let multi_subnet_ip_configurations_binding = args
             .multi_subnet_ip_configurations
             .get_output(context);
-        let multi_subnet_ip_configurations_binding = multi_subnet_ip_configurations_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let replicas_binding_1 = args.replicas.get_output(context);
-        let replicas_binding = replicas_binding_1.get_inner();
-        let sql_virtual_machine_group_id_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let replicas_binding = args.replicas.get_output(context);
+        let sql_virtual_machine_group_id_binding = args
             .sql_virtual_machine_group_id
             .get_output(context);
-        let sql_virtual_machine_group_id_binding = sql_virtual_machine_group_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityGroupName".into(),
-                    value: &availability_group_name_binding,
+                    value: availability_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerConfiguration".into(),
-                    value: &load_balancer_configuration_binding,
+                    value: load_balancer_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiSubnetIpConfigurations".into(),
-                    value: &multi_subnet_ip_configurations_binding,
+                    value: multi_subnet_ip_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicas".into(),
-                    value: &replicas_binding,
+                    value: replicas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlVirtualMachineGroupId".into(),
-                    value: &sql_virtual_machine_group_id_binding,
+                    value: sql_virtual_machine_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualMachineAvailabilityGroupListenerResult {
-            availability_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityGroupName"),
-            ),
-            load_balancer_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerConfiguration"),
-            ),
-            multi_subnet_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiSubnetIpConfigurations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            replicas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicas"),
-            ),
-            sql_virtual_machine_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlVirtualMachineGroupId"),
-            ),
+            availability_group_name: o.get_field("availabilityGroupName"),
+            load_balancer_configuration: o.get_field("loadBalancerConfiguration"),
+            multi_subnet_ip_configurations: o.get_field("multiSubnetIpConfigurations"),
+            name: o.get_field("name"),
+            port: o.get_field("port"),
+            replicas: o.get_field("replicas"),
+            sql_virtual_machine_group_id: o.get_field("sqlVirtualMachineGroupId"),
         }
     }
 }

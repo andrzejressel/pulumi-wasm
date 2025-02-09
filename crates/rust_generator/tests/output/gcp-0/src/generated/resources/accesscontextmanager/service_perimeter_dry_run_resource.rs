@@ -98,40 +98,35 @@ pub mod service_perimeter_dry_run_resource {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServicePerimeterDryRunResourceArgs,
     ) -> ServicePerimeterDryRunResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let perimeter_name_binding_1 = args.perimeter_name.get_output(context);
-        let perimeter_name_binding = perimeter_name_binding_1.get_inner();
-        let resource_binding_1 = args.resource.get_output(context);
-        let resource_binding = resource_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let perimeter_name_binding = args.perimeter_name.get_output(context);
+        let resource_binding = args.resource.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterDryRunResource:ServicePerimeterDryRunResource"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perimeterName".into(),
-                    value: &perimeter_name_binding,
+                    value: perimeter_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resource".into(),
-                    value: &resource_binding,
+                    value: resource_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServicePerimeterDryRunResourceResult {
-            perimeter_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perimeterName"),
-            ),
-            resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resource"),
-            ),
+            perimeter_name: o.get_field("perimeterName"),
+            resource: o.get_field("resource"),
         }
     }
 }

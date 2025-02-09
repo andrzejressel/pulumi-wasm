@@ -106,66 +106,54 @@ pub mod ai_feature_store_entity_type_iam_member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AiFeatureStoreEntityTypeIamMemberArgs,
     ) -> AiFeatureStoreEntityTypeIamMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let entitytype_binding_1 = args.entitytype.get_output(context);
-        let entitytype_binding = entitytype_binding_1.get_inner();
-        let featurestore_binding_1 = args.featurestore.get_output(context);
-        let featurestore_binding = featurestore_binding_1.get_inner();
-        let member_binding_1 = args.member.get_output(context);
-        let member_binding = member_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let condition_binding = args.condition.get_output(context);
+        let entitytype_binding = args.entitytype.get_output(context);
+        let featurestore_binding = args.featurestore.get_output(context);
+        let member_binding = args.member.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureStoreEntityTypeIamMember:AiFeatureStoreEntityTypeIamMember"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entitytype".into(),
-                    value: &entitytype_binding,
+                    value: entitytype_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featurestore".into(),
-                    value: &featurestore_binding,
+                    value: featurestore_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "member".into(),
-                    value: &member_binding,
+                    value: member_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AiFeatureStoreEntityTypeIamMemberResult {
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            entitytype: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entitytype"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            featurestore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("featurestore"),
-            ),
-            member: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("member"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            condition: o.get_field("condition"),
+            entitytype: o.get_field("entitytype"),
+            etag: o.get_field("etag"),
+            featurestore: o.get_field("featurestore"),
+            member: o.get_field("member"),
+            role: o.get_field("role"),
         }
     }
 }

@@ -62,61 +62,49 @@ pub mod template_alias {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TemplateAliasArgs,
     ) -> TemplateAliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_name_binding_1 = args.alias_name.get_output(context);
-        let alias_name_binding = alias_name_binding_1.get_inner();
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let template_id_binding_1 = args.template_id.get_output(context);
-        let template_id_binding = template_id_binding_1.get_inner();
-        let template_version_number_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_name_binding = args.alias_name.get_output(context);
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let template_id_binding = args.template_id.get_output(context);
+        let template_version_number_binding = args
             .template_version_number
             .get_output(context);
-        let template_version_number_binding = template_version_number_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/templateAlias:TemplateAlias".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasName".into(),
-                    value: &alias_name_binding,
+                    value: alias_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateId".into(),
-                    value: &template_id_binding,
+                    value: template_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateVersionNumber".into(),
-                    value: &template_version_number_binding,
+                    value: template_version_number_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TemplateAliasResult {
-            alias_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliasName"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            template_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateId"),
-            ),
-            template_version_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateVersionNumber"),
-            ),
+            alias_name: o.get_field("aliasName"),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            template_id: o.get_field("templateId"),
+            template_version_number: o.get_field("templateVersionNumber"),
         }
     }
 }

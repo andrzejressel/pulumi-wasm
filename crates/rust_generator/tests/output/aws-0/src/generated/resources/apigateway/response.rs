@@ -75,66 +75,52 @@ pub mod response {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResponseArgs,
     ) -> ResponseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let response_parameters_binding_1 = args.response_parameters.get_output(context);
-        let response_parameters_binding = response_parameters_binding_1.get_inner();
-        let response_templates_binding_1 = args.response_templates.get_output(context);
-        let response_templates_binding = response_templates_binding_1.get_inner();
-        let response_type_binding_1 = args.response_type.get_output(context);
-        let response_type_binding = response_type_binding_1.get_inner();
-        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
-        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
-        let status_code_binding_1 = args.status_code.get_output(context);
-        let status_code_binding = status_code_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let response_parameters_binding = args.response_parameters.get_output(context);
+        let response_templates_binding = args.response_templates.get_output(context);
+        let response_type_binding = args.response_type.get_output(context);
+        let rest_api_id_binding = args.rest_api_id.get_output(context);
+        let status_code_binding = args.status_code.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/response:Response".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseParameters".into(),
-                    value: &response_parameters_binding,
+                    value: response_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseTemplates".into(),
-                    value: &response_templates_binding,
+                    value: response_templates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseType".into(),
-                    value: &response_type_binding,
+                    value: response_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: &rest_api_id_binding,
+                    value: rest_api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusCode".into(),
-                    value: &status_code_binding,
+                    value: status_code_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResponseResult {
-            response_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseParameters"),
-            ),
-            response_templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseTemplates"),
-            ),
-            response_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseType"),
-            ),
-            rest_api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApiId"),
-            ),
-            status_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusCode"),
-            ),
+            response_parameters: o.get_field("responseParameters"),
+            response_templates: o.get_field("responseTemplates"),
+            response_type: o.get_field("responseType"),
+            rest_api_id: o.get_field("restApiId"),
+            status_code: o.get_field("statusCode"),
         }
     }
 }

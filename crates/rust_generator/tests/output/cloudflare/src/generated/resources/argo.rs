@@ -55,48 +55,40 @@ pub mod argo {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ArgoArgs,
     ) -> ArgoResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let smart_routing_binding_1 = args.smart_routing.get_output(context);
-        let smart_routing_binding = smart_routing_binding_1.get_inner();
-        let tiered_caching_binding_1 = args.tiered_caching.get_output(context);
-        let tiered_caching_binding = tiered_caching_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let smart_routing_binding = args.smart_routing.get_output(context);
+        let tiered_caching_binding = args.tiered_caching.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/argo:Argo".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smartRouting".into(),
-                    value: &smart_routing_binding,
+                    value: smart_routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tieredCaching".into(),
-                    value: &tiered_caching_binding,
+                    value: tiered_caching_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ArgoResult {
-            smart_routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smartRouting"),
-            ),
-            tiered_caching: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tieredCaching"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            smart_routing: o.get_field("smartRouting"),
+            tiered_caching: o.get_field("tieredCaching"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

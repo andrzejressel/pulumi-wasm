@@ -64,84 +64,51 @@ pub mod get_flexible_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFlexibleServerArgs,
     ) -> GetFlexibleServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mysql/getFlexibleServer:getFlexibleServer".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFlexibleServerResult {
-            administrator_login: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLogin"),
-            ),
-            backup_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionDays"),
-            ),
-            delegated_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegatedSubnetId"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            geo_redundant_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoRedundantBackupEnabled"),
-            ),
-            high_availabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("highAvailabilities"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_windows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindows"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsZoneId"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            replica_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaCapacity"),
-            ),
-            replication_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationRole"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            restore_point_in_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restorePointInTime"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            storages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storages"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            administrator_login: o.get_field("administratorLogin"),
+            backup_retention_days: o.get_field("backupRetentionDays"),
+            delegated_subnet_id: o.get_field("delegatedSubnetId"),
+            fqdn: o.get_field("fqdn"),
+            geo_redundant_backup_enabled: o.get_field("geoRedundantBackupEnabled"),
+            high_availabilities: o.get_field("highAvailabilities"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            maintenance_windows: o.get_field("maintenanceWindows"),
+            name: o.get_field("name"),
+            private_dns_zone_id: o.get_field("privateDnsZoneId"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            replica_capacity: o.get_field("replicaCapacity"),
+            replication_role: o.get_field("replicationRole"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            restore_point_in_time: o.get_field("restorePointInTime"),
+            sku_name: o.get_field("skuName"),
+            storages: o.get_field("storages"),
+            tags: o.get_field("tags"),
+            version: o.get_field("version"),
+            zone: o.get_field("zone"),
         }
     }
 }

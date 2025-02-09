@@ -21,38 +21,30 @@ pub mod get_credentials {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCredentialsArgs,
     ) -> GetCredentialsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let registry_id_binding_1 = args.registry_id.get_output(context);
-        let registry_id_binding = registry_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let registry_id_binding = args.registry_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecr/getCredentials:getCredentials".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryId".into(),
-                    value: &registry_id_binding,
+                    value: registry_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCredentialsResult {
-            authorization_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationToken"),
-            ),
-            expires_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresAt"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            proxy_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyEndpoint"),
-            ),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
+            authorization_token: o.get_field("authorizationToken"),
+            expires_at: o.get_field("expiresAt"),
+            id: o.get_field("id"),
+            proxy_endpoint: o.get_field("proxyEndpoint"),
+            registry_id: o.get_field("registryId"),
         }
     }
 }

@@ -591,52 +591,43 @@ pub mod frontdoor_secret {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorSecretArgs,
     ) -> FrontdoorSecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cdn_frontdoor_profile_id_binding = args
             .cdn_frontdoor_profile_id
             .get_output(context);
-        let cdn_frontdoor_profile_id_binding = cdn_frontdoor_profile_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let secret_binding_1 = args.secret.get_output(context);
-        let secret_binding = secret_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let secret_binding = args.secret.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorSecret:FrontdoorSecret".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorProfileId".into(),
-                    value: &cdn_frontdoor_profile_id_binding,
+                    value: cdn_frontdoor_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secret".into(),
-                    value: &secret_binding,
+                    value: secret_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorSecretResult {
-            cdn_frontdoor_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorProfileId"),
-            ),
-            cdn_frontdoor_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorProfileName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secret"),
-            ),
+            cdn_frontdoor_profile_id: o.get_field("cdnFrontdoorProfileId"),
+            cdn_frontdoor_profile_name: o.get_field("cdnFrontdoorProfileName"),
+            name: o.get_field("name"),
+            secret: o.get_field("secret"),
         }
     }
 }

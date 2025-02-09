@@ -69,56 +69,45 @@ pub mod account_registration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountRegistrationArgs,
     ) -> AccountRegistrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegated_admin_account_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delegated_admin_account_binding = args
             .delegated_admin_account
             .get_output(context);
-        let delegated_admin_account_binding = delegated_admin_account_binding_1
-            .get_inner();
-        let deregister_on_destroy_binding_1 = args
+        let deregister_on_destroy_binding = args
             .deregister_on_destroy
             .get_output(context);
-        let deregister_on_destroy_binding = deregister_on_destroy_binding_1.get_inner();
-        let kms_key_binding_1 = args.kms_key.get_output(context);
-        let kms_key_binding = kms_key_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kms_key_binding = args.kms_key.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:auditmanager/accountRegistration:AccountRegistration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedAdminAccount".into(),
-                    value: &delegated_admin_account_binding,
+                    value: delegated_admin_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deregisterOnDestroy".into(),
-                    value: &deregister_on_destroy_binding,
+                    value: deregister_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: &kms_key_binding,
+                    value: kms_key_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountRegistrationResult {
-            delegated_admin_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegatedAdminAccount"),
-            ),
-            deregister_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deregisterOnDestroy"),
-            ),
-            kms_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKey"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            delegated_admin_account: o.get_field("delegatedAdminAccount"),
+            deregister_on_destroy: o.get_field("deregisterOnDestroy"),
+            kms_key: o.get_field("kmsKey"),
+            status: o.get_field("status"),
         }
     }
 }

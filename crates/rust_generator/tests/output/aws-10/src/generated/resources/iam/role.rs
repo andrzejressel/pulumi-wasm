@@ -284,130 +284,94 @@ pub mod role {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RoleArgs,
     ) -> RoleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assume_role_policy_binding_1 = args.assume_role_policy.get_output(context);
-        let assume_role_policy_binding = assume_role_policy_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let force_detach_policies_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assume_role_policy_binding = args.assume_role_policy.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let force_detach_policies_binding = args
             .force_detach_policies
             .get_output(context);
-        let force_detach_policies_binding = force_detach_policies_binding_1.get_inner();
-        let inline_policies_binding_1 = args.inline_policies.get_output(context);
-        let inline_policies_binding = inline_policies_binding_1.get_inner();
-        let managed_policy_arns_binding_1 = args.managed_policy_arns.get_output(context);
-        let managed_policy_arns_binding = managed_policy_arns_binding_1.get_inner();
-        let max_session_duration_binding_1 = args
-            .max_session_duration
-            .get_output(context);
-        let max_session_duration_binding = max_session_duration_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let permissions_boundary_binding_1 = args
-            .permissions_boundary
-            .get_output(context);
-        let permissions_boundary_binding = permissions_boundary_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let inline_policies_binding = args.inline_policies.get_output(context);
+        let managed_policy_arns_binding = args.managed_policy_arns.get_output(context);
+        let max_session_duration_binding = args.max_session_duration.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let path_binding = args.path.get_output(context);
+        let permissions_boundary_binding = args.permissions_boundary.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/role:Role".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assumeRolePolicy".into(),
-                    value: &assume_role_policy_binding,
+                    value: assume_role_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDetachPolicies".into(),
-                    value: &force_detach_policies_binding,
+                    value: force_detach_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inlinePolicies".into(),
-                    value: &inline_policies_binding,
+                    value: inline_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedPolicyArns".into(),
-                    value: &managed_policy_arns_binding,
+                    value: managed_policy_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSessionDuration".into(),
-                    value: &max_session_duration_binding,
+                    value: max_session_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionsBoundary".into(),
-                    value: &permissions_boundary_binding,
+                    value: permissions_boundary_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RoleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            assume_role_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assumeRolePolicy"),
-            ),
-            create_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            force_detach_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDetachPolicies"),
-            ),
-            inline_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inlinePolicies"),
-            ),
-            managed_policy_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedPolicyArns"),
-            ),
-            max_session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSessionDuration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            permissions_boundary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionsBoundary"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            unique_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueId"),
-            ),
+            arn: o.get_field("arn"),
+            assume_role_policy: o.get_field("assumeRolePolicy"),
+            create_date: o.get_field("createDate"),
+            description: o.get_field("description"),
+            force_detach_policies: o.get_field("forceDetachPolicies"),
+            inline_policies: o.get_field("inlinePolicies"),
+            managed_policy_arns: o.get_field("managedPolicyArns"),
+            max_session_duration: o.get_field("maxSessionDuration"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            path: o.get_field("path"),
+            permissions_boundary: o.get_field("permissionsBoundary"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            unique_id: o.get_field("uniqueId"),
         }
     }
 }

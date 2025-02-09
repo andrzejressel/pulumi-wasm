@@ -92,92 +92,67 @@ pub mod vpc_attachment_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcAttachmentAccepterArgs,
     ) -> VpcAttachmentAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_attachment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
             .get_output(context);
-        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
-            .get_inner();
-        let transit_gateway_default_route_table_association_binding_1 = args
+        let transit_gateway_default_route_table_association_binding = args
             .transit_gateway_default_route_table_association
             .get_output(context);
-        let transit_gateway_default_route_table_association_binding = transit_gateway_default_route_table_association_binding_1
-            .get_inner();
-        let transit_gateway_default_route_table_propagation_binding_1 = args
+        let transit_gateway_default_route_table_propagation_binding = args
             .transit_gateway_default_route_table_propagation
             .get_output(context);
-        let transit_gateway_default_route_table_propagation_binding = transit_gateway_default_route_table_propagation_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: &transit_gateway_attachment_id_binding,
+                    value: transit_gateway_attachment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTableAssociation".into(),
-                    value: &transit_gateway_default_route_table_association_binding,
+                    value: transit_gateway_default_route_table_association_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTablePropagation".into(),
-                    value: &transit_gateway_default_route_table_propagation_binding,
+                    value: transit_gateway_default_route_table_propagation_binding
+                        .get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcAttachmentAccepterResult {
-            appliance_mode_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applianceModeSupport"),
-            ),
-            dns_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSupport"),
-            ),
-            ipv6_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Support"),
-            ),
-            security_group_referencing_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupReferencingSupport"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAttachmentId"),
-            ),
-            transit_gateway_default_route_table_association: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayDefaultRouteTableAssociation"),
-            ),
-            transit_gateway_default_route_table_propagation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayDefaultRouteTablePropagation"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            vpc_owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcOwnerId"),
-            ),
+            appliance_mode_support: o.get_field("applianceModeSupport"),
+            dns_support: o.get_field("dnsSupport"),
+            ipv6_support: o.get_field("ipv6Support"),
+            security_group_referencing_support: o
+                .get_field("securityGroupReferencingSupport"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_attachment_id: o.get_field("transitGatewayAttachmentId"),
+            transit_gateway_default_route_table_association: o
+                .get_field("transitGatewayDefaultRouteTableAssociation"),
+            transit_gateway_default_route_table_propagation: o
+                .get_field("transitGatewayDefaultRouteTablePropagation"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
+            vpc_id: o.get_field("vpcId"),
+            vpc_owner_id: o.get_field("vpcOwnerId"),
         }
     }
 }

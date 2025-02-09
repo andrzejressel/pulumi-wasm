@@ -41,75 +41,58 @@ pub mod get_export {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetExportArgs,
     ) -> GetExportResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let export_version_binding_1 = args.export_version.get_output(context);
-        let export_version_binding = export_version_binding_1.get_inner();
-        let include_extensions_binding_1 = args.include_extensions.get_output(context);
-        let include_extensions_binding = include_extensions_binding_1.get_inner();
-        let output_type_binding_1 = args.output_type.get_output(context);
-        let output_type_binding = output_type_binding_1.get_inner();
-        let specification_binding_1 = args.specification.get_output(context);
-        let specification_binding = specification_binding_1.get_inner();
-        let stage_name_binding_1 = args.stage_name.get_output(context);
-        let stage_name_binding = stage_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_id_binding = args.api_id.get_output(context);
+        let export_version_binding = args.export_version.get_output(context);
+        let include_extensions_binding = args.include_extensions.get_output(context);
+        let output_type_binding = args.output_type.get_output(context);
+        let specification_binding = args.specification.get_output(context);
+        let stage_name_binding = args.stage_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:apigatewayv2/getExport:getExport".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportVersion".into(),
-                    value: &export_version_binding,
+                    value: export_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeExtensions".into(),
-                    value: &include_extensions_binding,
+                    value: include_extensions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputType".into(),
-                    value: &output_type_binding,
+                    value: output_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "specification".into(),
-                    value: &specification_binding,
+                    value: specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: &stage_name_binding,
+                    value: stage_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetExportResult {
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            export_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_extensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeExtensions"),
-            ),
-            output_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputType"),
-            ),
-            specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("specification"),
-            ),
-            stage_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stageName"),
-            ),
+            api_id: o.get_field("apiId"),
+            body: o.get_field("body"),
+            export_version: o.get_field("exportVersion"),
+            id: o.get_field("id"),
+            include_extensions: o.get_field("includeExtensions"),
+            output_type: o.get_field("outputType"),
+            specification: o.get_field("specification"),
+            stage_name: o.get_field("stageName"),
         }
     }
 }

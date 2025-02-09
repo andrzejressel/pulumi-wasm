@@ -422,187 +422,135 @@ pub mod trail {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrailArgs,
     ) -> TrailResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_event_selectors_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let advanced_event_selectors_binding = args
             .advanced_event_selectors
             .get_output(context);
-        let advanced_event_selectors_binding = advanced_event_selectors_binding_1
-            .get_inner();
-        let cloud_watch_logs_group_arn_binding_1 = args
+        let cloud_watch_logs_group_arn_binding = args
             .cloud_watch_logs_group_arn
             .get_output(context);
-        let cloud_watch_logs_group_arn_binding = cloud_watch_logs_group_arn_binding_1
-            .get_inner();
-        let cloud_watch_logs_role_arn_binding_1 = args
+        let cloud_watch_logs_role_arn_binding = args
             .cloud_watch_logs_role_arn
             .get_output(context);
-        let cloud_watch_logs_role_arn_binding = cloud_watch_logs_role_arn_binding_1
-            .get_inner();
-        let enable_log_file_validation_binding_1 = args
+        let enable_log_file_validation_binding = args
             .enable_log_file_validation
             .get_output(context);
-        let enable_log_file_validation_binding = enable_log_file_validation_binding_1
-            .get_inner();
-        let enable_logging_binding_1 = args.enable_logging.get_output(context);
-        let enable_logging_binding = enable_logging_binding_1.get_inner();
-        let event_selectors_binding_1 = args.event_selectors.get_output(context);
-        let event_selectors_binding = event_selectors_binding_1.get_inner();
-        let include_global_service_events_binding_1 = args
+        let enable_logging_binding = args.enable_logging.get_output(context);
+        let event_selectors_binding = args.event_selectors.get_output(context);
+        let include_global_service_events_binding = args
             .include_global_service_events
             .get_output(context);
-        let include_global_service_events_binding = include_global_service_events_binding_1
-            .get_inner();
-        let insight_selectors_binding_1 = args.insight_selectors.get_output(context);
-        let insight_selectors_binding = insight_selectors_binding_1.get_inner();
-        let is_multi_region_trail_binding_1 = args
+        let insight_selectors_binding = args.insight_selectors.get_output(context);
+        let is_multi_region_trail_binding = args
             .is_multi_region_trail
             .get_output(context);
-        let is_multi_region_trail_binding = is_multi_region_trail_binding_1.get_inner();
-        let is_organization_trail_binding_1 = args
+        let is_organization_trail_binding = args
             .is_organization_trail
             .get_output(context);
-        let is_organization_trail_binding = is_organization_trail_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let s3_bucket_name_binding_1 = args.s3_bucket_name.get_output(context);
-        let s3_bucket_name_binding = s3_bucket_name_binding_1.get_inner();
-        let s3_key_prefix_binding_1 = args.s3_key_prefix.get_output(context);
-        let s3_key_prefix_binding = s3_key_prefix_binding_1.get_inner();
-        let sns_topic_name_binding_1 = args.sns_topic_name.get_output(context);
-        let sns_topic_name_binding = sns_topic_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let s3_bucket_name_binding = args.s3_bucket_name.get_output(context);
+        let s3_key_prefix_binding = args.s3_key_prefix.get_output(context);
+        let sns_topic_name_binding = args.sns_topic_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudtrail/trail:Trail".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedEventSelectors".into(),
-                    value: &advanced_event_selectors_binding,
+                    value: advanced_event_selectors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudWatchLogsGroupArn".into(),
-                    value: &cloud_watch_logs_group_arn_binding,
+                    value: cloud_watch_logs_group_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudWatchLogsRoleArn".into(),
-                    value: &cloud_watch_logs_role_arn_binding,
+                    value: cloud_watch_logs_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogFileValidation".into(),
-                    value: &enable_log_file_validation_binding,
+                    value: enable_log_file_validation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: &enable_logging_binding,
+                    value: enable_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSelectors".into(),
-                    value: &event_selectors_binding,
+                    value: event_selectors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeGlobalServiceEvents".into(),
-                    value: &include_global_service_events_binding,
+                    value: include_global_service_events_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insightSelectors".into(),
-                    value: &insight_selectors_binding,
+                    value: insight_selectors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isMultiRegionTrail".into(),
-                    value: &is_multi_region_trail_binding,
+                    value: is_multi_region_trail_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isOrganizationTrail".into(),
-                    value: &is_organization_trail_binding,
+                    value: is_organization_trail_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketName".into(),
-                    value: &s3_bucket_name_binding,
+                    value: s3_bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3KeyPrefix".into(),
-                    value: &s3_key_prefix_binding,
+                    value: s3_key_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicName".into(),
-                    value: &sns_topic_name_binding,
+                    value: sns_topic_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrailResult {
-            advanced_event_selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedEventSelectors"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cloud_watch_logs_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudWatchLogsGroupArn"),
-            ),
-            cloud_watch_logs_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudWatchLogsRoleArn"),
-            ),
-            enable_log_file_validation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLogFileValidation"),
-            ),
-            enable_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLogging"),
-            ),
-            event_selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventSelectors"),
-            ),
-            home_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeRegion"),
-            ),
-            include_global_service_events: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeGlobalServiceEvents"),
-            ),
-            insight_selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insightSelectors"),
-            ),
-            is_multi_region_trail: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isMultiRegionTrail"),
-            ),
-            is_organization_trail: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isOrganizationTrail"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            s3_bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3BucketName"),
-            ),
-            s3_key_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3KeyPrefix"),
-            ),
-            sns_topic_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsTopicName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            advanced_event_selectors: o.get_field("advancedEventSelectors"),
+            arn: o.get_field("arn"),
+            cloud_watch_logs_group_arn: o.get_field("cloudWatchLogsGroupArn"),
+            cloud_watch_logs_role_arn: o.get_field("cloudWatchLogsRoleArn"),
+            enable_log_file_validation: o.get_field("enableLogFileValidation"),
+            enable_logging: o.get_field("enableLogging"),
+            event_selectors: o.get_field("eventSelectors"),
+            home_region: o.get_field("homeRegion"),
+            include_global_service_events: o.get_field("includeGlobalServiceEvents"),
+            insight_selectors: o.get_field("insightSelectors"),
+            is_multi_region_trail: o.get_field("isMultiRegionTrail"),
+            is_organization_trail: o.get_field("isOrganizationTrail"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            name: o.get_field("name"),
+            s3_bucket_name: o.get_field("s3BucketName"),
+            s3_key_prefix: o.get_field("s3KeyPrefix"),
+            sns_topic_name: o.get_field("snsTopicName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

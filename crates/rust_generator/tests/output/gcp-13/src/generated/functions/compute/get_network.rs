@@ -44,63 +44,45 @@ pub mod get_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkArgs,
     ) -> GetNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_profile_binding_1 = args.network_profile.get_output(context);
-        let network_profile_binding = network_profile_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let network_profile_binding = args.network_profile.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getNetwork:getNetwork".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: &network_profile_binding,
+                    value: network_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            gateway_ipv4: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayIpv4"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            internal_ipv6_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalIpv6Range"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfile"),
-            ),
-            numeric_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numericId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            subnetworks_self_links: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetworksSelfLinks"),
-            ),
+            description: o.get_field("description"),
+            gateway_ipv4: o.get_field("gatewayIpv4"),
+            id: o.get_field("id"),
+            internal_ipv6_range: o.get_field("internalIpv6Range"),
+            name: o.get_field("name"),
+            network_profile: o.get_field("networkProfile"),
+            numeric_id: o.get_field("numericId"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
+            subnetworks_self_links: o.get_field("subnetworksSelfLinks"),
         }
     }
 }

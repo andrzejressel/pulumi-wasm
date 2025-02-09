@@ -164,123 +164,92 @@ pub mod subnet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubnetArgs,
     ) -> SubnetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_prefixes_binding_1 = args.address_prefixes.get_output(context);
-        let address_prefixes_binding = address_prefixes_binding_1.get_inner();
-        let default_outbound_access_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_prefixes_binding = args.address_prefixes.get_output(context);
+        let default_outbound_access_enabled_binding = args
             .default_outbound_access_enabled
             .get_output(context);
-        let default_outbound_access_enabled_binding = default_outbound_access_enabled_binding_1
-            .get_inner();
-        let delegations_binding_1 = args.delegations.get_output(context);
-        let delegations_binding = delegations_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_endpoint_network_policies_binding_1 = args
+        let delegations_binding = args.delegations.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let private_endpoint_network_policies_binding = args
             .private_endpoint_network_policies
             .get_output(context);
-        let private_endpoint_network_policies_binding = private_endpoint_network_policies_binding_1
-            .get_inner();
-        let private_link_service_network_policies_enabled_binding_1 = args
+        let private_link_service_network_policies_enabled_binding = args
             .private_link_service_network_policies_enabled
             .get_output(context);
-        let private_link_service_network_policies_enabled_binding = private_link_service_network_policies_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_endpoint_policy_ids_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_endpoint_policy_ids_binding = args
             .service_endpoint_policy_ids
             .get_output(context);
-        let service_endpoint_policy_ids_binding = service_endpoint_policy_ids_binding_1
-            .get_inner();
-        let service_endpoints_binding_1 = args.service_endpoints.get_output(context);
-        let service_endpoints_binding = service_endpoints_binding_1.get_inner();
-        let virtual_network_name_binding_1 = args
-            .virtual_network_name
-            .get_output(context);
-        let virtual_network_name_binding = virtual_network_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let service_endpoints_binding = args.service_endpoints.get_output(context);
+        let virtual_network_name_binding = args.virtual_network_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/subnet:Subnet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefixes".into(),
-                    value: &address_prefixes_binding,
+                    value: address_prefixes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultOutboundAccessEnabled".into(),
-                    value: &default_outbound_access_enabled_binding,
+                    value: default_outbound_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegations".into(),
-                    value: &delegations_binding,
+                    value: delegations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateEndpointNetworkPolicies".into(),
-                    value: &private_endpoint_network_policies_binding,
+                    value: private_endpoint_network_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkServiceNetworkPoliciesEnabled".into(),
-                    value: &private_link_service_network_policies_enabled_binding,
+                    value: private_link_service_network_policies_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceEndpointPolicyIds".into(),
-                    value: &service_endpoint_policy_ids_binding,
+                    value: service_endpoint_policy_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceEndpoints".into(),
-                    value: &service_endpoints_binding,
+                    value: service_endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkName".into(),
-                    value: &virtual_network_name_binding,
+                    value: virtual_network_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubnetResult {
-            address_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressPrefixes"),
-            ),
-            default_outbound_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultOutboundAccessEnabled"),
-            ),
-            delegations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_endpoint_network_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpointNetworkPolicies"),
-            ),
-            private_link_service_network_policies_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkServiceNetworkPoliciesEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_endpoint_policy_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceEndpointPolicyIds"),
-            ),
-            service_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceEndpoints"),
-            ),
-            virtual_network_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkName"),
-            ),
+            address_prefixes: o.get_field("addressPrefixes"),
+            default_outbound_access_enabled: o.get_field("defaultOutboundAccessEnabled"),
+            delegations: o.get_field("delegations"),
+            name: o.get_field("name"),
+            private_endpoint_network_policies: o
+                .get_field("privateEndpointNetworkPolicies"),
+            private_link_service_network_policies_enabled: o
+                .get_field("privateLinkServiceNetworkPoliciesEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_endpoint_policy_ids: o.get_field("serviceEndpointPolicyIds"),
+            service_endpoints: o.get_field("serviceEndpoints"),
+            virtual_network_name: o.get_field("virtualNetworkName"),
         }
     }
 }

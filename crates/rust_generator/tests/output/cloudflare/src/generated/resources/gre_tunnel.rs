@@ -102,121 +102,92 @@ pub mod gre_tunnel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GreTunnelArgs,
     ) -> GreTunnelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let cloudflare_gre_endpoint_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let cloudflare_gre_endpoint_binding = args
             .cloudflare_gre_endpoint
             .get_output(context);
-        let cloudflare_gre_endpoint_binding = cloudflare_gre_endpoint_binding_1
-            .get_inner();
-        let customer_gre_endpoint_binding_1 = args
+        let customer_gre_endpoint_binding = args
             .customer_gre_endpoint
             .get_output(context);
-        let customer_gre_endpoint_binding = customer_gre_endpoint_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let health_check_enabled_binding_1 = args
-            .health_check_enabled
-            .get_output(context);
-        let health_check_enabled_binding = health_check_enabled_binding_1.get_inner();
-        let health_check_target_binding_1 = args.health_check_target.get_output(context);
-        let health_check_target_binding = health_check_target_binding_1.get_inner();
-        let health_check_type_binding_1 = args.health_check_type.get_output(context);
-        let health_check_type_binding = health_check_type_binding_1.get_inner();
-        let interface_address_binding_1 = args.interface_address.get_output(context);
-        let interface_address_binding = interface_address_binding_1.get_inner();
-        let mtu_binding_1 = args.mtu.get_output(context);
-        let mtu_binding = mtu_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let health_check_enabled_binding = args.health_check_enabled.get_output(context);
+        let health_check_target_binding = args.health_check_target.get_output(context);
+        let health_check_type_binding = args.health_check_type.get_output(context);
+        let interface_address_binding = args.interface_address.get_output(context);
+        let mtu_binding = args.mtu.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/greTunnel:GreTunnel".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudflareGreEndpoint".into(),
-                    value: &cloudflare_gre_endpoint_binding,
+                    value: cloudflare_gre_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerGreEndpoint".into(),
-                    value: &customer_gre_endpoint_binding,
+                    value: customer_gre_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckEnabled".into(),
-                    value: &health_check_enabled_binding,
+                    value: health_check_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckTarget".into(),
-                    value: &health_check_target_binding,
+                    value: health_check_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckType".into(),
-                    value: &health_check_type_binding,
+                    value: health_check_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interfaceAddress".into(),
-                    value: &interface_address_binding,
+                    value: interface_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtu".into(),
-                    value: &mtu_binding,
+                    value: mtu_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GreTunnelResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            cloudflare_gre_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudflareGreEndpoint"),
-            ),
-            customer_gre_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerGreEndpoint"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            health_check_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckEnabled"),
-            ),
-            health_check_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckTarget"),
-            ),
-            health_check_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckType"),
-            ),
-            interface_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interfaceAddress"),
-            ),
-            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            account_id: o.get_field("accountId"),
+            cloudflare_gre_endpoint: o.get_field("cloudflareGreEndpoint"),
+            customer_gre_endpoint: o.get_field("customerGreEndpoint"),
+            description: o.get_field("description"),
+            health_check_enabled: o.get_field("healthCheckEnabled"),
+            health_check_target: o.get_field("healthCheckTarget"),
+            health_check_type: o.get_field("healthCheckType"),
+            interface_address: o.get_field("interfaceAddress"),
+            mtu: o.get_field("mtu"),
+            name: o.get_field("name"),
+            ttl: o.get_field("ttl"),
         }
     }
 }

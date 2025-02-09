@@ -189,199 +189,143 @@ pub mod spark_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SparkPoolArgs,
     ) -> SparkPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_pause_binding_1 = args.auto_pause.get_output(context);
-        let auto_pause_binding = auto_pause_binding_1.get_inner();
-        let auto_scale_binding_1 = args.auto_scale.get_output(context);
-        let auto_scale_binding = auto_scale_binding_1.get_inner();
-        let cache_size_binding_1 = args.cache_size.get_output(context);
-        let cache_size_binding = cache_size_binding_1.get_inner();
-        let compute_isolation_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_pause_binding = args.auto_pause.get_output(context);
+        let auto_scale_binding = args.auto_scale.get_output(context);
+        let cache_size_binding = args.cache_size.get_output(context);
+        let compute_isolation_enabled_binding = args
             .compute_isolation_enabled
             .get_output(context);
-        let compute_isolation_enabled_binding = compute_isolation_enabled_binding_1
-            .get_inner();
-        let dynamic_executor_allocation_enabled_binding_1 = args
+        let dynamic_executor_allocation_enabled_binding = args
             .dynamic_executor_allocation_enabled
             .get_output(context);
-        let dynamic_executor_allocation_enabled_binding = dynamic_executor_allocation_enabled_binding_1
-            .get_inner();
-        let library_requirement_binding_1 = args.library_requirement.get_output(context);
-        let library_requirement_binding = library_requirement_binding_1.get_inner();
-        let max_executors_binding_1 = args.max_executors.get_output(context);
-        let max_executors_binding = max_executors_binding_1.get_inner();
-        let min_executors_binding_1 = args.min_executors.get_output(context);
-        let min_executors_binding = min_executors_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_count_binding_1 = args.node_count.get_output(context);
-        let node_count_binding = node_count_binding_1.get_inner();
-        let node_size_binding_1 = args.node_size.get_output(context);
-        let node_size_binding = node_size_binding_1.get_inner();
-        let node_size_family_binding_1 = args.node_size_family.get_output(context);
-        let node_size_family_binding = node_size_family_binding_1.get_inner();
-        let session_level_packages_enabled_binding_1 = args
+        let library_requirement_binding = args.library_requirement.get_output(context);
+        let max_executors_binding = args.max_executors.get_output(context);
+        let min_executors_binding = args.min_executors.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_count_binding = args.node_count.get_output(context);
+        let node_size_binding = args.node_size.get_output(context);
+        let node_size_family_binding = args.node_size_family.get_output(context);
+        let session_level_packages_enabled_binding = args
             .session_level_packages_enabled
             .get_output(context);
-        let session_level_packages_enabled_binding = session_level_packages_enabled_binding_1
-            .get_inner();
-        let spark_config_binding_1 = args.spark_config.get_output(context);
-        let spark_config_binding = spark_config_binding_1.get_inner();
-        let spark_events_folder_binding_1 = args.spark_events_folder.get_output(context);
-        let spark_events_folder_binding = spark_events_folder_binding_1.get_inner();
-        let spark_log_folder_binding_1 = args.spark_log_folder.get_output(context);
-        let spark_log_folder_binding = spark_log_folder_binding_1.get_inner();
-        let spark_version_binding_1 = args.spark_version.get_output(context);
-        let spark_version_binding = spark_version_binding_1.get_inner();
-        let synapse_workspace_id_binding_1 = args
-            .synapse_workspace_id
-            .get_output(context);
-        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let spark_config_binding = args.spark_config.get_output(context);
+        let spark_events_folder_binding = args.spark_events_folder.get_output(context);
+        let spark_log_folder_binding = args.spark_log_folder.get_output(context);
+        let spark_version_binding = args.spark_version.get_output(context);
+        let synapse_workspace_id_binding = args.synapse_workspace_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:synapse/sparkPool:SparkPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoPause".into(),
-                    value: &auto_pause_binding,
+                    value: auto_pause_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScale".into(),
-                    value: &auto_scale_binding,
+                    value: auto_scale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheSize".into(),
-                    value: &cache_size_binding,
+                    value: cache_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeIsolationEnabled".into(),
-                    value: &compute_isolation_enabled_binding,
+                    value: compute_isolation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicExecutorAllocationEnabled".into(),
-                    value: &dynamic_executor_allocation_enabled_binding,
+                    value: dynamic_executor_allocation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "libraryRequirement".into(),
-                    value: &library_requirement_binding,
+                    value: library_requirement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxExecutors".into(),
-                    value: &max_executors_binding,
+                    value: max_executors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minExecutors".into(),
-                    value: &min_executors_binding,
+                    value: min_executors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: &node_count_binding,
+                    value: node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeSize".into(),
-                    value: &node_size_binding,
+                    value: node_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeSizeFamily".into(),
-                    value: &node_size_family_binding,
+                    value: node_size_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionLevelPackagesEnabled".into(),
-                    value: &session_level_packages_enabled_binding,
+                    value: session_level_packages_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkConfig".into(),
-                    value: &spark_config_binding,
+                    value: spark_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkEventsFolder".into(),
-                    value: &spark_events_folder_binding,
+                    value: spark_events_folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkLogFolder".into(),
-                    value: &spark_log_folder_binding,
+                    value: spark_log_folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkVersion".into(),
-                    value: &spark_version_binding,
+                    value: spark_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: &synapse_workspace_id_binding,
+                    value: synapse_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SparkPoolResult {
-            auto_pause: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoPause"),
-            ),
-            auto_scale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScale"),
-            ),
-            cache_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheSize"),
-            ),
-            compute_isolation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeIsolationEnabled"),
-            ),
-            dynamic_executor_allocation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamicExecutorAllocationEnabled"),
-            ),
-            library_requirement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("libraryRequirement"),
-            ),
-            max_executors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxExecutors"),
-            ),
-            min_executors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minExecutors"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeCount"),
-            ),
-            node_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeSize"),
-            ),
-            node_size_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeSizeFamily"),
-            ),
-            session_level_packages_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionLevelPackagesEnabled"),
-            ),
-            spark_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkConfig"),
-            ),
-            spark_events_folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkEventsFolder"),
-            ),
-            spark_log_folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkLogFolder"),
-            ),
-            spark_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkVersion"),
-            ),
-            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synapseWorkspaceId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            auto_pause: o.get_field("autoPause"),
+            auto_scale: o.get_field("autoScale"),
+            cache_size: o.get_field("cacheSize"),
+            compute_isolation_enabled: o.get_field("computeIsolationEnabled"),
+            dynamic_executor_allocation_enabled: o
+                .get_field("dynamicExecutorAllocationEnabled"),
+            library_requirement: o.get_field("libraryRequirement"),
+            max_executors: o.get_field("maxExecutors"),
+            min_executors: o.get_field("minExecutors"),
+            name: o.get_field("name"),
+            node_count: o.get_field("nodeCount"),
+            node_size: o.get_field("nodeSize"),
+            node_size_family: o.get_field("nodeSizeFamily"),
+            session_level_packages_enabled: o.get_field("sessionLevelPackagesEnabled"),
+            spark_config: o.get_field("sparkConfig"),
+            spark_events_folder: o.get_field("sparkEventsFolder"),
+            spark_log_folder: o.get_field("sparkLogFolder"),
+            spark_version: o.get_field("sparkVersion"),
+            synapse_workspace_id: o.get_field("synapseWorkspaceId"),
+            tags: o.get_field("tags"),
         }
     }
 }

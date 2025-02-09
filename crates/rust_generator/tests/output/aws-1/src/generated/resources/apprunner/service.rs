@@ -194,132 +194,93 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_configuration_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_scaling_configuration_arn_binding = args
             .auto_scaling_configuration_arn
             .get_output(context);
-        let auto_scaling_configuration_arn_binding = auto_scaling_configuration_arn_binding_1
-            .get_inner();
-        let encryption_configuration_binding_1 = args
+        let encryption_configuration_binding = args
             .encryption_configuration
             .get_output(context);
-        let encryption_configuration_binding = encryption_configuration_binding_1
-            .get_inner();
-        let health_check_configuration_binding_1 = args
+        let health_check_configuration_binding = args
             .health_check_configuration
             .get_output(context);
-        let health_check_configuration_binding = health_check_configuration_binding_1
-            .get_inner();
-        let instance_configuration_binding_1 = args
+        let instance_configuration_binding = args
             .instance_configuration
             .get_output(context);
-        let instance_configuration_binding = instance_configuration_binding_1
-            .get_inner();
-        let network_configuration_binding_1 = args
+        let network_configuration_binding = args
             .network_configuration
             .get_output(context);
-        let network_configuration_binding = network_configuration_binding_1.get_inner();
-        let observability_configuration_binding_1 = args
+        let observability_configuration_binding = args
             .observability_configuration
             .get_output(context);
-        let observability_configuration_binding = observability_configuration_binding_1
-            .get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let source_configuration_binding_1 = args
-            .source_configuration
-            .get_output(context);
-        let source_configuration_binding = source_configuration_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let service_name_binding = args.service_name.get_output(context);
+        let source_configuration_binding = args.source_configuration.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apprunner/service:Service".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingConfigurationArn".into(),
-                    value: &auto_scaling_configuration_arn_binding,
+                    value: auto_scaling_configuration_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: &encryption_configuration_binding,
+                    value: encryption_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckConfiguration".into(),
-                    value: &health_check_configuration_binding,
+                    value: health_check_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceConfiguration".into(),
-                    value: &instance_configuration_binding,
+                    value: instance_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: &network_configuration_binding,
+                    value: network_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "observabilityConfiguration".into(),
-                    value: &observability_configuration_binding,
+                    value: observability_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceConfiguration".into(),
-                    value: &source_configuration_binding,
+                    value: source_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_scaling_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingConfigurationArn"),
-            ),
-            encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfiguration"),
-            ),
-            health_check_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckConfiguration"),
-            ),
-            instance_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceConfiguration"),
-            ),
-            network_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfiguration"),
-            ),
-            observability_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("observabilityConfiguration"),
-            ),
-            service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceId"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            service_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceUrl"),
-            ),
-            source_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceConfiguration"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            auto_scaling_configuration_arn: o.get_field("autoScalingConfigurationArn"),
+            encryption_configuration: o.get_field("encryptionConfiguration"),
+            health_check_configuration: o.get_field("healthCheckConfiguration"),
+            instance_configuration: o.get_field("instanceConfiguration"),
+            network_configuration: o.get_field("networkConfiguration"),
+            observability_configuration: o.get_field("observabilityConfiguration"),
+            service_id: o.get_field("serviceId"),
+            service_name: o.get_field("serviceName"),
+            service_url: o.get_field("serviceUrl"),
+            source_configuration: o.get_field("sourceConfiguration"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

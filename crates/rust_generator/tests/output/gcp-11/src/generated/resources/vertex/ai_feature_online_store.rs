@@ -230,119 +230,84 @@ pub mod ai_feature_online_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AiFeatureOnlineStoreArgs,
     ) -> AiFeatureOnlineStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigtable_binding_1 = args.bigtable.get_output(context);
-        let bigtable_binding = bigtable_binding_1.get_inner();
-        let dedicated_serving_endpoint_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bigtable_binding = args.bigtable.get_output(context);
+        let dedicated_serving_endpoint_binding = args
             .dedicated_serving_endpoint
             .get_output(context);
-        let dedicated_serving_endpoint_binding = dedicated_serving_endpoint_binding_1
-            .get_inner();
-        let embedding_management_binding_1 = args
-            .embedding_management
-            .get_output(context);
-        let embedding_management_binding = embedding_management_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let optimized_binding_1 = args.optimized.get_output(context);
-        let optimized_binding = optimized_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let embedding_management_binding = args.embedding_management.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let optimized_binding = args.optimized.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureOnlineStore:AiFeatureOnlineStore".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigtable".into(),
-                    value: &bigtable_binding,
+                    value: bigtable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedServingEndpoint".into(),
-                    value: &dedicated_serving_endpoint_binding,
+                    value: dedicated_serving_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "embeddingManagement".into(),
-                    value: &embedding_management_binding,
+                    value: embedding_management_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optimized".into(),
-                    value: &optimized_binding,
+                    value: optimized_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AiFeatureOnlineStoreResult {
-            bigtable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigtable"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            dedicated_serving_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedServingEndpoint"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            embedding_management: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("embeddingManagement"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optimized"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            bigtable: o.get_field("bigtable"),
+            create_time: o.get_field("createTime"),
+            dedicated_serving_endpoint: o.get_field("dedicatedServingEndpoint"),
+            effective_labels: o.get_field("effectiveLabels"),
+            embedding_management: o.get_field("embeddingManagement"),
+            etag: o.get_field("etag"),
+            force_destroy: o.get_field("forceDestroy"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            optimized: o.get_field("optimized"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            state: o.get_field("state"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

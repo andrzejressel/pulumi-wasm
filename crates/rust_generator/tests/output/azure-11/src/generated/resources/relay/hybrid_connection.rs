@@ -80,69 +80,54 @@ pub mod hybrid_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HybridConnectionArgs,
     ) -> HybridConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let relay_namespace_name_binding_1 = args
-            .relay_namespace_name
-            .get_output(context);
-        let relay_namespace_name_binding = relay_namespace_name_binding_1.get_inner();
-        let requires_client_authorization_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let relay_namespace_name_binding = args.relay_namespace_name.get_output(context);
+        let requires_client_authorization_binding = args
             .requires_client_authorization
             .get_output(context);
-        let requires_client_authorization_binding = requires_client_authorization_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let user_metadata_binding_1 = args.user_metadata.get_output(context);
-        let user_metadata_binding = user_metadata_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let user_metadata_binding = args.user_metadata.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:relay/hybridConnection:HybridConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relayNamespaceName".into(),
-                    value: &relay_namespace_name_binding,
+                    value: relay_namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiresClientAuthorization".into(),
-                    value: &requires_client_authorization_binding,
+                    value: requires_client_authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userMetadata".into(),
-                    value: &user_metadata_binding,
+                    value: user_metadata_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HybridConnectionResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            relay_namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relayNamespaceName"),
-            ),
-            requires_client_authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiresClientAuthorization"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            user_metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userMetadata"),
-            ),
+            name: o.get_field("name"),
+            relay_namespace_name: o.get_field("relayNamespaceName"),
+            requires_client_authorization: o.get_field("requiresClientAuthorization"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            user_metadata: o.get_field("userMetadata"),
         }
     }
 }

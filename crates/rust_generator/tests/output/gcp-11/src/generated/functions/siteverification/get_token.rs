@@ -36,46 +36,40 @@ pub mod get_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTokenArgs,
     ) -> GetTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identifier_binding_1 = args.identifier.get_output(context);
-        let identifier_binding = identifier_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let verification_method_binding_1 = args.verification_method.get_output(context);
-        let verification_method_binding = verification_method_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let identifier_binding = args.identifier.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let verification_method_binding = args.verification_method.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:siteverification/getToken:getToken".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: &identifier_binding,
+                    value: identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationMethod".into(),
-                    value: &verification_method_binding,
+                    value: verification_method_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTokenResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifier"),
-            ),
-            token: pulumi_gestalt_rust::__private::into_domain(o.extract_field("token")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            verification_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verificationMethod"),
-            ),
+            id: o.get_field("id"),
+            identifier: o.get_field("identifier"),
+            token: o.get_field("token"),
+            type_: o.get_field("type"),
+            verification_method: o.get_field("verificationMethod"),
         }
     }
 }

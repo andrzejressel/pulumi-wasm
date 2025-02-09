@@ -233,143 +233,107 @@ pub mod directory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DirectoryArgs,
     ) -> DirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let connect_settings_binding_1 = args.connect_settings.get_output(context);
-        let connect_settings_binding = connect_settings_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let desired_number_of_domain_controllers_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let connect_settings_binding = args.connect_settings.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let desired_number_of_domain_controllers_binding = args
             .desired_number_of_domain_controllers
             .get_output(context);
-        let desired_number_of_domain_controllers_binding = desired_number_of_domain_controllers_binding_1
-            .get_inner();
-        let edition_binding_1 = args.edition.get_output(context);
-        let edition_binding = edition_binding_1.get_inner();
-        let enable_sso_binding_1 = args.enable_sso.get_output(context);
-        let enable_sso_binding = enable_sso_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let short_name_binding_1 = args.short_name.get_output(context);
-        let short_name_binding = short_name_binding_1.get_inner();
-        let size_binding_1 = args.size.get_output(context);
-        let size_binding = size_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let vpc_settings_binding_1 = args.vpc_settings.get_output(context);
-        let vpc_settings_binding = vpc_settings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let edition_binding = args.edition.get_output(context);
+        let enable_sso_binding = args.enable_sso.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let short_name_binding = args.short_name.get_output(context);
+        let size_binding = args.size.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let vpc_settings_binding = args.vpc_settings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:directoryservice/directory:Directory".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectSettings".into(),
-                    value: &connect_settings_binding,
+                    value: connect_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredNumberOfDomainControllers".into(),
-                    value: &desired_number_of_domain_controllers_binding,
+                    value: desired_number_of_domain_controllers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: &edition_binding,
+                    value: edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSso".into(),
-                    value: &enable_sso_binding,
+                    value: enable_sso_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortName".into(),
-                    value: &short_name_binding,
+                    value: short_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: &size_binding,
+                    value: size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSettings".into(),
-                    value: &vpc_settings_binding,
+                    value: vpc_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DirectoryResult {
-            access_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessUrl"),
-            ),
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            connect_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectSettings"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            desired_number_of_domain_controllers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredNumberOfDomainControllers"),
-            ),
-            dns_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsIpAddresses"),
-            ),
-            edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edition"),
-            ),
-            enable_sso: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSso"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupId"),
-            ),
-            short_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortName"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vpc_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSettings"),
-            ),
+            access_url: o.get_field("accessUrl"),
+            alias: o.get_field("alias"),
+            connect_settings: o.get_field("connectSettings"),
+            description: o.get_field("description"),
+            desired_number_of_domain_controllers: o
+                .get_field("desiredNumberOfDomainControllers"),
+            dns_ip_addresses: o.get_field("dnsIpAddresses"),
+            edition: o.get_field("edition"),
+            enable_sso: o.get_field("enableSso"),
+            name: o.get_field("name"),
+            password: o.get_field("password"),
+            security_group_id: o.get_field("securityGroupId"),
+            short_name: o.get_field("shortName"),
+            size: o.get_field("size"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            vpc_settings: o.get_field("vpcSettings"),
         }
     }
 }

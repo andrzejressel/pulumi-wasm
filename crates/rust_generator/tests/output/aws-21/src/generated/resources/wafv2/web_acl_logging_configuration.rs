@@ -128,61 +128,49 @@ pub mod web_acl_logging_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebAclLoggingConfigurationArgs,
     ) -> WebAclLoggingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_destination_configs_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let log_destination_configs_binding = args
             .log_destination_configs
             .get_output(context);
-        let log_destination_configs_binding = log_destination_configs_binding_1
-            .get_inner();
-        let logging_filter_binding_1 = args.logging_filter.get_output(context);
-        let logging_filter_binding = logging_filter_binding_1.get_inner();
-        let redacted_fields_binding_1 = args.redacted_fields.get_output(context);
-        let redacted_fields_binding = redacted_fields_binding_1.get_inner();
-        let resource_arn_binding_1 = args.resource_arn.get_output(context);
-        let resource_arn_binding = resource_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let logging_filter_binding = args.logging_filter.get_output(context);
+        let redacted_fields_binding = args.redacted_fields.get_output(context);
+        let resource_arn_binding = args.resource_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDestinationConfigs".into(),
-                    value: &log_destination_configs_binding,
+                    value: log_destination_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingFilter".into(),
-                    value: &logging_filter_binding,
+                    value: logging_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redactedFields".into(),
-                    value: &redacted_fields_binding,
+                    value: redacted_fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: &resource_arn_binding,
+                    value: resource_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebAclLoggingConfigurationResult {
-            log_destination_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDestinationConfigs"),
-            ),
-            logging_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingFilter"),
-            ),
-            redacted_fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redactedFields"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
+            log_destination_configs: o.get_field("logDestinationConfigs"),
+            logging_filter: o.get_field("loggingFilter"),
+            redacted_fields: o.get_field("redactedFields"),
+            resource_arn: o.get_field("resourceArn"),
         }
     }
 }

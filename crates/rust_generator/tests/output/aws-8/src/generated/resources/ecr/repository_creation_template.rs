@@ -149,111 +149,80 @@ pub mod repository_creation_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryCreationTemplateArgs,
     ) -> RepositoryCreationTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let applied_fors_binding_1 = args.applied_fors.get_output(context);
-        let applied_fors_binding = applied_fors_binding_1.get_inner();
-        let custom_role_arn_binding_1 = args.custom_role_arn.get_output(context);
-        let custom_role_arn_binding = custom_role_arn_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let encryption_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let applied_fors_binding = args.applied_fors.get_output(context);
+        let custom_role_arn_binding = args.custom_role_arn.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let encryption_configurations_binding = args
             .encryption_configurations
             .get_output(context);
-        let encryption_configurations_binding = encryption_configurations_binding_1
-            .get_inner();
-        let image_tag_mutability_binding_1 = args
-            .image_tag_mutability
-            .get_output(context);
-        let image_tag_mutability_binding = image_tag_mutability_binding_1.get_inner();
-        let lifecycle_policy_binding_1 = args.lifecycle_policy.get_output(context);
-        let lifecycle_policy_binding = lifecycle_policy_binding_1.get_inner();
-        let prefix_binding_1 = args.prefix.get_output(context);
-        let prefix_binding = prefix_binding_1.get_inner();
-        let repository_policy_binding_1 = args.repository_policy.get_output(context);
-        let repository_policy_binding = repository_policy_binding_1.get_inner();
-        let resource_tags_binding_1 = args.resource_tags.get_output(context);
-        let resource_tags_binding = resource_tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let image_tag_mutability_binding = args.image_tag_mutability.get_output(context);
+        let lifecycle_policy_binding = args.lifecycle_policy.get_output(context);
+        let prefix_binding = args.prefix.get_output(context);
+        let repository_policy_binding = args.repository_policy.get_output(context);
+        let resource_tags_binding = args.resource_tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appliedFors".into(),
-                    value: &applied_fors_binding,
+                    value: applied_fors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRoleArn".into(),
-                    value: &custom_role_arn_binding,
+                    value: custom_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfigurations".into(),
-                    value: &encryption_configurations_binding,
+                    value: encryption_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTagMutability".into(),
-                    value: &image_tag_mutability_binding,
+                    value: image_tag_mutability_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecyclePolicy".into(),
-                    value: &lifecycle_policy_binding,
+                    value: lifecycle_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: &prefix_binding,
+                    value: prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryPolicy".into(),
-                    value: &repository_policy_binding,
+                    value: repository_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: &resource_tags_binding,
+                    value: resource_tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryCreationTemplateResult {
-            applied_fors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appliedFors"),
-            ),
-            custom_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customRoleArn"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            encryption_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfigurations"),
-            ),
-            image_tag_mutability: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageTagMutability"),
-            ),
-            lifecycle_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecyclePolicy"),
-            ),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
-            repository_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryPolicy"),
-            ),
-            resource_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTags"),
-            ),
+            applied_fors: o.get_field("appliedFors"),
+            custom_role_arn: o.get_field("customRoleArn"),
+            description: o.get_field("description"),
+            encryption_configurations: o.get_field("encryptionConfigurations"),
+            image_tag_mutability: o.get_field("imageTagMutability"),
+            lifecycle_policy: o.get_field("lifecyclePolicy"),
+            prefix: o.get_field("prefix"),
+            registry_id: o.get_field("registryId"),
+            repository_policy: o.get_field("repositoryPolicy"),
+            resource_tags: o.get_field("resourceTags"),
         }
     }
 }

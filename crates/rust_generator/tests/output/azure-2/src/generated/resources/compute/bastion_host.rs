@@ -207,166 +207,123 @@ pub mod bastion_host {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BastionHostArgs,
     ) -> BastionHostResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_paste_enabled_binding_1 = args.copy_paste_enabled.get_output(context);
-        let copy_paste_enabled_binding = copy_paste_enabled_binding_1.get_inner();
-        let file_copy_enabled_binding_1 = args.file_copy_enabled.get_output(context);
-        let file_copy_enabled_binding = file_copy_enabled_binding_1.get_inner();
-        let ip_configuration_binding_1 = args.ip_configuration.get_output(context);
-        let ip_configuration_binding = ip_configuration_binding_1.get_inner();
-        let ip_connect_enabled_binding_1 = args.ip_connect_enabled.get_output(context);
-        let ip_connect_enabled_binding = ip_connect_enabled_binding_1.get_inner();
-        let kerberos_enabled_binding_1 = args.kerberos_enabled.get_output(context);
-        let kerberos_enabled_binding = kerberos_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let scale_units_binding_1 = args.scale_units.get_output(context);
-        let scale_units_binding = scale_units_binding_1.get_inner();
-        let session_recording_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let copy_paste_enabled_binding = args.copy_paste_enabled.get_output(context);
+        let file_copy_enabled_binding = args.file_copy_enabled.get_output(context);
+        let ip_configuration_binding = args.ip_configuration.get_output(context);
+        let ip_connect_enabled_binding = args.ip_connect_enabled.get_output(context);
+        let kerberos_enabled_binding = args.kerberos_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let scale_units_binding = args.scale_units.get_output(context);
+        let session_recording_enabled_binding = args
             .session_recording_enabled
             .get_output(context);
-        let session_recording_enabled_binding = session_recording_enabled_binding_1
-            .get_inner();
-        let shareable_link_enabled_binding_1 = args
+        let shareable_link_enabled_binding = args
             .shareable_link_enabled
             .get_output(context);
-        let shareable_link_enabled_binding = shareable_link_enabled_binding_1
-            .get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tunneling_enabled_binding_1 = args.tunneling_enabled.get_output(context);
-        let tunneling_enabled_binding = tunneling_enabled_binding_1.get_inner();
-        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
-        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tunneling_enabled_binding = args.tunneling_enabled.get_output(context);
+        let virtual_network_id_binding = args.virtual_network_id.get_output(context);
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/bastionHost:BastionHost".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyPasteEnabled".into(),
-                    value: &copy_paste_enabled_binding,
+                    value: copy_paste_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileCopyEnabled".into(),
-                    value: &file_copy_enabled_binding,
+                    value: file_copy_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfiguration".into(),
-                    value: &ip_configuration_binding,
+                    value: ip_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConnectEnabled".into(),
-                    value: &ip_connect_enabled_binding,
+                    value: ip_connect_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosEnabled".into(),
-                    value: &kerberos_enabled_binding,
+                    value: kerberos_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scaleUnits".into(),
-                    value: &scale_units_binding,
+                    value: scale_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionRecordingEnabled".into(),
-                    value: &session_recording_enabled_binding,
+                    value: session_recording_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareableLinkEnabled".into(),
-                    value: &shareable_link_enabled_binding,
+                    value: shareable_link_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnelingEnabled".into(),
-                    value: &tunneling_enabled_binding,
+                    value: tunneling_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: &virtual_network_id_binding,
+                    value: virtual_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BastionHostResult {
-            copy_paste_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyPasteEnabled"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            file_copy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileCopyEnabled"),
-            ),
-            ip_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfiguration"),
-            ),
-            ip_connect_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConnectEnabled"),
-            ),
-            kerberos_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            scale_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scaleUnits"),
-            ),
-            session_recording_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionRecordingEnabled"),
-            ),
-            shareable_link_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareableLinkEnabled"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tunneling_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnelingEnabled"),
-            ),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            copy_paste_enabled: o.get_field("copyPasteEnabled"),
+            dns_name: o.get_field("dnsName"),
+            file_copy_enabled: o.get_field("fileCopyEnabled"),
+            ip_configuration: o.get_field("ipConfiguration"),
+            ip_connect_enabled: o.get_field("ipConnectEnabled"),
+            kerberos_enabled: o.get_field("kerberosEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            scale_units: o.get_field("scaleUnits"),
+            session_recording_enabled: o.get_field("sessionRecordingEnabled"),
+            shareable_link_enabled: o.get_field("shareableLinkEnabled"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            tunneling_enabled: o.get_field("tunnelingEnabled"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
+            zones: o.get_field("zones"),
         }
     }
 }

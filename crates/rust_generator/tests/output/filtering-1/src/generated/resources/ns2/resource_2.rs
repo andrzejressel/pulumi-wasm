@@ -25,37 +25,34 @@ pub mod resource_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: Resource2Args,
     ) -> Resource2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let common_type_binding_1 = args.common_type.get_output(context);
-        let common_type_binding = common_type_binding_1.get_inner();
-        let type2_binding_1 = args.type2.get_output(context);
-        let type2_binding = type2_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let common_type_binding = args.common_type.get_output(context);
+        let type2_binding = args.type2.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "example:ns2:Resource2".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commonType".into(),
-                    value: &common_type_binding,
+                    value: common_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type2".into(),
-                    value: &type2_binding,
+                    value: type2_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         Resource2Result {
-            common_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commonType"),
-            ),
-            type2: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type2")),
+            common_type: o.get_field("commonType"),
+            type2: o.get_field("type2"),
         }
     }
 }

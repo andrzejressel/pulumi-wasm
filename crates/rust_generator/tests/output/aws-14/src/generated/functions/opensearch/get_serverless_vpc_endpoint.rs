@@ -29,41 +29,33 @@ pub mod get_serverless_vpc_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServerlessVpcEndpointArgs,
     ) -> GetServerlessVpcEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
-        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: &vpc_endpoint_id_binding,
+                    value: vpc_endpoint_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServerlessVpcEndpointResult {
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            vpc_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointId"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            created_date: o.get_field("createdDate"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            subnet_ids: o.get_field("subnetIds"),
+            vpc_endpoint_id: o.get_field("vpcEndpointId"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

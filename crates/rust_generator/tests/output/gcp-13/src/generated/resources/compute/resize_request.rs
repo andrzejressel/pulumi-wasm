@@ -181,93 +181,71 @@ pub mod resize_request {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResizeRequestArgs,
     ) -> ResizeRequestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let instance_group_manager_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let instance_group_manager_binding = args
             .instance_group_manager
             .get_output(context);
-        let instance_group_manager_binding = instance_group_manager_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let requested_run_duration_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let requested_run_duration_binding = args
             .requested_run_duration
             .get_output(context);
-        let requested_run_duration_binding = requested_run_duration_binding_1
-            .get_inner();
-        let resize_by_binding_1 = args.resize_by.get_output(context);
-        let resize_by_binding = resize_by_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resize_by_binding = args.resize_by.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/resizeRequest:ResizeRequest".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceGroupManager".into(),
-                    value: &instance_group_manager_binding,
+                    value: instance_group_manager_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestedRunDuration".into(),
-                    value: &requested_run_duration_binding,
+                    value: requested_run_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resizeBy".into(),
-                    value: &resize_by_binding,
+                    value: resize_by_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResizeRequestResult {
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            instance_group_manager: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceGroupManager"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            requested_run_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestedRunDuration"),
-            ),
-            resize_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resizeBy"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            instance_group_manager: o.get_field("instanceGroupManager"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            requested_run_duration: o.get_field("requestedRunDuration"),
+            resize_by: o.get_field("resizeBy"),
+            state: o.get_field("state"),
+            statuses: o.get_field("statuses"),
+            zone: o.get_field("zone"),
         }
     }
 }

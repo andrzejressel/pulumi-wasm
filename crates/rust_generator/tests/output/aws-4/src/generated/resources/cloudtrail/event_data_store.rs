@@ -143,112 +143,82 @@ pub mod event_data_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventDataStoreArgs,
     ) -> EventDataStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_event_selectors_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let advanced_event_selectors_binding = args
             .advanced_event_selectors
             .get_output(context);
-        let advanced_event_selectors_binding = advanced_event_selectors_binding_1
-            .get_inner();
-        let billing_mode_binding_1 = args.billing_mode.get_output(context);
-        let billing_mode_binding = billing_mode_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let multi_region_enabled_binding_1 = args
-            .multi_region_enabled
-            .get_output(context);
-        let multi_region_enabled_binding = multi_region_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let organization_enabled_binding_1 = args
-            .organization_enabled
-            .get_output(context);
-        let organization_enabled_binding = organization_enabled_binding_1.get_inner();
-        let retention_period_binding_1 = args.retention_period.get_output(context);
-        let retention_period_binding = retention_period_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let termination_protection_enabled_binding_1 = args
+        let billing_mode_binding = args.billing_mode.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let multi_region_enabled_binding = args.multi_region_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let organization_enabled_binding = args.organization_enabled.get_output(context);
+        let retention_period_binding = args.retention_period.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let termination_protection_enabled_binding = args
             .termination_protection_enabled
             .get_output(context);
-        let termination_protection_enabled_binding = termination_protection_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudtrail/eventDataStore:EventDataStore".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedEventSelectors".into(),
-                    value: &advanced_event_selectors_binding,
+                    value: advanced_event_selectors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingMode".into(),
-                    value: &billing_mode_binding,
+                    value: billing_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegionEnabled".into(),
-                    value: &multi_region_enabled_binding,
+                    value: multi_region_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationEnabled".into(),
-                    value: &organization_enabled_binding,
+                    value: organization_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: &retention_period_binding,
+                    value: retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminationProtectionEnabled".into(),
-                    value: &termination_protection_enabled_binding,
+                    value: termination_protection_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventDataStoreResult {
-            advanced_event_selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedEventSelectors"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            billing_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingMode"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            multi_region_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegionEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            organization_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationEnabled"),
-            ),
-            retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPeriod"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            termination_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminationProtectionEnabled"),
-            ),
+            advanced_event_selectors: o.get_field("advancedEventSelectors"),
+            arn: o.get_field("arn"),
+            billing_mode: o.get_field("billingMode"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            multi_region_enabled: o.get_field("multiRegionEnabled"),
+            name: o.get_field("name"),
+            organization_enabled: o.get_field("organizationEnabled"),
+            retention_period: o.get_field("retentionPeriod"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            termination_protection_enabled: o.get_field("terminationProtectionEnabled"),
         }
     }
 }

@@ -64,74 +64,42 @@ pub mod get_custom_model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCustomModelArgs,
     ) -> GetCustomModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let model_id_binding_1 = args.model_id.get_output(context);
-        let model_id_binding = model_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let model_id_binding = args.model_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:bedrock/getCustomModel:getCustomModel".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelId".into(),
-                    value: &model_id_binding,
+                    value: model_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCustomModelResult {
-            base_model_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseModelArn"),
-            ),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            hyperparameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hyperparameters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            job_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobArn"),
-            ),
-            job_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobName"),
-            ),
-            job_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobTags"),
-            ),
-            model_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelArn"),
-            ),
-            model_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelId"),
-            ),
-            model_kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelKmsKeyArn"),
-            ),
-            model_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelName"),
-            ),
-            model_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelTags"),
-            ),
-            output_data_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputDataConfigs"),
-            ),
-            training_data_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trainingDataConfigs"),
-            ),
-            training_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trainingMetrics"),
-            ),
-            validation_data_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationDataConfigs"),
-            ),
-            validation_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationMetrics"),
-            ),
+            base_model_arn: o.get_field("baseModelArn"),
+            creation_time: o.get_field("creationTime"),
+            hyperparameters: o.get_field("hyperparameters"),
+            id: o.get_field("id"),
+            job_arn: o.get_field("jobArn"),
+            job_name: o.get_field("jobName"),
+            job_tags: o.get_field("jobTags"),
+            model_arn: o.get_field("modelArn"),
+            model_id: o.get_field("modelId"),
+            model_kms_key_arn: o.get_field("modelKmsKeyArn"),
+            model_name: o.get_field("modelName"),
+            model_tags: o.get_field("modelTags"),
+            output_data_configs: o.get_field("outputDataConfigs"),
+            training_data_configs: o.get_field("trainingDataConfigs"),
+            training_metrics: o.get_field("trainingMetrics"),
+            validation_data_configs: o.get_field("validationDataConfigs"),
+            validation_metrics: o.get_field("validationMetrics"),
         }
     }
 }

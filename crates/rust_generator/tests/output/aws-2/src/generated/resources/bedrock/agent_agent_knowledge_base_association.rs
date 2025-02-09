@@ -83,78 +83,59 @@ pub mod agent_agent_knowledge_base_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgentAgentKnowledgeBaseAssociationArgs,
     ) -> AgentAgentKnowledgeBaseAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_id_binding_1 = args.agent_id.get_output(context);
-        let agent_id_binding = agent_id_binding_1.get_inner();
-        let agent_version_binding_1 = args.agent_version.get_output(context);
-        let agent_version_binding = agent_version_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let knowledge_base_id_binding_1 = args.knowledge_base_id.get_output(context);
-        let knowledge_base_id_binding = knowledge_base_id_binding_1.get_inner();
-        let knowledge_base_state_binding_1 = args
-            .knowledge_base_state
-            .get_output(context);
-        let knowledge_base_state_binding = knowledge_base_state_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_id_binding = args.agent_id.get_output(context);
+        let agent_version_binding = args.agent_version.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let knowledge_base_id_binding = args.knowledge_base_id.get_output(context);
+        let knowledge_base_state_binding = args.knowledge_base_state.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentId".into(),
-                    value: &agent_id_binding,
+                    value: agent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersion".into(),
-                    value: &agent_version_binding,
+                    value: agent_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "knowledgeBaseId".into(),
-                    value: &knowledge_base_id_binding,
+                    value: knowledge_base_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "knowledgeBaseState".into(),
-                    value: &knowledge_base_state_binding,
+                    value: knowledge_base_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgentAgentKnowledgeBaseAssociationResult {
-            agent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentId"),
-            ),
-            agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentVersion"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            knowledge_base_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("knowledgeBaseId"),
-            ),
-            knowledge_base_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("knowledgeBaseState"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            agent_id: o.get_field("agentId"),
+            agent_version: o.get_field("agentVersion"),
+            description: o.get_field("description"),
+            knowledge_base_id: o.get_field("knowledgeBaseId"),
+            knowledge_base_state: o.get_field("knowledgeBaseState"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

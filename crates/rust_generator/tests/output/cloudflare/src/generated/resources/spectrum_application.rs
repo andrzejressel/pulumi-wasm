@@ -124,134 +124,100 @@ pub mod spectrum_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpectrumApplicationArgs,
     ) -> SpectrumApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let argo_smart_routing_binding_1 = args.argo_smart_routing.get_output(context);
-        let argo_smart_routing_binding = argo_smart_routing_binding_1.get_inner();
-        let dns_binding_1 = args.dns.get_output(context);
-        let dns_binding = dns_binding_1.get_inner();
-        let edge_ips_binding_1 = args.edge_ips.get_output(context);
-        let edge_ips_binding = edge_ips_binding_1.get_inner();
-        let ip_firewall_binding_1 = args.ip_firewall.get_output(context);
-        let ip_firewall_binding = ip_firewall_binding_1.get_inner();
-        let origin_directs_binding_1 = args.origin_directs.get_output(context);
-        let origin_directs_binding = origin_directs_binding_1.get_inner();
-        let origin_dns_binding_1 = args.origin_dns.get_output(context);
-        let origin_dns_binding = origin_dns_binding_1.get_inner();
-        let origin_port_binding_1 = args.origin_port.get_output(context);
-        let origin_port_binding = origin_port_binding_1.get_inner();
-        let origin_port_range_binding_1 = args.origin_port_range.get_output(context);
-        let origin_port_range_binding = origin_port_range_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let proxy_protocol_binding_1 = args.proxy_protocol.get_output(context);
-        let proxy_protocol_binding = proxy_protocol_binding_1.get_inner();
-        let tls_binding_1 = args.tls.get_output(context);
-        let tls_binding = tls_binding_1.get_inner();
-        let traffic_type_binding_1 = args.traffic_type.get_output(context);
-        let traffic_type_binding = traffic_type_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let argo_smart_routing_binding = args.argo_smart_routing.get_output(context);
+        let dns_binding = args.dns.get_output(context);
+        let edge_ips_binding = args.edge_ips.get_output(context);
+        let ip_firewall_binding = args.ip_firewall.get_output(context);
+        let origin_directs_binding = args.origin_directs.get_output(context);
+        let origin_dns_binding = args.origin_dns.get_output(context);
+        let origin_port_binding = args.origin_port.get_output(context);
+        let origin_port_range_binding = args.origin_port_range.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let proxy_protocol_binding = args.proxy_protocol.get_output(context);
+        let tls_binding = args.tls.get_output(context);
+        let traffic_type_binding = args.traffic_type.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/spectrumApplication:SpectrumApplication".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "argoSmartRouting".into(),
-                    value: &argo_smart_routing_binding,
+                    value: argo_smart_routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dns".into(),
-                    value: &dns_binding,
+                    value: dns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeIps".into(),
-                    value: &edge_ips_binding,
+                    value: edge_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipFirewall".into(),
-                    value: &ip_firewall_binding,
+                    value: ip_firewall_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originDirects".into(),
-                    value: &origin_directs_binding,
+                    value: origin_directs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originDns".into(),
-                    value: &origin_dns_binding,
+                    value: origin_dns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originPort".into(),
-                    value: &origin_port_binding,
+                    value: origin_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originPortRange".into(),
-                    value: &origin_port_range_binding,
+                    value: origin_port_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyProtocol".into(),
-                    value: &proxy_protocol_binding,
+                    value: proxy_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls".into(),
-                    value: &tls_binding,
+                    value: tls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficType".into(),
-                    value: &traffic_type_binding,
+                    value: traffic_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpectrumApplicationResult {
-            argo_smart_routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("argoSmartRouting"),
-            ),
-            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
-            edge_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeIps"),
-            ),
-            ip_firewall: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipFirewall"),
-            ),
-            origin_directs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originDirects"),
-            ),
-            origin_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originDns"),
-            ),
-            origin_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originPort"),
-            ),
-            origin_port_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originPortRange"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            proxy_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyProtocol"),
-            ),
-            tls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tls")),
-            traffic_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficType"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            argo_smart_routing: o.get_field("argoSmartRouting"),
+            dns: o.get_field("dns"),
+            edge_ips: o.get_field("edgeIps"),
+            ip_firewall: o.get_field("ipFirewall"),
+            origin_directs: o.get_field("originDirects"),
+            origin_dns: o.get_field("originDns"),
+            origin_port: o.get_field("originPort"),
+            origin_port_range: o.get_field("originPortRange"),
+            protocol: o.get_field("protocol"),
+            proxy_protocol: o.get_field("proxyProtocol"),
+            tls: o.get_field("tls"),
+            traffic_type: o.get_field("trafficType"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

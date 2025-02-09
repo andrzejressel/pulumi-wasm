@@ -57,66 +57,47 @@ pub mod get_vpc_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVpcAttachmentArgs,
     ) -> GetVpcAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2transitgateway/getVpcAttachment:getVpcAttachment".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVpcAttachmentResult {
-            appliance_mode_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applianceModeSupport"),
-            ),
-            dns_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSupport"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ipv6_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Support"),
-            ),
-            security_group_referencing_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupReferencingSupport"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            vpc_owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcOwnerId"),
-            ),
+            appliance_mode_support: o.get_field("applianceModeSupport"),
+            dns_support: o.get_field("dnsSupport"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ipv6_support: o.get_field("ipv6Support"),
+            security_group_referencing_support: o
+                .get_field("securityGroupReferencingSupport"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
+            vpc_id: o.get_field("vpcId"),
+            vpc_owner_id: o.get_field("vpcOwnerId"),
         }
     }
 }

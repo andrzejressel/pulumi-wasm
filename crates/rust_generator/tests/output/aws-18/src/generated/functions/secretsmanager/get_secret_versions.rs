@@ -31,43 +31,36 @@ pub mod get_secret_versions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSecretVersionsArgs,
     ) -> GetSecretVersionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let include_deprecated_binding_1 = args.include_deprecated.get_output(context);
-        let include_deprecated_binding = include_deprecated_binding_1.get_inner();
-        let secret_id_binding_1 = args.secret_id.get_output(context);
-        let secret_id_binding = secret_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let include_deprecated_binding = args.include_deprecated.get_output(context);
+        let secret_id_binding = args.secret_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:secretsmanager/getSecretVersions:getSecretVersions".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeDeprecated".into(),
-                    value: &include_deprecated_binding,
+                    value: include_deprecated_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: &secret_id_binding,
+                    value: secret_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSecretVersionsResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_deprecated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeDeprecated"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretId"),
-            ),
-            versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versions"),
-            ),
+            arn: o.get_field("arn"),
+            id: o.get_field("id"),
+            include_deprecated: o.get_field("includeDeprecated"),
+            name: o.get_field("name"),
+            secret_id: o.get_field("secretId"),
+            versions: o.get_field("versions"),
         }
     }
 }

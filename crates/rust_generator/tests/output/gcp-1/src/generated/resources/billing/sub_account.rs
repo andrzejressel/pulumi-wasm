@@ -71,56 +71,45 @@ pub mod sub_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubAccountArgs,
     ) -> SubAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let master_billing_account_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let master_billing_account_binding = args
             .master_billing_account
             .get_output(context);
-        let master_billing_account_binding = master_billing_account_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:billing/subAccount:SubAccount".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterBillingAccount".into(),
-                    value: &master_billing_account_binding,
+                    value: master_billing_account_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubAccountResult {
-            billing_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccountId"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            master_billing_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterBillingAccount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            open: pulumi_gestalt_rust::__private::into_domain(o.extract_field("open")),
+            billing_account_id: o.get_field("billingAccountId"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            display_name: o.get_field("displayName"),
+            master_billing_account: o.get_field("masterBillingAccount"),
+            name: o.get_field("name"),
+            open: o.get_field("open"),
         }
     }
 }

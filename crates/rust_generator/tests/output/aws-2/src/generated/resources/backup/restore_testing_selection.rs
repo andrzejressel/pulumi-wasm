@@ -115,109 +115,82 @@ pub mod restore_testing_selection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RestoreTestingSelectionArgs,
     ) -> RestoreTestingSelectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let protected_resource_arns_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let protected_resource_arns_binding = args
             .protected_resource_arns
             .get_output(context);
-        let protected_resource_arns_binding = protected_resource_arns_binding_1
-            .get_inner();
-        let protected_resource_conditions_binding_1 = args
+        let protected_resource_conditions_binding = args
             .protected_resource_conditions
             .get_output(context);
-        let protected_resource_conditions_binding = protected_resource_conditions_binding_1
-            .get_inner();
-        let protected_resource_type_binding_1 = args
+        let protected_resource_type_binding = args
             .protected_resource_type
             .get_output(context);
-        let protected_resource_type_binding = protected_resource_type_binding_1
-            .get_inner();
-        let restore_metadata_overrides_binding_1 = args
+        let restore_metadata_overrides_binding = args
             .restore_metadata_overrides
             .get_output(context);
-        let restore_metadata_overrides_binding = restore_metadata_overrides_binding_1
-            .get_inner();
-        let restore_testing_plan_name_binding_1 = args
+        let restore_testing_plan_name_binding = args
             .restore_testing_plan_name
             .get_output(context);
-        let restore_testing_plan_name_binding = restore_testing_plan_name_binding_1
-            .get_inner();
-        let validation_window_hours_binding_1 = args
+        let validation_window_hours_binding = args
             .validation_window_hours
             .get_output(context);
-        let validation_window_hours_binding = validation_window_hours_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:backup/restoreTestingSelection:RestoreTestingSelection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedResourceArns".into(),
-                    value: &protected_resource_arns_binding,
+                    value: protected_resource_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedResourceConditions".into(),
-                    value: &protected_resource_conditions_binding,
+                    value: protected_resource_conditions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedResourceType".into(),
-                    value: &protected_resource_type_binding,
+                    value: protected_resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreMetadataOverrides".into(),
-                    value: &restore_metadata_overrides_binding,
+                    value: restore_metadata_overrides_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreTestingPlanName".into(),
-                    value: &restore_testing_plan_name_binding,
+                    value: restore_testing_plan_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationWindowHours".into(),
-                    value: &validation_window_hours_binding,
+                    value: validation_window_hours_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RestoreTestingSelectionResult {
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protected_resource_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectedResourceArns"),
-            ),
-            protected_resource_conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectedResourceConditions"),
-            ),
-            protected_resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectedResourceType"),
-            ),
-            restore_metadata_overrides: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreMetadataOverrides"),
-            ),
-            restore_testing_plan_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreTestingPlanName"),
-            ),
-            validation_window_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationWindowHours"),
-            ),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            name: o.get_field("name"),
+            protected_resource_arns: o.get_field("protectedResourceArns"),
+            protected_resource_conditions: o.get_field("protectedResourceConditions"),
+            protected_resource_type: o.get_field("protectedResourceType"),
+            restore_metadata_overrides: o.get_field("restoreMetadataOverrides"),
+            restore_testing_plan_name: o.get_field("restoreTestingPlanName"),
+            validation_window_hours: o.get_field("validationWindowHours"),
         }
     }
 }

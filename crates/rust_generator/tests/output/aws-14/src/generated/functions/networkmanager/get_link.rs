@@ -44,59 +44,45 @@ pub mod get_link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLinkArgs,
     ) -> GetLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let global_network_id_binding_1 = args.global_network_id.get_output(context);
-        let global_network_id_binding = global_network_id_binding_1.get_inner();
-        let link_id_binding_1 = args.link_id.get_output(context);
-        let link_id_binding = link_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let global_network_id_binding = args.global_network_id.get_output(context);
+        let link_id_binding = args.link_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:networkmanager/getLink:getLink".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalNetworkId".into(),
-                    value: &global_network_id_binding,
+                    value: global_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkId".into(),
-                    value: &link_id_binding,
+                    value: link_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLinkResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bandwidths: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidths"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            global_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalNetworkId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            link_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkId"),
-            ),
-            provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerName"),
-            ),
-            site_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            bandwidths: o.get_field("bandwidths"),
+            description: o.get_field("description"),
+            global_network_id: o.get_field("globalNetworkId"),
+            id: o.get_field("id"),
+            link_id: o.get_field("linkId"),
+            provider_name: o.get_field("providerName"),
+            site_id: o.get_field("siteId"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
         }
     }
 }

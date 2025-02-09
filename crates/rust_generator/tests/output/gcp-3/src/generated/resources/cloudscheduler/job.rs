@@ -352,131 +352,97 @@ pub mod job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_http_target_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_engine_http_target_binding = args
             .app_engine_http_target
             .get_output(context);
-        let app_engine_http_target_binding = app_engine_http_target_binding_1
-            .get_inner();
-        let attempt_deadline_binding_1 = args.attempt_deadline.get_output(context);
-        let attempt_deadline_binding = attempt_deadline_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let http_target_binding_1 = args.http_target.get_output(context);
-        let http_target_binding = http_target_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let paused_binding_1 = args.paused.get_output(context);
-        let paused_binding = paused_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let pubsub_target_binding_1 = args.pubsub_target.get_output(context);
-        let pubsub_target_binding = pubsub_target_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let retry_config_binding_1 = args.retry_config.get_output(context);
-        let retry_config_binding = retry_config_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let time_zone_binding_1 = args.time_zone.get_output(context);
-        let time_zone_binding = time_zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let attempt_deadline_binding = args.attempt_deadline.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let http_target_binding = args.http_target.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let paused_binding = args.paused.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let pubsub_target_binding = args.pubsub_target.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let retry_config_binding = args.retry_config.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let time_zone_binding = args.time_zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudscheduler/job:Job".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngineHttpTarget".into(),
-                    value: &app_engine_http_target_binding,
+                    value: app_engine_http_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attemptDeadline".into(),
-                    value: &attempt_deadline_binding,
+                    value: attempt_deadline_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpTarget".into(),
-                    value: &http_target_binding,
+                    value: http_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paused".into(),
-                    value: &paused_binding,
+                    value: paused_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pubsubTarget".into(),
-                    value: &pubsub_target_binding,
+                    value: pubsub_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryConfig".into(),
-                    value: &retry_config_binding,
+                    value: retry_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: &time_zone_binding,
+                    value: time_zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobResult {
-            app_engine_http_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appEngineHttpTarget"),
-            ),
-            attempt_deadline: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attemptDeadline"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            http_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpTarget"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            paused: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("paused"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pubsub_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pubsubTarget"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            retry_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryConfig"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            time_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeZone"),
-            ),
+            app_engine_http_target: o.get_field("appEngineHttpTarget"),
+            attempt_deadline: o.get_field("attemptDeadline"),
+            description: o.get_field("description"),
+            http_target: o.get_field("httpTarget"),
+            name: o.get_field("name"),
+            paused: o.get_field("paused"),
+            project: o.get_field("project"),
+            pubsub_target: o.get_field("pubsubTarget"),
+            region: o.get_field("region"),
+            retry_config: o.get_field("retryConfig"),
+            schedule: o.get_field("schedule"),
+            state: o.get_field("state"),
+            time_zone: o.get_field("timeZone"),
         }
     }
 }

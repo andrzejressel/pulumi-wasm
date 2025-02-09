@@ -92,79 +92,61 @@ pub mod spring_cloud_elastic_application_performance_monitoring {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudElasticApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudElasticApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_packages_binding_1 = args
-            .application_packages
-            .get_output(context);
-        let application_packages_binding = application_packages_binding_1.get_inner();
-        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
-        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let server_url_binding_1 = args.server_url.get_output(context);
-        let server_url_binding = server_url_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let spring_cloud_service_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_packages_binding = args.application_packages.get_output(context);
+        let globally_enabled_binding = args.globally_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let server_url_binding = args.server_url.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let spring_cloud_service_id_binding = args
             .spring_cloud_service_id
             .get_output(context);
-        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationPackages".into(),
-                    value: &application_packages_binding,
+                    value: application_packages_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: &globally_enabled_binding,
+                    value: globally_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverUrl".into(),
-                    value: &server_url_binding,
+                    value: server_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: &spring_cloud_service_id_binding,
+                    value: spring_cloud_service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudElasticApplicationPerformanceMonitoringResult {
-            application_packages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationPackages"),
-            ),
-            globally_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globallyEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            server_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverUrl"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudServiceId"),
-            ),
+            application_packages: o.get_field("applicationPackages"),
+            globally_enabled: o.get_field("globallyEnabled"),
+            name: o.get_field("name"),
+            server_url: o.get_field("serverUrl"),
+            service_name: o.get_field("serviceName"),
+            spring_cloud_service_id: o.get_field("springCloudServiceId"),
         }
     }
 }

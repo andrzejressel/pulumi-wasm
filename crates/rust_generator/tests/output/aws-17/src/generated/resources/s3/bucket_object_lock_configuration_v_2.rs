@@ -107,65 +107,55 @@ pub mod bucket_object_lock_configuration_v_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketObjectLockConfigurationV2Args,
     ) -> BucketObjectLockConfigurationV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let expected_bucket_owner_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let expected_bucket_owner_binding = args
             .expected_bucket_owner
             .get_output(context);
-        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
-        let object_lock_enabled_binding_1 = args.object_lock_enabled.get_output(context);
-        let object_lock_enabled_binding = object_lock_enabled_binding_1.get_inner();
-        let rule_binding_1 = args.rule.get_output(context);
-        let rule_binding = rule_binding_1.get_inner();
-        let token_binding_1 = args.token.get_output(context);
-        let token_binding = token_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let object_lock_enabled_binding = args.object_lock_enabled.get_output(context);
+        let rule_binding = args.rule.get_output(context);
+        let token_binding = args.token.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: &expected_bucket_owner_binding,
+                    value: expected_bucket_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectLockEnabled".into(),
-                    value: &object_lock_enabled_binding,
+                    value: object_lock_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rule".into(),
-                    value: &rule_binding,
+                    value: rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "token".into(),
-                    value: &token_binding,
+                    value: token_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketObjectLockConfigurationV2Result {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expectedBucketOwner"),
-            ),
-            object_lock_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectLockEnabled"),
-            ),
-            rule: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rule")),
-            token: pulumi_gestalt_rust::__private::into_domain(o.extract_field("token")),
+            bucket: o.get_field("bucket"),
+            expected_bucket_owner: o.get_field("expectedBucketOwner"),
+            object_lock_enabled: o.get_field("objectLockEnabled"),
+            rule: o.get_field("rule"),
+            token: o.get_field("token"),
         }
     }
 }

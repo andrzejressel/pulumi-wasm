@@ -125,70 +125,55 @@ pub mod managed_instance_active_directory_administrator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedInstanceActiveDirectoryAdministratorArgs,
     ) -> ManagedInstanceActiveDirectoryAdministratorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let azuread_authentication_only_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let azuread_authentication_only_binding = args
             .azuread_authentication_only
             .get_output(context);
-        let azuread_authentication_only_binding = azuread_authentication_only_binding_1
-            .get_inner();
-        let login_username_binding_1 = args.login_username.get_output(context);
-        let login_username_binding = login_username_binding_1.get_inner();
-        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
-        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
-        let object_id_binding_1 = args.object_id.get_output(context);
-        let object_id_binding = object_id_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let login_username_binding = args.login_username.get_output(context);
+        let managed_instance_id_binding = args.managed_instance_id.get_output(context);
+        let object_id_binding = args.object_id.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureadAuthenticationOnly".into(),
-                    value: &azuread_authentication_only_binding,
+                    value: azuread_authentication_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loginUsername".into(),
-                    value: &login_username_binding,
+                    value: login_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: &managed_instance_id_binding,
+                    value: managed_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: &object_id_binding,
+                    value: object_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedInstanceActiveDirectoryAdministratorResult {
-            azuread_authentication_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureadAuthenticationOnly"),
-            ),
-            login_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loginUsername"),
-            ),
-            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedInstanceId"),
-            ),
-            object_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectId"),
-            ),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
+            azuread_authentication_only: o.get_field("azureadAuthenticationOnly"),
+            login_username: o.get_field("loginUsername"),
+            managed_instance_id: o.get_field("managedInstanceId"),
+            object_id: o.get_field("objectId"),
+            tenant_id: o.get_field("tenantId"),
         }
     }
 }

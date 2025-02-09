@@ -27,40 +27,35 @@ pub mod get_access_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccessPolicyArgs,
     ) -> GetAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let scopes_binding_1 = args.scopes.get_output(context);
-        let scopes_binding = scopes_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let parent_binding = args.parent.get_output(context);
+        let scopes_binding = args.scopes.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:accesscontextmanager/getAccessPolicy:getAccessPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: &scopes_binding,
+                    value: scopes_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccessPolicyResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopes"),
-            ),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            scopes: o.get_field("scopes"),
+            title: o.get_field("title"),
         }
     }
 }

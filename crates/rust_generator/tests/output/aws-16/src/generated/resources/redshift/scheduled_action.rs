@@ -155,91 +155,70 @@ pub mod scheduled_action {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScheduledActionArgs,
     ) -> ScheduledActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enable_binding_1 = args.enable.get_output(context);
-        let enable_binding = enable_binding_1.get_inner();
-        let end_time_binding_1 = args.end_time.get_output(context);
-        let end_time_binding = end_time_binding_1.get_inner();
-        let iam_role_binding_1 = args.iam_role.get_output(context);
-        let iam_role_binding = iam_role_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let start_time_binding_1 = args.start_time.get_output(context);
-        let start_time_binding = start_time_binding_1.get_inner();
-        let target_action_binding_1 = args.target_action.get_output(context);
-        let target_action_binding = target_action_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let enable_binding = args.enable.get_output(context);
+        let end_time_binding = args.end_time.get_output(context);
+        let iam_role_binding = args.iam_role.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let start_time_binding = args.start_time.get_output(context);
+        let target_action_binding = args.target_action.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/scheduledAction:ScheduledAction".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enable".into(),
-                    value: &enable_binding,
+                    value: enable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endTime".into(),
-                    value: &end_time_binding,
+                    value: end_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRole".into(),
-                    value: &iam_role_binding,
+                    value: iam_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: &start_time_binding,
+                    value: start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetAction".into(),
-                    value: &target_action_binding,
+                    value: target_action_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScheduledActionResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enable"),
-            ),
-            end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endTime"),
-            ),
-            iam_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRole"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            target_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetAction"),
-            ),
+            description: o.get_field("description"),
+            enable: o.get_field("enable"),
+            end_time: o.get_field("endTime"),
+            iam_role: o.get_field("iamRole"),
+            name: o.get_field("name"),
+            schedule: o.get_field("schedule"),
+            start_time: o.get_field("startTime"),
+            target_action: o.get_field("targetAction"),
         }
     }
 }

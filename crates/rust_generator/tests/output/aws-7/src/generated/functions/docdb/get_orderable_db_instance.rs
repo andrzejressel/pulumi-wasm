@@ -43,78 +43,60 @@ pub mod get_orderable_db_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOrderableDbInstanceArgs,
     ) -> GetOrderableDbInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let instance_class_binding_1 = args.instance_class.get_output(context);
-        let instance_class_binding = instance_class_binding_1.get_inner();
-        let license_model_binding_1 = args.license_model.get_output(context);
-        let license_model_binding = license_model_binding_1.get_inner();
-        let preferred_instance_classes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let engine_binding = args.engine.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let instance_class_binding = args.instance_class.get_output(context);
+        let license_model_binding = args.license_model.get_output(context);
+        let preferred_instance_classes_binding = args
             .preferred_instance_classes
             .get_output(context);
-        let preferred_instance_classes_binding = preferred_instance_classes_binding_1
-            .get_inner();
-        let vpc_binding_1 = args.vpc.get_output(context);
-        let vpc_binding = vpc_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let vpc_binding = args.vpc.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:docdb/getOrderableDbInstance:getOrderableDbInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceClass".into(),
-                    value: &instance_class_binding,
+                    value: instance_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseModel".into(),
-                    value: &license_model_binding,
+                    value: license_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredInstanceClasses".into(),
-                    value: &preferred_instance_classes_binding,
+                    value: preferred_instance_classes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: &vpc_binding,
+                    value: vpc_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOrderableDbInstanceResult {
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceClass"),
-            ),
-            license_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseModel"),
-            ),
-            preferred_instance_classes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredInstanceClasses"),
-            ),
-            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
+            availability_zones: o.get_field("availabilityZones"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            id: o.get_field("id"),
+            instance_class: o.get_field("instanceClass"),
+            license_model: o.get_field("licenseModel"),
+            preferred_instance_classes: o.get_field("preferredInstanceClasses"),
+            vpc: o.get_field("vpc"),
         }
     }
 }

@@ -200,133 +200,97 @@ pub mod v_2_models_slot_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: V2modelsSlotTypeArgs,
     ) -> V2modelsSlotTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_id_binding_1 = args.bot_id.get_output(context);
-        let bot_id_binding = bot_id_binding_1.get_inner();
-        let bot_version_binding_1 = args.bot_version.get_output(context);
-        let bot_version_binding = bot_version_binding_1.get_inner();
-        let composite_slot_type_setting_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_id_binding = args.bot_id.get_output(context);
+        let bot_version_binding = args.bot_version.get_output(context);
+        let composite_slot_type_setting_binding = args
             .composite_slot_type_setting
             .get_output(context);
-        let composite_slot_type_setting_binding = composite_slot_type_setting_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let external_source_setting_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let external_source_setting_binding = args
             .external_source_setting
             .get_output(context);
-        let external_source_setting_binding = external_source_setting_binding_1
-            .get_inner();
-        let locale_id_binding_1 = args.locale_id.get_output(context);
-        let locale_id_binding = locale_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_slot_type_signature_binding_1 = args
+        let locale_id_binding = args.locale_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_slot_type_signature_binding = args
             .parent_slot_type_signature
             .get_output(context);
-        let parent_slot_type_signature_binding = parent_slot_type_signature_binding_1
-            .get_inner();
-        let slot_type_values_binding_1 = args.slot_type_values.get_output(context);
-        let slot_type_values_binding = slot_type_values_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let value_selection_setting_binding_1 = args
+        let slot_type_values_binding = args.slot_type_values.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let value_selection_setting_binding = args
             .value_selection_setting
             .get_output(context);
-        let value_selection_setting_binding = value_selection_setting_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/v2modelsSlotType:V2modelsSlotType".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: &bot_id_binding,
+                    value: bot_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: &bot_version_binding,
+                    value: bot_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compositeSlotTypeSetting".into(),
-                    value: &composite_slot_type_setting_binding,
+                    value: composite_slot_type_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalSourceSetting".into(),
-                    value: &external_source_setting_binding,
+                    value: external_source_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeId".into(),
-                    value: &locale_id_binding,
+                    value: locale_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentSlotTypeSignature".into(),
-                    value: &parent_slot_type_signature_binding,
+                    value: parent_slot_type_signature_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotTypeValues".into(),
-                    value: &slot_type_values_binding,
+                    value: slot_type_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "valueSelectionSetting".into(),
-                    value: &value_selection_setting_binding,
+                    value: value_selection_setting_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         V2modelsSlotTypeResult {
-            bot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botId"),
-            ),
-            bot_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botVersion"),
-            ),
-            composite_slot_type_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compositeSlotTypeSetting"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            external_source_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalSourceSetting"),
-            ),
-            locale_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localeId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_slot_type_signature: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentSlotTypeSignature"),
-            ),
-            slot_type_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotTypeId"),
-            ),
-            slot_type_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotTypeValues"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            value_selection_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("valueSelectionSetting"),
-            ),
+            bot_id: o.get_field("botId"),
+            bot_version: o.get_field("botVersion"),
+            composite_slot_type_setting: o.get_field("compositeSlotTypeSetting"),
+            description: o.get_field("description"),
+            external_source_setting: o.get_field("externalSourceSetting"),
+            locale_id: o.get_field("localeId"),
+            name: o.get_field("name"),
+            parent_slot_type_signature: o.get_field("parentSlotTypeSignature"),
+            slot_type_id: o.get_field("slotTypeId"),
+            slot_type_values: o.get_field("slotTypeValues"),
+            timeouts: o.get_field("timeouts"),
+            value_selection_setting: o.get_field("valueSelectionSetting"),
         }
     }
 }

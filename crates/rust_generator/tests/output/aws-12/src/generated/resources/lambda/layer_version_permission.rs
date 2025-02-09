@@ -85,90 +85,66 @@ pub mod layer_version_permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LayerVersionPermissionArgs,
     ) -> LayerVersionPermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let layer_name_binding_1 = args.layer_name.get_output(context);
-        let layer_name_binding = layer_name_binding_1.get_inner();
-        let organization_id_binding_1 = args.organization_id.get_output(context);
-        let organization_id_binding = organization_id_binding_1.get_inner();
-        let principal_binding_1 = args.principal.get_output(context);
-        let principal_binding = principal_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let statement_id_binding_1 = args.statement_id.get_output(context);
-        let statement_id_binding = statement_id_binding_1.get_inner();
-        let version_number_binding_1 = args.version_number.get_output(context);
-        let version_number_binding = version_number_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let layer_name_binding = args.layer_name.get_output(context);
+        let organization_id_binding = args.organization_id.get_output(context);
+        let principal_binding = args.principal.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let statement_id_binding = args.statement_id.get_output(context);
+        let version_number_binding = args.version_number.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/layerVersionPermission:LayerVersionPermission".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "layerName".into(),
-                    value: &layer_name_binding,
+                    value: layer_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationId".into(),
-                    value: &organization_id_binding,
+                    value: organization_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: &principal_binding,
+                    value: principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementId".into(),
-                    value: &statement_id_binding,
+                    value: statement_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionNumber".into(),
-                    value: &version_number_binding,
+                    value: version_number_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LayerVersionPermissionResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            layer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("layerName"),
-            ),
-            organization_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationId"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principal"),
-            ),
-            revision_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revisionId"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
-            statement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statementId"),
-            ),
-            version_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionNumber"),
-            ),
+            action: o.get_field("action"),
+            layer_name: o.get_field("layerName"),
+            organization_id: o.get_field("organizationId"),
+            policy: o.get_field("policy"),
+            principal: o.get_field("principal"),
+            revision_id: o.get_field("revisionId"),
+            skip_destroy: o.get_field("skipDestroy"),
+            statement_id: o.get_field("statementId"),
+            version_number: o.get_field("versionNumber"),
         }
     }
 }

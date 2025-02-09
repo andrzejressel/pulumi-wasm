@@ -168,223 +168,159 @@ pub mod autonomous_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AutonomousDatabaseArgs,
     ) -> AutonomousDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_password_binding_1 = args.admin_password.get_output(context);
-        let admin_password_binding = admin_password_binding_1.get_inner();
-        let auto_scaling_enabled_binding_1 = args
-            .auto_scaling_enabled
-            .get_output(context);
-        let auto_scaling_enabled_binding = auto_scaling_enabled_binding_1.get_inner();
-        let auto_scaling_for_storage_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_password_binding = args.admin_password.get_output(context);
+        let auto_scaling_enabled_binding = args.auto_scaling_enabled.get_output(context);
+        let auto_scaling_for_storage_enabled_binding = args
             .auto_scaling_for_storage_enabled
             .get_output(context);
-        let auto_scaling_for_storage_enabled_binding = auto_scaling_for_storage_enabled_binding_1
-            .get_inner();
-        let backup_retention_period_in_days_binding_1 = args
+        let backup_retention_period_in_days_binding = args
             .backup_retention_period_in_days
             .get_output(context);
-        let backup_retention_period_in_days_binding = backup_retention_period_in_days_binding_1
-            .get_inner();
-        let character_set_binding_1 = args.character_set.get_output(context);
-        let character_set_binding = character_set_binding_1.get_inner();
-        let compute_count_binding_1 = args.compute_count.get_output(context);
-        let compute_count_binding = compute_count_binding_1.get_inner();
-        let compute_model_binding_1 = args.compute_model.get_output(context);
-        let compute_model_binding = compute_model_binding_1.get_inner();
-        let customer_contacts_binding_1 = args.customer_contacts.get_output(context);
-        let customer_contacts_binding = customer_contacts_binding_1.get_inner();
-        let data_storage_size_in_tbs_binding_1 = args
+        let character_set_binding = args.character_set.get_output(context);
+        let compute_count_binding = args.compute_count.get_output(context);
+        let compute_model_binding = args.compute_model.get_output(context);
+        let customer_contacts_binding = args.customer_contacts.get_output(context);
+        let data_storage_size_in_tbs_binding = args
             .data_storage_size_in_tbs
             .get_output(context);
-        let data_storage_size_in_tbs_binding = data_storage_size_in_tbs_binding_1
-            .get_inner();
-        let db_version_binding_1 = args.db_version.get_output(context);
-        let db_version_binding = db_version_binding_1.get_inner();
-        let db_workload_binding_1 = args.db_workload.get_output(context);
-        let db_workload_binding = db_workload_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let license_model_binding_1 = args.license_model.get_output(context);
-        let license_model_binding = license_model_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mtls_connection_required_binding_1 = args
+        let db_version_binding = args.db_version.get_output(context);
+        let db_workload_binding = args.db_workload.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let license_model_binding = args.license_model.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mtls_connection_required_binding = args
             .mtls_connection_required
             .get_output(context);
-        let mtls_connection_required_binding = mtls_connection_required_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let national_character_set_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let national_character_set_binding = args
             .national_character_set
             .get_output(context);
-        let national_character_set_binding = national_character_set_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
-        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let virtual_network_id_binding = args.virtual_network_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:oracle/autonomousDatabase:AutonomousDatabase".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminPassword".into(),
-                    value: &admin_password_binding,
+                    value: admin_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingEnabled".into(),
-                    value: &auto_scaling_enabled_binding,
+                    value: auto_scaling_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingForStorageEnabled".into(),
-                    value: &auto_scaling_for_storage_enabled_binding,
+                    value: auto_scaling_for_storage_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRetentionPeriodInDays".into(),
-                    value: &backup_retention_period_in_days_binding,
+                    value: backup_retention_period_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "characterSet".into(),
-                    value: &character_set_binding,
+                    value: character_set_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeCount".into(),
-                    value: &compute_count_binding,
+                    value: compute_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeModel".into(),
-                    value: &compute_model_binding,
+                    value: compute_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerContacts".into(),
-                    value: &customer_contacts_binding,
+                    value: customer_contacts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStorageSizeInTbs".into(),
-                    value: &data_storage_size_in_tbs_binding,
+                    value: data_storage_size_in_tbs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbVersion".into(),
-                    value: &db_version_binding,
+                    value: db_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbWorkload".into(),
-                    value: &db_workload_binding,
+                    value: db_workload_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseModel".into(),
-                    value: &license_model_binding,
+                    value: license_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtlsConnectionRequired".into(),
-                    value: &mtls_connection_required_binding,
+                    value: mtls_connection_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nationalCharacterSet".into(),
-                    value: &national_character_set_binding,
+                    value: national_character_set_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: &virtual_network_id_binding,
+                    value: virtual_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AutonomousDatabaseResult {
-            admin_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminPassword"),
-            ),
-            auto_scaling_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingEnabled"),
-            ),
-            auto_scaling_for_storage_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingForStorageEnabled"),
-            ),
-            backup_retention_period_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionPeriodInDays"),
-            ),
-            character_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("characterSet"),
-            ),
-            compute_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeCount"),
-            ),
-            compute_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeModel"),
-            ),
-            customer_contacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerContacts"),
-            ),
-            data_storage_size_in_tbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataStorageSizeInTbs"),
-            ),
-            db_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbVersion"),
-            ),
-            db_workload: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbWorkload"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            license_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseModel"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mtls_connection_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mtlsConnectionRequired"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            national_character_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nationalCharacterSet"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
+            admin_password: o.get_field("adminPassword"),
+            auto_scaling_enabled: o.get_field("autoScalingEnabled"),
+            auto_scaling_for_storage_enabled: o
+                .get_field("autoScalingForStorageEnabled"),
+            backup_retention_period_in_days: o.get_field("backupRetentionPeriodInDays"),
+            character_set: o.get_field("characterSet"),
+            compute_count: o.get_field("computeCount"),
+            compute_model: o.get_field("computeModel"),
+            customer_contacts: o.get_field("customerContacts"),
+            data_storage_size_in_tbs: o.get_field("dataStorageSizeInTbs"),
+            db_version: o.get_field("dbVersion"),
+            db_workload: o.get_field("dbWorkload"),
+            display_name: o.get_field("displayName"),
+            license_model: o.get_field("licenseModel"),
+            location: o.get_field("location"),
+            mtls_connection_required: o.get_field("mtlsConnectionRequired"),
+            name: o.get_field("name"),
+            national_character_set: o.get_field("nationalCharacterSet"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
         }
     }
 }

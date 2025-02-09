@@ -38,40 +38,36 @@ pub mod tag {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TagArgs,
     ) -> TagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_group_name_binding = args
             .autoscaling_group_name
             .get_output(context);
-        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
-            .get_inner();
-        let tag_binding_1 = args.tag.get_output(context);
-        let tag_binding = tag_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tag_binding = args.tag.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:autoscaling/tag:Tag".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: &autoscaling_group_name_binding,
+                    value: autoscaling_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tag".into(),
-                    value: &tag_binding,
+                    value: tag_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TagResult {
-            autoscaling_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingGroupName"),
-            ),
-            tag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tag")),
+            autoscaling_group_name: o.get_field("autoscalingGroupName"),
+            tag: o.get_field("tag"),
         }
     }
 }

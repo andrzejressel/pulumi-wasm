@@ -434,300 +434,206 @@ pub mod region_instance_group_manager {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionInstanceGroupManagerArgs,
     ) -> RegionInstanceGroupManagerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let all_instances_config_binding_1 = args
-            .all_instances_config
-            .get_output(context);
-        let all_instances_config_binding = all_instances_config_binding_1.get_inner();
-        let auto_healing_policies_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let all_instances_config_binding = args.all_instances_config.get_output(context);
+        let auto_healing_policies_binding = args
             .auto_healing_policies
             .get_output(context);
-        let auto_healing_policies_binding = auto_healing_policies_binding_1.get_inner();
-        let base_instance_name_binding_1 = args.base_instance_name.get_output(context);
-        let base_instance_name_binding = base_instance_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let distribution_policy_target_shape_binding_1 = args
+        let base_instance_name_binding = args.base_instance_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let distribution_policy_target_shape_binding = args
             .distribution_policy_target_shape
             .get_output(context);
-        let distribution_policy_target_shape_binding = distribution_policy_target_shape_binding_1
-            .get_inner();
-        let distribution_policy_zones_binding_1 = args
+        let distribution_policy_zones_binding = args
             .distribution_policy_zones
             .get_output(context);
-        let distribution_policy_zones_binding = distribution_policy_zones_binding_1
-            .get_inner();
-        let instance_flexibility_policy_binding_1 = args
+        let instance_flexibility_policy_binding = args
             .instance_flexibility_policy
             .get_output(context);
-        let instance_flexibility_policy_binding = instance_flexibility_policy_binding_1
-            .get_inner();
-        let instance_lifecycle_policy_binding_1 = args
+        let instance_lifecycle_policy_binding = args
             .instance_lifecycle_policy
             .get_output(context);
-        let instance_lifecycle_policy_binding = instance_lifecycle_policy_binding_1
-            .get_inner();
-        let list_managed_instances_results_binding_1 = args
+        let list_managed_instances_results_binding = args
             .list_managed_instances_results
             .get_output(context);
-        let list_managed_instances_results_binding = list_managed_instances_results_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let named_ports_binding_1 = args.named_ports.get_output(context);
-        let named_ports_binding = named_ports_binding_1.get_inner();
-        let params_binding_1 = args.params.get_output(context);
-        let params_binding = params_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let standby_policy_binding_1 = args.standby_policy.get_output(context);
-        let standby_policy_binding = standby_policy_binding_1.get_inner();
-        let stateful_disks_binding_1 = args.stateful_disks.get_output(context);
-        let stateful_disks_binding = stateful_disks_binding_1.get_inner();
-        let stateful_external_ips_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let named_ports_binding = args.named_ports.get_output(context);
+        let params_binding = args.params.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let standby_policy_binding = args.standby_policy.get_output(context);
+        let stateful_disks_binding = args.stateful_disks.get_output(context);
+        let stateful_external_ips_binding = args
             .stateful_external_ips
             .get_output(context);
-        let stateful_external_ips_binding = stateful_external_ips_binding_1.get_inner();
-        let stateful_internal_ips_binding_1 = args
+        let stateful_internal_ips_binding = args
             .stateful_internal_ips
             .get_output(context);
-        let stateful_internal_ips_binding = stateful_internal_ips_binding_1.get_inner();
-        let target_pools_binding_1 = args.target_pools.get_output(context);
-        let target_pools_binding = target_pools_binding_1.get_inner();
-        let target_size_binding_1 = args.target_size.get_output(context);
-        let target_size_binding = target_size_binding_1.get_inner();
-        let target_stopped_size_binding_1 = args.target_stopped_size.get_output(context);
-        let target_stopped_size_binding = target_stopped_size_binding_1.get_inner();
-        let target_suspended_size_binding_1 = args
+        let target_pools_binding = args.target_pools.get_output(context);
+        let target_size_binding = args.target_size.get_output(context);
+        let target_stopped_size_binding = args.target_stopped_size.get_output(context);
+        let target_suspended_size_binding = args
             .target_suspended_size
             .get_output(context);
-        let target_suspended_size_binding = target_suspended_size_binding_1.get_inner();
-        let update_policy_binding_1 = args.update_policy.get_output(context);
-        let update_policy_binding = update_policy_binding_1.get_inner();
-        let versions_binding_1 = args.versions.get_output(context);
-        let versions_binding = versions_binding_1.get_inner();
-        let wait_for_instances_binding_1 = args.wait_for_instances.get_output(context);
-        let wait_for_instances_binding = wait_for_instances_binding_1.get_inner();
-        let wait_for_instances_status_binding_1 = args
+        let update_policy_binding = args.update_policy.get_output(context);
+        let versions_binding = args.versions.get_output(context);
+        let wait_for_instances_binding = args.wait_for_instances.get_output(context);
+        let wait_for_instances_status_binding = args
             .wait_for_instances_status
             .get_output(context);
-        let wait_for_instances_status_binding = wait_for_instances_status_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionInstanceGroupManager:RegionInstanceGroupManager"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allInstancesConfig".into(),
-                    value: &all_instances_config_binding,
+                    value: all_instances_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoHealingPolicies".into(),
-                    value: &auto_healing_policies_binding,
+                    value: auto_healing_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseInstanceName".into(),
-                    value: &base_instance_name_binding,
+                    value: base_instance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "distributionPolicyTargetShape".into(),
-                    value: &distribution_policy_target_shape_binding,
+                    value: distribution_policy_target_shape_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "distributionPolicyZones".into(),
-                    value: &distribution_policy_zones_binding,
+                    value: distribution_policy_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceFlexibilityPolicy".into(),
-                    value: &instance_flexibility_policy_binding,
+                    value: instance_flexibility_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceLifecyclePolicy".into(),
-                    value: &instance_lifecycle_policy_binding,
+                    value: instance_lifecycle_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listManagedInstancesResults".into(),
-                    value: &list_managed_instances_results_binding,
+                    value: list_managed_instances_results_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namedPorts".into(),
-                    value: &named_ports_binding,
+                    value: named_ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "params".into(),
-                    value: &params_binding,
+                    value: params_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standbyPolicy".into(),
-                    value: &standby_policy_binding,
+                    value: standby_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statefulDisks".into(),
-                    value: &stateful_disks_binding,
+                    value: stateful_disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statefulExternalIps".into(),
-                    value: &stateful_external_ips_binding,
+                    value: stateful_external_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statefulInternalIps".into(),
-                    value: &stateful_internal_ips_binding,
+                    value: stateful_internal_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetPools".into(),
-                    value: &target_pools_binding,
+                    value: target_pools_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSize".into(),
-                    value: &target_size_binding,
+                    value: target_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetStoppedSize".into(),
-                    value: &target_stopped_size_binding,
+                    value: target_stopped_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSuspendedSize".into(),
-                    value: &target_suspended_size_binding,
+                    value: target_suspended_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updatePolicy".into(),
-                    value: &update_policy_binding,
+                    value: update_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versions".into(),
-                    value: &versions_binding,
+                    value: versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForInstances".into(),
-                    value: &wait_for_instances_binding,
+                    value: wait_for_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForInstancesStatus".into(),
-                    value: &wait_for_instances_status_binding,
+                    value: wait_for_instances_status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionInstanceGroupManagerResult {
-            all_instances_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allInstancesConfig"),
-            ),
-            auto_healing_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoHealingPolicies"),
-            ),
-            base_instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseInstanceName"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            distribution_policy_target_shape: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distributionPolicyTargetShape"),
-            ),
-            distribution_policy_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distributionPolicyZones"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            instance_flexibility_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceFlexibilityPolicy"),
-            ),
-            instance_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceGroup"),
-            ),
-            instance_group_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceGroupManagerId"),
-            ),
-            instance_lifecycle_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceLifecyclePolicy"),
-            ),
-            list_managed_instances_results: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listManagedInstancesResults"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            named_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namedPorts"),
-            ),
-            params: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("params"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            standby_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("standbyPolicy"),
-            ),
-            stateful_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statefulDisks"),
-            ),
-            stateful_external_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statefulExternalIps"),
-            ),
-            stateful_internal_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statefulInternalIps"),
-            ),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
-            target_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetPools"),
-            ),
-            target_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetSize"),
-            ),
-            target_stopped_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetStoppedSize"),
-            ),
-            target_suspended_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetSuspendedSize"),
-            ),
-            update_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatePolicy"),
-            ),
-            versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versions"),
-            ),
-            wait_for_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForInstances"),
-            ),
-            wait_for_instances_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForInstancesStatus"),
-            ),
+            all_instances_config: o.get_field("allInstancesConfig"),
+            auto_healing_policies: o.get_field("autoHealingPolicies"),
+            base_instance_name: o.get_field("baseInstanceName"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            distribution_policy_target_shape: o
+                .get_field("distributionPolicyTargetShape"),
+            distribution_policy_zones: o.get_field("distributionPolicyZones"),
+            fingerprint: o.get_field("fingerprint"),
+            instance_flexibility_policy: o.get_field("instanceFlexibilityPolicy"),
+            instance_group: o.get_field("instanceGroup"),
+            instance_group_manager_id: o.get_field("instanceGroupManagerId"),
+            instance_lifecycle_policy: o.get_field("instanceLifecyclePolicy"),
+            list_managed_instances_results: o.get_field("listManagedInstancesResults"),
+            name: o.get_field("name"),
+            named_ports: o.get_field("namedPorts"),
+            params: o.get_field("params"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            standby_policy: o.get_field("standbyPolicy"),
+            stateful_disks: o.get_field("statefulDisks"),
+            stateful_external_ips: o.get_field("statefulExternalIps"),
+            stateful_internal_ips: o.get_field("statefulInternalIps"),
+            statuses: o.get_field("statuses"),
+            target_pools: o.get_field("targetPools"),
+            target_size: o.get_field("targetSize"),
+            target_stopped_size: o.get_field("targetStoppedSize"),
+            target_suspended_size: o.get_field("targetSuspendedSize"),
+            update_policy: o.get_field("updatePolicy"),
+            versions: o.get_field("versions"),
+            wait_for_instances: o.get_field("waitForInstances"),
+            wait_for_instances_status: o.get_field("waitForInstancesStatus"),
         }
     }
 }

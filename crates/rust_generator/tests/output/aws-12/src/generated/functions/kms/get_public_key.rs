@@ -41,57 +41,40 @@ pub mod get_public_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPublicKeyArgs,
     ) -> GetPublicKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grant_tokens_binding_1 = args.grant_tokens.get_output(context);
-        let grant_tokens_binding = grant_tokens_binding_1.get_inner();
-        let key_id_binding_1 = args.key_id.get_output(context);
-        let key_id_binding = key_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let grant_tokens_binding = args.grant_tokens.get_output(context);
+        let key_id_binding = args.key_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kms/getPublicKey:getPublicKey".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantTokens".into(),
-                    value: &grant_tokens_binding,
+                    value: grant_tokens_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: &key_id_binding,
+                    value: key_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPublicKeyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            customer_master_key_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerMasterKeySpec"),
-            ),
-            encryption_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionAlgorithms"),
-            ),
-            grant_tokens: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantTokens"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyId"),
-            ),
-            key_usage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyUsage"),
-            ),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
-            public_key_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeyPem"),
-            ),
-            signing_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingAlgorithms"),
-            ),
+            arn: o.get_field("arn"),
+            customer_master_key_spec: o.get_field("customerMasterKeySpec"),
+            encryption_algorithms: o.get_field("encryptionAlgorithms"),
+            grant_tokens: o.get_field("grantTokens"),
+            id: o.get_field("id"),
+            key_id: o.get_field("keyId"),
+            key_usage: o.get_field("keyUsage"),
+            public_key: o.get_field("publicKey"),
+            public_key_pem: o.get_field("publicKeyPem"),
+            signing_algorithms: o.get_field("signingAlgorithms"),
         }
     }
 }

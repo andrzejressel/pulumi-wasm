@@ -245,118 +245,86 @@ pub mod bitbucket_server_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BitbucketServerConfigArgs,
     ) -> BitbucketServerConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_binding_1 = args.api_key.get_output(context);
-        let api_key_binding = api_key_binding_1.get_inner();
-        let config_id_binding_1 = args.config_id.get_output(context);
-        let config_id_binding = config_id_binding_1.get_inner();
-        let connected_repositories_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_key_binding = args.api_key.get_output(context);
+        let config_id_binding = args.config_id.get_output(context);
+        let connected_repositories_binding = args
             .connected_repositories
             .get_output(context);
-        let connected_repositories_binding = connected_repositories_binding_1
-            .get_inner();
-        let host_uri_binding_1 = args.host_uri.get_output(context);
-        let host_uri_binding = host_uri_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let peered_network_binding_1 = args.peered_network.get_output(context);
-        let peered_network_binding = peered_network_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let secrets_binding_1 = args.secrets.get_output(context);
-        let secrets_binding = secrets_binding_1.get_inner();
-        let ssl_ca_binding_1 = args.ssl_ca.get_output(context);
-        let ssl_ca_binding = ssl_ca_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let host_uri_binding = args.host_uri.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let peered_network_binding = args.peered_network.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let secrets_binding = args.secrets.get_output(context);
+        let ssl_ca_binding = args.ssl_ca.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudbuild/bitbucketServerConfig:BitbucketServerConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKey".into(),
-                    value: &api_key_binding,
+                    value: api_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configId".into(),
-                    value: &config_id_binding,
+                    value: config_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectedRepositories".into(),
-                    value: &connected_repositories_binding,
+                    value: connected_repositories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostUri".into(),
-                    value: &host_uri_binding,
+                    value: host_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeredNetwork".into(),
-                    value: &peered_network_binding,
+                    value: peered_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secrets".into(),
-                    value: &secrets_binding,
+                    value: secrets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslCa".into(),
-                    value: &ssl_ca_binding,
+                    value: ssl_ca_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BitbucketServerConfigResult {
-            api_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKey"),
-            ),
-            config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configId"),
-            ),
-            connected_repositories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectedRepositories"),
-            ),
-            host_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostUri"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peered_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeredNetwork"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secrets"),
-            ),
-            ssl_ca: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslCa"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
-            webhook_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webhookKey"),
-            ),
+            api_key: o.get_field("apiKey"),
+            config_id: o.get_field("configId"),
+            connected_repositories: o.get_field("connectedRepositories"),
+            host_uri: o.get_field("hostUri"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            peered_network: o.get_field("peeredNetwork"),
+            project: o.get_field("project"),
+            secrets: o.get_field("secrets"),
+            ssl_ca: o.get_field("sslCa"),
+            username: o.get_field("username"),
+            webhook_key: o.get_field("webhookKey"),
         }
     }
 }

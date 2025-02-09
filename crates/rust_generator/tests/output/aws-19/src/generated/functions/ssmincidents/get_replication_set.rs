@@ -36,43 +36,33 @@ pub mod get_replication_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReplicationSetArgs,
     ) -> GetReplicationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssmincidents/getReplicationSet:getReplicationSet".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReplicationSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdBy"),
-            ),
-            deletion_protected: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtected"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_modified_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedBy"),
-            ),
-            regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regions"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            created_by: o.get_field("createdBy"),
+            deletion_protected: o.get_field("deletionProtected"),
+            id: o.get_field("id"),
+            last_modified_by: o.get_field("lastModifiedBy"),
+            regions: o.get_field("regions"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
         }
     }
 }

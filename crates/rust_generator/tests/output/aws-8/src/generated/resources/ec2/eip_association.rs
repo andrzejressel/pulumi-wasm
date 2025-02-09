@@ -100,77 +100,58 @@ pub mod eip_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EipAssociationArgs,
     ) -> EipAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_id_binding_1 = args.allocation_id.get_output(context);
-        let allocation_id_binding = allocation_id_binding_1.get_inner();
-        let allow_reassociation_binding_1 = args.allow_reassociation.get_output(context);
-        let allow_reassociation_binding = allow_reassociation_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let network_interface_id_binding_1 = args
-            .network_interface_id
-            .get_output(context);
-        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
-        let private_ip_address_binding_1 = args.private_ip_address.get_output(context);
-        let private_ip_address_binding = private_ip_address_binding_1.get_inner();
-        let public_ip_binding_1 = args.public_ip.get_output(context);
-        let public_ip_binding = public_ip_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allocation_id_binding = args.allocation_id.get_output(context);
+        let allow_reassociation_binding = args.allow_reassociation.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let network_interface_id_binding = args.network_interface_id.get_output(context);
+        let private_ip_address_binding = args.private_ip_address.get_output(context);
+        let public_ip_binding = args.public_ip.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/eipAssociation:EipAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationId".into(),
-                    value: &allocation_id_binding,
+                    value: allocation_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowReassociation".into(),
-                    value: &allow_reassociation_binding,
+                    value: allow_reassociation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: &network_interface_id_binding,
+                    value: network_interface_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAddress".into(),
-                    value: &private_ip_address_binding,
+                    value: private_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIp".into(),
-                    value: &public_ip_binding,
+                    value: public_ip_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EipAssociationResult {
-            allocation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationId"),
-            ),
-            allow_reassociation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowReassociation"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIp"),
-            ),
+            allocation_id: o.get_field("allocationId"),
+            allow_reassociation: o.get_field("allowReassociation"),
+            instance_id: o.get_field("instanceId"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            public_ip: o.get_field("publicIp"),
         }
     }
 }

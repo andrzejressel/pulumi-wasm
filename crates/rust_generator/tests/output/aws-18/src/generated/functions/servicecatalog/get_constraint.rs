@@ -40,58 +40,44 @@ pub mod get_constraint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetConstraintArgs,
     ) -> GetConstraintResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding_1 = args.accept_language.get_output(context);
-        let accept_language_binding = accept_language_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accept_language_binding = args.accept_language.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:servicecatalog/getConstraint:getConstraint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: &accept_language_binding,
+                    value: accept_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetConstraintResult {
-            accept_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptLanguage"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            portfolio_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portfolioId"),
-            ),
-            product_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            accept_language: o.get_field("acceptLanguage"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            owner: o.get_field("owner"),
+            parameters: o.get_field("parameters"),
+            portfolio_id: o.get_field("portfolioId"),
+            product_id: o.get_field("productId"),
+            status: o.get_field("status"),
+            type_: o.get_field("type"),
         }
     }
 }

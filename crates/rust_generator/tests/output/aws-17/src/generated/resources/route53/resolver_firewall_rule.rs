@@ -113,130 +113,99 @@ pub mod resolver_firewall_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResolverFirewallRuleArgs,
     ) -> ResolverFirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let block_override_dns_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let block_override_dns_type_binding = args
             .block_override_dns_type
             .get_output(context);
-        let block_override_dns_type_binding = block_override_dns_type_binding_1
-            .get_inner();
-        let block_override_domain_binding_1 = args
+        let block_override_domain_binding = args
             .block_override_domain
             .get_output(context);
-        let block_override_domain_binding = block_override_domain_binding_1.get_inner();
-        let block_override_ttl_binding_1 = args.block_override_ttl.get_output(context);
-        let block_override_ttl_binding = block_override_ttl_binding_1.get_inner();
-        let block_response_binding_1 = args.block_response.get_output(context);
-        let block_response_binding = block_response_binding_1.get_inner();
-        let firewall_domain_list_id_binding_1 = args
+        let block_override_ttl_binding = args.block_override_ttl.get_output(context);
+        let block_response_binding = args.block_response.get_output(context);
+        let firewall_domain_list_id_binding = args
             .firewall_domain_list_id
             .get_output(context);
-        let firewall_domain_list_id_binding = firewall_domain_list_id_binding_1
-            .get_inner();
-        let firewall_domain_redirection_action_binding_1 = args
+        let firewall_domain_redirection_action_binding = args
             .firewall_domain_redirection_action
             .get_output(context);
-        let firewall_domain_redirection_action_binding = firewall_domain_redirection_action_binding_1
-            .get_inner();
-        let firewall_rule_group_id_binding_1 = args
+        let firewall_rule_group_id_binding = args
             .firewall_rule_group_id
             .get_output(context);
-        let firewall_rule_group_id_binding = firewall_rule_group_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let q_type_binding_1 = args.q_type.get_output(context);
-        let q_type_binding = q_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let q_type_binding = args.q_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/resolverFirewallRule:ResolverFirewallRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockOverrideDnsType".into(),
-                    value: &block_override_dns_type_binding,
+                    value: block_override_dns_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockOverrideDomain".into(),
-                    value: &block_override_domain_binding,
+                    value: block_override_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockOverrideTtl".into(),
-                    value: &block_override_ttl_binding,
+                    value: block_override_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockResponse".into(),
-                    value: &block_response_binding,
+                    value: block_response_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallDomainListId".into(),
-                    value: &firewall_domain_list_id_binding,
+                    value: firewall_domain_list_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallDomainRedirectionAction".into(),
-                    value: &firewall_domain_redirection_action_binding,
+                    value: firewall_domain_redirection_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallRuleGroupId".into(),
-                    value: &firewall_rule_group_id_binding,
+                    value: firewall_rule_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qType".into(),
-                    value: &q_type_binding,
+                    value: q_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResolverFirewallRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            block_override_dns_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockOverrideDnsType"),
-            ),
-            block_override_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockOverrideDomain"),
-            ),
-            block_override_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockOverrideTtl"),
-            ),
-            block_response: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockResponse"),
-            ),
-            firewall_domain_list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallDomainListId"),
-            ),
-            firewall_domain_redirection_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallDomainRedirectionAction"),
-            ),
-            firewall_rule_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallRuleGroupId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            q_type: pulumi_gestalt_rust::__private::into_domain(o.extract_field("qType")),
+            action: o.get_field("action"),
+            block_override_dns_type: o.get_field("blockOverrideDnsType"),
+            block_override_domain: o.get_field("blockOverrideDomain"),
+            block_override_ttl: o.get_field("blockOverrideTtl"),
+            block_response: o.get_field("blockResponse"),
+            firewall_domain_list_id: o.get_field("firewallDomainListId"),
+            firewall_domain_redirection_action: o
+                .get_field("firewallDomainRedirectionAction"),
+            firewall_rule_group_id: o.get_field("firewallRuleGroupId"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            q_type: o.get_field("qType"),
         }
     }
 }

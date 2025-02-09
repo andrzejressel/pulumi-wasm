@@ -73,85 +73,65 @@ pub mod replicator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReplicatorArgs,
     ) -> ReplicatorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kafka_clusters_binding_1 = args.kafka_clusters.get_output(context);
-        let kafka_clusters_binding = kafka_clusters_binding_1.get_inner();
-        let replication_info_list_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let kafka_clusters_binding = args.kafka_clusters.get_output(context);
+        let replication_info_list_binding = args
             .replication_info_list
             .get_output(context);
-        let replication_info_list_binding = replication_info_list_binding_1.get_inner();
-        let replicator_name_binding_1 = args.replicator_name.get_output(context);
-        let replicator_name_binding = replicator_name_binding_1.get_inner();
-        let service_execution_role_arn_binding_1 = args
+        let replicator_name_binding = args.replicator_name.get_output(context);
+        let service_execution_role_arn_binding = args
             .service_execution_role_arn
             .get_output(context);
-        let service_execution_role_arn_binding = service_execution_role_arn_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:msk/replicator:Replicator".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaClusters".into(),
-                    value: &kafka_clusters_binding,
+                    value: kafka_clusters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationInfoList".into(),
-                    value: &replication_info_list_binding,
+                    value: replication_info_list_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicatorName".into(),
-                    value: &replicator_name_binding,
+                    value: replicator_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceExecutionRoleArn".into(),
-                    value: &service_execution_role_arn_binding,
+                    value: service_execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReplicatorResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            current_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentVersion"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            kafka_clusters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaClusters"),
-            ),
-            replication_info_list: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationInfoList"),
-            ),
-            replicator_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicatorName"),
-            ),
-            service_execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceExecutionRoleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            current_version: o.get_field("currentVersion"),
+            description: o.get_field("description"),
+            kafka_clusters: o.get_field("kafkaClusters"),
+            replication_info_list: o.get_field("replicationInfoList"),
+            replicator_name: o.get_field("replicatorName"),
+            service_execution_role_arn: o.get_field("serviceExecutionRoleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

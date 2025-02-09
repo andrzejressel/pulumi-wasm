@@ -366,128 +366,91 @@ pub mod datascan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatascanArgs,
     ) -> DatascanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_binding_1 = args.data.get_output(context);
-        let data_binding = data_binding_1.get_inner();
-        let data_profile_spec_binding_1 = args.data_profile_spec.get_output(context);
-        let data_profile_spec_binding = data_profile_spec_binding_1.get_inner();
-        let data_quality_spec_binding_1 = args.data_quality_spec.get_output(context);
-        let data_quality_spec_binding = data_quality_spec_binding_1.get_inner();
-        let data_scan_id_binding_1 = args.data_scan_id.get_output(context);
-        let data_scan_id_binding = data_scan_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let execution_spec_binding_1 = args.execution_spec.get_output(context);
-        let execution_spec_binding = execution_spec_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_binding = args.data.get_output(context);
+        let data_profile_spec_binding = args.data_profile_spec.get_output(context);
+        let data_quality_spec_binding = args.data_quality_spec.get_output(context);
+        let data_scan_id_binding = args.data_scan_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let execution_spec_binding = args.execution_spec.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataplex/datascan:Datascan".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "data".into(),
-                    value: &data_binding,
+                    value: data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataProfileSpec".into(),
-                    value: &data_profile_spec_binding,
+                    value: data_profile_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataQualitySpec".into(),
-                    value: &data_quality_spec_binding,
+                    value: data_quality_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataScanId".into(),
-                    value: &data_scan_id_binding,
+                    value: data_scan_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionSpec".into(),
-                    value: &execution_spec_binding,
+                    value: execution_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatascanResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
-            data_profile_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataProfileSpec"),
-            ),
-            data_quality_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataQualitySpec"),
-            ),
-            data_scan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataScanId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            execution_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionSpec"),
-            ),
-            execution_statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionStatuses"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            data: o.get_field("data"),
+            data_profile_spec: o.get_field("dataProfileSpec"),
+            data_quality_spec: o.get_field("dataQualitySpec"),
+            data_scan_id: o.get_field("dataScanId"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            execution_spec: o.get_field("executionSpec"),
+            execution_statuses: o.get_field("executionStatuses"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            state: o.get_field("state"),
+            type_: o.get_field("type"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

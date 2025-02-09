@@ -75,77 +75,51 @@ pub mod get_index {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetIndexArgs,
     ) -> GetIndexResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let id_binding = args.id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kendra/getIndex:getIndex".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetIndexResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            capacity_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityUnits"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            document_metadata_configuration_updates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentMetadataConfigurationUpdates"),
-            ),
-            edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edition"),
-            ),
-            error_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorMessage"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            index_statistics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexStatistics"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            server_side_encryption_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryptionConfigurations"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
-            user_context_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userContextPolicy"),
-            ),
-            user_group_resolution_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userGroupResolutionConfigurations"),
-            ),
-            user_token_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userTokenConfigurations"),
-            ),
+            arn: o.get_field("arn"),
+            capacity_units: o.get_field("capacityUnits"),
+            created_at: o.get_field("createdAt"),
+            description: o.get_field("description"),
+            document_metadata_configuration_updates: o
+                .get_field("documentMetadataConfigurationUpdates"),
+            edition: o.get_field("edition"),
+            error_message: o.get_field("errorMessage"),
+            id: o.get_field("id"),
+            index_statistics: o.get_field("indexStatistics"),
+            name: o.get_field("name"),
+            role_arn: o.get_field("roleArn"),
+            server_side_encryption_configurations: o
+                .get_field("serverSideEncryptionConfigurations"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            updated_at: o.get_field("updatedAt"),
+            user_context_policy: o.get_field("userContextPolicy"),
+            user_group_resolution_configurations: o
+                .get_field("userGroupResolutionConfigurations"),
+            user_token_configurations: o.get_field("userTokenConfigurations"),
         }
     }
 }

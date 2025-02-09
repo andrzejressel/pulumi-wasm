@@ -104,90 +104,72 @@ pub mod storage_defender {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StorageDefenderArgs,
     ) -> StorageDefenderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let malware_scanning_on_upload_cap_gb_per_month_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let malware_scanning_on_upload_cap_gb_per_month_binding = args
             .malware_scanning_on_upload_cap_gb_per_month
             .get_output(context);
-        let malware_scanning_on_upload_cap_gb_per_month_binding = malware_scanning_on_upload_cap_gb_per_month_binding_1
-            .get_inner();
-        let malware_scanning_on_upload_enabled_binding_1 = args
+        let malware_scanning_on_upload_enabled_binding = args
             .malware_scanning_on_upload_enabled
             .get_output(context);
-        let malware_scanning_on_upload_enabled_binding = malware_scanning_on_upload_enabled_binding_1
-            .get_inner();
-        let override_subscription_settings_enabled_binding_1 = args
+        let override_subscription_settings_enabled_binding = args
             .override_subscription_settings_enabled
             .get_output(context);
-        let override_subscription_settings_enabled_binding = override_subscription_settings_enabled_binding_1
-            .get_inner();
-        let scan_results_event_grid_topic_id_binding_1 = args
+        let scan_results_event_grid_topic_id_binding = args
             .scan_results_event_grid_topic_id
             .get_output(context);
-        let scan_results_event_grid_topic_id_binding = scan_results_event_grid_topic_id_binding_1
-            .get_inner();
-        let sensitive_data_discovery_enabled_binding_1 = args
+        let sensitive_data_discovery_enabled_binding = args
             .sensitive_data_discovery_enabled
             .get_output(context);
-        let sensitive_data_discovery_enabled_binding = sensitive_data_discovery_enabled_binding_1
-            .get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:securitycenter/storageDefender:StorageDefender".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "malwareScanningOnUploadCapGbPerMonth".into(),
-                    value: &malware_scanning_on_upload_cap_gb_per_month_binding,
+                    value: malware_scanning_on_upload_cap_gb_per_month_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "malwareScanningOnUploadEnabled".into(),
-                    value: &malware_scanning_on_upload_enabled_binding,
+                    value: malware_scanning_on_upload_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideSubscriptionSettingsEnabled".into(),
-                    value: &override_subscription_settings_enabled_binding,
+                    value: override_subscription_settings_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanResultsEventGridTopicId".into(),
-                    value: &scan_results_event_grid_topic_id_binding,
+                    value: scan_results_event_grid_topic_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sensitiveDataDiscoveryEnabled".into(),
-                    value: &sensitive_data_discovery_enabled_binding,
+                    value: sensitive_data_discovery_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StorageDefenderResult {
-            malware_scanning_on_upload_cap_gb_per_month: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("malwareScanningOnUploadCapGbPerMonth"),
-            ),
-            malware_scanning_on_upload_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("malwareScanningOnUploadEnabled"),
-            ),
-            override_subscription_settings_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrideSubscriptionSettingsEnabled"),
-            ),
-            scan_results_event_grid_topic_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scanResultsEventGridTopicId"),
-            ),
-            sensitive_data_discovery_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sensitiveDataDiscoveryEnabled"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
+            malware_scanning_on_upload_cap_gb_per_month: o
+                .get_field("malwareScanningOnUploadCapGbPerMonth"),
+            malware_scanning_on_upload_enabled: o
+                .get_field("malwareScanningOnUploadEnabled"),
+            override_subscription_settings_enabled: o
+                .get_field("overrideSubscriptionSettingsEnabled"),
+            scan_results_event_grid_topic_id: o.get_field("scanResultsEventGridTopicId"),
+            sensitive_data_discovery_enabled: o
+                .get_field("sensitiveDataDiscoveryEnabled"),
+            storage_account_id: o.get_field("storageAccountId"),
         }
     }
 }

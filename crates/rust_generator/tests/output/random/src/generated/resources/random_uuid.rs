@@ -49,33 +49,29 @@ pub mod random_uuid {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RandomUuidArgs,
     ) -> RandomUuidResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let keepers_binding_1 = args.keepers.get_output(context);
-        let keepers_binding = keepers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let keepers_binding = args.keepers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "random:index/randomUuid:RandomUuid".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: &keepers_binding,
+                    value: keepers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RandomUuidResult {
-            keepers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepers"),
-            ),
-            result: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("result"),
-            ),
+            keepers: o.get_field("keepers"),
+            result: o.get_field("result"),
         }
     }
 }

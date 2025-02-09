@@ -232,250 +232,169 @@ pub mod windows_file_system {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WindowsFileSystemArgs,
     ) -> WindowsFileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_directory_id_binding_1 = args.active_directory_id.get_output(context);
-        let active_directory_id_binding = active_directory_id_binding_1.get_inner();
-        let aliases_binding_1 = args.aliases.get_output(context);
-        let aliases_binding = aliases_binding_1.get_inner();
-        let audit_log_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let active_directory_id_binding = args.active_directory_id.get_output(context);
+        let aliases_binding = args.aliases.get_output(context);
+        let audit_log_configuration_binding = args
             .audit_log_configuration
             .get_output(context);
-        let audit_log_configuration_binding = audit_log_configuration_binding_1
-            .get_inner();
-        let automatic_backup_retention_days_binding_1 = args
+        let automatic_backup_retention_days_binding = args
             .automatic_backup_retention_days
             .get_output(context);
-        let automatic_backup_retention_days_binding = automatic_backup_retention_days_binding_1
-            .get_inner();
-        let backup_id_binding_1 = args.backup_id.get_output(context);
-        let backup_id_binding = backup_id_binding_1.get_inner();
-        let copy_tags_to_backups_binding_1 = args
-            .copy_tags_to_backups
-            .get_output(context);
-        let copy_tags_to_backups_binding = copy_tags_to_backups_binding_1.get_inner();
-        let daily_automatic_backup_start_time_binding_1 = args
+        let backup_id_binding = args.backup_id.get_output(context);
+        let copy_tags_to_backups_binding = args.copy_tags_to_backups.get_output(context);
+        let daily_automatic_backup_start_time_binding = args
             .daily_automatic_backup_start_time
             .get_output(context);
-        let daily_automatic_backup_start_time_binding = daily_automatic_backup_start_time_binding_1
-            .get_inner();
-        let deployment_type_binding_1 = args.deployment_type.get_output(context);
-        let deployment_type_binding = deployment_type_binding_1.get_inner();
-        let disk_iops_configuration_binding_1 = args
+        let deployment_type_binding = args.deployment_type.get_output(context);
+        let disk_iops_configuration_binding = args
             .disk_iops_configuration
             .get_output(context);
-        let disk_iops_configuration_binding = disk_iops_configuration_binding_1
-            .get_inner();
-        let final_backup_tags_binding_1 = args.final_backup_tags.get_output(context);
-        let final_backup_tags_binding = final_backup_tags_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let preferred_subnet_id_binding_1 = args.preferred_subnet_id.get_output(context);
-        let preferred_subnet_id_binding = preferred_subnet_id_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let self_managed_active_directory_binding_1 = args
+        let final_backup_tags_binding = args.final_backup_tags.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let preferred_subnet_id_binding = args.preferred_subnet_id.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let self_managed_active_directory_binding = args
             .self_managed_active_directory
             .get_output(context);
-        let self_managed_active_directory_binding = self_managed_active_directory_binding_1
-            .get_inner();
-        let skip_final_backup_binding_1 = args.skip_final_backup.get_output(context);
-        let skip_final_backup_binding = skip_final_backup_binding_1.get_inner();
-        let storage_capacity_binding_1 = args.storage_capacity.get_output(context);
-        let storage_capacity_binding = storage_capacity_binding_1.get_inner();
-        let storage_type_binding_1 = args.storage_type.get_output(context);
-        let storage_type_binding = storage_type_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let throughput_capacity_binding_1 = args.throughput_capacity.get_output(context);
-        let throughput_capacity_binding = throughput_capacity_binding_1.get_inner();
-        let weekly_maintenance_start_time_binding_1 = args
+        let skip_final_backup_binding = args.skip_final_backup.get_output(context);
+        let storage_capacity_binding = args.storage_capacity.get_output(context);
+        let storage_type_binding = args.storage_type.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let throughput_capacity_binding = args.throughput_capacity.get_output(context);
+        let weekly_maintenance_start_time_binding = args
             .weekly_maintenance_start_time
             .get_output(context);
-        let weekly_maintenance_start_time_binding = weekly_maintenance_start_time_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fsx/windowsFileSystem:WindowsFileSystem".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeDirectoryId".into(),
-                    value: &active_directory_id_binding,
+                    value: active_directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliases".into(),
-                    value: &aliases_binding,
+                    value: aliases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditLogConfiguration".into(),
-                    value: &audit_log_configuration_binding,
+                    value: audit_log_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticBackupRetentionDays".into(),
-                    value: &automatic_backup_retention_days_binding,
+                    value: automatic_backup_retention_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupId".into(),
-                    value: &backup_id_binding,
+                    value: backup_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToBackups".into(),
-                    value: &copy_tags_to_backups_binding,
+                    value: copy_tags_to_backups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyAutomaticBackupStartTime".into(),
-                    value: &daily_automatic_backup_start_time_binding,
+                    value: daily_automatic_backup_start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentType".into(),
-                    value: &deployment_type_binding,
+                    value: deployment_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskIopsConfiguration".into(),
-                    value: &disk_iops_configuration_binding,
+                    value: disk_iops_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalBackupTags".into(),
-                    value: &final_backup_tags_binding,
+                    value: final_backup_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredSubnetId".into(),
-                    value: &preferred_subnet_id_binding,
+                    value: preferred_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfManagedActiveDirectory".into(),
-                    value: &self_managed_active_directory_binding,
+                    value: self_managed_active_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFinalBackup".into(),
-                    value: &skip_final_backup_binding,
+                    value: skip_final_backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacity".into(),
-                    value: &storage_capacity_binding,
+                    value: storage_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: &storage_type_binding,
+                    value: storage_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughputCapacity".into(),
-                    value: &throughput_capacity_binding,
+                    value: throughput_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyMaintenanceStartTime".into(),
-                    value: &weekly_maintenance_start_time_binding,
+                    value: weekly_maintenance_start_time_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WindowsFileSystemResult {
-            active_directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeDirectoryId"),
-            ),
-            aliases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliases"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            audit_log_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditLogConfiguration"),
-            ),
-            automatic_backup_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticBackupRetentionDays"),
-            ),
-            backup_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupId"),
-            ),
-            copy_tags_to_backups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyTagsToBackups"),
-            ),
-            daily_automatic_backup_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyAutomaticBackupStartTime"),
-            ),
-            deployment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentType"),
-            ),
-            disk_iops_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskIopsConfiguration"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            final_backup_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalBackupTags"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            network_interface_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceIds"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            preferred_file_server_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredFileServerIp"),
-            ),
-            preferred_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredSubnetId"),
-            ),
-            remote_administration_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteAdministrationEndpoint"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            self_managed_active_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfManagedActiveDirectory"),
-            ),
-            skip_final_backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipFinalBackup"),
-            ),
-            storage_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageCapacity"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            throughput_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughputCapacity"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            weekly_maintenance_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weeklyMaintenanceStartTime"),
-            ),
+            active_directory_id: o.get_field("activeDirectoryId"),
+            aliases: o.get_field("aliases"),
+            arn: o.get_field("arn"),
+            audit_log_configuration: o.get_field("auditLogConfiguration"),
+            automatic_backup_retention_days: o.get_field("automaticBackupRetentionDays"),
+            backup_id: o.get_field("backupId"),
+            copy_tags_to_backups: o.get_field("copyTagsToBackups"),
+            daily_automatic_backup_start_time: o
+                .get_field("dailyAutomaticBackupStartTime"),
+            deployment_type: o.get_field("deploymentType"),
+            disk_iops_configuration: o.get_field("diskIopsConfiguration"),
+            dns_name: o.get_field("dnsName"),
+            final_backup_tags: o.get_field("finalBackupTags"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            network_interface_ids: o.get_field("networkInterfaceIds"),
+            owner_id: o.get_field("ownerId"),
+            preferred_file_server_ip: o.get_field("preferredFileServerIp"),
+            preferred_subnet_id: o.get_field("preferredSubnetId"),
+            remote_administration_endpoint: o.get_field("remoteAdministrationEndpoint"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            self_managed_active_directory: o.get_field("selfManagedActiveDirectory"),
+            skip_final_backup: o.get_field("skipFinalBackup"),
+            storage_capacity: o.get_field("storageCapacity"),
+            storage_type: o.get_field("storageType"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            throughput_capacity: o.get_field("throughputCapacity"),
+            vpc_id: o.get_field("vpcId"),
+            weekly_maintenance_start_time: o.get_field("weeklyMaintenanceStartTime"),
         }
     }
 }

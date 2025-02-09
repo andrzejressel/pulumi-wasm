@@ -128,57 +128,43 @@ pub mod certificate_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateBindingArgs,
     ) -> CertificateBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_id_binding_1 = args.certificate_id.get_output(context);
-        let certificate_id_binding = certificate_id_binding_1.get_inner();
-        let hostname_binding_id_binding_1 = args.hostname_binding_id.get_output(context);
-        let hostname_binding_id_binding = hostname_binding_id_binding_1.get_inner();
-        let ssl_state_binding_1 = args.ssl_state.get_output(context);
-        let ssl_state_binding = ssl_state_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_id_binding = args.certificate_id.get_output(context);
+        let hostname_binding_id_binding = args.hostname_binding_id.get_output(context);
+        let ssl_state_binding = args.ssl_state.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/certificateBinding:CertificateBinding".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateId".into(),
-                    value: &certificate_id_binding,
+                    value: certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostnameBindingId".into(),
-                    value: &hostname_binding_id_binding,
+                    value: hostname_binding_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslState".into(),
-                    value: &ssl_state_binding,
+                    value: ssl_state_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateBindingResult {
-            app_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceName"),
-            ),
-            certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateId"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            hostname_binding_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostnameBindingId"),
-            ),
-            ssl_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslState"),
-            ),
-            thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprint"),
-            ),
+            app_service_name: o.get_field("appServiceName"),
+            certificate_id: o.get_field("certificateId"),
+            hostname: o.get_field("hostname"),
+            hostname_binding_id: o.get_field("hostnameBindingId"),
+            ssl_state: o.get_field("sslState"),
+            thumbprint: o.get_field("thumbprint"),
         }
     }
 }

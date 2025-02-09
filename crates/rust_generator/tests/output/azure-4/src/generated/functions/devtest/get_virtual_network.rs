@@ -37,54 +37,42 @@ pub mod get_virtual_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVirtualNetworkArgs,
     ) -> GetVirtualNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let lab_name_binding_1 = args.lab_name.get_output(context);
-        let lab_name_binding = lab_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let lab_name_binding = args.lab_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:devtest/getVirtualNetwork:getVirtualNetwork".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labName".into(),
-                    value: &lab_name_binding,
+                    value: lab_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVirtualNetworkResult {
-            allowed_subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedSubnets"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lab_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            subnet_overrides: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetOverrides"),
-            ),
-            unique_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueIdentifier"),
-            ),
+            allowed_subnets: o.get_field("allowedSubnets"),
+            id: o.get_field("id"),
+            lab_name: o.get_field("labName"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            subnet_overrides: o.get_field("subnetOverrides"),
+            unique_identifier: o.get_field("uniqueIdentifier"),
         }
     }
 }

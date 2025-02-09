@@ -86,58 +86,47 @@ pub mod linked_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkedServiceArgs,
     ) -> LinkedServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let read_access_id_binding_1 = args.read_access_id.get_output(context);
-        let read_access_id_binding = read_access_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let write_access_id_binding_1 = args.write_access_id.get_output(context);
-        let write_access_id_binding = write_access_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let read_access_id_binding = args.read_access_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let write_access_id_binding = args.write_access_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/linkedService:LinkedService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readAccessId".into(),
-                    value: &read_access_id_binding,
+                    value: read_access_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeAccessId".into(),
-                    value: &write_access_id_binding,
+                    value: write_access_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkedServiceResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            read_access_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readAccessId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
-            write_access_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writeAccessId"),
-            ),
+            name: o.get_field("name"),
+            read_access_id: o.get_field("readAccessId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            workspace_id: o.get_field("workspaceId"),
+            write_access_id: o.get_field("writeAccessId"),
         }
     }
 }

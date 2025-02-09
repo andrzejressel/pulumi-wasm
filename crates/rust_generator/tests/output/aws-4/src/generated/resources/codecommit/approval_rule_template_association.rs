@@ -51,43 +51,37 @@ pub mod approval_rule_template_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApprovalRuleTemplateAssociationArgs,
     ) -> ApprovalRuleTemplateAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let approval_rule_template_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let approval_rule_template_name_binding = args
             .approval_rule_template_name
             .get_output(context);
-        let approval_rule_template_name_binding = approval_rule_template_name_binding_1
-            .get_inner();
-        let repository_name_binding_1 = args.repository_name.get_output(context);
-        let repository_name_binding = repository_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let repository_name_binding = args.repository_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalRuleTemplateName".into(),
-                    value: &approval_rule_template_name_binding,
+                    value: approval_rule_template_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: &repository_name_binding,
+                    value: repository_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApprovalRuleTemplateAssociationResult {
-            approval_rule_template_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalRuleTemplateName"),
-            ),
-            repository_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryName"),
-            ),
+            approval_rule_template_name: o.get_field("approvalRuleTemplateName"),
+            repository_name: o.get_field("repositoryName"),
         }
     }
 }

@@ -89,51 +89,42 @@ pub mod multiplex_program {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MultiplexProgramArgs,
     ) -> MultiplexProgramResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let multiplex_id_binding_1 = args.multiplex_id.get_output(context);
-        let multiplex_id_binding = multiplex_id_binding_1.get_inner();
-        let multiplex_program_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let multiplex_id_binding = args.multiplex_id.get_output(context);
+        let multiplex_program_settings_binding = args
             .multiplex_program_settings
             .get_output(context);
-        let multiplex_program_settings_binding = multiplex_program_settings_binding_1
-            .get_inner();
-        let program_name_binding_1 = args.program_name.get_output(context);
-        let program_name_binding = program_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let program_name_binding = args.program_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:medialive/multiplexProgram:MultiplexProgram".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiplexId".into(),
-                    value: &multiplex_id_binding,
+                    value: multiplex_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiplexProgramSettings".into(),
-                    value: &multiplex_program_settings_binding,
+                    value: multiplex_program_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "programName".into(),
-                    value: &program_name_binding,
+                    value: program_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MultiplexProgramResult {
-            multiplex_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiplexId"),
-            ),
-            multiplex_program_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiplexProgramSettings"),
-            ),
-            program_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("programName"),
-            ),
+            multiplex_id: o.get_field("multiplexId"),
+            multiplex_program_settings: o.get_field("multiplexProgramSettings"),
+            program_name: o.get_field("programName"),
         }
     }
 }

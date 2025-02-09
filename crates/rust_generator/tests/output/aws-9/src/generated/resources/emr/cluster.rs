@@ -547,336 +547,233 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_info_binding_1 = args.additional_info.get_output(context);
-        let additional_info_binding = additional_info_binding_1.get_inner();
-        let applications_binding_1 = args.applications.get_output(context);
-        let applications_binding = applications_binding_1.get_inner();
-        let auto_termination_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_info_binding = args.additional_info.get_output(context);
+        let applications_binding = args.applications.get_output(context);
+        let auto_termination_policy_binding = args
             .auto_termination_policy
             .get_output(context);
-        let auto_termination_policy_binding = auto_termination_policy_binding_1
-            .get_inner();
-        let autoscaling_role_binding_1 = args.autoscaling_role.get_output(context);
-        let autoscaling_role_binding = autoscaling_role_binding_1.get_inner();
-        let bootstrap_actions_binding_1 = args.bootstrap_actions.get_output(context);
-        let bootstrap_actions_binding = bootstrap_actions_binding_1.get_inner();
-        let configurations_binding_1 = args.configurations.get_output(context);
-        let configurations_binding = configurations_binding_1.get_inner();
-        let configurations_json_binding_1 = args.configurations_json.get_output(context);
-        let configurations_json_binding = configurations_json_binding_1.get_inner();
-        let core_instance_fleet_binding_1 = args.core_instance_fleet.get_output(context);
-        let core_instance_fleet_binding = core_instance_fleet_binding_1.get_inner();
-        let core_instance_group_binding_1 = args.core_instance_group.get_output(context);
-        let core_instance_group_binding = core_instance_group_binding_1.get_inner();
-        let custom_ami_id_binding_1 = args.custom_ami_id.get_output(context);
-        let custom_ami_id_binding = custom_ami_id_binding_1.get_inner();
-        let ebs_root_volume_size_binding_1 = args
-            .ebs_root_volume_size
-            .get_output(context);
-        let ebs_root_volume_size_binding = ebs_root_volume_size_binding_1.get_inner();
-        let ec2_attributes_binding_1 = args.ec2_attributes.get_output(context);
-        let ec2_attributes_binding = ec2_attributes_binding_1.get_inner();
-        let keep_job_flow_alive_when_no_steps_binding_1 = args
+        let autoscaling_role_binding = args.autoscaling_role.get_output(context);
+        let bootstrap_actions_binding = args.bootstrap_actions.get_output(context);
+        let configurations_binding = args.configurations.get_output(context);
+        let configurations_json_binding = args.configurations_json.get_output(context);
+        let core_instance_fleet_binding = args.core_instance_fleet.get_output(context);
+        let core_instance_group_binding = args.core_instance_group.get_output(context);
+        let custom_ami_id_binding = args.custom_ami_id.get_output(context);
+        let ebs_root_volume_size_binding = args.ebs_root_volume_size.get_output(context);
+        let ec2_attributes_binding = args.ec2_attributes.get_output(context);
+        let keep_job_flow_alive_when_no_steps_binding = args
             .keep_job_flow_alive_when_no_steps
             .get_output(context);
-        let keep_job_flow_alive_when_no_steps_binding = keep_job_flow_alive_when_no_steps_binding_1
-            .get_inner();
-        let kerberos_attributes_binding_1 = args.kerberos_attributes.get_output(context);
-        let kerberos_attributes_binding = kerberos_attributes_binding_1.get_inner();
-        let list_steps_states_binding_1 = args.list_steps_states.get_output(context);
-        let list_steps_states_binding = list_steps_states_binding_1.get_inner();
-        let log_encryption_kms_key_id_binding_1 = args
+        let kerberos_attributes_binding = args.kerberos_attributes.get_output(context);
+        let list_steps_states_binding = args.list_steps_states.get_output(context);
+        let log_encryption_kms_key_id_binding = args
             .log_encryption_kms_key_id
             .get_output(context);
-        let log_encryption_kms_key_id_binding = log_encryption_kms_key_id_binding_1
-            .get_inner();
-        let log_uri_binding_1 = args.log_uri.get_output(context);
-        let log_uri_binding = log_uri_binding_1.get_inner();
-        let master_instance_fleet_binding_1 = args
+        let log_uri_binding = args.log_uri.get_output(context);
+        let master_instance_fleet_binding = args
             .master_instance_fleet
             .get_output(context);
-        let master_instance_fleet_binding = master_instance_fleet_binding_1.get_inner();
-        let master_instance_group_binding_1 = args
+        let master_instance_group_binding = args
             .master_instance_group
             .get_output(context);
-        let master_instance_group_binding = master_instance_group_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let placement_group_configs_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let placement_group_configs_binding = args
             .placement_group_configs
             .get_output(context);
-        let placement_group_configs_binding = placement_group_configs_binding_1
-            .get_inner();
-        let release_label_binding_1 = args.release_label.get_output(context);
-        let release_label_binding = release_label_binding_1.get_inner();
-        let scale_down_behavior_binding_1 = args.scale_down_behavior.get_output(context);
-        let scale_down_behavior_binding = scale_down_behavior_binding_1.get_inner();
-        let security_configuration_binding_1 = args
+        let release_label_binding = args.release_label.get_output(context);
+        let scale_down_behavior_binding = args.scale_down_behavior.get_output(context);
+        let security_configuration_binding = args
             .security_configuration
             .get_output(context);
-        let security_configuration_binding = security_configuration_binding_1
-            .get_inner();
-        let service_role_binding_1 = args.service_role.get_output(context);
-        let service_role_binding = service_role_binding_1.get_inner();
-        let step_concurrency_level_binding_1 = args
+        let service_role_binding = args.service_role.get_output(context);
+        let step_concurrency_level_binding = args
             .step_concurrency_level
             .get_output(context);
-        let step_concurrency_level_binding = step_concurrency_level_binding_1
-            .get_inner();
-        let steps_binding_1 = args.steps.get_output(context);
-        let steps_binding = steps_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let termination_protection_binding_1 = args
+        let steps_binding = args.steps.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let termination_protection_binding = args
             .termination_protection
             .get_output(context);
-        let termination_protection_binding = termination_protection_binding_1
-            .get_inner();
-        let unhealthy_node_replacement_binding_1 = args
+        let unhealthy_node_replacement_binding = args
             .unhealthy_node_replacement
             .get_output(context);
-        let unhealthy_node_replacement_binding = unhealthy_node_replacement_binding_1
-            .get_inner();
-        let visible_to_all_users_binding_1 = args
-            .visible_to_all_users
-            .get_output(context);
-        let visible_to_all_users_binding = visible_to_all_users_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let visible_to_all_users_binding = args.visible_to_all_users.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:emr/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalInfo".into(),
-                    value: &additional_info_binding,
+                    value: additional_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applications".into(),
-                    value: &applications_binding,
+                    value: applications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoTerminationPolicy".into(),
-                    value: &auto_termination_policy_binding,
+                    value: auto_termination_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingRole".into(),
-                    value: &autoscaling_role_binding,
+                    value: autoscaling_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootstrapActions".into(),
-                    value: &bootstrap_actions_binding,
+                    value: bootstrap_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurations".into(),
-                    value: &configurations_binding,
+                    value: configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationsJson".into(),
-                    value: &configurations_json_binding,
+                    value: configurations_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreInstanceFleet".into(),
-                    value: &core_instance_fleet_binding,
+                    value: core_instance_fleet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreInstanceGroup".into(),
-                    value: &core_instance_group_binding,
+                    value: core_instance_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customAmiId".into(),
-                    value: &custom_ami_id_binding,
+                    value: custom_ami_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsRootVolumeSize".into(),
-                    value: &ebs_root_volume_size_binding,
+                    value: ebs_root_volume_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2Attributes".into(),
-                    value: &ec2_attributes_binding,
+                    value: ec2_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepJobFlowAliveWhenNoSteps".into(),
-                    value: &keep_job_flow_alive_when_no_steps_binding,
+                    value: keep_job_flow_alive_when_no_steps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosAttributes".into(),
-                    value: &kerberos_attributes_binding,
+                    value: kerberos_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listStepsStates".into(),
-                    value: &list_steps_states_binding,
+                    value: list_steps_states_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logEncryptionKmsKeyId".into(),
-                    value: &log_encryption_kms_key_id_binding,
+                    value: log_encryption_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logUri".into(),
-                    value: &log_uri_binding,
+                    value: log_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterInstanceFleet".into(),
-                    value: &master_instance_fleet_binding,
+                    value: master_instance_fleet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterInstanceGroup".into(),
-                    value: &master_instance_group_binding,
+                    value: master_instance_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementGroupConfigs".into(),
-                    value: &placement_group_configs_binding,
+                    value: placement_group_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseLabel".into(),
-                    value: &release_label_binding,
+                    value: release_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scaleDownBehavior".into(),
-                    value: &scale_down_behavior_binding,
+                    value: scale_down_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityConfiguration".into(),
-                    value: &security_configuration_binding,
+                    value: security_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRole".into(),
-                    value: &service_role_binding,
+                    value: service_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stepConcurrencyLevel".into(),
-                    value: &step_concurrency_level_binding,
+                    value: step_concurrency_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "steps".into(),
-                    value: &steps_binding,
+                    value: steps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminationProtection".into(),
-                    value: &termination_protection_binding,
+                    value: termination_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "unhealthyNodeReplacement".into(),
-                    value: &unhealthy_node_replacement_binding,
+                    value: unhealthy_node_replacement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibleToAllUsers".into(),
-                    value: &visible_to_all_users_binding,
+                    value: visible_to_all_users_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            additional_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalInfo"),
-            ),
-            applications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applications"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_termination_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoTerminationPolicy"),
-            ),
-            autoscaling_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingRole"),
-            ),
-            bootstrap_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapActions"),
-            ),
-            cluster_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterState"),
-            ),
-            configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurations"),
-            ),
-            configurations_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationsJson"),
-            ),
-            core_instance_fleet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreInstanceFleet"),
-            ),
-            core_instance_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreInstanceGroup"),
-            ),
-            custom_ami_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customAmiId"),
-            ),
-            ebs_root_volume_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsRootVolumeSize"),
-            ),
-            ec2_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ec2Attributes"),
-            ),
-            keep_job_flow_alive_when_no_steps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepJobFlowAliveWhenNoSteps"),
-            ),
-            kerberos_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosAttributes"),
-            ),
-            list_steps_states: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listStepsStates"),
-            ),
-            log_encryption_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logEncryptionKmsKeyId"),
-            ),
-            log_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logUri"),
-            ),
-            master_instance_fleet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterInstanceFleet"),
-            ),
-            master_instance_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterInstanceGroup"),
-            ),
-            master_public_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterPublicDns"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            placement_group_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementGroupConfigs"),
-            ),
-            release_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseLabel"),
-            ),
-            scale_down_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scaleDownBehavior"),
-            ),
-            security_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityConfiguration"),
-            ),
-            service_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRole"),
-            ),
-            step_concurrency_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stepConcurrencyLevel"),
-            ),
-            steps: pulumi_gestalt_rust::__private::into_domain(o.extract_field("steps")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            termination_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminationProtection"),
-            ),
-            unhealthy_node_replacement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("unhealthyNodeReplacement"),
-            ),
-            visible_to_all_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibleToAllUsers"),
-            ),
+            additional_info: o.get_field("additionalInfo"),
+            applications: o.get_field("applications"),
+            arn: o.get_field("arn"),
+            auto_termination_policy: o.get_field("autoTerminationPolicy"),
+            autoscaling_role: o.get_field("autoscalingRole"),
+            bootstrap_actions: o.get_field("bootstrapActions"),
+            cluster_state: o.get_field("clusterState"),
+            configurations: o.get_field("configurations"),
+            configurations_json: o.get_field("configurationsJson"),
+            core_instance_fleet: o.get_field("coreInstanceFleet"),
+            core_instance_group: o.get_field("coreInstanceGroup"),
+            custom_ami_id: o.get_field("customAmiId"),
+            ebs_root_volume_size: o.get_field("ebsRootVolumeSize"),
+            ec2_attributes: o.get_field("ec2Attributes"),
+            keep_job_flow_alive_when_no_steps: o
+                .get_field("keepJobFlowAliveWhenNoSteps"),
+            kerberos_attributes: o.get_field("kerberosAttributes"),
+            list_steps_states: o.get_field("listStepsStates"),
+            log_encryption_kms_key_id: o.get_field("logEncryptionKmsKeyId"),
+            log_uri: o.get_field("logUri"),
+            master_instance_fleet: o.get_field("masterInstanceFleet"),
+            master_instance_group: o.get_field("masterInstanceGroup"),
+            master_public_dns: o.get_field("masterPublicDns"),
+            name: o.get_field("name"),
+            placement_group_configs: o.get_field("placementGroupConfigs"),
+            release_label: o.get_field("releaseLabel"),
+            scale_down_behavior: o.get_field("scaleDownBehavior"),
+            security_configuration: o.get_field("securityConfiguration"),
+            service_role: o.get_field("serviceRole"),
+            step_concurrency_level: o.get_field("stepConcurrencyLevel"),
+            steps: o.get_field("steps"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            termination_protection: o.get_field("terminationProtection"),
+            unhealthy_node_replacement: o.get_field("unhealthyNodeReplacement"),
+            visible_to_all_users: o.get_field("visibleToAllUsers"),
         }
     }
 }

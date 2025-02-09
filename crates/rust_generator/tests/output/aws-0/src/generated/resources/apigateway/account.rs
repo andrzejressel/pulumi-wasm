@@ -98,48 +98,37 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_role_arn_binding_1 = args.cloudwatch_role_arn.get_output(context);
-        let cloudwatch_role_arn_binding = cloudwatch_role_arn_binding_1.get_inner();
-        let reset_on_delete_binding_1 = args.reset_on_delete.get_output(context);
-        let reset_on_delete_binding = reset_on_delete_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloudwatch_role_arn_binding = args.cloudwatch_role_arn.get_output(context);
+        let reset_on_delete_binding = args.reset_on_delete.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/account:Account".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchRoleArn".into(),
-                    value: &cloudwatch_role_arn_binding,
+                    value: cloudwatch_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resetOnDelete".into(),
-                    value: &reset_on_delete_binding,
+                    value: reset_on_delete_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountResult {
-            api_key_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKeyVersion"),
-            ),
-            cloudwatch_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchRoleArn"),
-            ),
-            features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("features"),
-            ),
-            reset_on_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resetOnDelete"),
-            ),
-            throttle_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throttleSettings"),
-            ),
+            api_key_version: o.get_field("apiKeyVersion"),
+            cloudwatch_role_arn: o.get_field("cloudwatchRoleArn"),
+            features: o.get_field("features"),
+            reset_on_delete: o.get_field("resetOnDelete"),
+            throttle_settings: o.get_field("throttleSettings"),
         }
     }
 }

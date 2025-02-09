@@ -325,397 +325,273 @@ pub mod launch_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LaunchTemplateArgs,
     ) -> LaunchTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_device_mappings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let block_device_mappings_binding = args
             .block_device_mappings
             .get_output(context);
-        let block_device_mappings_binding = block_device_mappings_binding_1.get_inner();
-        let capacity_reservation_specification_binding_1 = args
+        let capacity_reservation_specification_binding = args
             .capacity_reservation_specification
             .get_output(context);
-        let capacity_reservation_specification_binding = capacity_reservation_specification_binding_1
-            .get_inner();
-        let cpu_options_binding_1 = args.cpu_options.get_output(context);
-        let cpu_options_binding = cpu_options_binding_1.get_inner();
-        let credit_specification_binding_1 = args
-            .credit_specification
-            .get_output(context);
-        let credit_specification_binding = credit_specification_binding_1.get_inner();
-        let default_version_binding_1 = args.default_version.get_output(context);
-        let default_version_binding = default_version_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_api_stop_binding_1 = args.disable_api_stop.get_output(context);
-        let disable_api_stop_binding = disable_api_stop_binding_1.get_inner();
-        let disable_api_termination_binding_1 = args
+        let cpu_options_binding = args.cpu_options.get_output(context);
+        let credit_specification_binding = args.credit_specification.get_output(context);
+        let default_version_binding = args.default_version.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disable_api_stop_binding = args.disable_api_stop.get_output(context);
+        let disable_api_termination_binding = args
             .disable_api_termination
             .get_output(context);
-        let disable_api_termination_binding = disable_api_termination_binding_1
-            .get_inner();
-        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
-        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
-        let elastic_gpu_specifications_binding_1 = args
+        let ebs_optimized_binding = args.ebs_optimized.get_output(context);
+        let elastic_gpu_specifications_binding = args
             .elastic_gpu_specifications
             .get_output(context);
-        let elastic_gpu_specifications_binding = elastic_gpu_specifications_binding_1
-            .get_inner();
-        let elastic_inference_accelerator_binding_1 = args
+        let elastic_inference_accelerator_binding = args
             .elastic_inference_accelerator
             .get_output(context);
-        let elastic_inference_accelerator_binding = elastic_inference_accelerator_binding_1
-            .get_inner();
-        let enclave_options_binding_1 = args.enclave_options.get_output(context);
-        let enclave_options_binding = enclave_options_binding_1.get_inner();
-        let hibernation_options_binding_1 = args.hibernation_options.get_output(context);
-        let hibernation_options_binding = hibernation_options_binding_1.get_inner();
-        let iam_instance_profile_binding_1 = args
-            .iam_instance_profile
-            .get_output(context);
-        let iam_instance_profile_binding = iam_instance_profile_binding_1.get_inner();
-        let image_id_binding_1 = args.image_id.get_output(context);
-        let image_id_binding = image_id_binding_1.get_inner();
-        let instance_initiated_shutdown_behavior_binding_1 = args
+        let enclave_options_binding = args.enclave_options.get_output(context);
+        let hibernation_options_binding = args.hibernation_options.get_output(context);
+        let iam_instance_profile_binding = args.iam_instance_profile.get_output(context);
+        let image_id_binding = args.image_id.get_output(context);
+        let instance_initiated_shutdown_behavior_binding = args
             .instance_initiated_shutdown_behavior
             .get_output(context);
-        let instance_initiated_shutdown_behavior_binding = instance_initiated_shutdown_behavior_binding_1
-            .get_inner();
-        let instance_market_options_binding_1 = args
+        let instance_market_options_binding = args
             .instance_market_options
             .get_output(context);
-        let instance_market_options_binding = instance_market_options_binding_1
-            .get_inner();
-        let instance_requirements_binding_1 = args
+        let instance_requirements_binding = args
             .instance_requirements
             .get_output(context);
-        let instance_requirements_binding = instance_requirements_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let kernel_id_binding_1 = args.kernel_id.get_output(context);
-        let kernel_id_binding = kernel_id_binding_1.get_inner();
-        let key_name_binding_1 = args.key_name.get_output(context);
-        let key_name_binding = key_name_binding_1.get_inner();
-        let license_specifications_binding_1 = args
+        let instance_type_binding = args.instance_type.get_output(context);
+        let kernel_id_binding = args.kernel_id.get_output(context);
+        let key_name_binding = args.key_name.get_output(context);
+        let license_specifications_binding = args
             .license_specifications
             .get_output(context);
-        let license_specifications_binding = license_specifications_binding_1
-            .get_inner();
-        let maintenance_options_binding_1 = args.maintenance_options.get_output(context);
-        let maintenance_options_binding = maintenance_options_binding_1.get_inner();
-        let metadata_options_binding_1 = args.metadata_options.get_output(context);
-        let metadata_options_binding = metadata_options_binding_1.get_inner();
-        let monitoring_binding_1 = args.monitoring.get_output(context);
-        let monitoring_binding = monitoring_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
-        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
-        let placement_binding_1 = args.placement.get_output(context);
-        let placement_binding = placement_binding_1.get_inner();
-        let private_dns_name_options_binding_1 = args
+        let maintenance_options_binding = args.maintenance_options.get_output(context);
+        let metadata_options_binding = args.metadata_options.get_output(context);
+        let monitoring_binding = args.monitoring.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let network_interfaces_binding = args.network_interfaces.get_output(context);
+        let placement_binding = args.placement.get_output(context);
+        let private_dns_name_options_binding = args
             .private_dns_name_options
             .get_output(context);
-        let private_dns_name_options_binding = private_dns_name_options_binding_1
-            .get_inner();
-        let ram_disk_id_binding_1 = args.ram_disk_id.get_output(context);
-        let ram_disk_id_binding = ram_disk_id_binding_1.get_inner();
-        let security_group_names_binding_1 = args
-            .security_group_names
-            .get_output(context);
-        let security_group_names_binding = security_group_names_binding_1.get_inner();
-        let tag_specifications_binding_1 = args.tag_specifications.get_output(context);
-        let tag_specifications_binding = tag_specifications_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let update_default_version_binding_1 = args
+        let ram_disk_id_binding = args.ram_disk_id.get_output(context);
+        let security_group_names_binding = args.security_group_names.get_output(context);
+        let tag_specifications_binding = args.tag_specifications.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let update_default_version_binding = args
             .update_default_version
             .get_output(context);
-        let update_default_version_binding = update_default_version_binding_1
-            .get_inner();
-        let user_data_binding_1 = args.user_data.get_output(context);
-        let user_data_binding = user_data_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        let user_data_binding = args.user_data.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/launchTemplate:LaunchTemplate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockDeviceMappings".into(),
-                    value: &block_device_mappings_binding,
+                    value: block_device_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityReservationSpecification".into(),
-                    value: &capacity_reservation_specification_binding,
+                    value: capacity_reservation_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuOptions".into(),
-                    value: &cpu_options_binding,
+                    value: cpu_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creditSpecification".into(),
-                    value: &credit_specification_binding,
+                    value: credit_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultVersion".into(),
-                    value: &default_version_binding,
+                    value: default_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableApiStop".into(),
-                    value: &disable_api_stop_binding,
+                    value: disable_api_stop_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableApiTermination".into(),
-                    value: &disable_api_termination_binding,
+                    value: disable_api_termination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsOptimized".into(),
-                    value: &ebs_optimized_binding,
+                    value: ebs_optimized_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticGpuSpecifications".into(),
-                    value: &elastic_gpu_specifications_binding,
+                    value: elastic_gpu_specifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticInferenceAccelerator".into(),
-                    value: &elastic_inference_accelerator_binding,
+                    value: elastic_inference_accelerator_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enclaveOptions".into(),
-                    value: &enclave_options_binding,
+                    value: enclave_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hibernationOptions".into(),
-                    value: &hibernation_options_binding,
+                    value: hibernation_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamInstanceProfile".into(),
-                    value: &iam_instance_profile_binding,
+                    value: iam_instance_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: &image_id_binding,
+                    value: image_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceInitiatedShutdownBehavior".into(),
-                    value: &instance_initiated_shutdown_behavior_binding,
+                    value: instance_initiated_shutdown_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMarketOptions".into(),
-                    value: &instance_market_options_binding,
+                    value: instance_market_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceRequirements".into(),
-                    value: &instance_requirements_binding,
+                    value: instance_requirements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kernelId".into(),
-                    value: &kernel_id_binding,
+                    value: kernel_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: &key_name_binding,
+                    value: key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseSpecifications".into(),
-                    value: &license_specifications_binding,
+                    value: license_specifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceOptions".into(),
-                    value: &maintenance_options_binding,
+                    value: maintenance_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataOptions".into(),
-                    value: &metadata_options_binding,
+                    value: metadata_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoring".into(),
-                    value: &monitoring_binding,
+                    value: monitoring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaces".into(),
-                    value: &network_interfaces_binding,
+                    value: network_interfaces_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placement".into(),
-                    value: &placement_binding,
+                    value: placement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsNameOptions".into(),
-                    value: &private_dns_name_options_binding,
+                    value: private_dns_name_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ramDiskId".into(),
-                    value: &ram_disk_id_binding,
+                    value: ram_disk_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupNames".into(),
-                    value: &security_group_names_binding,
+                    value: security_group_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagSpecifications".into(),
-                    value: &tag_specifications_binding,
+                    value: tag_specifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updateDefaultVersion".into(),
-                    value: &update_default_version_binding,
+                    value: update_default_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userData".into(),
-                    value: &user_data_binding,
+                    value: user_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LaunchTemplateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            block_device_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockDeviceMappings"),
-            ),
-            capacity_reservation_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityReservationSpecification"),
-            ),
-            cpu_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuOptions"),
-            ),
-            credit_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creditSpecification"),
-            ),
-            default_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultVersion"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_api_stop: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableApiStop"),
-            ),
-            disable_api_termination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableApiTermination"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            elastic_gpu_specifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticGpuSpecifications"),
-            ),
-            elastic_inference_accelerator: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticInferenceAccelerator"),
-            ),
-            enclave_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enclaveOptions"),
-            ),
-            hibernation_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hibernationOptions"),
-            ),
-            iam_instance_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamInstanceProfile"),
-            ),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            instance_initiated_shutdown_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceInitiatedShutdownBehavior"),
-            ),
-            instance_market_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceMarketOptions"),
-            ),
-            instance_requirements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceRequirements"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            kernel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kernelId"),
-            ),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            latest_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestVersion"),
-            ),
-            license_specifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseSpecifications"),
-            ),
-            maintenance_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceOptions"),
-            ),
-            metadata_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataOptions"),
-            ),
-            monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoring"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaces"),
-            ),
-            placement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placement"),
-            ),
-            private_dns_name_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsNameOptions"),
-            ),
-            ram_disk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ramDiskId"),
-            ),
-            security_group_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupNames"),
-            ),
-            tag_specifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagSpecifications"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            update_default_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateDefaultVersion"),
-            ),
-            user_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userData"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
+            arn: o.get_field("arn"),
+            block_device_mappings: o.get_field("blockDeviceMappings"),
+            capacity_reservation_specification: o
+                .get_field("capacityReservationSpecification"),
+            cpu_options: o.get_field("cpuOptions"),
+            credit_specification: o.get_field("creditSpecification"),
+            default_version: o.get_field("defaultVersion"),
+            description: o.get_field("description"),
+            disable_api_stop: o.get_field("disableApiStop"),
+            disable_api_termination: o.get_field("disableApiTermination"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            elastic_gpu_specifications: o.get_field("elasticGpuSpecifications"),
+            elastic_inference_accelerator: o.get_field("elasticInferenceAccelerator"),
+            enclave_options: o.get_field("enclaveOptions"),
+            hibernation_options: o.get_field("hibernationOptions"),
+            iam_instance_profile: o.get_field("iamInstanceProfile"),
+            image_id: o.get_field("imageId"),
+            instance_initiated_shutdown_behavior: o
+                .get_field("instanceInitiatedShutdownBehavior"),
+            instance_market_options: o.get_field("instanceMarketOptions"),
+            instance_requirements: o.get_field("instanceRequirements"),
+            instance_type: o.get_field("instanceType"),
+            kernel_id: o.get_field("kernelId"),
+            key_name: o.get_field("keyName"),
+            latest_version: o.get_field("latestVersion"),
+            license_specifications: o.get_field("licenseSpecifications"),
+            maintenance_options: o.get_field("maintenanceOptions"),
+            metadata_options: o.get_field("metadataOptions"),
+            monitoring: o.get_field("monitoring"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            network_interfaces: o.get_field("networkInterfaces"),
+            placement: o.get_field("placement"),
+            private_dns_name_options: o.get_field("privateDnsNameOptions"),
+            ram_disk_id: o.get_field("ramDiskId"),
+            security_group_names: o.get_field("securityGroupNames"),
+            tag_specifications: o.get_field("tagSpecifications"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            update_default_version: o.get_field("updateDefaultVersion"),
+            user_data: o.get_field("userData"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
         }
     }
 }

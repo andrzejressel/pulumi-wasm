@@ -35,46 +35,38 @@ pub mod get_network_slice {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkSliceArgs,
     ) -> GetNetworkSliceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mobile_network_id_binding_1 = args.mobile_network_id.get_output(context);
-        let mobile_network_id_binding = mobile_network_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mobile_network_id_binding = args.mobile_network_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mobile/getNetworkSlice:getNetworkSlice".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkId".into(),
-                    value: &mobile_network_id_binding,
+                    value: mobile_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkSliceResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mobile_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobileNetworkId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            single_network_slice_selection_assistance_informations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleNetworkSliceSelectionAssistanceInformations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            mobile_network_id: o.get_field("mobileNetworkId"),
+            name: o.get_field("name"),
+            single_network_slice_selection_assistance_informations: o
+                .get_field("singleNetworkSliceSelectionAssistanceInformations"),
+            tags: o.get_field("tags"),
         }
     }
 }

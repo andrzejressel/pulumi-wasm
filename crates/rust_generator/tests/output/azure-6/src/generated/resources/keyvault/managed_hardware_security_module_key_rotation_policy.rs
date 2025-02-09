@@ -71,58 +71,47 @@ pub mod managed_hardware_security_module_key_rotation_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedHardwareSecurityModuleKeyRotationPolicyArgs,
     ) -> ManagedHardwareSecurityModuleKeyRotationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let expire_after_binding_1 = args.expire_after.get_output(context);
-        let expire_after_binding = expire_after_binding_1.get_inner();
-        let managed_hsm_key_id_binding_1 = args.managed_hsm_key_id.get_output(context);
-        let managed_hsm_key_id_binding = managed_hsm_key_id_binding_1.get_inner();
-        let time_after_creation_binding_1 = args.time_after_creation.get_output(context);
-        let time_after_creation_binding = time_after_creation_binding_1.get_inner();
-        let time_before_expiry_binding_1 = args.time_before_expiry.get_output(context);
-        let time_before_expiry_binding = time_before_expiry_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let expire_after_binding = args.expire_after.get_output(context);
+        let managed_hsm_key_id_binding = args.managed_hsm_key_id.get_output(context);
+        let time_after_creation_binding = args.time_after_creation.get_output(context);
+        let time_before_expiry_binding = args.time_before_expiry.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expireAfter".into(),
-                    value: &expire_after_binding,
+                    value: expire_after_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmKeyId".into(),
-                    value: &managed_hsm_key_id_binding,
+                    value: managed_hsm_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeAfterCreation".into(),
-                    value: &time_after_creation_binding,
+                    value: time_after_creation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeBeforeExpiry".into(),
-                    value: &time_before_expiry_binding,
+                    value: time_before_expiry_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedHardwareSecurityModuleKeyRotationPolicyResult {
-            expire_after: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireAfter"),
-            ),
-            managed_hsm_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedHsmKeyId"),
-            ),
-            time_after_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeAfterCreation"),
-            ),
-            time_before_expiry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeBeforeExpiry"),
-            ),
+            expire_after: o.get_field("expireAfter"),
+            managed_hsm_key_id: o.get_field("managedHsmKeyId"),
+            time_after_creation: o.get_field("timeAfterCreation"),
+            time_before_expiry: o.get_field("timeBeforeExpiry"),
         }
     }
 }

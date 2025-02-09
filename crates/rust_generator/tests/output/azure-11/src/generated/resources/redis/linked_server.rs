@@ -106,78 +106,61 @@ pub mod linked_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkedServerArgs,
     ) -> LinkedServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let linked_redis_cache_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let linked_redis_cache_id_binding = args
             .linked_redis_cache_id
             .get_output(context);
-        let linked_redis_cache_id_binding = linked_redis_cache_id_binding_1.get_inner();
-        let linked_redis_cache_location_binding_1 = args
+        let linked_redis_cache_location_binding = args
             .linked_redis_cache_location
             .get_output(context);
-        let linked_redis_cache_location_binding = linked_redis_cache_location_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let server_role_binding_1 = args.server_role.get_output(context);
-        let server_role_binding = server_role_binding_1.get_inner();
-        let target_redis_cache_name_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let server_role_binding = args.server_role.get_output(context);
+        let target_redis_cache_name_binding = args
             .target_redis_cache_name
             .get_output(context);
-        let target_redis_cache_name_binding = target_redis_cache_name_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:redis/linkedServer:LinkedServer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedRedisCacheId".into(),
-                    value: &linked_redis_cache_id_binding,
+                    value: linked_redis_cache_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedRedisCacheLocation".into(),
-                    value: &linked_redis_cache_location_binding,
+                    value: linked_redis_cache_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverRole".into(),
-                    value: &server_role_binding,
+                    value: server_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRedisCacheName".into(),
-                    value: &target_redis_cache_name_binding,
+                    value: target_redis_cache_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkedServerResult {
-            geo_replicated_primary_host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoReplicatedPrimaryHostName"),
-            ),
-            linked_redis_cache_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedRedisCacheId"),
-            ),
-            linked_redis_cache_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedRedisCacheLocation"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            server_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverRole"),
-            ),
-            target_redis_cache_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRedisCacheName"),
-            ),
+            geo_replicated_primary_host_name: o
+                .get_field("geoReplicatedPrimaryHostName"),
+            linked_redis_cache_id: o.get_field("linkedRedisCacheId"),
+            linked_redis_cache_location: o.get_field("linkedRedisCacheLocation"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            server_role: o.get_field("serverRole"),
+            target_redis_cache_name: o.get_field("targetRedisCacheName"),
         }
     }
 }

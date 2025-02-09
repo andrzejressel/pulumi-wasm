@@ -190,132 +190,92 @@ pub mod dashboard {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DashboardArgs,
     ) -> DashboardResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let dashboard_id_binding_1 = args.dashboard_id.get_output(context);
-        let dashboard_id_binding = dashboard_id_binding_1.get_inner();
-        let dashboard_publish_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let dashboard_id_binding = args.dashboard_id.get_output(context);
+        let dashboard_publish_options_binding = args
             .dashboard_publish_options
             .get_output(context);
-        let dashboard_publish_options_binding = dashboard_publish_options_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let source_entity_binding_1 = args.source_entity.get_output(context);
-        let source_entity_binding = source_entity_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let theme_arn_binding_1 = args.theme_arn.get_output(context);
-        let theme_arn_binding = theme_arn_binding_1.get_inner();
-        let version_description_binding_1 = args.version_description.get_output(context);
-        let version_description_binding = version_description_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let source_entity_binding = args.source_entity.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let theme_arn_binding = args.theme_arn.get_output(context);
+        let version_description_binding = args.version_description.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/dashboard:Dashboard".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dashboardId".into(),
-                    value: &dashboard_id_binding,
+                    value: dashboard_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dashboardPublishOptions".into(),
-                    value: &dashboard_publish_options_binding,
+                    value: dashboard_publish_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceEntity".into(),
-                    value: &source_entity_binding,
+                    value: source_entity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "themeArn".into(),
-                    value: &theme_arn_binding,
+                    value: theme_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionDescription".into(),
-                    value: &version_description_binding,
+                    value: version_description_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DashboardResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            dashboard_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dashboardId"),
-            ),
-            dashboard_publish_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dashboardPublishOptions"),
-            ),
-            last_published_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastPublishedTime"),
-            ),
-            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            source_entity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceEntity"),
-            ),
-            source_entity_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceEntityArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            theme_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("themeArn"),
-            ),
-            version_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionDescription"),
-            ),
-            version_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionNumber"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            created_time: o.get_field("createdTime"),
+            dashboard_id: o.get_field("dashboardId"),
+            dashboard_publish_options: o.get_field("dashboardPublishOptions"),
+            last_published_time: o.get_field("lastPublishedTime"),
+            last_updated_time: o.get_field("lastUpdatedTime"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            permissions: o.get_field("permissions"),
+            source_entity: o.get_field("sourceEntity"),
+            source_entity_arn: o.get_field("sourceEntityArn"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            theme_arn: o.get_field("themeArn"),
+            version_description: o.get_field("versionDescription"),
+            version_number: o.get_field("versionNumber"),
         }
     }
 }

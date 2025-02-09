@@ -53,68 +53,51 @@ pub mod get_private_cloud {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPrivateCloudArgs,
     ) -> GetPrivateCloudResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:vmwareengine/getPrivateCloud:getPrivateCloud".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPrivateCloudResult {
-            deletion_delay_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionDelayHours"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            hcxes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hcxes")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_clusters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementClusters"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfigs"),
-            ),
-            nsxes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("nsxes")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            send_deletion_delay_hours_if_zero: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendDeletionDelayHoursIfZero"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            vcenters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vcenters"),
-            ),
+            deletion_delay_hours: o.get_field("deletionDelayHours"),
+            description: o.get_field("description"),
+            hcxes: o.get_field("hcxes"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            management_clusters: o.get_field("managementClusters"),
+            name: o.get_field("name"),
+            network_configs: o.get_field("networkConfigs"),
+            nsxes: o.get_field("nsxes"),
+            project: o.get_field("project"),
+            send_deletion_delay_hours_if_zero: o
+                .get_field("sendDeletionDelayHoursIfZero"),
+            state: o.get_field("state"),
+            type_: o.get_field("type"),
+            uid: o.get_field("uid"),
+            vcenters: o.get_field("vcenters"),
         }
     }
 }

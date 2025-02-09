@@ -136,105 +136,81 @@ pub mod catalog_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CatalogDatabaseArgs,
     ) -> CatalogDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let create_table_default_permissions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let create_table_default_permissions_binding = args
             .create_table_default_permissions
             .get_output(context);
-        let create_table_default_permissions_binding = create_table_default_permissions_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let federated_database_binding_1 = args.federated_database.get_output(context);
-        let federated_database_binding = federated_database_binding_1.get_inner();
-        let location_uri_binding_1 = args.location_uri.get_output(context);
-        let location_uri_binding = location_uri_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_database_binding_1 = args.target_database.get_output(context);
-        let target_database_binding = target_database_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let federated_database_binding = args.federated_database.get_output(context);
+        let location_uri_binding = args.location_uri.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_database_binding = args.target_database.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/catalogDatabase:CatalogDatabase".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createTableDefaultPermissions".into(),
-                    value: &create_table_default_permissions_binding,
+                    value: create_table_default_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "federatedDatabase".into(),
-                    value: &federated_database_binding,
+                    value: federated_database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationUri".into(),
-                    value: &location_uri_binding,
+                    value: location_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDatabase".into(),
-                    value: &target_database_binding,
+                    value: target_database_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CatalogDatabaseResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            create_table_default_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTableDefaultPermissions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            federated_database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("federatedDatabase"),
-            ),
-            location_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationUri"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetDatabase"),
-            ),
+            arn: o.get_field("arn"),
+            catalog_id: o.get_field("catalogId"),
+            create_table_default_permissions: o
+                .get_field("createTableDefaultPermissions"),
+            description: o.get_field("description"),
+            federated_database: o.get_field("federatedDatabase"),
+            location_uri: o.get_field("locationUri"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_database: o.get_field("targetDatabase"),
         }
     }
 }

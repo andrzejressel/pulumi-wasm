@@ -55,51 +55,42 @@ pub mod thing_group_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ThingGroupMembershipArgs,
     ) -> ThingGroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let override_dynamic_group_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let override_dynamic_group_binding = args
             .override_dynamic_group
             .get_output(context);
-        let override_dynamic_group_binding = override_dynamic_group_binding_1
-            .get_inner();
-        let thing_group_name_binding_1 = args.thing_group_name.get_output(context);
-        let thing_group_name_binding = thing_group_name_binding_1.get_inner();
-        let thing_name_binding_1 = args.thing_name.get_output(context);
-        let thing_name_binding = thing_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let thing_group_name_binding = args.thing_group_name.get_output(context);
+        let thing_name_binding = args.thing_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iot/thingGroupMembership:ThingGroupMembership".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideDynamicGroup".into(),
-                    value: &override_dynamic_group_binding,
+                    value: override_dynamic_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingGroupName".into(),
-                    value: &thing_group_name_binding,
+                    value: thing_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingName".into(),
-                    value: &thing_name_binding,
+                    value: thing_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ThingGroupMembershipResult {
-            override_dynamic_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrideDynamicGroup"),
-            ),
-            thing_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thingGroupName"),
-            ),
-            thing_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thingName"),
-            ),
+            override_dynamic_group: o.get_field("overrideDynamicGroup"),
+            thing_group_name: o.get_field("thingGroupName"),
+            thing_name: o.get_field("thingName"),
         }
     }
 }

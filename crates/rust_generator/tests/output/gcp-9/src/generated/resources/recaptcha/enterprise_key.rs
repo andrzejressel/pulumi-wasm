@@ -242,103 +242,74 @@ pub mod enterprise_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnterpriseKeyArgs,
     ) -> EnterpriseKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let android_settings_binding_1 = args.android_settings.get_output(context);
-        let android_settings_binding = android_settings_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let ios_settings_binding_1 = args.ios_settings.get_output(context);
-        let ios_settings_binding = ios_settings_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let testing_options_binding_1 = args.testing_options.get_output(context);
-        let testing_options_binding = testing_options_binding_1.get_inner();
-        let waf_settings_binding_1 = args.waf_settings.get_output(context);
-        let waf_settings_binding = waf_settings_binding_1.get_inner();
-        let web_settings_binding_1 = args.web_settings.get_output(context);
-        let web_settings_binding = web_settings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let android_settings_binding = args.android_settings.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let ios_settings_binding = args.ios_settings.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let testing_options_binding = args.testing_options.get_output(context);
+        let waf_settings_binding = args.waf_settings.get_output(context);
+        let web_settings_binding = args.web_settings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:recaptcha/enterpriseKey:EnterpriseKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "androidSettings".into(),
-                    value: &android_settings_binding,
+                    value: android_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iosSettings".into(),
-                    value: &ios_settings_binding,
+                    value: ios_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testingOptions".into(),
-                    value: &testing_options_binding,
+                    value: testing_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "wafSettings".into(),
-                    value: &waf_settings_binding,
+                    value: waf_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webSettings".into(),
-                    value: &web_settings_binding,
+                    value: web_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnterpriseKeyResult {
-            android_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("androidSettings"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            ios_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iosSettings"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            testing_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testingOptions"),
-            ),
-            waf_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("wafSettings"),
-            ),
-            web_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webSettings"),
-            ),
+            android_settings: o.get_field("androidSettings"),
+            create_time: o.get_field("createTime"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            ios_settings: o.get_field("iosSettings"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            testing_options: o.get_field("testingOptions"),
+            waf_settings: o.get_field("wafSettings"),
+            web_settings: o.get_field("webSettings"),
         }
     }
 }

@@ -98,106 +98,74 @@ pub mod connect_peer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectPeerArgs,
     ) -> ConnectPeerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bgp_options_binding_1 = args.bgp_options.get_output(context);
-        let bgp_options_binding = bgp_options_binding_1.get_inner();
-        let connect_attachment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bgp_options_binding = args.bgp_options.get_output(context);
+        let connect_attachment_id_binding = args
             .connect_attachment_id
             .get_output(context);
-        let connect_attachment_id_binding = connect_attachment_id_binding_1.get_inner();
-        let core_network_address_binding_1 = args
-            .core_network_address
-            .get_output(context);
-        let core_network_address_binding = core_network_address_binding_1.get_inner();
-        let inside_cidr_blocks_binding_1 = args.inside_cidr_blocks.get_output(context);
-        let inside_cidr_blocks_binding = inside_cidr_blocks_binding_1.get_inner();
-        let peer_address_binding_1 = args.peer_address.get_output(context);
-        let peer_address_binding = peer_address_binding_1.get_inner();
-        let subnet_arn_binding_1 = args.subnet_arn.get_output(context);
-        let subnet_arn_binding = subnet_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let core_network_address_binding = args.core_network_address.get_output(context);
+        let inside_cidr_blocks_binding = args.inside_cidr_blocks.get_output(context);
+        let peer_address_binding = args.peer_address.get_output(context);
+        let subnet_arn_binding = args.subnet_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkmanager/connectPeer:ConnectPeer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpOptions".into(),
-                    value: &bgp_options_binding,
+                    value: bgp_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectAttachmentId".into(),
-                    value: &connect_attachment_id_binding,
+                    value: connect_attachment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkAddress".into(),
-                    value: &core_network_address_binding,
+                    value: core_network_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insideCidrBlocks".into(),
-                    value: &inside_cidr_blocks_binding,
+                    value: inside_cidr_blocks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAddress".into(),
-                    value: &peer_address_binding,
+                    value: peer_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetArn".into(),
-                    value: &subnet_arn_binding,
+                    value: subnet_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectPeerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bgp_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpOptions"),
-            ),
-            configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurations"),
-            ),
-            connect_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectAttachmentId"),
-            ),
-            connect_peer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectPeerId"),
-            ),
-            core_network_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkAddress"),
-            ),
-            core_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkId"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            edge_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeLocation"),
-            ),
-            inside_cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insideCidrBlocks"),
-            ),
-            peer_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerAddress"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subnet_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            bgp_options: o.get_field("bgpOptions"),
+            configurations: o.get_field("configurations"),
+            connect_attachment_id: o.get_field("connectAttachmentId"),
+            connect_peer_id: o.get_field("connectPeerId"),
+            core_network_address: o.get_field("coreNetworkAddress"),
+            core_network_id: o.get_field("coreNetworkId"),
+            created_at: o.get_field("createdAt"),
+            edge_location: o.get_field("edgeLocation"),
+            inside_cidr_blocks: o.get_field("insideCidrBlocks"),
+            peer_address: o.get_field("peerAddress"),
+            state: o.get_field("state"),
+            subnet_arn: o.get_field("subnetArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -31,59 +31,40 @@ pub mod get_resolver_firewall_rule_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResolverFirewallRuleGroupArgs,
     ) -> GetResolverFirewallRuleGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let firewall_rule_group_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let firewall_rule_group_id_binding = args
             .firewall_rule_group_id
             .get_output(context);
-        let firewall_rule_group_id_binding = firewall_rule_group_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallRuleGroupId".into(),
-                    value: &firewall_rule_group_id_binding,
+                    value: firewall_rule_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResolverFirewallRuleGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            creator_request_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creatorRequestId"),
-            ),
-            firewall_rule_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallRuleGroupId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            modification_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modificationTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            rule_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleCount"),
-            ),
-            share_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareStatus"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
+            arn: o.get_field("arn"),
+            creation_time: o.get_field("creationTime"),
+            creator_request_id: o.get_field("creatorRequestId"),
+            firewall_rule_group_id: o.get_field("firewallRuleGroupId"),
+            id: o.get_field("id"),
+            modification_time: o.get_field("modificationTime"),
+            name: o.get_field("name"),
+            owner_id: o.get_field("ownerId"),
+            rule_count: o.get_field("ruleCount"),
+            share_status: o.get_field("shareStatus"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
         }
     }
 }

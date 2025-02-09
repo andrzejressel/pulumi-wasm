@@ -102,84 +102,65 @@ pub mod environment_blueprint_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentBlueprintConfigurationArgs,
     ) -> EnvironmentBlueprintConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_id_binding_1 = args.domain_id.get_output(context);
-        let domain_id_binding = domain_id_binding_1.get_inner();
-        let enabled_regions_binding_1 = args.enabled_regions.get_output(context);
-        let enabled_regions_binding = enabled_regions_binding_1.get_inner();
-        let environment_blueprint_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_id_binding = args.domain_id.get_output(context);
+        let enabled_regions_binding = args.enabled_regions.get_output(context);
+        let environment_blueprint_id_binding = args
             .environment_blueprint_id
             .get_output(context);
-        let environment_blueprint_id_binding = environment_blueprint_id_binding_1
-            .get_inner();
-        let manage_access_role_arn_binding_1 = args
+        let manage_access_role_arn_binding = args
             .manage_access_role_arn
             .get_output(context);
-        let manage_access_role_arn_binding = manage_access_role_arn_binding_1
-            .get_inner();
-        let provisioning_role_arn_binding_1 = args
+        let provisioning_role_arn_binding = args
             .provisioning_role_arn
             .get_output(context);
-        let provisioning_role_arn_binding = provisioning_role_arn_binding_1.get_inner();
-        let regional_parameters_binding_1 = args.regional_parameters.get_output(context);
-        let regional_parameters_binding = regional_parameters_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let regional_parameters_binding = args.regional_parameters.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: &domain_id_binding,
+                    value: domain_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledRegions".into(),
-                    value: &enabled_regions_binding,
+                    value: enabled_regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentBlueprintId".into(),
-                    value: &environment_blueprint_id_binding,
+                    value: environment_blueprint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageAccessRoleArn".into(),
-                    value: &manage_access_role_arn_binding,
+                    value: manage_access_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningRoleArn".into(),
-                    value: &provisioning_role_arn_binding,
+                    value: provisioning_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionalParameters".into(),
-                    value: &regional_parameters_binding,
+                    value: regional_parameters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentBlueprintConfigurationResult {
-            domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainId"),
-            ),
-            enabled_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledRegions"),
-            ),
-            environment_blueprint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentBlueprintId"),
-            ),
-            manage_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manageAccessRoleArn"),
-            ),
-            provisioning_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisioningRoleArn"),
-            ),
-            regional_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalParameters"),
-            ),
+            domain_id: o.get_field("domainId"),
+            enabled_regions: o.get_field("enabledRegions"),
+            environment_blueprint_id: o.get_field("environmentBlueprintId"),
+            manage_access_role_arn: o.get_field("manageAccessRoleArn"),
+            provisioning_role_arn: o.get_field("provisioningRoleArn"),
+            regional_parameters: o.get_field("regionalParameters"),
         }
     }
 }

@@ -109,91 +109,70 @@ pub mod api_version_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiVersionSetArgs,
     ) -> ApiVersionSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let version_header_name_binding_1 = args.version_header_name.get_output(context);
-        let version_header_name_binding = version_header_name_binding_1.get_inner();
-        let version_query_name_binding_1 = args.version_query_name.get_output(context);
-        let version_query_name_binding = version_query_name_binding_1.get_inner();
-        let versioning_scheme_binding_1 = args.versioning_scheme.get_output(context);
-        let versioning_scheme_binding = versioning_scheme_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let version_header_name_binding = args.version_header_name.get_output(context);
+        let version_query_name_binding = args.version_query_name.get_output(context);
+        let versioning_scheme_binding = args.versioning_scheme.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/apiVersionSet:ApiVersionSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionHeaderName".into(),
-                    value: &version_header_name_binding,
+                    value: version_header_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionQueryName".into(),
-                    value: &version_query_name_binding,
+                    value: version_query_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versioningScheme".into(),
-                    value: &versioning_scheme_binding,
+                    value: versioning_scheme_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiVersionSetResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            version_header_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionHeaderName"),
-            ),
-            version_query_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionQueryName"),
-            ),
-            versioning_scheme: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versioningScheme"),
-            ),
+            api_management_name: o.get_field("apiManagementName"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            version_header_name: o.get_field("versionHeaderName"),
+            version_query_name: o.get_field("versionQueryName"),
+            versioning_scheme: o.get_field("versioningScheme"),
         }
     }
 }

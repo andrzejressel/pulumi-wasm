@@ -134,76 +134,56 @@ pub mod vpc_ipam_pool_cidr_allocation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcIpamPoolCidrAllocationArgs,
     ) -> VpcIpamPoolCidrAllocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_binding_1 = args.cidr.get_output(context);
-        let cidr_binding = cidr_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disallowed_cidrs_binding_1 = args.disallowed_cidrs.get_output(context);
-        let disallowed_cidrs_binding = disallowed_cidrs_binding_1.get_inner();
-        let ipam_pool_id_binding_1 = args.ipam_pool_id.get_output(context);
-        let ipam_pool_id_binding = ipam_pool_id_binding_1.get_inner();
-        let netmask_length_binding_1 = args.netmask_length.get_output(context);
-        let netmask_length_binding = netmask_length_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_binding = args.cidr.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disallowed_cidrs_binding = args.disallowed_cidrs.get_output(context);
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context);
+        let netmask_length_binding = args.netmask_length.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: &cidr_binding,
+                    value: cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disallowedCidrs".into(),
-                    value: &disallowed_cidrs_binding,
+                    value: disallowed_cidrs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamPoolId".into(),
-                    value: &ipam_pool_id_binding,
+                    value: ipam_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netmaskLength".into(),
-                    value: &netmask_length_binding,
+                    value: netmask_length_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcIpamPoolCidrAllocationResult {
-            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disallowed_cidrs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disallowedCidrs"),
-            ),
-            ipam_pool_allocation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamPoolAllocationId"),
-            ),
-            ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamPoolId"),
-            ),
-            netmask_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netmaskLength"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            resource_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceOwner"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
+            cidr: o.get_field("cidr"),
+            description: o.get_field("description"),
+            disallowed_cidrs: o.get_field("disallowedCidrs"),
+            ipam_pool_allocation_id: o.get_field("ipamPoolAllocationId"),
+            ipam_pool_id: o.get_field("ipamPoolId"),
+            netmask_length: o.get_field("netmaskLength"),
+            resource_id: o.get_field("resourceId"),
+            resource_owner: o.get_field("resourceOwner"),
+            resource_type: o.get_field("resourceType"),
         }
     }
 }

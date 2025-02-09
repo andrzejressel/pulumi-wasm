@@ -120,104 +120,80 @@ pub mod medtech_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MedtechServiceArgs,
     ) -> MedtechServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_mapping_json_binding_1 = args.device_mapping_json.get_output(context);
-        let device_mapping_json_binding = device_mapping_json_binding_1.get_inner();
-        let eventhub_consumer_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let device_mapping_json_binding = args.device_mapping_json.get_output(context);
+        let eventhub_consumer_group_name_binding = args
             .eventhub_consumer_group_name
             .get_output(context);
-        let eventhub_consumer_group_name_binding = eventhub_consumer_group_name_binding_1
-            .get_inner();
-        let eventhub_name_binding_1 = args.eventhub_name.get_output(context);
-        let eventhub_name_binding = eventhub_name_binding_1.get_inner();
-        let eventhub_namespace_name_binding_1 = args
+        let eventhub_name_binding = args.eventhub_name.get_output(context);
+        let eventhub_namespace_name_binding = args
             .eventhub_namespace_name
             .get_output(context);
-        let eventhub_namespace_name_binding = eventhub_namespace_name_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:healthcare/medtechService:MedtechService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceMappingJson".into(),
-                    value: &device_mapping_json_binding,
+                    value: device_mapping_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubConsumerGroupName".into(),
-                    value: &eventhub_consumer_group_name_binding,
+                    value: eventhub_consumer_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubName".into(),
-                    value: &eventhub_name_binding,
+                    value: eventhub_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubNamespaceName".into(),
-                    value: &eventhub_namespace_name_binding,
+                    value: eventhub_namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MedtechServiceResult {
-            device_mapping_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceMappingJson"),
-            ),
-            eventhub_consumer_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubConsumerGroupName"),
-            ),
-            eventhub_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubName"),
-            ),
-            eventhub_namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubNamespaceName"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            device_mapping_json: o.get_field("deviceMappingJson"),
+            eventhub_consumer_group_name: o.get_field("eventhubConsumerGroupName"),
+            eventhub_name: o.get_field("eventhubName"),
+            eventhub_namespace_name: o.get_field("eventhubNamespaceName"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

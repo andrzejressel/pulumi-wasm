@@ -31,51 +31,41 @@ pub mod get_environment_blueprint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEnvironmentBlueprintArgs,
     ) -> GetEnvironmentBlueprintResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_id_binding_1 = args.domain_id.get_output(context);
-        let domain_id_binding = domain_id_binding_1.get_inner();
-        let managed_binding_1 = args.managed.get_output(context);
-        let managed_binding = managed_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_id_binding = args.domain_id.get_output(context);
+        let managed_binding = args.managed.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: &domain_id_binding,
+                    value: domain_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managed".into(),
-                    value: &managed_binding,
+                    value: managed_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEnvironmentBlueprintResult {
-            blueprint_provider: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blueprintProvider"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            managed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managed"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            blueprint_provider: o.get_field("blueprintProvider"),
+            description: o.get_field("description"),
+            domain_id: o.get_field("domainId"),
+            id: o.get_field("id"),
+            managed: o.get_field("managed"),
+            name: o.get_field("name"),
         }
     }
 }

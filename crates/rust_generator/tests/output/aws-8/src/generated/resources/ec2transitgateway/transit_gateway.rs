@@ -125,146 +125,106 @@ pub mod transit_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TransitGatewayArgs,
     ) -> TransitGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amazon_side_asn_binding_1 = args.amazon_side_asn.get_output(context);
-        let amazon_side_asn_binding = amazon_side_asn_binding_1.get_inner();
-        let auto_accept_shared_attachments_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let amazon_side_asn_binding = args.amazon_side_asn.get_output(context);
+        let auto_accept_shared_attachments_binding = args
             .auto_accept_shared_attachments
             .get_output(context);
-        let auto_accept_shared_attachments_binding = auto_accept_shared_attachments_binding_1
-            .get_inner();
-        let default_route_table_association_binding_1 = args
+        let default_route_table_association_binding = args
             .default_route_table_association
             .get_output(context);
-        let default_route_table_association_binding = default_route_table_association_binding_1
-            .get_inner();
-        let default_route_table_propagation_binding_1 = args
+        let default_route_table_propagation_binding = args
             .default_route_table_propagation
             .get_output(context);
-        let default_route_table_propagation_binding = default_route_table_propagation_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dns_support_binding_1 = args.dns_support.get_output(context);
-        let dns_support_binding = dns_support_binding_1.get_inner();
-        let multicast_support_binding_1 = args.multicast_support.get_output(context);
-        let multicast_support_binding = multicast_support_binding_1.get_inner();
-        let security_group_referencing_support_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let dns_support_binding = args.dns_support.get_output(context);
+        let multicast_support_binding = args.multicast_support.get_output(context);
+        let security_group_referencing_support_binding = args
             .security_group_referencing_support
             .get_output(context);
-        let security_group_referencing_support_binding = security_group_referencing_support_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_cidr_blocks_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_cidr_blocks_binding = args
             .transit_gateway_cidr_blocks
             .get_output(context);
-        let transit_gateway_cidr_blocks_binding = transit_gateway_cidr_blocks_binding_1
-            .get_inner();
-        let vpn_ecmp_support_binding_1 = args.vpn_ecmp_support.get_output(context);
-        let vpn_ecmp_support_binding = vpn_ecmp_support_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpn_ecmp_support_binding = args.vpn_ecmp_support.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/transitGateway:TransitGateway".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amazonSideAsn".into(),
-                    value: &amazon_side_asn_binding,
+                    value: amazon_side_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAcceptSharedAttachments".into(),
-                    value: &auto_accept_shared_attachments_binding,
+                    value: auto_accept_shared_attachments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRouteTableAssociation".into(),
-                    value: &default_route_table_association_binding,
+                    value: default_route_table_association_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRouteTablePropagation".into(),
-                    value: &default_route_table_propagation_binding,
+                    value: default_route_table_propagation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSupport".into(),
-                    value: &dns_support_binding,
+                    value: dns_support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multicastSupport".into(),
-                    value: &multicast_support_binding,
+                    value: multicast_support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupReferencingSupport".into(),
-                    value: &security_group_referencing_support_binding,
+                    value: security_group_referencing_support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayCidrBlocks".into(),
-                    value: &transit_gateway_cidr_blocks_binding,
+                    value: transit_gateway_cidr_blocks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnEcmpSupport".into(),
-                    value: &vpn_ecmp_support_binding,
+                    value: vpn_ecmp_support_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TransitGatewayResult {
-            amazon_side_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amazonSideAsn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            association_default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationDefaultRouteTableId"),
-            ),
-            auto_accept_shared_attachments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAcceptSharedAttachments"),
-            ),
-            default_route_table_association: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRouteTableAssociation"),
-            ),
-            default_route_table_propagation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRouteTablePropagation"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSupport"),
-            ),
-            multicast_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multicastSupport"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            propagation_default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("propagationDefaultRouteTableId"),
-            ),
-            security_group_referencing_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupReferencingSupport"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayCidrBlocks"),
-            ),
-            vpn_ecmp_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnEcmpSupport"),
-            ),
+            amazon_side_asn: o.get_field("amazonSideAsn"),
+            arn: o.get_field("arn"),
+            association_default_route_table_id: o
+                .get_field("associationDefaultRouteTableId"),
+            auto_accept_shared_attachments: o.get_field("autoAcceptSharedAttachments"),
+            default_route_table_association: o.get_field("defaultRouteTableAssociation"),
+            default_route_table_propagation: o.get_field("defaultRouteTablePropagation"),
+            description: o.get_field("description"),
+            dns_support: o.get_field("dnsSupport"),
+            multicast_support: o.get_field("multicastSupport"),
+            owner_id: o.get_field("ownerId"),
+            propagation_default_route_table_id: o
+                .get_field("propagationDefaultRouteTableId"),
+            security_group_referencing_support: o
+                .get_field("securityGroupReferencingSupport"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_cidr_blocks: o.get_field("transitGatewayCidrBlocks"),
+            vpn_ecmp_support: o.get_field("vpnEcmpSupport"),
         }
     }
 }

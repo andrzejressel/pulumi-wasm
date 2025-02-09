@@ -34,45 +34,37 @@ pub mod get_route_table_routes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRouteTableRoutesArgs,
     ) -> GetRouteTableRoutesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let transit_gateway_route_table_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let transit_gateway_route_table_id_binding = args
             .transit_gateway_route_table_id
             .get_output(context);
-        let transit_gateway_route_table_id_binding = transit_gateway_route_table_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableId".into(),
-                    value: &transit_gateway_route_table_id_binding,
+                    value: transit_gateway_route_table_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRouteTableRoutesResult {
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routes"),
-            ),
-            transit_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayRouteTableId"),
-            ),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            routes: o.get_field("routes"),
+            transit_gateway_route_table_id: o.get_field("transitGatewayRouteTableId"),
         }
     }
 }

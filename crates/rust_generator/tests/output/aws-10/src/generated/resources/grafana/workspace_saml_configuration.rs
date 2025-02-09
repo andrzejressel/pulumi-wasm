@@ -132,147 +132,106 @@ pub mod workspace_saml_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceSamlConfigurationArgs,
     ) -> WorkspaceSamlConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_role_values_binding_1 = args.admin_role_values.get_output(context);
-        let admin_role_values_binding = admin_role_values_binding_1.get_inner();
-        let allowed_organizations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_role_values_binding = args.admin_role_values.get_output(context);
+        let allowed_organizations_binding = args
             .allowed_organizations
             .get_output(context);
-        let allowed_organizations_binding = allowed_organizations_binding_1.get_inner();
-        let editor_role_values_binding_1 = args.editor_role_values.get_output(context);
-        let editor_role_values_binding = editor_role_values_binding_1.get_inner();
-        let email_assertion_binding_1 = args.email_assertion.get_output(context);
-        let email_assertion_binding = email_assertion_binding_1.get_inner();
-        let groups_assertion_binding_1 = args.groups_assertion.get_output(context);
-        let groups_assertion_binding = groups_assertion_binding_1.get_inner();
-        let idp_metadata_url_binding_1 = args.idp_metadata_url.get_output(context);
-        let idp_metadata_url_binding = idp_metadata_url_binding_1.get_inner();
-        let idp_metadata_xml_binding_1 = args.idp_metadata_xml.get_output(context);
-        let idp_metadata_xml_binding = idp_metadata_xml_binding_1.get_inner();
-        let login_assertion_binding_1 = args.login_assertion.get_output(context);
-        let login_assertion_binding = login_assertion_binding_1.get_inner();
-        let login_validity_duration_binding_1 = args
+        let editor_role_values_binding = args.editor_role_values.get_output(context);
+        let email_assertion_binding = args.email_assertion.get_output(context);
+        let groups_assertion_binding = args.groups_assertion.get_output(context);
+        let idp_metadata_url_binding = args.idp_metadata_url.get_output(context);
+        let idp_metadata_xml_binding = args.idp_metadata_xml.get_output(context);
+        let login_assertion_binding = args.login_assertion.get_output(context);
+        let login_validity_duration_binding = args
             .login_validity_duration
             .get_output(context);
-        let login_validity_duration_binding = login_validity_duration_binding_1
-            .get_inner();
-        let name_assertion_binding_1 = args.name_assertion.get_output(context);
-        let name_assertion_binding = name_assertion_binding_1.get_inner();
-        let org_assertion_binding_1 = args.org_assertion.get_output(context);
-        let org_assertion_binding = org_assertion_binding_1.get_inner();
-        let role_assertion_binding_1 = args.role_assertion.get_output(context);
-        let role_assertion_binding = role_assertion_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_assertion_binding = args.name_assertion.get_output(context);
+        let org_assertion_binding = args.org_assertion.get_output(context);
+        let role_assertion_binding = args.role_assertion.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminRoleValues".into(),
-                    value: &admin_role_values_binding,
+                    value: admin_role_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOrganizations".into(),
-                    value: &allowed_organizations_binding,
+                    value: allowed_organizations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "editorRoleValues".into(),
-                    value: &editor_role_values_binding,
+                    value: editor_role_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAssertion".into(),
-                    value: &email_assertion_binding,
+                    value: email_assertion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupsAssertion".into(),
-                    value: &groups_assertion_binding,
+                    value: groups_assertion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpMetadataUrl".into(),
-                    value: &idp_metadata_url_binding,
+                    value: idp_metadata_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpMetadataXml".into(),
-                    value: &idp_metadata_xml_binding,
+                    value: idp_metadata_xml_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loginAssertion".into(),
-                    value: &login_assertion_binding,
+                    value: login_assertion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loginValidityDuration".into(),
-                    value: &login_validity_duration_binding,
+                    value: login_validity_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameAssertion".into(),
-                    value: &name_assertion_binding,
+                    value: name_assertion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgAssertion".into(),
-                    value: &org_assertion_binding,
+                    value: org_assertion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleAssertion".into(),
-                    value: &role_assertion_binding,
+                    value: role_assertion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceSamlConfigurationResult {
-            admin_role_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminRoleValues"),
-            ),
-            allowed_organizations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedOrganizations"),
-            ),
-            editor_role_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("editorRoleValues"),
-            ),
-            email_assertion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAssertion"),
-            ),
-            groups_assertion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupsAssertion"),
-            ),
-            idp_metadata_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idpMetadataUrl"),
-            ),
-            idp_metadata_xml: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idpMetadataXml"),
-            ),
-            login_assertion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loginAssertion"),
-            ),
-            login_validity_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loginValidityDuration"),
-            ),
-            name_assertion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameAssertion"),
-            ),
-            org_assertion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgAssertion"),
-            ),
-            role_assertion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleAssertion"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            admin_role_values: o.get_field("adminRoleValues"),
+            allowed_organizations: o.get_field("allowedOrganizations"),
+            editor_role_values: o.get_field("editorRoleValues"),
+            email_assertion: o.get_field("emailAssertion"),
+            groups_assertion: o.get_field("groupsAssertion"),
+            idp_metadata_url: o.get_field("idpMetadataUrl"),
+            idp_metadata_xml: o.get_field("idpMetadataXml"),
+            login_assertion: o.get_field("loginAssertion"),
+            login_validity_duration: o.get_field("loginValidityDuration"),
+            name_assertion: o.get_field("nameAssertion"),
+            org_assertion: o.get_field("orgAssertion"),
+            role_assertion: o.get_field("roleAssertion"),
+            status: o.get_field("status"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

@@ -233,155 +233,103 @@ pub mod eip {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EipArgs,
     ) -> EipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_binding_1 = args.address.get_output(context);
-        let address_binding = address_binding_1.get_inner();
-        let associate_with_private_ip_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_binding = args.address.get_output(context);
+        let associate_with_private_ip_binding = args
             .associate_with_private_ip
             .get_output(context);
-        let associate_with_private_ip_binding = associate_with_private_ip_binding_1
-            .get_inner();
-        let customer_owned_ipv4_pool_binding_1 = args
+        let customer_owned_ipv4_pool_binding = args
             .customer_owned_ipv4_pool
             .get_output(context);
-        let customer_owned_ipv4_pool_binding = customer_owned_ipv4_pool_binding_1
-            .get_inner();
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let instance_binding_1 = args.instance.get_output(context);
-        let instance_binding = instance_binding_1.get_inner();
-        let ipam_pool_id_binding_1 = args.ipam_pool_id.get_output(context);
-        let ipam_pool_id_binding = ipam_pool_id_binding_1.get_inner();
-        let network_border_group_binding_1 = args
-            .network_border_group
-            .get_output(context);
-        let network_border_group_binding = network_border_group_binding_1.get_inner();
-        let network_interface_binding_1 = args.network_interface.get_output(context);
-        let network_interface_binding = network_interface_binding_1.get_inner();
-        let public_ipv4_pool_binding_1 = args.public_ipv4_pool.get_output(context);
-        let public_ipv4_pool_binding = public_ipv4_pool_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_binding_1 = args.vpc.get_output(context);
-        let vpc_binding = vpc_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let domain_binding = args.domain.get_output(context);
+        let instance_binding = args.instance.get_output(context);
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context);
+        let network_border_group_binding = args.network_border_group.get_output(context);
+        let network_interface_binding = args.network_interface.get_output(context);
+        let public_ipv4_pool_binding = args.public_ipv4_pool.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_binding = args.vpc.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/eip:Eip".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "address".into(),
-                    value: &address_binding,
+                    value: address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associateWithPrivateIp".into(),
-                    value: &associate_with_private_ip_binding,
+                    value: associate_with_private_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerOwnedIpv4Pool".into(),
-                    value: &customer_owned_ipv4_pool_binding,
+                    value: customer_owned_ipv4_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: &instance_binding,
+                    value: instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamPoolId".into(),
-                    value: &ipam_pool_id_binding,
+                    value: ipam_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkBorderGroup".into(),
-                    value: &network_border_group_binding,
+                    value: network_border_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterface".into(),
-                    value: &network_interface_binding,
+                    value: network_interface_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpv4Pool".into(),
-                    value: &public_ipv4_pool_binding,
+                    value: public_ipv4_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: &vpc_binding,
+                    value: vpc_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EipResult {
-            address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("address"),
-            ),
-            allocation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            associate_with_private_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associateWithPrivateIp"),
-            ),
-            association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationId"),
-            ),
-            carrier_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("carrierIp"),
-            ),
-            customer_owned_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerOwnedIp"),
-            ),
-            customer_owned_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerOwnedIpv4Pool"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instance"),
-            ),
-            ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamPoolId"),
-            ),
-            network_border_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkBorderGroup"),
-            ),
-            network_interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterface"),
-            ),
-            private_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDns"),
-            ),
-            private_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIp"),
-            ),
-            ptr_record: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ptrRecord"),
-            ),
-            public_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicDns"),
-            ),
-            public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIp"),
-            ),
-            public_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpv4Pool"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
+            address: o.get_field("address"),
+            allocation_id: o.get_field("allocationId"),
+            arn: o.get_field("arn"),
+            associate_with_private_ip: o.get_field("associateWithPrivateIp"),
+            association_id: o.get_field("associationId"),
+            carrier_ip: o.get_field("carrierIp"),
+            customer_owned_ip: o.get_field("customerOwnedIp"),
+            customer_owned_ipv4_pool: o.get_field("customerOwnedIpv4Pool"),
+            domain: o.get_field("domain"),
+            instance: o.get_field("instance"),
+            ipam_pool_id: o.get_field("ipamPoolId"),
+            network_border_group: o.get_field("networkBorderGroup"),
+            network_interface: o.get_field("networkInterface"),
+            private_dns: o.get_field("privateDns"),
+            private_ip: o.get_field("privateIp"),
+            ptr_record: o.get_field("ptrRecord"),
+            public_dns: o.get_field("publicDns"),
+            public_ip: o.get_field("publicIp"),
+            public_ipv4_pool: o.get_field("publicIpv4Pool"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc: o.get_field("vpc"),
         }
     }
 }

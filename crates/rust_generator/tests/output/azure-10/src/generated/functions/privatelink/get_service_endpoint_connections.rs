@@ -31,48 +31,37 @@ pub mod get_service_endpoint_connections {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceEndpointConnectionsArgs,
     ) -> GetServiceEndpointConnectionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_id_binding_1 = args.service_id.get_output(context);
-        let service_id_binding = service_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_id_binding = args.service_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: &service_id_binding,
+                    value: service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceEndpointConnectionsResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            private_endpoint_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpointConnections"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceId"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            private_endpoint_connections: o.get_field("privateEndpointConnections"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_id: o.get_field("serviceId"),
+            service_name: o.get_field("serviceName"),
         }
     }
 }

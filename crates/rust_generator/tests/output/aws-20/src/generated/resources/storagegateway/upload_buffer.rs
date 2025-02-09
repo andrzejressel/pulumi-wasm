@@ -78,48 +78,40 @@ pub mod upload_buffer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UploadBufferArgs,
     ) -> UploadBufferResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disk_id_binding_1 = args.disk_id.get_output(context);
-        let disk_id_binding = disk_id_binding_1.get_inner();
-        let disk_path_binding_1 = args.disk_path.get_output(context);
-        let disk_path_binding = disk_path_binding_1.get_inner();
-        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
-        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disk_id_binding = args.disk_id.get_output(context);
+        let disk_path_binding = args.disk_path.get_output(context);
+        let gateway_arn_binding = args.gateway_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:storagegateway/uploadBuffer:UploadBuffer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskId".into(),
-                    value: &disk_id_binding,
+                    value: disk_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskPath".into(),
-                    value: &disk_path_binding,
+                    value: disk_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: &gateway_arn_binding,
+                    value: gateway_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UploadBufferResult {
-            disk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskId"),
-            ),
-            disk_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskPath"),
-            ),
-            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayArn"),
-            ),
+            disk_id: o.get_field("diskId"),
+            disk_path: o.get_field("diskPath"),
+            gateway_arn: o.get_field("gatewayArn"),
         }
     }
 }

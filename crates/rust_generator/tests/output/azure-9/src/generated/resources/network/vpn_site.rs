@@ -130,105 +130,82 @@ pub mod vpn_site {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpnSiteArgs,
     ) -> VpnSiteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_cidrs_binding_1 = args.address_cidrs.get_output(context);
-        let address_cidrs_binding = address_cidrs_binding_1.get_inner();
-        let device_model_binding_1 = args.device_model.get_output(context);
-        let device_model_binding = device_model_binding_1.get_inner();
-        let device_vendor_binding_1 = args.device_vendor.get_output(context);
-        let device_vendor_binding = device_vendor_binding_1.get_inner();
-        let links_binding_1 = args.links.get_output(context);
-        let links_binding = links_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let o365_policy_binding_1 = args.o365_policy.get_output(context);
-        let o365_policy_binding = o365_policy_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_wan_id_binding_1 = args.virtual_wan_id.get_output(context);
-        let virtual_wan_id_binding = virtual_wan_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_cidrs_binding = args.address_cidrs.get_output(context);
+        let device_model_binding = args.device_model.get_output(context);
+        let device_vendor_binding = args.device_vendor.get_output(context);
+        let links_binding = args.links.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let o365_policy_binding = args.o365_policy.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let virtual_wan_id_binding = args.virtual_wan_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/vpnSite:VpnSite".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressCidrs".into(),
-                    value: &address_cidrs_binding,
+                    value: address_cidrs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceModel".into(),
-                    value: &device_model_binding,
+                    value: device_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceVendor".into(),
-                    value: &device_vendor_binding,
+                    value: device_vendor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "links".into(),
-                    value: &links_binding,
+                    value: links_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "o365Policy".into(),
-                    value: &o365_policy_binding,
+                    value: o365_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualWanId".into(),
-                    value: &virtual_wan_id_binding,
+                    value: virtual_wan_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpnSiteResult {
-            address_cidrs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressCidrs"),
-            ),
-            device_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceModel"),
-            ),
-            device_vendor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceVendor"),
-            ),
-            links: pulumi_gestalt_rust::__private::into_domain(o.extract_field("links")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            o365_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("o365Policy"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_wan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualWanId"),
-            ),
+            address_cidrs: o.get_field("addressCidrs"),
+            device_model: o.get_field("deviceModel"),
+            device_vendor: o.get_field("deviceVendor"),
+            links: o.get_field("links"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            o365_policy: o.get_field("o365Policy"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            virtual_wan_id: o.get_field("virtualWanId"),
         }
     }
 }

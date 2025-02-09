@@ -58,43 +58,36 @@ pub mod device {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeviceArgs,
     ) -> DeviceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_binding_1 = args.device.get_output(context);
-        let device_binding = device_binding_1.get_inner();
-        let device_fleet_name_binding_1 = args.device_fleet_name.get_output(context);
-        let device_fleet_name_binding = device_fleet_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let device_binding = args.device.get_output(context);
+        let device_fleet_name_binding = args.device_fleet_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/device:Device".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "device".into(),
-                    value: &device_binding,
+                    value: device_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceFleetName".into(),
-                    value: &device_fleet_name_binding,
+                    value: device_fleet_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeviceResult {
-            agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentVersion"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("device"),
-            ),
-            device_fleet_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceFleetName"),
-            ),
+            agent_version: o.get_field("agentVersion"),
+            arn: o.get_field("arn"),
+            device: o.get_field("device"),
+            device_fleet_name: o.get_field("deviceFleetName"),
         }
     }
 }

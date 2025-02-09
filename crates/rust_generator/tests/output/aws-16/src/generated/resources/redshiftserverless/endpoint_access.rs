@@ -76,77 +76,58 @@ pub mod endpoint_access {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointAccessArgs,
     ) -> EndpointAccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_name_binding_1 = args.endpoint_name.get_output(context);
-        let endpoint_name_binding = endpoint_name_binding_1.get_inner();
-        let owner_account_binding_1 = args.owner_account.get_output(context);
-        let owner_account_binding = owner_account_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoint_name_binding = args.endpoint_name.get_output(context);
+        let owner_account_binding = args.owner_account.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
-        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let workgroup_name_binding = args.workgroup_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshiftserverless/endpointAccess:EndpointAccess".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointName".into(),
-                    value: &endpoint_name_binding,
+                    value: endpoint_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerAccount".into(),
-                    value: &owner_account_binding,
+                    value: owner_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: &workgroup_name_binding,
+                    value: workgroup_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointAccessResult {
-            address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("address"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            endpoint_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointName"),
-            ),
-            owner_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccount"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            vpc_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpoints"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
-            workgroup_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workgroupName"),
-            ),
+            address: o.get_field("address"),
+            arn: o.get_field("arn"),
+            endpoint_name: o.get_field("endpointName"),
+            owner_account: o.get_field("ownerAccount"),
+            port: o.get_field("port"),
+            subnet_ids: o.get_field("subnetIds"),
+            vpc_endpoints: o.get_field("vpcEndpoints"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
+            workgroup_name: o.get_field("workgroupName"),
         }
     }
 }

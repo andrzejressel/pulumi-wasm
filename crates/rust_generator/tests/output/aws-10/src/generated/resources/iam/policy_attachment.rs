@@ -107,60 +107,52 @@ pub mod policy_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyAttachmentArgs,
     ) -> PolicyAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let groups_binding_1 = args.groups.get_output(context);
-        let groups_binding = groups_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let policy_arn_binding_1 = args.policy_arn.get_output(context);
-        let policy_arn_binding = policy_arn_binding_1.get_inner();
-        let roles_binding_1 = args.roles.get_output(context);
-        let roles_binding = roles_binding_1.get_inner();
-        let users_binding_1 = args.users.get_output(context);
-        let users_binding = users_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let groups_binding = args.groups.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let policy_arn_binding = args.policy_arn.get_output(context);
+        let roles_binding = args.roles.get_output(context);
+        let users_binding = args.users.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/policyAttachment:PolicyAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groups".into(),
-                    value: &groups_binding,
+                    value: groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArn".into(),
-                    value: &policy_arn_binding,
+                    value: policy_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: &roles_binding,
+                    value: roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "users".into(),
-                    value: &users_binding,
+                    value: users_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyAttachmentResult {
-            groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groups"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyArn"),
-            ),
-            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
-            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
+            groups: o.get_field("groups"),
+            name: o.get_field("name"),
+            policy_arn: o.get_field("policyArn"),
+            roles: o.get_field("roles"),
+            users: o.get_field("users"),
         }
     }
 }

@@ -113,87 +113,70 @@ pub mod action_http {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ActionHttpArgs,
     ) -> ActionHttpResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let body_binding_1 = args.body.get_output(context);
-        let body_binding = body_binding_1.get_inner();
-        let headers_binding_1 = args.headers.get_output(context);
-        let headers_binding = headers_binding_1.get_inner();
-        let logic_app_id_binding_1 = args.logic_app_id.get_output(context);
-        let logic_app_id_binding = logic_app_id_binding_1.get_inner();
-        let method_binding_1 = args.method.get_output(context);
-        let method_binding = method_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let queries_binding_1 = args.queries.get_output(context);
-        let queries_binding = queries_binding_1.get_inner();
-        let run_afters_binding_1 = args.run_afters.get_output(context);
-        let run_afters_binding = run_afters_binding_1.get_inner();
-        let uri_binding_1 = args.uri.get_output(context);
-        let uri_binding = uri_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let body_binding = args.body.get_output(context);
+        let headers_binding = args.headers.get_output(context);
+        let logic_app_id_binding = args.logic_app_id.get_output(context);
+        let method_binding = args.method.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let queries_binding = args.queries.get_output(context);
+        let run_afters_binding = args.run_afters.get_output(context);
+        let uri_binding = args.uri.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:logicapps/actionHttp:ActionHttp".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: &body_binding,
+                    value: body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headers".into(),
-                    value: &headers_binding,
+                    value: headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicAppId".into(),
-                    value: &logic_app_id_binding,
+                    value: logic_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: &method_binding,
+                    value: method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queries".into(),
-                    value: &queries_binding,
+                    value: queries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runAfters".into(),
-                    value: &run_afters_binding,
+                    value: run_afters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uri".into(),
-                    value: &uri_binding,
+                    value: uri_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ActionHttpResult {
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("headers"),
-            ),
-            logic_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicAppId"),
-            ),
-            method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("method"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            queries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queries"),
-            ),
-            run_afters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runAfters"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            body: o.get_field("body"),
+            headers: o.get_field("headers"),
+            logic_app_id: o.get_field("logicAppId"),
+            method: o.get_field("method"),
+            name: o.get_field("name"),
+            queries: o.get_field("queries"),
+            run_afters: o.get_field("runAfters"),
+            uri: o.get_field("uri"),
         }
     }
 }

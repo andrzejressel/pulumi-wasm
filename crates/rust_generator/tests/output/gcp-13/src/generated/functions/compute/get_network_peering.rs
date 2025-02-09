@@ -31,58 +31,43 @@ pub mod get_network_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkPeeringArgs,
     ) -> GetNetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getNetworkPeering:getNetworkPeering".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkPeeringResult {
-            export_custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportCustomRoutes"),
-            ),
-            export_subnet_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportSubnetRoutesWithPublicIp"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            import_custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importCustomRoutes"),
-            ),
-            import_subnet_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importSubnetRoutesWithPublicIp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            peer_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerNetwork"),
-            ),
-            stack_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackType"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateDetails"),
-            ),
+            export_custom_routes: o.get_field("exportCustomRoutes"),
+            export_subnet_routes_with_public_ip: o
+                .get_field("exportSubnetRoutesWithPublicIp"),
+            id: o.get_field("id"),
+            import_custom_routes: o.get_field("importCustomRoutes"),
+            import_subnet_routes_with_public_ip: o
+                .get_field("importSubnetRoutesWithPublicIp"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            peer_network: o.get_field("peerNetwork"),
+            stack_type: o.get_field("stackType"),
+            state: o.get_field("state"),
+            state_details: o.get_field("stateDetails"),
         }
     }
 }

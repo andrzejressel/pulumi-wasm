@@ -107,96 +107,71 @@ pub mod hybrid_connection_authorization_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HybridConnectionAuthorizationRuleArgs,
     ) -> HybridConnectionAuthorizationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hybrid_connection_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hybrid_connection_name_binding = args
             .hybrid_connection_name
             .get_output(context);
-        let hybrid_connection_name_binding = hybrid_connection_name_binding_1
-            .get_inner();
-        let listen_binding_1 = args.listen.get_output(context);
-        let listen_binding = listen_binding_1.get_inner();
-        let manage_binding_1 = args.manage.get_output(context);
-        let manage_binding = manage_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let send_binding_1 = args.send.get_output(context);
-        let send_binding = send_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let listen_binding = args.listen.get_output(context);
+        let manage_binding = args.manage.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let send_binding = args.send.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hybridConnectionName".into(),
-                    value: &hybrid_connection_name_binding,
+                    value: hybrid_connection_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listen".into(),
-                    value: &listen_binding,
+                    value: listen_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manage".into(),
-                    value: &manage_binding,
+                    value: manage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "send".into(),
-                    value: &send_binding,
+                    value: send_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HybridConnectionAuthorizationRuleResult {
-            hybrid_connection_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hybridConnectionName"),
-            ),
-            listen: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listen"),
-            ),
-            manage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manage"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            send: pulumi_gestalt_rust::__private::into_domain(o.extract_field("send")),
+            hybrid_connection_name: o.get_field("hybridConnectionName"),
+            listen: o.get_field("listen"),
+            manage: o.get_field("manage"),
+            name: o.get_field("name"),
+            namespace_name: o.get_field("namespaceName"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            primary_key: o.get_field("primaryKey"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            secondary_key: o.get_field("secondaryKey"),
+            send: o.get_field("send"),
         }
     }
 }

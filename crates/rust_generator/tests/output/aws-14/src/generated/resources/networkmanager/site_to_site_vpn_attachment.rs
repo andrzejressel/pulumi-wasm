@@ -86,73 +86,51 @@ pub mod site_to_site_vpn_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SiteToSiteVpnAttachmentArgs,
     ) -> SiteToSiteVpnAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding_1 = args.core_network_id.get_output(context);
-        let core_network_id_binding = core_network_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpn_connection_arn_binding_1 = args.vpn_connection_arn.get_output(context);
-        let vpn_connection_arn_binding = vpn_connection_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let core_network_id_binding = args.core_network_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpn_connection_arn_binding = args.vpn_connection_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkId".into(),
-                    value: &core_network_id_binding,
+                    value: core_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnConnectionArn".into(),
-                    value: &vpn_connection_arn_binding,
+                    value: vpn_connection_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SiteToSiteVpnAttachmentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attachment_policy_rule_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentPolicyRuleNumber"),
-            ),
-            attachment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentType"),
-            ),
-            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkArn"),
-            ),
-            core_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkId"),
-            ),
-            edge_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeLocation"),
-            ),
-            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccountId"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
-            segment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("segmentName"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpn_connection_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnConnectionArn"),
-            ),
+            arn: o.get_field("arn"),
+            attachment_policy_rule_number: o.get_field("attachmentPolicyRuleNumber"),
+            attachment_type: o.get_field("attachmentType"),
+            core_network_arn: o.get_field("coreNetworkArn"),
+            core_network_id: o.get_field("coreNetworkId"),
+            edge_location: o.get_field("edgeLocation"),
+            owner_account_id: o.get_field("ownerAccountId"),
+            resource_arn: o.get_field("resourceArn"),
+            segment_name: o.get_field("segmentName"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpn_connection_arn: o.get_field("vpnConnectionArn"),
         }
     }
 }

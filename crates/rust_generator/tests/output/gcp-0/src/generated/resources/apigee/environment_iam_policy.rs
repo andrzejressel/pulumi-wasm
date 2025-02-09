@@ -221,49 +221,41 @@ pub mod environment_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentIamPolicyArgs,
     ) -> EnvironmentIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let env_id_binding_1 = args.env_id.get_output(context);
-        let env_id_binding = env_id_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let policy_data_binding_1 = args.policy_data.get_output(context);
-        let policy_data_binding = policy_data_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let env_id_binding = args.env_id.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let policy_data_binding = args.policy_data.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/environmentIamPolicy:EnvironmentIamPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envId".into(),
-                    value: &env_id_binding,
+                    value: env_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: &policy_data_binding,
+                    value: policy_data_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentIamPolicyResult {
-            env_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("envId"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
+            env_id: o.get_field("envId"),
+            etag: o.get_field("etag"),
+            org_id: o.get_field("orgId"),
+            policy_data: o.get_field("policyData"),
         }
     }
 }

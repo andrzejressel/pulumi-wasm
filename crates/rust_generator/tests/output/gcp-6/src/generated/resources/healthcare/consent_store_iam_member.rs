@@ -261,65 +261,53 @@ pub mod consent_store_iam_member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConsentStoreIamMemberArgs,
     ) -> ConsentStoreIamMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let consent_store_id_binding_1 = args.consent_store_id.get_output(context);
-        let consent_store_id_binding = consent_store_id_binding_1.get_inner();
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let member_binding_1 = args.member.get_output(context);
-        let member_binding = member_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let condition_binding = args.condition.get_output(context);
+        let consent_store_id_binding = args.consent_store_id.get_output(context);
+        let dataset_binding = args.dataset.get_output(context);
+        let member_binding = args.member.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:healthcare/consentStoreIamMember:ConsentStoreIamMember".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consentStoreId".into(),
-                    value: &consent_store_id_binding,
+                    value: consent_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "member".into(),
-                    value: &member_binding,
+                    value: member_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConsentStoreIamMemberResult {
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            consent_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consentStoreId"),
-            ),
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            member: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("member"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            condition: o.get_field("condition"),
+            consent_store_id: o.get_field("consentStoreId"),
+            dataset: o.get_field("dataset"),
+            etag: o.get_field("etag"),
+            member: o.get_field("member"),
+            role: o.get_field("role"),
         }
     }
 }

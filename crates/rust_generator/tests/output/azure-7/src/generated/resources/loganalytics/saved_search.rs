@@ -104,90 +104,72 @@ pub mod saved_search {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SavedSearchArgs,
     ) -> SavedSearchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let category_binding_1 = args.category.get_output(context);
-        let category_binding = category_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let function_alias_binding_1 = args.function_alias.get_output(context);
-        let function_alias_binding = function_alias_binding_1.get_inner();
-        let function_parameters_binding_1 = args.function_parameters.get_output(context);
-        let function_parameters_binding = function_parameters_binding_1.get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let category_binding = args.category.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let function_alias_binding = args.function_alias.get_output(context);
+        let function_parameters_binding = args.function_parameters.get_output(context);
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_binding_1 = args.query.get_output(context);
-        let query_binding = query_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let query_binding = args.query.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/savedSearch:SavedSearch".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "category".into(),
-                    value: &category_binding,
+                    value: category_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionAlias".into(),
-                    value: &function_alias_binding,
+                    value: function_alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionParameters".into(),
-                    value: &function_parameters_binding,
+                    value: function_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "query".into(),
-                    value: &query_binding,
+                    value: query_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SavedSearchResult {
-            category: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("category"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            function_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionAlias"),
-            ),
-            function_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionParameters"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query: pulumi_gestalt_rust::__private::into_domain(o.extract_field("query")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            category: o.get_field("category"),
+            display_name: o.get_field("displayName"),
+            function_alias: o.get_field("functionAlias"),
+            function_parameters: o.get_field("functionParameters"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            name: o.get_field("name"),
+            query: o.get_field("query"),
+            tags: o.get_field("tags"),
         }
     }
 }

@@ -77,50 +77,40 @@ pub mod account_vdm_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountVdmAttributesArgs,
     ) -> AccountVdmAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dashboard_attributes_binding_1 = args
-            .dashboard_attributes
-            .get_output(context);
-        let dashboard_attributes_binding = dashboard_attributes_binding_1.get_inner();
-        let guardian_attributes_binding_1 = args.guardian_attributes.get_output(context);
-        let guardian_attributes_binding = guardian_attributes_binding_1.get_inner();
-        let vdm_enabled_binding_1 = args.vdm_enabled.get_output(context);
-        let vdm_enabled_binding = vdm_enabled_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dashboard_attributes_binding = args.dashboard_attributes.get_output(context);
+        let guardian_attributes_binding = args.guardian_attributes.get_output(context);
+        let vdm_enabled_binding = args.vdm_enabled.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sesv2/accountVdmAttributes:AccountVdmAttributes".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dashboardAttributes".into(),
-                    value: &dashboard_attributes_binding,
+                    value: dashboard_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guardianAttributes".into(),
-                    value: &guardian_attributes_binding,
+                    value: guardian_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vdmEnabled".into(),
-                    value: &vdm_enabled_binding,
+                    value: vdm_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountVdmAttributesResult {
-            dashboard_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dashboardAttributes"),
-            ),
-            guardian_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guardianAttributes"),
-            ),
-            vdm_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vdmEnabled"),
-            ),
+            dashboard_attributes: o.get_field("dashboardAttributes"),
+            guardian_attributes: o.get_field("guardianAttributes"),
+            vdm_enabled: o.get_field("vdmEnabled"),
         }
     }
 }

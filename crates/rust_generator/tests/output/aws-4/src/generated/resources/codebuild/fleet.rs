@@ -148,122 +148,89 @@ pub mod fleet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FleetArgs,
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_capacity_binding_1 = args.base_capacity.get_output(context);
-        let base_capacity_binding = base_capacity_binding_1.get_inner();
-        let compute_type_binding_1 = args.compute_type.get_output(context);
-        let compute_type_binding = compute_type_binding_1.get_inner();
-        let environment_type_binding_1 = args.environment_type.get_output(context);
-        let environment_type_binding = environment_type_binding_1.get_inner();
-        let fleet_service_role_binding_1 = args.fleet_service_role.get_output(context);
-        let fleet_service_role_binding = fleet_service_role_binding_1.get_inner();
-        let image_id_binding_1 = args.image_id.get_output(context);
-        let image_id_binding = image_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let overflow_behavior_binding_1 = args.overflow_behavior.get_output(context);
-        let overflow_behavior_binding = overflow_behavior_binding_1.get_inner();
-        let scaling_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let base_capacity_binding = args.base_capacity.get_output(context);
+        let compute_type_binding = args.compute_type.get_output(context);
+        let environment_type_binding = args.environment_type.get_output(context);
+        let fleet_service_role_binding = args.fleet_service_role.get_output(context);
+        let image_id_binding = args.image_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let overflow_behavior_binding = args.overflow_behavior.get_output(context);
+        let scaling_configuration_binding = args
             .scaling_configuration
             .get_output(context);
-        let scaling_configuration_binding = scaling_configuration_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_configs_binding_1 = args.vpc_configs.get_output(context);
-        let vpc_configs_binding = vpc_configs_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let vpc_configs_binding = args.vpc_configs.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codebuild/fleet:Fleet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseCapacity".into(),
-                    value: &base_capacity_binding,
+                    value: base_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeType".into(),
-                    value: &compute_type_binding,
+                    value: compute_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentType".into(),
-                    value: &environment_type_binding,
+                    value: environment_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetServiceRole".into(),
-                    value: &fleet_service_role_binding,
+                    value: fleet_service_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: &image_id_binding,
+                    value: image_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overflowBehavior".into(),
-                    value: &overflow_behavior_binding,
+                    value: overflow_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingConfiguration".into(),
-                    value: &scaling_configuration_binding,
+                    value: scaling_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfigs".into(),
-                    value: &vpc_configs_binding,
+                    value: vpc_configs_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FleetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            base_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseCapacity"),
-            ),
-            compute_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeType"),
-            ),
-            created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("created"),
-            ),
-            environment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentType"),
-            ),
-            fleet_service_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fleetServiceRole"),
-            ),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            last_modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModified"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            overflow_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overflowBehavior"),
-            ),
-            scaling_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingConfiguration"),
-            ),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfigs"),
-            ),
+            arn: o.get_field("arn"),
+            base_capacity: o.get_field("baseCapacity"),
+            compute_type: o.get_field("computeType"),
+            created: o.get_field("created"),
+            environment_type: o.get_field("environmentType"),
+            fleet_service_role: o.get_field("fleetServiceRole"),
+            image_id: o.get_field("imageId"),
+            last_modified: o.get_field("lastModified"),
+            name: o.get_field("name"),
+            overflow_behavior: o.get_field("overflowBehavior"),
+            scaling_configuration: o.get_field("scalingConfiguration"),
+            statuses: o.get_field("statuses"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_configs: o.get_field("vpcConfigs"),
         }
     }
 }

@@ -122,92 +122,71 @@ pub mod tenant_oauth_idp_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TenantOauthIdpConfigArgs,
     ) -> TenantOauthIdpConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_id_binding_1 = args.client_id.get_output(context);
-        let client_id_binding = client_id_binding_1.get_inner();
-        let client_secret_binding_1 = args.client_secret.get_output(context);
-        let client_secret_binding = client_secret_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let issuer_binding_1 = args.issuer.get_output(context);
-        let issuer_binding = issuer_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let tenant_binding_1 = args.tenant.get_output(context);
-        let tenant_binding = tenant_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_id_binding = args.client_id.get_output(context);
+        let client_secret_binding = args.client_secret.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let issuer_binding = args.issuer.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let tenant_binding = args.tenant.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:identityplatform/tenantOauthIdpConfig:TenantOauthIdpConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: &client_id_binding,
+                    value: client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSecret".into(),
-                    value: &client_secret_binding,
+                    value: client_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "issuer".into(),
-                    value: &issuer_binding,
+                    value: issuer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenant".into(),
-                    value: &tenant_binding,
+                    value: tenant_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TenantOauthIdpConfigResult {
-            client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientId"),
-            ),
-            client_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSecret"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            issuer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuer"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            tenant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenant"),
-            ),
+            client_id: o.get_field("clientId"),
+            client_secret: o.get_field("clientSecret"),
+            display_name: o.get_field("displayName"),
+            enabled: o.get_field("enabled"),
+            issuer: o.get_field("issuer"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            tenant: o.get_field("tenant"),
         }
     }
 }

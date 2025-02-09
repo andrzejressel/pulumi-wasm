@@ -67,95 +67,58 @@ pub mod get_shared_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSharedImageArgs,
     ) -> GetSharedImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let gallery_name_binding_1 = args.gallery_name.get_output(context);
-        let gallery_name_binding = gallery_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let gallery_name_binding = args.gallery_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:compute/getSharedImage:getSharedImage".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryName".into(),
-                    value: &gallery_name_binding,
+                    value: gallery_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSharedImageResult {
-            accelerated_network_support_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratedNetworkSupportEnabled"),
-            ),
-            architecture: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("architecture"),
-            ),
-            confidential_vm_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confidentialVmEnabled"),
-            ),
-            confidential_vm_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confidentialVmSupported"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            eula: pulumi_gestalt_rust::__private::into_domain(o.extract_field("eula")),
-            gallery_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("galleryName"),
-            ),
-            hibernation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hibernationEnabled"),
-            ),
-            hyper_v_generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hyperVGeneration"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identifiers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifiers"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            os_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osType"),
-            ),
-            privacy_statement_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privacyStatementUri"),
-            ),
-            purchase_plans: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purchasePlans"),
-            ),
-            release_note_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseNoteUri"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            specialized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("specialized"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            trusted_launch_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedLaunchEnabled"),
-            ),
-            trusted_launch_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedLaunchSupported"),
-            ),
+            accelerated_network_support_enabled: o
+                .get_field("acceleratedNetworkSupportEnabled"),
+            architecture: o.get_field("architecture"),
+            confidential_vm_enabled: o.get_field("confidentialVmEnabled"),
+            confidential_vm_supported: o.get_field("confidentialVmSupported"),
+            description: o.get_field("description"),
+            eula: o.get_field("eula"),
+            gallery_name: o.get_field("galleryName"),
+            hibernation_enabled: o.get_field("hibernationEnabled"),
+            hyper_v_generation: o.get_field("hyperVGeneration"),
+            id: o.get_field("id"),
+            identifiers: o.get_field("identifiers"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            os_type: o.get_field("osType"),
+            privacy_statement_uri: o.get_field("privacyStatementUri"),
+            purchase_plans: o.get_field("purchasePlans"),
+            release_note_uri: o.get_field("releaseNoteUri"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            specialized: o.get_field("specialized"),
+            tags: o.get_field("tags"),
+            trusted_launch_enabled: o.get_field("trustedLaunchEnabled"),
+            trusted_launch_supported: o.get_field("trustedLaunchSupported"),
         }
     }
 }

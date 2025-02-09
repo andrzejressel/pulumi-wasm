@@ -35,62 +35,47 @@ pub mod get_prebuilt_ecr_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPrebuiltEcrImageArgs,
     ) -> GetPrebuiltEcrImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_suffix_binding_1 = args.dns_suffix.get_output(context);
-        let dns_suffix_binding = dns_suffix_binding_1.get_inner();
-        let image_tag_binding_1 = args.image_tag.get_output(context);
-        let image_tag_binding = image_tag_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let repository_name_binding_1 = args.repository_name.get_output(context);
-        let repository_name_binding = repository_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dns_suffix_binding = args.dns_suffix.get_output(context);
+        let image_tag_binding = args.image_tag.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let repository_name_binding = args.repository_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSuffix".into(),
-                    value: &dns_suffix_binding,
+                    value: dns_suffix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTag".into(),
-                    value: &image_tag_binding,
+                    value: image_tag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: &repository_name_binding,
+                    value: repository_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPrebuiltEcrImageResult {
-            dns_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSuffix"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageTag"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
-            registry_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryPath"),
-            ),
-            repository_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryName"),
-            ),
+            dns_suffix: o.get_field("dnsSuffix"),
+            id: o.get_field("id"),
+            image_tag: o.get_field("imageTag"),
+            region: o.get_field("region"),
+            registry_id: o.get_field("registryId"),
+            registry_path: o.get_field("registryPath"),
+            repository_name: o.get_field("repositoryName"),
         }
     }
 }

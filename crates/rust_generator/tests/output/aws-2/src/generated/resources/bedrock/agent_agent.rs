@@ -193,175 +193,122 @@ pub mod agent_agent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgentAgentArgs,
     ) -> AgentAgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_collaboration_binding_1 = args.agent_collaboration.get_output(context);
-        let agent_collaboration_binding = agent_collaboration_binding_1.get_inner();
-        let agent_name_binding_1 = args.agent_name.get_output(context);
-        let agent_name_binding = agent_name_binding_1.get_inner();
-        let agent_resource_role_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_collaboration_binding = args.agent_collaboration.get_output(context);
+        let agent_name_binding = args.agent_name.get_output(context);
+        let agent_resource_role_arn_binding = args
             .agent_resource_role_arn
             .get_output(context);
-        let agent_resource_role_arn_binding = agent_resource_role_arn_binding_1
-            .get_inner();
-        let customer_encryption_key_arn_binding_1 = args
+        let customer_encryption_key_arn_binding = args
             .customer_encryption_key_arn
             .get_output(context);
-        let customer_encryption_key_arn_binding = customer_encryption_key_arn_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let foundation_model_binding_1 = args.foundation_model.get_output(context);
-        let foundation_model_binding = foundation_model_binding_1.get_inner();
-        let guardrail_configurations_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let foundation_model_binding = args.foundation_model.get_output(context);
+        let guardrail_configurations_binding = args
             .guardrail_configurations
             .get_output(context);
-        let guardrail_configurations_binding = guardrail_configurations_binding_1
-            .get_inner();
-        let idle_session_ttl_in_seconds_binding_1 = args
+        let idle_session_ttl_in_seconds_binding = args
             .idle_session_ttl_in_seconds
             .get_output(context);
-        let idle_session_ttl_in_seconds_binding = idle_session_ttl_in_seconds_binding_1
-            .get_inner();
-        let instruction_binding_1 = args.instruction.get_output(context);
-        let instruction_binding = instruction_binding_1.get_inner();
-        let prepare_agent_binding_1 = args.prepare_agent.get_output(context);
-        let prepare_agent_binding = prepare_agent_binding_1.get_inner();
-        let prompt_override_configurations_binding_1 = args
+        let instruction_binding = args.instruction.get_output(context);
+        let prepare_agent_binding = args.prepare_agent.get_output(context);
+        let prompt_override_configurations_binding = args
             .prompt_override_configurations
             .get_output(context);
-        let prompt_override_configurations_binding = prompt_override_configurations_binding_1
-            .get_inner();
-        let skip_resource_in_use_check_binding_1 = args
+        let skip_resource_in_use_check_binding = args
             .skip_resource_in_use_check
             .get_output(context);
-        let skip_resource_in_use_check_binding = skip_resource_in_use_check_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgent:AgentAgent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentCollaboration".into(),
-                    value: &agent_collaboration_binding,
+                    value: agent_collaboration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentName".into(),
-                    value: &agent_name_binding,
+                    value: agent_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentResourceRoleArn".into(),
-                    value: &agent_resource_role_arn_binding,
+                    value: agent_resource_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerEncryptionKeyArn".into(),
-                    value: &customer_encryption_key_arn_binding,
+                    value: customer_encryption_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "foundationModel".into(),
-                    value: &foundation_model_binding,
+                    value: foundation_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guardrailConfigurations".into(),
-                    value: &guardrail_configurations_binding,
+                    value: guardrail_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleSessionTtlInSeconds".into(),
-                    value: &idle_session_ttl_in_seconds_binding,
+                    value: idle_session_ttl_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instruction".into(),
-                    value: &instruction_binding,
+                    value: instruction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prepareAgent".into(),
-                    value: &prepare_agent_binding,
+                    value: prepare_agent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "promptOverrideConfigurations".into(),
-                    value: &prompt_override_configurations_binding,
+                    value: prompt_override_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipResourceInUseCheck".into(),
-                    value: &skip_resource_in_use_check_binding,
+                    value: skip_resource_in_use_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgentAgentResult {
-            agent_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentArn"),
-            ),
-            agent_collaboration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentCollaboration"),
-            ),
-            agent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentId"),
-            ),
-            agent_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentName"),
-            ),
-            agent_resource_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentResourceRoleArn"),
-            ),
-            agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentVersion"),
-            ),
-            customer_encryption_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerEncryptionKeyArn"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            foundation_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("foundationModel"),
-            ),
-            guardrail_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guardrailConfigurations"),
-            ),
-            idle_session_ttl_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleSessionTtlInSeconds"),
-            ),
-            instruction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instruction"),
-            ),
-            prepare_agent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prepareAgent"),
-            ),
-            prompt_override_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("promptOverrideConfigurations"),
-            ),
-            skip_resource_in_use_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipResourceInUseCheck"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            agent_arn: o.get_field("agentArn"),
+            agent_collaboration: o.get_field("agentCollaboration"),
+            agent_id: o.get_field("agentId"),
+            agent_name: o.get_field("agentName"),
+            agent_resource_role_arn: o.get_field("agentResourceRoleArn"),
+            agent_version: o.get_field("agentVersion"),
+            customer_encryption_key_arn: o.get_field("customerEncryptionKeyArn"),
+            description: o.get_field("description"),
+            foundation_model: o.get_field("foundationModel"),
+            guardrail_configurations: o.get_field("guardrailConfigurations"),
+            idle_session_ttl_in_seconds: o.get_field("idleSessionTtlInSeconds"),
+            instruction: o.get_field("instruction"),
+            prepare_agent: o.get_field("prepareAgent"),
+            prompt_override_configurations: o.get_field("promptOverrideConfigurations"),
+            skip_resource_in_use_check: o.get_field("skipResourceInUseCheck"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

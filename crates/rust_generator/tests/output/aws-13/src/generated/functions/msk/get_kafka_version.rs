@@ -25,41 +25,34 @@ pub mod get_kafka_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKafkaVersionArgs,
     ) -> GetKafkaVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let preferred_versions_binding_1 = args.preferred_versions.get_output(context);
-        let preferred_versions_binding = preferred_versions_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let preferred_versions_binding = args.preferred_versions.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:msk/getKafkaVersion:getKafkaVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredVersions".into(),
-                    value: &preferred_versions_binding,
+                    value: preferred_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKafkaVersionResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            preferred_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredVersions"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            id: o.get_field("id"),
+            preferred_versions: o.get_field("preferredVersions"),
+            status: o.get_field("status"),
+            version: o.get_field("version"),
         }
     }
 }

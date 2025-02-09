@@ -43,53 +43,40 @@ pub mod get_network_manager_connectivity_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkManagerConnectivityConfigurationArgs,
     ) -> GetNetworkManagerConnectivityConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_manager_id_binding_1 = args.network_manager_id.get_output(context);
-        let network_manager_id_binding = network_manager_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let network_manager_id_binding = args.network_manager_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkManagerId".into(),
-                    value: &network_manager_id_binding,
+                    value: network_manager_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkManagerConnectivityConfigurationResult {
-            applies_to_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appliesToGroups"),
-            ),
-            connectivity_topology: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectivityTopology"),
-            ),
-            delete_existing_peering_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteExistingPeeringEnabled"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            global_mesh_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalMeshEnabled"),
-            ),
-            hubs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hubs")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkManagerId"),
-            ),
+            applies_to_groups: o.get_field("appliesToGroups"),
+            connectivity_topology: o.get_field("connectivityTopology"),
+            delete_existing_peering_enabled: o.get_field("deleteExistingPeeringEnabled"),
+            description: o.get_field("description"),
+            global_mesh_enabled: o.get_field("globalMeshEnabled"),
+            hubs: o.get_field("hubs"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            network_manager_id: o.get_field("networkManagerId"),
         }
     }
 }

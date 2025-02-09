@@ -81,100 +81,59 @@ pub mod get_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEndpointArgs,
     ) -> GetEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_vpn_endpoint_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_vpn_endpoint_id_binding = args
             .client_vpn_endpoint_id
             .get_output(context);
-        let client_vpn_endpoint_id_binding = client_vpn_endpoint_id_binding_1
-            .get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let filters_binding = args.filters.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2clientvpn/getEndpoint:getEndpoint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientVpnEndpointId".into(),
-                    value: &client_vpn_endpoint_id_binding,
+                    value: client_vpn_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEndpointResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationOptions"),
-            ),
-            client_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCidrBlock"),
-            ),
-            client_connect_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientConnectOptions"),
-            ),
-            client_login_banner_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientLoginBannerOptions"),
-            ),
-            client_vpn_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientVpnEndpointId"),
-            ),
-            connection_log_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionLogOptions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            dns_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsServers"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            self_service_portal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfServicePortal"),
-            ),
-            self_service_portal_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfServicePortalUrl"),
-            ),
-            server_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverCertificateArn"),
-            ),
-            session_timeout_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionTimeoutHours"),
-            ),
-            split_tunnel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("splitTunnel"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            transport_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transportProtocol"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            vpn_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnPort"),
-            ),
+            arn: o.get_field("arn"),
+            authentication_options: o.get_field("authenticationOptions"),
+            client_cidr_block: o.get_field("clientCidrBlock"),
+            client_connect_options: o.get_field("clientConnectOptions"),
+            client_login_banner_options: o.get_field("clientLoginBannerOptions"),
+            client_vpn_endpoint_id: o.get_field("clientVpnEndpointId"),
+            connection_log_options: o.get_field("connectionLogOptions"),
+            description: o.get_field("description"),
+            dns_name: o.get_field("dnsName"),
+            dns_servers: o.get_field("dnsServers"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            self_service_portal: o.get_field("selfServicePortal"),
+            self_service_portal_url: o.get_field("selfServicePortalUrl"),
+            server_certificate_arn: o.get_field("serverCertificateArn"),
+            session_timeout_hours: o.get_field("sessionTimeoutHours"),
+            split_tunnel: o.get_field("splitTunnel"),
+            tags: o.get_field("tags"),
+            transport_protocol: o.get_field("transportProtocol"),
+            vpc_id: o.get_field("vpcId"),
+            vpn_port: o.get_field("vpnPort"),
         }
     }
 }

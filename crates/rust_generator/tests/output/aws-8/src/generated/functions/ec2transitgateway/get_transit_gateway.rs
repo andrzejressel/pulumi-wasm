@@ -69,82 +69,55 @@ pub mod get_transit_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTransitGatewayArgs,
     ) -> GetTransitGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2transitgateway/getTransitGateway:getTransitGateway".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTransitGatewayResult {
-            amazon_side_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amazonSideAsn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            association_default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationDefaultRouteTableId"),
-            ),
-            auto_accept_shared_attachments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAcceptSharedAttachments"),
-            ),
-            default_route_table_association: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRouteTableAssociation"),
-            ),
-            default_route_table_propagation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRouteTablePropagation"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSupport"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            multicast_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multicastSupport"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            propagation_default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("propagationDefaultRouteTableId"),
-            ),
-            security_group_referencing_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupReferencingSupport"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            transit_gateway_cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayCidrBlocks"),
-            ),
-            vpn_ecmp_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnEcmpSupport"),
-            ),
+            amazon_side_asn: o.get_field("amazonSideAsn"),
+            arn: o.get_field("arn"),
+            association_default_route_table_id: o
+                .get_field("associationDefaultRouteTableId"),
+            auto_accept_shared_attachments: o.get_field("autoAcceptSharedAttachments"),
+            default_route_table_association: o.get_field("defaultRouteTableAssociation"),
+            default_route_table_propagation: o.get_field("defaultRouteTablePropagation"),
+            description: o.get_field("description"),
+            dns_support: o.get_field("dnsSupport"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            multicast_support: o.get_field("multicastSupport"),
+            owner_id: o.get_field("ownerId"),
+            propagation_default_route_table_id: o
+                .get_field("propagationDefaultRouteTableId"),
+            security_group_referencing_support: o
+                .get_field("securityGroupReferencingSupport"),
+            tags: o.get_field("tags"),
+            transit_gateway_cidr_blocks: o.get_field("transitGatewayCidrBlocks"),
+            vpn_ecmp_support: o.get_field("vpnEcmpSupport"),
         }
     }
 }

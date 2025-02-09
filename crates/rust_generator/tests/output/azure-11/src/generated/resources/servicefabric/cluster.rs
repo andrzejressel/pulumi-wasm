@@ -257,253 +257,179 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_on_features_binding_1 = args.add_on_features.get_output(context);
-        let add_on_features_binding = add_on_features_binding_1.get_inner();
-        let azure_active_directory_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let add_on_features_binding = args.add_on_features.get_output(context);
+        let azure_active_directory_binding = args
             .azure_active_directory
             .get_output(context);
-        let azure_active_directory_binding = azure_active_directory_binding_1
-            .get_inner();
-        let certificate_binding_1 = args.certificate.get_output(context);
-        let certificate_binding = certificate_binding_1.get_inner();
-        let certificate_common_names_binding_1 = args
+        let certificate_binding = args.certificate.get_output(context);
+        let certificate_common_names_binding = args
             .certificate_common_names
             .get_output(context);
-        let certificate_common_names_binding = certificate_common_names_binding_1
-            .get_inner();
-        let client_certificate_common_names_binding_1 = args
+        let client_certificate_common_names_binding = args
             .client_certificate_common_names
             .get_output(context);
-        let client_certificate_common_names_binding = client_certificate_common_names_binding_1
-            .get_inner();
-        let client_certificate_thumbprints_binding_1 = args
+        let client_certificate_thumbprints_binding = args
             .client_certificate_thumbprints
             .get_output(context);
-        let client_certificate_thumbprints_binding = client_certificate_thumbprints_binding_1
-            .get_inner();
-        let cluster_code_version_binding_1 = args
-            .cluster_code_version
-            .get_output(context);
-        let cluster_code_version_binding = cluster_code_version_binding_1.get_inner();
-        let diagnostics_config_binding_1 = args.diagnostics_config.get_output(context);
-        let diagnostics_config_binding = diagnostics_config_binding_1.get_inner();
-        let fabric_settings_binding_1 = args.fabric_settings.get_output(context);
-        let fabric_settings_binding = fabric_settings_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let management_endpoint_binding_1 = args.management_endpoint.get_output(context);
-        let management_endpoint_binding = management_endpoint_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_types_binding_1 = args.node_types.get_output(context);
-        let node_types_binding = node_types_binding_1.get_inner();
-        let reliability_level_binding_1 = args.reliability_level.get_output(context);
-        let reliability_level_binding = reliability_level_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let reverse_proxy_certificate_binding_1 = args
+        let cluster_code_version_binding = args.cluster_code_version.get_output(context);
+        let diagnostics_config_binding = args.diagnostics_config.get_output(context);
+        let fabric_settings_binding = args.fabric_settings.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let management_endpoint_binding = args.management_endpoint.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_types_binding = args.node_types.get_output(context);
+        let reliability_level_binding = args.reliability_level.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let reverse_proxy_certificate_binding = args
             .reverse_proxy_certificate
             .get_output(context);
-        let reverse_proxy_certificate_binding = reverse_proxy_certificate_binding_1
-            .get_inner();
-        let reverse_proxy_certificate_common_names_binding_1 = args
+        let reverse_proxy_certificate_common_names_binding = args
             .reverse_proxy_certificate_common_names
             .get_output(context);
-        let reverse_proxy_certificate_common_names_binding = reverse_proxy_certificate_common_names_binding_1
-            .get_inner();
-        let service_fabric_zonal_upgrade_mode_binding_1 = args
+        let service_fabric_zonal_upgrade_mode_binding = args
             .service_fabric_zonal_upgrade_mode
             .get_output(context);
-        let service_fabric_zonal_upgrade_mode_binding = service_fabric_zonal_upgrade_mode_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let upgrade_mode_binding_1 = args.upgrade_mode.get_output(context);
-        let upgrade_mode_binding = upgrade_mode_binding_1.get_inner();
-        let upgrade_policy_binding_1 = args.upgrade_policy.get_output(context);
-        let upgrade_policy_binding = upgrade_policy_binding_1.get_inner();
-        let vm_image_binding_1 = args.vm_image.get_output(context);
-        let vm_image_binding = vm_image_binding_1.get_inner();
-        let vmss_zonal_upgrade_mode_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let upgrade_mode_binding = args.upgrade_mode.get_output(context);
+        let upgrade_policy_binding = args.upgrade_policy.get_output(context);
+        let vm_image_binding = args.vm_image.get_output(context);
+        let vmss_zonal_upgrade_mode_binding = args
             .vmss_zonal_upgrade_mode
             .get_output(context);
-        let vmss_zonal_upgrade_mode_binding = vmss_zonal_upgrade_mode_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:servicefabric/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addOnFeatures".into(),
-                    value: &add_on_features_binding,
+                    value: add_on_features_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureActiveDirectory".into(),
-                    value: &azure_active_directory_binding,
+                    value: azure_active_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: &certificate_binding,
+                    value: certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateCommonNames".into(),
-                    value: &certificate_common_names_binding,
+                    value: certificate_common_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateCommonNames".into(),
-                    value: &client_certificate_common_names_binding,
+                    value: client_certificate_common_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateThumbprints".into(),
-                    value: &client_certificate_thumbprints_binding,
+                    value: client_certificate_thumbprints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterCodeVersion".into(),
-                    value: &cluster_code_version_binding,
+                    value: cluster_code_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diagnosticsConfig".into(),
-                    value: &diagnostics_config_binding,
+                    value: diagnostics_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fabricSettings".into(),
-                    value: &fabric_settings_binding,
+                    value: fabric_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementEndpoint".into(),
-                    value: &management_endpoint_binding,
+                    value: management_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeTypes".into(),
-                    value: &node_types_binding,
+                    value: node_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reliabilityLevel".into(),
-                    value: &reliability_level_binding,
+                    value: reliability_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseProxyCertificate".into(),
-                    value: &reverse_proxy_certificate_binding,
+                    value: reverse_proxy_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseProxyCertificateCommonNames".into(),
-                    value: &reverse_proxy_certificate_common_names_binding,
+                    value: reverse_proxy_certificate_common_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceFabricZonalUpgradeMode".into(),
-                    value: &service_fabric_zonal_upgrade_mode_binding,
+                    value: service_fabric_zonal_upgrade_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradeMode".into(),
-                    value: &upgrade_mode_binding,
+                    value: upgrade_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradePolicy".into(),
-                    value: &upgrade_policy_binding,
+                    value: upgrade_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmImage".into(),
-                    value: &vm_image_binding,
+                    value: vm_image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmssZonalUpgradeMode".into(),
-                    value: &vmss_zonal_upgrade_mode_binding,
+                    value: vmss_zonal_upgrade_mode_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            add_on_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addOnFeatures"),
-            ),
-            azure_active_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureActiveDirectory"),
-            ),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            certificate_common_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateCommonNames"),
-            ),
-            client_certificate_common_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateCommonNames"),
-            ),
-            client_certificate_thumbprints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateThumbprints"),
-            ),
-            cluster_code_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterCodeVersion"),
-            ),
-            cluster_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterEndpoint"),
-            ),
-            diagnostics_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diagnosticsConfig"),
-            ),
-            fabric_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fabricSettings"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementEndpoint"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeTypes"),
-            ),
-            reliability_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reliabilityLevel"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            reverse_proxy_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reverseProxyCertificate"),
-            ),
-            reverse_proxy_certificate_common_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reverseProxyCertificateCommonNames"),
-            ),
-            service_fabric_zonal_upgrade_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceFabricZonalUpgradeMode"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            upgrade_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradeMode"),
-            ),
-            upgrade_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradePolicy"),
-            ),
-            vm_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmImage"),
-            ),
-            vmss_zonal_upgrade_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmssZonalUpgradeMode"),
-            ),
+            add_on_features: o.get_field("addOnFeatures"),
+            azure_active_directory: o.get_field("azureActiveDirectory"),
+            certificate: o.get_field("certificate"),
+            certificate_common_names: o.get_field("certificateCommonNames"),
+            client_certificate_common_names: o.get_field("clientCertificateCommonNames"),
+            client_certificate_thumbprints: o.get_field("clientCertificateThumbprints"),
+            cluster_code_version: o.get_field("clusterCodeVersion"),
+            cluster_endpoint: o.get_field("clusterEndpoint"),
+            diagnostics_config: o.get_field("diagnosticsConfig"),
+            fabric_settings: o.get_field("fabricSettings"),
+            location: o.get_field("location"),
+            management_endpoint: o.get_field("managementEndpoint"),
+            name: o.get_field("name"),
+            node_types: o.get_field("nodeTypes"),
+            reliability_level: o.get_field("reliabilityLevel"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            reverse_proxy_certificate: o.get_field("reverseProxyCertificate"),
+            reverse_proxy_certificate_common_names: o
+                .get_field("reverseProxyCertificateCommonNames"),
+            service_fabric_zonal_upgrade_mode: o
+                .get_field("serviceFabricZonalUpgradeMode"),
+            tags: o.get_field("tags"),
+            upgrade_mode: o.get_field("upgradeMode"),
+            upgrade_policy: o.get_field("upgradePolicy"),
+            vm_image: o.get_field("vmImage"),
+            vmss_zonal_upgrade_mode: o.get_field("vmssZonalUpgradeMode"),
         }
     }
 }

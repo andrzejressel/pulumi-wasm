@@ -435,178 +435,128 @@ pub mod gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GatewayArgs,
     ) -> GatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addresses_binding_1 = args.addresses.get_output(context);
-        let addresses_binding = addresses_binding_1.get_inner();
-        let certificate_urls_binding_1 = args.certificate_urls.get_output(context);
-        let certificate_urls_binding = certificate_urls_binding_1.get_inner();
-        let delete_swg_autogen_router_on_destroy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let addresses_binding = args.addresses.get_output(context);
+        let certificate_urls_binding = args.certificate_urls.get_output(context);
+        let delete_swg_autogen_router_on_destroy_binding = args
             .delete_swg_autogen_router_on_destroy
             .get_output(context);
-        let delete_swg_autogen_router_on_destroy_binding = delete_swg_autogen_router_on_destroy_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let gateway_security_policy_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let gateway_security_policy_binding = args
             .gateway_security_policy
             .get_output(context);
-        let gateway_security_policy_binding = gateway_security_policy_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let ports_binding_1 = args.ports.get_output(context);
-        let ports_binding = ports_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let routing_mode_binding_1 = args.routing_mode.get_output(context);
-        let routing_mode_binding = routing_mode_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let server_tls_policy_binding_1 = args.server_tls_policy.get_output(context);
-        let server_tls_policy_binding = server_tls_policy_binding_1.get_inner();
-        let subnetwork_binding_1 = args.subnetwork.get_output(context);
-        let subnetwork_binding = subnetwork_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let ports_binding = args.ports.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let routing_mode_binding = args.routing_mode.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let server_tls_policy_binding = args.server_tls_policy.get_output(context);
+        let subnetwork_binding = args.subnetwork.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networkservices/gateway:Gateway".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addresses".into(),
-                    value: &addresses_binding,
+                    value: addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateUrls".into(),
-                    value: &certificate_urls_binding,
+                    value: certificate_urls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteSwgAutogenRouterOnDestroy".into(),
-                    value: &delete_swg_autogen_router_on_destroy_binding,
+                    value: delete_swg_autogen_router_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewaySecurityPolicy".into(),
-                    value: &gateway_security_policy_binding,
+                    value: gateway_security_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ports".into(),
-                    value: &ports_binding,
+                    value: ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingMode".into(),
-                    value: &routing_mode_binding,
+                    value: routing_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverTlsPolicy".into(),
-                    value: &server_tls_policy_binding,
+                    value: server_tls_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: &subnetwork_binding,
+                    value: subnetwork_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GatewayResult {
-            addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addresses"),
-            ),
-            certificate_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateUrls"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_swg_autogen_router_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteSwgAutogenRouterOnDestroy"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            gateway_security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewaySecurityPolicy"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            ports: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ports")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            routing_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingMode"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            server_tls_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverTlsPolicy"),
-            ),
-            subnetwork: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetwork"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            addresses: o.get_field("addresses"),
+            certificate_urls: o.get_field("certificateUrls"),
+            create_time: o.get_field("createTime"),
+            delete_swg_autogen_router_on_destroy: o
+                .get_field("deleteSwgAutogenRouterOnDestroy"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            gateway_security_policy: o.get_field("gatewaySecurityPolicy"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            ports: o.get_field("ports"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            routing_mode: o.get_field("routingMode"),
+            scope: o.get_field("scope"),
+            self_link: o.get_field("selfLink"),
+            server_tls_policy: o.get_field("serverTlsPolicy"),
+            subnetwork: o.get_field("subnetwork"),
+            type_: o.get_field("type"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

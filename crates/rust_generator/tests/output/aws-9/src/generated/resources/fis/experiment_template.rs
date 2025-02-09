@@ -137,94 +137,71 @@ pub mod experiment_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExperimentTemplateArgs,
     ) -> ExperimentTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding_1 = args.actions.get_output(context);
-        let actions_binding = actions_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let experiment_options_binding_1 = args.experiment_options.get_output(context);
-        let experiment_options_binding = experiment_options_binding_1.get_inner();
-        let log_configuration_binding_1 = args.log_configuration.get_output(context);
-        let log_configuration_binding = log_configuration_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let stop_conditions_binding_1 = args.stop_conditions.get_output(context);
-        let stop_conditions_binding = stop_conditions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let targets_binding_1 = args.targets.get_output(context);
-        let targets_binding = targets_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_binding = args.actions.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let experiment_options_binding = args.experiment_options.get_output(context);
+        let log_configuration_binding = args.log_configuration.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let stop_conditions_binding = args.stop_conditions.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let targets_binding = args.targets.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fis/experimentTemplate:ExperimentTemplate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: &actions_binding,
+                    value: actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "experimentOptions".into(),
-                    value: &experiment_options_binding,
+                    value: experiment_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfiguration".into(),
-                    value: &log_configuration_binding,
+                    value: log_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopConditions".into(),
-                    value: &stop_conditions_binding,
+                    value: stop_conditions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: &targets_binding,
+                    value: targets_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExperimentTemplateResult {
-            actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            experiment_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("experimentOptions"),
-            ),
-            log_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfiguration"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            stop_conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stopConditions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targets"),
-            ),
+            actions: o.get_field("actions"),
+            description: o.get_field("description"),
+            experiment_options: o.get_field("experimentOptions"),
+            log_configuration: o.get_field("logConfiguration"),
+            role_arn: o.get_field("roleArn"),
+            stop_conditions: o.get_field("stopConditions"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            targets: o.get_field("targets"),
         }
     }
 }

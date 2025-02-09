@@ -85,65 +85,53 @@ pub mod active_directory_administrator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ActiveDirectoryAdministratorArgs,
     ) -> ActiveDirectoryAdministratorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let login_binding_1 = args.login.get_output(context);
-        let login_binding = login_binding_1.get_inner();
-        let object_id_binding_1 = args.object_id.get_output(context);
-        let object_id_binding = object_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let server_name_binding_1 = args.server_name.get_output(context);
-        let server_name_binding = server_name_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let login_binding = args.login.get_output(context);
+        let object_id_binding = args.object_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let server_name_binding = args.server_name.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "login".into(),
-                    value: &login_binding,
+                    value: login_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: &object_id_binding,
+                    value: object_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: &server_name_binding,
+                    value: server_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ActiveDirectoryAdministratorResult {
-            login: pulumi_gestalt_rust::__private::into_domain(o.extract_field("login")),
-            object_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            server_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverName"),
-            ),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
+            login: o.get_field("login"),
+            object_id: o.get_field("objectId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            server_name: o.get_field("serverName"),
+            tenant_id: o.get_field("tenantId"),
         }
     }
 }

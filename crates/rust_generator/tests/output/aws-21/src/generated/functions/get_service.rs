@@ -39,77 +39,58 @@ pub mod get_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceArgs,
     ) -> GetServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_name_binding_1 = args.dns_name.get_output(context);
-        let dns_name_binding = dns_name_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let reverse_dns_name_binding_1 = args.reverse_dns_name.get_output(context);
-        let reverse_dns_name_binding = reverse_dns_name_binding_1.get_inner();
-        let reverse_dns_prefix_binding_1 = args.reverse_dns_prefix.get_output(context);
-        let reverse_dns_prefix_binding = reverse_dns_prefix_binding_1.get_inner();
-        let service_id_binding_1 = args.service_id.get_output(context);
-        let service_id_binding = service_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dns_name_binding = args.dns_name.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let reverse_dns_name_binding = args.reverse_dns_name.get_output(context);
+        let reverse_dns_prefix_binding = args.reverse_dns_prefix.get_output(context);
+        let service_id_binding = args.service_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:index/getService:getService".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsName".into(),
-                    value: &dns_name_binding,
+                    value: dns_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseDnsName".into(),
-                    value: &reverse_dns_name_binding,
+                    value: reverse_dns_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseDnsPrefix".into(),
-                    value: &reverse_dns_prefix_binding,
+                    value: reverse_dns_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: &service_id_binding,
+                    value: service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceResult {
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            partition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partition"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            reverse_dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reverseDnsName"),
-            ),
-            reverse_dns_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reverseDnsPrefix"),
-            ),
-            service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceId"),
-            ),
-            supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supported"),
-            ),
+            dns_name: o.get_field("dnsName"),
+            id: o.get_field("id"),
+            partition: o.get_field("partition"),
+            region: o.get_field("region"),
+            reverse_dns_name: o.get_field("reverseDnsName"),
+            reverse_dns_prefix: o.get_field("reverseDnsPrefix"),
+            service_id: o.get_field("serviceId"),
+            supported: o.get_field("supported"),
         }
     }
 }

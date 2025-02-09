@@ -153,83 +153,66 @@ pub mod medtech_service_fhir_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MedtechServiceFhirDestinationArgs,
     ) -> MedtechServiceFhirDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_fhir_mapping_json_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_fhir_mapping_json_binding = args
             .destination_fhir_mapping_json
             .get_output(context);
-        let destination_fhir_mapping_json_binding = destination_fhir_mapping_json_binding_1
-            .get_inner();
-        let destination_fhir_service_id_binding_1 = args
+        let destination_fhir_service_id_binding = args
             .destination_fhir_service_id
             .get_output(context);
-        let destination_fhir_service_id_binding = destination_fhir_service_id_binding_1
-            .get_inner();
-        let destination_identity_resolution_type_binding_1 = args
+        let destination_identity_resolution_type_binding = args
             .destination_identity_resolution_type
             .get_output(context);
-        let destination_identity_resolution_type_binding = destination_identity_resolution_type_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let medtech_service_id_binding_1 = args.medtech_service_id.get_output(context);
-        let medtech_service_id_binding = medtech_service_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let medtech_service_id_binding = args.medtech_service_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationFhirMappingJson".into(),
-                    value: &destination_fhir_mapping_json_binding,
+                    value: destination_fhir_mapping_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationFhirServiceId".into(),
-                    value: &destination_fhir_service_id_binding,
+                    value: destination_fhir_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationIdentityResolutionType".into(),
-                    value: &destination_identity_resolution_type_binding,
+                    value: destination_identity_resolution_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "medtechServiceId".into(),
-                    value: &medtech_service_id_binding,
+                    value: medtech_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MedtechServiceFhirDestinationResult {
-            destination_fhir_mapping_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationFhirMappingJson"),
-            ),
-            destination_fhir_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationFhirServiceId"),
-            ),
-            destination_identity_resolution_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationIdentityResolutionType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            medtech_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("medtechServiceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            destination_fhir_mapping_json: o.get_field("destinationFhirMappingJson"),
+            destination_fhir_service_id: o.get_field("destinationFhirServiceId"),
+            destination_identity_resolution_type: o
+                .get_field("destinationIdentityResolutionType"),
+            location: o.get_field("location"),
+            medtech_service_id: o.get_field("medtechServiceId"),
+            name: o.get_field("name"),
         }
     }
 }

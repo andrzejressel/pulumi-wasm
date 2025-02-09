@@ -357,184 +357,130 @@ pub mod firewall {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirewallArgs,
     ) -> FirewallResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allows_binding_1 = args.allows.get_output(context);
-        let allows_binding = allows_binding_1.get_inner();
-        let denies_binding_1 = args.denies.get_output(context);
-        let denies_binding = denies_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_ranges_binding_1 = args.destination_ranges.get_output(context);
-        let destination_ranges_binding = destination_ranges_binding_1.get_inner();
-        let direction_binding_1 = args.direction.get_output(context);
-        let direction_binding = direction_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let enable_logging_binding_1 = args.enable_logging.get_output(context);
-        let enable_logging_binding = enable_logging_binding_1.get_inner();
-        let log_config_binding_1 = args.log_config.get_output(context);
-        let log_config_binding = log_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let source_ranges_binding_1 = args.source_ranges.get_output(context);
-        let source_ranges_binding = source_ranges_binding_1.get_inner();
-        let source_service_accounts_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allows_binding = args.allows.get_output(context);
+        let denies_binding = args.denies.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let destination_ranges_binding = args.destination_ranges.get_output(context);
+        let direction_binding = args.direction.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let enable_logging_binding = args.enable_logging.get_output(context);
+        let log_config_binding = args.log_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let source_ranges_binding = args.source_ranges.get_output(context);
+        let source_service_accounts_binding = args
             .source_service_accounts
             .get_output(context);
-        let source_service_accounts_binding = source_service_accounts_binding_1
-            .get_inner();
-        let source_tags_binding_1 = args.source_tags.get_output(context);
-        let source_tags_binding = source_tags_binding_1.get_inner();
-        let target_service_accounts_binding_1 = args
+        let source_tags_binding = args.source_tags.get_output(context);
+        let target_service_accounts_binding = args
             .target_service_accounts
             .get_output(context);
-        let target_service_accounts_binding = target_service_accounts_binding_1
-            .get_inner();
-        let target_tags_binding_1 = args.target_tags.get_output(context);
-        let target_tags_binding = target_tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let target_tags_binding = args.target_tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/firewall:Firewall".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allows".into(),
-                    value: &allows_binding,
+                    value: allows_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "denies".into(),
-                    value: &denies_binding,
+                    value: denies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationRanges".into(),
-                    value: &destination_ranges_binding,
+                    value: destination_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: &direction_binding,
+                    value: direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: &enable_logging_binding,
+                    value: enable_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: &log_config_binding,
+                    value: log_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRanges".into(),
-                    value: &source_ranges_binding,
+                    value: source_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceServiceAccounts".into(),
-                    value: &source_service_accounts_binding,
+                    value: source_service_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceTags".into(),
-                    value: &source_tags_binding,
+                    value: source_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccounts".into(),
-                    value: &target_service_accounts_binding,
+                    value: target_service_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetTags".into(),
-                    value: &target_tags_binding,
+                    value: target_tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirewallResult {
-            allows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allows"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            denies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("denies"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationRanges"),
-            ),
-            direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("direction"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            enable_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLogging"),
-            ),
-            log_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            source_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRanges"),
-            ),
-            source_service_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceServiceAccounts"),
-            ),
-            source_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceTags"),
-            ),
-            target_service_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetServiceAccounts"),
-            ),
-            target_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetTags"),
-            ),
+            allows: o.get_field("allows"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            denies: o.get_field("denies"),
+            description: o.get_field("description"),
+            destination_ranges: o.get_field("destinationRanges"),
+            direction: o.get_field("direction"),
+            disabled: o.get_field("disabled"),
+            enable_logging: o.get_field("enableLogging"),
+            log_config: o.get_field("logConfig"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            priority: o.get_field("priority"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
+            source_ranges: o.get_field("sourceRanges"),
+            source_service_accounts: o.get_field("sourceServiceAccounts"),
+            source_tags: o.get_field("sourceTags"),
+            target_service_accounts: o.get_field("targetServiceAccounts"),
+            target_tags: o.get_field("targetTags"),
         }
     }
 }

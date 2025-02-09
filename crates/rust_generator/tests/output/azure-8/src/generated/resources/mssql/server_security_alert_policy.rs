@@ -119,106 +119,79 @@ pub mod server_security_alert_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerSecurityAlertPolicyArgs,
     ) -> ServerSecurityAlertPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_alerts_binding_1 = args.disabled_alerts.get_output(context);
-        let disabled_alerts_binding = disabled_alerts_binding_1.get_inner();
-        let email_account_admins_binding_1 = args
-            .email_account_admins
-            .get_output(context);
-        let email_account_admins_binding = email_account_admins_binding_1.get_inner();
-        let email_addresses_binding_1 = args.email_addresses.get_output(context);
-        let email_addresses_binding = email_addresses_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let retention_days_binding_1 = args.retention_days.get_output(context);
-        let retention_days_binding = retention_days_binding_1.get_inner();
-        let server_name_binding_1 = args.server_name.get_output(context);
-        let server_name_binding = server_name_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let storage_account_access_key_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disabled_alerts_binding = args.disabled_alerts.get_output(context);
+        let email_account_admins_binding = args.email_account_admins.get_output(context);
+        let email_addresses_binding = args.email_addresses.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let retention_days_binding = args.retention_days.get_output(context);
+        let server_name_binding = args.server_name.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let storage_account_access_key_binding = args
             .storage_account_access_key
             .get_output(context);
-        let storage_account_access_key_binding = storage_account_access_key_binding_1
-            .get_inner();
-        let storage_endpoint_binding_1 = args.storage_endpoint.get_output(context);
-        let storage_endpoint_binding = storage_endpoint_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_endpoint_binding = args.storage_endpoint.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabledAlerts".into(),
-                    value: &disabled_alerts_binding,
+                    value: disabled_alerts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAccountAdmins".into(),
-                    value: &email_account_admins_binding,
+                    value: email_account_admins_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddresses".into(),
-                    value: &email_addresses_binding,
+                    value: email_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDays".into(),
-                    value: &retention_days_binding,
+                    value: retention_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: &server_name_binding,
+                    value: server_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAccessKey".into(),
-                    value: &storage_account_access_key_binding,
+                    value: storage_account_access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageEndpoint".into(),
-                    value: &storage_endpoint_binding,
+                    value: storage_endpoint_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerSecurityAlertPolicyResult {
-            disabled_alerts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabledAlerts"),
-            ),
-            email_account_admins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAccountAdmins"),
-            ),
-            email_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddresses"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionDays"),
-            ),
-            server_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverName"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountAccessKey"),
-            ),
-            storage_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEndpoint"),
-            ),
+            disabled_alerts: o.get_field("disabledAlerts"),
+            email_account_admins: o.get_field("emailAccountAdmins"),
+            email_addresses: o.get_field("emailAddresses"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retention_days: o.get_field("retentionDays"),
+            server_name: o.get_field("serverName"),
+            state: o.get_field("state"),
+            storage_account_access_key: o.get_field("storageAccountAccessKey"),
+            storage_endpoint: o.get_field("storageEndpoint"),
         }
     }
 }

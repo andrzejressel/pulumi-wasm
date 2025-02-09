@@ -100,76 +100,64 @@ pub mod data_lake_gen_2_path {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataLakeGen2PathArgs,
     ) -> DataLakeGen2PathResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aces_binding_1 = args.aces.get_output(context);
-        let aces_binding = aces_binding_1.get_inner();
-        let filesystem_name_binding_1 = args.filesystem_name.get_output(context);
-        let filesystem_name_binding = filesystem_name_binding_1.get_inner();
-        let group_binding_1 = args.group.get_output(context);
-        let group_binding = group_binding_1.get_inner();
-        let owner_binding_1 = args.owner.get_output(context);
-        let owner_binding = owner_binding_1.get_inner();
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let resource_binding_1 = args.resource.get_output(context);
-        let resource_binding = resource_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aces_binding = args.aces.get_output(context);
+        let filesystem_name_binding = args.filesystem_name.get_output(context);
+        let group_binding = args.group.get_output(context);
+        let owner_binding = args.owner.get_output(context);
+        let path_binding = args.path.get_output(context);
+        let resource_binding = args.resource.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/dataLakeGen2Path:DataLakeGen2Path".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aces".into(),
-                    value: &aces_binding,
+                    value: aces_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filesystemName".into(),
-                    value: &filesystem_name_binding,
+                    value: filesystem_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: &group_binding,
+                    value: group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: &owner_binding,
+                    value: owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resource".into(),
-                    value: &resource_binding,
+                    value: resource_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataLakeGen2PathResult {
-            aces: pulumi_gestalt_rust::__private::into_domain(o.extract_field("aces")),
-            filesystem_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filesystemName"),
-            ),
-            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resource"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
+            aces: o.get_field("aces"),
+            filesystem_name: o.get_field("filesystemName"),
+            group: o.get_field("group"),
+            owner: o.get_field("owner"),
+            path: o.get_field("path"),
+            resource: o.get_field("resource"),
+            storage_account_id: o.get_field("storageAccountId"),
         }
     }
 }

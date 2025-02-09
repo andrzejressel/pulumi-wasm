@@ -95,63 +95,48 @@ pub mod custom_log_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomLogSourceArgs,
     ) -> CustomLogSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_binding_1 = args.configuration.get_output(context);
-        let configuration_binding = configuration_binding_1.get_inner();
-        let event_classes_binding_1 = args.event_classes.get_output(context);
-        let event_classes_binding = event_classes_binding_1.get_inner();
-        let source_name_binding_1 = args.source_name.get_output(context);
-        let source_name_binding = source_name_binding_1.get_inner();
-        let source_version_binding_1 = args.source_version.get_output(context);
-        let source_version_binding = source_version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_binding = args.configuration.get_output(context);
+        let event_classes_binding = args.event_classes.get_output(context);
+        let source_name_binding = args.source_name.get_output(context);
+        let source_version_binding = args.source_version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:securitylake/customLogSource:CustomLogSource".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: &configuration_binding,
+                    value: configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventClasses".into(),
-                    value: &event_classes_binding,
+                    value: event_classes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceName".into(),
-                    value: &source_name_binding,
+                    value: source_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceVersion".into(),
-                    value: &source_version_binding,
+                    value: source_version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomLogSourceResult {
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            event_classes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventClasses"),
-            ),
-            provider_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerDetails"),
-            ),
-            source_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceName"),
-            ),
-            source_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceVersion"),
-            ),
+            attributes: o.get_field("attributes"),
+            configuration: o.get_field("configuration"),
+            event_classes: o.get_field("eventClasses"),
+            provider_details: o.get_field("providerDetails"),
+            source_name: o.get_field("sourceName"),
+            source_version: o.get_field("sourceVersion"),
         }
     }
 }

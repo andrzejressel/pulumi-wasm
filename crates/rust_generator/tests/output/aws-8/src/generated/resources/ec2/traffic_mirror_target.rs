@@ -103,79 +103,60 @@ pub mod traffic_mirror_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrafficMirrorTargetArgs,
     ) -> TrafficMirrorTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let gateway_load_balancer_endpoint_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let gateway_load_balancer_endpoint_id_binding = args
             .gateway_load_balancer_endpoint_id
             .get_output(context);
-        let gateway_load_balancer_endpoint_id_binding = gateway_load_balancer_endpoint_id_binding_1
-            .get_inner();
-        let network_interface_id_binding_1 = args
-            .network_interface_id
-            .get_output(context);
-        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
-        let network_load_balancer_arn_binding_1 = args
+        let network_interface_id_binding = args.network_interface_id.get_output(context);
+        let network_load_balancer_arn_binding = args
             .network_load_balancer_arn
             .get_output(context);
-        let network_load_balancer_arn_binding = network_load_balancer_arn_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/trafficMirrorTarget:TrafficMirrorTarget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayLoadBalancerEndpointId".into(),
-                    value: &gateway_load_balancer_endpoint_id_binding,
+                    value: gateway_load_balancer_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: &network_interface_id_binding,
+                    value: network_interface_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkLoadBalancerArn".into(),
-                    value: &network_load_balancer_arn_binding,
+                    value: network_load_balancer_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrafficMirrorTargetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            gateway_load_balancer_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayLoadBalancerEndpointId"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            network_load_balancer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkLoadBalancerArn"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            gateway_load_balancer_endpoint_id: o
+                .get_field("gatewayLoadBalancerEndpointId"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            network_load_balancer_arn: o.get_field("networkLoadBalancerArn"),
+            owner_id: o.get_field("ownerId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

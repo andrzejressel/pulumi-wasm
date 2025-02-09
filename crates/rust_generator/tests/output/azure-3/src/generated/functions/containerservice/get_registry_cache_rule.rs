@@ -29,48 +29,39 @@ pub mod get_registry_cache_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRegistryCacheRuleArgs,
     ) -> GetRegistryCacheRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_registry_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_registry_id_binding = args
             .container_registry_id
             .get_output(context);
-        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:containerservice/getRegistryCacheRule:getRegistryCacheRule"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryId".into(),
-                    value: &container_registry_id_binding,
+                    value: container_registry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRegistryCacheRuleResult {
-            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRegistryId"),
-            ),
-            credential_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentialSetId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            source_repo: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRepo"),
-            ),
-            target_repo: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRepo"),
-            ),
+            container_registry_id: o.get_field("containerRegistryId"),
+            credential_set_id: o.get_field("credentialSetId"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            source_repo: o.get_field("sourceRepo"),
+            target_repo: o.get_field("targetRepo"),
         }
     }
 }

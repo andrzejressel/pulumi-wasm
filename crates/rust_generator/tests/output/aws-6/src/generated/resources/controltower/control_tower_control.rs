@@ -51,49 +51,41 @@ pub mod control_tower_control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ControlTowerControlArgs,
     ) -> ControlTowerControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let control_identifier_binding_1 = args.control_identifier.get_output(context);
-        let control_identifier_binding = control_identifier_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let target_identifier_binding_1 = args.target_identifier.get_output(context);
-        let target_identifier_binding = target_identifier_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let control_identifier_binding = args.control_identifier.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let target_identifier_binding = args.target_identifier.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:controltower/controlTowerControl:ControlTowerControl".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlIdentifier".into(),
-                    value: &control_identifier_binding,
+                    value: control_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetIdentifier".into(),
-                    value: &target_identifier_binding,
+                    value: target_identifier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ControlTowerControlResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            control_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlIdentifier"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            target_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetIdentifier"),
-            ),
+            arn: o.get_field("arn"),
+            control_identifier: o.get_field("controlIdentifier"),
+            parameters: o.get_field("parameters"),
+            target_identifier: o.get_field("targetIdentifier"),
         }
     }
 }

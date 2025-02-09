@@ -159,134 +159,90 @@ pub mod document {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DocumentArgs,
     ) -> DocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachments_sources_binding_1 = args.attachments_sources.get_output(context);
-        let attachments_sources_binding = attachments_sources_binding_1.get_inner();
-        let content_binding_1 = args.content.get_output(context);
-        let content_binding = content_binding_1.get_inner();
-        let document_format_binding_1 = args.document_format.get_output(context);
-        let document_format_binding = document_format_binding_1.get_inner();
-        let document_type_binding_1 = args.document_type.get_output(context);
-        let document_type_binding = document_type_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_type_binding_1 = args.target_type.get_output(context);
-        let target_type_binding = target_type_binding_1.get_inner();
-        let version_name_binding_1 = args.version_name.get_output(context);
-        let version_name_binding = version_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attachments_sources_binding = args.attachments_sources.get_output(context);
+        let content_binding = args.content.get_output(context);
+        let document_format_binding = args.document_format.get_output(context);
+        let document_type_binding = args.document_type.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_type_binding = args.target_type.get_output(context);
+        let version_name_binding = args.version_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/document:Document".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentsSources".into(),
-                    value: &attachments_sources_binding,
+                    value: attachments_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: &content_binding,
+                    value: content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentFormat".into(),
-                    value: &document_format_binding,
+                    value: document_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentType".into(),
-                    value: &document_type_binding,
+                    value: document_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetType".into(),
-                    value: &target_type_binding,
+                    value: target_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionName".into(),
-                    value: &version_name_binding,
+                    value: version_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DocumentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attachments_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentsSources"),
-            ),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            default_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultVersion"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            document_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentFormat"),
-            ),
-            document_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentType"),
-            ),
-            document_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentVersion"),
-            ),
-            hash: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hash")),
-            hash_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hashType"),
-            ),
-            latest_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            platform_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformTypes"),
-            ),
-            schema_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaVersion"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetType"),
-            ),
-            version_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionName"),
-            ),
+            arn: o.get_field("arn"),
+            attachments_sources: o.get_field("attachmentsSources"),
+            content: o.get_field("content"),
+            created_date: o.get_field("createdDate"),
+            default_version: o.get_field("defaultVersion"),
+            description: o.get_field("description"),
+            document_format: o.get_field("documentFormat"),
+            document_type: o.get_field("documentType"),
+            document_version: o.get_field("documentVersion"),
+            hash: o.get_field("hash"),
+            hash_type: o.get_field("hashType"),
+            latest_version: o.get_field("latestVersion"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            parameters: o.get_field("parameters"),
+            permissions: o.get_field("permissions"),
+            platform_types: o.get_field("platformTypes"),
+            schema_version: o.get_field("schemaVersion"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_type: o.get_field("targetType"),
+            version_name: o.get_field("versionName"),
         }
     }
 }

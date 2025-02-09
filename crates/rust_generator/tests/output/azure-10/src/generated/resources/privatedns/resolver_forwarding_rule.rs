@@ -136,77 +136,61 @@ pub mod resolver_forwarding_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResolverForwardingRuleArgs,
     ) -> ResolverForwardingRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_forwarding_ruleset_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dns_forwarding_ruleset_id_binding = args
             .dns_forwarding_ruleset_id
             .get_output(context);
-        let dns_forwarding_ruleset_id_binding = dns_forwarding_ruleset_id_binding_1
-            .get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let target_dns_servers_binding_1 = args.target_dns_servers.get_output(context);
-        let target_dns_servers_binding = target_dns_servers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let domain_name_binding = args.domain_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let target_dns_servers_binding = args.target_dns_servers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:privatedns/resolverForwardingRule:ResolverForwardingRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsForwardingRulesetId".into(),
-                    value: &dns_forwarding_ruleset_id_binding,
+                    value: dns_forwarding_ruleset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDnsServers".into(),
-                    value: &target_dns_servers_binding,
+                    value: target_dns_servers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResolverForwardingRuleResult {
-            dns_forwarding_ruleset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsForwardingRulesetId"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            target_dns_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetDnsServers"),
-            ),
+            dns_forwarding_ruleset_id: o.get_field("dnsForwardingRulesetId"),
+            domain_name: o.get_field("domainName"),
+            enabled: o.get_field("enabled"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            target_dns_servers: o.get_field("targetDnsServers"),
         }
     }
 }

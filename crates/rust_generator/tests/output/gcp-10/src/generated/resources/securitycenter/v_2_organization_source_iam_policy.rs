@@ -217,50 +217,42 @@ pub mod v_2_organization_source_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: V2OrganizationSourceIamPolicyArgs,
     ) -> V2OrganizationSourceIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let organization_binding_1 = args.organization.get_output(context);
-        let organization_binding = organization_binding_1.get_inner();
-        let policy_data_binding_1 = args.policy_data.get_output(context);
-        let policy_data_binding = policy_data_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let organization_binding = args.organization.get_output(context);
+        let policy_data_binding = args.policy_data.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:securitycenter/v2OrganizationSourceIamPolicy:V2OrganizationSourceIamPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: &organization_binding,
+                    value: organization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: &policy_data_binding,
+                    value: policy_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         V2OrganizationSourceIamPolicyResult {
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organization"),
-            ),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
+            etag: o.get_field("etag"),
+            organization: o.get_field("organization"),
+            policy_data: o.get_field("policyData"),
+            source: o.get_field("source"),
         }
     }
 }

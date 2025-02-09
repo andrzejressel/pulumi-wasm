@@ -32,52 +32,40 @@ pub mod get_testable_permissions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTestablePermissionsArgs,
     ) -> GetTestablePermissionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_support_level_binding_1 = args
-            .custom_support_level
-            .get_output(context);
-        let custom_support_level_binding = custom_support_level_binding_1.get_inner();
-        let full_resource_name_binding_1 = args.full_resource_name.get_output(context);
-        let full_resource_name_binding = full_resource_name_binding_1.get_inner();
-        let stages_binding_1 = args.stages.get_output(context);
-        let stages_binding = stages_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_support_level_binding = args.custom_support_level.get_output(context);
+        let full_resource_name_binding = args.full_resource_name.get_output(context);
+        let stages_binding = args.stages.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:iam/getTestablePermissions:getTestablePermissions".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSupportLevel".into(),
-                    value: &custom_support_level_binding,
+                    value: custom_support_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fullResourceName".into(),
-                    value: &full_resource_name_binding,
+                    value: full_resource_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stages".into(),
-                    value: &stages_binding,
+                    value: stages_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTestablePermissionsResult {
-            custom_support_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customSupportLevel"),
-            ),
-            full_resource_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fullResourceName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            stages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stages"),
-            ),
+            custom_support_level: o.get_field("customSupportLevel"),
+            full_resource_name: o.get_field("fullResourceName"),
+            id: o.get_field("id"),
+            permissions: o.get_field("permissions"),
+            stages: o.get_field("stages"),
         }
     }
 }

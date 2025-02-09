@@ -61,52 +61,39 @@ pub mod tag_option_resource_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TagOptionResourceAssociationArgs,
     ) -> TagOptionResourceAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let tag_option_id_binding_1 = args.tag_option_id.get_output(context);
-        let tag_option_id_binding = tag_option_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let resource_id_binding = args.resource_id.get_output(context);
+        let tag_option_id_binding = args.tag_option_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagOptionId".into(),
-                    value: &tag_option_id_binding,
+                    value: tag_option_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TagOptionResourceAssociationResult {
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
-            resource_created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceCreatedTime"),
-            ),
-            resource_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceDescription"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            resource_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceName"),
-            ),
-            tag_option_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagOptionId"),
-            ),
+            resource_arn: o.get_field("resourceArn"),
+            resource_created_time: o.get_field("resourceCreatedTime"),
+            resource_description: o.get_field("resourceDescription"),
+            resource_id: o.get_field("resourceId"),
+            resource_name: o.get_field("resourceName"),
+            tag_option_id: o.get_field("tagOptionId"),
         }
     }
 }

@@ -164,51 +164,41 @@ pub mod account_customer_managed_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountCustomerManagedKeyArgs,
     ) -> AccountCustomerManagedKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cognitive_account_id_binding_1 = args
-            .cognitive_account_id
-            .get_output(context);
-        let cognitive_account_id_binding = cognitive_account_id_binding_1.get_inner();
-        let identity_client_id_binding_1 = args.identity_client_id.get_output(context);
-        let identity_client_id_binding = identity_client_id_binding_1.get_inner();
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cognitive_account_id_binding = args.cognitive_account_id.get_output(context);
+        let identity_client_id_binding = args.identity_client_id.get_output(context);
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveAccountId".into(),
-                    value: &cognitive_account_id_binding,
+                    value: cognitive_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityClientId".into(),
-                    value: &identity_client_id_binding,
+                    value: identity_client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountCustomerManagedKeyResult {
-            cognitive_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cognitiveAccountId"),
-            ),
-            identity_client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityClientId"),
-            ),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
+            cognitive_account_id: o.get_field("cognitiveAccountId"),
+            identity_client_id: o.get_field("identityClientId"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
         }
     }
 }

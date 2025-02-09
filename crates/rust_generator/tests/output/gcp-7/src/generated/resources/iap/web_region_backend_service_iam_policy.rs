@@ -394,62 +394,50 @@ pub mod web_region_backend_service_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebRegionBackendServiceIamPolicyArgs,
     ) -> WebRegionBackendServiceIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_data_binding_1 = args.policy_data.get_output(context);
-        let policy_data_binding = policy_data_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let web_region_backend_service_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let policy_data_binding = args.policy_data.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let web_region_backend_service_binding = args
             .web_region_backend_service
             .get_output(context);
-        let web_region_backend_service_binding = web_region_backend_service_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:iap/webRegionBackendServiceIamPolicy:WebRegionBackendServiceIamPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: &policy_data_binding,
+                    value: policy_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webRegionBackendService".into(),
-                    value: &web_region_backend_service_binding,
+                    value: web_region_backend_service_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebRegionBackendServiceIamPolicyResult {
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            web_region_backend_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webRegionBackendService"),
-            ),
+            etag: o.get_field("etag"),
+            policy_data: o.get_field("policyData"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            web_region_backend_service: o.get_field("webRegionBackendService"),
         }
     }
 }

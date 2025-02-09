@@ -75,71 +75,54 @@ pub mod authorization_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthorizationRuleArgs,
     ) -> AuthorizationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_group_id_binding_1 = args.access_group_id.get_output(context);
-        let access_group_id_binding = access_group_id_binding_1.get_inner();
-        let authorize_all_groups_binding_1 = args
-            .authorize_all_groups
-            .get_output(context);
-        let authorize_all_groups_binding = authorize_all_groups_binding_1.get_inner();
-        let client_vpn_endpoint_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_group_id_binding = args.access_group_id.get_output(context);
+        let authorize_all_groups_binding = args.authorize_all_groups.get_output(context);
+        let client_vpn_endpoint_id_binding = args
             .client_vpn_endpoint_id
             .get_output(context);
-        let client_vpn_endpoint_id_binding = client_vpn_endpoint_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let target_network_cidr_binding_1 = args.target_network_cidr.get_output(context);
-        let target_network_cidr_binding = target_network_cidr_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let target_network_cidr_binding = args.target_network_cidr.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2clientvpn/authorizationRule:AuthorizationRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessGroupId".into(),
-                    value: &access_group_id_binding,
+                    value: access_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizeAllGroups".into(),
-                    value: &authorize_all_groups_binding,
+                    value: authorize_all_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientVpnEndpointId".into(),
-                    value: &client_vpn_endpoint_id_binding,
+                    value: client_vpn_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNetworkCidr".into(),
-                    value: &target_network_cidr_binding,
+                    value: target_network_cidr_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthorizationRuleResult {
-            access_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessGroupId"),
-            ),
-            authorize_all_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizeAllGroups"),
-            ),
-            client_vpn_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientVpnEndpointId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            target_network_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetNetworkCidr"),
-            ),
+            access_group_id: o.get_field("accessGroupId"),
+            authorize_all_groups: o.get_field("authorizeAllGroups"),
+            client_vpn_endpoint_id: o.get_field("clientVpnEndpointId"),
+            description: o.get_field("description"),
+            target_network_cidr: o.get_field("targetNetworkCidr"),
         }
     }
 }

@@ -108,139 +108,75 @@ pub mod get_region_instance_group_manager {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRegionInstanceGroupManagerArgs,
     ) -> GetRegionInstanceGroupManagerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let self_link_binding_1 = args.self_link.get_output(context);
-        let self_link_binding = self_link_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let self_link_binding = args.self_link.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getRegionInstanceGroupManager:getRegionInstanceGroupManager"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfLink".into(),
-                    value: &self_link_binding,
+                    value: self_link_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRegionInstanceGroupManagerResult {
-            all_instances_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allInstancesConfigs"),
-            ),
-            auto_healing_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoHealingPolicies"),
-            ),
-            base_instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseInstanceName"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            distribution_policy_target_shape: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distributionPolicyTargetShape"),
-            ),
-            distribution_policy_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distributionPolicyZones"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_flexibility_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceFlexibilityPolicies"),
-            ),
-            instance_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceGroup"),
-            ),
-            instance_group_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceGroupManagerId"),
-            ),
-            instance_lifecycle_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceLifecyclePolicies"),
-            ),
-            list_managed_instances_results: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listManagedInstancesResults"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            named_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namedPorts"),
-            ),
-            params: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("params"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            standby_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("standbyPolicies"),
-            ),
-            stateful_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statefulDisks"),
-            ),
-            stateful_external_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statefulExternalIps"),
-            ),
-            stateful_internal_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statefulInternalIps"),
-            ),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
-            target_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetPools"),
-            ),
-            target_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetSize"),
-            ),
-            target_stopped_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetStoppedSize"),
-            ),
-            target_suspended_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetSuspendedSize"),
-            ),
-            update_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatePolicies"),
-            ),
-            versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versions"),
-            ),
-            wait_for_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForInstances"),
-            ),
-            wait_for_instances_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForInstancesStatus"),
-            ),
+            all_instances_configs: o.get_field("allInstancesConfigs"),
+            auto_healing_policies: o.get_field("autoHealingPolicies"),
+            base_instance_name: o.get_field("baseInstanceName"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            distribution_policy_target_shape: o
+                .get_field("distributionPolicyTargetShape"),
+            distribution_policy_zones: o.get_field("distributionPolicyZones"),
+            fingerprint: o.get_field("fingerprint"),
+            id: o.get_field("id"),
+            instance_flexibility_policies: o.get_field("instanceFlexibilityPolicies"),
+            instance_group: o.get_field("instanceGroup"),
+            instance_group_manager_id: o.get_field("instanceGroupManagerId"),
+            instance_lifecycle_policies: o.get_field("instanceLifecyclePolicies"),
+            list_managed_instances_results: o.get_field("listManagedInstancesResults"),
+            name: o.get_field("name"),
+            named_ports: o.get_field("namedPorts"),
+            params: o.get_field("params"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            standby_policies: o.get_field("standbyPolicies"),
+            stateful_disks: o.get_field("statefulDisks"),
+            stateful_external_ips: o.get_field("statefulExternalIps"),
+            stateful_internal_ips: o.get_field("statefulInternalIps"),
+            statuses: o.get_field("statuses"),
+            target_pools: o.get_field("targetPools"),
+            target_size: o.get_field("targetSize"),
+            target_stopped_size: o.get_field("targetStoppedSize"),
+            target_suspended_size: o.get_field("targetSuspendedSize"),
+            update_policies: o.get_field("updatePolicies"),
+            versions: o.get_field("versions"),
+            wait_for_instances: o.get_field("waitForInstances"),
+            wait_for_instances_status: o.get_field("waitForInstancesStatus"),
         }
     }
 }

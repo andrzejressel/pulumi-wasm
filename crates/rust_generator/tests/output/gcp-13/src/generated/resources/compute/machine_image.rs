@@ -197,82 +197,62 @@ pub mod machine_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MachineImageArgs,
     ) -> MachineImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let guest_flush_binding_1 = args.guest_flush.get_output(context);
-        let guest_flush_binding = guest_flush_binding_1.get_inner();
-        let machine_image_encryption_key_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let guest_flush_binding = args.guest_flush.get_output(context);
+        let machine_image_encryption_key_binding = args
             .machine_image_encryption_key
             .get_output(context);
-        let machine_image_encryption_key_binding = machine_image_encryption_key_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let source_instance_binding_1 = args.source_instance.get_output(context);
-        let source_instance_binding = source_instance_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let source_instance_binding = args.source_instance.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/machineImage:MachineImage".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestFlush".into(),
-                    value: &guest_flush_binding,
+                    value: guest_flush_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineImageEncryptionKey".into(),
-                    value: &machine_image_encryption_key_binding,
+                    value: machine_image_encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceInstance".into(),
-                    value: &source_instance_binding,
+                    value: source_instance_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MachineImageResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            guest_flush: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestFlush"),
-            ),
-            machine_image_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineImageEncryptionKey"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            source_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceInstance"),
-            ),
-            storage_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageLocations"),
-            ),
+            description: o.get_field("description"),
+            guest_flush: o.get_field("guestFlush"),
+            machine_image_encryption_key: o.get_field("machineImageEncryptionKey"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
+            source_instance: o.get_field("sourceInstance"),
+            storage_locations: o.get_field("storageLocations"),
         }
     }
 }

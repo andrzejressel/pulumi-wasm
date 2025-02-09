@@ -128,144 +128,103 @@ pub mod spring_cloud_app_dynamics_application_performance_monitoring {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_account_access_key_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_account_access_key_binding = args
             .agent_account_access_key
             .get_output(context);
-        let agent_account_access_key_binding = agent_account_access_key_binding_1
-            .get_inner();
-        let agent_account_name_binding_1 = args.agent_account_name.get_output(context);
-        let agent_account_name_binding = agent_account_name_binding_1.get_inner();
-        let agent_application_name_binding_1 = args
+        let agent_account_name_binding = args.agent_account_name.get_output(context);
+        let agent_application_name_binding = args
             .agent_application_name
             .get_output(context);
-        let agent_application_name_binding = agent_application_name_binding_1
-            .get_inner();
-        let agent_node_name_binding_1 = args.agent_node_name.get_output(context);
-        let agent_node_name_binding = agent_node_name_binding_1.get_inner();
-        let agent_tier_name_binding_1 = args.agent_tier_name.get_output(context);
-        let agent_tier_name_binding = agent_tier_name_binding_1.get_inner();
-        let agent_unique_host_id_binding_1 = args
-            .agent_unique_host_id
-            .get_output(context);
-        let agent_unique_host_id_binding = agent_unique_host_id_binding_1.get_inner();
-        let controller_host_name_binding_1 = args
-            .controller_host_name
-            .get_output(context);
-        let controller_host_name_binding = controller_host_name_binding_1.get_inner();
-        let controller_port_binding_1 = args.controller_port.get_output(context);
-        let controller_port_binding = controller_port_binding_1.get_inner();
-        let controller_ssl_enabled_binding_1 = args
+        let agent_node_name_binding = args.agent_node_name.get_output(context);
+        let agent_tier_name_binding = args.agent_tier_name.get_output(context);
+        let agent_unique_host_id_binding = args.agent_unique_host_id.get_output(context);
+        let controller_host_name_binding = args.controller_host_name.get_output(context);
+        let controller_port_binding = args.controller_port.get_output(context);
+        let controller_ssl_enabled_binding = args
             .controller_ssl_enabled
             .get_output(context);
-        let controller_ssl_enabled_binding = controller_ssl_enabled_binding_1
-            .get_inner();
-        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
-        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_service_id_binding_1 = args
+        let globally_enabled_binding = args.globally_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_service_id_binding = args
             .spring_cloud_service_id
             .get_output(context);
-        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentAccountAccessKey".into(),
-                    value: &agent_account_access_key_binding,
+                    value: agent_account_access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentAccountName".into(),
-                    value: &agent_account_name_binding,
+                    value: agent_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentApplicationName".into(),
-                    value: &agent_application_name_binding,
+                    value: agent_application_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentNodeName".into(),
-                    value: &agent_node_name_binding,
+                    value: agent_node_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentTierName".into(),
-                    value: &agent_tier_name_binding,
+                    value: agent_tier_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentUniqueHostId".into(),
-                    value: &agent_unique_host_id_binding,
+                    value: agent_unique_host_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controllerHostName".into(),
-                    value: &controller_host_name_binding,
+                    value: controller_host_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controllerPort".into(),
-                    value: &controller_port_binding,
+                    value: controller_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controllerSslEnabled".into(),
-                    value: &controller_ssl_enabled_binding,
+                    value: controller_ssl_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: &globally_enabled_binding,
+                    value: globally_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: &spring_cloud_service_id_binding,
+                    value: spring_cloud_service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
-            agent_account_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentAccountAccessKey"),
-            ),
-            agent_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentAccountName"),
-            ),
-            agent_application_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentApplicationName"),
-            ),
-            agent_node_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentNodeName"),
-            ),
-            agent_tier_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentTierName"),
-            ),
-            agent_unique_host_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentUniqueHostId"),
-            ),
-            controller_host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controllerHostName"),
-            ),
-            controller_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controllerPort"),
-            ),
-            controller_ssl_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controllerSslEnabled"),
-            ),
-            globally_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globallyEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudServiceId"),
-            ),
+            agent_account_access_key: o.get_field("agentAccountAccessKey"),
+            agent_account_name: o.get_field("agentAccountName"),
+            agent_application_name: o.get_field("agentApplicationName"),
+            agent_node_name: o.get_field("agentNodeName"),
+            agent_tier_name: o.get_field("agentTierName"),
+            agent_unique_host_id: o.get_field("agentUniqueHostId"),
+            controller_host_name: o.get_field("controllerHostName"),
+            controller_port: o.get_field("controllerPort"),
+            controller_ssl_enabled: o.get_field("controllerSslEnabled"),
+            globally_enabled: o.get_field("globallyEnabled"),
+            name: o.get_field("name"),
+            spring_cloud_service_id: o.get_field("springCloudServiceId"),
         }
     }
 }

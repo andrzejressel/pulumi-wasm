@@ -82,136 +82,72 @@ pub mod get_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceArgs,
     ) -> GetInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:redis/getInstance:getInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceResult {
-            alternative_location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alternativeLocationId"),
-            ),
-            auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authEnabled"),
-            ),
-            auth_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authString"),
-            ),
-            authorized_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedNetwork"),
-            ),
-            connect_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectMode"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            current_location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentLocationId"),
-            ),
-            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKey"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationId"),
-            ),
-            maintenance_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenancePolicies"),
-            ),
-            maintenance_schedules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceSchedules"),
-            ),
-            maintenance_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceVersion"),
-            ),
-            memory_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memorySizeGb"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nodes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("nodes")),
-            persistence_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistenceConfigs"),
-            ),
-            persistence_iam_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistenceIamIdentity"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            read_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readEndpoint"),
-            ),
-            read_endpoint_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readEndpointPort"),
-            ),
-            read_replicas_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readReplicasMode"),
-            ),
-            redis_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisConfigs"),
-            ),
-            redis_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisVersion"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            replica_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaCount"),
-            ),
-            reserved_ip_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedIpRange"),
-            ),
-            secondary_ip_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryIpRange"),
-            ),
-            server_ca_certs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverCaCerts"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
-            transit_encryption_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitEncryptionMode"),
-            ),
+            alternative_location_id: o.get_field("alternativeLocationId"),
+            auth_enabled: o.get_field("authEnabled"),
+            auth_string: o.get_field("authString"),
+            authorized_network: o.get_field("authorizedNetwork"),
+            connect_mode: o.get_field("connectMode"),
+            create_time: o.get_field("createTime"),
+            current_location_id: o.get_field("currentLocationId"),
+            customer_managed_key: o.get_field("customerManagedKey"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            host: o.get_field("host"),
+            id: o.get_field("id"),
+            labels: o.get_field("labels"),
+            location_id: o.get_field("locationId"),
+            maintenance_policies: o.get_field("maintenancePolicies"),
+            maintenance_schedules: o.get_field("maintenanceSchedules"),
+            maintenance_version: o.get_field("maintenanceVersion"),
+            memory_size_gb: o.get_field("memorySizeGb"),
+            name: o.get_field("name"),
+            nodes: o.get_field("nodes"),
+            persistence_configs: o.get_field("persistenceConfigs"),
+            persistence_iam_identity: o.get_field("persistenceIamIdentity"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            read_endpoint: o.get_field("readEndpoint"),
+            read_endpoint_port: o.get_field("readEndpointPort"),
+            read_replicas_mode: o.get_field("readReplicasMode"),
+            redis_configs: o.get_field("redisConfigs"),
+            redis_version: o.get_field("redisVersion"),
+            region: o.get_field("region"),
+            replica_count: o.get_field("replicaCount"),
+            reserved_ip_range: o.get_field("reservedIpRange"),
+            secondary_ip_range: o.get_field("secondaryIpRange"),
+            server_ca_certs: o.get_field("serverCaCerts"),
+            tier: o.get_field("tier"),
+            transit_encryption_mode: o.get_field("transitEncryptionMode"),
         }
     }
 }

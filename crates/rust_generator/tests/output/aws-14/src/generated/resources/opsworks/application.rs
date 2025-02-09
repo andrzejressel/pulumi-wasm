@@ -163,178 +163,130 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_sources_binding_1 = args.app_sources.get_output(context);
-        let app_sources_binding = app_sources_binding_1.get_inner();
-        let auto_bundle_on_deploy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_sources_binding = args.app_sources.get_output(context);
+        let auto_bundle_on_deploy_binding = args
             .auto_bundle_on_deploy
             .get_output(context);
-        let auto_bundle_on_deploy_binding = auto_bundle_on_deploy_binding_1.get_inner();
-        let aws_flow_ruby_settings_binding_1 = args
+        let aws_flow_ruby_settings_binding = args
             .aws_flow_ruby_settings
             .get_output(context);
-        let aws_flow_ruby_settings_binding = aws_flow_ruby_settings_binding_1
-            .get_inner();
-        let data_source_arn_binding_1 = args.data_source_arn.get_output(context);
-        let data_source_arn_binding = data_source_arn_binding_1.get_inner();
-        let data_source_database_name_binding_1 = args
+        let data_source_arn_binding = args.data_source_arn.get_output(context);
+        let data_source_database_name_binding = args
             .data_source_database_name
             .get_output(context);
-        let data_source_database_name_binding = data_source_database_name_binding_1
-            .get_inner();
-        let data_source_type_binding_1 = args.data_source_type.get_output(context);
-        let data_source_type_binding = data_source_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let document_root_binding_1 = args.document_root.get_output(context);
-        let document_root_binding = document_root_binding_1.get_inner();
-        let domains_binding_1 = args.domains.get_output(context);
-        let domains_binding = domains_binding_1.get_inner();
-        let enable_ssl_binding_1 = args.enable_ssl.get_output(context);
-        let enable_ssl_binding = enable_ssl_binding_1.get_inner();
-        let environments_binding_1 = args.environments.get_output(context);
-        let environments_binding = environments_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rails_env_binding_1 = args.rails_env.get_output(context);
-        let rails_env_binding = rails_env_binding_1.get_inner();
-        let short_name_binding_1 = args.short_name.get_output(context);
-        let short_name_binding = short_name_binding_1.get_inner();
-        let ssl_configurations_binding_1 = args.ssl_configurations.get_output(context);
-        let ssl_configurations_binding = ssl_configurations_binding_1.get_inner();
-        let stack_id_binding_1 = args.stack_id.get_output(context);
-        let stack_id_binding = stack_id_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let data_source_type_binding = args.data_source_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let document_root_binding = args.document_root.get_output(context);
+        let domains_binding = args.domains.get_output(context);
+        let enable_ssl_binding = args.enable_ssl.get_output(context);
+        let environments_binding = args.environments.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let rails_env_binding = args.rails_env.get_output(context);
+        let short_name_binding = args.short_name.get_output(context);
+        let ssl_configurations_binding = args.ssl_configurations.get_output(context);
+        let stack_id_binding = args.stack_id.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opsworks/application:Application".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appSources".into(),
-                    value: &app_sources_binding,
+                    value: app_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoBundleOnDeploy".into(),
-                    value: &auto_bundle_on_deploy_binding,
+                    value: auto_bundle_on_deploy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsFlowRubySettings".into(),
-                    value: &aws_flow_ruby_settings_binding,
+                    value: aws_flow_ruby_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceArn".into(),
-                    value: &data_source_arn_binding,
+                    value: data_source_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceDatabaseName".into(),
-                    value: &data_source_database_name_binding,
+                    value: data_source_database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceType".into(),
-                    value: &data_source_type_binding,
+                    value: data_source_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentRoot".into(),
-                    value: &document_root_binding,
+                    value: document_root_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domains".into(),
-                    value: &domains_binding,
+                    value: domains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSsl".into(),
-                    value: &enable_ssl_binding,
+                    value: enable_ssl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environments".into(),
-                    value: &environments_binding,
+                    value: environments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "railsEnv".into(),
-                    value: &rails_env_binding,
+                    value: rails_env_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortName".into(),
-                    value: &short_name_binding,
+                    value: short_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslConfigurations".into(),
-                    value: &ssl_configurations_binding,
+                    value: ssl_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: &stack_id_binding,
+                    value: stack_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationResult {
-            app_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appSources"),
-            ),
-            auto_bundle_on_deploy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoBundleOnDeploy"),
-            ),
-            aws_flow_ruby_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsFlowRubySettings"),
-            ),
-            data_source_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceArn"),
-            ),
-            data_source_database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceDatabaseName"),
-            ),
-            data_source_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceType"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            document_root: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentRoot"),
-            ),
-            domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domains"),
-            ),
-            enable_ssl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSsl"),
-            ),
-            environments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environments"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rails_env: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("railsEnv"),
-            ),
-            short_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortName"),
-            ),
-            ssl_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslConfigurations"),
-            ),
-            stack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            app_sources: o.get_field("appSources"),
+            auto_bundle_on_deploy: o.get_field("autoBundleOnDeploy"),
+            aws_flow_ruby_settings: o.get_field("awsFlowRubySettings"),
+            data_source_arn: o.get_field("dataSourceArn"),
+            data_source_database_name: o.get_field("dataSourceDatabaseName"),
+            data_source_type: o.get_field("dataSourceType"),
+            description: o.get_field("description"),
+            document_root: o.get_field("documentRoot"),
+            domains: o.get_field("domains"),
+            enable_ssl: o.get_field("enableSsl"),
+            environments: o.get_field("environments"),
+            name: o.get_field("name"),
+            rails_env: o.get_field("railsEnv"),
+            short_name: o.get_field("shortName"),
+            ssl_configurations: o.get_field("sslConfigurations"),
+            stack_id: o.get_field("stackId"),
+            type_: o.get_field("type"),
         }
     }
 }

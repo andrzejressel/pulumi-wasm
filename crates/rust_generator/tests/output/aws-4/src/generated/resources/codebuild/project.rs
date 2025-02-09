@@ -362,242 +362,170 @@ pub mod project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProjectArgs,
     ) -> ProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let artifacts_binding_1 = args.artifacts.get_output(context);
-        let artifacts_binding = artifacts_binding_1.get_inner();
-        let badge_enabled_binding_1 = args.badge_enabled.get_output(context);
-        let badge_enabled_binding = badge_enabled_binding_1.get_inner();
-        let build_batch_config_binding_1 = args.build_batch_config.get_output(context);
-        let build_batch_config_binding = build_batch_config_binding_1.get_inner();
-        let build_timeout_binding_1 = args.build_timeout.get_output(context);
-        let build_timeout_binding = build_timeout_binding_1.get_inner();
-        let cache_binding_1 = args.cache.get_output(context);
-        let cache_binding = cache_binding_1.get_inner();
-        let concurrent_build_limit_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let artifacts_binding = args.artifacts.get_output(context);
+        let badge_enabled_binding = args.badge_enabled.get_output(context);
+        let build_batch_config_binding = args.build_batch_config.get_output(context);
+        let build_timeout_binding = args.build_timeout.get_output(context);
+        let cache_binding = args.cache.get_output(context);
+        let concurrent_build_limit_binding = args
             .concurrent_build_limit
             .get_output(context);
-        let concurrent_build_limit_binding = concurrent_build_limit_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let encryption_key_binding_1 = args.encryption_key.get_output(context);
-        let encryption_key_binding = encryption_key_binding_1.get_inner();
-        let environment_binding_1 = args.environment.get_output(context);
-        let environment_binding = environment_binding_1.get_inner();
-        let file_system_locations_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let encryption_key_binding = args.encryption_key.get_output(context);
+        let environment_binding = args.environment.get_output(context);
+        let file_system_locations_binding = args
             .file_system_locations
             .get_output(context);
-        let file_system_locations_binding = file_system_locations_binding_1.get_inner();
-        let logs_config_binding_1 = args.logs_config.get_output(context);
-        let logs_config_binding = logs_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_visibility_binding_1 = args.project_visibility.get_output(context);
-        let project_visibility_binding = project_visibility_binding_1.get_inner();
-        let queued_timeout_binding_1 = args.queued_timeout.get_output(context);
-        let queued_timeout_binding = queued_timeout_binding_1.get_inner();
-        let resource_access_role_binding_1 = args
-            .resource_access_role
-            .get_output(context);
-        let resource_access_role_binding = resource_access_role_binding_1.get_inner();
-        let secondary_artifacts_binding_1 = args.secondary_artifacts.get_output(context);
-        let secondary_artifacts_binding = secondary_artifacts_binding_1.get_inner();
-        let secondary_source_versions_binding_1 = args
+        let logs_config_binding = args.logs_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_visibility_binding = args.project_visibility.get_output(context);
+        let queued_timeout_binding = args.queued_timeout.get_output(context);
+        let resource_access_role_binding = args.resource_access_role.get_output(context);
+        let secondary_artifacts_binding = args.secondary_artifacts.get_output(context);
+        let secondary_source_versions_binding = args
             .secondary_source_versions
             .get_output(context);
-        let secondary_source_versions_binding = secondary_source_versions_binding_1
-            .get_inner();
-        let secondary_sources_binding_1 = args.secondary_sources.get_output(context);
-        let secondary_sources_binding = secondary_sources_binding_1.get_inner();
-        let service_role_binding_1 = args.service_role.get_output(context);
-        let service_role_binding = service_role_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let source_version_binding_1 = args.source_version.get_output(context);
-        let source_version_binding = source_version_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_config_binding_1 = args.vpc_config.get_output(context);
-        let vpc_config_binding = vpc_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let secondary_sources_binding = args.secondary_sources.get_output(context);
+        let service_role_binding = args.service_role.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let source_version_binding = args.source_version.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_config_binding = args.vpc_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codebuild/project:Project".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "artifacts".into(),
-                    value: &artifacts_binding,
+                    value: artifacts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "badgeEnabled".into(),
-                    value: &badge_enabled_binding,
+                    value: badge_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildBatchConfig".into(),
-                    value: &build_batch_config_binding,
+                    value: build_batch_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildTimeout".into(),
-                    value: &build_timeout_binding,
+                    value: build_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cache".into(),
-                    value: &cache_binding,
+                    value: cache_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "concurrentBuildLimit".into(),
-                    value: &concurrent_build_limit_binding,
+                    value: concurrent_build_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionKey".into(),
-                    value: &encryption_key_binding,
+                    value: encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: &environment_binding,
+                    value: environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemLocations".into(),
-                    value: &file_system_locations_binding,
+                    value: file_system_locations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logsConfig".into(),
-                    value: &logs_config_binding,
+                    value: logs_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectVisibility".into(),
-                    value: &project_visibility_binding,
+                    value: project_visibility_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queuedTimeout".into(),
-                    value: &queued_timeout_binding,
+                    value: queued_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceAccessRole".into(),
-                    value: &resource_access_role_binding,
+                    value: resource_access_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryArtifacts".into(),
-                    value: &secondary_artifacts_binding,
+                    value: secondary_artifacts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondarySourceVersions".into(),
-                    value: &secondary_source_versions_binding,
+                    value: secondary_source_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondarySources".into(),
-                    value: &secondary_sources_binding,
+                    value: secondary_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRole".into(),
-                    value: &service_role_binding,
+                    value: service_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceVersion".into(),
-                    value: &source_version_binding,
+                    value: source_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: &vpc_config_binding,
+                    value: vpc_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProjectResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            artifacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("artifacts"),
-            ),
-            badge_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("badgeEnabled"),
-            ),
-            badge_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("badgeUrl"),
-            ),
-            build_batch_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildBatchConfig"),
-            ),
-            build_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildTimeout"),
-            ),
-            cache: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cache")),
-            concurrent_build_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("concurrentBuildLimit"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionKey"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            file_system_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemLocations"),
-            ),
-            logs_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logsConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project_visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectVisibility"),
-            ),
-            public_project_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicProjectAlias"),
-            ),
-            queued_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queuedTimeout"),
-            ),
-            resource_access_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceAccessRole"),
-            ),
-            secondary_artifacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryArtifacts"),
-            ),
-            secondary_source_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondarySourceVersions"),
-            ),
-            secondary_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondarySources"),
-            ),
-            service_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRole"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            source_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceVersion"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
+            arn: o.get_field("arn"),
+            artifacts: o.get_field("artifacts"),
+            badge_enabled: o.get_field("badgeEnabled"),
+            badge_url: o.get_field("badgeUrl"),
+            build_batch_config: o.get_field("buildBatchConfig"),
+            build_timeout: o.get_field("buildTimeout"),
+            cache: o.get_field("cache"),
+            concurrent_build_limit: o.get_field("concurrentBuildLimit"),
+            description: o.get_field("description"),
+            encryption_key: o.get_field("encryptionKey"),
+            environment: o.get_field("environment"),
+            file_system_locations: o.get_field("fileSystemLocations"),
+            logs_config: o.get_field("logsConfig"),
+            name: o.get_field("name"),
+            project_visibility: o.get_field("projectVisibility"),
+            public_project_alias: o.get_field("publicProjectAlias"),
+            queued_timeout: o.get_field("queuedTimeout"),
+            resource_access_role: o.get_field("resourceAccessRole"),
+            secondary_artifacts: o.get_field("secondaryArtifacts"),
+            secondary_source_versions: o.get_field("secondarySourceVersions"),
+            secondary_sources: o.get_field("secondarySources"),
+            service_role: o.get_field("serviceRole"),
+            source: o.get_field("source"),
+            source_version: o.get_field("sourceVersion"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_config: o.get_field("vpcConfig"),
         }
     }
 }

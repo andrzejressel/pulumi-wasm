@@ -56,78 +56,53 @@ pub mod get_query_suggestions_block_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetQuerySuggestionsBlockListArgs,
     ) -> GetQuerySuggestionsBlockListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let index_id_binding_1 = args.index_id.get_output(context);
-        let index_id_binding = index_id_binding_1.get_inner();
-        let query_suggestions_block_list_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let index_id_binding = args.index_id.get_output(context);
+        let query_suggestions_block_list_id_binding = args
             .query_suggestions_block_list_id
             .get_output(context);
-        let query_suggestions_block_list_id_binding = query_suggestions_block_list_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexId".into(),
-                    value: &index_id_binding,
+                    value: index_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "querySuggestionsBlockListId".into(),
-                    value: &query_suggestions_block_list_id_binding,
+                    value: query_suggestions_block_list_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetQuerySuggestionsBlockListResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            error_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorMessage"),
-            ),
-            file_size_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSizeBytes"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            index_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexId"),
-            ),
-            item_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("itemCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query_suggestions_block_list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("querySuggestionsBlockListId"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            source_s3_paths: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceS3Paths"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
+            arn: o.get_field("arn"),
+            created_at: o.get_field("createdAt"),
+            description: o.get_field("description"),
+            error_message: o.get_field("errorMessage"),
+            file_size_bytes: o.get_field("fileSizeBytes"),
+            id: o.get_field("id"),
+            index_id: o.get_field("indexId"),
+            item_count: o.get_field("itemCount"),
+            name: o.get_field("name"),
+            query_suggestions_block_list_id: o.get_field("querySuggestionsBlockListId"),
+            role_arn: o.get_field("roleArn"),
+            source_s3_paths: o.get_field("sourceS3Paths"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            updated_at: o.get_field("updatedAt"),
         }
     }
 }

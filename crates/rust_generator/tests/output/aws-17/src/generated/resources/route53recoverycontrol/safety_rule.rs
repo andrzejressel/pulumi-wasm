@@ -105,86 +105,66 @@ pub mod safety_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SafetyRuleArgs,
     ) -> SafetyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asserted_controls_binding_1 = args.asserted_controls.get_output(context);
-        let asserted_controls_binding = asserted_controls_binding_1.get_inner();
-        let control_panel_arn_binding_1 = args.control_panel_arn.get_output(context);
-        let control_panel_arn_binding = control_panel_arn_binding_1.get_inner();
-        let gating_controls_binding_1 = args.gating_controls.get_output(context);
-        let gating_controls_binding = gating_controls_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rule_config_binding_1 = args.rule_config.get_output(context);
-        let rule_config_binding = rule_config_binding_1.get_inner();
-        let target_controls_binding_1 = args.target_controls.get_output(context);
-        let target_controls_binding = target_controls_binding_1.get_inner();
-        let wait_period_ms_binding_1 = args.wait_period_ms.get_output(context);
-        let wait_period_ms_binding = wait_period_ms_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let asserted_controls_binding = args.asserted_controls.get_output(context);
+        let control_panel_arn_binding = args.control_panel_arn.get_output(context);
+        let gating_controls_binding = args.gating_controls.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let rule_config_binding = args.rule_config.get_output(context);
+        let target_controls_binding = args.target_controls.get_output(context);
+        let wait_period_ms_binding = args.wait_period_ms.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53recoverycontrol/safetyRule:SafetyRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assertedControls".into(),
-                    value: &asserted_controls_binding,
+                    value: asserted_controls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPanelArn".into(),
-                    value: &control_panel_arn_binding,
+                    value: control_panel_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatingControls".into(),
-                    value: &gating_controls_binding,
+                    value: gating_controls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleConfig".into(),
-                    value: &rule_config_binding,
+                    value: rule_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetControls".into(),
-                    value: &target_controls_binding,
+                    value: target_controls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitPeriodMs".into(),
-                    value: &wait_period_ms_binding,
+                    value: wait_period_ms_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SafetyRuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            asserted_controls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assertedControls"),
-            ),
-            control_panel_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPanelArn"),
-            ),
-            gating_controls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatingControls"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rule_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleConfig"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            target_controls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetControls"),
-            ),
-            wait_period_ms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitPeriodMs"),
-            ),
+            arn: o.get_field("arn"),
+            asserted_controls: o.get_field("assertedControls"),
+            control_panel_arn: o.get_field("controlPanelArn"),
+            gating_controls: o.get_field("gatingControls"),
+            name: o.get_field("name"),
+            rule_config: o.get_field("ruleConfig"),
+            status: o.get_field("status"),
+            target_controls: o.get_field("targetControls"),
+            wait_period_ms: o.get_field("waitPeriodMs"),
         }
     }
 }

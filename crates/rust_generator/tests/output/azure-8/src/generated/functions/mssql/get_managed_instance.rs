@@ -62,89 +62,52 @@ pub mod get_managed_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetManagedInstanceArgs,
     ) -> GetManagedInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mssql/getManagedInstance:getManagedInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetManagedInstanceResult {
-            administrator_login: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLogin"),
-            ),
-            collation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collation"),
-            ),
-            customer_managed_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKeyId"),
-            ),
-            dns_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsZone"),
-            ),
-            dns_zone_partner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsZonePartnerId"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            minimum_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            proxy_override: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyOverride"),
-            ),
-            public_data_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicDataEndpointEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            storage_account_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountType"),
-            ),
-            storage_size_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageSizeInGb"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            timezone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezoneId"),
-            ),
-            vcores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vcores"),
-            ),
+            administrator_login: o.get_field("administratorLogin"),
+            collation: o.get_field("collation"),
+            customer_managed_key_id: o.get_field("customerManagedKeyId"),
+            dns_zone: o.get_field("dnsZone"),
+            dns_zone_partner_id: o.get_field("dnsZonePartnerId"),
+            fqdn: o.get_field("fqdn"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            license_type: o.get_field("licenseType"),
+            location: o.get_field("location"),
+            minimum_tls_version: o.get_field("minimumTlsVersion"),
+            name: o.get_field("name"),
+            proxy_override: o.get_field("proxyOverride"),
+            public_data_endpoint_enabled: o.get_field("publicDataEndpointEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            storage_account_type: o.get_field("storageAccountType"),
+            storage_size_in_gb: o.get_field("storageSizeInGb"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            timezone_id: o.get_field("timezoneId"),
+            vcores: o.get_field("vcores"),
         }
     }
 }

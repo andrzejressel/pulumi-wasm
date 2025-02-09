@@ -92,54 +92,39 @@ pub mod zone_settings_override {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZoneSettingsOverrideArgs,
     ) -> ZoneSettingsOverrideResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let settings_binding_1 = args.settings.get_output(context);
-        let settings_binding = settings_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let settings_binding = args.settings.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zoneSettingsOverride:ZoneSettingsOverride".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: &settings_binding,
+                    value: settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZoneSettingsOverrideResult {
-            initial_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialSettings"),
-            ),
-            initial_settings_read_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialSettingsReadAt"),
-            ),
-            readonly_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readonlySettings"),
-            ),
-            settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settings"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
-            zone_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneStatus"),
-            ),
-            zone_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneType"),
-            ),
+            initial_settings: o.get_field("initialSettings"),
+            initial_settings_read_at: o.get_field("initialSettingsReadAt"),
+            readonly_settings: o.get_field("readonlySettings"),
+            settings: o.get_field("settings"),
+            zone_id: o.get_field("zoneId"),
+            zone_status: o.get_field("zoneStatus"),
+            zone_type: o.get_field("zoneType"),
         }
     }
 }

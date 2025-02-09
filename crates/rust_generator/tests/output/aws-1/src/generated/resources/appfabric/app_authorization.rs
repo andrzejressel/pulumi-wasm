@@ -110,96 +110,70 @@ pub mod app_authorization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppAuthorizationArgs,
     ) -> AppAuthorizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_binding_1 = args.app.get_output(context);
-        let app_binding = app_binding_1.get_inner();
-        let app_bundle_arn_binding_1 = args.app_bundle_arn.get_output(context);
-        let app_bundle_arn_binding = app_bundle_arn_binding_1.get_inner();
-        let auth_type_binding_1 = args.auth_type.get_output(context);
-        let auth_type_binding = auth_type_binding_1.get_inner();
-        let credential_binding_1 = args.credential.get_output(context);
-        let credential_binding = credential_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tenants_binding_1 = args.tenants.get_output(context);
-        let tenants_binding = tenants_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_binding = args.app.get_output(context);
+        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context);
+        let auth_type_binding = args.auth_type.get_output(context);
+        let credential_binding = args.credential.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tenants_binding = args.tenants.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appfabric/appAuthorization:AppAuthorization".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "app".into(),
-                    value: &app_binding,
+                    value: app_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appBundleArn".into(),
-                    value: &app_bundle_arn_binding,
+                    value: app_bundle_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authType".into(),
-                    value: &auth_type_binding,
+                    value: auth_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credential".into(),
-                    value: &credential_binding,
+                    value: credential_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenants".into(),
-                    value: &tenants_binding,
+                    value: tenants_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppAuthorizationResult {
-            app: pulumi_gestalt_rust::__private::into_domain(o.extract_field("app")),
-            app_bundle_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appBundleArn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auth_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authType"),
-            ),
-            auth_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authUrl"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            credential: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credential"),
-            ),
-            persona: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persona"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tenants: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenants"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
+            app: o.get_field("app"),
+            app_bundle_arn: o.get_field("appBundleArn"),
+            arn: o.get_field("arn"),
+            auth_type: o.get_field("authType"),
+            auth_url: o.get_field("authUrl"),
+            created_at: o.get_field("createdAt"),
+            credential: o.get_field("credential"),
+            persona: o.get_field("persona"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tenants: o.get_field("tenants"),
+            timeouts: o.get_field("timeouts"),
+            updated_at: o.get_field("updatedAt"),
         }
     }
 }

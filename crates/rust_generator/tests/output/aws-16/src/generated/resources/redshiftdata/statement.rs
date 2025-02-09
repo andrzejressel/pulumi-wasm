@@ -112,100 +112,76 @@ pub mod statement {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StatementArgs,
     ) -> StatementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let db_user_binding_1 = args.db_user.get_output(context);
-        let db_user_binding = db_user_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let secret_arn_binding_1 = args.secret_arn.get_output(context);
-        let secret_arn_binding = secret_arn_binding_1.get_inner();
-        let sql_binding_1 = args.sql.get_output(context);
-        let sql_binding = sql_binding_1.get_inner();
-        let statement_name_binding_1 = args.statement_name.get_output(context);
-        let statement_name_binding = statement_name_binding_1.get_inner();
-        let with_event_binding_1 = args.with_event.get_output(context);
-        let with_event_binding = with_event_binding_1.get_inner();
-        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
-        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let database_binding = args.database.get_output(context);
+        let db_user_binding = args.db_user.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let secret_arn_binding = args.secret_arn.get_output(context);
+        let sql_binding = args.sql.get_output(context);
+        let statement_name_binding = args.statement_name.get_output(context);
+        let with_event_binding = args.with_event.get_output(context);
+        let workgroup_name_binding = args.workgroup_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshiftdata/statement:Statement".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbUser".into(),
-                    value: &db_user_binding,
+                    value: db_user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretArn".into(),
-                    value: &secret_arn_binding,
+                    value: secret_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sql".into(),
-                    value: &sql_binding,
+                    value: sql_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementName".into(),
-                    value: &statement_name_binding,
+                    value: statement_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "withEvent".into(),
-                    value: &with_event_binding,
+                    value: with_event_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: &workgroup_name_binding,
+                    value: workgroup_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StatementResult {
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            db_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbUser"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            secret_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretArn"),
-            ),
-            sql: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sql")),
-            statement_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statementName"),
-            ),
-            with_event: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("withEvent"),
-            ),
-            workgroup_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workgroupName"),
-            ),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            database: o.get_field("database"),
+            db_user: o.get_field("dbUser"),
+            parameters: o.get_field("parameters"),
+            secret_arn: o.get_field("secretArn"),
+            sql: o.get_field("sql"),
+            statement_name: o.get_field("statementName"),
+            with_event: o.get_field("withEvent"),
+            workgroup_name: o.get_field("workgroupName"),
         }
     }
 }

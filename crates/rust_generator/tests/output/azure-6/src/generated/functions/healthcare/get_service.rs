@@ -47,62 +47,47 @@ pub mod get_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceArgs,
     ) -> GetServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:healthcare/getService:getService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceResult {
-            access_policy_object_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessPolicyObjectIds"),
-            ),
-            authentication_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationConfigurations"),
-            ),
-            cors_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("corsConfigurations"),
-            ),
-            cosmosdb_key_vault_key_versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbKeyVaultKeyVersionlessId"),
-            ),
-            cosmosdb_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbThroughput"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            access_policy_object_ids: o.get_field("accessPolicyObjectIds"),
+            authentication_configurations: o.get_field("authenticationConfigurations"),
+            cors_configurations: o.get_field("corsConfigurations"),
+            cosmosdb_key_vault_key_versionless_id: o
+                .get_field("cosmosdbKeyVaultKeyVersionlessId"),
+            cosmosdb_throughput: o.get_field("cosmosdbThroughput"),
+            id: o.get_field("id"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
         }
     }
 }

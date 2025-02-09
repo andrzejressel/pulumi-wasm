@@ -39,53 +39,41 @@ pub mod get_script {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetScriptArgs,
     ) -> GetScriptResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dag_edges_binding_1 = args.dag_edges.get_output(context);
-        let dag_edges_binding = dag_edges_binding_1.get_inner();
-        let dag_nodes_binding_1 = args.dag_nodes.get_output(context);
-        let dag_nodes_binding = dag_nodes_binding_1.get_inner();
-        let language_binding_1 = args.language.get_output(context);
-        let language_binding = language_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dag_edges_binding = args.dag_edges.get_output(context);
+        let dag_nodes_binding = args.dag_nodes.get_output(context);
+        let language_binding = args.language.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:glue/getScript:getScript".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dagEdges".into(),
-                    value: &dag_edges_binding,
+                    value: dag_edges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dagNodes".into(),
-                    value: &dag_nodes_binding,
+                    value: dag_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "language".into(),
-                    value: &language_binding,
+                    value: language_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetScriptResult {
-            dag_edges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dagEdges"),
-            ),
-            dag_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dagNodes"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("language"),
-            ),
-            python_script: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pythonScript"),
-            ),
-            scala_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalaCode"),
-            ),
+            dag_edges: o.get_field("dagEdges"),
+            dag_nodes: o.get_field("dagNodes"),
+            id: o.get_field("id"),
+            language: o.get_field("language"),
+            python_script: o.get_field("pythonScript"),
+            scala_code: o.get_field("scalaCode"),
         }
     }
 }

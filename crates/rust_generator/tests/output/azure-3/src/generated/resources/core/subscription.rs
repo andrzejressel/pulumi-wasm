@@ -145,74 +145,59 @@ pub mod subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubscriptionArgs,
     ) -> SubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let billing_scope_id_binding_1 = args.billing_scope_id.get_output(context);
-        let billing_scope_id_binding = billing_scope_id_binding_1.get_inner();
-        let subscription_id_binding_1 = args.subscription_id.get_output(context);
-        let subscription_id_binding = subscription_id_binding_1.get_inner();
-        let subscription_name_binding_1 = args.subscription_name.get_output(context);
-        let subscription_name_binding = subscription_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workload_binding_1 = args.workload.get_output(context);
-        let workload_binding = workload_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let billing_scope_id_binding = args.billing_scope_id.get_output(context);
+        let subscription_id_binding = args.subscription_id.get_output(context);
+        let subscription_name_binding = args.subscription_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let workload_binding = args.workload.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:core/subscription:Subscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingScopeId".into(),
-                    value: &billing_scope_id_binding,
+                    value: billing_scope_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: &subscription_id_binding,
+                    value: subscription_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionName".into(),
-                    value: &subscription_name_binding,
+                    value: subscription_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workload".into(),
-                    value: &workload_binding,
+                    value: workload_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubscriptionResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            billing_scope_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingScopeId"),
-            ),
-            subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionId"),
-            ),
-            subscription_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
-            workload: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workload"),
-            ),
+            alias: o.get_field("alias"),
+            billing_scope_id: o.get_field("billingScopeId"),
+            subscription_id: o.get_field("subscriptionId"),
+            subscription_name: o.get_field("subscriptionName"),
+            tags: o.get_field("tags"),
+            tenant_id: o.get_field("tenantId"),
+            workload: o.get_field("workload"),
         }
     }
 }

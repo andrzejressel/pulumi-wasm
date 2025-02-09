@@ -62,34 +62,30 @@ pub mod delegation_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DelegationSetArgs,
     ) -> DelegationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let reference_name_binding_1 = args.reference_name.get_output(context);
-        let reference_name_binding = reference_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let reference_name_binding = args.reference_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/delegationSet:DelegationSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceName".into(),
-                    value: &reference_name_binding,
+                    value: reference_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DelegationSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameServers"),
-            ),
-            reference_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("referenceName"),
-            ),
+            arn: o.get_field("arn"),
+            name_servers: o.get_field("nameServers"),
+            reference_name: o.get_field("referenceName"),
         }
     }
 }

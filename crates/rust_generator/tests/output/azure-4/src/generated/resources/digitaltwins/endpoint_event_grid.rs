@@ -102,85 +102,68 @@ pub mod endpoint_event_grid {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointEventGridArgs,
     ) -> EndpointEventGridResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dead_letter_storage_secret_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dead_letter_storage_secret_binding = args
             .dead_letter_storage_secret
             .get_output(context);
-        let dead_letter_storage_secret_binding = dead_letter_storage_secret_binding_1
-            .get_inner();
-        let digital_twins_id_binding_1 = args.digital_twins_id.get_output(context);
-        let digital_twins_id_binding = digital_twins_id_binding_1.get_inner();
-        let eventgrid_topic_endpoint_binding_1 = args
+        let digital_twins_id_binding = args.digital_twins_id.get_output(context);
+        let eventgrid_topic_endpoint_binding = args
             .eventgrid_topic_endpoint
             .get_output(context);
-        let eventgrid_topic_endpoint_binding = eventgrid_topic_endpoint_binding_1
-            .get_inner();
-        let eventgrid_topic_primary_access_key_binding_1 = args
+        let eventgrid_topic_primary_access_key_binding = args
             .eventgrid_topic_primary_access_key
             .get_output(context);
-        let eventgrid_topic_primary_access_key_binding = eventgrid_topic_primary_access_key_binding_1
-            .get_inner();
-        let eventgrid_topic_secondary_access_key_binding_1 = args
+        let eventgrid_topic_secondary_access_key_binding = args
             .eventgrid_topic_secondary_access_key
             .get_output(context);
-        let eventgrid_topic_secondary_access_key_binding = eventgrid_topic_secondary_access_key_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:digitaltwins/endpointEventGrid:EndpointEventGrid".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterStorageSecret".into(),
-                    value: &dead_letter_storage_secret_binding,
+                    value: dead_letter_storage_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "digitalTwinsId".into(),
-                    value: &digital_twins_id_binding,
+                    value: digital_twins_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventgridTopicEndpoint".into(),
-                    value: &eventgrid_topic_endpoint_binding,
+                    value: eventgrid_topic_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventgridTopicPrimaryAccessKey".into(),
-                    value: &eventgrid_topic_primary_access_key_binding,
+                    value: eventgrid_topic_primary_access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventgridTopicSecondaryAccessKey".into(),
-                    value: &eventgrid_topic_secondary_access_key_binding,
+                    value: eventgrid_topic_secondary_access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointEventGridResult {
-            dead_letter_storage_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetterStorageSecret"),
-            ),
-            digital_twins_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digitalTwinsId"),
-            ),
-            eventgrid_topic_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventgridTopicEndpoint"),
-            ),
-            eventgrid_topic_primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventgridTopicPrimaryAccessKey"),
-            ),
-            eventgrid_topic_secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventgridTopicSecondaryAccessKey"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            dead_letter_storage_secret: o.get_field("deadLetterStorageSecret"),
+            digital_twins_id: o.get_field("digitalTwinsId"),
+            eventgrid_topic_endpoint: o.get_field("eventgridTopicEndpoint"),
+            eventgrid_topic_primary_access_key: o
+                .get_field("eventgridTopicPrimaryAccessKey"),
+            eventgrid_topic_secondary_access_key: o
+                .get_field("eventgridTopicSecondaryAccessKey"),
+            name: o.get_field("name"),
         }
     }
 }

@@ -140,50 +140,42 @@ pub mod identity_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IdentitySourceArgs,
     ) -> IdentitySourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_binding_1 = args.configuration.get_output(context);
-        let configuration_binding = configuration_binding_1.get_inner();
-        let policy_store_id_binding_1 = args.policy_store_id.get_output(context);
-        let policy_store_id_binding = policy_store_id_binding_1.get_inner();
-        let principal_entity_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_binding = args.configuration.get_output(context);
+        let policy_store_id_binding = args.policy_store_id.get_output(context);
+        let principal_entity_type_binding = args
             .principal_entity_type
             .get_output(context);
-        let principal_entity_type_binding = principal_entity_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:verifiedpermissions/identitySource:IdentitySource".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: &configuration_binding,
+                    value: configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyStoreId".into(),
-                    value: &policy_store_id_binding,
+                    value: policy_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalEntityType".into(),
-                    value: &principal_entity_type_binding,
+                    value: principal_entity_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IdentitySourceResult {
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            policy_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyStoreId"),
-            ),
-            principal_entity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalEntityType"),
-            ),
+            configuration: o.get_field("configuration"),
+            policy_store_id: o.get_field("policyStoreId"),
+            principal_entity_type: o.get_field("principalEntityType"),
         }
     }
 }

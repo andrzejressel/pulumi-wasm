@@ -65,75 +65,60 @@ pub mod vpc_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcConnectionArgs,
     ) -> VpcConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding_1 = args.authentication.get_output(context);
-        let authentication_binding = authentication_binding_1.get_inner();
-        let client_subnets_binding_1 = args.client_subnets.get_output(context);
-        let client_subnets_binding = client_subnets_binding_1.get_inner();
-        let security_groups_binding_1 = args.security_groups.get_output(context);
-        let security_groups_binding = security_groups_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_cluster_arn_binding_1 = args.target_cluster_arn.get_output(context);
-        let target_cluster_arn_binding = target_cluster_arn_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_binding = args.authentication.get_output(context);
+        let client_subnets_binding = args.client_subnets.get_output(context);
+        let security_groups_binding = args.security_groups.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_cluster_arn_binding = args.target_cluster_arn.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:msk/vpcConnection:VpcConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: &authentication_binding,
+                    value: authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSubnets".into(),
-                    value: &client_subnets_binding,
+                    value: client_subnets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: &security_groups_binding,
+                    value: security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetClusterArn".into(),
-                    value: &target_cluster_arn_binding,
+                    value: target_cluster_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcConnectionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authentication"),
-            ),
-            client_subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSubnets"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_cluster_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetClusterArn"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            authentication: o.get_field("authentication"),
+            client_subnets: o.get_field("clientSubnets"),
+            security_groups: o.get_field("securityGroups"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_cluster_arn: o.get_field("targetClusterArn"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

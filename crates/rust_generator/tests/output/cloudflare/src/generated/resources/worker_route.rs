@@ -58,48 +58,40 @@ pub mod worker_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkerRouteArgs,
     ) -> WorkerRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let pattern_binding_1 = args.pattern.get_output(context);
-        let pattern_binding = pattern_binding_1.get_inner();
-        let script_name_binding_1 = args.script_name.get_output(context);
-        let script_name_binding = script_name_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let pattern_binding = args.pattern.get_output(context);
+        let script_name_binding = args.script_name.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/workerRoute:WorkerRoute".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pattern".into(),
-                    value: &pattern_binding,
+                    value: pattern_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptName".into(),
-                    value: &script_name_binding,
+                    value: script_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkerRouteResult {
-            pattern: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pattern"),
-            ),
-            script_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptName"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            pattern: o.get_field("pattern"),
+            script_name: o.get_field("scriptName"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

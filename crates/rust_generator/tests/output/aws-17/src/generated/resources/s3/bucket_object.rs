@@ -315,245 +315,175 @@ pub mod bucket_object {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketObjectArgs,
     ) -> BucketObjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acl_binding_1 = args.acl.get_output(context);
-        let acl_binding = acl_binding_1.get_inner();
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let bucket_key_enabled_binding_1 = args.bucket_key_enabled.get_output(context);
-        let bucket_key_enabled_binding = bucket_key_enabled_binding_1.get_inner();
-        let cache_control_binding_1 = args.cache_control.get_output(context);
-        let cache_control_binding = cache_control_binding_1.get_inner();
-        let content_binding_1 = args.content.get_output(context);
-        let content_binding = content_binding_1.get_inner();
-        let content_base64_binding_1 = args.content_base64.get_output(context);
-        let content_base64_binding = content_base64_binding_1.get_inner();
-        let content_disposition_binding_1 = args.content_disposition.get_output(context);
-        let content_disposition_binding = content_disposition_binding_1.get_inner();
-        let content_encoding_binding_1 = args.content_encoding.get_output(context);
-        let content_encoding_binding = content_encoding_binding_1.get_inner();
-        let content_language_binding_1 = args.content_language.get_output(context);
-        let content_language_binding = content_language_binding_1.get_inner();
-        let content_type_binding_1 = args.content_type.get_output(context);
-        let content_type_binding = content_type_binding_1.get_inner();
-        let etag_binding_1 = args.etag.get_output(context);
-        let etag_binding = etag_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let object_lock_legal_hold_status_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let acl_binding = args.acl.get_output(context);
+        let bucket_binding = args.bucket.get_output(context);
+        let bucket_key_enabled_binding = args.bucket_key_enabled.get_output(context);
+        let cache_control_binding = args.cache_control.get_output(context);
+        let content_binding = args.content.get_output(context);
+        let content_base64_binding = args.content_base64.get_output(context);
+        let content_disposition_binding = args.content_disposition.get_output(context);
+        let content_encoding_binding = args.content_encoding.get_output(context);
+        let content_language_binding = args.content_language.get_output(context);
+        let content_type_binding = args.content_type.get_output(context);
+        let etag_binding = args.etag.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let key_binding = args.key.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let object_lock_legal_hold_status_binding = args
             .object_lock_legal_hold_status
             .get_output(context);
-        let object_lock_legal_hold_status_binding = object_lock_legal_hold_status_binding_1
-            .get_inner();
-        let object_lock_mode_binding_1 = args.object_lock_mode.get_output(context);
-        let object_lock_mode_binding = object_lock_mode_binding_1.get_inner();
-        let object_lock_retain_until_date_binding_1 = args
+        let object_lock_mode_binding = args.object_lock_mode.get_output(context);
+        let object_lock_retain_until_date_binding = args
             .object_lock_retain_until_date
             .get_output(context);
-        let object_lock_retain_until_date_binding = object_lock_retain_until_date_binding_1
-            .get_inner();
-        let server_side_encryption_binding_1 = args
+        let server_side_encryption_binding = args
             .server_side_encryption
             .get_output(context);
-        let server_side_encryption_binding = server_side_encryption_binding_1
-            .get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let source_hash_binding_1 = args.source_hash.get_output(context);
-        let source_hash_binding = source_hash_binding_1.get_inner();
-        let storage_class_binding_1 = args.storage_class.get_output(context);
-        let storage_class_binding = storage_class_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let website_redirect_binding_1 = args.website_redirect.get_output(context);
-        let website_redirect_binding = website_redirect_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let source_binding = args.source.get_output(context);
+        let source_hash_binding = args.source_hash.get_output(context);
+        let storage_class_binding = args.storage_class.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let website_redirect_binding = args.website_redirect.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/bucketObject:BucketObject".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acl".into(),
-                    value: &acl_binding,
+                    value: acl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketKeyEnabled".into(),
-                    value: &bucket_key_enabled_binding,
+                    value: bucket_key_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheControl".into(),
-                    value: &cache_control_binding,
+                    value: cache_control_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: &content_binding,
+                    value: content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentBase64".into(),
-                    value: &content_base64_binding,
+                    value: content_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentDisposition".into(),
-                    value: &content_disposition_binding,
+                    value: content_disposition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentEncoding".into(),
-                    value: &content_encoding_binding,
+                    value: content_encoding_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentLanguage".into(),
-                    value: &content_language_binding,
+                    value: content_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: &content_type_binding,
+                    value: content_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: &etag_binding,
+                    value: etag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectLockLegalHoldStatus".into(),
-                    value: &object_lock_legal_hold_status_binding,
+                    value: object_lock_legal_hold_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectLockMode".into(),
-                    value: &object_lock_mode_binding,
+                    value: object_lock_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectLockRetainUntilDate".into(),
-                    value: &object_lock_retain_until_date_binding,
+                    value: object_lock_retain_until_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryption".into(),
-                    value: &server_side_encryption_binding,
+                    value: server_side_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceHash".into(),
-                    value: &source_hash_binding,
+                    value: source_hash_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageClass".into(),
-                    value: &storage_class_binding,
+                    value: storage_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "websiteRedirect".into(),
-                    value: &website_redirect_binding,
+                    value: website_redirect_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketObjectResult {
-            acl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("acl")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            bucket_key_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketKeyEnabled"),
-            ),
-            cache_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheControl"),
-            ),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            content_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentBase64"),
-            ),
-            content_disposition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentDisposition"),
-            ),
-            content_encoding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentEncoding"),
-            ),
-            content_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentLanguage"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            object_lock_legal_hold_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectLockLegalHoldStatus"),
-            ),
-            object_lock_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectLockMode"),
-            ),
-            object_lock_retain_until_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectLockRetainUntilDate"),
-            ),
-            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryption"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            source_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceHash"),
-            ),
-            storage_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageClass"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
-            website_redirect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteRedirect"),
-            ),
+            acl: o.get_field("acl"),
+            arn: o.get_field("arn"),
+            bucket: o.get_field("bucket"),
+            bucket_key_enabled: o.get_field("bucketKeyEnabled"),
+            cache_control: o.get_field("cacheControl"),
+            content: o.get_field("content"),
+            content_base64: o.get_field("contentBase64"),
+            content_disposition: o.get_field("contentDisposition"),
+            content_encoding: o.get_field("contentEncoding"),
+            content_language: o.get_field("contentLanguage"),
+            content_type: o.get_field("contentType"),
+            etag: o.get_field("etag"),
+            force_destroy: o.get_field("forceDestroy"),
+            key: o.get_field("key"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            metadata: o.get_field("metadata"),
+            object_lock_legal_hold_status: o.get_field("objectLockLegalHoldStatus"),
+            object_lock_mode: o.get_field("objectLockMode"),
+            object_lock_retain_until_date: o.get_field("objectLockRetainUntilDate"),
+            server_side_encryption: o.get_field("serverSideEncryption"),
+            source: o.get_field("source"),
+            source_hash: o.get_field("sourceHash"),
+            storage_class: o.get_field("storageClass"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            version_id: o.get_field("versionId"),
+            website_redirect: o.get_field("websiteRedirect"),
         }
     }
 }

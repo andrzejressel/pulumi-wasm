@@ -156,169 +156,111 @@ pub mod registered_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegisteredDomainArgs,
     ) -> RegisteredDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_contact_binding_1 = args.admin_contact.get_output(context);
-        let admin_contact_binding = admin_contact_binding_1.get_inner();
-        let admin_privacy_binding_1 = args.admin_privacy.get_output(context);
-        let admin_privacy_binding = admin_privacy_binding_1.get_inner();
-        let auto_renew_binding_1 = args.auto_renew.get_output(context);
-        let auto_renew_binding = auto_renew_binding_1.get_inner();
-        let billing_contact_binding_1 = args.billing_contact.get_output(context);
-        let billing_contact_binding = billing_contact_binding_1.get_inner();
-        let billing_privacy_binding_1 = args.billing_privacy.get_output(context);
-        let billing_privacy_binding = billing_privacy_binding_1.get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let name_servers_binding_1 = args.name_servers.get_output(context);
-        let name_servers_binding = name_servers_binding_1.get_inner();
-        let registrant_contact_binding_1 = args.registrant_contact.get_output(context);
-        let registrant_contact_binding = registrant_contact_binding_1.get_inner();
-        let registrant_privacy_binding_1 = args.registrant_privacy.get_output(context);
-        let registrant_privacy_binding = registrant_privacy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tech_contact_binding_1 = args.tech_contact.get_output(context);
-        let tech_contact_binding = tech_contact_binding_1.get_inner();
-        let tech_privacy_binding_1 = args.tech_privacy.get_output(context);
-        let tech_privacy_binding = tech_privacy_binding_1.get_inner();
-        let transfer_lock_binding_1 = args.transfer_lock.get_output(context);
-        let transfer_lock_binding = transfer_lock_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_contact_binding = args.admin_contact.get_output(context);
+        let admin_privacy_binding = args.admin_privacy.get_output(context);
+        let auto_renew_binding = args.auto_renew.get_output(context);
+        let billing_contact_binding = args.billing_contact.get_output(context);
+        let billing_privacy_binding = args.billing_privacy.get_output(context);
+        let domain_name_binding = args.domain_name.get_output(context);
+        let name_servers_binding = args.name_servers.get_output(context);
+        let registrant_contact_binding = args.registrant_contact.get_output(context);
+        let registrant_privacy_binding = args.registrant_privacy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tech_contact_binding = args.tech_contact.get_output(context);
+        let tech_privacy_binding = args.tech_privacy.get_output(context);
+        let transfer_lock_binding = args.transfer_lock.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53domains/registeredDomain:RegisteredDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminContact".into(),
-                    value: &admin_contact_binding,
+                    value: admin_contact_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminPrivacy".into(),
-                    value: &admin_privacy_binding,
+                    value: admin_privacy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRenew".into(),
-                    value: &auto_renew_binding,
+                    value: auto_renew_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingContact".into(),
-                    value: &billing_contact_binding,
+                    value: billing_contact_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingPrivacy".into(),
-                    value: &billing_privacy_binding,
+                    value: billing_privacy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameServers".into(),
-                    value: &name_servers_binding,
+                    value: name_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrantContact".into(),
-                    value: &registrant_contact_binding,
+                    value: registrant_contact_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrantPrivacy".into(),
-                    value: &registrant_privacy_binding,
+                    value: registrant_privacy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "techContact".into(),
-                    value: &tech_contact_binding,
+                    value: tech_contact_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "techPrivacy".into(),
-                    value: &tech_privacy_binding,
+                    value: tech_privacy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transferLock".into(),
-                    value: &transfer_lock_binding,
+                    value: transfer_lock_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegisteredDomainResult {
-            abuse_contact_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("abuseContactEmail"),
-            ),
-            abuse_contact_phone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("abuseContactPhone"),
-            ),
-            admin_contact: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminContact"),
-            ),
-            admin_privacy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminPrivacy"),
-            ),
-            auto_renew: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRenew"),
-            ),
-            billing_contact: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingContact"),
-            ),
-            billing_privacy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingPrivacy"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameServers"),
-            ),
-            registrant_contact: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrantContact"),
-            ),
-            registrant_privacy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrantPrivacy"),
-            ),
-            registrar_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrarName"),
-            ),
-            registrar_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrarUrl"),
-            ),
-            reseller: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reseller"),
-            ),
-            status_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusLists"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tech_contact: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("techContact"),
-            ),
-            tech_privacy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("techPrivacy"),
-            ),
-            transfer_lock: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transferLock"),
-            ),
-            updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedDate"),
-            ),
-            whois_server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("whoisServer"),
-            ),
+            abuse_contact_email: o.get_field("abuseContactEmail"),
+            abuse_contact_phone: o.get_field("abuseContactPhone"),
+            admin_contact: o.get_field("adminContact"),
+            admin_privacy: o.get_field("adminPrivacy"),
+            auto_renew: o.get_field("autoRenew"),
+            billing_contact: o.get_field("billingContact"),
+            billing_privacy: o.get_field("billingPrivacy"),
+            creation_date: o.get_field("creationDate"),
+            domain_name: o.get_field("domainName"),
+            expiration_date: o.get_field("expirationDate"),
+            name_servers: o.get_field("nameServers"),
+            registrant_contact: o.get_field("registrantContact"),
+            registrant_privacy: o.get_field("registrantPrivacy"),
+            registrar_name: o.get_field("registrarName"),
+            registrar_url: o.get_field("registrarUrl"),
+            reseller: o.get_field("reseller"),
+            status_lists: o.get_field("statusLists"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tech_contact: o.get_field("techContact"),
+            tech_privacy: o.get_field("techPrivacy"),
+            transfer_lock: o.get_field("transferLock"),
+            updated_date: o.get_field("updatedDate"),
+            whois_server: o.get_field("whoisServer"),
         }
     }
 }

@@ -262,225 +262,161 @@ pub mod scheduled_query_rules_alert_v_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScheduledQueryRulesAlertV2Args,
     ) -> ScheduledQueryRulesAlertV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let auto_mitigation_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let auto_mitigation_enabled_binding = args
             .auto_mitigation_enabled
             .get_output(context);
-        let auto_mitigation_enabled_binding = auto_mitigation_enabled_binding_1
-            .get_inner();
-        let criterias_binding_1 = args.criterias.get_output(context);
-        let criterias_binding = criterias_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let evaluation_frequency_binding_1 = args
-            .evaluation_frequency
-            .get_output(context);
-        let evaluation_frequency_binding = evaluation_frequency_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mute_actions_after_alert_duration_binding_1 = args
+        let criterias_binding = args.criterias.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let evaluation_frequency_binding = args.evaluation_frequency.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mute_actions_after_alert_duration_binding = args
             .mute_actions_after_alert_duration
             .get_output(context);
-        let mute_actions_after_alert_duration_binding = mute_actions_after_alert_duration_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_time_range_override_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let query_time_range_override_binding = args
             .query_time_range_override
             .get_output(context);
-        let query_time_range_override_binding = query_time_range_override_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let scopes_binding_1 = args.scopes.get_output(context);
-        let scopes_binding = scopes_binding_1.get_inner();
-        let severity_binding_1 = args.severity.get_output(context);
-        let severity_binding = severity_binding_1.get_inner();
-        let skip_query_validation_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let scopes_binding = args.scopes.get_output(context);
+        let severity_binding = args.severity.get_output(context);
+        let skip_query_validation_binding = args
             .skip_query_validation
             .get_output(context);
-        let skip_query_validation_binding = skip_query_validation_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_resource_types_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let target_resource_types_binding = args
             .target_resource_types
             .get_output(context);
-        let target_resource_types_binding = target_resource_types_binding_1.get_inner();
-        let window_duration_binding_1 = args.window_duration.get_output(context);
-        let window_duration_binding = window_duration_binding_1.get_inner();
-        let workspace_alerts_storage_enabled_binding_1 = args
+        let window_duration_binding = args.window_duration.get_output(context);
+        let workspace_alerts_storage_enabled_binding = args
             .workspace_alerts_storage_enabled
             .get_output(context);
-        let workspace_alerts_storage_enabled_binding = workspace_alerts_storage_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoMitigationEnabled".into(),
-                    value: &auto_mitigation_enabled_binding,
+                    value: auto_mitigation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "criterias".into(),
-                    value: &criterias_binding,
+                    value: criterias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluationFrequency".into(),
-                    value: &evaluation_frequency_binding,
+                    value: evaluation_frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "muteActionsAfterAlertDuration".into(),
-                    value: &mute_actions_after_alert_duration_binding,
+                    value: mute_actions_after_alert_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryTimeRangeOverride".into(),
-                    value: &query_time_range_override_binding,
+                    value: query_time_range_override_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: &scopes_binding,
+                    value: scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: &severity_binding,
+                    value: severity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipQueryValidation".into(),
-                    value: &skip_query_validation_binding,
+                    value: skip_query_validation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceTypes".into(),
-                    value: &target_resource_types_binding,
+                    value: target_resource_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowDuration".into(),
-                    value: &window_duration_binding,
+                    value: window_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceAlertsStorageEnabled".into(),
-                    value: &workspace_alerts_storage_enabled_binding,
+                    value: workspace_alerts_storage_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScheduledQueryRulesAlertV2Result {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            auto_mitigation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMitigationEnabled"),
-            ),
-            created_with_api_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdWithApiVersion"),
-            ),
-            criterias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("criterias"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            evaluation_frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evaluationFrequency"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            is_a_legacy_log_analytics_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isALegacyLogAnalyticsRule"),
-            ),
-            is_workspace_alerts_storage_configured: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isWorkspaceAlertsStorageConfigured"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mute_actions_after_alert_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("muteActionsAfterAlertDuration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query_time_range_override: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryTimeRangeOverride"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopes"),
-            ),
-            severity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("severity"),
-            ),
-            skip_query_validation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipQueryValidation"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_resource_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceTypes"),
-            ),
-            window_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowDuration"),
-            ),
-            workspace_alerts_storage_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceAlertsStorageEnabled"),
-            ),
+            action: o.get_field("action"),
+            auto_mitigation_enabled: o.get_field("autoMitigationEnabled"),
+            created_with_api_version: o.get_field("createdWithApiVersion"),
+            criterias: o.get_field("criterias"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            enabled: o.get_field("enabled"),
+            evaluation_frequency: o.get_field("evaluationFrequency"),
+            identity: o.get_field("identity"),
+            is_a_legacy_log_analytics_rule: o.get_field("isALegacyLogAnalyticsRule"),
+            is_workspace_alerts_storage_configured: o
+                .get_field("isWorkspaceAlertsStorageConfigured"),
+            location: o.get_field("location"),
+            mute_actions_after_alert_duration: o
+                .get_field("muteActionsAfterAlertDuration"),
+            name: o.get_field("name"),
+            query_time_range_override: o.get_field("queryTimeRangeOverride"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            scopes: o.get_field("scopes"),
+            severity: o.get_field("severity"),
+            skip_query_validation: o.get_field("skipQueryValidation"),
+            tags: o.get_field("tags"),
+            target_resource_types: o.get_field("targetResourceTypes"),
+            window_duration: o.get_field("windowDuration"),
+            workspace_alerts_storage_enabled: o
+                .get_field("workspaceAlertsStorageEnabled"),
         }
     }
 }

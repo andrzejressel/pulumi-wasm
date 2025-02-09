@@ -146,72 +146,56 @@ pub mod voice_connector_streaming {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VoiceConnectorStreamingArgs,
     ) -> VoiceConnectorStreamingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_retention_binding_1 = args.data_retention.get_output(context);
-        let data_retention_binding = data_retention_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let media_insights_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_retention_binding = args.data_retention.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let media_insights_configuration_binding = args
             .media_insights_configuration
             .get_output(context);
-        let media_insights_configuration_binding = media_insights_configuration_binding_1
-            .get_inner();
-        let streaming_notification_targets_binding_1 = args
+        let streaming_notification_targets_binding = args
             .streaming_notification_targets
             .get_output(context);
-        let streaming_notification_targets_binding = streaming_notification_targets_binding_1
-            .get_inner();
-        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
-        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let voice_connector_id_binding = args.voice_connector_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRetention".into(),
-                    value: &data_retention_binding,
+                    value: data_retention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mediaInsightsConfiguration".into(),
-                    value: &media_insights_configuration_binding,
+                    value: media_insights_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingNotificationTargets".into(),
-                    value: &streaming_notification_targets_binding,
+                    value: streaming_notification_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: &voice_connector_id_binding,
+                    value: voice_connector_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VoiceConnectorStreamingResult {
-            data_retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataRetention"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            media_insights_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mediaInsightsConfiguration"),
-            ),
-            streaming_notification_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamingNotificationTargets"),
-            ),
-            voice_connector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceConnectorId"),
-            ),
+            data_retention: o.get_field("dataRetention"),
+            disabled: o.get_field("disabled"),
+            media_insights_configuration: o.get_field("mediaInsightsConfiguration"),
+            streaming_notification_targets: o.get_field("streamingNotificationTargets"),
+            voice_connector_id: o.get_field("voiceConnectorId"),
         }
     }
 }

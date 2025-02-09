@@ -30,48 +30,40 @@ pub mod get_invocation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInvocationArgs,
     ) -> GetInvocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let input_binding_1 = args.input.get_output(context);
-        let input_binding = input_binding_1.get_inner();
-        let qualifier_binding_1 = args.qualifier.get_output(context);
-        let qualifier_binding = qualifier_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let function_name_binding = args.function_name.get_output(context);
+        let input_binding = args.input.get_output(context);
+        let qualifier_binding = args.qualifier.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lambda/getInvocation:getInvocation".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "input".into(),
-                    value: &input_binding,
+                    value: input_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: &qualifier_binding,
+                    value: qualifier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInvocationResult {
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            input: pulumi_gestalt_rust::__private::into_domain(o.extract_field("input")),
-            qualifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifier"),
-            ),
-            result: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("result"),
-            ),
+            function_name: o.get_field("functionName"),
+            id: o.get_field("id"),
+            input: o.get_field("input"),
+            qualifier: o.get_field("qualifier"),
+            result: o.get_field("result"),
         }
     }
 }

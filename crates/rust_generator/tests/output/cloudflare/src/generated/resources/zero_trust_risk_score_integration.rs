@@ -41,70 +41,54 @@ pub mod zero_trust_risk_score_integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZeroTrustRiskScoreIntegrationArgs,
     ) -> ZeroTrustRiskScoreIntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let active_binding_1 = args.active.get_output(context);
-        let active_binding = active_binding_1.get_inner();
-        let integration_type_binding_1 = args.integration_type.get_output(context);
-        let integration_type_binding = integration_type_binding_1.get_inner();
-        let reference_id_binding_1 = args.reference_id.get_output(context);
-        let reference_id_binding = reference_id_binding_1.get_inner();
-        let tenant_url_binding_1 = args.tenant_url.get_output(context);
-        let tenant_url_binding = tenant_url_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let active_binding = args.active.get_output(context);
+        let integration_type_binding = args.integration_type.get_output(context);
+        let reference_id_binding = args.reference_id.get_output(context);
+        let tenant_url_binding = args.tenant_url.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustRiskScoreIntegration:ZeroTrustRiskScoreIntegration"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: &active_binding,
+                    value: active_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationType".into(),
-                    value: &integration_type_binding,
+                    value: integration_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceId".into(),
-                    value: &reference_id_binding,
+                    value: reference_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantUrl".into(),
-                    value: &tenant_url_binding,
+                    value: tenant_url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZeroTrustRiskScoreIntegrationResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            active: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("active"),
-            ),
-            integration_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationType"),
-            ),
-            reference_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("referenceId"),
-            ),
-            tenant_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantUrl"),
-            ),
-            well_known_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("wellKnownUrl"),
-            ),
+            account_id: o.get_field("accountId"),
+            active: o.get_field("active"),
+            integration_type: o.get_field("integrationType"),
+            reference_id: o.get_field("referenceId"),
+            tenant_url: o.get_field("tenantUrl"),
+            well_known_url: o.get_field("wellKnownUrl"),
         }
     }
 }

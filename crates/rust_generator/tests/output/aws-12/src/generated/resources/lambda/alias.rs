@@ -75,68 +75,54 @@ pub mod alias {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AliasArgs,
     ) -> AliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let function_version_binding_1 = args.function_version.get_output(context);
-        let function_version_binding = function_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let routing_config_binding_1 = args.routing_config.get_output(context);
-        let routing_config_binding = routing_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let function_name_binding = args.function_name.get_output(context);
+        let function_version_binding = args.function_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let routing_config_binding = args.routing_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/alias:Alias".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionVersion".into(),
-                    value: &function_version_binding,
+                    value: function_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingConfig".into(),
-                    value: &routing_config_binding,
+                    value: routing_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AliasResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            function_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionVersion"),
-            ),
-            invoke_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invokeArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            routing_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingConfig"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            function_name: o.get_field("functionName"),
+            function_version: o.get_field("functionVersion"),
+            invoke_arn: o.get_field("invokeArn"),
+            name: o.get_field("name"),
+            routing_config: o.get_field("routingConfig"),
         }
     }
 }

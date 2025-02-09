@@ -168,160 +168,116 @@ pub mod api {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiArgs,
     ) -> ApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_selection_expression_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_key_selection_expression_binding = args
             .api_key_selection_expression
             .get_output(context);
-        let api_key_selection_expression_binding = api_key_selection_expression_binding_1
-            .get_inner();
-        let body_binding_1 = args.body.get_output(context);
-        let body_binding = body_binding_1.get_inner();
-        let cors_configuration_binding_1 = args.cors_configuration.get_output(context);
-        let cors_configuration_binding = cors_configuration_binding_1.get_inner();
-        let credentials_arn_binding_1 = args.credentials_arn.get_output(context);
-        let credentials_arn_binding = credentials_arn_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_execute_api_endpoint_binding_1 = args
+        let body_binding = args.body.get_output(context);
+        let cors_configuration_binding = args.cors_configuration.get_output(context);
+        let credentials_arn_binding = args.credentials_arn.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disable_execute_api_endpoint_binding = args
             .disable_execute_api_endpoint
             .get_output(context);
-        let disable_execute_api_endpoint_binding = disable_execute_api_endpoint_binding_1
-            .get_inner();
-        let fail_on_warnings_binding_1 = args.fail_on_warnings.get_output(context);
-        let fail_on_warnings_binding = fail_on_warnings_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let protocol_type_binding_1 = args.protocol_type.get_output(context);
-        let protocol_type_binding = protocol_type_binding_1.get_inner();
-        let route_key_binding_1 = args.route_key.get_output(context);
-        let route_key_binding = route_key_binding_1.get_inner();
-        let route_selection_expression_binding_1 = args
+        let fail_on_warnings_binding = args.fail_on_warnings.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let protocol_type_binding = args.protocol_type.get_output(context);
+        let route_key_binding = args.route_key.get_output(context);
+        let route_selection_expression_binding = args
             .route_selection_expression
             .get_output(context);
-        let route_selection_expression_binding = route_selection_expression_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_binding_1 = args.target.get_output(context);
-        let target_binding = target_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let target_binding = args.target.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigatewayv2/api:Api".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKeySelectionExpression".into(),
-                    value: &api_key_selection_expression_binding,
+                    value: api_key_selection_expression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: &body_binding,
+                    value: body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsConfiguration".into(),
-                    value: &cors_configuration_binding,
+                    value: cors_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentialsArn".into(),
-                    value: &credentials_arn_binding,
+                    value: credentials_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableExecuteApiEndpoint".into(),
-                    value: &disable_execute_api_endpoint_binding,
+                    value: disable_execute_api_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failOnWarnings".into(),
-                    value: &fail_on_warnings_binding,
+                    value: fail_on_warnings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolType".into(),
-                    value: &protocol_type_binding,
+                    value: protocol_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeKey".into(),
-                    value: &route_key_binding,
+                    value: route_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeSelectionExpression".into(),
-                    value: &route_selection_expression_binding,
+                    value: route_selection_expression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: &target_binding,
+                    value: target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiResult {
-            api_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiEndpoint"),
-            ),
-            api_key_selection_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKeySelectionExpression"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            cors_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("corsConfiguration"),
-            ),
-            credentials_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentialsArn"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_execute_api_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableExecuteApiEndpoint"),
-            ),
-            execution_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionArn"),
-            ),
-            fail_on_warnings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failOnWarnings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocol_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolType"),
-            ),
-            route_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeKey"),
-            ),
-            route_selection_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeSelectionExpression"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("target"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            api_endpoint: o.get_field("apiEndpoint"),
+            api_key_selection_expression: o.get_field("apiKeySelectionExpression"),
+            arn: o.get_field("arn"),
+            body: o.get_field("body"),
+            cors_configuration: o.get_field("corsConfiguration"),
+            credentials_arn: o.get_field("credentialsArn"),
+            description: o.get_field("description"),
+            disable_execute_api_endpoint: o.get_field("disableExecuteApiEndpoint"),
+            execution_arn: o.get_field("executionArn"),
+            fail_on_warnings: o.get_field("failOnWarnings"),
+            name: o.get_field("name"),
+            protocol_type: o.get_field("protocolType"),
+            route_key: o.get_field("routeKey"),
+            route_selection_expression: o.get_field("routeSelectionExpression"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target: o.get_field("target"),
+            version: o.get_field("version"),
         }
     }
 }

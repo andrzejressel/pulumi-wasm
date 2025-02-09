@@ -53,71 +53,52 @@ pub mod get_user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetUserArgs,
     ) -> GetUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_id_binding = args.instance_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:connect/getUser:getUser".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetUserResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            directory_user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryUserId"),
-            ),
-            hierarchy_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hierarchyGroupId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identity_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityInfos"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            phone_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneConfigs"),
-            ),
-            routing_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingProfileId"),
-            ),
-            security_profile_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityProfileIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
+            arn: o.get_field("arn"),
+            directory_user_id: o.get_field("directoryUserId"),
+            hierarchy_group_id: o.get_field("hierarchyGroupId"),
+            id: o.get_field("id"),
+            identity_infos: o.get_field("identityInfos"),
+            instance_id: o.get_field("instanceId"),
+            name: o.get_field("name"),
+            phone_configs: o.get_field("phoneConfigs"),
+            routing_profile_id: o.get_field("routingProfileId"),
+            security_profile_ids: o.get_field("securityProfileIds"),
+            tags: o.get_field("tags"),
+            user_id: o.get_field("userId"),
         }
     }
 }

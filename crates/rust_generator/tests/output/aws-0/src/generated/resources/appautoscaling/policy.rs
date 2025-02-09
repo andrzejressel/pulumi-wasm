@@ -323,92 +323,72 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let policy_type_binding_1 = args.policy_type.get_output(context);
-        let policy_type_binding = policy_type_binding_1.get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let scalable_dimension_binding_1 = args.scalable_dimension.get_output(context);
-        let scalable_dimension_binding = scalable_dimension_binding_1.get_inner();
-        let service_namespace_binding_1 = args.service_namespace.get_output(context);
-        let service_namespace_binding = service_namespace_binding_1.get_inner();
-        let step_scaling_policy_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let policy_type_binding = args.policy_type.get_output(context);
+        let resource_id_binding = args.resource_id.get_output(context);
+        let scalable_dimension_binding = args.scalable_dimension.get_output(context);
+        let service_namespace_binding = args.service_namespace.get_output(context);
+        let step_scaling_policy_configuration_binding = args
             .step_scaling_policy_configuration
             .get_output(context);
-        let step_scaling_policy_configuration_binding = step_scaling_policy_configuration_binding_1
-            .get_inner();
-        let target_tracking_scaling_policy_configuration_binding_1 = args
+        let target_tracking_scaling_policy_configuration_binding = args
             .target_tracking_scaling_policy_configuration
             .get_output(context);
-        let target_tracking_scaling_policy_configuration_binding = target_tracking_scaling_policy_configuration_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appautoscaling/policy:Policy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: &policy_type_binding,
+                    value: policy_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalableDimension".into(),
-                    value: &scalable_dimension_binding,
+                    value: scalable_dimension_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNamespace".into(),
-                    value: &service_namespace_binding,
+                    value: service_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stepScalingPolicyConfiguration".into(),
-                    value: &step_scaling_policy_configuration_binding,
+                    value: step_scaling_policy_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetTrackingScalingPolicyConfiguration".into(),
-                    value: &target_tracking_scaling_policy_configuration_binding,
+                    value: target_tracking_scaling_policy_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyResult {
-            alarm_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarmArns"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyType"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            scalable_dimension: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalableDimension"),
-            ),
-            service_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceNamespace"),
-            ),
-            step_scaling_policy_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stepScalingPolicyConfiguration"),
-            ),
-            target_tracking_scaling_policy_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetTrackingScalingPolicyConfiguration"),
-            ),
+            alarm_arns: o.get_field("alarmArns"),
+            arn: o.get_field("arn"),
+            name: o.get_field("name"),
+            policy_type: o.get_field("policyType"),
+            resource_id: o.get_field("resourceId"),
+            scalable_dimension: o.get_field("scalableDimension"),
+            service_namespace: o.get_field("serviceNamespace"),
+            step_scaling_policy_configuration: o
+                .get_field("stepScalingPolicyConfiguration"),
+            target_tracking_scaling_policy_configuration: o
+                .get_field("targetTrackingScalingPolicyConfiguration"),
         }
     }
 }

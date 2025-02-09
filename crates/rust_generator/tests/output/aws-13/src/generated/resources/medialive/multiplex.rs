@@ -93,66 +93,54 @@ pub mod multiplex {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MultiplexArgs,
     ) -> MultiplexResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zones_binding_1 = args.availability_zones.get_output(context);
-        let availability_zones_binding = availability_zones_binding_1.get_inner();
-        let multiplex_settings_binding_1 = args.multiplex_settings.get_output(context);
-        let multiplex_settings_binding = multiplex_settings_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let start_multiplex_binding_1 = args.start_multiplex.get_output(context);
-        let start_multiplex_binding = start_multiplex_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zones_binding = args.availability_zones.get_output(context);
+        let multiplex_settings_binding = args.multiplex_settings.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let start_multiplex_binding = args.start_multiplex.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:medialive/multiplex:Multiplex".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZones".into(),
-                    value: &availability_zones_binding,
+                    value: availability_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiplexSettings".into(),
-                    value: &multiplex_settings_binding,
+                    value: multiplex_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startMultiplex".into(),
-                    value: &start_multiplex_binding,
+                    value: start_multiplex_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MultiplexResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            multiplex_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiplexSettings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            start_multiplex: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startMultiplex"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zones: o.get_field("availabilityZones"),
+            multiplex_settings: o.get_field("multiplexSettings"),
+            name: o.get_field("name"),
+            start_multiplex: o.get_field("startMultiplex"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

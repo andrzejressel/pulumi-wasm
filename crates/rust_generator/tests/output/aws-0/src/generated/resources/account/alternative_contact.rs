@@ -81,74 +81,60 @@ pub mod alternative_contact {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AlternativeContactArgs,
     ) -> AlternativeContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let alternate_contact_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let alternate_contact_type_binding = args
             .alternate_contact_type
             .get_output(context);
-        let alternate_contact_type_binding = alternate_contact_type_binding_1
-            .get_inner();
-        let email_address_binding_1 = args.email_address.get_output(context);
-        let email_address_binding = email_address_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let phone_number_binding_1 = args.phone_number.get_output(context);
-        let phone_number_binding = phone_number_binding_1.get_inner();
-        let title_binding_1 = args.title.get_output(context);
-        let title_binding = title_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let email_address_binding = args.email_address.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let phone_number_binding = args.phone_number.get_output(context);
+        let title_binding = args.title.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:account/alternativeContact:AlternativeContact".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alternateContactType".into(),
-                    value: &alternate_contact_type_binding,
+                    value: alternate_contact_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: &email_address_binding,
+                    value: email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: &phone_number_binding,
+                    value: phone_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: &title_binding,
+                    value: title_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AlternativeContactResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            alternate_contact_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alternateContactType"),
-            ),
-            email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddress"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneNumber"),
-            ),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            account_id: o.get_field("accountId"),
+            alternate_contact_type: o.get_field("alternateContactType"),
+            email_address: o.get_field("emailAddress"),
+            name: o.get_field("name"),
+            phone_number: o.get_field("phoneNumber"),
+            title: o.get_field("title"),
         }
     }
 }

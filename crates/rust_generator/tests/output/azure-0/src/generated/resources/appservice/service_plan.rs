@@ -133,132 +133,98 @@ pub mod service_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServicePlanArgs,
     ) -> ServicePlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_environment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_service_environment_id_binding = args
             .app_service_environment_id
             .get_output(context);
-        let app_service_environment_id_binding = app_service_environment_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maximum_elastic_worker_count_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let maximum_elastic_worker_count_binding = args
             .maximum_elastic_worker_count
             .get_output(context);
-        let maximum_elastic_worker_count_binding = maximum_elastic_worker_count_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let os_type_binding_1 = args.os_type.get_output(context);
-        let os_type_binding = os_type_binding_1.get_inner();
-        let per_site_scaling_enabled_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let os_type_binding = args.os_type.get_output(context);
+        let per_site_scaling_enabled_binding = args
             .per_site_scaling_enabled
             .get_output(context);
-        let per_site_scaling_enabled_binding = per_site_scaling_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let worker_count_binding_1 = args.worker_count.get_output(context);
-        let worker_count_binding = worker_count_binding_1.get_inner();
-        let zone_balancing_enabled_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let worker_count_binding = args.worker_count.get_output(context);
+        let zone_balancing_enabled_binding = args
             .zone_balancing_enabled
             .get_output(context);
-        let zone_balancing_enabled_binding = zone_balancing_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/servicePlan:ServicePlan".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceEnvironmentId".into(),
-                    value: &app_service_environment_id_binding,
+                    value: app_service_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumElasticWorkerCount".into(),
-                    value: &maximum_elastic_worker_count_binding,
+                    value: maximum_elastic_worker_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osType".into(),
-                    value: &os_type_binding,
+                    value: os_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perSiteScalingEnabled".into(),
-                    value: &per_site_scaling_enabled_binding,
+                    value: per_site_scaling_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerCount".into(),
-                    value: &worker_count_binding,
+                    value: worker_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneBalancingEnabled".into(),
-                    value: &zone_balancing_enabled_binding,
+                    value: zone_balancing_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServicePlanResult {
-            app_service_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceEnvironmentId"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maximum_elastic_worker_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumElasticWorkerCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            os_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osType"),
-            ),
-            per_site_scaling_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perSiteScalingEnabled"),
-            ),
-            reserved: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reserved"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            worker_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerCount"),
-            ),
-            zone_balancing_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneBalancingEnabled"),
-            ),
+            app_service_environment_id: o.get_field("appServiceEnvironmentId"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            maximum_elastic_worker_count: o.get_field("maximumElasticWorkerCount"),
+            name: o.get_field("name"),
+            os_type: o.get_field("osType"),
+            per_site_scaling_enabled: o.get_field("perSiteScalingEnabled"),
+            reserved: o.get_field("reserved"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            tags: o.get_field("tags"),
+            worker_count: o.get_field("workerCount"),
+            zone_balancing_enabled: o.get_field("zoneBalancingEnabled"),
         }
     }
 }

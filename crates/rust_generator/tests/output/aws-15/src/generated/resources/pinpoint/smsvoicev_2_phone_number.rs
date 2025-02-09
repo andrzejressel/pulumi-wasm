@@ -119,146 +119,104 @@ pub mod smsvoicev_2_phone_number {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: Smsvoicev2PhoneNumberArgs,
     ) -> Smsvoicev2PhoneNumberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_protection_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
             .get_output(context);
-        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
-            .get_inner();
-        let iso_country_code_binding_1 = args.iso_country_code.get_output(context);
-        let iso_country_code_binding = iso_country_code_binding_1.get_inner();
-        let message_type_binding_1 = args.message_type.get_output(context);
-        let message_type_binding = message_type_binding_1.get_inner();
-        let number_capabilities_binding_1 = args.number_capabilities.get_output(context);
-        let number_capabilities_binding = number_capabilities_binding_1.get_inner();
-        let number_type_binding_1 = args.number_type.get_output(context);
-        let number_type_binding = number_type_binding_1.get_inner();
-        let opt_out_list_name_binding_1 = args.opt_out_list_name.get_output(context);
-        let opt_out_list_name_binding = opt_out_list_name_binding_1.get_inner();
-        let registration_id_binding_1 = args.registration_id.get_output(context);
-        let registration_id_binding = registration_id_binding_1.get_inner();
-        let self_managed_opt_outs_enabled_binding_1 = args
+        let iso_country_code_binding = args.iso_country_code.get_output(context);
+        let message_type_binding = args.message_type.get_output(context);
+        let number_capabilities_binding = args.number_capabilities.get_output(context);
+        let number_type_binding = args.number_type.get_output(context);
+        let opt_out_list_name_binding = args.opt_out_list_name.get_output(context);
+        let registration_id_binding = args.registration_id.get_output(context);
+        let self_managed_opt_outs_enabled_binding = args
             .self_managed_opt_outs_enabled
             .get_output(context);
-        let self_managed_opt_outs_enabled_binding = self_managed_opt_outs_enabled_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let two_way_channel_arn_binding_1 = args.two_way_channel_arn.get_output(context);
-        let two_way_channel_arn_binding = two_way_channel_arn_binding_1.get_inner();
-        let two_way_channel_enabled_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let two_way_channel_arn_binding = args.two_way_channel_arn.get_output(context);
+        let two_way_channel_enabled_binding = args
             .two_way_channel_enabled
             .get_output(context);
-        let two_way_channel_enabled_binding = two_way_channel_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtectionEnabled".into(),
-                    value: &deletion_protection_enabled_binding,
+                    value: deletion_protection_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isoCountryCode".into(),
-                    value: &iso_country_code_binding,
+                    value: iso_country_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageType".into(),
-                    value: &message_type_binding,
+                    value: message_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberCapabilities".into(),
-                    value: &number_capabilities_binding,
+                    value: number_capabilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberType".into(),
-                    value: &number_type_binding,
+                    value: number_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optOutListName".into(),
-                    value: &opt_out_list_name_binding,
+                    value: opt_out_list_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationId".into(),
-                    value: &registration_id_binding,
+                    value: registration_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfManagedOptOutsEnabled".into(),
-                    value: &self_managed_opt_outs_enabled_binding,
+                    value: self_managed_opt_outs_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "twoWayChannelArn".into(),
-                    value: &two_way_channel_arn_binding,
+                    value: two_way_channel_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "twoWayChannelEnabled".into(),
-                    value: &two_way_channel_enabled_binding,
+                    value: two_way_channel_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         Smsvoicev2PhoneNumberResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtectionEnabled"),
-            ),
-            iso_country_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isoCountryCode"),
-            ),
-            message_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageType"),
-            ),
-            monthly_leasing_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monthlyLeasingPrice"),
-            ),
-            number_capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberCapabilities"),
-            ),
-            number_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberType"),
-            ),
-            opt_out_list_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optOutListName"),
-            ),
-            phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneNumber"),
-            ),
-            registration_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrationId"),
-            ),
-            self_managed_opt_outs_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfManagedOptOutsEnabled"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            two_way_channel_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("twoWayChannelArn"),
-            ),
-            two_way_channel_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("twoWayChannelEnabled"),
-            ),
+            arn: o.get_field("arn"),
+            deletion_protection_enabled: o.get_field("deletionProtectionEnabled"),
+            iso_country_code: o.get_field("isoCountryCode"),
+            message_type: o.get_field("messageType"),
+            monthly_leasing_price: o.get_field("monthlyLeasingPrice"),
+            number_capabilities: o.get_field("numberCapabilities"),
+            number_type: o.get_field("numberType"),
+            opt_out_list_name: o.get_field("optOutListName"),
+            phone_number: o.get_field("phoneNumber"),
+            registration_id: o.get_field("registrationId"),
+            self_managed_opt_outs_enabled: o.get_field("selfManagedOptOutsEnabled"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            two_way_channel_arn: o.get_field("twoWayChannelArn"),
+            two_way_channel_enabled: o.get_field("twoWayChannelEnabled"),
         }
     }
 }

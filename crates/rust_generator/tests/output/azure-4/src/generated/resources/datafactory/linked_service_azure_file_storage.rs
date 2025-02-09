@@ -141,140 +141,105 @@ pub mod linked_service_azure_file_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkedServiceAzureFileStorageArgs,
     ) -> LinkedServiceAzureFileStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_properties_binding = args
             .additional_properties
             .get_output(context);
-        let additional_properties_binding = additional_properties_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let file_share_binding_1 = args.file_share.get_output(context);
-        let file_share_binding = file_share_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let integration_runtime_name_binding_1 = args
+        let annotations_binding = args.annotations.get_output(context);
+        let connection_string_binding = args.connection_string.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let file_share_binding = args.file_share.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let integration_runtime_name_binding = args
             .integration_runtime_name
             .get_output(context);
-        let integration_runtime_name_binding = integration_runtime_name_binding_1
-            .get_inner();
-        let key_vault_password_binding_1 = args.key_vault_password.get_output(context);
-        let key_vault_password_binding = key_vault_password_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_vault_password_binding = args.key_vault_password.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: &additional_properties_binding,
+                    value: additional_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileShare".into(),
-                    value: &file_share_binding,
+                    value: file_share_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationRuntimeName".into(),
-                    value: &integration_runtime_name_binding,
+                    value: integration_runtime_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultPassword".into(),
-                    value: &key_vault_password_binding,
+                    value: key_vault_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkedServiceAzureFileStorageResult {
-            additional_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalProperties"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            file_share: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileShare"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationRuntimeName"),
-            ),
-            key_vault_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultPassword"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
+            additional_properties: o.get_field("additionalProperties"),
+            annotations: o.get_field("annotations"),
+            connection_string: o.get_field("connectionString"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            file_share: o.get_field("fileShare"),
+            host: o.get_field("host"),
+            integration_runtime_name: o.get_field("integrationRuntimeName"),
+            key_vault_password: o.get_field("keyVaultPassword"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            password: o.get_field("password"),
+            user_id: o.get_field("userId"),
         }
     }
 }

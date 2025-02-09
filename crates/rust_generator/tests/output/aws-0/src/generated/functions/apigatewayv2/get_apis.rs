@@ -34,44 +34,40 @@ pub mod get_apis {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApisArgs,
     ) -> GetApisResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let protocol_type_binding_1 = args.protocol_type.get_output(context);
-        let protocol_type_binding = protocol_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let protocol_type_binding = args.protocol_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:apigatewayv2/getApis:getApis".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolType".into(),
-                    value: &protocol_type_binding,
+                    value: protocol_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApisResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocol_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            id: o.get_field("id"),
+            ids: o.get_field("ids"),
+            name: o.get_field("name"),
+            protocol_type: o.get_field("protocolType"),
+            tags: o.get_field("tags"),
         }
     }
 }

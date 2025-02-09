@@ -152,89 +152,69 @@ pub mod event_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventDestinationArgs,
     ) -> EventDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_destinations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloudwatch_destinations_binding = args
             .cloudwatch_destinations
             .get_output(context);
-        let cloudwatch_destinations_binding = cloudwatch_destinations_binding_1
-            .get_inner();
-        let configuration_set_name_binding_1 = args
+        let configuration_set_name_binding = args
             .configuration_set_name
             .get_output(context);
-        let configuration_set_name_binding = configuration_set_name_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let kinesis_destination_binding_1 = args.kinesis_destination.get_output(context);
-        let kinesis_destination_binding = kinesis_destination_binding_1.get_inner();
-        let matching_types_binding_1 = args.matching_types.get_output(context);
-        let matching_types_binding = matching_types_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let sns_destination_binding_1 = args.sns_destination.get_output(context);
-        let sns_destination_binding = sns_destination_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enabled_binding = args.enabled.get_output(context);
+        let kinesis_destination_binding = args.kinesis_destination.get_output(context);
+        let matching_types_binding = args.matching_types.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let sns_destination_binding = args.sns_destination.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ses/eventDestination:EventDestination".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchDestinations".into(),
-                    value: &cloudwatch_destinations_binding,
+                    value: cloudwatch_destinations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: &configuration_set_name_binding,
+                    value: configuration_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisDestination".into(),
-                    value: &kinesis_destination_binding,
+                    value: kinesis_destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matchingTypes".into(),
-                    value: &matching_types_binding,
+                    value: matching_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsDestination".into(),
-                    value: &sns_destination_binding,
+                    value: sns_destination_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventDestinationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchDestinations"),
-            ),
-            configuration_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationSetName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            kinesis_destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kinesisDestination"),
-            ),
-            matching_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("matchingTypes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sns_destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsDestination"),
-            ),
+            arn: o.get_field("arn"),
+            cloudwatch_destinations: o.get_field("cloudwatchDestinations"),
+            configuration_set_name: o.get_field("configurationSetName"),
+            enabled: o.get_field("enabled"),
+            kinesis_destination: o.get_field("kinesisDestination"),
+            matching_types: o.get_field("matchingTypes"),
+            name: o.get_field("name"),
+            sns_destination: o.get_field("snsDestination"),
         }
     }
 }

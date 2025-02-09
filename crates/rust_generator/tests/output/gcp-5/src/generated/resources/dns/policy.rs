@@ -147,88 +147,68 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alternative_name_server_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alternative_name_server_config_binding = args
             .alternative_name_server_config
             .get_output(context);
-        let alternative_name_server_config_binding = alternative_name_server_config_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enable_inbound_forwarding_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let enable_inbound_forwarding_binding = args
             .enable_inbound_forwarding
             .get_output(context);
-        let enable_inbound_forwarding_binding = enable_inbound_forwarding_binding_1
-            .get_inner();
-        let enable_logging_binding_1 = args.enable_logging.get_output(context);
-        let enable_logging_binding = enable_logging_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let networks_binding_1 = args.networks.get_output(context);
-        let networks_binding = networks_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enable_logging_binding = args.enable_logging.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let networks_binding = args.networks.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dns/policy:Policy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alternativeNameServerConfig".into(),
-                    value: &alternative_name_server_config_binding,
+                    value: alternative_name_server_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableInboundForwarding".into(),
-                    value: &enable_inbound_forwarding_binding,
+                    value: enable_inbound_forwarding_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: &enable_logging_binding,
+                    value: enable_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networks".into(),
-                    value: &networks_binding,
+                    value: networks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyResult {
-            alternative_name_server_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alternativeNameServerConfig"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enable_inbound_forwarding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableInboundForwarding"),
-            ),
-            enable_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLogging"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            networks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networks"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            alternative_name_server_config: o.get_field("alternativeNameServerConfig"),
+            description: o.get_field("description"),
+            enable_inbound_forwarding: o.get_field("enableInboundForwarding"),
+            enable_logging: o.get_field("enableLogging"),
+            name: o.get_field("name"),
+            networks: o.get_field("networks"),
+            project: o.get_field("project"),
         }
     }
 }

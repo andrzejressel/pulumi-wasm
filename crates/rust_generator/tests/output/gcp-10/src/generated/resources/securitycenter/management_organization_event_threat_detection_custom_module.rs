@@ -118,81 +118,62 @@ pub mod management_organization_event_threat_detection_custom_module {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagementOrganizationEventThreatDetectionCustomModuleArgs,
     ) -> ManagementOrganizationEventThreatDetectionCustomModuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_binding_1 = args.config.get_output(context);
-        let config_binding = config_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enablement_state_binding_1 = args.enablement_state.get_output(context);
-        let enablement_state_binding = enablement_state_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let organization_binding_1 = args.organization.get_output(context);
-        let organization_binding = organization_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let config_binding = args.config.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enablement_state_binding = args.enablement_state.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let organization_binding = args.organization.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:securitycenter/managementOrganizationEventThreatDetectionCustomModule:ManagementOrganizationEventThreatDetectionCustomModule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: &config_binding,
+                    value: config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablementState".into(),
-                    value: &enablement_state_binding,
+                    value: enablement_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: &organization_binding,
+                    value: organization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagementOrganizationEventThreatDetectionCustomModuleResult {
-            config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("config"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enablement_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enablementState"),
-            ),
-            last_editor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastEditor"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organization"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            config: o.get_field("config"),
+            display_name: o.get_field("displayName"),
+            enablement_state: o.get_field("enablementState"),
+            last_editor: o.get_field("lastEditor"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            organization: o.get_field("organization"),
+            type_: o.get_field("type"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

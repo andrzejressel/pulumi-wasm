@@ -189,95 +189,72 @@ pub mod cosmosdb_data_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CosmosdbDataConnectionArgs,
     ) -> CosmosdbDataConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cosmosdb_container_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cosmosdb_container_id_binding = args
             .cosmosdb_container_id
             .get_output(context);
-        let cosmosdb_container_id_binding = cosmosdb_container_id_binding_1.get_inner();
-        let kusto_database_id_binding_1 = args.kusto_database_id.get_output(context);
-        let kusto_database_id_binding = kusto_database_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let managed_identity_id_binding_1 = args.managed_identity_id.get_output(context);
-        let managed_identity_id_binding = managed_identity_id_binding_1.get_inner();
-        let mapping_rule_name_binding_1 = args.mapping_rule_name.get_output(context);
-        let mapping_rule_name_binding = mapping_rule_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let retrieval_start_date_binding_1 = args
-            .retrieval_start_date
-            .get_output(context);
-        let retrieval_start_date_binding = retrieval_start_date_binding_1.get_inner();
-        let table_name_binding_1 = args.table_name.get_output(context);
-        let table_name_binding = table_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kusto_database_id_binding = args.kusto_database_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let managed_identity_id_binding = args.managed_identity_id.get_output(context);
+        let mapping_rule_name_binding = args.mapping_rule_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let retrieval_start_date_binding = args.retrieval_start_date.get_output(context);
+        let table_name_binding = args.table_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbContainerId".into(),
-                    value: &cosmosdb_container_id_binding,
+                    value: cosmosdb_container_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoDatabaseId".into(),
-                    value: &kusto_database_id_binding,
+                    value: kusto_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedIdentityId".into(),
-                    value: &managed_identity_id_binding,
+                    value: managed_identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mappingRuleName".into(),
-                    value: &mapping_rule_name_binding,
+                    value: mapping_rule_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retrievalStartDate".into(),
-                    value: &retrieval_start_date_binding,
+                    value: retrieval_start_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: &table_name_binding,
+                    value: table_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CosmosdbDataConnectionResult {
-            cosmosdb_container_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbContainerId"),
-            ),
-            kusto_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoDatabaseId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedIdentityId"),
-            ),
-            mapping_rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mappingRuleName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            retrieval_start_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retrievalStartDate"),
-            ),
-            table_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableName"),
-            ),
+            cosmosdb_container_id: o.get_field("cosmosdbContainerId"),
+            kusto_database_id: o.get_field("kustoDatabaseId"),
+            location: o.get_field("location"),
+            managed_identity_id: o.get_field("managedIdentityId"),
+            mapping_rule_name: o.get_field("mappingRuleName"),
+            name: o.get_field("name"),
+            retrieval_start_date: o.get_field("retrievalStartDate"),
+            table_name: o.get_field("tableName"),
         }
     }
 }

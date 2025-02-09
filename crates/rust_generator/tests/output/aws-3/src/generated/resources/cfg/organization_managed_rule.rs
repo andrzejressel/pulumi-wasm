@@ -108,115 +108,87 @@ pub mod organization_managed_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationManagedRuleArgs,
     ) -> OrganizationManagedRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let excluded_accounts_binding_1 = args.excluded_accounts.get_output(context);
-        let excluded_accounts_binding = excluded_accounts_binding_1.get_inner();
-        let input_parameters_binding_1 = args.input_parameters.get_output(context);
-        let input_parameters_binding = input_parameters_binding_1.get_inner();
-        let maximum_execution_frequency_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let excluded_accounts_binding = args.excluded_accounts.get_output(context);
+        let input_parameters_binding = args.input_parameters.get_output(context);
+        let maximum_execution_frequency_binding = args
             .maximum_execution_frequency
             .get_output(context);
-        let maximum_execution_frequency_binding = maximum_execution_frequency_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_id_scope_binding_1 = args.resource_id_scope.get_output(context);
-        let resource_id_scope_binding = resource_id_scope_binding_1.get_inner();
-        let resource_types_scopes_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let resource_id_scope_binding = args.resource_id_scope.get_output(context);
+        let resource_types_scopes_binding = args
             .resource_types_scopes
             .get_output(context);
-        let resource_types_scopes_binding = resource_types_scopes_binding_1.get_inner();
-        let rule_identifier_binding_1 = args.rule_identifier.get_output(context);
-        let rule_identifier_binding = rule_identifier_binding_1.get_inner();
-        let tag_key_scope_binding_1 = args.tag_key_scope.get_output(context);
-        let tag_key_scope_binding = tag_key_scope_binding_1.get_inner();
-        let tag_value_scope_binding_1 = args.tag_value_scope.get_output(context);
-        let tag_value_scope_binding = tag_value_scope_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let rule_identifier_binding = args.rule_identifier.get_output(context);
+        let tag_key_scope_binding = args.tag_key_scope.get_output(context);
+        let tag_value_scope_binding = args.tag_value_scope.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cfg/organizationManagedRule:OrganizationManagedRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedAccounts".into(),
-                    value: &excluded_accounts_binding,
+                    value: excluded_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputParameters".into(),
-                    value: &input_parameters_binding,
+                    value: input_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumExecutionFrequency".into(),
-                    value: &maximum_execution_frequency_binding,
+                    value: maximum_execution_frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceIdScope".into(),
-                    value: &resource_id_scope_binding,
+                    value: resource_id_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypesScopes".into(),
-                    value: &resource_types_scopes_binding,
+                    value: resource_types_scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleIdentifier".into(),
-                    value: &rule_identifier_binding,
+                    value: rule_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagKeyScope".into(),
-                    value: &tag_key_scope_binding,
+                    value: tag_key_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagValueScope".into(),
-                    value: &tag_value_scope_binding,
+                    value: tag_value_scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationManagedRuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            excluded_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludedAccounts"),
-            ),
-            input_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputParameters"),
-            ),
-            maximum_execution_frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumExecutionFrequency"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_id_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceIdScope"),
-            ),
-            resource_types_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTypesScopes"),
-            ),
-            rule_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleIdentifier"),
-            ),
-            tag_key_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagKeyScope"),
-            ),
-            tag_value_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagValueScope"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            excluded_accounts: o.get_field("excludedAccounts"),
+            input_parameters: o.get_field("inputParameters"),
+            maximum_execution_frequency: o.get_field("maximumExecutionFrequency"),
+            name: o.get_field("name"),
+            resource_id_scope: o.get_field("resourceIdScope"),
+            resource_types_scopes: o.get_field("resourceTypesScopes"),
+            rule_identifier: o.get_field("ruleIdentifier"),
+            tag_key_scope: o.get_field("tagKeyScope"),
+            tag_value_scope: o.get_field("tagValueScope"),
         }
     }
 }

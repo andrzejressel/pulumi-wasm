@@ -97,96 +97,74 @@ pub mod database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acl_configuration_binding_1 = args.acl_configuration.get_output(context);
-        let acl_configuration_binding = acl_configuration_binding_1.get_inner();
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let encryption_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let acl_configuration_binding = args.acl_configuration.get_output(context);
+        let bucket_binding = args.bucket.get_output(context);
+        let comment_binding = args.comment.get_output(context);
+        let encryption_configuration_binding = args
             .encryption_configuration
             .get_output(context);
-        let encryption_configuration_binding = encryption_configuration_binding_1
-            .get_inner();
-        let expected_bucket_owner_binding_1 = args
+        let expected_bucket_owner_binding = args
             .expected_bucket_owner
             .get_output(context);
-        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let properties_binding_1 = args.properties.get_output(context);
-        let properties_binding = properties_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let properties_binding = args.properties.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:athena/database:Database".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aclConfiguration".into(),
-                    value: &acl_configuration_binding,
+                    value: acl_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: &encryption_configuration_binding,
+                    value: encryption_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: &expected_bucket_owner_binding,
+                    value: expected_bucket_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: &properties_binding,
+                    value: properties_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatabaseResult {
-            acl_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aclConfiguration"),
-            ),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfiguration"),
-            ),
-            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expectedBucketOwner"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("properties"),
-            ),
+            acl_configuration: o.get_field("aclConfiguration"),
+            bucket: o.get_field("bucket"),
+            comment: o.get_field("comment"),
+            encryption_configuration: o.get_field("encryptionConfiguration"),
+            expected_bucket_owner: o.get_field("expectedBucketOwner"),
+            force_destroy: o.get_field("forceDestroy"),
+            name: o.get_field("name"),
+            properties: o.get_field("properties"),
         }
     }
 }

@@ -25,39 +25,31 @@ pub mod get_diagnostic_categories {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDiagnosticCategoriesArgs,
     ) -> GetDiagnosticCategoriesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let resource_id_binding = args.resource_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:monitoring/getDiagnosticCategories:getDiagnosticCategories"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDiagnosticCategoriesResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            log_category_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logCategoryGroups"),
-            ),
-            log_category_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logCategoryTypes"),
-            ),
-            metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metrics"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
+            id: o.get_field("id"),
+            log_category_groups: o.get_field("logCategoryGroups"),
+            log_category_types: o.get_field("logCategoryTypes"),
+            metrics: o.get_field("metrics"),
+            resource_id: o.get_field("resourceId"),
         }
     }
 }

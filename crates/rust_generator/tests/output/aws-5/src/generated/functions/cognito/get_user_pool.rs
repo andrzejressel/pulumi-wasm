@@ -75,89 +75,49 @@ pub mod get_user_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetUserPoolArgs,
     ) -> GetUserPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cognito/getUserPool:getUserPool".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetUserPoolResult {
-            account_recovery_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountRecoverySettings"),
-            ),
-            admin_create_user_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminCreateUserConfigs"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_verified_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoVerifiedAttributes"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            custom_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomain"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            device_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceConfigurations"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            email_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailConfigurations"),
-            ),
-            estimated_number_of_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("estimatedNumberOfUsers"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lambda_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaConfigs"),
-            ),
-            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedDate"),
-            ),
-            mfa_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mfaConfiguration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            schema_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaAttributes"),
-            ),
-            sms_authentication_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsAuthenticationMessage"),
-            ),
-            sms_configuration_failure: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsConfigurationFailure"),
-            ),
-            sms_verification_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsVerificationMessage"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
-            user_pool_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolTags"),
-            ),
-            username_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usernameAttributes"),
-            ),
+            account_recovery_settings: o.get_field("accountRecoverySettings"),
+            admin_create_user_configs: o.get_field("adminCreateUserConfigs"),
+            arn: o.get_field("arn"),
+            auto_verified_attributes: o.get_field("autoVerifiedAttributes"),
+            creation_date: o.get_field("creationDate"),
+            custom_domain: o.get_field("customDomain"),
+            deletion_protection: o.get_field("deletionProtection"),
+            device_configurations: o.get_field("deviceConfigurations"),
+            domain: o.get_field("domain"),
+            email_configurations: o.get_field("emailConfigurations"),
+            estimated_number_of_users: o.get_field("estimatedNumberOfUsers"),
+            id: o.get_field("id"),
+            lambda_configs: o.get_field("lambdaConfigs"),
+            last_modified_date: o.get_field("lastModifiedDate"),
+            mfa_configuration: o.get_field("mfaConfiguration"),
+            name: o.get_field("name"),
+            schema_attributes: o.get_field("schemaAttributes"),
+            sms_authentication_message: o.get_field("smsAuthenticationMessage"),
+            sms_configuration_failure: o.get_field("smsConfigurationFailure"),
+            sms_verification_message: o.get_field("smsVerificationMessage"),
+            tags: o.get_field("tags"),
+            user_pool_id: o.get_field("userPoolId"),
+            user_pool_tags: o.get_field("userPoolTags"),
+            username_attributes: o.get_field("usernameAttributes"),
         }
     }
 }

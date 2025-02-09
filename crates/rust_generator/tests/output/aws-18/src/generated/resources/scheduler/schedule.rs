@@ -154,131 +154,97 @@ pub mod schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScheduleArgs,
     ) -> ScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let end_date_binding_1 = args.end_date.get_output(context);
-        let end_date_binding = end_date_binding_1.get_inner();
-        let flexible_time_window_binding_1 = args
-            .flexible_time_window
-            .get_output(context);
-        let flexible_time_window_binding = flexible_time_window_binding_1.get_inner();
-        let group_name_binding_1 = args.group_name.get_output(context);
-        let group_name_binding = group_name_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let schedule_expression_binding_1 = args.schedule_expression.get_output(context);
-        let schedule_expression_binding = schedule_expression_binding_1.get_inner();
-        let schedule_expression_timezone_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let end_date_binding = args.end_date.get_output(context);
+        let flexible_time_window_binding = args.flexible_time_window.get_output(context);
+        let group_name_binding = args.group_name.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let schedule_expression_binding = args.schedule_expression.get_output(context);
+        let schedule_expression_timezone_binding = args
             .schedule_expression_timezone
             .get_output(context);
-        let schedule_expression_timezone_binding = schedule_expression_timezone_binding_1
-            .get_inner();
-        let start_date_binding_1 = args.start_date.get_output(context);
-        let start_date_binding = start_date_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let target_binding_1 = args.target.get_output(context);
-        let target_binding = target_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let start_date_binding = args.start_date.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let target_binding = args.target.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:scheduler/schedule:Schedule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDate".into(),
-                    value: &end_date_binding,
+                    value: end_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flexibleTimeWindow".into(),
-                    value: &flexible_time_window_binding,
+                    value: flexible_time_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: &group_name_binding,
+                    value: group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleExpression".into(),
-                    value: &schedule_expression_binding,
+                    value: schedule_expression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleExpressionTimezone".into(),
-                    value: &schedule_expression_timezone_binding,
+                    value: schedule_expression_timezone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startDate".into(),
-                    value: &start_date_binding,
+                    value: start_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: &target_binding,
+                    value: target_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScheduleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            end_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endDate"),
-            ),
-            flexible_time_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("flexibleTimeWindow"),
-            ),
-            group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupName"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            schedule_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleExpression"),
-            ),
-            schedule_expression_timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleExpressionTimezone"),
-            ),
-            start_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startDate"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("target"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            end_date: o.get_field("endDate"),
+            flexible_time_window: o.get_field("flexibleTimeWindow"),
+            group_name: o.get_field("groupName"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            schedule_expression: o.get_field("scheduleExpression"),
+            schedule_expression_timezone: o.get_field("scheduleExpressionTimezone"),
+            start_date: o.get_field("startDate"),
+            state: o.get_field("state"),
+            target: o.get_field("target"),
         }
     }
 }

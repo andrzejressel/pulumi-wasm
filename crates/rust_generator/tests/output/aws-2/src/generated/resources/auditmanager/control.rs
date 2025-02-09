@@ -102,91 +102,71 @@ pub mod control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ControlArgs,
     ) -> ControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_plan_instructions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_plan_instructions_binding = args
             .action_plan_instructions
             .get_output(context);
-        let action_plan_instructions_binding = action_plan_instructions_binding_1
-            .get_inner();
-        let action_plan_title_binding_1 = args.action_plan_title.get_output(context);
-        let action_plan_title_binding = action_plan_title_binding_1.get_inner();
-        let control_mapping_sources_binding_1 = args
+        let action_plan_title_binding = args.action_plan_title.get_output(context);
+        let control_mapping_sources_binding = args
             .control_mapping_sources
             .get_output(context);
-        let control_mapping_sources_binding = control_mapping_sources_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let testing_information_binding_1 = args.testing_information.get_output(context);
-        let testing_information_binding = testing_information_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let testing_information_binding = args.testing_information.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:auditmanager/control:Control".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionPlanInstructions".into(),
-                    value: &action_plan_instructions_binding,
+                    value: action_plan_instructions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionPlanTitle".into(),
-                    value: &action_plan_title_binding,
+                    value: action_plan_title_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlMappingSources".into(),
-                    value: &control_mapping_sources_binding,
+                    value: control_mapping_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testingInformation".into(),
-                    value: &testing_information_binding,
+                    value: testing_information_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ControlResult {
-            action_plan_instructions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionPlanInstructions"),
-            ),
-            action_plan_title: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionPlanTitle"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            control_mapping_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlMappingSources"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            testing_information: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testingInformation"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            action_plan_instructions: o.get_field("actionPlanInstructions"),
+            action_plan_title: o.get_field("actionPlanTitle"),
+            arn: o.get_field("arn"),
+            control_mapping_sources: o.get_field("controlMappingSources"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            testing_information: o.get_field("testingInformation"),
+            type_: o.get_field("type"),
         }
     }
 }

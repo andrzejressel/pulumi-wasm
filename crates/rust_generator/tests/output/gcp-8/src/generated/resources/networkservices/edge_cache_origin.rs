@@ -335,154 +335,112 @@ pub mod edge_cache_origin {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EdgeCacheOriginArgs,
     ) -> EdgeCacheOriginResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_v4_authentication_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_v4_authentication_binding = args
             .aws_v4_authentication
             .get_output(context);
-        let aws_v4_authentication_binding = aws_v4_authentication_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let failover_origin_binding_1 = args.failover_origin.get_output(context);
-        let failover_origin_binding = failover_origin_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let max_attempts_binding_1 = args.max_attempts.get_output(context);
-        let max_attempts_binding = max_attempts_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let origin_address_binding_1 = args.origin_address.get_output(context);
-        let origin_address_binding = origin_address_binding_1.get_inner();
-        let origin_override_action_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let failover_origin_binding = args.failover_origin.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let max_attempts_binding = args.max_attempts.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let origin_address_binding = args.origin_address.get_output(context);
+        let origin_override_action_binding = args
             .origin_override_action
             .get_output(context);
-        let origin_override_action_binding = origin_override_action_binding_1
-            .get_inner();
-        let origin_redirect_binding_1 = args.origin_redirect.get_output(context);
-        let origin_redirect_binding = origin_redirect_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let retry_conditions_binding_1 = args.retry_conditions.get_output(context);
-        let retry_conditions_binding = retry_conditions_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let origin_redirect_binding = args.origin_redirect.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let retry_conditions_binding = args.retry_conditions.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networkservices/edgeCacheOrigin:EdgeCacheOrigin".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsV4Authentication".into(),
-                    value: &aws_v4_authentication_binding,
+                    value: aws_v4_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverOrigin".into(),
-                    value: &failover_origin_binding,
+                    value: failover_origin_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxAttempts".into(),
-                    value: &max_attempts_binding,
+                    value: max_attempts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originAddress".into(),
-                    value: &origin_address_binding,
+                    value: origin_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originOverrideAction".into(),
-                    value: &origin_override_action_binding,
+                    value: origin_override_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originRedirect".into(),
-                    value: &origin_redirect_binding,
+                    value: origin_redirect_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryConditions".into(),
-                    value: &retry_conditions_binding,
+                    value: retry_conditions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EdgeCacheOriginResult {
-            aws_v4_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsV4Authentication"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            failover_origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failoverOrigin"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            max_attempts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxAttempts"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            origin_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originAddress"),
-            ),
-            origin_override_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originOverrideAction"),
-            ),
-            origin_redirect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originRedirect"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            retry_conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryConditions"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
+            aws_v4_authentication: o.get_field("awsV4Authentication"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            failover_origin: o.get_field("failoverOrigin"),
+            labels: o.get_field("labels"),
+            max_attempts: o.get_field("maxAttempts"),
+            name: o.get_field("name"),
+            origin_address: o.get_field("originAddress"),
+            origin_override_action: o.get_field("originOverrideAction"),
+            origin_redirect: o.get_field("originRedirect"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            protocol: o.get_field("protocol"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            retry_conditions: o.get_field("retryConditions"),
+            timeout: o.get_field("timeout"),
         }
     }
 }

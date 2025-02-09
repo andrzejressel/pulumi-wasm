@@ -14,22 +14,21 @@ pub mod get_active_receipt_rule_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
     ) -> GetActiveReceiptRuleSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetActiveReceiptRuleSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            rule_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleSetName"),
-            ),
+            arn: o.get_field("arn"),
+            id: o.get_field("id"),
+            rule_set_name: o.get_field("ruleSetName"),
         }
     }
 }

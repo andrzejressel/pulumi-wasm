@@ -31,41 +31,34 @@ pub mod get_images {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetImagesArgs,
     ) -> GetImagesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_filter_binding_1 = args.tags_filter.get_output(context);
-        let tags_filter_binding = tags_filter_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_filter_binding = args.tags_filter.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:compute/getImages:getImages".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagsFilter".into(),
-                    value: &tags_filter_binding,
+                    value: tags_filter_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetImagesResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            images: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("images"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsFilter"),
-            ),
+            id: o.get_field("id"),
+            images: o.get_field("images"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags_filter: o.get_field("tagsFilter"),
         }
     }
 }

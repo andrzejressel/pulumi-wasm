@@ -39,60 +39,41 @@ pub mod get_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCertificateArgs,
     ) -> GetCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nginx_deployment_id_binding_1 = args.nginx_deployment_id.get_output(context);
-        let nginx_deployment_id_binding = nginx_deployment_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let nginx_deployment_id_binding = args.nginx_deployment_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:nginx/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nginxDeploymentId".into(),
-                    value: &nginx_deployment_id_binding,
+                    value: nginx_deployment_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCertificateResult {
-            certificate_virtual_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateVirtualPath"),
-            ),
-            error_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorCode"),
-            ),
-            error_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorMessage"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_vault_secret_creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultSecretCreationDate"),
-            ),
-            key_vault_secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultSecretId"),
-            ),
-            key_vault_secret_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultSecretVersion"),
-            ),
-            key_virtual_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVirtualPath"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nginx_deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nginxDeploymentId"),
-            ),
-            sha1_thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sha1Thumbprint"),
-            ),
+            certificate_virtual_path: o.get_field("certificateVirtualPath"),
+            error_code: o.get_field("errorCode"),
+            error_message: o.get_field("errorMessage"),
+            id: o.get_field("id"),
+            key_vault_secret_creation_date: o.get_field("keyVaultSecretCreationDate"),
+            key_vault_secret_id: o.get_field("keyVaultSecretId"),
+            key_vault_secret_version: o.get_field("keyVaultSecretVersion"),
+            key_virtual_path: o.get_field("keyVirtualPath"),
+            name: o.get_field("name"),
+            nginx_deployment_id: o.get_field("nginxDeploymentId"),
+            sha1_thumbprint: o.get_field("sha1Thumbprint"),
         }
     }
 }

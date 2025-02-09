@@ -13,24 +13,21 @@ pub mod func_with_const_input {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
-        args: FuncWithConstInputArgs,
-    ) {
+    pub fn invoke(context: &pulumi_gestalt_rust::Context, args: FuncWithConstInputArgs) {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let plain_input_binding_1 = args.plain_input.get_output(context);
-        let plain_input_binding = plain_input_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let plain_input_binding = args.plain_input.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "mypkg::funcWithConstInput".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plainInput".into(),
-                    value: &plain_input_binding,
+                    value: plain_input_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        register_interface::invoke(context.get_inner(), &request);
+        context.invoke_resource(request);
     }
 }

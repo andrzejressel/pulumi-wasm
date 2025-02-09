@@ -82,77 +82,60 @@ pub mod hub {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HubArgs,
     ) -> HubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hub_description_binding_1 = args.hub_description.get_output(context);
-        let hub_description_binding = hub_description_binding_1.get_inner();
-        let hub_display_name_binding_1 = args.hub_display_name.get_output(context);
-        let hub_display_name_binding = hub_display_name_binding_1.get_inner();
-        let hub_name_binding_1 = args.hub_name.get_output(context);
-        let hub_name_binding = hub_name_binding_1.get_inner();
-        let hub_search_keywords_binding_1 = args.hub_search_keywords.get_output(context);
-        let hub_search_keywords_binding = hub_search_keywords_binding_1.get_inner();
-        let s3_storage_config_binding_1 = args.s3_storage_config.get_output(context);
-        let s3_storage_config_binding = s3_storage_config_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hub_description_binding = args.hub_description.get_output(context);
+        let hub_display_name_binding = args.hub_display_name.get_output(context);
+        let hub_name_binding = args.hub_name.get_output(context);
+        let hub_search_keywords_binding = args.hub_search_keywords.get_output(context);
+        let s3_storage_config_binding = args.s3_storage_config.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/hub:Hub".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubDescription".into(),
-                    value: &hub_description_binding,
+                    value: hub_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubDisplayName".into(),
-                    value: &hub_display_name_binding,
+                    value: hub_display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubName".into(),
-                    value: &hub_name_binding,
+                    value: hub_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubSearchKeywords".into(),
-                    value: &hub_search_keywords_binding,
+                    value: hub_search_keywords_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3StorageConfig".into(),
-                    value: &s3_storage_config_binding,
+                    value: s3_storage_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HubResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            hub_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hubDescription"),
-            ),
-            hub_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hubDisplayName"),
-            ),
-            hub_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hubName"),
-            ),
-            hub_search_keywords: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hubSearchKeywords"),
-            ),
-            s3_storage_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3StorageConfig"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            hub_description: o.get_field("hubDescription"),
+            hub_display_name: o.get_field("hubDisplayName"),
+            hub_name: o.get_field("hubName"),
+            hub_search_keywords: o.get_field("hubSearchKeywords"),
+            s3_storage_config: o.get_field("s3StorageConfig"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -167,199 +167,142 @@ pub mod linked_service_azure_blob_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkedServiceAzureBlobStorageArgs,
     ) -> LinkedServiceAzureBlobStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_properties_binding = args
             .additional_properties
             .get_output(context);
-        let additional_properties_binding = additional_properties_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let connection_string_insecure_binding_1 = args
+        let annotations_binding = args.annotations.get_output(context);
+        let connection_string_binding = args.connection_string.get_output(context);
+        let connection_string_insecure_binding = args
             .connection_string_insecure
             .get_output(context);
-        let connection_string_insecure_binding = connection_string_insecure_binding_1
-            .get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let integration_runtime_name_binding_1 = args
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let integration_runtime_name_binding = args
             .integration_runtime_name
             .get_output(context);
-        let integration_runtime_name_binding = integration_runtime_name_binding_1
-            .get_inner();
-        let key_vault_sas_token_binding_1 = args.key_vault_sas_token.get_output(context);
-        let key_vault_sas_token_binding = key_vault_sas_token_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let sas_uri_binding_1 = args.sas_uri.get_output(context);
-        let sas_uri_binding = sas_uri_binding_1.get_inner();
-        let service_endpoint_binding_1 = args.service_endpoint.get_output(context);
-        let service_endpoint_binding = service_endpoint_binding_1.get_inner();
-        let service_principal_id_binding_1 = args
-            .service_principal_id
-            .get_output(context);
-        let service_principal_id_binding = service_principal_id_binding_1.get_inner();
-        let service_principal_key_binding_1 = args
+        let key_vault_sas_token_binding = args.key_vault_sas_token.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let sas_uri_binding = args.sas_uri.get_output(context);
+        let service_endpoint_binding = args.service_endpoint.get_output(context);
+        let service_principal_id_binding = args.service_principal_id.get_output(context);
+        let service_principal_key_binding = args
             .service_principal_key
             .get_output(context);
-        let service_principal_key_binding = service_principal_key_binding_1.get_inner();
-        let service_principal_linked_key_vault_key_binding_1 = args
+        let service_principal_linked_key_vault_key_binding = args
             .service_principal_linked_key_vault_key
             .get_output(context);
-        let service_principal_linked_key_vault_key_binding = service_principal_linked_key_vault_key_binding_1
-            .get_inner();
-        let storage_kind_binding_1 = args.storage_kind.get_output(context);
-        let storage_kind_binding = storage_kind_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let use_managed_identity_binding_1 = args
-            .use_managed_identity
-            .get_output(context);
-        let use_managed_identity_binding = use_managed_identity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_kind_binding = args.storage_kind.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let use_managed_identity_binding = args.use_managed_identity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: &additional_properties_binding,
+                    value: additional_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionStringInsecure".into(),
-                    value: &connection_string_insecure_binding,
+                    value: connection_string_insecure_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationRuntimeName".into(),
-                    value: &integration_runtime_name_binding,
+                    value: integration_runtime_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultSasToken".into(),
-                    value: &key_vault_sas_token_binding,
+                    value: key_vault_sas_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasUri".into(),
-                    value: &sas_uri_binding,
+                    value: sas_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceEndpoint".into(),
-                    value: &service_endpoint_binding,
+                    value: service_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipalId".into(),
-                    value: &service_principal_id_binding,
+                    value: service_principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipalKey".into(),
-                    value: &service_principal_key_binding,
+                    value: service_principal_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipalLinkedKeyVaultKey".into(),
-                    value: &service_principal_linked_key_vault_key_binding,
+                    value: service_principal_linked_key_vault_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageKind".into(),
-                    value: &storage_kind_binding,
+                    value: storage_kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useManagedIdentity".into(),
-                    value: &use_managed_identity_binding,
+                    value: use_managed_identity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkedServiceAzureBlobStorageResult {
-            additional_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalProperties"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            connection_string_insecure: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionStringInsecure"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationRuntimeName"),
-            ),
-            key_vault_sas_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultSasToken"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            sas_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sasUri"),
-            ),
-            service_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceEndpoint"),
-            ),
-            service_principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipalId"),
-            ),
-            service_principal_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipalKey"),
-            ),
-            service_principal_linked_key_vault_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipalLinkedKeyVaultKey"),
-            ),
-            storage_kind: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageKind"),
-            ),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
-            use_managed_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useManagedIdentity"),
-            ),
+            additional_properties: o.get_field("additionalProperties"),
+            annotations: o.get_field("annotations"),
+            connection_string: o.get_field("connectionString"),
+            connection_string_insecure: o.get_field("connectionStringInsecure"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            integration_runtime_name: o.get_field("integrationRuntimeName"),
+            key_vault_sas_token: o.get_field("keyVaultSasToken"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            sas_uri: o.get_field("sasUri"),
+            service_endpoint: o.get_field("serviceEndpoint"),
+            service_principal_id: o.get_field("servicePrincipalId"),
+            service_principal_key: o.get_field("servicePrincipalKey"),
+            service_principal_linked_key_vault_key: o
+                .get_field("servicePrincipalLinkedKeyVaultKey"),
+            storage_kind: o.get_field("storageKind"),
+            tenant_id: o.get_field("tenantId"),
+            use_managed_identity: o.get_field("useManagedIdentity"),
         }
     }
 }

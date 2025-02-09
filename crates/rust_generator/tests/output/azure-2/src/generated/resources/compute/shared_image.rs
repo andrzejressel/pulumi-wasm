@@ -230,302 +230,216 @@ pub mod shared_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SharedImageArgs,
     ) -> SharedImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerated_network_support_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accelerated_network_support_enabled_binding = args
             .accelerated_network_support_enabled
             .get_output(context);
-        let accelerated_network_support_enabled_binding = accelerated_network_support_enabled_binding_1
-            .get_inner();
-        let architecture_binding_1 = args.architecture.get_output(context);
-        let architecture_binding = architecture_binding_1.get_inner();
-        let confidential_vm_enabled_binding_1 = args
+        let architecture_binding = args.architecture.get_output(context);
+        let confidential_vm_enabled_binding = args
             .confidential_vm_enabled
             .get_output(context);
-        let confidential_vm_enabled_binding = confidential_vm_enabled_binding_1
-            .get_inner();
-        let confidential_vm_supported_binding_1 = args
+        let confidential_vm_supported_binding = args
             .confidential_vm_supported
             .get_output(context);
-        let confidential_vm_supported_binding = confidential_vm_supported_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disk_controller_type_nvme_enabled_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let disk_controller_type_nvme_enabled_binding = args
             .disk_controller_type_nvme_enabled
             .get_output(context);
-        let disk_controller_type_nvme_enabled_binding = disk_controller_type_nvme_enabled_binding_1
-            .get_inner();
-        let disk_types_not_alloweds_binding_1 = args
+        let disk_types_not_alloweds_binding = args
             .disk_types_not_alloweds
             .get_output(context);
-        let disk_types_not_alloweds_binding = disk_types_not_alloweds_binding_1
-            .get_inner();
-        let end_of_life_date_binding_1 = args.end_of_life_date.get_output(context);
-        let end_of_life_date_binding = end_of_life_date_binding_1.get_inner();
-        let eula_binding_1 = args.eula.get_output(context);
-        let eula_binding = eula_binding_1.get_inner();
-        let gallery_name_binding_1 = args.gallery_name.get_output(context);
-        let gallery_name_binding = gallery_name_binding_1.get_inner();
-        let hibernation_enabled_binding_1 = args.hibernation_enabled.get_output(context);
-        let hibernation_enabled_binding = hibernation_enabled_binding_1.get_inner();
-        let hyper_v_generation_binding_1 = args.hyper_v_generation.get_output(context);
-        let hyper_v_generation_binding = hyper_v_generation_binding_1.get_inner();
-        let identifier_binding_1 = args.identifier.get_output(context);
-        let identifier_binding = identifier_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let max_recommended_memory_in_gb_binding_1 = args
+        let end_of_life_date_binding = args.end_of_life_date.get_output(context);
+        let eula_binding = args.eula.get_output(context);
+        let gallery_name_binding = args.gallery_name.get_output(context);
+        let hibernation_enabled_binding = args.hibernation_enabled.get_output(context);
+        let hyper_v_generation_binding = args.hyper_v_generation.get_output(context);
+        let identifier_binding = args.identifier.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let max_recommended_memory_in_gb_binding = args
             .max_recommended_memory_in_gb
             .get_output(context);
-        let max_recommended_memory_in_gb_binding = max_recommended_memory_in_gb_binding_1
-            .get_inner();
-        let max_recommended_vcpu_count_binding_1 = args
+        let max_recommended_vcpu_count_binding = args
             .max_recommended_vcpu_count
             .get_output(context);
-        let max_recommended_vcpu_count_binding = max_recommended_vcpu_count_binding_1
-            .get_inner();
-        let min_recommended_memory_in_gb_binding_1 = args
+        let min_recommended_memory_in_gb_binding = args
             .min_recommended_memory_in_gb
             .get_output(context);
-        let min_recommended_memory_in_gb_binding = min_recommended_memory_in_gb_binding_1
-            .get_inner();
-        let min_recommended_vcpu_count_binding_1 = args
+        let min_recommended_vcpu_count_binding = args
             .min_recommended_vcpu_count
             .get_output(context);
-        let min_recommended_vcpu_count_binding = min_recommended_vcpu_count_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let os_type_binding_1 = args.os_type.get_output(context);
-        let os_type_binding = os_type_binding_1.get_inner();
-        let privacy_statement_uri_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let os_type_binding = args.os_type.get_output(context);
+        let privacy_statement_uri_binding = args
             .privacy_statement_uri
             .get_output(context);
-        let privacy_statement_uri_binding = privacy_statement_uri_binding_1.get_inner();
-        let purchase_plan_binding_1 = args.purchase_plan.get_output(context);
-        let purchase_plan_binding = purchase_plan_binding_1.get_inner();
-        let release_note_uri_binding_1 = args.release_note_uri.get_output(context);
-        let release_note_uri_binding = release_note_uri_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let specialized_binding_1 = args.specialized.get_output(context);
-        let specialized_binding = specialized_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let trusted_launch_enabled_binding_1 = args
+        let purchase_plan_binding = args.purchase_plan.get_output(context);
+        let release_note_uri_binding = args.release_note_uri.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let specialized_binding = args.specialized.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let trusted_launch_enabled_binding = args
             .trusted_launch_enabled
             .get_output(context);
-        let trusted_launch_enabled_binding = trusted_launch_enabled_binding_1
-            .get_inner();
-        let trusted_launch_supported_binding_1 = args
+        let trusted_launch_supported_binding = args
             .trusted_launch_supported
             .get_output(context);
-        let trusted_launch_supported_binding = trusted_launch_supported_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/sharedImage:SharedImage".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratedNetworkSupportEnabled".into(),
-                    value: &accelerated_network_support_enabled_binding,
+                    value: accelerated_network_support_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "architecture".into(),
-                    value: &architecture_binding,
+                    value: architecture_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confidentialVmEnabled".into(),
-                    value: &confidential_vm_enabled_binding,
+                    value: confidential_vm_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confidentialVmSupported".into(),
-                    value: &confidential_vm_supported_binding,
+                    value: confidential_vm_supported_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskControllerTypeNvmeEnabled".into(),
-                    value: &disk_controller_type_nvme_enabled_binding,
+                    value: disk_controller_type_nvme_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskTypesNotAlloweds".into(),
-                    value: &disk_types_not_alloweds_binding,
+                    value: disk_types_not_alloweds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endOfLifeDate".into(),
-                    value: &end_of_life_date_binding,
+                    value: end_of_life_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eula".into(),
-                    value: &eula_binding,
+                    value: eula_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryName".into(),
-                    value: &gallery_name_binding,
+                    value: gallery_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hibernationEnabled".into(),
-                    value: &hibernation_enabled_binding,
+                    value: hibernation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hyperVGeneration".into(),
-                    value: &hyper_v_generation_binding,
+                    value: hyper_v_generation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: &identifier_binding,
+                    value: identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRecommendedMemoryInGb".into(),
-                    value: &max_recommended_memory_in_gb_binding,
+                    value: max_recommended_memory_in_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRecommendedVcpuCount".into(),
-                    value: &max_recommended_vcpu_count_binding,
+                    value: max_recommended_vcpu_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minRecommendedMemoryInGb".into(),
-                    value: &min_recommended_memory_in_gb_binding,
+                    value: min_recommended_memory_in_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minRecommendedVcpuCount".into(),
-                    value: &min_recommended_vcpu_count_binding,
+                    value: min_recommended_vcpu_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osType".into(),
-                    value: &os_type_binding,
+                    value: os_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privacyStatementUri".into(),
-                    value: &privacy_statement_uri_binding,
+                    value: privacy_statement_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purchasePlan".into(),
-                    value: &purchase_plan_binding,
+                    value: purchase_plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseNoteUri".into(),
-                    value: &release_note_uri_binding,
+                    value: release_note_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "specialized".into(),
-                    value: &specialized_binding,
+                    value: specialized_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedLaunchEnabled".into(),
-                    value: &trusted_launch_enabled_binding,
+                    value: trusted_launch_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedLaunchSupported".into(),
-                    value: &trusted_launch_supported_binding,
+                    value: trusted_launch_supported_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SharedImageResult {
-            accelerated_network_support_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratedNetworkSupportEnabled"),
-            ),
-            architecture: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("architecture"),
-            ),
-            confidential_vm_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confidentialVmEnabled"),
-            ),
-            confidential_vm_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confidentialVmSupported"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disk_controller_type_nvme_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskControllerTypeNvmeEnabled"),
-            ),
-            disk_types_not_alloweds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskTypesNotAlloweds"),
-            ),
-            end_of_life_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endOfLifeDate"),
-            ),
-            eula: pulumi_gestalt_rust::__private::into_domain(o.extract_field("eula")),
-            gallery_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("galleryName"),
-            ),
-            hibernation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hibernationEnabled"),
-            ),
-            hyper_v_generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hyperVGeneration"),
-            ),
-            identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifier"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_recommended_memory_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxRecommendedMemoryInGb"),
-            ),
-            max_recommended_vcpu_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxRecommendedVcpuCount"),
-            ),
-            min_recommended_memory_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minRecommendedMemoryInGb"),
-            ),
-            min_recommended_vcpu_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minRecommendedVcpuCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            os_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osType"),
-            ),
-            privacy_statement_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privacyStatementUri"),
-            ),
-            purchase_plan: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purchasePlan"),
-            ),
-            release_note_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseNoteUri"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            specialized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("specialized"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            trusted_launch_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedLaunchEnabled"),
-            ),
-            trusted_launch_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedLaunchSupported"),
-            ),
+            accelerated_network_support_enabled: o
+                .get_field("acceleratedNetworkSupportEnabled"),
+            architecture: o.get_field("architecture"),
+            confidential_vm_enabled: o.get_field("confidentialVmEnabled"),
+            confidential_vm_supported: o.get_field("confidentialVmSupported"),
+            description: o.get_field("description"),
+            disk_controller_type_nvme_enabled: o
+                .get_field("diskControllerTypeNvmeEnabled"),
+            disk_types_not_alloweds: o.get_field("diskTypesNotAlloweds"),
+            end_of_life_date: o.get_field("endOfLifeDate"),
+            eula: o.get_field("eula"),
+            gallery_name: o.get_field("galleryName"),
+            hibernation_enabled: o.get_field("hibernationEnabled"),
+            hyper_v_generation: o.get_field("hyperVGeneration"),
+            identifier: o.get_field("identifier"),
+            location: o.get_field("location"),
+            max_recommended_memory_in_gb: o.get_field("maxRecommendedMemoryInGb"),
+            max_recommended_vcpu_count: o.get_field("maxRecommendedVcpuCount"),
+            min_recommended_memory_in_gb: o.get_field("minRecommendedMemoryInGb"),
+            min_recommended_vcpu_count: o.get_field("minRecommendedVcpuCount"),
+            name: o.get_field("name"),
+            os_type: o.get_field("osType"),
+            privacy_statement_uri: o.get_field("privacyStatementUri"),
+            purchase_plan: o.get_field("purchasePlan"),
+            release_note_uri: o.get_field("releaseNoteUri"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            specialized: o.get_field("specialized"),
+            tags: o.get_field("tags"),
+            trusted_launch_enabled: o.get_field("trustedLaunchEnabled"),
+            trusted_launch_supported: o.get_field("trustedLaunchSupported"),
         }
     }
 }

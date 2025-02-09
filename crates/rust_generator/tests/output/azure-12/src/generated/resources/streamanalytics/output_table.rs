@@ -120,112 +120,84 @@ pub mod output_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OutputTableArgs,
     ) -> OutputTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_size_binding_1 = args.batch_size.get_output(context);
-        let batch_size_binding = batch_size_binding_1.get_inner();
-        let columns_to_removes_binding_1 = args.columns_to_removes.get_output(context);
-        let columns_to_removes_binding = columns_to_removes_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partition_key_binding_1 = args.partition_key.get_output(context);
-        let partition_key_binding = partition_key_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let row_key_binding_1 = args.row_key.get_output(context);
-        let row_key_binding = row_key_binding_1.get_inner();
-        let storage_account_key_binding_1 = args.storage_account_key.get_output(context);
-        let storage_account_key_binding = storage_account_key_binding_1.get_inner();
-        let storage_account_name_binding_1 = args
-            .storage_account_name
-            .get_output(context);
-        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
-        let stream_analytics_job_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let batch_size_binding = args.batch_size.get_output(context);
+        let columns_to_removes_binding = args.columns_to_removes.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let partition_key_binding = args.partition_key.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let row_key_binding = args.row_key.get_output(context);
+        let storage_account_key_binding = args.storage_account_key.get_output(context);
+        let storage_account_name_binding = args.storage_account_name.get_output(context);
+        let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
             .get_output(context);
-        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
-            .get_inner();
-        let table_binding_1 = args.table.get_output(context);
-        let table_binding = table_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let table_binding = args.table.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputTable:OutputTable".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchSize".into(),
-                    value: &batch_size_binding,
+                    value: batch_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnsToRemoves".into(),
-                    value: &columns_to_removes_binding,
+                    value: columns_to_removes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKey".into(),
-                    value: &partition_key_binding,
+                    value: partition_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowKey".into(),
-                    value: &row_key_binding,
+                    value: row_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: &storage_account_key_binding,
+                    value: storage_account_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: &storage_account_name_binding,
+                    value: storage_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: &stream_analytics_job_name_binding,
+                    value: stream_analytics_job_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: &table_binding,
+                    value: table_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OutputTableResult {
-            batch_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchSize"),
-            ),
-            columns_to_removes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("columnsToRemoves"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partition_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKey"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            row_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowKey"),
-            ),
-            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountKey"),
-            ),
-            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountName"),
-            ),
-            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobName"),
-            ),
-            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
+            batch_size: o.get_field("batchSize"),
+            columns_to_removes: o.get_field("columnsToRemoves"),
+            name: o.get_field("name"),
+            partition_key: o.get_field("partitionKey"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            row_key: o.get_field("rowKey"),
+            storage_account_key: o.get_field("storageAccountKey"),
+            storage_account_name: o.get_field("storageAccountName"),
+            stream_analytics_job_name: o.get_field("streamAnalyticsJobName"),
+            table: o.get_field("table"),
         }
     }
 }

@@ -138,82 +138,63 @@ pub mod zone {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZoneArgs,
     ) -> ZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let delegation_set_id_binding_1 = args.delegation_set_id.get_output(context);
-        let delegation_set_id_binding = delegation_set_id_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpcs_binding_1 = args.vpcs.get_output(context);
-        let vpcs_binding = vpcs_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let comment_binding = args.comment.get_output(context);
+        let delegation_set_id_binding = args.delegation_set_id.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpcs_binding = args.vpcs.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/zone:Zone".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegationSetId".into(),
-                    value: &delegation_set_id_binding,
+                    value: delegation_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcs".into(),
-                    value: &vpcs_binding,
+                    value: vpcs_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZoneResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            delegation_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegationSetId"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameServers"),
-            ),
-            primary_name_server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryNameServer"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpcs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcs")),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            arn: o.get_field("arn"),
+            comment: o.get_field("comment"),
+            delegation_set_id: o.get_field("delegationSetId"),
+            force_destroy: o.get_field("forceDestroy"),
+            name: o.get_field("name"),
+            name_servers: o.get_field("nameServers"),
+            primary_name_server: o.get_field("primaryNameServer"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpcs: o.get_field("vpcs"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

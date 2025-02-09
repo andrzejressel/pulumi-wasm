@@ -59,81 +59,45 @@ pub mod get_replication_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReplicationGroupArgs,
     ) -> GetReplicationGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replication_group_id_binding_1 = args
-            .replication_group_id
-            .get_output(context);
-        let replication_group_id_binding = replication_group_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let replication_group_id_binding = args.replication_group_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:elasticache/getReplicationGroup:getReplicationGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationGroupId".into(),
-                    value: &replication_group_id_binding,
+                    value: replication_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReplicationGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auth_token_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authTokenEnabled"),
-            ),
-            automatic_failover_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticFailoverEnabled"),
-            ),
-            cluster_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterMode"),
-            ),
-            configuration_endpoint_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationEndpointAddress"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            log_delivery_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDeliveryConfigurations"),
-            ),
-            member_clusters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberClusters"),
-            ),
-            multi_az_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAzEnabled"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            num_cache_clusters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numCacheClusters"),
-            ),
-            num_node_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numNodeGroups"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            primary_endpoint_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryEndpointAddress"),
-            ),
-            reader_endpoint_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readerEndpointAddress"),
-            ),
-            replicas_per_node_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicasPerNodeGroup"),
-            ),
-            replication_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationGroupId"),
-            ),
-            snapshot_retention_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotRetentionLimit"),
-            ),
-            snapshot_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotWindow"),
-            ),
+            arn: o.get_field("arn"),
+            auth_token_enabled: o.get_field("authTokenEnabled"),
+            automatic_failover_enabled: o.get_field("automaticFailoverEnabled"),
+            cluster_mode: o.get_field("clusterMode"),
+            configuration_endpoint_address: o.get_field("configurationEndpointAddress"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            log_delivery_configurations: o.get_field("logDeliveryConfigurations"),
+            member_clusters: o.get_field("memberClusters"),
+            multi_az_enabled: o.get_field("multiAzEnabled"),
+            node_type: o.get_field("nodeType"),
+            num_cache_clusters: o.get_field("numCacheClusters"),
+            num_node_groups: o.get_field("numNodeGroups"),
+            port: o.get_field("port"),
+            primary_endpoint_address: o.get_field("primaryEndpointAddress"),
+            reader_endpoint_address: o.get_field("readerEndpointAddress"),
+            replicas_per_node_group: o.get_field("replicasPerNodeGroup"),
+            replication_group_id: o.get_field("replicationGroupId"),
+            snapshot_retention_limit: o.get_field("snapshotRetentionLimit"),
+            snapshot_window: o.get_field("snapshotWindow"),
         }
     }
 }

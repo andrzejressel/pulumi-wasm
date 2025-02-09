@@ -46,64 +46,46 @@ pub mod get_access_entry {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccessEntryArgs,
     ) -> GetAccessEntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let principal_arn_binding_1 = args.principal_arn.get_output(context);
-        let principal_arn_binding = principal_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let principal_arn_binding = args.principal_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:eks/getAccessEntry:getAccessEntry".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalArn".into(),
-                    value: &principal_arn_binding,
+                    value: principal_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccessEntryResult {
-            access_entry_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessEntryArn"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kubernetes_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesGroups"),
-            ),
-            modified_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedAt"),
-            ),
-            principal_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            access_entry_arn: o.get_field("accessEntryArn"),
+            cluster_name: o.get_field("clusterName"),
+            created_at: o.get_field("createdAt"),
+            id: o.get_field("id"),
+            kubernetes_groups: o.get_field("kubernetesGroups"),
+            modified_at: o.get_field("modifiedAt"),
+            principal_arn: o.get_field("principalArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            user_name: o.get_field("userName"),
         }
     }
 }

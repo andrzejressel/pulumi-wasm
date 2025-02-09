@@ -113,104 +113,75 @@ pub mod replica_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReplicaKeyArgs,
     ) -> ReplicaKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bypass_policy_lockout_safety_check_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bypass_policy_lockout_safety_check_binding = args
             .bypass_policy_lockout_safety_check
             .get_output(context);
-        let bypass_policy_lockout_safety_check_binding = bypass_policy_lockout_safety_check_binding_1
-            .get_inner();
-        let deletion_window_in_days_binding_1 = args
+        let deletion_window_in_days_binding = args
             .deletion_window_in_days
             .get_output(context);
-        let deletion_window_in_days_binding = deletion_window_in_days_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let primary_key_arn_binding_1 = args.primary_key_arn.get_output(context);
-        let primary_key_arn_binding = primary_key_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let primary_key_arn_binding = args.primary_key_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kms/replicaKey:ReplicaKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPolicyLockoutSafetyCheck".into(),
-                    value: &bypass_policy_lockout_safety_check_binding,
+                    value: bypass_policy_lockout_safety_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionWindowInDays".into(),
-                    value: &deletion_window_in_days_binding,
+                    value: deletion_window_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryKeyArn".into(),
-                    value: &primary_key_arn_binding,
+                    value: primary_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReplicaKeyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bypass_policy_lockout_safety_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bypassPolicyLockoutSafetyCheck"),
-            ),
-            deletion_window_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionWindowInDays"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyId"),
-            ),
-            key_rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyRotationEnabled"),
-            ),
-            key_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySpec"),
-            ),
-            key_usage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyUsage"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            primary_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKeyArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            bypass_policy_lockout_safety_check: o
+                .get_field("bypassPolicyLockoutSafetyCheck"),
+            deletion_window_in_days: o.get_field("deletionWindowInDays"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            key_id: o.get_field("keyId"),
+            key_rotation_enabled: o.get_field("keyRotationEnabled"),
+            key_spec: o.get_field("keySpec"),
+            key_usage: o.get_field("keyUsage"),
+            policy: o.get_field("policy"),
+            primary_key_arn: o.get_field("primaryKeyArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -155,79 +155,61 @@ pub mod autoscaling_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AutoscalingPolicyArgs,
     ) -> AutoscalingPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let basic_algorithm_binding_1 = args.basic_algorithm.get_output(context);
-        let basic_algorithm_binding = basic_algorithm_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let policy_id_binding_1 = args.policy_id.get_output(context);
-        let policy_id_binding = policy_id_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let secondary_worker_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let basic_algorithm_binding = args.basic_algorithm.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let policy_id_binding = args.policy_id.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let secondary_worker_config_binding = args
             .secondary_worker_config
             .get_output(context);
-        let secondary_worker_config_binding = secondary_worker_config_binding_1
-            .get_inner();
-        let worker_config_binding_1 = args.worker_config.get_output(context);
-        let worker_config_binding = worker_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let worker_config_binding = args.worker_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataproc/autoscalingPolicy:AutoscalingPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicAlgorithm".into(),
-                    value: &basic_algorithm_binding,
+                    value: basic_algorithm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyId".into(),
-                    value: &policy_id_binding,
+                    value: policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryWorkerConfig".into(),
-                    value: &secondary_worker_config_binding,
+                    value: secondary_worker_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerConfig".into(),
-                    value: &worker_config_binding,
+                    value: worker_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AutoscalingPolicyResult {
-            basic_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basicAlgorithm"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            secondary_worker_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWorkerConfig"),
-            ),
-            worker_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerConfig"),
-            ),
+            basic_algorithm: o.get_field("basicAlgorithm"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            policy_id: o.get_field("policyId"),
+            project: o.get_field("project"),
+            secondary_worker_config: o.get_field("secondaryWorkerConfig"),
+            worker_config: o.get_field("workerConfig"),
         }
     }
 }

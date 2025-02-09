@@ -46,61 +46,49 @@ pub mod identity_pool_provider_principal_tag {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IdentityPoolProviderPrincipalTagArgs,
     ) -> IdentityPoolProviderPrincipalTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_pool_id_binding_1 = args.identity_pool_id.get_output(context);
-        let identity_pool_id_binding = identity_pool_id_binding_1.get_inner();
-        let identity_provider_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let identity_pool_id_binding = args.identity_pool_id.get_output(context);
+        let identity_provider_name_binding = args
             .identity_provider_name
             .get_output(context);
-        let identity_provider_name_binding = identity_provider_name_binding_1
-            .get_inner();
-        let principal_tags_binding_1 = args.principal_tags.get_output(context);
-        let principal_tags_binding = principal_tags_binding_1.get_inner();
-        let use_defaults_binding_1 = args.use_defaults.get_output(context);
-        let use_defaults_binding = use_defaults_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let principal_tags_binding = args.principal_tags.get_output(context);
+        let use_defaults_binding = args.use_defaults.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityPoolId".into(),
-                    value: &identity_pool_id_binding,
+                    value: identity_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityProviderName".into(),
-                    value: &identity_provider_name_binding,
+                    value: identity_provider_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalTags".into(),
-                    value: &principal_tags_binding,
+                    value: principal_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useDefaults".into(),
-                    value: &use_defaults_binding,
+                    value: use_defaults_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IdentityPoolProviderPrincipalTagResult {
-            identity_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityPoolId"),
-            ),
-            identity_provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityProviderName"),
-            ),
-            principal_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalTags"),
-            ),
-            use_defaults: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useDefaults"),
-            ),
+            identity_pool_id: o.get_field("identityPoolId"),
+            identity_provider_name: o.get_field("identityProviderName"),
+            principal_tags: o.get_field("principalTags"),
+            use_defaults: o.get_field("useDefaults"),
         }
     }
 }

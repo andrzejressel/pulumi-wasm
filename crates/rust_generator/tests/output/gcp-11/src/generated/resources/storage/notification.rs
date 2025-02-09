@@ -133,79 +133,60 @@ pub mod notification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NotificationArgs,
     ) -> NotificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let custom_attributes_binding_1 = args.custom_attributes.get_output(context);
-        let custom_attributes_binding = custom_attributes_binding_1.get_inner();
-        let event_types_binding_1 = args.event_types.get_output(context);
-        let event_types_binding = event_types_binding_1.get_inner();
-        let object_name_prefix_binding_1 = args.object_name_prefix.get_output(context);
-        let object_name_prefix_binding = object_name_prefix_binding_1.get_inner();
-        let payload_format_binding_1 = args.payload_format.get_output(context);
-        let payload_format_binding = payload_format_binding_1.get_inner();
-        let topic_binding_1 = args.topic.get_output(context);
-        let topic_binding = topic_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let custom_attributes_binding = args.custom_attributes.get_output(context);
+        let event_types_binding = args.event_types.get_output(context);
+        let object_name_prefix_binding = args.object_name_prefix.get_output(context);
+        let payload_format_binding = args.payload_format.get_output(context);
+        let topic_binding = args.topic.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:storage/notification:Notification".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customAttributes".into(),
-                    value: &custom_attributes_binding,
+                    value: custom_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTypes".into(),
-                    value: &event_types_binding,
+                    value: event_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectNamePrefix".into(),
-                    value: &object_name_prefix_binding,
+                    value: object_name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "payloadFormat".into(),
-                    value: &payload_format_binding,
+                    value: payload_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topic".into(),
-                    value: &topic_binding,
+                    value: topic_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NotificationResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            custom_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customAttributes"),
-            ),
-            event_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventTypes"),
-            ),
-            notification_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationId"),
-            ),
-            object_name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectNamePrefix"),
-            ),
-            payload_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("payloadFormat"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            topic: pulumi_gestalt_rust::__private::into_domain(o.extract_field("topic")),
+            bucket: o.get_field("bucket"),
+            custom_attributes: o.get_field("customAttributes"),
+            event_types: o.get_field("eventTypes"),
+            notification_id: o.get_field("notificationId"),
+            object_name_prefix: o.get_field("objectNamePrefix"),
+            payload_format: o.get_field("payloadFormat"),
+            self_link: o.get_field("selfLink"),
+            topic: o.get_field("topic"),
         }
     }
 }

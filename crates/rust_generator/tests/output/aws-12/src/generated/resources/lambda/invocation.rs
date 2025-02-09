@@ -148,76 +148,59 @@ pub mod invocation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InvocationArgs,
     ) -> InvocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let input_binding_1 = args.input.get_output(context);
-        let input_binding = input_binding_1.get_inner();
-        let lifecycle_scope_binding_1 = args.lifecycle_scope.get_output(context);
-        let lifecycle_scope_binding = lifecycle_scope_binding_1.get_inner();
-        let qualifier_binding_1 = args.qualifier.get_output(context);
-        let qualifier_binding = qualifier_binding_1.get_inner();
-        let terraform_key_binding_1 = args.terraform_key.get_output(context);
-        let terraform_key_binding = terraform_key_binding_1.get_inner();
-        let triggers_binding_1 = args.triggers.get_output(context);
-        let triggers_binding = triggers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let function_name_binding = args.function_name.get_output(context);
+        let input_binding = args.input.get_output(context);
+        let lifecycle_scope_binding = args.lifecycle_scope.get_output(context);
+        let qualifier_binding = args.qualifier.get_output(context);
+        let terraform_key_binding = args.terraform_key.get_output(context);
+        let triggers_binding = args.triggers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/invocation:Invocation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "input".into(),
-                    value: &input_binding,
+                    value: input_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecycleScope".into(),
-                    value: &lifecycle_scope_binding,
+                    value: lifecycle_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: &qualifier_binding,
+                    value: qualifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terraformKey".into(),
-                    value: &terraform_key_binding,
+                    value: terraform_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: &triggers_binding,
+                    value: triggers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InvocationResult {
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            input: pulumi_gestalt_rust::__private::into_domain(o.extract_field("input")),
-            lifecycle_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleScope"),
-            ),
-            qualifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifier"),
-            ),
-            result: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("result"),
-            ),
-            terraform_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terraformKey"),
-            ),
-            triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggers"),
-            ),
+            function_name: o.get_field("functionName"),
+            input: o.get_field("input"),
+            lifecycle_scope: o.get_field("lifecycleScope"),
+            qualifier: o.get_field("qualifier"),
+            result: o.get_field("result"),
+            terraform_key: o.get_field("terraformKey"),
+            triggers: o.get_field("triggers"),
         }
     }
 }

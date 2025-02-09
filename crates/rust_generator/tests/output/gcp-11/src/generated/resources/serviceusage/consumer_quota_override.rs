@@ -207,81 +207,65 @@ pub mod consumer_quota_override {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConsumerQuotaOverrideArgs,
     ) -> ConsumerQuotaOverrideResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dimensions_binding_1 = args.dimensions.get_output(context);
-        let dimensions_binding = dimensions_binding_1.get_inner();
-        let force_binding_1 = args.force.get_output(context);
-        let force_binding = force_binding_1.get_inner();
-        let limit_binding_1 = args.limit.get_output(context);
-        let limit_binding = limit_binding_1.get_inner();
-        let metric_binding_1 = args.metric.get_output(context);
-        let metric_binding = metric_binding_1.get_inner();
-        let override_value_binding_1 = args.override_value.get_output(context);
-        let override_value_binding = override_value_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dimensions_binding = args.dimensions.get_output(context);
+        let force_binding = args.force.get_output(context);
+        let limit_binding = args.limit.get_output(context);
+        let metric_binding = args.metric.get_output(context);
+        let override_value_binding = args.override_value.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_binding = args.service.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:serviceusage/consumerQuotaOverride:ConsumerQuotaOverride".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dimensions".into(),
-                    value: &dimensions_binding,
+                    value: dimensions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "force".into(),
-                    value: &force_binding,
+                    value: force_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "limit".into(),
-                    value: &limit_binding,
+                    value: limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metric".into(),
-                    value: &metric_binding,
+                    value: metric_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideValue".into(),
-                    value: &override_value_binding,
+                    value: override_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConsumerQuotaOverrideResult {
-            dimensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dimensions"),
-            ),
-            force: pulumi_gestalt_rust::__private::into_domain(o.extract_field("force")),
-            limit: pulumi_gestalt_rust::__private::into_domain(o.extract_field("limit")),
-            metric: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metric"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            override_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrideValue"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
+            dimensions: o.get_field("dimensions"),
+            force: o.get_field("force"),
+            limit: o.get_field("limit"),
+            metric: o.get_field("metric"),
+            name: o.get_field("name"),
+            override_value: o.get_field("overrideValue"),
+            project: o.get_field("project"),
+            service: o.get_field("service"),
         }
     }
 }

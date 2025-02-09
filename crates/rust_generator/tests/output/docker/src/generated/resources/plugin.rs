@@ -92,101 +92,79 @@ pub mod plugin {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PluginArgs,
     ) -> PluginResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let enable_timeout_binding_1 = args.enable_timeout.get_output(context);
-        let enable_timeout_binding = enable_timeout_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let envs_binding_1 = args.envs.get_output(context);
-        let envs_binding = envs_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let force_disable_binding_1 = args.force_disable.get_output(context);
-        let force_disable_binding = force_disable_binding_1.get_inner();
-        let grant_all_permissions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let enable_timeout_binding = args.enable_timeout.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let envs_binding = args.envs.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let force_disable_binding = args.force_disable.get_output(context);
+        let grant_all_permissions_binding = args
             .grant_all_permissions
             .get_output(context);
-        let grant_all_permissions_binding = grant_all_permissions_binding_1.get_inner();
-        let grant_permissions_binding_1 = args.grant_permissions.get_output(context);
-        let grant_permissions_binding = grant_permissions_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let grant_permissions_binding = args.grant_permissions.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "docker:index/plugin:Plugin".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableTimeout".into(),
-                    value: &enable_timeout_binding,
+                    value: enable_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envs".into(),
-                    value: &envs_binding,
+                    value: envs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDisable".into(),
-                    value: &force_disable_binding,
+                    value: force_disable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantAllPermissions".into(),
-                    value: &grant_all_permissions_binding,
+                    value: grant_all_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantPermissions".into(),
-                    value: &grant_permissions_binding,
+                    value: grant_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PluginResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            enable_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableTimeout"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            envs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("envs")),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            force_disable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDisable"),
-            ),
-            grant_all_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantAllPermissions"),
-            ),
-            grant_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantPermissions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            plugin_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pluginReference"),
-            ),
+            alias: o.get_field("alias"),
+            enable_timeout: o.get_field("enableTimeout"),
+            enabled: o.get_field("enabled"),
+            envs: o.get_field("envs"),
+            force_destroy: o.get_field("forceDestroy"),
+            force_disable: o.get_field("forceDisable"),
+            grant_all_permissions: o.get_field("grantAllPermissions"),
+            grant_permissions: o.get_field("grantPermissions"),
+            name: o.get_field("name"),
+            plugin_reference: o.get_field("pluginReference"),
         }
     }
 }

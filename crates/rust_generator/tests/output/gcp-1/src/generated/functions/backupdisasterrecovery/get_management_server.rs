@@ -32,44 +32,34 @@ pub mod get_management_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetManagementServerArgs,
     ) -> GetManagementServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:backupdisasterrecovery/getManagementServer:getManagementServer"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetManagementServerResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_uris: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementUris"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            networks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networks"),
-            ),
-            oauth2_client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oauth2ClientId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            management_uris: o.get_field("managementUris"),
+            name: o.get_field("name"),
+            networks: o.get_field("networks"),
+            oauth2_client_id: o.get_field("oauth2ClientId"),
+            project: o.get_field("project"),
+            type_: o.get_field("type"),
         }
     }
 }

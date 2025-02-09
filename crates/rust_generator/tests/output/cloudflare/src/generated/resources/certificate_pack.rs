@@ -79,112 +79,86 @@ pub mod certificate_pack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificatePackArgs,
     ) -> CertificatePackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_authority_binding = args
             .certificate_authority
             .get_output(context);
-        let certificate_authority_binding = certificate_authority_binding_1.get_inner();
-        let cloudflare_branding_binding_1 = args.cloudflare_branding.get_output(context);
-        let cloudflare_branding_binding = cloudflare_branding_binding_1.get_inner();
-        let hosts_binding_1 = args.hosts.get_output(context);
-        let hosts_binding = hosts_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let validation_errors_binding_1 = args.validation_errors.get_output(context);
-        let validation_errors_binding = validation_errors_binding_1.get_inner();
-        let validation_method_binding_1 = args.validation_method.get_output(context);
-        let validation_method_binding = validation_method_binding_1.get_inner();
-        let validation_records_binding_1 = args.validation_records.get_output(context);
-        let validation_records_binding = validation_records_binding_1.get_inner();
-        let validity_days_binding_1 = args.validity_days.get_output(context);
-        let validity_days_binding = validity_days_binding_1.get_inner();
-        let wait_for_active_status_binding_1 = args
+        let cloudflare_branding_binding = args.cloudflare_branding.get_output(context);
+        let hosts_binding = args.hosts.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let validation_errors_binding = args.validation_errors.get_output(context);
+        let validation_method_binding = args.validation_method.get_output(context);
+        let validation_records_binding = args.validation_records.get_output(context);
+        let validity_days_binding = args.validity_days.get_output(context);
+        let wait_for_active_status_binding = args
             .wait_for_active_status
             .get_output(context);
-        let wait_for_active_status_binding = wait_for_active_status_binding_1
-            .get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/certificatePack:CertificatePack".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthority".into(),
-                    value: &certificate_authority_binding,
+                    value: certificate_authority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudflareBranding".into(),
-                    value: &cloudflare_branding_binding,
+                    value: cloudflare_branding_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hosts".into(),
-                    value: &hosts_binding,
+                    value: hosts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationErrors".into(),
-                    value: &validation_errors_binding,
+                    value: validation_errors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationMethod".into(),
-                    value: &validation_method_binding,
+                    value: validation_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationRecords".into(),
-                    value: &validation_records_binding,
+                    value: validation_records_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validityDays".into(),
-                    value: &validity_days_binding,
+                    value: validity_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForActiveStatus".into(),
-                    value: &wait_for_active_status_binding,
+                    value: wait_for_active_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificatePackResult {
-            certificate_authority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthority"),
-            ),
-            cloudflare_branding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudflareBranding"),
-            ),
-            hosts: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hosts")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            validation_errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationErrors"),
-            ),
-            validation_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationMethod"),
-            ),
-            validation_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationRecords"),
-            ),
-            validity_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validityDays"),
-            ),
-            wait_for_active_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForActiveStatus"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            certificate_authority: o.get_field("certificateAuthority"),
+            cloudflare_branding: o.get_field("cloudflareBranding"),
+            hosts: o.get_field("hosts"),
+            type_: o.get_field("type"),
+            validation_errors: o.get_field("validationErrors"),
+            validation_method: o.get_field("validationMethod"),
+            validation_records: o.get_field("validationRecords"),
+            validity_days: o.get_field("validityDays"),
+            wait_for_active_status: o.get_field("waitForActiveStatus"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

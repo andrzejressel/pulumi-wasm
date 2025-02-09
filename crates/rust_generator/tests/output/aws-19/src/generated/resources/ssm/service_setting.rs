@@ -55,43 +55,36 @@ pub mod service_setting {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceSettingArgs,
     ) -> ServiceSettingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let setting_id_binding_1 = args.setting_id.get_output(context);
-        let setting_id_binding = setting_id_binding_1.get_inner();
-        let setting_value_binding_1 = args.setting_value.get_output(context);
-        let setting_value_binding = setting_value_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let setting_id_binding = args.setting_id.get_output(context);
+        let setting_value_binding = args.setting_value.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/serviceSetting:ServiceSetting".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settingId".into(),
-                    value: &setting_id_binding,
+                    value: setting_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settingValue".into(),
-                    value: &setting_value_binding,
+                    value: setting_value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceSettingResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            setting_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settingId"),
-            ),
-            setting_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settingValue"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            arn: o.get_field("arn"),
+            setting_id: o.get_field("settingId"),
+            setting_value: o.get_field("settingValue"),
+            status: o.get_field("status"),
         }
     }
 }

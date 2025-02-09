@@ -107,72 +107,57 @@ pub mod tenant {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TenantArgs,
     ) -> TenantResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_password_signup_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_password_signup_binding = args
             .allow_password_signup
             .get_output(context);
-        let allow_password_signup_binding = allow_password_signup_binding_1.get_inner();
-        let disable_auth_binding_1 = args.disable_auth.get_output(context);
-        let disable_auth_binding = disable_auth_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_email_link_signin_binding_1 = args
+        let disable_auth_binding = args.disable_auth.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_email_link_signin_binding = args
             .enable_email_link_signin
             .get_output(context);
-        let enable_email_link_signin_binding = enable_email_link_signin_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:identityplatform/tenant:Tenant".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowPasswordSignup".into(),
-                    value: &allow_password_signup_binding,
+                    value: allow_password_signup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableAuth".into(),
-                    value: &disable_auth_binding,
+                    value: disable_auth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableEmailLinkSignin".into(),
-                    value: &enable_email_link_signin_binding,
+                    value: enable_email_link_signin_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TenantResult {
-            allow_password_signup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowPasswordSignup"),
-            ),
-            disable_auth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableAuth"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enable_email_link_signin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableEmailLinkSignin"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            allow_password_signup: o.get_field("allowPasswordSignup"),
+            disable_auth: o.get_field("disableAuth"),
+            display_name: o.get_field("displayName"),
+            enable_email_link_signin: o.get_field("enableEmailLinkSignin"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
         }
     }
 }

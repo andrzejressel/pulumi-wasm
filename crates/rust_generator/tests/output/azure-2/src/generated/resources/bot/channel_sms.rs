@@ -90,81 +90,62 @@ pub mod channel_sms {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ChannelSmsArgs,
     ) -> ChannelSmsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding_1 = args.bot_name.get_output(context);
-        let bot_name_binding = bot_name_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let phone_number_binding_1 = args.phone_number.get_output(context);
-        let phone_number_binding = phone_number_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sms_channel_account_security_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_name_binding = args.bot_name.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let phone_number_binding = args.phone_number.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sms_channel_account_security_id_binding = args
             .sms_channel_account_security_id
             .get_output(context);
-        let sms_channel_account_security_id_binding = sms_channel_account_security_id_binding_1
-            .get_inner();
-        let sms_channel_auth_token_binding_1 = args
+        let sms_channel_auth_token_binding = args
             .sms_channel_auth_token
             .get_output(context);
-        let sms_channel_auth_token_binding = sms_channel_auth_token_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:bot/channelSms:ChannelSms".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: &bot_name_binding,
+                    value: bot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: &phone_number_binding,
+                    value: phone_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsChannelAccountSecurityId".into(),
-                    value: &sms_channel_account_security_id_binding,
+                    value: sms_channel_account_security_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsChannelAuthToken".into(),
-                    value: &sms_channel_auth_token_binding,
+                    value: sms_channel_auth_token_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ChannelSmsResult {
-            bot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botName"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneNumber"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sms_channel_account_security_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsChannelAccountSecurityId"),
-            ),
-            sms_channel_auth_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsChannelAuthToken"),
-            ),
+            bot_name: o.get_field("botName"),
+            location: o.get_field("location"),
+            phone_number: o.get_field("phoneNumber"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sms_channel_account_security_id: o.get_field("smsChannelAccountSecurityId"),
+            sms_channel_auth_token: o.get_field("smsChannelAuthToken"),
         }
     }
 }

@@ -93,68 +93,53 @@ pub mod vpc_endpoint_connection_notification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcEndpointConnectionNotificationArgs,
     ) -> VpcEndpointConnectionNotificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_events_binding_1 = args.connection_events.get_output(context);
-        let connection_events_binding = connection_events_binding_1.get_inner();
-        let connection_notification_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_events_binding = args.connection_events.get_output(context);
+        let connection_notification_arn_binding = args
             .connection_notification_arn
             .get_output(context);
-        let connection_notification_arn_binding = connection_notification_arn_binding_1
-            .get_inner();
-        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
-        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
-        let vpc_endpoint_service_id_binding_1 = args
+        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_output(context);
+        let vpc_endpoint_service_id_binding = args
             .vpc_endpoint_service_id
             .get_output(context);
-        let vpc_endpoint_service_id_binding = vpc_endpoint_service_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionEvents".into(),
-                    value: &connection_events_binding,
+                    value: connection_events_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionNotificationArn".into(),
-                    value: &connection_notification_arn_binding,
+                    value: connection_notification_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: &vpc_endpoint_id_binding,
+                    value: vpc_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointServiceId".into(),
-                    value: &vpc_endpoint_service_id_binding,
+                    value: vpc_endpoint_service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcEndpointConnectionNotificationResult {
-            connection_events: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionEvents"),
-            ),
-            connection_notification_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionNotificationArn"),
-            ),
-            notification_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationType"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            vpc_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointId"),
-            ),
-            vpc_endpoint_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointServiceId"),
-            ),
+            connection_events: o.get_field("connectionEvents"),
+            connection_notification_arn: o.get_field("connectionNotificationArn"),
+            notification_type: o.get_field("notificationType"),
+            state: o.get_field("state"),
+            vpc_endpoint_id: o.get_field("vpcEndpointId"),
+            vpc_endpoint_service_id: o.get_field("vpcEndpointServiceId"),
         }
     }
 }

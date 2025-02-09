@@ -35,59 +35,46 @@ pub mod get_public_i_ps {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPublicIPsArgs,
     ) -> GetPublicIPsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_type_binding_1 = args.allocation_type.get_output(context);
-        let allocation_type_binding = allocation_type_binding_1.get_inner();
-        let attachment_status_binding_1 = args.attachment_status.get_output(context);
-        let attachment_status_binding = attachment_status_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allocation_type_binding = args.allocation_type.get_output(context);
+        let attachment_status_binding = args.attachment_status.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getPublicIPs:getPublicIPs".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationType".into(),
-                    value: &allocation_type_binding,
+                    value: allocation_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentStatus".into(),
-                    value: &attachment_status_binding,
+                    value: attachment_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPublicIPsResult {
-            allocation_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationType"),
-            ),
-            attachment_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentStatus"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            public_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIps"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            allocation_type: o.get_field("allocationType"),
+            attachment_status: o.get_field("attachmentStatus"),
+            id: o.get_field("id"),
+            name_prefix: o.get_field("namePrefix"),
+            public_ips: o.get_field("publicIps"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

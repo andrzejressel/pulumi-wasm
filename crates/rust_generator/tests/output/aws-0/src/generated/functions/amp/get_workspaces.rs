@@ -25,36 +25,30 @@ pub mod get_workspaces {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetWorkspacesArgs,
     ) -> GetWorkspacesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_prefix_binding_1 = args.alias_prefix.get_output(context);
-        let alias_prefix_binding = alias_prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_prefix_binding = args.alias_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:amp/getWorkspaces:getWorkspaces".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasPrefix".into(),
-                    value: &alias_prefix_binding,
+                    value: alias_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetWorkspacesResult {
-            alias_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliasPrefix"),
-            ),
-            aliases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliases"),
-            ),
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            workspace_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceIds"),
-            ),
+            alias_prefix: o.get_field("aliasPrefix"),
+            aliases: o.get_field("aliases"),
+            arns: o.get_field("arns"),
+            id: o.get_field("id"),
+            workspace_ids: o.get_field("workspaceIds"),
         }
     }
 }

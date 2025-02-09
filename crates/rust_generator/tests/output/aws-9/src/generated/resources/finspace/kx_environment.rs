@@ -215,96 +215,69 @@ pub mod kx_environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KxEnvironmentArgs,
     ) -> KxEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_dns_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_dns_configurations_binding = args
             .custom_dns_configurations
             .get_output(context);
-        let custom_dns_configurations_binding = custom_dns_configurations_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_configuration_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_configuration_binding = args
             .transit_gateway_configuration
             .get_output(context);
-        let transit_gateway_configuration_binding = transit_gateway_configuration_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:finspace/kxEnvironment:KxEnvironment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDnsConfigurations".into(),
-                    value: &custom_dns_configurations_binding,
+                    value: custom_dns_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayConfiguration".into(),
-                    value: &transit_gateway_configuration_binding,
+                    value: transit_gateway_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KxEnvironmentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            created_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTimestamp"),
-            ),
-            custom_dns_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDnsConfigurations"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            infrastructure_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureAccountId"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            last_modified_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedTimestamp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayConfiguration"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zones: o.get_field("availabilityZones"),
+            created_timestamp: o.get_field("createdTimestamp"),
+            custom_dns_configurations: o.get_field("customDnsConfigurations"),
+            description: o.get_field("description"),
+            infrastructure_account_id: o.get_field("infrastructureAccountId"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            last_modified_timestamp: o.get_field("lastModifiedTimestamp"),
+            name: o.get_field("name"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_configuration: o.get_field("transitGatewayConfiguration"),
         }
     }
 }

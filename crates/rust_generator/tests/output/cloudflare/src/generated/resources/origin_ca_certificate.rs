@@ -79,72 +79,54 @@ pub mod origin_ca_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OriginCaCertificateArgs,
     ) -> OriginCaCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let csr_binding_1 = args.csr.get_output(context);
-        let csr_binding = csr_binding_1.get_inner();
-        let hostnames_binding_1 = args.hostnames.get_output(context);
-        let hostnames_binding = hostnames_binding_1.get_inner();
-        let min_days_for_renewal_binding_1 = args
-            .min_days_for_renewal
-            .get_output(context);
-        let min_days_for_renewal_binding = min_days_for_renewal_binding_1.get_inner();
-        let request_type_binding_1 = args.request_type.get_output(context);
-        let request_type_binding = request_type_binding_1.get_inner();
-        let requested_validity_binding_1 = args.requested_validity.get_output(context);
-        let requested_validity_binding = requested_validity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let csr_binding = args.csr.get_output(context);
+        let hostnames_binding = args.hostnames.get_output(context);
+        let min_days_for_renewal_binding = args.min_days_for_renewal.get_output(context);
+        let request_type_binding = args.request_type.get_output(context);
+        let requested_validity_binding = args.requested_validity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/originCaCertificate:OriginCaCertificate".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csr".into(),
-                    value: &csr_binding,
+                    value: csr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostnames".into(),
-                    value: &hostnames_binding,
+                    value: hostnames_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minDaysForRenewal".into(),
-                    value: &min_days_for_renewal_binding,
+                    value: min_days_for_renewal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestType".into(),
-                    value: &request_type_binding,
+                    value: request_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestedValidity".into(),
-                    value: &requested_validity_binding,
+                    value: requested_validity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OriginCaCertificateResult {
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            csr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("csr")),
-            expires_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresOn"),
-            ),
-            hostnames: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostnames"),
-            ),
-            min_days_for_renewal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minDaysForRenewal"),
-            ),
-            request_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestType"),
-            ),
-            requested_validity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestedValidity"),
-            ),
+            certificate: o.get_field("certificate"),
+            csr: o.get_field("csr"),
+            expires_on: o.get_field("expiresOn"),
+            hostnames: o.get_field("hostnames"),
+            min_days_for_renewal: o.get_field("minDaysForRenewal"),
+            request_type: o.get_field("requestType"),
+            requested_validity: o.get_field("requestedValidity"),
         }
     }
 }

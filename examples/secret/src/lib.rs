@@ -1,10 +1,12 @@
 use anyhow::Error;
 use pulumi_gestalt_providers_random::random_bytes;
-use pulumi_gestalt_rust::{add_export, pulumi_combine, pulumi_main, Output, PulumiContext};
+use pulumi_gestalt_rust::GestaltOutput;
+use pulumi_gestalt_rust::{add_export, pulumi_combine, Context, Output};
 
-pulumi_main!();
+#[cfg(target_arch = "wasm32")]
+pulumi_gestalt_rust::pulumi_main!();
 
-fn pulumi_main(context: &PulumiContext) -> Result<(), Error> {
+fn pulumi_main(context: &Context) -> Result<(), Error> {
     let custom_secret = Output::new_secret(context, &10);
     let non_secret = Output::new(context, &1);
 

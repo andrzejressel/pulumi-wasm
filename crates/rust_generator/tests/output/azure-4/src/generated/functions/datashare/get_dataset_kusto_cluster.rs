@@ -29,46 +29,37 @@ pub mod get_dataset_kusto_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDatasetKustoClusterArgs,
     ) -> GetDatasetKustoClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let share_id_binding_1 = args.share_id.get_output(context);
-        let share_id_binding = share_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let share_id_binding = args.share_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareId".into(),
-                    value: &share_id_binding,
+                    value: share_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDatasetKustoClusterResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kusto_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoClusterId"),
-            ),
-            kusto_cluster_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoClusterLocation"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            share_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareId"),
-            ),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            kusto_cluster_id: o.get_field("kustoClusterId"),
+            kusto_cluster_location: o.get_field("kustoClusterLocation"),
+            name: o.get_field("name"),
+            share_id: o.get_field("shareId"),
         }
     }
 }

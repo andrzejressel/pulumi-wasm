@@ -38,51 +38,38 @@ pub mod get_map {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetMapArgs,
     ) -> GetMapResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let map_name_binding_1 = args.map_name.get_output(context);
-        let map_name_binding = map_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let map_name_binding = args.map_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:location/getMap:getMap".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mapName".into(),
-                    value: &map_name_binding,
+                    value: map_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetMapResult {
-            configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurations"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            map_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mapArn"),
-            ),
-            map_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mapName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            configurations: o.get_field("configurations"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            map_arn: o.get_field("mapArn"),
+            map_name: o.get_field("mapName"),
+            tags: o.get_field("tags"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

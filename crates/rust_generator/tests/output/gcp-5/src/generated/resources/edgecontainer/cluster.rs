@@ -317,194 +317,130 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_binding_1 = args.authorization.get_output(context);
-        let authorization_binding = authorization_binding_1.get_inner();
-        let control_plane_binding_1 = args.control_plane.get_output(context);
-        let control_plane_binding = control_plane_binding_1.get_inner();
-        let control_plane_encryption_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorization_binding = args.authorization.get_output(context);
+        let control_plane_binding = args.control_plane.get_output(context);
+        let control_plane_encryption_binding = args
             .control_plane_encryption
             .get_output(context);
-        let control_plane_encryption_binding = control_plane_encryption_binding_1
-            .get_inner();
-        let default_max_pods_per_node_binding_1 = args
+        let default_max_pods_per_node_binding = args
             .default_max_pods_per_node
             .get_output(context);
-        let default_max_pods_per_node_binding = default_max_pods_per_node_binding_1
-            .get_inner();
-        let external_load_balancer_ipv4_address_pools_binding_1 = args
+        let external_load_balancer_ipv4_address_pools_binding = args
             .external_load_balancer_ipv4_address_pools
             .get_output(context);
-        let external_load_balancer_ipv4_address_pools_binding = external_load_balancer_ipv4_address_pools_binding_1
-            .get_inner();
-        let fleet_binding_1 = args.fleet.get_output(context);
-        let fleet_binding = fleet_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
-        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let networking_binding_1 = args.networking.get_output(context);
-        let networking_binding = networking_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let release_channel_binding_1 = args.release_channel.get_output(context);
-        let release_channel_binding = release_channel_binding_1.get_inner();
-        let system_addons_config_binding_1 = args
-            .system_addons_config
-            .get_output(context);
-        let system_addons_config_binding = system_addons_config_binding_1.get_inner();
-        let target_version_binding_1 = args.target_version.get_output(context);
-        let target_version_binding = target_version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let fleet_binding = args.fleet.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maintenance_policy_binding = args.maintenance_policy.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let networking_binding = args.networking.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let release_channel_binding = args.release_channel.get_output(context);
+        let system_addons_config_binding = args.system_addons_config.get_output(context);
+        let target_version_binding = args.target_version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:edgecontainer/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorization".into(),
-                    value: &authorization_binding,
+                    value: authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlane".into(),
-                    value: &control_plane_binding,
+                    value: control_plane_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneEncryption".into(),
-                    value: &control_plane_encryption_binding,
+                    value: control_plane_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultMaxPodsPerNode".into(),
-                    value: &default_max_pods_per_node_binding,
+                    value: default_max_pods_per_node_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalLoadBalancerIpv4AddressPools".into(),
-                    value: &external_load_balancer_ipv4_address_pools_binding,
+                    value: external_load_balancer_ipv4_address_pools_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleet".into(),
-                    value: &fleet_binding,
+                    value: fleet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: &maintenance_policy_binding,
+                    value: maintenance_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networking".into(),
-                    value: &networking_binding,
+                    value: networking_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseChannel".into(),
-                    value: &release_channel_binding,
+                    value: release_channel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemAddonsConfig".into(),
-                    value: &system_addons_config_binding,
+                    value: system_addons_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVersion".into(),
-                    value: &target_version_binding,
+                    value: target_version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorization"),
-            ),
-            cluster_ca_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterCaCertificate"),
-            ),
-            control_plane: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlane"),
-            ),
-            control_plane_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneEncryption"),
-            ),
-            control_plane_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneVersion"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            default_max_pods_per_node: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultMaxPodsPerNode"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            external_load_balancer_ipv4_address_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalLoadBalancerIpv4AddressPools"),
-            ),
-            fleet: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fleet")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_events: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceEvents"),
-            ),
-            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenancePolicy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            networking: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networking"),
-            ),
-            node_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeVersion"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            release_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseChannel"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            system_addons_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("systemAddonsConfig"),
-            ),
-            target_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetVersion"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            authorization: o.get_field("authorization"),
+            cluster_ca_certificate: o.get_field("clusterCaCertificate"),
+            control_plane: o.get_field("controlPlane"),
+            control_plane_encryption: o.get_field("controlPlaneEncryption"),
+            control_plane_version: o.get_field("controlPlaneVersion"),
+            create_time: o.get_field("createTime"),
+            default_max_pods_per_node: o.get_field("defaultMaxPodsPerNode"),
+            effective_labels: o.get_field("effectiveLabels"),
+            endpoint: o.get_field("endpoint"),
+            external_load_balancer_ipv4_address_pools: o
+                .get_field("externalLoadBalancerIpv4AddressPools"),
+            fleet: o.get_field("fleet"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            maintenance_events: o.get_field("maintenanceEvents"),
+            maintenance_policy: o.get_field("maintenancePolicy"),
+            name: o.get_field("name"),
+            networking: o.get_field("networking"),
+            node_version: o.get_field("nodeVersion"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            release_channel: o.get_field("releaseChannel"),
+            status: o.get_field("status"),
+            system_addons_config: o.get_field("systemAddonsConfig"),
+            target_version: o.get_field("targetVersion"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

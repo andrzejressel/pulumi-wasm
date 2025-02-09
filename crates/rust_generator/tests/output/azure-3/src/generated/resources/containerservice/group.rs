@@ -239,233 +239,169 @@ pub mod group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupArgs,
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let containers_binding_1 = args.containers.get_output(context);
-        let containers_binding = containers_binding_1.get_inner();
-        let diagnostics_binding_1 = args.diagnostics.get_output(context);
-        let diagnostics_binding = diagnostics_binding_1.get_inner();
-        let dns_config_binding_1 = args.dns_config.get_output(context);
-        let dns_config_binding = dns_config_binding_1.get_inner();
-        let dns_name_label_binding_1 = args.dns_name_label.get_output(context);
-        let dns_name_label_binding = dns_name_label_binding_1.get_inner();
-        let dns_name_label_reuse_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let containers_binding = args.containers.get_output(context);
+        let diagnostics_binding = args.diagnostics.get_output(context);
+        let dns_config_binding = args.dns_config.get_output(context);
+        let dns_name_label_binding = args.dns_name_label.get_output(context);
+        let dns_name_label_reuse_policy_binding = args
             .dns_name_label_reuse_policy
             .get_output(context);
-        let dns_name_label_reuse_policy_binding = dns_name_label_reuse_policy_binding_1
-            .get_inner();
-        let exposed_ports_binding_1 = args.exposed_ports.get_output(context);
-        let exposed_ports_binding = exposed_ports_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let image_registry_credentials_binding_1 = args
+        let exposed_ports_binding = args.exposed_ports.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let image_registry_credentials_binding = args
             .image_registry_credentials
             .get_output(context);
-        let image_registry_credentials_binding = image_registry_credentials_binding_1
-            .get_inner();
-        let init_containers_binding_1 = args.init_containers.get_output(context);
-        let init_containers_binding = init_containers_binding_1.get_inner();
-        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
-        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let key_vault_user_assigned_identity_id_binding_1 = args
+        let init_containers_binding = args.init_containers.get_output(context);
+        let ip_address_type_binding = args.ip_address_type.get_output(context);
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let key_vault_user_assigned_identity_id_binding = args
             .key_vault_user_assigned_identity_id
             .get_output(context);
-        let key_vault_user_assigned_identity_id_binding = key_vault_user_assigned_identity_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_profile_id_binding_1 = args.network_profile_id.get_output(context);
-        let network_profile_id_binding = network_profile_id_binding_1.get_inner();
-        let os_type_binding_1 = args.os_type.get_output(context);
-        let os_type_binding = os_type_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let restart_policy_binding_1 = args.restart_policy.get_output(context);
-        let restart_policy_binding = restart_policy_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_profile_id_binding = args.network_profile_id.get_output(context);
+        let os_type_binding = args.os_type.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let restart_policy_binding = args.restart_policy.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/group:Group".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containers".into(),
-                    value: &containers_binding,
+                    value: containers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diagnostics".into(),
-                    value: &diagnostics_binding,
+                    value: diagnostics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsConfig".into(),
-                    value: &dns_config_binding,
+                    value: dns_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsNameLabel".into(),
-                    value: &dns_name_label_binding,
+                    value: dns_name_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsNameLabelReusePolicy".into(),
-                    value: &dns_name_label_reuse_policy_binding,
+                    value: dns_name_label_reuse_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exposedPorts".into(),
-                    value: &exposed_ports_binding,
+                    value: exposed_ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageRegistryCredentials".into(),
-                    value: &image_registry_credentials_binding,
+                    value: image_registry_credentials_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initContainers".into(),
-                    value: &init_containers_binding,
+                    value: init_containers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressType".into(),
-                    value: &ip_address_type_binding,
+                    value: ip_address_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultUserAssignedIdentityId".into(),
-                    value: &key_vault_user_assigned_identity_id_binding,
+                    value: key_vault_user_assigned_identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfileId".into(),
-                    value: &network_profile_id_binding,
+                    value: network_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osType".into(),
-                    value: &os_type_binding,
+                    value: os_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restartPolicy".into(),
-                    value: &restart_policy_binding,
+                    value: restart_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupResult {
-            containers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containers"),
-            ),
-            diagnostics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diagnostics"),
-            ),
-            dns_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsConfig"),
-            ),
-            dns_name_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsNameLabel"),
-            ),
-            dns_name_label_reuse_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsNameLabelReusePolicy"),
-            ),
-            exposed_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exposedPorts"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            image_registry_credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageRegistryCredentials"),
-            ),
-            init_containers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initContainers"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressType"),
-            ),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            key_vault_user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultUserAssignedIdentityId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfileId"),
-            ),
-            os_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osType"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            restart_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restartPolicy"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            containers: o.get_field("containers"),
+            diagnostics: o.get_field("diagnostics"),
+            dns_config: o.get_field("dnsConfig"),
+            dns_name_label: o.get_field("dnsNameLabel"),
+            dns_name_label_reuse_policy: o.get_field("dnsNameLabelReusePolicy"),
+            exposed_ports: o.get_field("exposedPorts"),
+            fqdn: o.get_field("fqdn"),
+            identity: o.get_field("identity"),
+            image_registry_credentials: o.get_field("imageRegistryCredentials"),
+            init_containers: o.get_field("initContainers"),
+            ip_address: o.get_field("ipAddress"),
+            ip_address_type: o.get_field("ipAddressType"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            key_vault_user_assigned_identity_id: o
+                .get_field("keyVaultUserAssignedIdentityId"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_profile_id: o.get_field("networkProfileId"),
+            os_type: o.get_field("osType"),
+            priority: o.get_field("priority"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            restart_policy: o.get_field("restartPolicy"),
+            sku: o.get_field("sku"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            zones: o.get_field("zones"),
         }
     }
 }

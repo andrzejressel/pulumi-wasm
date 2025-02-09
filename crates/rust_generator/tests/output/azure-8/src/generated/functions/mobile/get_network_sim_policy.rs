@@ -43,55 +43,42 @@ pub mod get_network_sim_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkSimPolicyArgs,
     ) -> GetNetworkSimPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mobile_network_id_binding_1 = args.mobile_network_id.get_output(context);
-        let mobile_network_id_binding = mobile_network_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mobile_network_id_binding = args.mobile_network_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkId".into(),
-                    value: &mobile_network_id_binding,
+                    value: mobile_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkSimPolicyResult {
-            default_slice_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSliceId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mobile_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobileNetworkId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rat_frequency_selection_priority_index: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ratFrequencySelectionPriorityIndex"),
-            ),
-            registration_timer_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrationTimerInSeconds"),
-            ),
-            slices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slices"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_equipment_aggregate_maximum_bit_rates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userEquipmentAggregateMaximumBitRates"),
-            ),
+            default_slice_id: o.get_field("defaultSliceId"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            mobile_network_id: o.get_field("mobileNetworkId"),
+            name: o.get_field("name"),
+            rat_frequency_selection_priority_index: o
+                .get_field("ratFrequencySelectionPriorityIndex"),
+            registration_timer_in_seconds: o.get_field("registrationTimerInSeconds"),
+            slices: o.get_field("slices"),
+            tags: o.get_field("tags"),
+            user_equipment_aggregate_maximum_bit_rates: o
+                .get_field("userEquipmentAggregateMaximumBitRates"),
         }
     }
 }

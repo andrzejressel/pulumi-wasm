@@ -70,39 +70,34 @@ pub mod lb_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LbAttachmentArgs,
     ) -> LbAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_name_binding_1 = args.instance_name.get_output(context);
-        let instance_name_binding = instance_name_binding_1.get_inner();
-        let lb_name_binding_1 = args.lb_name.get_output(context);
-        let lb_name_binding = lb_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_name_binding = args.instance_name.get_output(context);
+        let lb_name_binding = args.lb_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/lbAttachment:LbAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: &instance_name_binding,
+                    value: instance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbName".into(),
-                    value: &lb_name_binding,
+                    value: lb_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LbAttachmentResult {
-            instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceName"),
-            ),
-            lb_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lbName"),
-            ),
+            instance_name: o.get_field("instanceName"),
+            lb_name: o.get_field("lbName"),
         }
     }
 }

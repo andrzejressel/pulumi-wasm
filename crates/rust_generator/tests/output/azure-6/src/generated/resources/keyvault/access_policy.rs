@@ -136,96 +136,72 @@ pub mod access_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessPolicyArgs,
     ) -> AccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let certificate_permissions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let certificate_permissions_binding = args
             .certificate_permissions
             .get_output(context);
-        let certificate_permissions_binding = certificate_permissions_binding_1
-            .get_inner();
-        let key_permissions_binding_1 = args.key_permissions.get_output(context);
-        let key_permissions_binding = key_permissions_binding_1.get_inner();
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let object_id_binding_1 = args.object_id.get_output(context);
-        let object_id_binding = object_id_binding_1.get_inner();
-        let secret_permissions_binding_1 = args.secret_permissions.get_output(context);
-        let secret_permissions_binding = secret_permissions_binding_1.get_inner();
-        let storage_permissions_binding_1 = args.storage_permissions.get_output(context);
-        let storage_permissions_binding = storage_permissions_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_permissions_binding = args.key_permissions.get_output(context);
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let object_id_binding = args.object_id.get_output(context);
+        let secret_permissions_binding = args.secret_permissions.get_output(context);
+        let storage_permissions_binding = args.storage_permissions.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:keyvault/accessPolicy:AccessPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificatePermissions".into(),
-                    value: &certificate_permissions_binding,
+                    value: certificate_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyPermissions".into(),
-                    value: &key_permissions_binding,
+                    value: key_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: &object_id_binding,
+                    value: object_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretPermissions".into(),
-                    value: &secret_permissions_binding,
+                    value: secret_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storagePermissions".into(),
-                    value: &storage_permissions_binding,
+                    value: storage_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessPolicyResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            certificate_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificatePermissions"),
-            ),
-            key_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyPermissions"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            object_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectId"),
-            ),
-            secret_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretPermissions"),
-            ),
-            storage_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storagePermissions"),
-            ),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
+            application_id: o.get_field("applicationId"),
+            certificate_permissions: o.get_field("certificatePermissions"),
+            key_permissions: o.get_field("keyPermissions"),
+            key_vault_id: o.get_field("keyVaultId"),
+            object_id: o.get_field("objectId"),
+            secret_permissions: o.get_field("secretPermissions"),
+            storage_permissions: o.get_field("storagePermissions"),
+            tenant_id: o.get_field("tenantId"),
         }
     }
 }

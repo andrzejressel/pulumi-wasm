@@ -148,88 +148,69 @@ pub mod webhook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebhookArgs,
     ) -> WebhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding_1 = args.authentication.get_output(context);
-        let authentication_binding = authentication_binding_1.get_inner();
-        let authentication_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_binding = args.authentication.get_output(context);
+        let authentication_configuration_binding = args
             .authentication_configuration
             .get_output(context);
-        let authentication_configuration_binding = authentication_configuration_binding_1
-            .get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_action_binding_1 = args.target_action.get_output(context);
-        let target_action_binding = target_action_binding_1.get_inner();
-        let target_pipeline_binding_1 = args.target_pipeline.get_output(context);
-        let target_pipeline_binding = target_pipeline_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let filters_binding = args.filters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_action_binding = args.target_action.get_output(context);
+        let target_pipeline_binding = args.target_pipeline.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codepipeline/webhook:Webhook".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: &authentication_binding,
+                    value: authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationConfiguration".into(),
-                    value: &authentication_configuration_binding,
+                    value: authentication_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetAction".into(),
-                    value: &target_action_binding,
+                    value: target_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetPipeline".into(),
-                    value: &target_pipeline_binding,
+                    value: target_pipeline_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebhookResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authentication"),
-            ),
-            authentication_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationConfiguration"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetAction"),
-            ),
-            target_pipeline: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetPipeline"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            arn: o.get_field("arn"),
+            authentication: o.get_field("authentication"),
+            authentication_configuration: o.get_field("authenticationConfiguration"),
+            filters: o.get_field("filters"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_action: o.get_field("targetAction"),
+            target_pipeline: o.get_field("targetPipeline"),
+            url: o.get_field("url"),
         }
     }
 }

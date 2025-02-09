@@ -35,59 +35,46 @@ pub mod get_encrypted_value {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEncryptedValueArgs,
     ) -> GetEncryptedValueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let algorithm_binding_1 = args.algorithm.get_output(context);
-        let algorithm_binding = algorithm_binding_1.get_inner();
-        let encrypted_data_binding_1 = args.encrypted_data.get_output(context);
-        let encrypted_data_binding = encrypted_data_binding_1.get_inner();
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let plain_text_value_binding_1 = args.plain_text_value.get_output(context);
-        let plain_text_value_binding = plain_text_value_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let algorithm_binding = args.algorithm.get_output(context);
+        let encrypted_data_binding = args.encrypted_data.get_output(context);
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let plain_text_value_binding = args.plain_text_value.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:keyvault/getEncryptedValue:getEncryptedValue".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "algorithm".into(),
-                    value: &algorithm_binding,
+                    value: algorithm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptedData".into(),
-                    value: &encrypted_data_binding,
+                    value: encrypted_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plainTextValue".into(),
-                    value: &plain_text_value_binding,
+                    value: plain_text_value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEncryptedValueResult {
-            algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("algorithm"),
-            ),
-            decoded_plain_text_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("decodedPlainTextValue"),
-            ),
-            encrypted_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptedData"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            plain_text_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("plainTextValue"),
-            ),
+            algorithm: o.get_field("algorithm"),
+            decoded_plain_text_value: o.get_field("decodedPlainTextValue"),
+            encrypted_data: o.get_field("encryptedData"),
+            id: o.get_field("id"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            plain_text_value: o.get_field("plainTextValue"),
         }
     }
 }

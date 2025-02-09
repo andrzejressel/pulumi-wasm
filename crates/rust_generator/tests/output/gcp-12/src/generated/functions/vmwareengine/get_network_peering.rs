@@ -36,74 +36,49 @@ pub mod get_network_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkPeeringArgs,
     ) -> GetNetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:vmwareengine/getNetworkPeering:getNetworkPeering".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkPeeringResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            export_custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportCustomRoutes"),
-            ),
-            export_custom_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportCustomRoutesWithPublicIp"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            import_custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importCustomRoutes"),
-            ),
-            import_custom_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importCustomRoutesWithPublicIp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peer_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerNetwork"),
-            ),
-            peer_network_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerNetworkType"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateDetails"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            vmware_engine_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmwareEngineNetwork"),
-            ),
-            vmware_engine_network_canonical: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmwareEngineNetworkCanonical"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            export_custom_routes: o.get_field("exportCustomRoutes"),
+            export_custom_routes_with_public_ip: o
+                .get_field("exportCustomRoutesWithPublicIp"),
+            id: o.get_field("id"),
+            import_custom_routes: o.get_field("importCustomRoutes"),
+            import_custom_routes_with_public_ip: o
+                .get_field("importCustomRoutesWithPublicIp"),
+            name: o.get_field("name"),
+            peer_network: o.get_field("peerNetwork"),
+            peer_network_type: o.get_field("peerNetworkType"),
+            project: o.get_field("project"),
+            state: o.get_field("state"),
+            state_details: o.get_field("stateDetails"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            vmware_engine_network: o.get_field("vmwareEngineNetwork"),
+            vmware_engine_network_canonical: o.get_field("vmwareEngineNetworkCanonical"),
         }
     }
 }

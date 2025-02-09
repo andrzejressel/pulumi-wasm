@@ -310,107 +310,72 @@ pub mod hosting_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HostingCustomDomainArgs,
     ) -> HostingCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cert_preference_binding_1 = args.cert_preference.get_output(context);
-        let cert_preference_binding = cert_preference_binding_1.get_inner();
-        let custom_domain_binding_1 = args.custom_domain.get_output(context);
-        let custom_domain_binding = custom_domain_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let redirect_target_binding_1 = args.redirect_target.get_output(context);
-        let redirect_target_binding = redirect_target_binding_1.get_inner();
-        let site_id_binding_1 = args.site_id.get_output(context);
-        let site_id_binding = site_id_binding_1.get_inner();
-        let wait_dns_verification_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cert_preference_binding = args.cert_preference.get_output(context);
+        let custom_domain_binding = args.custom_domain.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let redirect_target_binding = args.redirect_target.get_output(context);
+        let site_id_binding = args.site_id.get_output(context);
+        let wait_dns_verification_binding = args
             .wait_dns_verification
             .get_output(context);
-        let wait_dns_verification_binding = wait_dns_verification_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firebase/hostingCustomDomain:HostingCustomDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certPreference".into(),
-                    value: &cert_preference_binding,
+                    value: cert_preference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDomain".into(),
-                    value: &custom_domain_binding,
+                    value: custom_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectTarget".into(),
-                    value: &redirect_target_binding,
+                    value: redirect_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: &site_id_binding,
+                    value: site_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitDnsVerification".into(),
-                    value: &wait_dns_verification_binding,
+                    value: wait_dns_verification_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HostingCustomDomainResult {
-            cert_preference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certPreference"),
-            ),
-            certs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("certs")),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            custom_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomain"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            expire_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireTime"),
-            ),
-            host_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostState"),
-            ),
-            issues: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issues"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            ownership_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownershipState"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            redirect_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redirectTarget"),
-            ),
-            required_dns_updates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiredDnsUpdates"),
-            ),
-            site_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteId"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            wait_dns_verification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitDnsVerification"),
-            ),
+            cert_preference: o.get_field("certPreference"),
+            certs: o.get_field("certs"),
+            create_time: o.get_field("createTime"),
+            custom_domain: o.get_field("customDomain"),
+            delete_time: o.get_field("deleteTime"),
+            etag: o.get_field("etag"),
+            expire_time: o.get_field("expireTime"),
+            host_state: o.get_field("hostState"),
+            issues: o.get_field("issues"),
+            name: o.get_field("name"),
+            ownership_state: o.get_field("ownershipState"),
+            project: o.get_field("project"),
+            reconciling: o.get_field("reconciling"),
+            redirect_target: o.get_field("redirectTarget"),
+            required_dns_updates: o.get_field("requiredDnsUpdates"),
+            site_id: o.get_field("siteId"),
+            update_time: o.get_field("updateTime"),
+            wait_dns_verification: o.get_field("waitDnsVerification"),
         }
     }
 }

@@ -121,57 +121,46 @@ pub mod network_acl {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkAclArgs,
     ) -> NetworkAclResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_action_binding_1 = args.default_action.get_output(context);
-        let default_action_binding = default_action_binding_1.get_inner();
-        let private_endpoints_binding_1 = args.private_endpoints.get_output(context);
-        let private_endpoints_binding = private_endpoints_binding_1.get_inner();
-        let public_network_binding_1 = args.public_network.get_output(context);
-        let public_network_binding = public_network_binding_1.get_inner();
-        let web_pubsub_id_binding_1 = args.web_pubsub_id.get_output(context);
-        let web_pubsub_id_binding = web_pubsub_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_action_binding = args.default_action.get_output(context);
+        let private_endpoints_binding = args.private_endpoints.get_output(context);
+        let public_network_binding = args.public_network.get_output(context);
+        let web_pubsub_id_binding = args.web_pubsub_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:webpubsub/networkAcl:NetworkAcl".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: &default_action_binding,
+                    value: default_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateEndpoints".into(),
-                    value: &private_endpoints_binding,
+                    value: private_endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetwork".into(),
-                    value: &public_network_binding,
+                    value: public_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webPubsubId".into(),
-                    value: &web_pubsub_id_binding,
+                    value: web_pubsub_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkAclResult {
-            default_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAction"),
-            ),
-            private_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpoints"),
-            ),
-            public_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetwork"),
-            ),
-            web_pubsub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webPubsubId"),
-            ),
+            default_action: o.get_field("defaultAction"),
+            private_endpoints: o.get_field("privateEndpoints"),
+            public_network: o.get_field("publicNetwork"),
+            web_pubsub_id: o.get_field("webPubsubId"),
         }
     }
 }

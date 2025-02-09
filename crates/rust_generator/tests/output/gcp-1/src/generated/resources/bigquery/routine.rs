@@ -461,167 +461,116 @@ pub mod routine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RoutineArgs,
     ) -> RoutineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arguments_binding_1 = args.arguments.get_output(context);
-        let arguments_binding = arguments_binding_1.get_inner();
-        let data_governance_type_binding_1 = args
-            .data_governance_type
-            .get_output(context);
-        let data_governance_type_binding = data_governance_type_binding_1.get_inner();
-        let dataset_id_binding_1 = args.dataset_id.get_output(context);
-        let dataset_id_binding = dataset_id_binding_1.get_inner();
-        let definition_body_binding_1 = args.definition_body.get_output(context);
-        let definition_body_binding = definition_body_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let determinism_level_binding_1 = args.determinism_level.get_output(context);
-        let determinism_level_binding = determinism_level_binding_1.get_inner();
-        let imported_libraries_binding_1 = args.imported_libraries.get_output(context);
-        let imported_libraries_binding = imported_libraries_binding_1.get_inner();
-        let language_binding_1 = args.language.get_output(context);
-        let language_binding = language_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let remote_function_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arguments_binding = args.arguments.get_output(context);
+        let data_governance_type_binding = args.data_governance_type.get_output(context);
+        let dataset_id_binding = args.dataset_id.get_output(context);
+        let definition_body_binding = args.definition_body.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let determinism_level_binding = args.determinism_level.get_output(context);
+        let imported_libraries_binding = args.imported_libraries.get_output(context);
+        let language_binding = args.language.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let remote_function_options_binding = args
             .remote_function_options
             .get_output(context);
-        let remote_function_options_binding = remote_function_options_binding_1
-            .get_inner();
-        let return_table_type_binding_1 = args.return_table_type.get_output(context);
-        let return_table_type_binding = return_table_type_binding_1.get_inner();
-        let return_type_binding_1 = args.return_type.get_output(context);
-        let return_type_binding = return_type_binding_1.get_inner();
-        let routine_id_binding_1 = args.routine_id.get_output(context);
-        let routine_id_binding = routine_id_binding_1.get_inner();
-        let routine_type_binding_1 = args.routine_type.get_output(context);
-        let routine_type_binding = routine_type_binding_1.get_inner();
-        let spark_options_binding_1 = args.spark_options.get_output(context);
-        let spark_options_binding = spark_options_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let return_table_type_binding = args.return_table_type.get_output(context);
+        let return_type_binding = args.return_type.get_output(context);
+        let routine_id_binding = args.routine_id.get_output(context);
+        let routine_type_binding = args.routine_type.get_output(context);
+        let spark_options_binding = args.spark_options.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/routine:Routine".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arguments".into(),
-                    value: &arguments_binding,
+                    value: arguments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataGovernanceType".into(),
-                    value: &data_governance_type_binding,
+                    value: data_governance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: &dataset_id_binding,
+                    value: dataset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definitionBody".into(),
-                    value: &definition_body_binding,
+                    value: definition_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "determinismLevel".into(),
-                    value: &determinism_level_binding,
+                    value: determinism_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importedLibraries".into(),
-                    value: &imported_libraries_binding,
+                    value: imported_libraries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "language".into(),
-                    value: &language_binding,
+                    value: language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteFunctionOptions".into(),
-                    value: &remote_function_options_binding,
+                    value: remote_function_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "returnTableType".into(),
-                    value: &return_table_type_binding,
+                    value: return_table_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "returnType".into(),
-                    value: &return_type_binding,
+                    value: return_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routineId".into(),
-                    value: &routine_id_binding,
+                    value: routine_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routineType".into(),
-                    value: &routine_type_binding,
+                    value: routine_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkOptions".into(),
-                    value: &spark_options_binding,
+                    value: spark_options_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RoutineResult {
-            arguments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arguments"),
-            ),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            data_governance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataGovernanceType"),
-            ),
-            dataset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datasetId"),
-            ),
-            definition_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("definitionBody"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            determinism_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("determinismLevel"),
-            ),
-            imported_libraries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importedLibraries"),
-            ),
-            language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("language"),
-            ),
-            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedTime"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            remote_function_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteFunctionOptions"),
-            ),
-            return_table_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("returnTableType"),
-            ),
-            return_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("returnType"),
-            ),
-            routine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routineId"),
-            ),
-            routine_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routineType"),
-            ),
-            spark_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkOptions"),
-            ),
+            arguments: o.get_field("arguments"),
+            creation_time: o.get_field("creationTime"),
+            data_governance_type: o.get_field("dataGovernanceType"),
+            dataset_id: o.get_field("datasetId"),
+            definition_body: o.get_field("definitionBody"),
+            description: o.get_field("description"),
+            determinism_level: o.get_field("determinismLevel"),
+            imported_libraries: o.get_field("importedLibraries"),
+            language: o.get_field("language"),
+            last_modified_time: o.get_field("lastModifiedTime"),
+            project: o.get_field("project"),
+            remote_function_options: o.get_field("remoteFunctionOptions"),
+            return_table_type: o.get_field("returnTableType"),
+            return_type: o.get_field("returnType"),
+            routine_id: o.get_field("routineId"),
+            routine_type: o.get_field("routineType"),
+            spark_options: o.get_field("sparkOptions"),
         }
     }
 }

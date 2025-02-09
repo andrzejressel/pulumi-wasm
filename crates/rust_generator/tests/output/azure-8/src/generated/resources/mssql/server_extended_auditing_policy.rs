@@ -250,129 +250,94 @@ pub mod server_extended_auditing_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerExtendedAuditingPolicyArgs,
     ) -> ServerExtendedAuditingPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_actions_and_groups_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audit_actions_and_groups_binding = args
             .audit_actions_and_groups
             .get_output(context);
-        let audit_actions_and_groups_binding = audit_actions_and_groups_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let log_monitoring_enabled_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let log_monitoring_enabled_binding = args
             .log_monitoring_enabled
             .get_output(context);
-        let log_monitoring_enabled_binding = log_monitoring_enabled_binding_1
-            .get_inner();
-        let predicate_expression_binding_1 = args
-            .predicate_expression
-            .get_output(context);
-        let predicate_expression_binding = predicate_expression_binding_1.get_inner();
-        let retention_in_days_binding_1 = args.retention_in_days.get_output(context);
-        let retention_in_days_binding = retention_in_days_binding_1.get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let storage_account_access_key_binding_1 = args
+        let predicate_expression_binding = args.predicate_expression.get_output(context);
+        let retention_in_days_binding = args.retention_in_days.get_output(context);
+        let server_id_binding = args.server_id.get_output(context);
+        let storage_account_access_key_binding = args
             .storage_account_access_key
             .get_output(context);
-        let storage_account_access_key_binding = storage_account_access_key_binding_1
-            .get_inner();
-        let storage_account_access_key_is_secondary_binding_1 = args
+        let storage_account_access_key_is_secondary_binding = args
             .storage_account_access_key_is_secondary
             .get_output(context);
-        let storage_account_access_key_is_secondary_binding = storage_account_access_key_is_secondary_binding_1
-            .get_inner();
-        let storage_account_subscription_id_binding_1 = args
+        let storage_account_subscription_id_binding = args
             .storage_account_subscription_id
             .get_output(context);
-        let storage_account_subscription_id_binding = storage_account_subscription_id_binding_1
-            .get_inner();
-        let storage_endpoint_binding_1 = args.storage_endpoint.get_output(context);
-        let storage_endpoint_binding = storage_endpoint_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_endpoint_binding = args.storage_endpoint.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditActionsAndGroups".into(),
-                    value: &audit_actions_and_groups_binding,
+                    value: audit_actions_and_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logMonitoringEnabled".into(),
-                    value: &log_monitoring_enabled_binding,
+                    value: log_monitoring_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predicateExpression".into(),
-                    value: &predicate_expression_binding,
+                    value: predicate_expression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionInDays".into(),
-                    value: &retention_in_days_binding,
+                    value: retention_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAccessKey".into(),
-                    value: &storage_account_access_key_binding,
+                    value: storage_account_access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAccessKeyIsSecondary".into(),
-                    value: &storage_account_access_key_is_secondary_binding,
+                    value: storage_account_access_key_is_secondary_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountSubscriptionId".into(),
-                    value: &storage_account_subscription_id_binding,
+                    value: storage_account_subscription_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageEndpoint".into(),
-                    value: &storage_endpoint_binding,
+                    value: storage_endpoint_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerExtendedAuditingPolicyResult {
-            audit_actions_and_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditActionsAndGroups"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            log_monitoring_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logMonitoringEnabled"),
-            ),
-            predicate_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predicateExpression"),
-            ),
-            retention_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionInDays"),
-            ),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
-            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountAccessKey"),
-            ),
-            storage_account_access_key_is_secondary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountAccessKeyIsSecondary"),
-            ),
-            storage_account_subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountSubscriptionId"),
-            ),
-            storage_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEndpoint"),
-            ),
+            audit_actions_and_groups: o.get_field("auditActionsAndGroups"),
+            enabled: o.get_field("enabled"),
+            log_monitoring_enabled: o.get_field("logMonitoringEnabled"),
+            predicate_expression: o.get_field("predicateExpression"),
+            retention_in_days: o.get_field("retentionInDays"),
+            server_id: o.get_field("serverId"),
+            storage_account_access_key: o.get_field("storageAccountAccessKey"),
+            storage_account_access_key_is_secondary: o
+                .get_field("storageAccountAccessKeyIsSecondary"),
+            storage_account_subscription_id: o.get_field("storageAccountSubscriptionId"),
+            storage_endpoint: o.get_field("storageEndpoint"),
         }
     }
 }

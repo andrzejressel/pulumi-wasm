@@ -248,186 +248,134 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_ips_binding_1 = args.allowed_ips.get_output(context);
-        let allowed_ips_binding = allowed_ips_binding_1.get_inner();
-        let authentication_failure_mode_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allowed_ips_binding = args.allowed_ips.get_output(context);
+        let authentication_failure_mode_binding = args
             .authentication_failure_mode
             .get_output(context);
-        let authentication_failure_mode_binding = authentication_failure_mode_binding_1
-            .get_inner();
-        let customer_managed_key_enforcement_enabled_binding_1 = args
+        let customer_managed_key_enforcement_enabled_binding = args
             .customer_managed_key_enforcement_enabled
             .get_output(context);
-        let customer_managed_key_enforcement_enabled_binding = customer_managed_key_enforcement_enabled_binding_1
-            .get_inner();
-        let hosting_mode_binding_1 = args.hosting_mode.get_output(context);
-        let hosting_mode_binding = hosting_mode_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let local_authentication_enabled_binding_1 = args
+        let hosting_mode_binding = args.hosting_mode.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let local_authentication_enabled_binding = args
             .local_authentication_enabled
             .get_output(context);
-        let local_authentication_enabled_binding = local_authentication_enabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_rule_bypass_option_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_rule_bypass_option_binding = args
             .network_rule_bypass_option
             .get_output(context);
-        let network_rule_bypass_option_binding = network_rule_bypass_option_binding_1
-            .get_inner();
-        let partition_count_binding_1 = args.partition_count.get_output(context);
-        let partition_count_binding = partition_count_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let partition_count_binding = args.partition_count.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let replica_count_binding_1 = args.replica_count.get_output(context);
-        let replica_count_binding = replica_count_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let semantic_search_sku_binding_1 = args.semantic_search_sku.get_output(context);
-        let semantic_search_sku_binding = semantic_search_sku_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let replica_count_binding = args.replica_count.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let semantic_search_sku_binding = args.semantic_search_sku.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:search/service:Service".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedIps".into(),
-                    value: &allowed_ips_binding,
+                    value: allowed_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationFailureMode".into(),
-                    value: &authentication_failure_mode_binding,
+                    value: authentication_failure_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyEnforcementEnabled".into(),
-                    value: &customer_managed_key_enforcement_enabled_binding,
+                    value: customer_managed_key_enforcement_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostingMode".into(),
-                    value: &hosting_mode_binding,
+                    value: hosting_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationEnabled".into(),
-                    value: &local_authentication_enabled_binding,
+                    value: local_authentication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRuleBypassOption".into(),
-                    value: &network_rule_bypass_option_binding,
+                    value: network_rule_bypass_option_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionCount".into(),
-                    value: &partition_count_binding,
+                    value: partition_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaCount".into(),
-                    value: &replica_count_binding,
+                    value: replica_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "semanticSearchSku".into(),
-                    value: &semantic_search_sku_binding,
+                    value: semantic_search_sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceResult {
-            allowed_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedIps"),
-            ),
-            authentication_failure_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationFailureMode"),
-            ),
-            customer_managed_key_encryption_compliance_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKeyEncryptionComplianceStatus"),
-            ),
-            customer_managed_key_enforcement_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKeyEnforcementEnabled"),
-            ),
-            hosting_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostingMode"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            local_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthenticationEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_rule_bypass_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRuleBypassOption"),
-            ),
-            partition_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionCount"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            query_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryKeys"),
-            ),
-            replica_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaCount"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            semantic_search_sku: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("semanticSearchSku"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            allowed_ips: o.get_field("allowedIps"),
+            authentication_failure_mode: o.get_field("authenticationFailureMode"),
+            customer_managed_key_encryption_compliance_status: o
+                .get_field("customerManagedKeyEncryptionComplianceStatus"),
+            customer_managed_key_enforcement_enabled: o
+                .get_field("customerManagedKeyEnforcementEnabled"),
+            hosting_mode: o.get_field("hostingMode"),
+            identity: o.get_field("identity"),
+            local_authentication_enabled: o.get_field("localAuthenticationEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_rule_bypass_option: o.get_field("networkRuleBypassOption"),
+            partition_count: o.get_field("partitionCount"),
+            primary_key: o.get_field("primaryKey"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            query_keys: o.get_field("queryKeys"),
+            replica_count: o.get_field("replicaCount"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_key: o.get_field("secondaryKey"),
+            semantic_search_sku: o.get_field("semanticSearchSku"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
         }
     }
 }

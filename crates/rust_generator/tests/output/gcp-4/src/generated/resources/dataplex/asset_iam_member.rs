@@ -289,88 +289,71 @@ pub mod asset_iam_member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AssetIamMemberArgs,
     ) -> AssetIamMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_binding_1 = args.asset.get_output(context);
-        let asset_binding = asset_binding_1.get_inner();
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let dataplex_zone_binding_1 = args.dataplex_zone.get_output(context);
-        let dataplex_zone_binding = dataplex_zone_binding_1.get_inner();
-        let lake_binding_1 = args.lake.get_output(context);
-        let lake_binding = lake_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let member_binding_1 = args.member.get_output(context);
-        let member_binding = member_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let asset_binding = args.asset.get_output(context);
+        let condition_binding = args.condition.get_output(context);
+        let dataplex_zone_binding = args.dataplex_zone.get_output(context);
+        let lake_binding = args.lake.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let member_binding = args.member.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataplex/assetIamMember:AssetIamMember".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "asset".into(),
-                    value: &asset_binding,
+                    value: asset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataplexZone".into(),
-                    value: &dataplex_zone_binding,
+                    value: dataplex_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lake".into(),
-                    value: &lake_binding,
+                    value: lake_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "member".into(),
-                    value: &member_binding,
+                    value: member_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AssetIamMemberResult {
-            asset: pulumi_gestalt_rust::__private::into_domain(o.extract_field("asset")),
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            dataplex_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataplexZone"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            lake: pulumi_gestalt_rust::__private::into_domain(o.extract_field("lake")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            member: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("member"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            asset: o.get_field("asset"),
+            condition: o.get_field("condition"),
+            dataplex_zone: o.get_field("dataplexZone"),
+            etag: o.get_field("etag"),
+            lake: o.get_field("lake"),
+            location: o.get_field("location"),
+            member: o.get_field("member"),
+            project: o.get_field("project"),
+            role: o.get_field("role"),
         }
     }
 }

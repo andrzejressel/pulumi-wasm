@@ -93,85 +93,69 @@ pub mod connect {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectArgs,
     ) -> ConnectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_default_route_table_association_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let protocol_binding = args.protocol.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_default_route_table_association_binding = args
             .transit_gateway_default_route_table_association
             .get_output(context);
-        let transit_gateway_default_route_table_association_binding = transit_gateway_default_route_table_association_binding_1
-            .get_inner();
-        let transit_gateway_default_route_table_propagation_binding_1 = args
+        let transit_gateway_default_route_table_propagation_binding = args
             .transit_gateway_default_route_table_propagation
             .get_output(context);
-        let transit_gateway_default_route_table_propagation_binding = transit_gateway_default_route_table_propagation_binding_1
-            .get_inner();
-        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
-        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
-        let transport_attachment_id_binding_1 = args
+        let transit_gateway_id_binding = args.transit_gateway_id.get_output(context);
+        let transport_attachment_id_binding = args
             .transport_attachment_id
             .get_output(context);
-        let transport_attachment_id_binding = transport_attachment_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/connect:Connect".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTableAssociation".into(),
-                    value: &transit_gateway_default_route_table_association_binding,
+                    value: transit_gateway_default_route_table_association_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTablePropagation".into(),
-                    value: &transit_gateway_default_route_table_propagation_binding,
+                    value: transit_gateway_default_route_table_propagation_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: &transit_gateway_id_binding,
+                    value: transit_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transportAttachmentId".into(),
-                    value: &transport_attachment_id_binding,
+                    value: transport_attachment_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectResult {
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_default_route_table_association: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayDefaultRouteTableAssociation"),
-            ),
-            transit_gateway_default_route_table_propagation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayDefaultRouteTablePropagation"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
-            transport_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transportAttachmentId"),
-            ),
+            protocol: o.get_field("protocol"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_default_route_table_association: o
+                .get_field("transitGatewayDefaultRouteTableAssociation"),
+            transit_gateway_default_route_table_propagation: o
+                .get_field("transitGatewayDefaultRouteTablePropagation"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
+            transport_attachment_id: o.get_field("transportAttachmentId"),
         }
     }
 }

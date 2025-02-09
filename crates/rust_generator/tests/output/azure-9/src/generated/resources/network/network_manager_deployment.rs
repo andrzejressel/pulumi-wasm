@@ -224,67 +224,53 @@ pub mod network_manager_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkManagerDeploymentArgs,
     ) -> NetworkManagerDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_ids_binding_1 = args.configuration_ids.get_output(context);
-        let configuration_ids_binding = configuration_ids_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let network_manager_id_binding_1 = args.network_manager_id.get_output(context);
-        let network_manager_id_binding = network_manager_id_binding_1.get_inner();
-        let scope_access_binding_1 = args.scope_access.get_output(context);
-        let scope_access_binding = scope_access_binding_1.get_inner();
-        let triggers_binding_1 = args.triggers.get_output(context);
-        let triggers_binding = triggers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_ids_binding = args.configuration_ids.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let network_manager_id_binding = args.network_manager_id.get_output(context);
+        let scope_access_binding = args.scope_access.get_output(context);
+        let triggers_binding = args.triggers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkManagerDeployment:NetworkManagerDeployment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationIds".into(),
-                    value: &configuration_ids_binding,
+                    value: configuration_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkManagerId".into(),
-                    value: &network_manager_id_binding,
+                    value: network_manager_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeAccess".into(),
-                    value: &scope_access_binding,
+                    value: scope_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: &triggers_binding,
+                    value: triggers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkManagerDeploymentResult {
-            configuration_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationIds"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            network_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkManagerId"),
-            ),
-            scope_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeAccess"),
-            ),
-            triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggers"),
-            ),
+            configuration_ids: o.get_field("configurationIds"),
+            location: o.get_field("location"),
+            network_manager_id: o.get_field("networkManagerId"),
+            scope_access: o.get_field("scopeAccess"),
+            triggers: o.get_field("triggers"),
         }
     }
 }

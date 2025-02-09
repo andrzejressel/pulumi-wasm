@@ -94,71 +94,55 @@ pub mod function_url {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionUrlArgs,
     ) -> FunctionUrlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_type_binding_1 = args.authorization_type.get_output(context);
-        let authorization_type_binding = authorization_type_binding_1.get_inner();
-        let cors_binding_1 = args.cors.get_output(context);
-        let cors_binding = cors_binding_1.get_inner();
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let invoke_mode_binding_1 = args.invoke_mode.get_output(context);
-        let invoke_mode_binding = invoke_mode_binding_1.get_inner();
-        let qualifier_binding_1 = args.qualifier.get_output(context);
-        let qualifier_binding = qualifier_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorization_type_binding = args.authorization_type.get_output(context);
+        let cors_binding = args.cors.get_output(context);
+        let function_name_binding = args.function_name.get_output(context);
+        let invoke_mode_binding = args.invoke_mode.get_output(context);
+        let qualifier_binding = args.qualifier.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/functionUrl:FunctionUrl".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationType".into(),
-                    value: &authorization_type_binding,
+                    value: authorization_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cors".into(),
-                    value: &cors_binding,
+                    value: cors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invokeMode".into(),
-                    value: &invoke_mode_binding,
+                    value: invoke_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: &qualifier_binding,
+                    value: qualifier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionUrlResult {
-            authorization_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationType"),
-            ),
-            cors: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cors")),
-            function_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionArn"),
-            ),
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            function_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionUrl"),
-            ),
-            invoke_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invokeMode"),
-            ),
-            qualifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifier"),
-            ),
-            url_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("urlId")),
+            authorization_type: o.get_field("authorizationType"),
+            cors: o.get_field("cors"),
+            function_arn: o.get_field("functionArn"),
+            function_name: o.get_field("functionName"),
+            function_url: o.get_field("functionUrl"),
+            invoke_mode: o.get_field("invokeMode"),
+            qualifier: o.get_field("qualifier"),
+            url_id: o.get_field("urlId"),
         }
     }
 }

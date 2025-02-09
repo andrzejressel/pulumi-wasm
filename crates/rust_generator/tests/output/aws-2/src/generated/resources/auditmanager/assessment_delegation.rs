@@ -76,72 +76,54 @@ pub mod assessment_delegation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AssessmentDelegationArgs,
     ) -> AssessmentDelegationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assessment_id_binding_1 = args.assessment_id.get_output(context);
-        let assessment_id_binding = assessment_id_binding_1.get_inner();
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let control_set_id_binding_1 = args.control_set_id.get_output(context);
-        let control_set_id_binding = control_set_id_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let role_type_binding_1 = args.role_type.get_output(context);
-        let role_type_binding = role_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assessment_id_binding = args.assessment_id.get_output(context);
+        let comment_binding = args.comment.get_output(context);
+        let control_set_id_binding = args.control_set_id.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let role_type_binding = args.role_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:auditmanager/assessmentDelegation:AssessmentDelegation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assessmentId".into(),
-                    value: &assessment_id_binding,
+                    value: assessment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlSetId".into(),
-                    value: &control_set_id_binding,
+                    value: control_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleType".into(),
-                    value: &role_type_binding,
+                    value: role_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AssessmentDelegationResult {
-            assessment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assessmentId"),
-            ),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            control_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlSetId"),
-            ),
-            delegation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegationId"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            role_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleType"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            assessment_id: o.get_field("assessmentId"),
+            comment: o.get_field("comment"),
+            control_set_id: o.get_field("controlSetId"),
+            delegation_id: o.get_field("delegationId"),
+            role_arn: o.get_field("roleArn"),
+            role_type: o.get_field("roleType"),
+            status: o.get_field("status"),
         }
     }
 }

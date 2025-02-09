@@ -181,100 +181,75 @@ pub mod note {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NoteArgs,
     ) -> NoteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attestation_authority_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attestation_authority_binding = args
             .attestation_authority
             .get_output(context);
-        let attestation_authority_binding = attestation_authority_binding_1.get_inner();
-        let expiration_time_binding_1 = args.expiration_time.get_output(context);
-        let expiration_time_binding = expiration_time_binding_1.get_inner();
-        let long_description_binding_1 = args.long_description.get_output(context);
-        let long_description_binding = long_description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let related_note_names_binding_1 = args.related_note_names.get_output(context);
-        let related_note_names_binding = related_note_names_binding_1.get_inner();
-        let related_urls_binding_1 = args.related_urls.get_output(context);
-        let related_urls_binding = related_urls_binding_1.get_inner();
-        let short_description_binding_1 = args.short_description.get_output(context);
-        let short_description_binding = short_description_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let expiration_time_binding = args.expiration_time.get_output(context);
+        let long_description_binding = args.long_description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let related_note_names_binding = args.related_note_names.get_output(context);
+        let related_urls_binding = args.related_urls.get_output(context);
+        let short_description_binding = args.short_description.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:containeranalysis/note:Note".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attestationAuthority".into(),
-                    value: &attestation_authority_binding,
+                    value: attestation_authority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationTime".into(),
-                    value: &expiration_time_binding,
+                    value: expiration_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "longDescription".into(),
-                    value: &long_description_binding,
+                    value: long_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relatedNoteNames".into(),
-                    value: &related_note_names_binding,
+                    value: related_note_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relatedUrls".into(),
-                    value: &related_urls_binding,
+                    value: related_urls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortDescription".into(),
-                    value: &short_description_binding,
+                    value: short_description_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NoteResult {
-            attestation_authority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attestationAuthority"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            expiration_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationTime"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            long_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("longDescription"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            related_note_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relatedNoteNames"),
-            ),
-            related_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relatedUrls"),
-            ),
-            short_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortDescription"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            attestation_authority: o.get_field("attestationAuthority"),
+            create_time: o.get_field("createTime"),
+            expiration_time: o.get_field("expirationTime"),
+            kind: o.get_field("kind"),
+            long_description: o.get_field("longDescription"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            related_note_names: o.get_field("relatedNoteNames"),
+            related_urls: o.get_field("relatedUrls"),
+            short_description: o.get_field("shortDescription"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

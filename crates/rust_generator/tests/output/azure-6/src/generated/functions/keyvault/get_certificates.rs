@@ -32,42 +32,35 @@ pub mod get_certificates {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCertificatesArgs,
     ) -> GetCertificatesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let include_pending_binding_1 = args.include_pending.get_output(context);
-        let include_pending_binding = include_pending_binding_1.get_inner();
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let include_pending_binding = args.include_pending.get_output(context);
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:keyvault/getCertificates:getCertificates".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePending".into(),
-                    value: &include_pending_binding,
+                    value: include_pending_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCertificatesResult {
-            certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificates"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_pending: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includePending"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            names: pulumi_gestalt_rust::__private::into_domain(o.extract_field("names")),
+            certificates: o.get_field("certificates"),
+            id: o.get_field("id"),
+            include_pending: o.get_field("includePending"),
+            key_vault_id: o.get_field("keyVaultId"),
+            names: o.get_field("names"),
         }
     }
 }

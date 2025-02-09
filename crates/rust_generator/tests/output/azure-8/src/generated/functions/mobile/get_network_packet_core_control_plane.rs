@@ -62,78 +62,52 @@ pub mod get_network_packet_core_control_plane {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkPacketCoreControlPlaneArgs,
     ) -> GetNetworkPacketCoreControlPlaneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkPacketCoreControlPlaneResult {
-            control_plane_access_ipv4_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneAccessIpv4Address"),
-            ),
-            control_plane_access_ipv4_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneAccessIpv4Gateway"),
-            ),
-            control_plane_access_ipv4_subnet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneAccessIpv4Subnet"),
-            ),
-            control_plane_access_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneAccessName"),
-            ),
-            core_network_technology: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkTechnology"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            interoperability_settings_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interoperabilitySettingsJson"),
-            ),
-            local_diagnostics_accesses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localDiagnosticsAccesses"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            platforms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platforms"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            site_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteIds"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            software_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softwareVersion"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_equipment_mtu_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userEquipmentMtuInBytes"),
-            ),
+            control_plane_access_ipv4_address: o
+                .get_field("controlPlaneAccessIpv4Address"),
+            control_plane_access_ipv4_gateway: o
+                .get_field("controlPlaneAccessIpv4Gateway"),
+            control_plane_access_ipv4_subnet: o
+                .get_field("controlPlaneAccessIpv4Subnet"),
+            control_plane_access_name: o.get_field("controlPlaneAccessName"),
+            core_network_technology: o.get_field("coreNetworkTechnology"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            interoperability_settings_json: o.get_field("interoperabilitySettingsJson"),
+            local_diagnostics_accesses: o.get_field("localDiagnosticsAccesses"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            platforms: o.get_field("platforms"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            site_ids: o.get_field("siteIds"),
+            sku: o.get_field("sku"),
+            software_version: o.get_field("softwareVersion"),
+            tags: o.get_field("tags"),
+            user_equipment_mtu_in_bytes: o.get_field("userEquipmentMtuInBytes"),
         }
     }
 }

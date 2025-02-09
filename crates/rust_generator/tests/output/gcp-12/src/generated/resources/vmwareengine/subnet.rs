@@ -125,70 +125,50 @@ pub mod subnet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubnetArgs,
     ) -> SubnetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
-        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vmwareengine/subnet:Subnet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipCidrRange".into(),
-                    value: &ip_cidr_range_binding,
+                    value: ip_cidr_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubnetResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            dhcp_address_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dhcpAddressRanges"),
-            ),
-            gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayId"),
-            ),
-            gateway_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayIp"),
-            ),
-            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipCidrRange"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            standard_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("standardConfig"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            vlan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vlanId"),
-            ),
+            create_time: o.get_field("createTime"),
+            dhcp_address_ranges: o.get_field("dhcpAddressRanges"),
+            gateway_id: o.get_field("gatewayId"),
+            gateway_ip: o.get_field("gatewayIp"),
+            ip_cidr_range: o.get_field("ipCidrRange"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            standard_config: o.get_field("standardConfig"),
+            state: o.get_field("state"),
+            type_: o.get_field("type"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            vlan_id: o.get_field("vlanId"),
         }
     }
 }

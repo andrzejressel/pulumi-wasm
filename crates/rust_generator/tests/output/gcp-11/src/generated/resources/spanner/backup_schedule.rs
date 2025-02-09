@@ -193,92 +193,72 @@ pub mod backup_schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackupScheduleArgs,
     ) -> BackupScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let full_backup_spec_binding_1 = args.full_backup_spec.get_output(context);
-        let full_backup_spec_binding = full_backup_spec_binding_1.get_inner();
-        let incremental_backup_spec_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let database_binding = args.database.get_output(context);
+        let full_backup_spec_binding = args.full_backup_spec.get_output(context);
+        let incremental_backup_spec_binding = args
             .incremental_backup_spec
             .get_output(context);
-        let incremental_backup_spec_binding = incremental_backup_spec_binding_1
-            .get_inner();
-        let instance_binding_1 = args.instance.get_output(context);
-        let instance_binding = instance_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let retention_duration_binding_1 = args.retention_duration.get_output(context);
-        let retention_duration_binding = retention_duration_binding_1.get_inner();
-        let spec_binding_1 = args.spec.get_output(context);
-        let spec_binding = spec_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let instance_binding = args.instance.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let retention_duration_binding = args.retention_duration.get_output(context);
+        let spec_binding = args.spec.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:spanner/backupSchedule:BackupSchedule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fullBackupSpec".into(),
-                    value: &full_backup_spec_binding,
+                    value: full_backup_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "incrementalBackupSpec".into(),
-                    value: &incremental_backup_spec_binding,
+                    value: incremental_backup_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: &instance_binding,
+                    value: instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDuration".into(),
-                    value: &retention_duration_binding,
+                    value: retention_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: &spec_binding,
+                    value: spec_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackupScheduleResult {
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            full_backup_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fullBackupSpec"),
-            ),
-            incremental_backup_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("incrementalBackupSpec"),
-            ),
-            instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instance"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            retention_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionDuration"),
-            ),
-            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
+            database: o.get_field("database"),
+            full_backup_spec: o.get_field("fullBackupSpec"),
+            incremental_backup_spec: o.get_field("incrementalBackupSpec"),
+            instance: o.get_field("instance"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            retention_duration: o.get_field("retentionDuration"),
+            spec: o.get_field("spec"),
         }
     }
 }

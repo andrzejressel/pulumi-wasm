@@ -129,101 +129,75 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_provider_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_provider_arn_binding = args
             .application_provider_arn
             .get_output(context);
-        let application_provider_arn_binding = application_provider_arn_binding_1
-            .get_inner();
-        let client_token_binding_1 = args.client_token.get_output(context);
-        let client_token_binding = client_token_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let instance_arn_binding_1 = args.instance_arn.get_output(context);
-        let instance_arn_binding = instance_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let portal_options_binding_1 = args.portal_options.get_output(context);
-        let portal_options_binding = portal_options_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let client_token_binding = args.client_token.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let instance_arn_binding = args.instance_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let portal_options_binding = args.portal_options.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssoadmin/application:Application".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationProviderArn".into(),
-                    value: &application_provider_arn_binding,
+                    value: application_provider_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientToken".into(),
-                    value: &client_token_binding,
+                    value: client_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: &instance_arn_binding,
+                    value: instance_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portalOptions".into(),
-                    value: &portal_options_binding,
+                    value: portal_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationResult {
-            application_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationAccount"),
-            ),
-            application_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationArn"),
-            ),
-            application_provider_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationProviderArn"),
-            ),
-            client_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientToken"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            portal_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portalOptions"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            application_account: o.get_field("applicationAccount"),
+            application_arn: o.get_field("applicationArn"),
+            application_provider_arn: o.get_field("applicationProviderArn"),
+            client_token: o.get_field("clientToken"),
+            description: o.get_field("description"),
+            instance_arn: o.get_field("instanceArn"),
+            name: o.get_field("name"),
+            portal_options: o.get_field("portalOptions"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

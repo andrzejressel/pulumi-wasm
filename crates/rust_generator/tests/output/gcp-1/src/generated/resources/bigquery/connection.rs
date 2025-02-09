@@ -467,127 +467,96 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_binding_1 = args.aws.get_output(context);
-        let aws_binding = aws_binding_1.get_inner();
-        let azure_binding_1 = args.azure.get_output(context);
-        let azure_binding = azure_binding_1.get_inner();
-        let cloud_resource_binding_1 = args.cloud_resource.get_output(context);
-        let cloud_resource_binding = cloud_resource_binding_1.get_inner();
-        let cloud_spanner_binding_1 = args.cloud_spanner.get_output(context);
-        let cloud_spanner_binding = cloud_spanner_binding_1.get_inner();
-        let cloud_sql_binding_1 = args.cloud_sql.get_output(context);
-        let cloud_sql_binding = cloud_sql_binding_1.get_inner();
-        let connection_id_binding_1 = args.connection_id.get_output(context);
-        let connection_id_binding = connection_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let friendly_name_binding_1 = args.friendly_name.get_output(context);
-        let friendly_name_binding = friendly_name_binding_1.get_inner();
-        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
-        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let spark_binding_1 = args.spark.get_output(context);
-        let spark_binding = spark_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_binding = args.aws.get_output(context);
+        let azure_binding = args.azure.get_output(context);
+        let cloud_resource_binding = args.cloud_resource.get_output(context);
+        let cloud_spanner_binding = args.cloud_spanner.get_output(context);
+        let cloud_sql_binding = args.cloud_sql.get_output(context);
+        let connection_id_binding = args.connection_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let friendly_name_binding = args.friendly_name.get_output(context);
+        let kms_key_name_binding = args.kms_key_name.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let spark_binding = args.spark.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/connection:Connection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aws".into(),
-                    value: &aws_binding,
+                    value: aws_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azure".into(),
-                    value: &azure_binding,
+                    value: azure_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudResource".into(),
-                    value: &cloud_resource_binding,
+                    value: cloud_resource_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudSpanner".into(),
-                    value: &cloud_spanner_binding,
+                    value: cloud_spanner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudSql".into(),
-                    value: &cloud_sql_binding,
+                    value: cloud_sql_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: &connection_id_binding,
+                    value: connection_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: &friendly_name_binding,
+                    value: friendly_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: &kms_key_name_binding,
+                    value: kms_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spark".into(),
-                    value: &spark_binding,
+                    value: spark_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectionResult {
-            aws: pulumi_gestalt_rust::__private::into_domain(o.extract_field("aws")),
-            azure: pulumi_gestalt_rust::__private::into_domain(o.extract_field("azure")),
-            cloud_resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudResource"),
-            ),
-            cloud_spanner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudSpanner"),
-            ),
-            cloud_sql: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudSql"),
-            ),
-            connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            friendly_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("friendlyName"),
-            ),
-            has_credential: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasCredential"),
-            ),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            spark: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spark")),
+            aws: o.get_field("aws"),
+            azure: o.get_field("azure"),
+            cloud_resource: o.get_field("cloudResource"),
+            cloud_spanner: o.get_field("cloudSpanner"),
+            cloud_sql: o.get_field("cloudSql"),
+            connection_id: o.get_field("connectionId"),
+            description: o.get_field("description"),
+            friendly_name: o.get_field("friendlyName"),
+            has_credential: o.get_field("hasCredential"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            spark: o.get_field("spark"),
         }
     }
 }

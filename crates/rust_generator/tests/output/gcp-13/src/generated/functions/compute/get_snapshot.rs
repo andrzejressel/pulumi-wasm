@@ -64,103 +64,62 @@ pub mod get_snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSnapshotArgs,
     ) -> GetSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let most_recent_binding_1 = args.most_recent.get_output(context);
-        let most_recent_binding = most_recent_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filter_binding = args.filter.get_output(context);
+        let most_recent_binding = args.most_recent.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getSnapshot:getSnapshot".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: &most_recent_binding,
+                    value: most_recent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSnapshotResult {
-            chain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("chainName"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSizeGb"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            licenses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenses"),
-            ),
-            most_recent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecent"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            snapshot_encryption_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotEncryptionKeys"),
-            ),
-            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotId"),
-            ),
-            source_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDisk"),
-            ),
-            source_disk_encryption_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDiskEncryptionKeys"),
-            ),
-            storage_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageBytes"),
-            ),
-            storage_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageLocations"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            chain_name: o.get_field("chainName"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            disk_size_gb: o.get_field("diskSizeGb"),
+            effective_labels: o.get_field("effectiveLabels"),
+            filter: o.get_field("filter"),
+            id: o.get_field("id"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            licenses: o.get_field("licenses"),
+            most_recent: o.get_field("mostRecent"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            self_link: o.get_field("selfLink"),
+            snapshot_encryption_keys: o.get_field("snapshotEncryptionKeys"),
+            snapshot_id: o.get_field("snapshotId"),
+            source_disk: o.get_field("sourceDisk"),
+            source_disk_encryption_keys: o.get_field("sourceDiskEncryptionKeys"),
+            storage_bytes: o.get_field("storageBytes"),
+            storage_locations: o.get_field("storageLocations"),
+            zone: o.get_field("zone"),
         }
     }
 }

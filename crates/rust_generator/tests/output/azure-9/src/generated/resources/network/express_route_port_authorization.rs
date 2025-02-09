@@ -78,56 +78,45 @@ pub mod express_route_port_authorization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExpressRoutePortAuthorizationArgs,
     ) -> ExpressRoutePortAuthorizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let express_route_port_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let express_route_port_name_binding = args
             .express_route_port_name
             .get_output(context);
-        let express_route_port_name_binding = express_route_port_name_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRoutePortName".into(),
-                    value: &express_route_port_name_binding,
+                    value: express_route_port_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExpressRoutePortAuthorizationResult {
-            authorization_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationKey"),
-            ),
-            authorization_use_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationUseStatus"),
-            ),
-            express_route_port_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressRoutePortName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            authorization_key: o.get_field("authorizationKey"),
+            authorization_use_status: o.get_field("authorizationUseStatus"),
+            express_route_port_name: o.get_field("expressRoutePortName"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

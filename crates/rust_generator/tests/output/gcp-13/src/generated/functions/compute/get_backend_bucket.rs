@@ -37,63 +37,42 @@ pub mod get_backend_bucket {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBackendBucketArgs,
     ) -> GetBackendBucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getBackendBucket:getBackendBucket".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBackendBucketResult {
-            bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketName"),
-            ),
-            cdn_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnPolicies"),
-            ),
-            compression_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compressionMode"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            custom_response_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customResponseHeaders"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            edge_security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeSecurityPolicy"),
-            ),
-            enable_cdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableCdn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
+            bucket_name: o.get_field("bucketName"),
+            cdn_policies: o.get_field("cdnPolicies"),
+            compression_mode: o.get_field("compressionMode"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            custom_response_headers: o.get_field("customResponseHeaders"),
+            description: o.get_field("description"),
+            edge_security_policy: o.get_field("edgeSecurityPolicy"),
+            enable_cdn: o.get_field("enableCdn"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
         }
     }
 }

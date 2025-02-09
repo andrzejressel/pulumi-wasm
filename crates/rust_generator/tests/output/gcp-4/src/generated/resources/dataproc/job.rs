@@ -214,162 +214,111 @@ pub mod job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let force_delete_binding_1 = args.force_delete.get_output(context);
-        let force_delete_binding = force_delete_binding_1.get_inner();
-        let hadoop_config_binding_1 = args.hadoop_config.get_output(context);
-        let hadoop_config_binding = hadoop_config_binding_1.get_inner();
-        let hive_config_binding_1 = args.hive_config.get_output(context);
-        let hive_config_binding = hive_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let pig_config_binding_1 = args.pig_config.get_output(context);
-        let pig_config_binding = pig_config_binding_1.get_inner();
-        let placement_binding_1 = args.placement.get_output(context);
-        let placement_binding = placement_binding_1.get_inner();
-        let presto_config_binding_1 = args.presto_config.get_output(context);
-        let presto_config_binding = presto_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let pyspark_config_binding_1 = args.pyspark_config.get_output(context);
-        let pyspark_config_binding = pyspark_config_binding_1.get_inner();
-        let reference_binding_1 = args.reference.get_output(context);
-        let reference_binding = reference_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let scheduling_binding_1 = args.scheduling.get_output(context);
-        let scheduling_binding = scheduling_binding_1.get_inner();
-        let spark_config_binding_1 = args.spark_config.get_output(context);
-        let spark_config_binding = spark_config_binding_1.get_inner();
-        let sparksql_config_binding_1 = args.sparksql_config.get_output(context);
-        let sparksql_config_binding = sparksql_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let force_delete_binding = args.force_delete.get_output(context);
+        let hadoop_config_binding = args.hadoop_config.get_output(context);
+        let hive_config_binding = args.hive_config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let pig_config_binding = args.pig_config.get_output(context);
+        let placement_binding = args.placement.get_output(context);
+        let presto_config_binding = args.presto_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let pyspark_config_binding = args.pyspark_config.get_output(context);
+        let reference_binding = args.reference.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let scheduling_binding = args.scheduling.get_output(context);
+        let spark_config_binding = args.spark_config.get_output(context);
+        let sparksql_config_binding = args.sparksql_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataproc/job:Job".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: &force_delete_binding,
+                    value: force_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hadoopConfig".into(),
-                    value: &hadoop_config_binding,
+                    value: hadoop_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hiveConfig".into(),
-                    value: &hive_config_binding,
+                    value: hive_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pigConfig".into(),
-                    value: &pig_config_binding,
+                    value: pig_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placement".into(),
-                    value: &placement_binding,
+                    value: placement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prestoConfig".into(),
-                    value: &presto_config_binding,
+                    value: presto_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pysparkConfig".into(),
-                    value: &pyspark_config_binding,
+                    value: pyspark_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reference".into(),
-                    value: &reference_binding,
+                    value: reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduling".into(),
-                    value: &scheduling_binding,
+                    value: scheduling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkConfig".into(),
-                    value: &spark_config_binding,
+                    value: spark_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparksqlConfig".into(),
-                    value: &sparksql_config_binding,
+                    value: sparksql_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobResult {
-            driver_controls_files_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("driverControlsFilesUri"),
-            ),
-            driver_output_resource_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("driverOutputResourceUri"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            force_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDelete"),
-            ),
-            hadoop_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hadoopConfig"),
-            ),
-            hive_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hiveConfig"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            pig_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pigConfig"),
-            ),
-            placement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placement"),
-            ),
-            presto_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prestoConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            pyspark_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pysparkConfig"),
-            ),
-            reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reference"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            scheduling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduling"),
-            ),
-            spark_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkConfig"),
-            ),
-            sparksql_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparksqlConfig"),
-            ),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
+            driver_controls_files_uri: o.get_field("driverControlsFilesUri"),
+            driver_output_resource_uri: o.get_field("driverOutputResourceUri"),
+            effective_labels: o.get_field("effectiveLabels"),
+            force_delete: o.get_field("forceDelete"),
+            hadoop_config: o.get_field("hadoopConfig"),
+            hive_config: o.get_field("hiveConfig"),
+            labels: o.get_field("labels"),
+            pig_config: o.get_field("pigConfig"),
+            placement: o.get_field("placement"),
+            presto_config: o.get_field("prestoConfig"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            pyspark_config: o.get_field("pysparkConfig"),
+            reference: o.get_field("reference"),
+            region: o.get_field("region"),
+            scheduling: o.get_field("scheduling"),
+            spark_config: o.get_field("sparkConfig"),
+            sparksql_config: o.get_field("sparksqlConfig"),
+            statuses: o.get_field("statuses"),
         }
     }
 }

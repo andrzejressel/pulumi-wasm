@@ -173,87 +173,69 @@ pub mod managed_instance_failover_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedInstanceFailoverGroupArgs,
     ) -> ManagedInstanceFailoverGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
-        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partner_managed_instance_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let managed_instance_id_binding = args.managed_instance_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let partner_managed_instance_id_binding = args
             .partner_managed_instance_id
             .get_output(context);
-        let partner_managed_instance_id_binding = partner_managed_instance_id_binding_1
-            .get_inner();
-        let read_write_endpoint_failover_policy_binding_1 = args
+        let read_write_endpoint_failover_policy_binding = args
             .read_write_endpoint_failover_policy
             .get_output(context);
-        let read_write_endpoint_failover_policy_binding = read_write_endpoint_failover_policy_binding_1
-            .get_inner();
-        let readonly_endpoint_failover_policy_enabled_binding_1 = args
+        let readonly_endpoint_failover_policy_enabled_binding = args
             .readonly_endpoint_failover_policy_enabled
             .get_output(context);
-        let readonly_endpoint_failover_policy_enabled_binding = readonly_endpoint_failover_policy_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: &managed_instance_id_binding,
+                    value: managed_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerManagedInstanceId".into(),
-                    value: &partner_managed_instance_id_binding,
+                    value: partner_managed_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readWriteEndpointFailoverPolicy".into(),
-                    value: &read_write_endpoint_failover_policy_binding,
+                    value: read_write_endpoint_failover_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readonlyEndpointFailoverPolicyEnabled".into(),
-                    value: &readonly_endpoint_failover_policy_enabled_binding,
+                    value: readonly_endpoint_failover_policy_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedInstanceFailoverGroupResult {
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedInstanceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partner_managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerManagedInstanceId"),
-            ),
-            partner_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerRegions"),
-            ),
-            read_write_endpoint_failover_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readWriteEndpointFailoverPolicy"),
-            ),
-            readonly_endpoint_failover_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readonlyEndpointFailoverPolicyEnabled"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            location: o.get_field("location"),
+            managed_instance_id: o.get_field("managedInstanceId"),
+            name: o.get_field("name"),
+            partner_managed_instance_id: o.get_field("partnerManagedInstanceId"),
+            partner_regions: o.get_field("partnerRegions"),
+            read_write_endpoint_failover_policy: o
+                .get_field("readWriteEndpointFailoverPolicy"),
+            readonly_endpoint_failover_policy_enabled: o
+                .get_field("readonlyEndpointFailoverPolicyEnabled"),
+            role: o.get_field("role"),
         }
     }
 }

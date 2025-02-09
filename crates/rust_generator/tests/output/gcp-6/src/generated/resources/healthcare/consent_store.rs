@@ -173,73 +173,56 @@ pub mod consent_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConsentStoreArgs,
     ) -> ConsentStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let default_consent_ttl_binding_1 = args.default_consent_ttl.get_output(context);
-        let default_consent_ttl_binding = default_consent_ttl_binding_1.get_inner();
-        let enable_consent_create_on_update_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dataset_binding = args.dataset.get_output(context);
+        let default_consent_ttl_binding = args.default_consent_ttl.get_output(context);
+        let enable_consent_create_on_update_binding = args
             .enable_consent_create_on_update
             .get_output(context);
-        let enable_consent_create_on_update_binding = enable_consent_create_on_update_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:healthcare/consentStore:ConsentStore".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultConsentTtl".into(),
-                    value: &default_consent_ttl_binding,
+                    value: default_consent_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableConsentCreateOnUpdate".into(),
-                    value: &enable_consent_create_on_update_binding,
+                    value: enable_consent_create_on_update_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConsentStoreResult {
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            default_consent_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultConsentTtl"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_consent_create_on_update: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableConsentCreateOnUpdate"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
+            dataset: o.get_field("dataset"),
+            default_consent_ttl: o.get_field("defaultConsentTtl"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_consent_create_on_update: o.get_field("enableConsentCreateOnUpdate"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            pulumi_labels: o.get_field("pulumiLabels"),
         }
     }
 }

@@ -34,46 +34,34 @@ pub mod get_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSubscriptionArgs,
     ) -> GetSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let subscription_id_binding_1 = args.subscription_id.get_output(context);
-        let subscription_id_binding = subscription_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let subscription_id_binding = args.subscription_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:core/getSubscription:getSubscription".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: &subscription_id_binding,
+                    value: subscription_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSubscriptionResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location_placement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationPlacementId"),
-            ),
-            quota_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaId"),
-            ),
-            spending_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spendingLimit"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            location_placement_id: o.get_field("locationPlacementId"),
+            quota_id: o.get_field("quotaId"),
+            spending_limit: o.get_field("spendingLimit"),
+            state: o.get_field("state"),
+            subscription_id: o.get_field("subscriptionId"),
+            tags: o.get_field("tags"),
+            tenant_id: o.get_field("tenantId"),
         }
     }
 }

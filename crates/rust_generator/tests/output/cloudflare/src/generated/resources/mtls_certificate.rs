@@ -80,77 +80,57 @@ pub mod mtls_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MtlsCertificateArgs,
     ) -> MtlsCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let ca_binding_1 = args.ca.get_output(context);
-        let ca_binding = ca_binding_1.get_inner();
-        let certificates_binding_1 = args.certificates.get_output(context);
-        let certificates_binding = certificates_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_key_binding_1 = args.private_key.get_output(context);
-        let private_key_binding = private_key_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let ca_binding = args.ca.get_output(context);
+        let certificates_binding = args.certificates.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let private_key_binding = args.private_key.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/mtlsCertificate:MtlsCertificate".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ca".into(),
-                    value: &ca_binding,
+                    value: ca_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificates".into(),
-                    value: &certificates_binding,
+                    value: certificates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateKey".into(),
-                    value: &private_key_binding,
+                    value: private_key_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MtlsCertificateResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            ca: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ca")),
-            certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificates"),
-            ),
-            expires_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresOn"),
-            ),
-            issuer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuer"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateKey"),
-            ),
-            serial_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serialNumber"),
-            ),
-            signature: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signature"),
-            ),
-            uploaded_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uploadedOn"),
-            ),
+            account_id: o.get_field("accountId"),
+            ca: o.get_field("ca"),
+            certificates: o.get_field("certificates"),
+            expires_on: o.get_field("expiresOn"),
+            issuer: o.get_field("issuer"),
+            name: o.get_field("name"),
+            private_key: o.get_field("privateKey"),
+            serial_number: o.get_field("serialNumber"),
+            signature: o.get_field("signature"),
+            uploaded_on: o.get_field("uploadedOn"),
         }
     }
 }

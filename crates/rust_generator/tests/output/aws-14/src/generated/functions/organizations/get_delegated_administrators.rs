@@ -25,33 +25,29 @@ pub mod get_delegated_administrators {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDelegatedAdministratorsArgs,
     ) -> GetDelegatedAdministratorsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_principal_binding_1 = args.service_principal.get_output(context);
-        let service_principal_binding = service_principal_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let service_principal_binding = args.service_principal.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipal".into(),
-                    value: &service_principal_binding,
+                    value: service_principal_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDelegatedAdministratorsResult {
-            delegated_administrators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegatedAdministrators"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            service_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipal"),
-            ),
+            delegated_administrators: o.get_field("delegatedAdministrators"),
+            id: o.get_field("id"),
+            service_principal: o.get_field("servicePrincipal"),
         }
     }
 }

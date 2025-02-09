@@ -102,88 +102,63 @@ pub mod project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProjectArgs,
     ) -> ProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
-        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
-        let glossary_terms_binding_1 = args.glossary_terms.get_output(context);
-        let glossary_terms_binding = glossary_terms_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let skip_deletion_check_binding_1 = args.skip_deletion_check.get_output(context);
-        let skip_deletion_check_binding = skip_deletion_check_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let domain_identifier_binding = args.domain_identifier.get_output(context);
+        let glossary_terms_binding = args.glossary_terms.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let skip_deletion_check_binding = args.skip_deletion_check.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datazone/project:Project".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainIdentifier".into(),
-                    value: &domain_identifier_binding,
+                    value: domain_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glossaryTerms".into(),
-                    value: &glossary_terms_binding,
+                    value: glossary_terms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDeletionCheck".into(),
-                    value: &skip_deletion_check_binding,
+                    value: skip_deletion_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProjectResult {
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            created_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdBy"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainIdentifier"),
-            ),
-            failure_reasons: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureReasons"),
-            ),
-            glossary_terms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("glossaryTerms"),
-            ),
-            last_updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedAt"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectStatus"),
-            ),
-            skip_deletion_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDeletionCheck"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            created_at: o.get_field("createdAt"),
+            created_by: o.get_field("createdBy"),
+            description: o.get_field("description"),
+            domain_identifier: o.get_field("domainIdentifier"),
+            failure_reasons: o.get_field("failureReasons"),
+            glossary_terms: o.get_field("glossaryTerms"),
+            last_updated_at: o.get_field("lastUpdatedAt"),
+            name: o.get_field("name"),
+            project_status: o.get_field("projectStatus"),
+            skip_deletion_check: o.get_field("skipDeletionCheck"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

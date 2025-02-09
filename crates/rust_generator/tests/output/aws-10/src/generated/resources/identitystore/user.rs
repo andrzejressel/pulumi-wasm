@@ -145,149 +145,108 @@ pub mod user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addresses_binding_1 = args.addresses.get_output(context);
-        let addresses_binding = addresses_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let emails_binding_1 = args.emails.get_output(context);
-        let emails_binding = emails_binding_1.get_inner();
-        let identity_store_id_binding_1 = args.identity_store_id.get_output(context);
-        let identity_store_id_binding = identity_store_id_binding_1.get_inner();
-        let locale_binding_1 = args.locale.get_output(context);
-        let locale_binding = locale_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nickname_binding_1 = args.nickname.get_output(context);
-        let nickname_binding = nickname_binding_1.get_inner();
-        let phone_numbers_binding_1 = args.phone_numbers.get_output(context);
-        let phone_numbers_binding = phone_numbers_binding_1.get_inner();
-        let preferred_language_binding_1 = args.preferred_language.get_output(context);
-        let preferred_language_binding = preferred_language_binding_1.get_inner();
-        let profile_url_binding_1 = args.profile_url.get_output(context);
-        let profile_url_binding = profile_url_binding_1.get_inner();
-        let timezone_binding_1 = args.timezone.get_output(context);
-        let timezone_binding = timezone_binding_1.get_inner();
-        let title_binding_1 = args.title.get_output(context);
-        let title_binding = title_binding_1.get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let user_type_binding_1 = args.user_type.get_output(context);
-        let user_type_binding = user_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let addresses_binding = args.addresses.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let emails_binding = args.emails.get_output(context);
+        let identity_store_id_binding = args.identity_store_id.get_output(context);
+        let locale_binding = args.locale.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let nickname_binding = args.nickname.get_output(context);
+        let phone_numbers_binding = args.phone_numbers.get_output(context);
+        let preferred_language_binding = args.preferred_language.get_output(context);
+        let profile_url_binding = args.profile_url.get_output(context);
+        let timezone_binding = args.timezone.get_output(context);
+        let title_binding = args.title.get_output(context);
+        let user_name_binding = args.user_name.get_output(context);
+        let user_type_binding = args.user_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:identitystore/user:User".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addresses".into(),
-                    value: &addresses_binding,
+                    value: addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emails".into(),
-                    value: &emails_binding,
+                    value: emails_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityStoreId".into(),
-                    value: &identity_store_id_binding,
+                    value: identity_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locale".into(),
-                    value: &locale_binding,
+                    value: locale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nickname".into(),
-                    value: &nickname_binding,
+                    value: nickname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumbers".into(),
-                    value: &phone_numbers_binding,
+                    value: phone_numbers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredLanguage".into(),
-                    value: &preferred_language_binding,
+                    value: preferred_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileUrl".into(),
-                    value: &profile_url_binding,
+                    value: profile_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezone".into(),
-                    value: &timezone_binding,
+                    value: timezone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: &title_binding,
+                    value: title_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userType".into(),
-                    value: &user_type_binding,
+                    value: user_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserResult {
-            addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addresses"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            emails: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emails"),
-            ),
-            external_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalIds"),
-            ),
-            identity_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityStoreId"),
-            ),
-            locale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locale"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nickname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nickname"),
-            ),
-            phone_numbers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneNumbers"),
-            ),
-            preferred_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredLanguage"),
-            ),
-            profile_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileUrl"),
-            ),
-            timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezone"),
-            ),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
-            user_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userType"),
-            ),
+            addresses: o.get_field("addresses"),
+            display_name: o.get_field("displayName"),
+            emails: o.get_field("emails"),
+            external_ids: o.get_field("externalIds"),
+            identity_store_id: o.get_field("identityStoreId"),
+            locale: o.get_field("locale"),
+            name: o.get_field("name"),
+            nickname: o.get_field("nickname"),
+            phone_numbers: o.get_field("phoneNumbers"),
+            preferred_language: o.get_field("preferredLanguage"),
+            profile_url: o.get_field("profileUrl"),
+            timezone: o.get_field("timezone"),
+            title: o.get_field("title"),
+            user_id: o.get_field("userId"),
+            user_name: o.get_field("userName"),
+            user_type: o.get_field("userType"),
         }
     }
 }

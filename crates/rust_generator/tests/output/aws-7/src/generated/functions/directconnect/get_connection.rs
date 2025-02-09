@@ -42,56 +42,41 @@ pub mod get_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetConnectionArgs,
     ) -> GetConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:directconnect/getConnection:getConnection".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetConnectionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsDevice"),
-            ),
-            bandwidth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidth"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccountId"),
-            ),
-            partner_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerName"),
-            ),
-            provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vlan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vlanId"),
-            ),
+            arn: o.get_field("arn"),
+            aws_device: o.get_field("awsDevice"),
+            bandwidth: o.get_field("bandwidth"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            owner_account_id: o.get_field("ownerAccountId"),
+            partner_name: o.get_field("partnerName"),
+            provider_name: o.get_field("providerName"),
+            tags: o.get_field("tags"),
+            vlan_id: o.get_field("vlanId"),
         }
     }
 }

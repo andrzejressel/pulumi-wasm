@@ -288,118 +288,86 @@ pub mod analytics_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AnalyticsApplicationArgs,
     ) -> AnalyticsApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_logging_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloudwatch_logging_options_binding = args
             .cloudwatch_logging_options
             .get_output(context);
-        let cloudwatch_logging_options_binding = cloudwatch_logging_options_binding_1
-            .get_inner();
-        let code_binding_1 = args.code.get_output(context);
-        let code_binding = code_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let inputs_binding_1 = args.inputs.get_output(context);
-        let inputs_binding = inputs_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let outputs_binding_1 = args.outputs.get_output(context);
-        let outputs_binding = outputs_binding_1.get_inner();
-        let reference_data_sources_binding_1 = args
+        let code_binding = args.code.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let inputs_binding = args.inputs.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let outputs_binding = args.outputs.get_output(context);
+        let reference_data_sources_binding = args
             .reference_data_sources
             .get_output(context);
-        let reference_data_sources_binding = reference_data_sources_binding_1
-            .get_inner();
-        let start_application_binding_1 = args.start_application.get_output(context);
-        let start_application_binding = start_application_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let start_application_binding = args.start_application.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kinesis/analyticsApplication:AnalyticsApplication".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLoggingOptions".into(),
-                    value: &cloudwatch_logging_options_binding,
+                    value: cloudwatch_logging_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: &code_binding,
+                    value: code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputs".into(),
-                    value: &inputs_binding,
+                    value: inputs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputs".into(),
-                    value: &outputs_binding,
+                    value: outputs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceDataSources".into(),
-                    value: &reference_data_sources_binding,
+                    value: reference_data_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startApplication".into(),
-                    value: &start_application_binding,
+                    value: start_application_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AnalyticsApplicationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_logging_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchLoggingOptions"),
-            ),
-            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
-            create_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            inputs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputs"),
-            ),
-            last_update_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdateTimestamp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outputs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputs"),
-            ),
-            reference_data_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("referenceDataSources"),
-            ),
-            start_application: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startApplication"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arn: o.get_field("arn"),
+            cloudwatch_logging_options: o.get_field("cloudwatchLoggingOptions"),
+            code: o.get_field("code"),
+            create_timestamp: o.get_field("createTimestamp"),
+            description: o.get_field("description"),
+            inputs: o.get_field("inputs"),
+            last_update_timestamp: o.get_field("lastUpdateTimestamp"),
+            name: o.get_field("name"),
+            outputs: o.get_field("outputs"),
+            reference_data_sources: o.get_field("referenceDataSources"),
+            start_application: o.get_field("startApplication"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            version: o.get_field("version"),
         }
     }
 }

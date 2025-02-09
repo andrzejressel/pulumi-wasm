@@ -130,83 +130,65 @@ pub mod tenant_inbound_saml_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TenantInboundSamlConfigArgs,
     ) -> TenantInboundSamlConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let idp_config_binding_1 = args.idp_config.get_output(context);
-        let idp_config_binding = idp_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let sp_config_binding_1 = args.sp_config.get_output(context);
-        let sp_config_binding = sp_config_binding_1.get_inner();
-        let tenant_binding_1 = args.tenant.get_output(context);
-        let tenant_binding = tenant_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let idp_config_binding = args.idp_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let sp_config_binding = args.sp_config.get_output(context);
+        let tenant_binding = args.tenant.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:identityplatform/tenantInboundSamlConfig:TenantInboundSamlConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpConfig".into(),
-                    value: &idp_config_binding,
+                    value: idp_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spConfig".into(),
-                    value: &sp_config_binding,
+                    value: sp_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenant".into(),
-                    value: &tenant_binding,
+                    value: tenant_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TenantInboundSamlConfigResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            idp_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idpConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            sp_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spConfig"),
-            ),
-            tenant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenant"),
-            ),
+            display_name: o.get_field("displayName"),
+            enabled: o.get_field("enabled"),
+            idp_config: o.get_field("idpConfig"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            sp_config: o.get_field("spConfig"),
+            tenant: o.get_field("tenant"),
         }
     }
 }

@@ -145,54 +145,43 @@ pub mod job_schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobScheduleArgs,
     ) -> JobScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let start_mode_binding_1 = args.start_mode.get_output(context);
-        let start_mode_binding = start_mode_binding_1.get_inner();
-        let start_time_binding_1 = args.start_time.get_output(context);
-        let start_time_binding = start_time_binding_1.get_inner();
-        let stream_analytics_job_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let start_mode_binding = args.start_mode.get_output(context);
+        let start_time_binding = args.start_time.get_output(context);
+        let stream_analytics_job_id_binding = args
             .stream_analytics_job_id
             .get_output(context);
-        let stream_analytics_job_id_binding = stream_analytics_job_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/jobSchedule:JobSchedule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startMode".into(),
-                    value: &start_mode_binding,
+                    value: start_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: &start_time_binding,
+                    value: start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobId".into(),
-                    value: &stream_analytics_job_id_binding,
+                    value: stream_analytics_job_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobScheduleResult {
-            last_output_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastOutputTime"),
-            ),
-            start_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startMode"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            stream_analytics_job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobId"),
-            ),
+            last_output_time: o.get_field("lastOutputTime"),
+            start_mode: o.get_field("startMode"),
+            start_time: o.get_field("startTime"),
+            stream_analytics_job_id: o.get_field("streamAnalyticsJobId"),
         }
     }
 }

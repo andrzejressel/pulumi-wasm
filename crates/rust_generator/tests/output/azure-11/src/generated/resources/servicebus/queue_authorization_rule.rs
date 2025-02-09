@@ -101,81 +101,60 @@ pub mod queue_authorization_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: QueueAuthorizationRuleArgs,
     ) -> QueueAuthorizationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let listen_binding_1 = args.listen.get_output(context);
-        let listen_binding = listen_binding_1.get_inner();
-        let manage_binding_1 = args.manage.get_output(context);
-        let manage_binding = manage_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let queue_id_binding_1 = args.queue_id.get_output(context);
-        let queue_id_binding = queue_id_binding_1.get_inner();
-        let send_binding_1 = args.send.get_output(context);
-        let send_binding = send_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let listen_binding = args.listen.get_output(context);
+        let manage_binding = args.manage.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let queue_id_binding = args.queue_id.get_output(context);
+        let send_binding = args.send.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listen".into(),
-                    value: &listen_binding,
+                    value: listen_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manage".into(),
-                    value: &manage_binding,
+                    value: manage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueId".into(),
-                    value: &queue_id_binding,
+                    value: queue_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "send".into(),
-                    value: &send_binding,
+                    value: send_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         QueueAuthorizationRuleResult {
-            listen: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listen"),
-            ),
-            manage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manage"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionStringAlias"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            queue_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueId"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionStringAlias"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            send: pulumi_gestalt_rust::__private::into_domain(o.extract_field("send")),
+            listen: o.get_field("listen"),
+            manage: o.get_field("manage"),
+            name: o.get_field("name"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            primary_connection_string_alias: o.get_field("primaryConnectionStringAlias"),
+            primary_key: o.get_field("primaryKey"),
+            queue_id: o.get_field("queueId"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            secondary_connection_string_alias: o
+                .get_field("secondaryConnectionStringAlias"),
+            secondary_key: o.get_field("secondaryKey"),
+            send: o.get_field("send"),
         }
     }
 }

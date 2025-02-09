@@ -88,71 +88,58 @@ pub mod mover_source_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MoverSourceEndpointArgs,
     ) -> MoverSourceEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let export_binding_1 = args.export.get_output(context);
-        let export_binding = export_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nfs_version_binding_1 = args.nfs_version.get_output(context);
-        let nfs_version_binding = nfs_version_binding_1.get_inner();
-        let storage_mover_id_binding_1 = args.storage_mover_id.get_output(context);
-        let storage_mover_id_binding = storage_mover_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let export_binding = args.export.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let nfs_version_binding = args.nfs_version.get_output(context);
+        let storage_mover_id_binding = args.storage_mover_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/moverSourceEndpoint:MoverSourceEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "export".into(),
-                    value: &export_binding,
+                    value: export_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nfsVersion".into(),
-                    value: &nfs_version_binding,
+                    value: nfs_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageMoverId".into(),
-                    value: &storage_mover_id_binding,
+                    value: storage_mover_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MoverSourceEndpointResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            export: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("export"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nfs_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nfsVersion"),
-            ),
-            storage_mover_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageMoverId"),
-            ),
+            description: o.get_field("description"),
+            export: o.get_field("export"),
+            host: o.get_field("host"),
+            name: o.get_field("name"),
+            nfs_version: o.get_field("nfsVersion"),
+            storage_mover_id: o.get_field("storageMoverId"),
         }
     }
 }

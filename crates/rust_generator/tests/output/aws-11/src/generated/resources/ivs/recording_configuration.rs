@@ -98,76 +98,62 @@ pub mod recording_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RecordingConfigurationArgs,
     ) -> RecordingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_configuration_binding = args
             .destination_configuration
             .get_output(context);
-        let destination_configuration_binding = destination_configuration_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recording_reconnect_window_seconds_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let recording_reconnect_window_seconds_binding = args
             .recording_reconnect_window_seconds
             .get_output(context);
-        let recording_reconnect_window_seconds_binding = recording_reconnect_window_seconds_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let thumbnail_configuration_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let thumbnail_configuration_binding = args
             .thumbnail_configuration
             .get_output(context);
-        let thumbnail_configuration_binding = thumbnail_configuration_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ivs/recordingConfiguration:RecordingConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfiguration".into(),
-                    value: &destination_configuration_binding,
+                    value: destination_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recordingReconnectWindowSeconds".into(),
-                    value: &recording_reconnect_window_seconds_binding,
+                    value: recording_reconnect_window_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbnailConfiguration".into(),
-                    value: &thumbnail_configuration_binding,
+                    value: thumbnail_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RecordingConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            destination_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationConfiguration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recording_reconnect_window_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recordingReconnectWindowSeconds"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            thumbnail_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbnailConfiguration"),
-            ),
+            arn: o.get_field("arn"),
+            destination_configuration: o.get_field("destinationConfiguration"),
+            name: o.get_field("name"),
+            recording_reconnect_window_seconds: o
+                .get_field("recordingReconnectWindowSeconds"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            thumbnail_configuration: o.get_field("thumbnailConfiguration"),
         }
     }
 }

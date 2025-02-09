@@ -98,108 +98,77 @@ pub mod mlflow_tracking_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MlflowTrackingServerArgs,
     ) -> MlflowTrackingServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let artifact_store_uri_binding_1 = args.artifact_store_uri.get_output(context);
-        let artifact_store_uri_binding = artifact_store_uri_binding_1.get_inner();
-        let automatic_model_registration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let artifact_store_uri_binding = args.artifact_store_uri.get_output(context);
+        let automatic_model_registration_binding = args
             .automatic_model_registration
             .get_output(context);
-        let automatic_model_registration_binding = automatic_model_registration_binding_1
-            .get_inner();
-        let mlflow_version_binding_1 = args.mlflow_version.get_output(context);
-        let mlflow_version_binding = mlflow_version_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tracking_server_name_binding_1 = args
-            .tracking_server_name
-            .get_output(context);
-        let tracking_server_name_binding = tracking_server_name_binding_1.get_inner();
-        let tracking_server_size_binding_1 = args
-            .tracking_server_size
-            .get_output(context);
-        let tracking_server_size_binding = tracking_server_size_binding_1.get_inner();
-        let weekly_maintenance_window_start_binding_1 = args
+        let mlflow_version_binding = args.mlflow_version.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tracking_server_name_binding = args.tracking_server_name.get_output(context);
+        let tracking_server_size_binding = args.tracking_server_size.get_output(context);
+        let weekly_maintenance_window_start_binding = args
             .weekly_maintenance_window_start
             .get_output(context);
-        let weekly_maintenance_window_start_binding = weekly_maintenance_window_start_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "artifactStoreUri".into(),
-                    value: &artifact_store_uri_binding,
+                    value: artifact_store_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticModelRegistration".into(),
-                    value: &automatic_model_registration_binding,
+                    value: automatic_model_registration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mlflowVersion".into(),
-                    value: &mlflow_version_binding,
+                    value: mlflow_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackingServerName".into(),
-                    value: &tracking_server_name_binding,
+                    value: tracking_server_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackingServerSize".into(),
-                    value: &tracking_server_size_binding,
+                    value: tracking_server_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyMaintenanceWindowStart".into(),
-                    value: &weekly_maintenance_window_start_binding,
+                    value: weekly_maintenance_window_start_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MlflowTrackingServerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            artifact_store_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("artifactStoreUri"),
-            ),
-            automatic_model_registration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticModelRegistration"),
-            ),
-            mlflow_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mlflowVersion"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tracking_server_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trackingServerName"),
-            ),
-            tracking_server_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trackingServerSize"),
-            ),
-            tracking_server_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trackingServerUrl"),
-            ),
-            weekly_maintenance_window_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weeklyMaintenanceWindowStart"),
-            ),
+            arn: o.get_field("arn"),
+            artifact_store_uri: o.get_field("artifactStoreUri"),
+            automatic_model_registration: o.get_field("automaticModelRegistration"),
+            mlflow_version: o.get_field("mlflowVersion"),
+            role_arn: o.get_field("roleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tracking_server_name: o.get_field("trackingServerName"),
+            tracking_server_size: o.get_field("trackingServerSize"),
+            tracking_server_url: o.get_field("trackingServerUrl"),
+            weekly_maintenance_window_start: o.get_field("weeklyMaintenanceWindowStart"),
         }
     }
 }

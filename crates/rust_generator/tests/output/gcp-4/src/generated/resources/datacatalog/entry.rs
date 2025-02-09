@@ -234,121 +234,88 @@ pub mod entry {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EntryArgs,
     ) -> EntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let entry_group_binding_1 = args.entry_group.get_output(context);
-        let entry_group_binding = entry_group_binding_1.get_inner();
-        let entry_id_binding_1 = args.entry_id.get_output(context);
-        let entry_id_binding = entry_id_binding_1.get_inner();
-        let gcs_fileset_spec_binding_1 = args.gcs_fileset_spec.get_output(context);
-        let gcs_fileset_spec_binding = gcs_fileset_spec_binding_1.get_inner();
-        let linked_resource_binding_1 = args.linked_resource.get_output(context);
-        let linked_resource_binding = linked_resource_binding_1.get_inner();
-        let schema_binding_1 = args.schema.get_output(context);
-        let schema_binding = schema_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let user_specified_system_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let entry_group_binding = args.entry_group.get_output(context);
+        let entry_id_binding = args.entry_id.get_output(context);
+        let gcs_fileset_spec_binding = args.gcs_fileset_spec.get_output(context);
+        let linked_resource_binding = args.linked_resource.get_output(context);
+        let schema_binding = args.schema.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let user_specified_system_binding = args
             .user_specified_system
             .get_output(context);
-        let user_specified_system_binding = user_specified_system_binding_1.get_inner();
-        let user_specified_type_binding_1 = args.user_specified_type.get_output(context);
-        let user_specified_type_binding = user_specified_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let user_specified_type_binding = args.user_specified_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:datacatalog/entry:Entry".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entryGroup".into(),
-                    value: &entry_group_binding,
+                    value: entry_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entryId".into(),
-                    value: &entry_id_binding,
+                    value: entry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gcsFilesetSpec".into(),
-                    value: &gcs_fileset_spec_binding,
+                    value: gcs_fileset_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedResource".into(),
-                    value: &linked_resource_binding,
+                    value: linked_resource_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: &schema_binding,
+                    value: schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userSpecifiedSystem".into(),
-                    value: &user_specified_system_binding,
+                    value: user_specified_system_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userSpecifiedType".into(),
-                    value: &user_specified_type_binding,
+                    value: user_specified_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EntryResult {
-            bigquery_date_sharded_specs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryDateShardedSpecs"),
-            ),
-            bigquery_table_specs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryTableSpecs"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            entry_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entryGroup"),
-            ),
-            entry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entryId"),
-            ),
-            gcs_fileset_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcsFilesetSpec"),
-            ),
-            integrated_system: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integratedSystem"),
-            ),
-            linked_resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedResource"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schema"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            user_specified_system: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userSpecifiedSystem"),
-            ),
-            user_specified_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userSpecifiedType"),
-            ),
+            bigquery_date_sharded_specs: o.get_field("bigqueryDateShardedSpecs"),
+            bigquery_table_specs: o.get_field("bigqueryTableSpecs"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            entry_group: o.get_field("entryGroup"),
+            entry_id: o.get_field("entryId"),
+            gcs_fileset_spec: o.get_field("gcsFilesetSpec"),
+            integrated_system: o.get_field("integratedSystem"),
+            linked_resource: o.get_field("linkedResource"),
+            name: o.get_field("name"),
+            schema: o.get_field("schema"),
+            type_: o.get_field("type"),
+            user_specified_system: o.get_field("userSpecifiedSystem"),
+            user_specified_type: o.get_field("userSpecifiedType"),
         }
     }
 }

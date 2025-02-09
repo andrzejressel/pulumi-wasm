@@ -113,108 +113,84 @@ pub mod query_pack_query {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: QueryPackQueryArgs,
     ) -> QueryPackQueryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_settings_json_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_settings_json_binding = args
             .additional_settings_json
             .get_output(context);
-        let additional_settings_json_binding = additional_settings_json_binding_1
-            .get_inner();
-        let body_binding_1 = args.body.get_output(context);
-        let body_binding = body_binding_1.get_inner();
-        let categories_binding_1 = args.categories.get_output(context);
-        let categories_binding = categories_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_pack_id_binding_1 = args.query_pack_id.get_output(context);
-        let query_pack_id_binding = query_pack_id_binding_1.get_inner();
-        let resource_types_binding_1 = args.resource_types.get_output(context);
-        let resource_types_binding = resource_types_binding_1.get_inner();
-        let solutions_binding_1 = args.solutions.get_output(context);
-        let solutions_binding = solutions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let body_binding = args.body.get_output(context);
+        let categories_binding = args.categories.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let query_pack_id_binding = args.query_pack_id.get_output(context);
+        let resource_types_binding = args.resource_types.get_output(context);
+        let solutions_binding = args.solutions.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:operationalinsights/queryPackQuery:QueryPackQuery".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalSettingsJson".into(),
-                    value: &additional_settings_json_binding,
+                    value: additional_settings_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: &body_binding,
+                    value: body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "categories".into(),
-                    value: &categories_binding,
+                    value: categories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryPackId".into(),
-                    value: &query_pack_id_binding,
+                    value: query_pack_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypes".into(),
-                    value: &resource_types_binding,
+                    value: resource_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "solutions".into(),
-                    value: &solutions_binding,
+                    value: solutions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         QueryPackQueryResult {
-            additional_settings_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalSettingsJson"),
-            ),
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            categories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("categories"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query_pack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryPackId"),
-            ),
-            resource_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTypes"),
-            ),
-            solutions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("solutions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            additional_settings_json: o.get_field("additionalSettingsJson"),
+            body: o.get_field("body"),
+            categories: o.get_field("categories"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            query_pack_id: o.get_field("queryPackId"),
+            resource_types: o.get_field("resourceTypes"),
+            solutions: o.get_field("solutions"),
+            tags: o.get_field("tags"),
         }
     }
 }

@@ -759,236 +759,163 @@ pub mod workstation_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkstationConfigArgs,
     ) -> WorkstationConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_ports_binding_1 = args.allowed_ports.get_output(context);
-        let allowed_ports_binding = allowed_ports_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let container_binding_1 = args.container.get_output(context);
-        let container_binding = container_binding_1.get_inner();
-        let disable_tcp_connections_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allowed_ports_binding = args.allowed_ports.get_output(context);
+        let annotations_binding = args.annotations.get_output(context);
+        let container_binding = args.container.get_output(context);
+        let disable_tcp_connections_binding = args
             .disable_tcp_connections
             .get_output(context);
-        let disable_tcp_connections_binding = disable_tcp_connections_binding_1
-            .get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_audit_agent_binding_1 = args.enable_audit_agent.get_output(context);
-        let enable_audit_agent_binding = enable_audit_agent_binding_1.get_inner();
-        let encryption_key_binding_1 = args.encryption_key.get_output(context);
-        let encryption_key_binding = encryption_key_binding_1.get_inner();
-        let ephemeral_directories_binding_1 = args
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_audit_agent_binding = args.enable_audit_agent.get_output(context);
+        let encryption_key_binding = args.encryption_key.get_output(context);
+        let ephemeral_directories_binding = args
             .ephemeral_directories
             .get_output(context);
-        let ephemeral_directories_binding = ephemeral_directories_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let idle_timeout_binding_1 = args.idle_timeout.get_output(context);
-        let idle_timeout_binding = idle_timeout_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let max_usable_workstations_binding_1 = args
+        let host_binding = args.host.get_output(context);
+        let idle_timeout_binding = args.idle_timeout.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let max_usable_workstations_binding = args
             .max_usable_workstations
             .get_output(context);
-        let max_usable_workstations_binding = max_usable_workstations_binding_1
-            .get_inner();
-        let persistent_directories_binding_1 = args
+        let persistent_directories_binding = args
             .persistent_directories
             .get_output(context);
-        let persistent_directories_binding = persistent_directories_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let readiness_checks_binding_1 = args.readiness_checks.get_output(context);
-        let readiness_checks_binding = readiness_checks_binding_1.get_inner();
-        let replica_zones_binding_1 = args.replica_zones.get_output(context);
-        let replica_zones_binding = replica_zones_binding_1.get_inner();
-        let running_timeout_binding_1 = args.running_timeout.get_output(context);
-        let running_timeout_binding = running_timeout_binding_1.get_inner();
-        let workstation_cluster_id_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let readiness_checks_binding = args.readiness_checks.get_output(context);
+        let replica_zones_binding = args.replica_zones.get_output(context);
+        let running_timeout_binding = args.running_timeout.get_output(context);
+        let workstation_cluster_id_binding = args
             .workstation_cluster_id
             .get_output(context);
-        let workstation_cluster_id_binding = workstation_cluster_id_binding_1
-            .get_inner();
-        let workstation_config_id_binding_1 = args
+        let workstation_config_id_binding = args
             .workstation_config_id
             .get_output(context);
-        let workstation_config_id_binding = workstation_config_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:workstations/workstationConfig:WorkstationConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedPorts".into(),
-                    value: &allowed_ports_binding,
+                    value: allowed_ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "container".into(),
-                    value: &container_binding,
+                    value: container_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableTcpConnections".into(),
-                    value: &disable_tcp_connections_binding,
+                    value: disable_tcp_connections_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAuditAgent".into(),
-                    value: &enable_audit_agent_binding,
+                    value: enable_audit_agent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionKey".into(),
-                    value: &encryption_key_binding,
+                    value: encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralDirectories".into(),
-                    value: &ephemeral_directories_binding,
+                    value: ephemeral_directories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeout".into(),
-                    value: &idle_timeout_binding,
+                    value: idle_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxUsableWorkstations".into(),
-                    value: &max_usable_workstations_binding,
+                    value: max_usable_workstations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistentDirectories".into(),
-                    value: &persistent_directories_binding,
+                    value: persistent_directories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readinessChecks".into(),
-                    value: &readiness_checks_binding,
+                    value: readiness_checks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaZones".into(),
-                    value: &replica_zones_binding,
+                    value: replica_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runningTimeout".into(),
-                    value: &running_timeout_binding,
+                    value: running_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationClusterId".into(),
-                    value: &workstation_cluster_id_binding,
+                    value: workstation_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationConfigId".into(),
-                    value: &workstation_config_id_binding,
+                    value: workstation_config_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkstationConfigResult {
-            allowed_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedPorts"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditions"),
-            ),
-            container: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("container"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            degraded: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("degraded"),
-            ),
-            disable_tcp_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableTcpConnections"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_audit_agent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableAuditAgent"),
-            ),
-            encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionKey"),
-            ),
-            ephemeral_directories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralDirectories"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            idle_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeout"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_usable_workstations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxUsableWorkstations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            persistent_directories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistentDirectories"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            readiness_checks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readinessChecks"),
-            ),
-            replica_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaZones"),
-            ),
-            running_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runningTimeout"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            workstation_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workstationClusterId"),
-            ),
-            workstation_config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workstationConfigId"),
-            ),
+            allowed_ports: o.get_field("allowedPorts"),
+            annotations: o.get_field("annotations"),
+            conditions: o.get_field("conditions"),
+            container: o.get_field("container"),
+            create_time: o.get_field("createTime"),
+            degraded: o.get_field("degraded"),
+            disable_tcp_connections: o.get_field("disableTcpConnections"),
+            display_name: o.get_field("displayName"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_audit_agent: o.get_field("enableAuditAgent"),
+            encryption_key: o.get_field("encryptionKey"),
+            ephemeral_directories: o.get_field("ephemeralDirectories"),
+            etag: o.get_field("etag"),
+            host: o.get_field("host"),
+            idle_timeout: o.get_field("idleTimeout"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            max_usable_workstations: o.get_field("maxUsableWorkstations"),
+            name: o.get_field("name"),
+            persistent_directories: o.get_field("persistentDirectories"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            readiness_checks: o.get_field("readinessChecks"),
+            replica_zones: o.get_field("replicaZones"),
+            running_timeout: o.get_field("runningTimeout"),
+            uid: o.get_field("uid"),
+            workstation_cluster_id: o.get_field("workstationClusterId"),
+            workstation_config_id: o.get_field("workstationConfigId"),
         }
     }
 }

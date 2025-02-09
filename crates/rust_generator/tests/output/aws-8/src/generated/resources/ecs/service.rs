@@ -384,353 +384,247 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alarms_binding_1 = args.alarms.get_output(context);
-        let alarms_binding = alarms_binding_1.get_inner();
-        let availability_zone_rebalancing_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alarms_binding = args.alarms.get_output(context);
+        let availability_zone_rebalancing_binding = args
             .availability_zone_rebalancing
             .get_output(context);
-        let availability_zone_rebalancing_binding = availability_zone_rebalancing_binding_1
-            .get_inner();
-        let capacity_provider_strategies_binding_1 = args
+        let capacity_provider_strategies_binding = args
             .capacity_provider_strategies
             .get_output(context);
-        let capacity_provider_strategies_binding = capacity_provider_strategies_binding_1
-            .get_inner();
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let deployment_circuit_breaker_binding_1 = args
+        let cluster_binding = args.cluster.get_output(context);
+        let deployment_circuit_breaker_binding = args
             .deployment_circuit_breaker
             .get_output(context);
-        let deployment_circuit_breaker_binding = deployment_circuit_breaker_binding_1
-            .get_inner();
-        let deployment_controller_binding_1 = args
+        let deployment_controller_binding = args
             .deployment_controller
             .get_output(context);
-        let deployment_controller_binding = deployment_controller_binding_1.get_inner();
-        let deployment_maximum_percent_binding_1 = args
+        let deployment_maximum_percent_binding = args
             .deployment_maximum_percent
             .get_output(context);
-        let deployment_maximum_percent_binding = deployment_maximum_percent_binding_1
-            .get_inner();
-        let deployment_minimum_healthy_percent_binding_1 = args
+        let deployment_minimum_healthy_percent_binding = args
             .deployment_minimum_healthy_percent
             .get_output(context);
-        let deployment_minimum_healthy_percent_binding = deployment_minimum_healthy_percent_binding_1
-            .get_inner();
-        let desired_count_binding_1 = args.desired_count.get_output(context);
-        let desired_count_binding = desired_count_binding_1.get_inner();
-        let enable_ecs_managed_tags_binding_1 = args
+        let desired_count_binding = args.desired_count.get_output(context);
+        let enable_ecs_managed_tags_binding = args
             .enable_ecs_managed_tags
             .get_output(context);
-        let enable_ecs_managed_tags_binding = enable_ecs_managed_tags_binding_1
-            .get_inner();
-        let enable_execute_command_binding_1 = args
+        let enable_execute_command_binding = args
             .enable_execute_command
             .get_output(context);
-        let enable_execute_command_binding = enable_execute_command_binding_1
-            .get_inner();
-        let force_delete_binding_1 = args.force_delete.get_output(context);
-        let force_delete_binding = force_delete_binding_1.get_inner();
-        let force_new_deployment_binding_1 = args
-            .force_new_deployment
-            .get_output(context);
-        let force_new_deployment_binding = force_new_deployment_binding_1.get_inner();
-        let health_check_grace_period_seconds_binding_1 = args
+        let force_delete_binding = args.force_delete.get_output(context);
+        let force_new_deployment_binding = args.force_new_deployment.get_output(context);
+        let health_check_grace_period_seconds_binding = args
             .health_check_grace_period_seconds
             .get_output(context);
-        let health_check_grace_period_seconds_binding = health_check_grace_period_seconds_binding_1
-            .get_inner();
-        let iam_role_binding_1 = args.iam_role.get_output(context);
-        let iam_role_binding = iam_role_binding_1.get_inner();
-        let launch_type_binding_1 = args.launch_type.get_output(context);
-        let launch_type_binding = launch_type_binding_1.get_inner();
-        let load_balancers_binding_1 = args.load_balancers.get_output(context);
-        let load_balancers_binding = load_balancers_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_configuration_binding_1 = args
+        let iam_role_binding = args.iam_role.get_output(context);
+        let launch_type_binding = args.launch_type.get_output(context);
+        let load_balancers_binding = args.load_balancers.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_configuration_binding = args
             .network_configuration
             .get_output(context);
-        let network_configuration_binding = network_configuration_binding_1.get_inner();
-        let ordered_placement_strategies_binding_1 = args
+        let ordered_placement_strategies_binding = args
             .ordered_placement_strategies
             .get_output(context);
-        let ordered_placement_strategies_binding = ordered_placement_strategies_binding_1
-            .get_inner();
-        let placement_constraints_binding_1 = args
+        let placement_constraints_binding = args
             .placement_constraints
             .get_output(context);
-        let placement_constraints_binding = placement_constraints_binding_1.get_inner();
-        let platform_version_binding_1 = args.platform_version.get_output(context);
-        let platform_version_binding = platform_version_binding_1.get_inner();
-        let propagate_tags_binding_1 = args.propagate_tags.get_output(context);
-        let propagate_tags_binding = propagate_tags_binding_1.get_inner();
-        let scheduling_strategy_binding_1 = args.scheduling_strategy.get_output(context);
-        let scheduling_strategy_binding = scheduling_strategy_binding_1.get_inner();
-        let service_connect_configuration_binding_1 = args
+        let platform_version_binding = args.platform_version.get_output(context);
+        let propagate_tags_binding = args.propagate_tags.get_output(context);
+        let scheduling_strategy_binding = args.scheduling_strategy.get_output(context);
+        let service_connect_configuration_binding = args
             .service_connect_configuration
             .get_output(context);
-        let service_connect_configuration_binding = service_connect_configuration_binding_1
-            .get_inner();
-        let service_registries_binding_1 = args.service_registries.get_output(context);
-        let service_registries_binding = service_registries_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let task_definition_binding_1 = args.task_definition.get_output(context);
-        let task_definition_binding = task_definition_binding_1.get_inner();
-        let triggers_binding_1 = args.triggers.get_output(context);
-        let triggers_binding = triggers_binding_1.get_inner();
-        let volume_configuration_binding_1 = args
-            .volume_configuration
-            .get_output(context);
-        let volume_configuration_binding = volume_configuration_binding_1.get_inner();
-        let vpc_lattice_configurations_binding_1 = args
+        let service_registries_binding = args.service_registries.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let task_definition_binding = args.task_definition.get_output(context);
+        let triggers_binding = args.triggers.get_output(context);
+        let volume_configuration_binding = args.volume_configuration.get_output(context);
+        let vpc_lattice_configurations_binding = args
             .vpc_lattice_configurations
             .get_output(context);
-        let vpc_lattice_configurations_binding = vpc_lattice_configurations_binding_1
-            .get_inner();
-        let wait_for_steady_state_binding_1 = args
+        let wait_for_steady_state_binding = args
             .wait_for_steady_state
             .get_output(context);
-        let wait_for_steady_state_binding = wait_for_steady_state_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ecs/service:Service".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarms".into(),
-                    value: &alarms_binding,
+                    value: alarms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneRebalancing".into(),
-                    value: &availability_zone_rebalancing_binding,
+                    value: availability_zone_rebalancing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityProviderStrategies".into(),
-                    value: &capacity_provider_strategies_binding,
+                    value: capacity_provider_strategies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentCircuitBreaker".into(),
-                    value: &deployment_circuit_breaker_binding,
+                    value: deployment_circuit_breaker_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentController".into(),
-                    value: &deployment_controller_binding,
+                    value: deployment_controller_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentMaximumPercent".into(),
-                    value: &deployment_maximum_percent_binding,
+                    value: deployment_maximum_percent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentMinimumHealthyPercent".into(),
-                    value: &deployment_minimum_healthy_percent_binding,
+                    value: deployment_minimum_healthy_percent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredCount".into(),
-                    value: &desired_count_binding,
+                    value: desired_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableEcsManagedTags".into(),
-                    value: &enable_ecs_managed_tags_binding,
+                    value: enable_ecs_managed_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableExecuteCommand".into(),
-                    value: &enable_execute_command_binding,
+                    value: enable_execute_command_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: &force_delete_binding,
+                    value: force_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceNewDeployment".into(),
-                    value: &force_new_deployment_binding,
+                    value: force_new_deployment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckGracePeriodSeconds".into(),
-                    value: &health_check_grace_period_seconds_binding,
+                    value: health_check_grace_period_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRole".into(),
-                    value: &iam_role_binding,
+                    value: iam_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchType".into(),
-                    value: &launch_type_binding,
+                    value: launch_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancers".into(),
-                    value: &load_balancers_binding,
+                    value: load_balancers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: &network_configuration_binding,
+                    value: network_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orderedPlacementStrategies".into(),
-                    value: &ordered_placement_strategies_binding,
+                    value: ordered_placement_strategies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementConstraints".into(),
-                    value: &placement_constraints_binding,
+                    value: placement_constraints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformVersion".into(),
-                    value: &platform_version_binding,
+                    value: platform_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propagateTags".into(),
-                    value: &propagate_tags_binding,
+                    value: propagate_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedulingStrategy".into(),
-                    value: &scheduling_strategy_binding,
+                    value: scheduling_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceConnectConfiguration".into(),
-                    value: &service_connect_configuration_binding,
+                    value: service_connect_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRegistries".into(),
-                    value: &service_registries_binding,
+                    value: service_registries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskDefinition".into(),
-                    value: &task_definition_binding,
+                    value: task_definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: &triggers_binding,
+                    value: triggers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeConfiguration".into(),
-                    value: &volume_configuration_binding,
+                    value: volume_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcLatticeConfigurations".into(),
-                    value: &vpc_lattice_configurations_binding,
+                    value: vpc_lattice_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForSteadyState".into(),
-                    value: &wait_for_steady_state_binding,
+                    value: wait_for_steady_state_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceResult {
-            alarms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarms"),
-            ),
-            availability_zone_rebalancing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneRebalancing"),
-            ),
-            capacity_provider_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityProviderStrategies"),
-            ),
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            deployment_circuit_breaker: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentCircuitBreaker"),
-            ),
-            deployment_controller: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentController"),
-            ),
-            deployment_maximum_percent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentMaximumPercent"),
-            ),
-            deployment_minimum_healthy_percent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentMinimumHealthyPercent"),
-            ),
-            desired_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredCount"),
-            ),
-            enable_ecs_managed_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableEcsManagedTags"),
-            ),
-            enable_execute_command: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableExecuteCommand"),
-            ),
-            force_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDelete"),
-            ),
-            force_new_deployment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceNewDeployment"),
-            ),
-            health_check_grace_period_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckGracePeriodSeconds"),
-            ),
-            iam_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRole"),
-            ),
-            launch_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchType"),
-            ),
-            load_balancers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancers"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfiguration"),
-            ),
-            ordered_placement_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orderedPlacementStrategies"),
-            ),
-            placement_constraints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementConstraints"),
-            ),
-            platform_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformVersion"),
-            ),
-            propagate_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("propagateTags"),
-            ),
-            scheduling_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedulingStrategy"),
-            ),
-            service_connect_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceConnectConfiguration"),
-            ),
-            service_registries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRegistries"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            task_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskDefinition"),
-            ),
-            triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggers"),
-            ),
-            volume_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeConfiguration"),
-            ),
-            vpc_lattice_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcLatticeConfigurations"),
-            ),
-            wait_for_steady_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForSteadyState"),
-            ),
+            alarms: o.get_field("alarms"),
+            availability_zone_rebalancing: o.get_field("availabilityZoneRebalancing"),
+            capacity_provider_strategies: o.get_field("capacityProviderStrategies"),
+            cluster: o.get_field("cluster"),
+            deployment_circuit_breaker: o.get_field("deploymentCircuitBreaker"),
+            deployment_controller: o.get_field("deploymentController"),
+            deployment_maximum_percent: o.get_field("deploymentMaximumPercent"),
+            deployment_minimum_healthy_percent: o
+                .get_field("deploymentMinimumHealthyPercent"),
+            desired_count: o.get_field("desiredCount"),
+            enable_ecs_managed_tags: o.get_field("enableEcsManagedTags"),
+            enable_execute_command: o.get_field("enableExecuteCommand"),
+            force_delete: o.get_field("forceDelete"),
+            force_new_deployment: o.get_field("forceNewDeployment"),
+            health_check_grace_period_seconds: o
+                .get_field("healthCheckGracePeriodSeconds"),
+            iam_role: o.get_field("iamRole"),
+            launch_type: o.get_field("launchType"),
+            load_balancers: o.get_field("loadBalancers"),
+            name: o.get_field("name"),
+            network_configuration: o.get_field("networkConfiguration"),
+            ordered_placement_strategies: o.get_field("orderedPlacementStrategies"),
+            placement_constraints: o.get_field("placementConstraints"),
+            platform_version: o.get_field("platformVersion"),
+            propagate_tags: o.get_field("propagateTags"),
+            scheduling_strategy: o.get_field("schedulingStrategy"),
+            service_connect_configuration: o.get_field("serviceConnectConfiguration"),
+            service_registries: o.get_field("serviceRegistries"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            task_definition: o.get_field("taskDefinition"),
+            triggers: o.get_field("triggers"),
+            volume_configuration: o.get_field("volumeConfiguration"),
+            vpc_lattice_configurations: o.get_field("vpcLatticeConfigurations"),
+            wait_for_steady_state: o.get_field("waitForSteadyState"),
         }
     }
 }

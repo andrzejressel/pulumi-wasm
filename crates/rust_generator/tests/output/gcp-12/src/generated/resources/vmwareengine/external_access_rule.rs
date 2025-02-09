@@ -212,119 +212,88 @@ pub mod external_access_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExternalAccessRuleArgs,
     ) -> ExternalAccessRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_ip_ranges_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let destination_ip_ranges_binding = args
             .destination_ip_ranges
             .get_output(context);
-        let destination_ip_ranges_binding = destination_ip_ranges_binding_1.get_inner();
-        let destination_ports_binding_1 = args.destination_ports.get_output(context);
-        let destination_ports_binding = destination_ports_binding_1.get_inner();
-        let ip_protocol_binding_1 = args.ip_protocol.get_output(context);
-        let ip_protocol_binding = ip_protocol_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let source_ip_ranges_binding_1 = args.source_ip_ranges.get_output(context);
-        let source_ip_ranges_binding = source_ip_ranges_binding_1.get_inner();
-        let source_ports_binding_1 = args.source_ports.get_output(context);
-        let source_ports_binding = source_ports_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let destination_ports_binding = args.destination_ports.get_output(context);
+        let ip_protocol_binding = args.ip_protocol.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let source_ip_ranges_binding = args.source_ip_ranges.get_output(context);
+        let source_ports_binding = args.source_ports.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vmwareengine/externalAccessRule:ExternalAccessRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationIpRanges".into(),
-                    value: &destination_ip_ranges_binding,
+                    value: destination_ip_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPorts".into(),
-                    value: &destination_ports_binding,
+                    value: destination_ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipProtocol".into(),
-                    value: &ip_protocol_binding,
+                    value: ip_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIpRanges".into(),
-                    value: &source_ip_ranges_binding,
+                    value: source_ip_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePorts".into(),
-                    value: &source_ports_binding,
+                    value: source_ports_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExternalAccessRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationIpRanges"),
-            ),
-            destination_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationPorts"),
-            ),
-            ip_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipProtocol"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            source_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceIpRanges"),
-            ),
-            source_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourcePorts"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            action: o.get_field("action"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            destination_ip_ranges: o.get_field("destinationIpRanges"),
+            destination_ports: o.get_field("destinationPorts"),
+            ip_protocol: o.get_field("ipProtocol"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            priority: o.get_field("priority"),
+            source_ip_ranges: o.get_field("sourceIpRanges"),
+            source_ports: o.get_field("sourcePorts"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

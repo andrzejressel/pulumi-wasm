@@ -61,62 +61,49 @@ pub mod hostname_tls_setting_ciphers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HostnameTlsSettingCiphersArgs,
     ) -> HostnameTlsSettingCiphersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let ports_binding_1 = args.ports.get_output(context);
-        let ports_binding = ports_binding_1.get_inner();
-        let values_binding_1 = args.values.get_output(context);
-        let values_binding = values_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hostname_binding = args.hostname.get_output(context);
+        let ports_binding = args.ports.get_output(context);
+        let values_binding = args.values.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/hostnameTlsSettingCiphers:HostnameTlsSettingCiphers"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ports".into(),
-                    value: &ports_binding,
+                    value: ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "values".into(),
-                    value: &values_binding,
+                    value: values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HostnameTlsSettingCiphersResult {
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            ports: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ports")),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
-            values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("values"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            created_at: o.get_field("createdAt"),
+            hostname: o.get_field("hostname"),
+            ports: o.get_field("ports"),
+            updated_at: o.get_field("updatedAt"),
+            values: o.get_field("values"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

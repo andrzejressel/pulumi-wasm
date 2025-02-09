@@ -55,42 +55,35 @@ pub mod schema {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SchemaArgs,
     ) -> SchemaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let definition_binding_1 = args.definition.get_output(context);
-        let definition_binding = definition_binding_1.get_inner();
-        let policy_store_id_binding_1 = args.policy_store_id.get_output(context);
-        let policy_store_id_binding = policy_store_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let definition_binding = args.definition.get_output(context);
+        let policy_store_id_binding = args.policy_store_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:verifiedpermissions/schema:Schema".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definition".into(),
-                    value: &definition_binding,
+                    value: definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyStoreId".into(),
-                    value: &policy_store_id_binding,
+                    value: policy_store_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SchemaResult {
-            definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("definition"),
-            ),
-            namespaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaces"),
-            ),
-            policy_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyStoreId"),
-            ),
+            definition: o.get_field("definition"),
+            namespaces: o.get_field("namespaces"),
+            policy_store_id: o.get_field("policyStoreId"),
         }
     }
 }

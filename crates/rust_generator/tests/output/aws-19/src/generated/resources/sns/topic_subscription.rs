@@ -258,147 +258,104 @@ pub mod topic_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TopicSubscriptionArgs,
     ) -> TopicSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let confirmation_timeout_in_minutes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let confirmation_timeout_in_minutes_binding = args
             .confirmation_timeout_in_minutes
             .get_output(context);
-        let confirmation_timeout_in_minutes_binding = confirmation_timeout_in_minutes_binding_1
-            .get_inner();
-        let delivery_policy_binding_1 = args.delivery_policy.get_output(context);
-        let delivery_policy_binding = delivery_policy_binding_1.get_inner();
-        let endpoint_binding_1 = args.endpoint.get_output(context);
-        let endpoint_binding = endpoint_binding_1.get_inner();
-        let endpoint_auto_confirms_binding_1 = args
+        let delivery_policy_binding = args.delivery_policy.get_output(context);
+        let endpoint_binding = args.endpoint.get_output(context);
+        let endpoint_auto_confirms_binding = args
             .endpoint_auto_confirms
             .get_output(context);
-        let endpoint_auto_confirms_binding = endpoint_auto_confirms_binding_1
-            .get_inner();
-        let filter_policy_binding_1 = args.filter_policy.get_output(context);
-        let filter_policy_binding = filter_policy_binding_1.get_inner();
-        let filter_policy_scope_binding_1 = args.filter_policy_scope.get_output(context);
-        let filter_policy_scope_binding = filter_policy_scope_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let raw_message_delivery_binding_1 = args
-            .raw_message_delivery
-            .get_output(context);
-        let raw_message_delivery_binding = raw_message_delivery_binding_1.get_inner();
-        let redrive_policy_binding_1 = args.redrive_policy.get_output(context);
-        let redrive_policy_binding = redrive_policy_binding_1.get_inner();
-        let replay_policy_binding_1 = args.replay_policy.get_output(context);
-        let replay_policy_binding = replay_policy_binding_1.get_inner();
-        let subscription_role_arn_binding_1 = args
+        let filter_policy_binding = args.filter_policy.get_output(context);
+        let filter_policy_scope_binding = args.filter_policy_scope.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let raw_message_delivery_binding = args.raw_message_delivery.get_output(context);
+        let redrive_policy_binding = args.redrive_policy.get_output(context);
+        let replay_policy_binding = args.replay_policy.get_output(context);
+        let subscription_role_arn_binding = args
             .subscription_role_arn
             .get_output(context);
-        let subscription_role_arn_binding = subscription_role_arn_binding_1.get_inner();
-        let topic_binding_1 = args.topic.get_output(context);
-        let topic_binding = topic_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let topic_binding = args.topic.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sns/topicSubscription:TopicSubscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confirmationTimeoutInMinutes".into(),
-                    value: &confirmation_timeout_in_minutes_binding,
+                    value: confirmation_timeout_in_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryPolicy".into(),
-                    value: &delivery_policy_binding,
+                    value: delivery_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: &endpoint_binding,
+                    value: endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointAutoConfirms".into(),
-                    value: &endpoint_auto_confirms_binding,
+                    value: endpoint_auto_confirms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterPolicy".into(),
-                    value: &filter_policy_binding,
+                    value: filter_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterPolicyScope".into(),
-                    value: &filter_policy_scope_binding,
+                    value: filter_policy_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rawMessageDelivery".into(),
-                    value: &raw_message_delivery_binding,
+                    value: raw_message_delivery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redrivePolicy".into(),
-                    value: &redrive_policy_binding,
+                    value: redrive_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replayPolicy".into(),
-                    value: &replay_policy_binding,
+                    value: replay_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionRoleArn".into(),
-                    value: &subscription_role_arn_binding,
+                    value: subscription_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topic".into(),
-                    value: &topic_binding,
+                    value: topic_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TopicSubscriptionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            confirmation_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confirmationTimeoutInMinutes"),
-            ),
-            confirmation_was_authenticated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confirmationWasAuthenticated"),
-            ),
-            delivery_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryPolicy"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            endpoint_auto_confirms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointAutoConfirms"),
-            ),
-            filter_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterPolicy"),
-            ),
-            filter_policy_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterPolicyScope"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            pending_confirmation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pendingConfirmation"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            raw_message_delivery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rawMessageDelivery"),
-            ),
-            redrive_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redrivePolicy"),
-            ),
-            replay_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replayPolicy"),
-            ),
-            subscription_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionRoleArn"),
-            ),
-            topic: pulumi_gestalt_rust::__private::into_domain(o.extract_field("topic")),
+            arn: o.get_field("arn"),
+            confirmation_timeout_in_minutes: o.get_field("confirmationTimeoutInMinutes"),
+            confirmation_was_authenticated: o.get_field("confirmationWasAuthenticated"),
+            delivery_policy: o.get_field("deliveryPolicy"),
+            endpoint: o.get_field("endpoint"),
+            endpoint_auto_confirms: o.get_field("endpointAutoConfirms"),
+            filter_policy: o.get_field("filterPolicy"),
+            filter_policy_scope: o.get_field("filterPolicyScope"),
+            owner_id: o.get_field("ownerId"),
+            pending_confirmation: o.get_field("pendingConfirmation"),
+            protocol: o.get_field("protocol"),
+            raw_message_delivery: o.get_field("rawMessageDelivery"),
+            redrive_policy: o.get_field("redrivePolicy"),
+            replay_policy: o.get_field("replayPolicy"),
+            subscription_role_arn: o.get_field("subscriptionRoleArn"),
+            topic: o.get_field("topic"),
         }
     }
 }

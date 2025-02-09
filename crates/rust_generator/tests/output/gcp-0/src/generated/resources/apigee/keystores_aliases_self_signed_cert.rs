@@ -220,110 +220,83 @@ pub mod keystores_aliases_self_signed_cert {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeystoresAliasesSelfSignedCertArgs,
     ) -> KeystoresAliasesSelfSignedCertResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let cert_validity_in_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let cert_validity_in_days_binding = args
             .cert_validity_in_days
             .get_output(context);
-        let cert_validity_in_days_binding = cert_validity_in_days_binding_1.get_inner();
-        let environment_binding_1 = args.environment.get_output(context);
-        let environment_binding = environment_binding_1.get_inner();
-        let key_size_binding_1 = args.key_size.get_output(context);
-        let key_size_binding = key_size_binding_1.get_inner();
-        let keystore_binding_1 = args.keystore.get_output(context);
-        let keystore_binding = keystore_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let sig_alg_binding_1 = args.sig_alg.get_output(context);
-        let sig_alg_binding = sig_alg_binding_1.get_inner();
-        let subject_binding_1 = args.subject.get_output(context);
-        let subject_binding = subject_binding_1.get_inner();
-        let subject_alternative_dns_names_binding_1 = args
+        let environment_binding = args.environment.get_output(context);
+        let key_size_binding = args.key_size.get_output(context);
+        let keystore_binding = args.keystore.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let sig_alg_binding = args.sig_alg.get_output(context);
+        let subject_binding = args.subject.get_output(context);
+        let subject_alternative_dns_names_binding = args
             .subject_alternative_dns_names
             .get_output(context);
-        let subject_alternative_dns_names_binding = subject_alternative_dns_names_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/keystoresAliasesSelfSignedCert:KeystoresAliasesSelfSignedCert"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certValidityInDays".into(),
-                    value: &cert_validity_in_days_binding,
+                    value: cert_validity_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: &environment_binding,
+                    value: environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keySize".into(),
-                    value: &key_size_binding,
+                    value: key_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keystore".into(),
-                    value: &keystore_binding,
+                    value: keystore_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sigAlg".into(),
-                    value: &sig_alg_binding,
+                    value: sig_alg_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subject".into(),
-                    value: &subject_binding,
+                    value: subject_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subjectAlternativeDnsNames".into(),
-                    value: &subject_alternative_dns_names_binding,
+                    value: subject_alternative_dns_names_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeystoresAliasesSelfSignedCertResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            cert_validity_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certValidityInDays"),
-            ),
-            certs_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certsInfos"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            key_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySize"),
-            ),
-            keystore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keystore"),
-            ),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            sig_alg: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sigAlg"),
-            ),
-            subject: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subject"),
-            ),
-            subject_alternative_dns_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subjectAlternativeDnsNames"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            alias: o.get_field("alias"),
+            cert_validity_in_days: o.get_field("certValidityInDays"),
+            certs_infos: o.get_field("certsInfos"),
+            environment: o.get_field("environment"),
+            key_size: o.get_field("keySize"),
+            keystore: o.get_field("keystore"),
+            org_id: o.get_field("orgId"),
+            sig_alg: o.get_field("sigAlg"),
+            subject: o.get_field("subject"),
+            subject_alternative_dns_names: o.get_field("subjectAlternativeDnsNames"),
+            type_: o.get_field("type"),
         }
     }
 }

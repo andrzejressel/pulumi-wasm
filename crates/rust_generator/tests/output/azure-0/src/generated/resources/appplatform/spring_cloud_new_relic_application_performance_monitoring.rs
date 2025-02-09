@@ -123,140 +123,103 @@ pub mod spring_cloud_new_relic_application_performance_monitoring {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudNewRelicApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudNewRelicApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_enabled_binding_1 = args.agent_enabled.get_output(context);
-        let agent_enabled_binding = agent_enabled_binding_1.get_inner();
-        let app_name_binding_1 = args.app_name.get_output(context);
-        let app_name_binding = app_name_binding_1.get_inner();
-        let app_server_port_binding_1 = args.app_server_port.get_output(context);
-        let app_server_port_binding = app_server_port_binding_1.get_inner();
-        let audit_mode_enabled_binding_1 = args.audit_mode_enabled.get_output(context);
-        let audit_mode_enabled_binding = audit_mode_enabled_binding_1.get_inner();
-        let auto_app_naming_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_enabled_binding = args.agent_enabled.get_output(context);
+        let app_name_binding = args.app_name.get_output(context);
+        let app_server_port_binding = args.app_server_port.get_output(context);
+        let audit_mode_enabled_binding = args.audit_mode_enabled.get_output(context);
+        let auto_app_naming_enabled_binding = args
             .auto_app_naming_enabled
             .get_output(context);
-        let auto_app_naming_enabled_binding = auto_app_naming_enabled_binding_1
-            .get_inner();
-        let auto_transaction_naming_enabled_binding_1 = args
+        let auto_transaction_naming_enabled_binding = args
             .auto_transaction_naming_enabled
             .get_output(context);
-        let auto_transaction_naming_enabled_binding = auto_transaction_naming_enabled_binding_1
-            .get_inner();
-        let custom_tracing_enabled_binding_1 = args
+        let custom_tracing_enabled_binding = args
             .custom_tracing_enabled
             .get_output(context);
-        let custom_tracing_enabled_binding = custom_tracing_enabled_binding_1
-            .get_inner();
-        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
-        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let license_key_binding_1 = args.license_key.get_output(context);
-        let license_key_binding = license_key_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_service_id_binding_1 = args
+        let globally_enabled_binding = args.globally_enabled.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let license_key_binding = args.license_key.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_service_id_binding = args
             .spring_cloud_service_id
             .get_output(context);
-        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentEnabled".into(),
-                    value: &agent_enabled_binding,
+                    value: agent_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appName".into(),
-                    value: &app_name_binding,
+                    value: app_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServerPort".into(),
-                    value: &app_server_port_binding,
+                    value: app_server_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditModeEnabled".into(),
-                    value: &audit_mode_enabled_binding,
+                    value: audit_mode_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAppNamingEnabled".into(),
-                    value: &auto_app_naming_enabled_binding,
+                    value: auto_app_naming_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoTransactionNamingEnabled".into(),
-                    value: &auto_transaction_naming_enabled_binding,
+                    value: auto_transaction_naming_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customTracingEnabled".into(),
-                    value: &custom_tracing_enabled_binding,
+                    value: custom_tracing_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: &globally_enabled_binding,
+                    value: globally_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseKey".into(),
-                    value: &license_key_binding,
+                    value: license_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: &spring_cloud_service_id_binding,
+                    value: spring_cloud_service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudNewRelicApplicationPerformanceMonitoringResult {
-            agent_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentEnabled"),
-            ),
-            app_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appName"),
-            ),
-            app_server_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServerPort"),
-            ),
-            audit_mode_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditModeEnabled"),
-            ),
-            auto_app_naming_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAppNamingEnabled"),
-            ),
-            auto_transaction_naming_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoTransactionNamingEnabled"),
-            ),
-            custom_tracing_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customTracingEnabled"),
-            ),
-            globally_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globallyEnabled"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            license_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseKey"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudServiceId"),
-            ),
+            agent_enabled: o.get_field("agentEnabled"),
+            app_name: o.get_field("appName"),
+            app_server_port: o.get_field("appServerPort"),
+            audit_mode_enabled: o.get_field("auditModeEnabled"),
+            auto_app_naming_enabled: o.get_field("autoAppNamingEnabled"),
+            auto_transaction_naming_enabled: o.get_field("autoTransactionNamingEnabled"),
+            custom_tracing_enabled: o.get_field("customTracingEnabled"),
+            globally_enabled: o.get_field("globallyEnabled"),
+            labels: o.get_field("labels"),
+            license_key: o.get_field("licenseKey"),
+            name: o.get_field("name"),
+            spring_cloud_service_id: o.get_field("springCloudServiceId"),
         }
     }
 }

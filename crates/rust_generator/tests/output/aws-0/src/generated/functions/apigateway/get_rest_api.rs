@@ -46,59 +46,42 @@ pub mod get_rest_api {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRestApiArgs,
     ) -> GetRestApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:apigateway/getRestApi:getRestApi".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRestApiResult {
-            api_key_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKeySource"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            binary_media_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("binaryMediaTypes"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            endpoint_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointConfigurations"),
-            ),
-            execution_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            minimum_compression_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumCompressionSize"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            root_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootResourceId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            api_key_source: o.get_field("apiKeySource"),
+            arn: o.get_field("arn"),
+            binary_media_types: o.get_field("binaryMediaTypes"),
+            description: o.get_field("description"),
+            endpoint_configurations: o.get_field("endpointConfigurations"),
+            execution_arn: o.get_field("executionArn"),
+            id: o.get_field("id"),
+            minimum_compression_size: o.get_field("minimumCompressionSize"),
+            name: o.get_field("name"),
+            policy: o.get_field("policy"),
+            root_resource_id: o.get_field("rootResourceId"),
+            tags: o.get_field("tags"),
         }
     }
 }

@@ -128,95 +128,74 @@ pub mod agent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgentArgs,
     ) -> AgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activation_key_binding_1 = args.activation_key.get_output(context);
-        let activation_key_binding = activation_key_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_link_endpoint_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let activation_key_binding = args.activation_key.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let private_link_endpoint_binding = args
             .private_link_endpoint
             .get_output(context);
-        let private_link_endpoint_binding = private_link_endpoint_binding_1.get_inner();
-        let security_group_arns_binding_1 = args.security_group_arns.get_output(context);
-        let security_group_arns_binding = security_group_arns_binding_1.get_inner();
-        let subnet_arns_binding_1 = args.subnet_arns.get_output(context);
-        let subnet_arns_binding = subnet_arns_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
-        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let security_group_arns_binding = args.security_group_arns.get_output(context);
+        let subnet_arns_binding = args.subnet_arns.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/agent:Agent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activationKey".into(),
-                    value: &activation_key_binding,
+                    value: activation_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkEndpoint".into(),
-                    value: &private_link_endpoint_binding,
+                    value: private_link_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupArns".into(),
-                    value: &security_group_arns_binding,
+                    value: security_group_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetArns".into(),
-                    value: &subnet_arns_binding,
+                    value: subnet_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: &vpc_endpoint_id_binding,
+                    value: vpc_endpoint_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgentResult {
-            activation_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activationKey"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_link_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkEndpoint"),
-            ),
-            security_group_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupArns"),
-            ),
-            subnet_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetArns"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointId"),
-            ),
+            activation_key: o.get_field("activationKey"),
+            arn: o.get_field("arn"),
+            ip_address: o.get_field("ipAddress"),
+            name: o.get_field("name"),
+            private_link_endpoint: o.get_field("privateLinkEndpoint"),
+            security_group_arns: o.get_field("securityGroupArns"),
+            subnet_arns: o.get_field("subnetArns"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_endpoint_id: o.get_field("vpcEndpointId"),
         }
     }
 }

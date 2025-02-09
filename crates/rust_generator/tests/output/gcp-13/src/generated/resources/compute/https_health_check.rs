@@ -169,111 +169,84 @@ pub mod https_health_check {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HttpsHealthCheckArgs,
     ) -> HttpsHealthCheckResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let check_interval_sec_binding_1 = args.check_interval_sec.get_output(context);
-        let check_interval_sec_binding = check_interval_sec_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let healthy_threshold_binding_1 = args.healthy_threshold.get_output(context);
-        let healthy_threshold_binding = healthy_threshold_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request_path_binding_1 = args.request_path.get_output(context);
-        let request_path_binding = request_path_binding_1.get_inner();
-        let timeout_sec_binding_1 = args.timeout_sec.get_output(context);
-        let timeout_sec_binding = timeout_sec_binding_1.get_inner();
-        let unhealthy_threshold_binding_1 = args.unhealthy_threshold.get_output(context);
-        let unhealthy_threshold_binding = unhealthy_threshold_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let check_interval_sec_binding = args.check_interval_sec.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let healthy_threshold_binding = args.healthy_threshold.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request_path_binding = args.request_path.get_output(context);
+        let timeout_sec_binding = args.timeout_sec.get_output(context);
+        let unhealthy_threshold_binding = args.unhealthy_threshold.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/httpsHealthCheck:HttpsHealthCheck".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkIntervalSec".into(),
-                    value: &check_interval_sec_binding,
+                    value: check_interval_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthyThreshold".into(),
-                    value: &healthy_threshold_binding,
+                    value: healthy_threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestPath".into(),
-                    value: &request_path_binding,
+                    value: request_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutSec".into(),
-                    value: &timeout_sec_binding,
+                    value: timeout_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "unhealthyThreshold".into(),
-                    value: &unhealthy_threshold_binding,
+                    value: unhealthy_threshold_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HttpsHealthCheckResult {
-            check_interval_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checkIntervalSec"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            healthy_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthyThreshold"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            request_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestPath"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutSec"),
-            ),
-            unhealthy_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("unhealthyThreshold"),
-            ),
+            check_interval_sec: o.get_field("checkIntervalSec"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            healthy_threshold: o.get_field("healthyThreshold"),
+            host: o.get_field("host"),
+            name: o.get_field("name"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            request_path: o.get_field("requestPath"),
+            self_link: o.get_field("selfLink"),
+            timeout_sec: o.get_field("timeoutSec"),
+            unhealthy_threshold: o.get_field("unhealthyThreshold"),
         }
     }
 }

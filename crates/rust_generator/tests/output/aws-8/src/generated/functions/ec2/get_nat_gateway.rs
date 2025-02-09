@@ -65,92 +65,66 @@ pub mod get_nat_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNatGatewayArgs,
     ) -> GetNatGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getNatGateway:getNatGateway".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNatGatewayResult {
-            allocation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationId"),
-            ),
-            association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationId"),
-            ),
-            connectivity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectivityType"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            private_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIp"),
-            ),
-            public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIp"),
-            ),
-            secondary_allocation_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAllocationIds"),
-            ),
-            secondary_private_ip_address_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryPrivateIpAddressCount"),
-            ),
-            secondary_private_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryPrivateIpAddresses"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            allocation_id: o.get_field("allocationId"),
+            association_id: o.get_field("associationId"),
+            connectivity_type: o.get_field("connectivityType"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            private_ip: o.get_field("privateIp"),
+            public_ip: o.get_field("publicIp"),
+            secondary_allocation_ids: o.get_field("secondaryAllocationIds"),
+            secondary_private_ip_address_count: o
+                .get_field("secondaryPrivateIpAddressCount"),
+            secondary_private_ip_addresses: o.get_field("secondaryPrivateIpAddresses"),
+            state: o.get_field("state"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

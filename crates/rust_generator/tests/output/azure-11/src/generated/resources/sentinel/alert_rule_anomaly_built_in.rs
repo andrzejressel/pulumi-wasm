@@ -135,102 +135,68 @@ pub mod alert_rule_anomaly_built_in {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AlertRuleAnomalyBuiltInArgs,
     ) -> AlertRuleAnomalyBuiltInResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let mode_binding = args.mode.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AlertRuleAnomalyBuiltInResult {
-            anomaly_settings_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("anomalySettingsVersion"),
-            ),
-            anomaly_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("anomalyVersion"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            multi_select_observations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiSelectObservations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            prioritized_exclude_observations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prioritizedExcludeObservations"),
-            ),
-            required_data_connectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiredDataConnectors"),
-            ),
-            settings_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settingsDefinitionId"),
-            ),
-            single_select_observations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleSelectObservations"),
-            ),
-            tactics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tactics"),
-            ),
-            techniques: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("techniques"),
-            ),
-            threshold_observations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thresholdObservations"),
-            ),
+            anomaly_settings_version: o.get_field("anomalySettingsVersion"),
+            anomaly_version: o.get_field("anomalyVersion"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            enabled: o.get_field("enabled"),
+            frequency: o.get_field("frequency"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            mode: o.get_field("mode"),
+            multi_select_observations: o.get_field("multiSelectObservations"),
+            name: o.get_field("name"),
+            prioritized_exclude_observations: o
+                .get_field("prioritizedExcludeObservations"),
+            required_data_connectors: o.get_field("requiredDataConnectors"),
+            settings_definition_id: o.get_field("settingsDefinitionId"),
+            single_select_observations: o.get_field("singleSelectObservations"),
+            tactics: o.get_field("tactics"),
+            techniques: o.get_field("techniques"),
+            threshold_observations: o.get_field("thresholdObservations"),
         }
     }
 }

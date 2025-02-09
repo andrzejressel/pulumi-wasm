@@ -138,67 +138,54 @@ pub mod glossary {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GlossaryArgs,
     ) -> GlossaryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
-        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let owning_project_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let domain_identifier_binding = args.domain_identifier.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let owning_project_identifier_binding = args
             .owning_project_identifier
             .get_output(context);
-        let owning_project_identifier_binding = owning_project_identifier_binding_1
-            .get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datazone/glossary:Glossary".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainIdentifier".into(),
-                    value: &domain_identifier_binding,
+                    value: domain_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owningProjectIdentifier".into(),
-                    value: &owning_project_identifier_binding,
+                    value: owning_project_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GlossaryResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainIdentifier"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owning_project_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("owningProjectIdentifier"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            description: o.get_field("description"),
+            domain_identifier: o.get_field("domainIdentifier"),
+            name: o.get_field("name"),
+            owning_project_identifier: o.get_field("owningProjectIdentifier"),
+            status: o.get_field("status"),
         }
     }
 }

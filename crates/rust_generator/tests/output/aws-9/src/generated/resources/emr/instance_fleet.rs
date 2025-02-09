@@ -116,88 +116,66 @@ pub mod instance_fleet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceFleetArgs,
     ) -> InstanceFleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let instance_type_configs_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let instance_type_configs_binding = args
             .instance_type_configs
             .get_output(context);
-        let instance_type_configs_binding = instance_type_configs_binding_1.get_inner();
-        let launch_specifications_binding_1 = args
+        let launch_specifications_binding = args
             .launch_specifications
             .get_output(context);
-        let launch_specifications_binding = launch_specifications_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let target_on_demand_capacity_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let target_on_demand_capacity_binding = args
             .target_on_demand_capacity
             .get_output(context);
-        let target_on_demand_capacity_binding = target_on_demand_capacity_binding_1
-            .get_inner();
-        let target_spot_capacity_binding_1 = args
-            .target_spot_capacity
-            .get_output(context);
-        let target_spot_capacity_binding = target_spot_capacity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let target_spot_capacity_binding = args.target_spot_capacity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:emr/instanceFleet:InstanceFleet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceTypeConfigs".into(),
-                    value: &instance_type_configs_binding,
+                    value: instance_type_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchSpecifications".into(),
-                    value: &launch_specifications_binding,
+                    value: launch_specifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetOnDemandCapacity".into(),
-                    value: &target_on_demand_capacity_binding,
+                    value: target_on_demand_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSpotCapacity".into(),
-                    value: &target_spot_capacity_binding,
+                    value: target_spot_capacity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceFleetResult {
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            instance_type_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceTypeConfigs"),
-            ),
-            launch_specifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchSpecifications"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            provisioned_on_demand_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedOnDemandCapacity"),
-            ),
-            provisioned_spot_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedSpotCapacity"),
-            ),
-            target_on_demand_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetOnDemandCapacity"),
-            ),
-            target_spot_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetSpotCapacity"),
-            ),
+            cluster_id: o.get_field("clusterId"),
+            instance_type_configs: o.get_field("instanceTypeConfigs"),
+            launch_specifications: o.get_field("launchSpecifications"),
+            name: o.get_field("name"),
+            provisioned_on_demand_capacity: o.get_field("provisionedOnDemandCapacity"),
+            provisioned_spot_capacity: o.get_field("provisionedSpotCapacity"),
+            target_on_demand_capacity: o.get_field("targetOnDemandCapacity"),
+            target_spot_capacity: o.get_field("targetSpotCapacity"),
         }
     }
 }

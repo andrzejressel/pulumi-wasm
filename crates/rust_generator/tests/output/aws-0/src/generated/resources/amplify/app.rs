@@ -318,229 +318,160 @@ pub mod app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppArgs,
     ) -> AppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_token_binding_1 = args.access_token.get_output(context);
-        let access_token_binding = access_token_binding_1.get_inner();
-        let auto_branch_creation_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_token_binding = args.access_token.get_output(context);
+        let auto_branch_creation_config_binding = args
             .auto_branch_creation_config
             .get_output(context);
-        let auto_branch_creation_config_binding = auto_branch_creation_config_binding_1
-            .get_inner();
-        let auto_branch_creation_patterns_binding_1 = args
+        let auto_branch_creation_patterns_binding = args
             .auto_branch_creation_patterns
             .get_output(context);
-        let auto_branch_creation_patterns_binding = auto_branch_creation_patterns_binding_1
-            .get_inner();
-        let basic_auth_credentials_binding_1 = args
+        let basic_auth_credentials_binding = args
             .basic_auth_credentials
             .get_output(context);
-        let basic_auth_credentials_binding = basic_auth_credentials_binding_1
-            .get_inner();
-        let build_spec_binding_1 = args.build_spec.get_output(context);
-        let build_spec_binding = build_spec_binding_1.get_inner();
-        let cache_config_binding_1 = args.cache_config.get_output(context);
-        let cache_config_binding = cache_config_binding_1.get_inner();
-        let custom_headers_binding_1 = args.custom_headers.get_output(context);
-        let custom_headers_binding = custom_headers_binding_1.get_inner();
-        let custom_rules_binding_1 = args.custom_rules.get_output(context);
-        let custom_rules_binding = custom_rules_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enable_auto_branch_creation_binding_1 = args
+        let build_spec_binding = args.build_spec.get_output(context);
+        let cache_config_binding = args.cache_config.get_output(context);
+        let custom_headers_binding = args.custom_headers.get_output(context);
+        let custom_rules_binding = args.custom_rules.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enable_auto_branch_creation_binding = args
             .enable_auto_branch_creation
             .get_output(context);
-        let enable_auto_branch_creation_binding = enable_auto_branch_creation_binding_1
-            .get_inner();
-        let enable_basic_auth_binding_1 = args.enable_basic_auth.get_output(context);
-        let enable_basic_auth_binding = enable_basic_auth_binding_1.get_inner();
-        let enable_branch_auto_build_binding_1 = args
+        let enable_basic_auth_binding = args.enable_basic_auth.get_output(context);
+        let enable_branch_auto_build_binding = args
             .enable_branch_auto_build
             .get_output(context);
-        let enable_branch_auto_build_binding = enable_branch_auto_build_binding_1
-            .get_inner();
-        let enable_branch_auto_deletion_binding_1 = args
+        let enable_branch_auto_deletion_binding = args
             .enable_branch_auto_deletion
             .get_output(context);
-        let enable_branch_auto_deletion_binding = enable_branch_auto_deletion_binding_1
-            .get_inner();
-        let environment_variables_binding_1 = args
+        let environment_variables_binding = args
             .environment_variables
             .get_output(context);
-        let environment_variables_binding = environment_variables_binding_1.get_inner();
-        let iam_service_role_arn_binding_1 = args
-            .iam_service_role_arn
-            .get_output(context);
-        let iam_service_role_arn_binding = iam_service_role_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let oauth_token_binding_1 = args.oauth_token.get_output(context);
-        let oauth_token_binding = oauth_token_binding_1.get_inner();
-        let platform_binding_1 = args.platform.get_output(context);
-        let platform_binding = platform_binding_1.get_inner();
-        let repository_binding_1 = args.repository.get_output(context);
-        let repository_binding = repository_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let iam_service_role_arn_binding = args.iam_service_role_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let oauth_token_binding = args.oauth_token.get_output(context);
+        let platform_binding = args.platform.get_output(context);
+        let repository_binding = args.repository.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:amplify/app:App".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessToken".into(),
-                    value: &access_token_binding,
+                    value: access_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoBranchCreationConfig".into(),
-                    value: &auto_branch_creation_config_binding,
+                    value: auto_branch_creation_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoBranchCreationPatterns".into(),
-                    value: &auto_branch_creation_patterns_binding,
+                    value: auto_branch_creation_patterns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicAuthCredentials".into(),
-                    value: &basic_auth_credentials_binding,
+                    value: basic_auth_credentials_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildSpec".into(),
-                    value: &build_spec_binding,
+                    value: build_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheConfig".into(),
-                    value: &cache_config_binding,
+                    value: cache_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHeaders".into(),
-                    value: &custom_headers_binding,
+                    value: custom_headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRules".into(),
-                    value: &custom_rules_binding,
+                    value: custom_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAutoBranchCreation".into(),
-                    value: &enable_auto_branch_creation_binding,
+                    value: enable_auto_branch_creation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBasicAuth".into(),
-                    value: &enable_basic_auth_binding,
+                    value: enable_basic_auth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBranchAutoBuild".into(),
-                    value: &enable_branch_auto_build_binding,
+                    value: enable_branch_auto_build_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBranchAutoDeletion".into(),
-                    value: &enable_branch_auto_deletion_binding,
+                    value: enable_branch_auto_deletion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: &environment_variables_binding,
+                    value: environment_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamServiceRoleArn".into(),
-                    value: &iam_service_role_arn_binding,
+                    value: iam_service_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oauthToken".into(),
-                    value: &oauth_token_binding,
+                    value: oauth_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: &platform_binding,
+                    value: platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: &repository_binding,
+                    value: repository_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppResult {
-            access_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessToken"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_branch_creation_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoBranchCreationConfig"),
-            ),
-            auto_branch_creation_patterns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoBranchCreationPatterns"),
-            ),
-            basic_auth_credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basicAuthCredentials"),
-            ),
-            build_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildSpec"),
-            ),
-            cache_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheConfig"),
-            ),
-            custom_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customHeaders"),
-            ),
-            custom_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customRules"),
-            ),
-            default_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultDomain"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enable_auto_branch_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableAutoBranchCreation"),
-            ),
-            enable_basic_auth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBasicAuth"),
-            ),
-            enable_branch_auto_build: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBranchAutoBuild"),
-            ),
-            enable_branch_auto_deletion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBranchAutoDeletion"),
-            ),
-            environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentVariables"),
-            ),
-            iam_service_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamServiceRoleArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            oauth_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oauthToken"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            production_branches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productionBranches"),
-            ),
-            repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repository"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            access_token: o.get_field("accessToken"),
+            arn: o.get_field("arn"),
+            auto_branch_creation_config: o.get_field("autoBranchCreationConfig"),
+            auto_branch_creation_patterns: o.get_field("autoBranchCreationPatterns"),
+            basic_auth_credentials: o.get_field("basicAuthCredentials"),
+            build_spec: o.get_field("buildSpec"),
+            cache_config: o.get_field("cacheConfig"),
+            custom_headers: o.get_field("customHeaders"),
+            custom_rules: o.get_field("customRules"),
+            default_domain: o.get_field("defaultDomain"),
+            description: o.get_field("description"),
+            enable_auto_branch_creation: o.get_field("enableAutoBranchCreation"),
+            enable_basic_auth: o.get_field("enableBasicAuth"),
+            enable_branch_auto_build: o.get_field("enableBranchAutoBuild"),
+            enable_branch_auto_deletion: o.get_field("enableBranchAutoDeletion"),
+            environment_variables: o.get_field("environmentVariables"),
+            iam_service_role_arn: o.get_field("iamServiceRoleArn"),
+            name: o.get_field("name"),
+            oauth_token: o.get_field("oauthToken"),
+            platform: o.get_field("platform"),
+            production_branches: o.get_field("productionBranches"),
+            repository: o.get_field("repository"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

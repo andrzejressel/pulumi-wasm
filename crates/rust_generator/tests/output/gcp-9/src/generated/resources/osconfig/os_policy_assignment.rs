@@ -207,111 +207,78 @@ pub mod os_policy_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OsPolicyAssignmentArgs,
     ) -> OsPolicyAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let instance_filter_binding_1 = args.instance_filter.get_output(context);
-        let instance_filter_binding = instance_filter_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let os_policies_binding_1 = args.os_policies.get_output(context);
-        let os_policies_binding = os_policies_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let rollout_binding_1 = args.rollout.get_output(context);
-        let rollout_binding = rollout_binding_1.get_inner();
-        let skip_await_rollout_binding_1 = args.skip_await_rollout.get_output(context);
-        let skip_await_rollout_binding = skip_await_rollout_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let instance_filter_binding = args.instance_filter.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let os_policies_binding = args.os_policies.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let rollout_binding = args.rollout.get_output(context);
+        let skip_await_rollout_binding = args.skip_await_rollout.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:osconfig/osPolicyAssignment:OsPolicyAssignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceFilter".into(),
-                    value: &instance_filter_binding,
+                    value: instance_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osPolicies".into(),
-                    value: &os_policies_binding,
+                    value: os_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rollout".into(),
-                    value: &rollout_binding,
+                    value: rollout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipAwaitRollout".into(),
-                    value: &skip_await_rollout_binding,
+                    value: skip_await_rollout_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OsPolicyAssignmentResult {
-            baseline: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseline"),
-            ),
-            deleted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleted"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            instance_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceFilter"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            os_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osPolicies"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            revision_create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revisionCreateTime"),
-            ),
-            revision_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revisionId"),
-            ),
-            rollout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rollout"),
-            ),
-            rollout_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rolloutState"),
-            ),
-            skip_await_rollout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipAwaitRollout"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            baseline: o.get_field("baseline"),
+            deleted: o.get_field("deleted"),
+            description: o.get_field("description"),
+            etag: o.get_field("etag"),
+            instance_filter: o.get_field("instanceFilter"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            os_policies: o.get_field("osPolicies"),
+            project: o.get_field("project"),
+            reconciling: o.get_field("reconciling"),
+            revision_create_time: o.get_field("revisionCreateTime"),
+            revision_id: o.get_field("revisionId"),
+            rollout: o.get_field("rollout"),
+            rollout_state: o.get_field("rolloutState"),
+            skip_await_rollout: o.get_field("skipAwaitRollout"),
+            uid: o.get_field("uid"),
         }
     }
 }

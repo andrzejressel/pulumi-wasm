@@ -175,151 +175,106 @@ pub mod network_interface {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkInterfaceArgs,
     ) -> NetworkInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerated_networking_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accelerated_networking_enabled_binding = args
             .accelerated_networking_enabled
             .get_output(context);
-        let accelerated_networking_enabled_binding = accelerated_networking_enabled_binding_1
-            .get_inner();
-        let auxiliary_mode_binding_1 = args.auxiliary_mode.get_output(context);
-        let auxiliary_mode_binding = auxiliary_mode_binding_1.get_inner();
-        let auxiliary_sku_binding_1 = args.auxiliary_sku.get_output(context);
-        let auxiliary_sku_binding = auxiliary_sku_binding_1.get_inner();
-        let dns_servers_binding_1 = args.dns_servers.get_output(context);
-        let dns_servers_binding = dns_servers_binding_1.get_inner();
-        let edge_zone_binding_1 = args.edge_zone.get_output(context);
-        let edge_zone_binding = edge_zone_binding_1.get_inner();
-        let internal_dns_name_label_binding_1 = args
+        let auxiliary_mode_binding = args.auxiliary_mode.get_output(context);
+        let auxiliary_sku_binding = args.auxiliary_sku.get_output(context);
+        let dns_servers_binding = args.dns_servers.get_output(context);
+        let edge_zone_binding = args.edge_zone.get_output(context);
+        let internal_dns_name_label_binding = args
             .internal_dns_name_label
             .get_output(context);
-        let internal_dns_name_label_binding = internal_dns_name_label_binding_1
-            .get_inner();
-        let ip_configurations_binding_1 = args.ip_configurations.get_output(context);
-        let ip_configurations_binding = ip_configurations_binding_1.get_inner();
-        let ip_forwarding_enabled_binding_1 = args
+        let ip_configurations_binding = args.ip_configurations.get_output(context);
+        let ip_forwarding_enabled_binding = args
             .ip_forwarding_enabled
             .get_output(context);
-        let ip_forwarding_enabled_binding = ip_forwarding_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkInterface:NetworkInterface".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratedNetworkingEnabled".into(),
-                    value: &accelerated_networking_enabled_binding,
+                    value: accelerated_networking_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auxiliaryMode".into(),
-                    value: &auxiliary_mode_binding,
+                    value: auxiliary_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auxiliarySku".into(),
-                    value: &auxiliary_sku_binding,
+                    value: auxiliary_sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsServers".into(),
-                    value: &dns_servers_binding,
+                    value: dns_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeZone".into(),
-                    value: &edge_zone_binding,
+                    value: edge_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internalDnsNameLabel".into(),
-                    value: &internal_dns_name_label_binding,
+                    value: internal_dns_name_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfigurations".into(),
-                    value: &ip_configurations_binding,
+                    value: ip_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipForwardingEnabled".into(),
-                    value: &ip_forwarding_enabled_binding,
+                    value: ip_forwarding_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkInterfaceResult {
-            accelerated_networking_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratedNetworkingEnabled"),
-            ),
-            applied_dns_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appliedDnsServers"),
-            ),
-            auxiliary_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auxiliaryMode"),
-            ),
-            auxiliary_sku: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auxiliarySku"),
-            ),
-            dns_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsServers"),
-            ),
-            edge_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeZone"),
-            ),
-            internal_dns_name_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalDnsNameLabel"),
-            ),
-            internal_domain_name_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalDomainNameSuffix"),
-            ),
-            ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfigurations"),
-            ),
-            ip_forwarding_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipForwardingEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mac_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("macAddress"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            private_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddresses"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineId"),
-            ),
+            accelerated_networking_enabled: o.get_field("acceleratedNetworkingEnabled"),
+            applied_dns_servers: o.get_field("appliedDnsServers"),
+            auxiliary_mode: o.get_field("auxiliaryMode"),
+            auxiliary_sku: o.get_field("auxiliarySku"),
+            dns_servers: o.get_field("dnsServers"),
+            edge_zone: o.get_field("edgeZone"),
+            internal_dns_name_label: o.get_field("internalDnsNameLabel"),
+            internal_domain_name_suffix: o.get_field("internalDomainNameSuffix"),
+            ip_configurations: o.get_field("ipConfigurations"),
+            ip_forwarding_enabled: o.get_field("ipForwardingEnabled"),
+            location: o.get_field("location"),
+            mac_address: o.get_field("macAddress"),
+            name: o.get_field("name"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            private_ip_addresses: o.get_field("privateIpAddresses"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            virtual_machine_id: o.get_field("virtualMachineId"),
         }
     }
 }

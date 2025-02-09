@@ -39,51 +39,38 @@ pub mod get_volume_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVolumeGroupArgs,
     ) -> GetVolumeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let elastic_san_id_binding_1 = args.elastic_san_id.get_output(context);
-        let elastic_san_id_binding = elastic_san_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let elastic_san_id_binding = args.elastic_san_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:elasticsan/getVolumeGroup:getVolumeGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticSanId".into(),
-                    value: &elastic_san_id_binding,
+                    value: elastic_san_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVolumeGroupResult {
-            elastic_san_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticSanId"),
-            ),
-            encryption_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionType"),
-            ),
-            encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptions"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRules"),
-            ),
-            protocol_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolType"),
-            ),
+            elastic_san_id: o.get_field("elasticSanId"),
+            encryption_type: o.get_field("encryptionType"),
+            encryptions: o.get_field("encryptions"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            name: o.get_field("name"),
+            network_rules: o.get_field("networkRules"),
+            protocol_type: o.get_field("protocolType"),
         }
     }
 }

@@ -150,68 +150,52 @@ pub mod response_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResponsePolicyArgs,
     ) -> ResponsePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let gke_clusters_binding_1 = args.gke_clusters.get_output(context);
-        let gke_clusters_binding = gke_clusters_binding_1.get_inner();
-        let networks_binding_1 = args.networks.get_output(context);
-        let networks_binding = networks_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let response_policy_name_binding_1 = args
-            .response_policy_name
-            .get_output(context);
-        let response_policy_name_binding = response_policy_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let gke_clusters_binding = args.gke_clusters.get_output(context);
+        let networks_binding = args.networks.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let response_policy_name_binding = args.response_policy_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dns/responsePolicy:ResponsePolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gkeClusters".into(),
-                    value: &gke_clusters_binding,
+                    value: gke_clusters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networks".into(),
-                    value: &networks_binding,
+                    value: networks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responsePolicyName".into(),
-                    value: &response_policy_name_binding,
+                    value: response_policy_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResponsePolicyResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            gke_clusters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gkeClusters"),
-            ),
-            networks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networks"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            response_policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responsePolicyName"),
-            ),
+            description: o.get_field("description"),
+            gke_clusters: o.get_field("gkeClusters"),
+            networks: o.get_field("networks"),
+            project: o.get_field("project"),
+            response_policy_name: o.get_field("responsePolicyName"),
         }
     }
 }

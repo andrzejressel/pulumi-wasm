@@ -102,90 +102,66 @@ pub mod vpc_ipam {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcIpamArgs,
     ) -> VpcIpamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cascade_binding_1 = args.cascade.get_output(context);
-        let cascade_binding = cascade_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enable_private_gua_binding_1 = args.enable_private_gua.get_output(context);
-        let enable_private_gua_binding = enable_private_gua_binding_1.get_inner();
-        let operating_regions_binding_1 = args.operating_regions.get_output(context);
-        let operating_regions_binding = operating_regions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tier_binding_1 = args.tier.get_output(context);
-        let tier_binding = tier_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cascade_binding = args.cascade.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enable_private_gua_binding = args.enable_private_gua.get_output(context);
+        let operating_regions_binding = args.operating_regions.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tier_binding = args.tier.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpam:VpcIpam".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cascade".into(),
-                    value: &cascade_binding,
+                    value: cascade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePrivateGua".into(),
-                    value: &enable_private_gua_binding,
+                    value: enable_private_gua_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operatingRegions".into(),
-                    value: &operating_regions_binding,
+                    value: operating_regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: &tier_binding,
+                    value: tier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcIpamResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cascade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cascade"),
-            ),
-            default_resource_discovery_association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultResourceDiscoveryAssociationId"),
-            ),
-            default_resource_discovery_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultResourceDiscoveryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enable_private_gua: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enablePrivateGua"),
-            ),
-            operating_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operatingRegions"),
-            ),
-            private_default_scope_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDefaultScopeId"),
-            ),
-            public_default_scope_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicDefaultScopeId"),
-            ),
-            scope_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeCount"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
+            arn: o.get_field("arn"),
+            cascade: o.get_field("cascade"),
+            default_resource_discovery_association_id: o
+                .get_field("defaultResourceDiscoveryAssociationId"),
+            default_resource_discovery_id: o.get_field("defaultResourceDiscoveryId"),
+            description: o.get_field("description"),
+            enable_private_gua: o.get_field("enablePrivateGua"),
+            operating_regions: o.get_field("operatingRegions"),
+            private_default_scope_id: o.get_field("privateDefaultScopeId"),
+            public_default_scope_id: o.get_field("publicDefaultScopeId"),
+            scope_count: o.get_field("scopeCount"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tier: o.get_field("tier"),
         }
     }
 }

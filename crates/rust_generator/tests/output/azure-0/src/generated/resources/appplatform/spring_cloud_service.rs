@@ -204,195 +204,140 @@ pub mod spring_cloud_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudServiceArgs,
     ) -> SpringCloudServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_agent_pool_size_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let build_agent_pool_size_binding = args
             .build_agent_pool_size
             .get_output(context);
-        let build_agent_pool_size_binding = build_agent_pool_size_binding_1.get_inner();
-        let config_server_git_setting_binding_1 = args
+        let config_server_git_setting_binding = args
             .config_server_git_setting
             .get_output(context);
-        let config_server_git_setting_binding = config_server_git_setting_binding_1
-            .get_inner();
-        let container_registries_binding_1 = args
-            .container_registries
-            .get_output(context);
-        let container_registries_binding = container_registries_binding_1.get_inner();
-        let default_build_service_binding_1 = args
+        let container_registries_binding = args.container_registries.get_output(context);
+        let default_build_service_binding = args
             .default_build_service
             .get_output(context);
-        let default_build_service_binding = default_build_service_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let log_stream_public_endpoint_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let log_stream_public_endpoint_enabled_binding = args
             .log_stream_public_endpoint_enabled
             .get_output(context);
-        let log_stream_public_endpoint_enabled_binding = log_stream_public_endpoint_enabled_binding_1
-            .get_inner();
-        let managed_environment_id_binding_1 = args
+        let managed_environment_id_binding = args
             .managed_environment_id
             .get_output(context);
-        let managed_environment_id_binding = managed_environment_id_binding_1
-            .get_inner();
-        let marketplace_binding_1 = args.marketplace.get_output(context);
-        let marketplace_binding = marketplace_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_registry_enabled_binding_1 = args
+        let marketplace_binding = args.marketplace.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_registry_enabled_binding = args
             .service_registry_enabled
             .get_output(context);
-        let service_registry_enabled_binding = service_registry_enabled_binding_1
-            .get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let sku_tier_binding_1 = args.sku_tier.get_output(context);
-        let sku_tier_binding = sku_tier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let trace_binding_1 = args.trace.get_output(context);
-        let trace_binding = trace_binding_1.get_inner();
-        let zone_redundant_binding_1 = args.zone_redundant.get_output(context);
-        let zone_redundant_binding = zone_redundant_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sku_name_binding = args.sku_name.get_output(context);
+        let sku_tier_binding = args.sku_tier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let trace_binding = args.trace.get_output(context);
+        let zone_redundant_binding = args.zone_redundant.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudService:SpringCloudService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildAgentPoolSize".into(),
-                    value: &build_agent_pool_size_binding,
+                    value: build_agent_pool_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configServerGitSetting".into(),
-                    value: &config_server_git_setting_binding,
+                    value: config_server_git_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistries".into(),
-                    value: &container_registries_binding,
+                    value: container_registries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultBuildService".into(),
-                    value: &default_build_service_binding,
+                    value: default_build_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logStreamPublicEndpointEnabled".into(),
-                    value: &log_stream_public_endpoint_enabled_binding,
+                    value: log_stream_public_endpoint_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedEnvironmentId".into(),
-                    value: &managed_environment_id_binding,
+                    value: managed_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "marketplace".into(),
-                    value: &marketplace_binding,
+                    value: marketplace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRegistryEnabled".into(),
-                    value: &service_registry_enabled_binding,
+                    value: service_registry_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuTier".into(),
-                    value: &sku_tier_binding,
+                    value: sku_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trace".into(),
-                    value: &trace_binding,
+                    value: trace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundant".into(),
-                    value: &zone_redundant_binding,
+                    value: zone_redundant_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudServiceResult {
-            build_agent_pool_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildAgentPoolSize"),
-            ),
-            config_server_git_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configServerGitSetting"),
-            ),
-            container_registries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRegistries"),
-            ),
-            default_build_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultBuildService"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            log_stream_public_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logStreamPublicEndpointEnabled"),
-            ),
-            managed_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedEnvironmentId"),
-            ),
-            marketplace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("marketplace"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            outbound_public_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundPublicIpAddresses"),
-            ),
-            required_network_traffic_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiredNetworkTrafficRules"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_registry_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRegistryEnabled"),
-            ),
-            service_registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRegistryId"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            sku_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuTier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            trace: pulumi_gestalt_rust::__private::into_domain(o.extract_field("trace")),
-            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneRedundant"),
-            ),
+            build_agent_pool_size: o.get_field("buildAgentPoolSize"),
+            config_server_git_setting: o.get_field("configServerGitSetting"),
+            container_registries: o.get_field("containerRegistries"),
+            default_build_service: o.get_field("defaultBuildService"),
+            location: o.get_field("location"),
+            log_stream_public_endpoint_enabled: o
+                .get_field("logStreamPublicEndpointEnabled"),
+            managed_environment_id: o.get_field("managedEnvironmentId"),
+            marketplace: o.get_field("marketplace"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            outbound_public_ip_addresses: o.get_field("outboundPublicIpAddresses"),
+            required_network_traffic_rules: o.get_field("requiredNetworkTrafficRules"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_registry_enabled: o.get_field("serviceRegistryEnabled"),
+            service_registry_id: o.get_field("serviceRegistryId"),
+            sku_name: o.get_field("skuName"),
+            sku_tier: o.get_field("skuTier"),
+            tags: o.get_field("tags"),
+            trace: o.get_field("trace"),
+            zone_redundant: o.get_field("zoneRedundant"),
         }
     }
 }

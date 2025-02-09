@@ -126,113 +126,86 @@ pub mod backup_vault {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackupVaultArgs,
     ) -> BackupVaultResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cross_region_restore_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cross_region_restore_enabled_binding = args
             .cross_region_restore_enabled
             .get_output(context);
-        let cross_region_restore_enabled_binding = cross_region_restore_enabled_binding_1
-            .get_inner();
-        let datastore_type_binding_1 = args.datastore_type.get_output(context);
-        let datastore_type_binding = datastore_type_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let redundancy_binding_1 = args.redundancy.get_output(context);
-        let redundancy_binding = redundancy_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let retention_duration_in_days_binding_1 = args
+        let datastore_type_binding = args.datastore_type.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let redundancy_binding = args.redundancy.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let retention_duration_in_days_binding = args
             .retention_duration_in_days
             .get_output(context);
-        let retention_duration_in_days_binding = retention_duration_in_days_binding_1
-            .get_inner();
-        let soft_delete_binding_1 = args.soft_delete.get_output(context);
-        let soft_delete_binding = soft_delete_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let soft_delete_binding = args.soft_delete.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:dataprotection/backupVault:BackupVault".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crossRegionRestoreEnabled".into(),
-                    value: &cross_region_restore_enabled_binding,
+                    value: cross_region_restore_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datastoreType".into(),
-                    value: &datastore_type_binding,
+                    value: datastore_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redundancy".into(),
-                    value: &redundancy_binding,
+                    value: redundancy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDurationInDays".into(),
-                    value: &retention_duration_in_days_binding,
+                    value: retention_duration_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softDelete".into(),
-                    value: &soft_delete_binding,
+                    value: soft_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackupVaultResult {
-            cross_region_restore_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("crossRegionRestoreEnabled"),
-            ),
-            datastore_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datastoreType"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            redundancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redundancy"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retention_duration_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionDurationInDays"),
-            ),
-            soft_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softDelete"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            cross_region_restore_enabled: o.get_field("crossRegionRestoreEnabled"),
+            datastore_type: o.get_field("datastoreType"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            redundancy: o.get_field("redundancy"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retention_duration_in_days: o.get_field("retentionDurationInDays"),
+            soft_delete: o.get_field("softDelete"),
+            tags: o.get_field("tags"),
         }
     }
 }

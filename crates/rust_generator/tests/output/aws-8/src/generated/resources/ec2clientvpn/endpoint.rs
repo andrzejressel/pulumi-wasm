@@ -165,190 +165,134 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_options_binding = args
             .authentication_options
             .get_output(context);
-        let authentication_options_binding = authentication_options_binding_1
-            .get_inner();
-        let client_cidr_block_binding_1 = args.client_cidr_block.get_output(context);
-        let client_cidr_block_binding = client_cidr_block_binding_1.get_inner();
-        let client_connect_options_binding_1 = args
+        let client_cidr_block_binding = args.client_cidr_block.get_output(context);
+        let client_connect_options_binding = args
             .client_connect_options
             .get_output(context);
-        let client_connect_options_binding = client_connect_options_binding_1
-            .get_inner();
-        let client_login_banner_options_binding_1 = args
+        let client_login_banner_options_binding = args
             .client_login_banner_options
             .get_output(context);
-        let client_login_banner_options_binding = client_login_banner_options_binding_1
-            .get_inner();
-        let connection_log_options_binding_1 = args
+        let connection_log_options_binding = args
             .connection_log_options
             .get_output(context);
-        let connection_log_options_binding = connection_log_options_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dns_servers_binding_1 = args.dns_servers.get_output(context);
-        let dns_servers_binding = dns_servers_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let self_service_portal_binding_1 = args.self_service_portal.get_output(context);
-        let self_service_portal_binding = self_service_portal_binding_1.get_inner();
-        let server_certificate_arn_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let dns_servers_binding = args.dns_servers.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let self_service_portal_binding = args.self_service_portal.get_output(context);
+        let server_certificate_arn_binding = args
             .server_certificate_arn
             .get_output(context);
-        let server_certificate_arn_binding = server_certificate_arn_binding_1
-            .get_inner();
-        let session_timeout_hours_binding_1 = args
+        let session_timeout_hours_binding = args
             .session_timeout_hours
             .get_output(context);
-        let session_timeout_hours_binding = session_timeout_hours_binding_1.get_inner();
-        let split_tunnel_binding_1 = args.split_tunnel.get_output(context);
-        let split_tunnel_binding = split_tunnel_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transport_protocol_binding_1 = args.transport_protocol.get_output(context);
-        let transport_protocol_binding = transport_protocol_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let vpn_port_binding_1 = args.vpn_port.get_output(context);
-        let vpn_port_binding = vpn_port_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let split_tunnel_binding = args.split_tunnel.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transport_protocol_binding = args.transport_protocol.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let vpn_port_binding = args.vpn_port.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2clientvpn/endpoint:Endpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationOptions".into(),
-                    value: &authentication_options_binding,
+                    value: authentication_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCidrBlock".into(),
-                    value: &client_cidr_block_binding,
+                    value: client_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientConnectOptions".into(),
-                    value: &client_connect_options_binding,
+                    value: client_connect_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientLoginBannerOptions".into(),
-                    value: &client_login_banner_options_binding,
+                    value: client_login_banner_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionLogOptions".into(),
-                    value: &connection_log_options_binding,
+                    value: connection_log_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsServers".into(),
-                    value: &dns_servers_binding,
+                    value: dns_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfServicePortal".into(),
-                    value: &self_service_portal_binding,
+                    value: self_service_portal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverCertificateArn".into(),
-                    value: &server_certificate_arn_binding,
+                    value: server_certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionTimeoutHours".into(),
-                    value: &session_timeout_hours_binding,
+                    value: session_timeout_hours_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "splitTunnel".into(),
-                    value: &split_tunnel_binding,
+                    value: split_tunnel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transportProtocol".into(),
-                    value: &transport_protocol_binding,
+                    value: transport_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnPort".into(),
-                    value: &vpn_port_binding,
+                    value: vpn_port_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationOptions"),
-            ),
-            client_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCidrBlock"),
-            ),
-            client_connect_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientConnectOptions"),
-            ),
-            client_login_banner_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientLoginBannerOptions"),
-            ),
-            connection_log_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionLogOptions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            dns_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsServers"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            self_service_portal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfServicePortal"),
-            ),
-            self_service_portal_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfServicePortalUrl"),
-            ),
-            server_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverCertificateArn"),
-            ),
-            session_timeout_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionTimeoutHours"),
-            ),
-            split_tunnel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("splitTunnel"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transport_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transportProtocol"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            vpn_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnPort"),
-            ),
+            arn: o.get_field("arn"),
+            authentication_options: o.get_field("authenticationOptions"),
+            client_cidr_block: o.get_field("clientCidrBlock"),
+            client_connect_options: o.get_field("clientConnectOptions"),
+            client_login_banner_options: o.get_field("clientLoginBannerOptions"),
+            connection_log_options: o.get_field("connectionLogOptions"),
+            description: o.get_field("description"),
+            dns_name: o.get_field("dnsName"),
+            dns_servers: o.get_field("dnsServers"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            self_service_portal: o.get_field("selfServicePortal"),
+            self_service_portal_url: o.get_field("selfServicePortalUrl"),
+            server_certificate_arn: o.get_field("serverCertificateArn"),
+            session_timeout_hours: o.get_field("sessionTimeoutHours"),
+            split_tunnel: o.get_field("splitTunnel"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transport_protocol: o.get_field("transportProtocol"),
+            vpc_id: o.get_field("vpcId"),
+            vpn_port: o.get_field("vpnPort"),
         }
     }
 }

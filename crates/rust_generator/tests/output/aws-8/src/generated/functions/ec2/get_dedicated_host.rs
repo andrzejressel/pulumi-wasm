@@ -56,77 +56,51 @@ pub mod get_dedicated_host {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDedicatedHostArgs,
     ) -> GetDedicatedHostResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let host_id_binding_1 = args.host_id.get_output(context);
-        let host_id_binding = host_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let host_id_binding = args.host_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getDedicatedHost:getDedicatedHost".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostId".into(),
-                    value: &host_id_binding,
+                    value: host_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDedicatedHostResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            asset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assetId"),
-            ),
-            auto_placement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoPlacement"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            cores: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cores")),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            host_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostId"),
-            ),
-            host_recovery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostRecovery"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceFamily"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            sockets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sockets"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            total_vcpus: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalVcpus"),
-            ),
+            arn: o.get_field("arn"),
+            asset_id: o.get_field("assetId"),
+            auto_placement: o.get_field("autoPlacement"),
+            availability_zone: o.get_field("availabilityZone"),
+            cores: o.get_field("cores"),
+            filters: o.get_field("filters"),
+            host_id: o.get_field("hostId"),
+            host_recovery: o.get_field("hostRecovery"),
+            id: o.get_field("id"),
+            instance_family: o.get_field("instanceFamily"),
+            instance_type: o.get_field("instanceType"),
+            outpost_arn: o.get_field("outpostArn"),
+            owner_id: o.get_field("ownerId"),
+            sockets: o.get_field("sockets"),
+            tags: o.get_field("tags"),
+            total_vcpus: o.get_field("totalVcpus"),
         }
     }
 }

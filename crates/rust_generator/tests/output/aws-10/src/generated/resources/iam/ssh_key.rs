@@ -70,63 +70,48 @@ pub mod ssh_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SshKeyArgs,
     ) -> SshKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encoding_binding_1 = args.encoding.get_output(context);
-        let encoding_binding = encoding_binding_1.get_inner();
-        let public_key_binding_1 = args.public_key.get_output(context);
-        let public_key_binding = public_key_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let encoding_binding = args.encoding.get_output(context);
+        let public_key_binding = args.public_key.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/sshKey:SshKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoding".into(),
-                    value: &encoding_binding,
+                    value: encoding_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKey".into(),
-                    value: &public_key_binding,
+                    value: public_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SshKeyResult {
-            encoding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encoding"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
-            ssh_public_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshPublicKeyId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            encoding: o.get_field("encoding"),
+            fingerprint: o.get_field("fingerprint"),
+            public_key: o.get_field("publicKey"),
+            ssh_public_key_id: o.get_field("sshPublicKeyId"),
+            status: o.get_field("status"),
+            username: o.get_field("username"),
         }
     }
 }

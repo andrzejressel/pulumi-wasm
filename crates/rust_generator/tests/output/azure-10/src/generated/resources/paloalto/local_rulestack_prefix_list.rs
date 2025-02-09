@@ -81,65 +81,53 @@ pub mod local_rulestack_prefix_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocalRulestackPrefixListArgs,
     ) -> LocalRulestackPrefixListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_comment_binding_1 = args.audit_comment.get_output(context);
-        let audit_comment_binding = audit_comment_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let prefix_lists_binding_1 = args.prefix_lists.get_output(context);
-        let prefix_lists_binding = prefix_lists_binding_1.get_inner();
-        let rulestack_id_binding_1 = args.rulestack_id.get_output(context);
-        let rulestack_id_binding = rulestack_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audit_comment_binding = args.audit_comment.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let prefix_lists_binding = args.prefix_lists.get_output(context);
+        let rulestack_id_binding = args.rulestack_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditComment".into(),
-                    value: &audit_comment_binding,
+                    value: audit_comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixLists".into(),
-                    value: &prefix_lists_binding,
+                    value: prefix_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulestackId".into(),
-                    value: &rulestack_id_binding,
+                    value: rulestack_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocalRulestackPrefixListResult {
-            audit_comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditComment"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            prefix_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixLists"),
-            ),
-            rulestack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rulestackId"),
-            ),
+            audit_comment: o.get_field("auditComment"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            prefix_lists: o.get_field("prefixLists"),
+            rulestack_id: o.get_field("rulestackId"),
         }
     }
 }

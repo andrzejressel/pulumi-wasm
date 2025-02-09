@@ -151,76 +151,59 @@ pub mod subscription_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubscriptionRuleArgs,
     ) -> SubscriptionRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let correlation_filter_binding_1 = args.correlation_filter.get_output(context);
-        let correlation_filter_binding = correlation_filter_binding_1.get_inner();
-        let filter_type_binding_1 = args.filter_type.get_output(context);
-        let filter_type_binding = filter_type_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let sql_filter_binding_1 = args.sql_filter.get_output(context);
-        let sql_filter_binding = sql_filter_binding_1.get_inner();
-        let subscription_id_binding_1 = args.subscription_id.get_output(context);
-        let subscription_id_binding = subscription_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let correlation_filter_binding = args.correlation_filter.get_output(context);
+        let filter_type_binding = args.filter_type.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let sql_filter_binding = args.sql_filter.get_output(context);
+        let subscription_id_binding = args.subscription_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:eventhub/subscriptionRule:SubscriptionRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "correlationFilter".into(),
-                    value: &correlation_filter_binding,
+                    value: correlation_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterType".into(),
-                    value: &filter_type_binding,
+                    value: filter_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlFilter".into(),
-                    value: &sql_filter_binding,
+                    value: sql_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: &subscription_id_binding,
+                    value: subscription_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubscriptionRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            correlation_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("correlationFilter"),
-            ),
-            filter_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterType"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sql_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlFilter"),
-            ),
-            sql_filter_compatibility_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlFilterCompatibilityLevel"),
-            ),
-            subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionId"),
-            ),
+            action: o.get_field("action"),
+            correlation_filter: o.get_field("correlationFilter"),
+            filter_type: o.get_field("filterType"),
+            name: o.get_field("name"),
+            sql_filter: o.get_field("sqlFilter"),
+            sql_filter_compatibility_level: o.get_field("sqlFilterCompatibilityLevel"),
+            subscription_id: o.get_field("subscriptionId"),
         }
     }
 }

@@ -51,58 +51,42 @@ pub mod get_configuration_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetConfigurationSetArgs,
     ) -> GetConfigurationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_set_name_binding = args
             .configuration_set_name
             .get_output(context);
-        let configuration_set_name_binding = configuration_set_name_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:sesv2/getConfigurationSet:getConfigurationSet".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: &configuration_set_name_binding,
+                    value: configuration_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetConfigurationSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configuration_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationSetName"),
-            ),
-            delivery_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryOptions"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            reputation_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reputationOptions"),
-            ),
-            sending_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendingOptions"),
-            ),
-            suppression_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suppressionOptions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tracking_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trackingOptions"),
-            ),
-            vdm_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vdmOptions"),
-            ),
+            arn: o.get_field("arn"),
+            configuration_set_name: o.get_field("configurationSetName"),
+            delivery_options: o.get_field("deliveryOptions"),
+            id: o.get_field("id"),
+            reputation_options: o.get_field("reputationOptions"),
+            sending_options: o.get_field("sendingOptions"),
+            suppression_options: o.get_field("suppressionOptions"),
+            tags: o.get_field("tags"),
+            tracking_options: o.get_field("trackingOptions"),
+            vdm_options: o.get_field("vdmOptions"),
         }
     }
 }

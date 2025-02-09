@@ -203,134 +203,91 @@ pub mod registration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegistrationArgs,
     ) -> RegistrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_notices_binding_1 = args.contact_notices.get_output(context);
-        let contact_notices_binding = contact_notices_binding_1.get_inner();
-        let contact_settings_binding_1 = args.contact_settings.get_output(context);
-        let contact_settings_binding = contact_settings_binding_1.get_inner();
-        let dns_settings_binding_1 = args.dns_settings.get_output(context);
-        let dns_settings_binding = dns_settings_binding_1.get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let domain_notices_binding_1 = args.domain_notices.get_output(context);
-        let domain_notices_binding = domain_notices_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let management_settings_binding_1 = args.management_settings.get_output(context);
-        let management_settings_binding = management_settings_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let yearly_price_binding_1 = args.yearly_price.get_output(context);
-        let yearly_price_binding = yearly_price_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let contact_notices_binding = args.contact_notices.get_output(context);
+        let contact_settings_binding = args.contact_settings.get_output(context);
+        let dns_settings_binding = args.dns_settings.get_output(context);
+        let domain_name_binding = args.domain_name.get_output(context);
+        let domain_notices_binding = args.domain_notices.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let management_settings_binding = args.management_settings.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let yearly_price_binding = args.yearly_price.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:clouddomains/registration:Registration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactNotices".into(),
-                    value: &contact_notices_binding,
+                    value: contact_notices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactSettings".into(),
-                    value: &contact_settings_binding,
+                    value: contact_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSettings".into(),
-                    value: &dns_settings_binding,
+                    value: dns_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNotices".into(),
-                    value: &domain_notices_binding,
+                    value: domain_notices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementSettings".into(),
-                    value: &management_settings_binding,
+                    value: management_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "yearlyPrice".into(),
-                    value: &yearly_price_binding,
+                    value: yearly_price_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegistrationResult {
-            contact_notices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactNotices"),
-            ),
-            contact_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactSettings"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            dns_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSettings"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_notices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNotices"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            expire_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireTime"),
-            ),
-            issues: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issues"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementSettings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            register_failure_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registerFailureReason"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            supported_privacies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedPrivacies"),
-            ),
-            yearly_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("yearlyPrice"),
-            ),
+            contact_notices: o.get_field("contactNotices"),
+            contact_settings: o.get_field("contactSettings"),
+            create_time: o.get_field("createTime"),
+            dns_settings: o.get_field("dnsSettings"),
+            domain_name: o.get_field("domainName"),
+            domain_notices: o.get_field("domainNotices"),
+            effective_labels: o.get_field("effectiveLabels"),
+            expire_time: o.get_field("expireTime"),
+            issues: o.get_field("issues"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            management_settings: o.get_field("managementSettings"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            register_failure_reason: o.get_field("registerFailureReason"),
+            state: o.get_field("state"),
+            supported_privacies: o.get_field("supportedPrivacies"),
+            yearly_price: o.get_field("yearlyPrice"),
         }
     }
 }

@@ -906,298 +906,206 @@ pub mod region_backend_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionBackendServiceArgs,
     ) -> RegionBackendServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let affinity_cookie_ttl_sec_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let affinity_cookie_ttl_sec_binding = args
             .affinity_cookie_ttl_sec
             .get_output(context);
-        let affinity_cookie_ttl_sec_binding = affinity_cookie_ttl_sec_binding_1
-            .get_inner();
-        let backends_binding_1 = args.backends.get_output(context);
-        let backends_binding = backends_binding_1.get_inner();
-        let cdn_policy_binding_1 = args.cdn_policy.get_output(context);
-        let cdn_policy_binding = cdn_policy_binding_1.get_inner();
-        let circuit_breakers_binding_1 = args.circuit_breakers.get_output(context);
-        let circuit_breakers_binding = circuit_breakers_binding_1.get_inner();
-        let connection_draining_timeout_sec_binding_1 = args
+        let backends_binding = args.backends.get_output(context);
+        let cdn_policy_binding = args.cdn_policy.get_output(context);
+        let circuit_breakers_binding = args.circuit_breakers.get_output(context);
+        let connection_draining_timeout_sec_binding = args
             .connection_draining_timeout_sec
             .get_output(context);
-        let connection_draining_timeout_sec_binding = connection_draining_timeout_sec_binding_1
-            .get_inner();
-        let connection_tracking_policy_binding_1 = args
+        let connection_tracking_policy_binding = args
             .connection_tracking_policy
             .get_output(context);
-        let connection_tracking_policy_binding = connection_tracking_policy_binding_1
-            .get_inner();
-        let consistent_hash_binding_1 = args.consistent_hash.get_output(context);
-        let consistent_hash_binding = consistent_hash_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enable_cdn_binding_1 = args.enable_cdn.get_output(context);
-        let enable_cdn_binding = enable_cdn_binding_1.get_inner();
-        let failover_policy_binding_1 = args.failover_policy.get_output(context);
-        let failover_policy_binding = failover_policy_binding_1.get_inner();
-        let health_checks_binding_1 = args.health_checks.get_output(context);
-        let health_checks_binding = health_checks_binding_1.get_inner();
-        let iap_binding_1 = args.iap.get_output(context);
-        let iap_binding = iap_binding_1.get_inner();
-        let ip_address_selection_policy_binding_1 = args
+        let consistent_hash_binding = args.consistent_hash.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enable_cdn_binding = args.enable_cdn.get_output(context);
+        let failover_policy_binding = args.failover_policy.get_output(context);
+        let health_checks_binding = args.health_checks.get_output(context);
+        let iap_binding = args.iap.get_output(context);
+        let ip_address_selection_policy_binding = args
             .ip_address_selection_policy
             .get_output(context);
-        let ip_address_selection_policy_binding = ip_address_selection_policy_binding_1
-            .get_inner();
-        let load_balancing_scheme_binding_1 = args
+        let load_balancing_scheme_binding = args
             .load_balancing_scheme
             .get_output(context);
-        let load_balancing_scheme_binding = load_balancing_scheme_binding_1.get_inner();
-        let locality_lb_policy_binding_1 = args.locality_lb_policy.get_output(context);
-        let locality_lb_policy_binding = locality_lb_policy_binding_1.get_inner();
-        let log_config_binding_1 = args.log_config.get_output(context);
-        let log_config_binding = log_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let outlier_detection_binding_1 = args.outlier_detection.get_output(context);
-        let outlier_detection_binding = outlier_detection_binding_1.get_inner();
-        let port_name_binding_1 = args.port_name.get_output(context);
-        let port_name_binding = port_name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let security_policy_binding_1 = args.security_policy.get_output(context);
-        let security_policy_binding = security_policy_binding_1.get_inner();
-        let session_affinity_binding_1 = args.session_affinity.get_output(context);
-        let session_affinity_binding = session_affinity_binding_1.get_inner();
-        let strong_session_affinity_cookie_binding_1 = args
+        let locality_lb_policy_binding = args.locality_lb_policy.get_output(context);
+        let log_config_binding = args.log_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let outlier_detection_binding = args.outlier_detection.get_output(context);
+        let port_name_binding = args.port_name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let security_policy_binding = args.security_policy.get_output(context);
+        let session_affinity_binding = args.session_affinity.get_output(context);
+        let strong_session_affinity_cookie_binding = args
             .strong_session_affinity_cookie
             .get_output(context);
-        let strong_session_affinity_cookie_binding = strong_session_affinity_cookie_binding_1
-            .get_inner();
-        let subsetting_binding_1 = args.subsetting.get_output(context);
-        let subsetting_binding = subsetting_binding_1.get_inner();
-        let timeout_sec_binding_1 = args.timeout_sec.get_output(context);
-        let timeout_sec_binding = timeout_sec_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subsetting_binding = args.subsetting.get_output(context);
+        let timeout_sec_binding = args.timeout_sec.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionBackendService:RegionBackendService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "affinityCookieTtlSec".into(),
-                    value: &affinity_cookie_ttl_sec_binding,
+                    value: affinity_cookie_ttl_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backends".into(),
-                    value: &backends_binding,
+                    value: backends_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnPolicy".into(),
-                    value: &cdn_policy_binding,
+                    value: cdn_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "circuitBreakers".into(),
-                    value: &circuit_breakers_binding,
+                    value: circuit_breakers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionDrainingTimeoutSec".into(),
-                    value: &connection_draining_timeout_sec_binding,
+                    value: connection_draining_timeout_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionTrackingPolicy".into(),
-                    value: &connection_tracking_policy_binding,
+                    value: connection_tracking_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consistentHash".into(),
-                    value: &consistent_hash_binding,
+                    value: consistent_hash_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCdn".into(),
-                    value: &enable_cdn_binding,
+                    value: enable_cdn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverPolicy".into(),
-                    value: &failover_policy_binding,
+                    value: failover_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthChecks".into(),
-                    value: &health_checks_binding,
+                    value: health_checks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iap".into(),
-                    value: &iap_binding,
+                    value: iap_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressSelectionPolicy".into(),
-                    value: &ip_address_selection_policy_binding,
+                    value: ip_address_selection_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingScheme".into(),
-                    value: &load_balancing_scheme_binding,
+                    value: load_balancing_scheme_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localityLbPolicy".into(),
-                    value: &locality_lb_policy_binding,
+                    value: locality_lb_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: &log_config_binding,
+                    value: log_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outlierDetection".into(),
-                    value: &outlier_detection_binding,
+                    value: outlier_detection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portName".into(),
-                    value: &port_name_binding,
+                    value: port_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicy".into(),
-                    value: &security_policy_binding,
+                    value: security_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinity".into(),
-                    value: &session_affinity_binding,
+                    value: session_affinity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "strongSessionAffinityCookie".into(),
-                    value: &strong_session_affinity_cookie_binding,
+                    value: strong_session_affinity_cookie_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subsetting".into(),
-                    value: &subsetting_binding,
+                    value: subsetting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutSec".into(),
-                    value: &timeout_sec_binding,
+                    value: timeout_sec_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionBackendServiceResult {
-            affinity_cookie_ttl_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("affinityCookieTtlSec"),
-            ),
-            backends: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backends"),
-            ),
-            cdn_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnPolicy"),
-            ),
-            circuit_breakers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("circuitBreakers"),
-            ),
-            connection_draining_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionDrainingTimeoutSec"),
-            ),
-            connection_tracking_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionTrackingPolicy"),
-            ),
-            consistent_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consistentHash"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enable_cdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableCdn"),
-            ),
-            failover_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failoverPolicy"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            generated_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("generatedId"),
-            ),
-            health_checks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthChecks"),
-            ),
-            iap: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iap")),
-            ip_address_selection_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressSelectionPolicy"),
-            ),
-            load_balancing_scheme: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingScheme"),
-            ),
-            locality_lb_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localityLbPolicy"),
-            ),
-            log_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            outlier_detection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outlierDetection"),
-            ),
-            port_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portName"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPolicy"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            session_affinity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionAffinity"),
-            ),
-            strong_session_affinity_cookie: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("strongSessionAffinityCookie"),
-            ),
-            subsetting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subsetting"),
-            ),
-            timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutSec"),
-            ),
+            affinity_cookie_ttl_sec: o.get_field("affinityCookieTtlSec"),
+            backends: o.get_field("backends"),
+            cdn_policy: o.get_field("cdnPolicy"),
+            circuit_breakers: o.get_field("circuitBreakers"),
+            connection_draining_timeout_sec: o.get_field("connectionDrainingTimeoutSec"),
+            connection_tracking_policy: o.get_field("connectionTrackingPolicy"),
+            consistent_hash: o.get_field("consistentHash"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            enable_cdn: o.get_field("enableCdn"),
+            failover_policy: o.get_field("failoverPolicy"),
+            fingerprint: o.get_field("fingerprint"),
+            generated_id: o.get_field("generatedId"),
+            health_checks: o.get_field("healthChecks"),
+            iap: o.get_field("iap"),
+            ip_address_selection_policy: o.get_field("ipAddressSelectionPolicy"),
+            load_balancing_scheme: o.get_field("loadBalancingScheme"),
+            locality_lb_policy: o.get_field("localityLbPolicy"),
+            log_config: o.get_field("logConfig"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            outlier_detection: o.get_field("outlierDetection"),
+            port_name: o.get_field("portName"),
+            project: o.get_field("project"),
+            protocol: o.get_field("protocol"),
+            region: o.get_field("region"),
+            security_policy: o.get_field("securityPolicy"),
+            self_link: o.get_field("selfLink"),
+            session_affinity: o.get_field("sessionAffinity"),
+            strong_session_affinity_cookie: o.get_field("strongSessionAffinityCookie"),
+            subsetting: o.get_field("subsetting"),
+            timeout_sec: o.get_field("timeoutSec"),
         }
     }
 }

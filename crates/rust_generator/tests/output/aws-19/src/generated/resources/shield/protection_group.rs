@@ -140,79 +140,60 @@ pub mod protection_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProtectionGroupArgs,
     ) -> ProtectionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aggregation_binding_1 = args.aggregation.get_output(context);
-        let aggregation_binding = aggregation_binding_1.get_inner();
-        let members_binding_1 = args.members.get_output(context);
-        let members_binding = members_binding_1.get_inner();
-        let pattern_binding_1 = args.pattern.get_output(context);
-        let pattern_binding = pattern_binding_1.get_inner();
-        let protection_group_id_binding_1 = args.protection_group_id.get_output(context);
-        let protection_group_id_binding = protection_group_id_binding_1.get_inner();
-        let resource_type_binding_1 = args.resource_type.get_output(context);
-        let resource_type_binding = resource_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aggregation_binding = args.aggregation.get_output(context);
+        let members_binding = args.members.get_output(context);
+        let pattern_binding = args.pattern.get_output(context);
+        let protection_group_id_binding = args.protection_group_id.get_output(context);
+        let resource_type_binding = args.resource_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:shield/protectionGroup:ProtectionGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aggregation".into(),
-                    value: &aggregation_binding,
+                    value: aggregation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: &members_binding,
+                    value: members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pattern".into(),
-                    value: &pattern_binding,
+                    value: pattern_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionGroupId".into(),
-                    value: &protection_group_id_binding,
+                    value: protection_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: &resource_type_binding,
+                    value: resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProtectionGroupResult {
-            aggregation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aggregation"),
-            ),
-            members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("members"),
-            ),
-            pattern: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pattern"),
-            ),
-            protection_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionGroupArn"),
-            ),
-            protection_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionGroupId"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            aggregation: o.get_field("aggregation"),
+            members: o.get_field("members"),
+            pattern: o.get_field("pattern"),
+            protection_group_arn: o.get_field("protectionGroupArn"),
+            protection_group_id: o.get_field("protectionGroupId"),
+            resource_type: o.get_field("resourceType"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

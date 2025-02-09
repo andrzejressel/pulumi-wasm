@@ -131,80 +131,64 @@ pub mod network_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkServiceArgs,
     ) -> NetworkServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mobile_network_id_binding_1 = args.mobile_network_id.get_output(context);
-        let mobile_network_id_binding = mobile_network_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let pcc_rules_binding_1 = args.pcc_rules.get_output(context);
-        let pcc_rules_binding = pcc_rules_binding_1.get_inner();
-        let service_precedence_binding_1 = args.service_precedence.get_output(context);
-        let service_precedence_binding = service_precedence_binding_1.get_inner();
-        let service_qos_policy_binding_1 = args.service_qos_policy.get_output(context);
-        let service_qos_policy_binding = service_qos_policy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let mobile_network_id_binding = args.mobile_network_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let pcc_rules_binding = args.pcc_rules.get_output(context);
+        let service_precedence_binding = args.service_precedence.get_output(context);
+        let service_qos_policy_binding = args.service_qos_policy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mobile/networkService:NetworkService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkId".into(),
-                    value: &mobile_network_id_binding,
+                    value: mobile_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pccRules".into(),
-                    value: &pcc_rules_binding,
+                    value: pcc_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrecedence".into(),
-                    value: &service_precedence_binding,
+                    value: service_precedence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceQosPolicy".into(),
-                    value: &service_qos_policy_binding,
+                    value: service_qos_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkServiceResult {
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mobile_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobileNetworkId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pcc_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pccRules"),
-            ),
-            service_precedence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrecedence"),
-            ),
-            service_qos_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceQosPolicy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            location: o.get_field("location"),
+            mobile_network_id: o.get_field("mobileNetworkId"),
+            name: o.get_field("name"),
+            pcc_rules: o.get_field("pccRules"),
+            service_precedence: o.get_field("servicePrecedence"),
+            service_qos_policy: o.get_field("serviceQosPolicy"),
+            tags: o.get_field("tags"),
         }
     }
 }

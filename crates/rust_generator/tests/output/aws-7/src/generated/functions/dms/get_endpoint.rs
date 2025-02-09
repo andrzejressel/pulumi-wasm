@@ -63,103 +63,56 @@ pub mod get_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEndpointArgs,
     ) -> GetEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_id_binding_1 = args.endpoint_id.get_output(context);
-        let endpoint_id_binding = endpoint_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoint_id_binding = args.endpoint_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:dms/getEndpoint:getEndpoint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointId".into(),
-                    value: &endpoint_id_binding,
+                    value: endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEndpointResult {
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            elasticsearch_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticsearchSettings"),
-            ),
-            endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointArn"),
-            ),
-            endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointId"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            engine_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineName"),
-            ),
-            extra_connection_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extraConnectionAttributes"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kafka_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaSettings"),
-            ),
-            kinesis_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kinesisSettings"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            mongodb_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mongodbSettings"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            postgres_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postgresSettings"),
-            ),
-            redis_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisSettings"),
-            ),
-            redshift_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redshiftSettings"),
-            ),
-            s3_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Settings"),
-            ),
-            secrets_manager_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretsManagerAccessRoleArn"),
-            ),
-            secrets_manager_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretsManagerArn"),
-            ),
-            server_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverName"),
-            ),
-            service_access_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccessRole"),
-            ),
-            ssl_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslMode"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            certificate_arn: o.get_field("certificateArn"),
+            database_name: o.get_field("databaseName"),
+            elasticsearch_settings: o.get_field("elasticsearchSettings"),
+            endpoint_arn: o.get_field("endpointArn"),
+            endpoint_id: o.get_field("endpointId"),
+            endpoint_type: o.get_field("endpointType"),
+            engine_name: o.get_field("engineName"),
+            extra_connection_attributes: o.get_field("extraConnectionAttributes"),
+            id: o.get_field("id"),
+            kafka_settings: o.get_field("kafkaSettings"),
+            kinesis_settings: o.get_field("kinesisSettings"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            mongodb_settings: o.get_field("mongodbSettings"),
+            password: o.get_field("password"),
+            port: o.get_field("port"),
+            postgres_settings: o.get_field("postgresSettings"),
+            redis_settings: o.get_field("redisSettings"),
+            redshift_settings: o.get_field("redshiftSettings"),
+            s3_settings: o.get_field("s3Settings"),
+            secrets_manager_access_role_arn: o.get_field("secretsManagerAccessRoleArn"),
+            secrets_manager_arn: o.get_field("secretsManagerArn"),
+            server_name: o.get_field("serverName"),
+            service_access_role: o.get_field("serviceAccessRole"),
+            ssl_mode: o.get_field("sslMode"),
+            tags: o.get_field("tags"),
+            username: o.get_field("username"),
         }
     }
 }

@@ -137,63 +137,51 @@ pub mod account_encryption {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountEncryptionArgs,
     ) -> AccountEncryptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_key_binding_1 = args.encryption_key.get_output(context);
-        let encryption_key_binding = encryption_key_binding_1.get_inner();
-        let netapp_account_id_binding_1 = args.netapp_account_id.get_output(context);
-        let netapp_account_id_binding = netapp_account_id_binding_1.get_inner();
-        let system_assigned_identity_principal_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let encryption_key_binding = args.encryption_key.get_output(context);
+        let netapp_account_id_binding = args.netapp_account_id.get_output(context);
+        let system_assigned_identity_principal_id_binding = args
             .system_assigned_identity_principal_id
             .get_output(context);
-        let system_assigned_identity_principal_id_binding = system_assigned_identity_principal_id_binding_1
-            .get_inner();
-        let user_assigned_identity_id_binding_1 = args
+        let user_assigned_identity_id_binding = args
             .user_assigned_identity_id
             .get_output(context);
-        let user_assigned_identity_id_binding = user_assigned_identity_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:netapp/accountEncryption:AccountEncryption".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionKey".into(),
-                    value: &encryption_key_binding,
+                    value: encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netappAccountId".into(),
-                    value: &netapp_account_id_binding,
+                    value: netapp_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemAssignedIdentityPrincipalId".into(),
-                    value: &system_assigned_identity_principal_id_binding,
+                    value: system_assigned_identity_principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAssignedIdentityId".into(),
-                    value: &user_assigned_identity_id_binding,
+                    value: user_assigned_identity_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountEncryptionResult {
-            encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionKey"),
-            ),
-            netapp_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netappAccountId"),
-            ),
-            system_assigned_identity_principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("systemAssignedIdentityPrincipalId"),
-            ),
-            user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userAssignedIdentityId"),
-            ),
+            encryption_key: o.get_field("encryptionKey"),
+            netapp_account_id: o.get_field("netappAccountId"),
+            system_assigned_identity_principal_id: o
+                .get_field("systemAssignedIdentityPrincipalId"),
+            user_assigned_identity_id: o.get_field("userAssignedIdentityId"),
         }
     }
 }

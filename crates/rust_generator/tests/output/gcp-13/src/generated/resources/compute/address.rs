@@ -360,161 +360,112 @@ pub mod address {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AddressArgs,
     ) -> AddressResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_binding_1 = args.address.get_output(context);
-        let address_binding = address_binding_1.get_inner();
-        let address_type_binding_1 = args.address_type.get_output(context);
-        let address_type_binding = address_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ip_version_binding_1 = args.ip_version.get_output(context);
-        let ip_version_binding = ip_version_binding_1.get_inner();
-        let ipv6_endpoint_type_binding_1 = args.ipv6_endpoint_type.get_output(context);
-        let ipv6_endpoint_type_binding = ipv6_endpoint_type_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let network_tier_binding_1 = args.network_tier.get_output(context);
-        let network_tier_binding = network_tier_binding_1.get_inner();
-        let prefix_length_binding_1 = args.prefix_length.get_output(context);
-        let prefix_length_binding = prefix_length_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let purpose_binding_1 = args.purpose.get_output(context);
-        let purpose_binding = purpose_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let subnetwork_binding_1 = args.subnetwork.get_output(context);
-        let subnetwork_binding = subnetwork_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_binding = args.address.get_output(context);
+        let address_type_binding = args.address_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let ip_version_binding = args.ip_version.get_output(context);
+        let ipv6_endpoint_type_binding = args.ipv6_endpoint_type.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let network_tier_binding = args.network_tier.get_output(context);
+        let prefix_length_binding = args.prefix_length.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let purpose_binding = args.purpose.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let subnetwork_binding = args.subnetwork.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/address:Address".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "address".into(),
-                    value: &address_binding,
+                    value: address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressType".into(),
-                    value: &address_type_binding,
+                    value: address_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipVersion".into(),
-                    value: &ip_version_binding,
+                    value: ip_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6EndpointType".into(),
-                    value: &ipv6_endpoint_type_binding,
+                    value: ipv6_endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkTier".into(),
-                    value: &network_tier_binding,
+                    value: network_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixLength".into(),
-                    value: &prefix_length_binding,
+                    value: prefix_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purpose".into(),
-                    value: &purpose_binding,
+                    value: purpose_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: &subnetwork_binding,
+                    value: subnetwork_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AddressResult {
-            address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("address"),
-            ),
-            address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressType"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            ip_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipVersion"),
-            ),
-            ipv6_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6EndpointType"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            network_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkTier"),
-            ),
-            prefix_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixLength"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            purpose: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purpose"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            subnetwork: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetwork"),
-            ),
-            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
+            address: o.get_field("address"),
+            address_type: o.get_field("addressType"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            ip_version: o.get_field("ipVersion"),
+            ipv6_endpoint_type: o.get_field("ipv6EndpointType"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            network_tier: o.get_field("networkTier"),
+            prefix_length: o.get_field("prefixLength"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            purpose: o.get_field("purpose"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            subnetwork: o.get_field("subnetwork"),
+            users: o.get_field("users"),
         }
     }
 }

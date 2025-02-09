@@ -780,167 +780,117 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cleanup_policies_binding_1 = args.cleanup_policies.get_output(context);
-        let cleanup_policies_binding = cleanup_policies_binding_1.get_inner();
-        let cleanup_policy_dry_run_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cleanup_policies_binding = args.cleanup_policies.get_output(context);
+        let cleanup_policy_dry_run_binding = args
             .cleanup_policy_dry_run
             .get_output(context);
-        let cleanup_policy_dry_run_binding = cleanup_policy_dry_run_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let docker_config_binding_1 = args.docker_config.get_output(context);
-        let docker_config_binding = docker_config_binding_1.get_inner();
-        let format_binding_1 = args.format.get_output(context);
-        let format_binding = format_binding_1.get_inner();
-        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
-        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maven_config_binding_1 = args.maven_config.get_output(context);
-        let maven_config_binding = maven_config_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let remote_repository_config_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let docker_config_binding = args.docker_config.get_output(context);
+        let format_binding = args.format.get_output(context);
+        let kms_key_name_binding = args.kms_key_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maven_config_binding = args.maven_config.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let remote_repository_config_binding = args
             .remote_repository_config
             .get_output(context);
-        let remote_repository_config_binding = remote_repository_config_binding_1
-            .get_inner();
-        let repository_id_binding_1 = args.repository_id.get_output(context);
-        let repository_id_binding = repository_id_binding_1.get_inner();
-        let virtual_repository_config_binding_1 = args
+        let repository_id_binding = args.repository_id.get_output(context);
+        let virtual_repository_config_binding = args
             .virtual_repository_config
             .get_output(context);
-        let virtual_repository_config_binding = virtual_repository_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:artifactregistry/repository:Repository".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cleanupPolicies".into(),
-                    value: &cleanup_policies_binding,
+                    value: cleanup_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cleanupPolicyDryRun".into(),
-                    value: &cleanup_policy_dry_run_binding,
+                    value: cleanup_policy_dry_run_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerConfig".into(),
-                    value: &docker_config_binding,
+                    value: docker_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "format".into(),
-                    value: &format_binding,
+                    value: format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: &kms_key_name_binding,
+                    value: kms_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mavenConfig".into(),
-                    value: &maven_config_binding,
+                    value: maven_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteRepositoryConfig".into(),
-                    value: &remote_repository_config_binding,
+                    value: remote_repository_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryId".into(),
-                    value: &repository_id_binding,
+                    value: repository_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualRepositoryConfig".into(),
-                    value: &virtual_repository_config_binding,
+                    value: virtual_repository_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryResult {
-            cleanup_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cleanupPolicies"),
-            ),
-            cleanup_policy_dry_run: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cleanupPolicyDryRun"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            docker_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerConfig"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("format"),
-            ),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maven_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mavenConfig"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            remote_repository_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteRepositoryConfig"),
-            ),
-            repository_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryId"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            virtual_repository_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualRepositoryConfig"),
-            ),
+            cleanup_policies: o.get_field("cleanupPolicies"),
+            cleanup_policy_dry_run: o.get_field("cleanupPolicyDryRun"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            docker_config: o.get_field("dockerConfig"),
+            effective_labels: o.get_field("effectiveLabels"),
+            format: o.get_field("format"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            maven_config: o.get_field("mavenConfig"),
+            mode: o.get_field("mode"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            remote_repository_config: o.get_field("remoteRepositoryConfig"),
+            repository_id: o.get_field("repositoryId"),
+            update_time: o.get_field("updateTime"),
+            virtual_repository_config: o.get_field("virtualRepositoryConfig"),
         }
     }
 }

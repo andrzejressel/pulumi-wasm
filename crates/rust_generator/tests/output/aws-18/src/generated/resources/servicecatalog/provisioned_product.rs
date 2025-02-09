@@ -177,190 +177,130 @@ pub mod provisioned_product {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProvisionedProductArgs,
     ) -> ProvisionedProductResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding_1 = args.accept_language.get_output(context);
-        let accept_language_binding = accept_language_binding_1.get_inner();
-        let ignore_errors_binding_1 = args.ignore_errors.get_output(context);
-        let ignore_errors_binding = ignore_errors_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_arns_binding_1 = args.notification_arns.get_output(context);
-        let notification_arns_binding = notification_arns_binding_1.get_inner();
-        let path_id_binding_1 = args.path_id.get_output(context);
-        let path_id_binding = path_id_binding_1.get_inner();
-        let path_name_binding_1 = args.path_name.get_output(context);
-        let path_name_binding = path_name_binding_1.get_inner();
-        let product_id_binding_1 = args.product_id.get_output(context);
-        let product_id_binding = product_id_binding_1.get_inner();
-        let product_name_binding_1 = args.product_name.get_output(context);
-        let product_name_binding = product_name_binding_1.get_inner();
-        let provisioning_artifact_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accept_language_binding = args.accept_language.get_output(context);
+        let ignore_errors_binding = args.ignore_errors.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_arns_binding = args.notification_arns.get_output(context);
+        let path_id_binding = args.path_id.get_output(context);
+        let path_name_binding = args.path_name.get_output(context);
+        let product_id_binding = args.product_id.get_output(context);
+        let product_name_binding = args.product_name.get_output(context);
+        let provisioning_artifact_id_binding = args
             .provisioning_artifact_id
             .get_output(context);
-        let provisioning_artifact_id_binding = provisioning_artifact_id_binding_1
-            .get_inner();
-        let provisioning_artifact_name_binding_1 = args
+        let provisioning_artifact_name_binding = args
             .provisioning_artifact_name
             .get_output(context);
-        let provisioning_artifact_name_binding = provisioning_artifact_name_binding_1
-            .get_inner();
-        let provisioning_parameters_binding_1 = args
+        let provisioning_parameters_binding = args
             .provisioning_parameters
             .get_output(context);
-        let provisioning_parameters_binding = provisioning_parameters_binding_1
-            .get_inner();
-        let retain_physical_resources_binding_1 = args
+        let retain_physical_resources_binding = args
             .retain_physical_resources
             .get_output(context);
-        let retain_physical_resources_binding = retain_physical_resources_binding_1
-            .get_inner();
-        let stack_set_provisioning_preferences_binding_1 = args
+        let stack_set_provisioning_preferences_binding = args
             .stack_set_provisioning_preferences
             .get_output(context);
-        let stack_set_provisioning_preferences_binding = stack_set_provisioning_preferences_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:servicecatalog/provisionedProduct:ProvisionedProduct".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: &accept_language_binding,
+                    value: accept_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreErrors".into(),
-                    value: &ignore_errors_binding,
+                    value: ignore_errors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationArns".into(),
-                    value: &notification_arns_binding,
+                    value: notification_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathId".into(),
-                    value: &path_id_binding,
+                    value: path_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathName".into(),
-                    value: &path_name_binding,
+                    value: path_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: &product_id_binding,
+                    value: product_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productName".into(),
-                    value: &product_name_binding,
+                    value: product_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningArtifactId".into(),
-                    value: &provisioning_artifact_id_binding,
+                    value: provisioning_artifact_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningArtifactName".into(),
-                    value: &provisioning_artifact_name_binding,
+                    value: provisioning_artifact_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningParameters".into(),
-                    value: &provisioning_parameters_binding,
+                    value: provisioning_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainPhysicalResources".into(),
-                    value: &retain_physical_resources_binding,
+                    value: retain_physical_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackSetProvisioningPreferences".into(),
-                    value: &stack_set_provisioning_preferences_binding,
+                    value: stack_set_provisioning_preferences_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProvisionedProductResult {
-            accept_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptLanguage"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_dashboard_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchDashboardNames"),
-            ),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            ignore_errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreErrors"),
-            ),
-            last_provisioning_record_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastProvisioningRecordId"),
-            ),
-            last_record_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastRecordId"),
-            ),
-            last_successful_provisioning_record_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastSuccessfulProvisioningRecordId"),
-            ),
-            launch_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchRoleArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationArns"),
-            ),
-            outputs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputs"),
-            ),
-            path_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pathId"),
-            ),
-            path_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pathName"),
-            ),
-            product_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productId"),
-            ),
-            product_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productName"),
-            ),
-            provisioning_artifact_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisioningArtifactId"),
-            ),
-            provisioning_artifact_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisioningArtifactName"),
-            ),
-            provisioning_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisioningParameters"),
-            ),
-            retain_physical_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retainPhysicalResources"),
-            ),
-            stack_set_provisioning_preferences: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackSetProvisioningPreferences"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            accept_language: o.get_field("acceptLanguage"),
+            arn: o.get_field("arn"),
+            cloudwatch_dashboard_names: o.get_field("cloudwatchDashboardNames"),
+            created_time: o.get_field("createdTime"),
+            ignore_errors: o.get_field("ignoreErrors"),
+            last_provisioning_record_id: o.get_field("lastProvisioningRecordId"),
+            last_record_id: o.get_field("lastRecordId"),
+            last_successful_provisioning_record_id: o
+                .get_field("lastSuccessfulProvisioningRecordId"),
+            launch_role_arn: o.get_field("launchRoleArn"),
+            name: o.get_field("name"),
+            notification_arns: o.get_field("notificationArns"),
+            outputs: o.get_field("outputs"),
+            path_id: o.get_field("pathId"),
+            path_name: o.get_field("pathName"),
+            product_id: o.get_field("productId"),
+            product_name: o.get_field("productName"),
+            provisioning_artifact_id: o.get_field("provisioningArtifactId"),
+            provisioning_artifact_name: o.get_field("provisioningArtifactName"),
+            provisioning_parameters: o.get_field("provisioningParameters"),
+            retain_physical_resources: o.get_field("retainPhysicalResources"),
+            stack_set_provisioning_preferences: o
+                .get_field("stackSetProvisioningPreferences"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
         }
     }
 }

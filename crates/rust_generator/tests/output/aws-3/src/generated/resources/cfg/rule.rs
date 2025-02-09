@@ -222,97 +222,75 @@ pub mod rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RuleArgs,
     ) -> RuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let evaluation_modes_binding_1 = args.evaluation_modes.get_output(context);
-        let evaluation_modes_binding = evaluation_modes_binding_1.get_inner();
-        let input_parameters_binding_1 = args.input_parameters.get_output(context);
-        let input_parameters_binding = input_parameters_binding_1.get_inner();
-        let maximum_execution_frequency_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let evaluation_modes_binding = args.evaluation_modes.get_output(context);
+        let input_parameters_binding = args.input_parameters.get_output(context);
+        let maximum_execution_frequency_binding = args
             .maximum_execution_frequency
             .get_output(context);
-        let maximum_execution_frequency_binding = maximum_execution_frequency_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cfg/rule:Rule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluationModes".into(),
-                    value: &evaluation_modes_binding,
+                    value: evaluation_modes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputParameters".into(),
-                    value: &input_parameters_binding,
+                    value: input_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumExecutionFrequency".into(),
-                    value: &maximum_execution_frequency_binding,
+                    value: maximum_execution_frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            evaluation_modes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evaluationModes"),
-            ),
-            input_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputParameters"),
-            ),
-            maximum_execution_frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumExecutionFrequency"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleId"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            evaluation_modes: o.get_field("evaluationModes"),
+            input_parameters: o.get_field("inputParameters"),
+            maximum_execution_frequency: o.get_field("maximumExecutionFrequency"),
+            name: o.get_field("name"),
+            rule_id: o.get_field("ruleId"),
+            scope: o.get_field("scope"),
+            source: o.get_field("source"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

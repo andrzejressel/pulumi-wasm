@@ -80,58 +80,47 @@ pub mod identity_provider_twitter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IdentityProviderTwitterArgs,
     ) -> IdentityProviderTwitterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_binding_1 = args.api_key.get_output(context);
-        let api_key_binding = api_key_binding_1.get_inner();
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let api_secret_key_binding_1 = args.api_secret_key.get_output(context);
-        let api_secret_key_binding = api_secret_key_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_key_binding = args.api_key.get_output(context);
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let api_secret_key_binding = args.api_secret_key.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKey".into(),
-                    value: &api_key_binding,
+                    value: api_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiSecretKey".into(),
-                    value: &api_secret_key_binding,
+                    value: api_secret_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IdentityProviderTwitterResult {
-            api_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKey"),
-            ),
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            api_secret_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiSecretKey"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            api_key: o.get_field("apiKey"),
+            api_management_name: o.get_field("apiManagementName"),
+            api_secret_key: o.get_field("apiSecretKey"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

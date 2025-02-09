@@ -118,83 +118,65 @@ pub mod ekm_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EkmConnectionArgs,
     ) -> EkmConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_space_path_binding_1 = args.crypto_space_path.get_output(context);
-        let crypto_space_path_binding = crypto_space_path_binding_1.get_inner();
-        let etag_binding_1 = args.etag.get_output(context);
-        let etag_binding = etag_binding_1.get_inner();
-        let key_management_mode_binding_1 = args.key_management_mode.get_output(context);
-        let key_management_mode_binding = key_management_mode_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_resolvers_binding_1 = args.service_resolvers.get_output(context);
-        let service_resolvers_binding = service_resolvers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let crypto_space_path_binding = args.crypto_space_path.get_output(context);
+        let etag_binding = args.etag.get_output(context);
+        let key_management_mode_binding = args.key_management_mode.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_resolvers_binding = args.service_resolvers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:kms/ekmConnection:EkmConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoSpacePath".into(),
-                    value: &crypto_space_path_binding,
+                    value: crypto_space_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: &etag_binding,
+                    value: etag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyManagementMode".into(),
-                    value: &key_management_mode_binding,
+                    value: key_management_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceResolvers".into(),
-                    value: &service_resolvers_binding,
+                    value: service_resolvers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EkmConnectionResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            crypto_space_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cryptoSpacePath"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            key_management_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyManagementMode"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            service_resolvers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceResolvers"),
-            ),
+            create_time: o.get_field("createTime"),
+            crypto_space_path: o.get_field("cryptoSpacePath"),
+            etag: o.get_field("etag"),
+            key_management_mode: o.get_field("keyManagementMode"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            service_resolvers: o.get_field("serviceResolvers"),
         }
     }
 }

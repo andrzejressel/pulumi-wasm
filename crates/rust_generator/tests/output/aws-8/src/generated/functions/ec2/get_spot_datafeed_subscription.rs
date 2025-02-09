@@ -14,25 +14,22 @@ pub mod get_spot_datafeed_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
     ) -> GetSpotDatafeedSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSpotDatafeedSubscriptionResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
+            bucket: o.get_field("bucket"),
+            id: o.get_field("id"),
+            prefix: o.get_field("prefix"),
         }
     }
 }

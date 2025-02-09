@@ -178,212 +178,152 @@ pub mod authorization_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthorizationServerArgs,
     ) -> AuthorizationServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let authorization_endpoint_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let authorization_endpoint_binding = args
             .authorization_endpoint
             .get_output(context);
-        let authorization_endpoint_binding = authorization_endpoint_binding_1
-            .get_inner();
-        let authorization_methods_binding_1 = args
+        let authorization_methods_binding = args
             .authorization_methods
             .get_output(context);
-        let authorization_methods_binding = authorization_methods_binding_1.get_inner();
-        let bearer_token_sending_methods_binding_1 = args
+        let bearer_token_sending_methods_binding = args
             .bearer_token_sending_methods
             .get_output(context);
-        let bearer_token_sending_methods_binding = bearer_token_sending_methods_binding_1
-            .get_inner();
-        let client_authentication_methods_binding_1 = args
+        let client_authentication_methods_binding = args
             .client_authentication_methods
             .get_output(context);
-        let client_authentication_methods_binding = client_authentication_methods_binding_1
-            .get_inner();
-        let client_id_binding_1 = args.client_id.get_output(context);
-        let client_id_binding = client_id_binding_1.get_inner();
-        let client_registration_endpoint_binding_1 = args
+        let client_id_binding = args.client_id.get_output(context);
+        let client_registration_endpoint_binding = args
             .client_registration_endpoint
             .get_output(context);
-        let client_registration_endpoint_binding = client_registration_endpoint_binding_1
-            .get_inner();
-        let client_secret_binding_1 = args.client_secret.get_output(context);
-        let client_secret_binding = client_secret_binding_1.get_inner();
-        let default_scope_binding_1 = args.default_scope.get_output(context);
-        let default_scope_binding = default_scope_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let grant_types_binding_1 = args.grant_types.get_output(context);
-        let grant_types_binding = grant_types_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let resource_owner_password_binding_1 = args
+        let client_secret_binding = args.client_secret.get_output(context);
+        let default_scope_binding = args.default_scope.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let grant_types_binding = args.grant_types.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let resource_owner_password_binding = args
             .resource_owner_password
             .get_output(context);
-        let resource_owner_password_binding = resource_owner_password_binding_1
-            .get_inner();
-        let resource_owner_username_binding_1 = args
+        let resource_owner_username_binding = args
             .resource_owner_username
             .get_output(context);
-        let resource_owner_username_binding = resource_owner_username_binding_1
-            .get_inner();
-        let support_state_binding_1 = args.support_state.get_output(context);
-        let support_state_binding = support_state_binding_1.get_inner();
-        let token_body_parameters_binding_1 = args
+        let support_state_binding = args.support_state.get_output(context);
+        let token_body_parameters_binding = args
             .token_body_parameters
             .get_output(context);
-        let token_body_parameters_binding = token_body_parameters_binding_1.get_inner();
-        let token_endpoint_binding_1 = args.token_endpoint.get_output(context);
-        let token_endpoint_binding = token_endpoint_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let token_endpoint_binding = args.token_endpoint.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/authorizationServer:AuthorizationServer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationEndpoint".into(),
-                    value: &authorization_endpoint_binding,
+                    value: authorization_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationMethods".into(),
-                    value: &authorization_methods_binding,
+                    value: authorization_methods_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bearerTokenSendingMethods".into(),
-                    value: &bearer_token_sending_methods_binding,
+                    value: bearer_token_sending_methods_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAuthenticationMethods".into(),
-                    value: &client_authentication_methods_binding,
+                    value: client_authentication_methods_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: &client_id_binding,
+                    value: client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientRegistrationEndpoint".into(),
-                    value: &client_registration_endpoint_binding,
+                    value: client_registration_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSecret".into(),
-                    value: &client_secret_binding,
+                    value: client_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultScope".into(),
-                    value: &default_scope_binding,
+                    value: default_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantTypes".into(),
-                    value: &grant_types_binding,
+                    value: grant_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceOwnerPassword".into(),
-                    value: &resource_owner_password_binding,
+                    value: resource_owner_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceOwnerUsername".into(),
-                    value: &resource_owner_username_binding,
+                    value: resource_owner_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportState".into(),
-                    value: &support_state_binding,
+                    value: support_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenBodyParameters".into(),
-                    value: &token_body_parameters_binding,
+                    value: token_body_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenEndpoint".into(),
-                    value: &token_endpoint_binding,
+                    value: token_endpoint_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthorizationServerResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            authorization_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationEndpoint"),
-            ),
-            authorization_methods: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationMethods"),
-            ),
-            bearer_token_sending_methods: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bearerTokenSendingMethods"),
-            ),
-            client_authentication_methods: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientAuthenticationMethods"),
-            ),
-            client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientId"),
-            ),
-            client_registration_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientRegistrationEndpoint"),
-            ),
-            client_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSecret"),
-            ),
-            default_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultScope"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            grant_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantTypes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            resource_owner_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceOwnerPassword"),
-            ),
-            resource_owner_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceOwnerUsername"),
-            ),
-            support_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportState"),
-            ),
-            token_body_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenBodyParameters"),
-            ),
-            token_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenEndpoint"),
-            ),
+            api_management_name: o.get_field("apiManagementName"),
+            authorization_endpoint: o.get_field("authorizationEndpoint"),
+            authorization_methods: o.get_field("authorizationMethods"),
+            bearer_token_sending_methods: o.get_field("bearerTokenSendingMethods"),
+            client_authentication_methods: o.get_field("clientAuthenticationMethods"),
+            client_id: o.get_field("clientId"),
+            client_registration_endpoint: o.get_field("clientRegistrationEndpoint"),
+            client_secret: o.get_field("clientSecret"),
+            default_scope: o.get_field("defaultScope"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            grant_types: o.get_field("grantTypes"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            resource_owner_password: o.get_field("resourceOwnerPassword"),
+            resource_owner_username: o.get_field("resourceOwnerUsername"),
+            support_state: o.get_field("supportState"),
+            token_body_parameters: o.get_field("tokenBodyParameters"),
+            token_endpoint: o.get_field("tokenEndpoint"),
         }
     }
 }

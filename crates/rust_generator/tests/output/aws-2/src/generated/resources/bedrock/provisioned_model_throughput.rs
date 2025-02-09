@@ -83,83 +83,63 @@ pub mod provisioned_model_throughput {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProvisionedModelThroughputArgs,
     ) -> ProvisionedModelThroughputResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let commitment_duration_binding_1 = args.commitment_duration.get_output(context);
-        let commitment_duration_binding = commitment_duration_binding_1.get_inner();
-        let model_arn_binding_1 = args.model_arn.get_output(context);
-        let model_arn_binding = model_arn_binding_1.get_inner();
-        let model_units_binding_1 = args.model_units.get_output(context);
-        let model_units_binding = model_units_binding_1.get_inner();
-        let provisioned_model_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let commitment_duration_binding = args.commitment_duration.get_output(context);
+        let model_arn_binding = args.model_arn.get_output(context);
+        let model_units_binding = args.model_units.get_output(context);
+        let provisioned_model_name_binding = args
             .provisioned_model_name
             .get_output(context);
-        let provisioned_model_name_binding = provisioned_model_name_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commitmentDuration".into(),
-                    value: &commitment_duration_binding,
+                    value: commitment_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelArn".into(),
-                    value: &model_arn_binding,
+                    value: model_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelUnits".into(),
-                    value: &model_units_binding,
+                    value: model_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedModelName".into(),
-                    value: &provisioned_model_name_binding,
+                    value: provisioned_model_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProvisionedModelThroughputResult {
-            commitment_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commitmentDuration"),
-            ),
-            model_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelArn"),
-            ),
-            model_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelUnits"),
-            ),
-            provisioned_model_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedModelArn"),
-            ),
-            provisioned_model_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedModelName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            commitment_duration: o.get_field("commitmentDuration"),
+            model_arn: o.get_field("modelArn"),
+            model_units: o.get_field("modelUnits"),
+            provisioned_model_arn: o.get_field("provisionedModelArn"),
+            provisioned_model_name: o.get_field("provisionedModelName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

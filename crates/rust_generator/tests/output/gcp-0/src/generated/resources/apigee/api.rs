@@ -71,67 +71,50 @@ pub mod api {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiArgs,
     ) -> ApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_bundle_binding_1 = args.config_bundle.get_output(context);
-        let config_bundle_binding = config_bundle_binding_1.get_inner();
-        let detect_md5hash_binding_1 = args.detect_md5hash.get_output(context);
-        let detect_md5hash_binding = detect_md5hash_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let config_bundle_binding = args.config_bundle.get_output(context);
+        let detect_md5hash_binding = args.detect_md5hash.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/api:Api".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configBundle".into(),
-                    value: &config_bundle_binding,
+                    value: config_bundle_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectMd5hash".into(),
-                    value: &detect_md5hash_binding,
+                    value: detect_md5hash_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiResult {
-            config_bundle: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configBundle"),
-            ),
-            detect_md5hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectMd5hash"),
-            ),
-            latest_revision_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestRevisionId"),
-            ),
-            md5hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("md5hash"),
-            ),
-            meta_datas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metaDatas"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            revisions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revisions"),
-            ),
+            config_bundle: o.get_field("configBundle"),
+            detect_md5hash: o.get_field("detectMd5hash"),
+            latest_revision_id: o.get_field("latestRevisionId"),
+            md5hash: o.get_field("md5hash"),
+            meta_datas: o.get_field("metaDatas"),
+            name: o.get_field("name"),
+            org_id: o.get_field("orgId"),
+            revisions: o.get_field("revisions"),
         }
     }
 }

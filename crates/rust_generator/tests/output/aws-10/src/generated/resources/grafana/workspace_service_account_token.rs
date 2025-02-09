@@ -69,66 +69,51 @@ pub mod workspace_service_account_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceServiceAccountTokenArgs,
     ) -> WorkspaceServiceAccountTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let seconds_to_live_binding_1 = args.seconds_to_live.get_output(context);
-        let seconds_to_live_binding = seconds_to_live_binding_1.get_inner();
-        let service_account_id_binding_1 = args.service_account_id.get_output(context);
-        let service_account_id_binding = service_account_id_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let seconds_to_live_binding = args.seconds_to_live.get_output(context);
+        let service_account_id_binding = args.service_account_id.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondsToLive".into(),
-                    value: &seconds_to_live_binding,
+                    value: seconds_to_live_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountId".into(),
-                    value: &service_account_id_binding,
+                    value: service_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceServiceAccountTokenResult {
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            expires_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresAt"),
-            ),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            seconds_to_live: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondsToLive"),
-            ),
-            service_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountId"),
-            ),
-            service_account_token_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountTokenId"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            created_at: o.get_field("createdAt"),
+            expires_at: o.get_field("expiresAt"),
+            key: o.get_field("key"),
+            name: o.get_field("name"),
+            seconds_to_live: o.get_field("secondsToLive"),
+            service_account_id: o.get_field("serviceAccountId"),
+            service_account_token_id: o.get_field("serviceAccountTokenId"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

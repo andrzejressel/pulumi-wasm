@@ -399,119 +399,89 @@ pub mod slo {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SloArgs,
     ) -> SloResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let basic_sli_binding_1 = args.basic_sli.get_output(context);
-        let basic_sli_binding = basic_sli_binding_1.get_inner();
-        let calendar_period_binding_1 = args.calendar_period.get_output(context);
-        let calendar_period_binding = calendar_period_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let goal_binding_1 = args.goal.get_output(context);
-        let goal_binding = goal_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request_based_sli_binding_1 = args.request_based_sli.get_output(context);
-        let request_based_sli_binding = request_based_sli_binding_1.get_inner();
-        let rolling_period_days_binding_1 = args.rolling_period_days.get_output(context);
-        let rolling_period_days_binding = rolling_period_days_binding_1.get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let slo_id_binding_1 = args.slo_id.get_output(context);
-        let slo_id_binding = slo_id_binding_1.get_inner();
-        let user_labels_binding_1 = args.user_labels.get_output(context);
-        let user_labels_binding = user_labels_binding_1.get_inner();
-        let windows_based_sli_binding_1 = args.windows_based_sli.get_output(context);
-        let windows_based_sli_binding = windows_based_sli_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let basic_sli_binding = args.basic_sli.get_output(context);
+        let calendar_period_binding = args.calendar_period.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let goal_binding = args.goal.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request_based_sli_binding = args.request_based_sli.get_output(context);
+        let rolling_period_days_binding = args.rolling_period_days.get_output(context);
+        let service_binding = args.service.get_output(context);
+        let slo_id_binding = args.slo_id.get_output(context);
+        let user_labels_binding = args.user_labels.get_output(context);
+        let windows_based_sli_binding = args.windows_based_sli.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:monitoring/slo:Slo".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicSli".into(),
-                    value: &basic_sli_binding,
+                    value: basic_sli_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "calendarPeriod".into(),
-                    value: &calendar_period_binding,
+                    value: calendar_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "goal".into(),
-                    value: &goal_binding,
+                    value: goal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestBasedSli".into(),
-                    value: &request_based_sli_binding,
+                    value: request_based_sli_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rollingPeriodDays".into(),
-                    value: &rolling_period_days_binding,
+                    value: rolling_period_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sloId".into(),
-                    value: &slo_id_binding,
+                    value: slo_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userLabels".into(),
-                    value: &user_labels_binding,
+                    value: user_labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowsBasedSli".into(),
-                    value: &windows_based_sli_binding,
+                    value: windows_based_sli_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SloResult {
-            basic_sli: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basicSli"),
-            ),
-            calendar_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("calendarPeriod"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            goal: pulumi_gestalt_rust::__private::into_domain(o.extract_field("goal")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            request_based_sli: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestBasedSli"),
-            ),
-            rolling_period_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rollingPeriodDays"),
-            ),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
-            slo_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sloId"),
-            ),
-            user_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userLabels"),
-            ),
-            windows_based_sli: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowsBasedSli"),
-            ),
+            basic_sli: o.get_field("basicSli"),
+            calendar_period: o.get_field("calendarPeriod"),
+            display_name: o.get_field("displayName"),
+            goal: o.get_field("goal"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            request_based_sli: o.get_field("requestBasedSli"),
+            rolling_period_days: o.get_field("rollingPeriodDays"),
+            service: o.get_field("service"),
+            slo_id: o.get_field("sloId"),
+            user_labels: o.get_field("userLabels"),
+            windows_based_sli: o.get_field("windowsBasedSli"),
         }
     }
 }

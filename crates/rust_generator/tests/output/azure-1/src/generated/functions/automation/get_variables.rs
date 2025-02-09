@@ -46,46 +46,36 @@ pub mod get_variables {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVariablesArgs,
     ) -> GetVariablesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automation_account_id_binding = args
             .automation_account_id
             .get_output(context);
-        let automation_account_id_binding = automation_account_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:automation/getVariables:getVariables".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountId".into(),
-                    value: &automation_account_id_binding,
+                    value: automation_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVariablesResult {
-            automation_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountId"),
-            ),
-            bools: pulumi_gestalt_rust::__private::into_domain(o.extract_field("bools")),
-            datetimes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datetimes"),
-            ),
-            encrypteds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypteds"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ints: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ints")),
-            nulls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("nulls")),
-            objects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objects"),
-            ),
-            strings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("strings"),
-            ),
+            automation_account_id: o.get_field("automationAccountId"),
+            bools: o.get_field("bools"),
+            datetimes: o.get_field("datetimes"),
+            encrypteds: o.get_field("encrypteds"),
+            id: o.get_field("id"),
+            ints: o.get_field("ints"),
+            nulls: o.get_field("nulls"),
+            objects: o.get_field("objects"),
+            strings: o.get_field("strings"),
         }
     }
 }

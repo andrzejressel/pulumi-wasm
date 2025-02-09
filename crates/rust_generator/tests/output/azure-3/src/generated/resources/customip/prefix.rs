@@ -165,125 +165,98 @@ pub mod prefix {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PrefixArgs,
     ) -> PrefixResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_binding_1 = args.cidr.get_output(context);
-        let cidr_binding = cidr_binding_1.get_inner();
-        let commissioning_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_binding = args.cidr.get_output(context);
+        let commissioning_enabled_binding = args
             .commissioning_enabled
             .get_output(context);
-        let commissioning_enabled_binding = commissioning_enabled_binding_1.get_inner();
-        let internet_advertising_disabled_binding_1 = args
+        let internet_advertising_disabled_binding = args
             .internet_advertising_disabled
             .get_output(context);
-        let internet_advertising_disabled_binding = internet_advertising_disabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_custom_ip_prefix_id_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_custom_ip_prefix_id_binding = args
             .parent_custom_ip_prefix_id
             .get_output(context);
-        let parent_custom_ip_prefix_id_binding = parent_custom_ip_prefix_id_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let roa_validity_end_date_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let roa_validity_end_date_binding = args
             .roa_validity_end_date
             .get_output(context);
-        let roa_validity_end_date_binding = roa_validity_end_date_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let wan_validation_signed_message_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let wan_validation_signed_message_binding = args
             .wan_validation_signed_message
             .get_output(context);
-        let wan_validation_signed_message_binding = wan_validation_signed_message_binding_1
-            .get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:customip/prefix:Prefix".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: &cidr_binding,
+                    value: cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commissioningEnabled".into(),
-                    value: &commissioning_enabled_binding,
+                    value: commissioning_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetAdvertisingDisabled".into(),
-                    value: &internet_advertising_disabled_binding,
+                    value: internet_advertising_disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentCustomIpPrefixId".into(),
-                    value: &parent_custom_ip_prefix_id_binding,
+                    value: parent_custom_ip_prefix_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roaValidityEndDate".into(),
-                    value: &roa_validity_end_date_binding,
+                    value: roa_validity_end_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "wanValidationSignedMessage".into(),
-                    value: &wan_validation_signed_message_binding,
+                    value: wan_validation_signed_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PrefixResult {
-            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
-            commissioning_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commissioningEnabled"),
-            ),
-            internet_advertising_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetAdvertisingDisabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_custom_ip_prefix_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentCustomIpPrefixId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            roa_validity_end_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roaValidityEndDate"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            wan_validation_signed_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("wanValidationSignedMessage"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            cidr: o.get_field("cidr"),
+            commissioning_enabled: o.get_field("commissioningEnabled"),
+            internet_advertising_disabled: o.get_field("internetAdvertisingDisabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            parent_custom_ip_prefix_id: o.get_field("parentCustomIpPrefixId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            roa_validity_end_date: o.get_field("roaValidityEndDate"),
+            tags: o.get_field("tags"),
+            wan_validation_signed_message: o.get_field("wanValidationSignedMessage"),
+            zones: o.get_field("zones"),
         }
     }
 }

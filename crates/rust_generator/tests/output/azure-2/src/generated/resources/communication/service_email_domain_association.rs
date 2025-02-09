@@ -81,46 +81,39 @@ pub mod service_email_domain_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceEmailDomainAssociationArgs,
     ) -> ServiceEmailDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let communication_service_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let communication_service_id_binding = args
             .communication_service_id
             .get_output(context);
-        let communication_service_id_binding = communication_service_id_binding_1
-            .get_inner();
-        let email_service_domain_id_binding_1 = args
+        let email_service_domain_id_binding = args
             .email_service_domain_id
             .get_output(context);
-        let email_service_domain_id_binding = email_service_domain_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "communicationServiceId".into(),
-                    value: &communication_service_id_binding,
+                    value: communication_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailServiceDomainId".into(),
-                    value: &email_service_domain_id_binding,
+                    value: email_service_domain_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceEmailDomainAssociationResult {
-            communication_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("communicationServiceId"),
-            ),
-            email_service_domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailServiceDomainId"),
-            ),
+            communication_service_id: o.get_field("communicationServiceId"),
+            email_service_domain_id: o.get_field("emailServiceDomainId"),
         }
     }
 }

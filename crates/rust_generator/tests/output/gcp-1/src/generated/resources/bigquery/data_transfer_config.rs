@@ -359,171 +359,121 @@ pub mod data_transfer_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataTransferConfigArgs,
     ) -> DataTransferConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_refresh_window_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_refresh_window_days_binding = args
             .data_refresh_window_days
             .get_output(context);
-        let data_refresh_window_days_binding = data_refresh_window_days_binding_1
-            .get_inner();
-        let data_source_id_binding_1 = args.data_source_id.get_output(context);
-        let data_source_id_binding = data_source_id_binding_1.get_inner();
-        let destination_dataset_id_binding_1 = args
+        let data_source_id_binding = args.data_source_id.get_output(context);
+        let destination_dataset_id_binding = args
             .destination_dataset_id
             .get_output(context);
-        let destination_dataset_id_binding = destination_dataset_id_binding_1
-            .get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let email_preferences_binding_1 = args.email_preferences.get_output(context);
-        let email_preferences_binding = email_preferences_binding_1.get_inner();
-        let encryption_configuration_binding_1 = args
+        let disabled_binding = args.disabled.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let email_preferences_binding = args.email_preferences.get_output(context);
+        let encryption_configuration_binding = args
             .encryption_configuration
             .get_output(context);
-        let encryption_configuration_binding = encryption_configuration_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let notification_pubsub_topic_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let notification_pubsub_topic_binding = args
             .notification_pubsub_topic
             .get_output(context);
-        let notification_pubsub_topic_binding = notification_pubsub_topic_binding_1
-            .get_inner();
-        let params_binding_1 = args.params.get_output(context);
-        let params_binding = params_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let schedule_options_binding_1 = args.schedule_options.get_output(context);
-        let schedule_options_binding = schedule_options_binding_1.get_inner();
-        let sensitive_params_binding_1 = args.sensitive_params.get_output(context);
-        let sensitive_params_binding = sensitive_params_binding_1.get_inner();
-        let service_account_name_binding_1 = args
-            .service_account_name
-            .get_output(context);
-        let service_account_name_binding = service_account_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let params_binding = args.params.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let schedule_options_binding = args.schedule_options.get_output(context);
+        let sensitive_params_binding = args.sensitive_params.get_output(context);
+        let service_account_name_binding = args.service_account_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/dataTransferConfig:DataTransferConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRefreshWindowDays".into(),
-                    value: &data_refresh_window_days_binding,
+                    value: data_refresh_window_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceId".into(),
-                    value: &data_source_id_binding,
+                    value: data_source_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationDatasetId".into(),
-                    value: &destination_dataset_id_binding,
+                    value: destination_dataset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailPreferences".into(),
-                    value: &email_preferences_binding,
+                    value: email_preferences_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: &encryption_configuration_binding,
+                    value: encryption_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationPubsubTopic".into(),
-                    value: &notification_pubsub_topic_binding,
+                    value: notification_pubsub_topic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "params".into(),
-                    value: &params_binding,
+                    value: params_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleOptions".into(),
-                    value: &schedule_options_binding,
+                    value: schedule_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sensitiveParams".into(),
-                    value: &sensitive_params_binding,
+                    value: sensitive_params_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountName".into(),
-                    value: &service_account_name_binding,
+                    value: service_account_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataTransferConfigResult {
-            data_refresh_window_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataRefreshWindowDays"),
-            ),
-            data_source_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceId"),
-            ),
-            destination_dataset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationDatasetId"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            email_preferences: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailPreferences"),
-            ),
-            encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfiguration"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_pubsub_topic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationPubsubTopic"),
-            ),
-            params: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("params"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            schedule_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleOptions"),
-            ),
-            sensitive_params: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sensitiveParams"),
-            ),
-            service_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountName"),
-            ),
+            data_refresh_window_days: o.get_field("dataRefreshWindowDays"),
+            data_source_id: o.get_field("dataSourceId"),
+            destination_dataset_id: o.get_field("destinationDatasetId"),
+            disabled: o.get_field("disabled"),
+            display_name: o.get_field("displayName"),
+            email_preferences: o.get_field("emailPreferences"),
+            encryption_configuration: o.get_field("encryptionConfiguration"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            notification_pubsub_topic: o.get_field("notificationPubsubTopic"),
+            params: o.get_field("params"),
+            project: o.get_field("project"),
+            schedule: o.get_field("schedule"),
+            schedule_options: o.get_field("scheduleOptions"),
+            sensitive_params: o.get_field("sensitiveParams"),
+            service_account_name: o.get_field("serviceAccountName"),
         }
     }
 }

@@ -15,22 +15,19 @@ pub mod get_inference_profiles {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
-    ) -> GetInferenceProfilesResult {
+    pub fn invoke(context: &pulumi_gestalt_rust::Context) -> GetInferenceProfilesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:bedrock/getInferenceProfiles:getInferenceProfiles".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInferenceProfilesResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            inference_profile_summaries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inferenceProfileSummaries"),
-            ),
+            id: o.get_field("id"),
+            inference_profile_summaries: o.get_field("inferenceProfileSummaries"),
         }
     }
 }

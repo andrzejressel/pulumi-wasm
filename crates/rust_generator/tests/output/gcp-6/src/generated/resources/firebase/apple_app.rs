@@ -159,88 +159,66 @@ pub mod apple_app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppleAppArgs,
     ) -> AppleAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_id_binding_1 = args.api_key_id.get_output(context);
-        let api_key_id_binding = api_key_id_binding_1.get_inner();
-        let app_store_id_binding_1 = args.app_store_id.get_output(context);
-        let app_store_id_binding = app_store_id_binding_1.get_inner();
-        let bundle_id_binding_1 = args.bundle_id.get_output(context);
-        let bundle_id_binding = bundle_id_binding_1.get_inner();
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let team_id_binding_1 = args.team_id.get_output(context);
-        let team_id_binding = team_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_key_id_binding = args.api_key_id.get_output(context);
+        let app_store_id_binding = args.app_store_id.get_output(context);
+        let bundle_id_binding = args.bundle_id.get_output(context);
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let team_id_binding = args.team_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firebase/appleApp:AppleApp".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKeyId".into(),
-                    value: &api_key_id_binding,
+                    value: api_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appStoreId".into(),
-                    value: &app_store_id_binding,
+                    value: app_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bundleId".into(),
-                    value: &bundle_id_binding,
+                    value: bundle_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "teamId".into(),
-                    value: &team_id_binding,
+                    value: team_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppleAppResult {
-            api_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKeyId"),
-            ),
-            app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appId"),
-            ),
-            app_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appStoreId"),
-            ),
-            bundle_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bundleId"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            team_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("teamId"),
-            ),
+            api_key_id: o.get_field("apiKeyId"),
+            app_id: o.get_field("appId"),
+            app_store_id: o.get_field("appStoreId"),
+            bundle_id: o.get_field("bundleId"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            team_id: o.get_field("teamId"),
         }
     }
 }

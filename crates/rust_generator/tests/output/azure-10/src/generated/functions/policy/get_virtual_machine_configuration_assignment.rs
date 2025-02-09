@@ -39,66 +39,46 @@ pub mod get_virtual_machine_configuration_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVirtualMachineConfigurationAssignmentArgs,
     ) -> GetVirtualMachineConfigurationAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let virtual_machine_name_binding_1 = args
-            .virtual_machine_name
-            .get_output(context);
-        let virtual_machine_name_binding = virtual_machine_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let virtual_machine_name_binding = args.virtual_machine_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineName".into(),
-                    value: &virtual_machine_name_binding,
+                    value: virtual_machine_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVirtualMachineConfigurationAssignmentResult {
-            assignment_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignmentHash"),
-            ),
-            compliance_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("complianceStatus"),
-            ),
-            content_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentHash"),
-            ),
-            content_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentUri"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_compliance_status_checked: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastComplianceStatusChecked"),
-            ),
-            latest_report_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestReportId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            virtual_machine_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineName"),
-            ),
+            assignment_hash: o.get_field("assignmentHash"),
+            compliance_status: o.get_field("complianceStatus"),
+            content_hash: o.get_field("contentHash"),
+            content_uri: o.get_field("contentUri"),
+            id: o.get_field("id"),
+            last_compliance_status_checked: o.get_field("lastComplianceStatusChecked"),
+            latest_report_id: o.get_field("latestReportId"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            virtual_machine_name: o.get_field("virtualMachineName"),
         }
     }
 }

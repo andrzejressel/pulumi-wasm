@@ -38,56 +38,45 @@ pub mod network_interface_application_gateway_backend_address_pool_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs,
     ) -> NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_address_pool_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backend_address_pool_id_binding = args
             .backend_address_pool_id
             .get_output(context);
-        let backend_address_pool_id_binding = backend_address_pool_id_binding_1
-            .get_inner();
-        let ip_configuration_name_binding_1 = args
+        let ip_configuration_name_binding = args
             .ip_configuration_name
             .get_output(context);
-        let ip_configuration_name_binding = ip_configuration_name_binding_1.get_inner();
-        let network_interface_id_binding_1 = args
-            .network_interface_id
-            .get_output(context);
-        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let network_interface_id_binding = args.network_interface_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendAddressPoolId".into(),
-                    value: &backend_address_pool_id_binding,
+                    value: backend_address_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfigurationName".into(),
-                    value: &ip_configuration_name_binding,
+                    value: ip_configuration_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: &network_interface_id_binding,
+                    value: network_interface_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationResult {
-            backend_address_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendAddressPoolId"),
-            ),
-            ip_configuration_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfigurationName"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
+            backend_address_pool_id: o.get_field("backendAddressPoolId"),
+            ip_configuration_name: o.get_field("ipConfigurationName"),
+            network_interface_id: o.get_field("networkInterfaceId"),
         }
     }
 }

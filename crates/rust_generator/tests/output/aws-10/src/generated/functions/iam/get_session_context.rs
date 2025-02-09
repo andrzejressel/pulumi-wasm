@@ -29,39 +29,31 @@ pub mod get_session_context {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSessionContextArgs,
     ) -> GetSessionContextResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getSessionContext:getSessionContext".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSessionContextResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            issuer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuerArn"),
-            ),
-            issuer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuerId"),
-            ),
-            issuer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuerName"),
-            ),
-            session_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionName"),
-            ),
+            arn: o.get_field("arn"),
+            id: o.get_field("id"),
+            issuer_arn: o.get_field("issuerArn"),
+            issuer_id: o.get_field("issuerId"),
+            issuer_name: o.get_field("issuerName"),
+            session_name: o.get_field("sessionName"),
         }
     }
 }

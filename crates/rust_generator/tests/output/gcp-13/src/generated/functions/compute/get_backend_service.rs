@@ -91,130 +91,65 @@ pub mod get_backend_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBackendServiceArgs,
     ) -> GetBackendServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getBackendService:getBackendService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBackendServiceResult {
-            affinity_cookie_ttl_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("affinityCookieTtlSec"),
-            ),
-            backends: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backends"),
-            ),
-            cdn_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnPolicies"),
-            ),
-            circuit_breakers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("circuitBreakers"),
-            ),
-            compression_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compressionMode"),
-            ),
-            connection_draining_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionDrainingTimeoutSec"),
-            ),
-            consistent_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consistentHash"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            custom_request_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customRequestHeaders"),
-            ),
-            custom_response_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customResponseHeaders"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            edge_security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeSecurityPolicy"),
-            ),
-            enable_cdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableCdn"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            generated_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("generatedId"),
-            ),
-            health_checks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthChecks"),
-            ),
-            iaps: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iaps")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_address_selection_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressSelectionPolicy"),
-            ),
-            load_balancing_scheme: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingScheme"),
-            ),
-            locality_lb_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localityLbPolicies"),
-            ),
-            locality_lb_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localityLbPolicy"),
-            ),
-            log_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfigs"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outlier_detections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outlierDetections"),
-            ),
-            port_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portName"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPolicy"),
-            ),
-            security_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securitySettings"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            service_lb_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceLbPolicy"),
-            ),
-            session_affinity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionAffinity"),
-            ),
-            strong_session_affinity_cookies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("strongSessionAffinityCookies"),
-            ),
-            timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutSec"),
-            ),
+            affinity_cookie_ttl_sec: o.get_field("affinityCookieTtlSec"),
+            backends: o.get_field("backends"),
+            cdn_policies: o.get_field("cdnPolicies"),
+            circuit_breakers: o.get_field("circuitBreakers"),
+            compression_mode: o.get_field("compressionMode"),
+            connection_draining_timeout_sec: o.get_field("connectionDrainingTimeoutSec"),
+            consistent_hash: o.get_field("consistentHash"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            custom_request_headers: o.get_field("customRequestHeaders"),
+            custom_response_headers: o.get_field("customResponseHeaders"),
+            description: o.get_field("description"),
+            edge_security_policy: o.get_field("edgeSecurityPolicy"),
+            enable_cdn: o.get_field("enableCdn"),
+            fingerprint: o.get_field("fingerprint"),
+            generated_id: o.get_field("generatedId"),
+            health_checks: o.get_field("healthChecks"),
+            iaps: o.get_field("iaps"),
+            id: o.get_field("id"),
+            ip_address_selection_policy: o.get_field("ipAddressSelectionPolicy"),
+            load_balancing_scheme: o.get_field("loadBalancingScheme"),
+            locality_lb_policies: o.get_field("localityLbPolicies"),
+            locality_lb_policy: o.get_field("localityLbPolicy"),
+            log_configs: o.get_field("logConfigs"),
+            name: o.get_field("name"),
+            outlier_detections: o.get_field("outlierDetections"),
+            port_name: o.get_field("portName"),
+            project: o.get_field("project"),
+            protocol: o.get_field("protocol"),
+            security_policy: o.get_field("securityPolicy"),
+            security_settings: o.get_field("securitySettings"),
+            self_link: o.get_field("selfLink"),
+            service_lb_policy: o.get_field("serviceLbPolicy"),
+            session_affinity: o.get_field("sessionAffinity"),
+            strong_session_affinity_cookies: o.get_field("strongSessionAffinityCookies"),
+            timeout_sec: o.get_field("timeoutSec"),
         }
     }
 }

@@ -95,72 +95,56 @@ pub mod fsx_open_zfs_file_system {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FsxOpenZfsFileSystemArgs,
     ) -> FsxOpenZfsFileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let fsx_filesystem_arn_binding_1 = args.fsx_filesystem_arn.get_output(context);
-        let fsx_filesystem_arn_binding = fsx_filesystem_arn_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let security_group_arns_binding_1 = args.security_group_arns.get_output(context);
-        let security_group_arns_binding = security_group_arns_binding_1.get_inner();
-        let subdirectory_binding_1 = args.subdirectory.get_output(context);
-        let subdirectory_binding = subdirectory_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let fsx_filesystem_arn_binding = args.fsx_filesystem_arn.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let security_group_arns_binding = args.security_group_arns.get_output(context);
+        let subdirectory_binding = args.subdirectory.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fsxFilesystemArn".into(),
-                    value: &fsx_filesystem_arn_binding,
+                    value: fsx_filesystem_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupArns".into(),
-                    value: &security_group_arns_binding,
+                    value: security_group_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: &subdirectory_binding,
+                    value: subdirectory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FsxOpenZfsFileSystemResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            fsx_filesystem_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fsxFilesystemArn"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            security_group_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupArns"),
-            ),
-            subdirectory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdirectory"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            arn: o.get_field("arn"),
+            creation_time: o.get_field("creationTime"),
+            fsx_filesystem_arn: o.get_field("fsxFilesystemArn"),
+            protocol: o.get_field("protocol"),
+            security_group_arns: o.get_field("securityGroupArns"),
+            subdirectory: o.get_field("subdirectory"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uri: o.get_field("uri"),
         }
     }
 }

@@ -166,186 +166,127 @@ pub mod dev_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DevEndpointArgs,
     ) -> DevEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arguments_binding_1 = args.arguments.get_output(context);
-        let arguments_binding = arguments_binding_1.get_inner();
-        let extra_jars_s3_path_binding_1 = args.extra_jars_s3_path.get_output(context);
-        let extra_jars_s3_path_binding = extra_jars_s3_path_binding_1.get_inner();
-        let extra_python_libs_s3_path_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arguments_binding = args.arguments.get_output(context);
+        let extra_jars_s3_path_binding = args.extra_jars_s3_path.get_output(context);
+        let extra_python_libs_s3_path_binding = args
             .extra_python_libs_s3_path
             .get_output(context);
-        let extra_python_libs_s3_path_binding = extra_python_libs_s3_path_binding_1
-            .get_inner();
-        let glue_version_binding_1 = args.glue_version.get_output(context);
-        let glue_version_binding = glue_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let number_of_nodes_binding_1 = args.number_of_nodes.get_output(context);
-        let number_of_nodes_binding = number_of_nodes_binding_1.get_inner();
-        let number_of_workers_binding_1 = args.number_of_workers.get_output(context);
-        let number_of_workers_binding = number_of_workers_binding_1.get_inner();
-        let public_key_binding_1 = args.public_key.get_output(context);
-        let public_key_binding = public_key_binding_1.get_inner();
-        let public_keys_binding_1 = args.public_keys.get_output(context);
-        let public_keys_binding = public_keys_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let security_configuration_binding_1 = args
+        let glue_version_binding = args.glue_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let number_of_nodes_binding = args.number_of_nodes.get_output(context);
+        let number_of_workers_binding = args.number_of_workers.get_output(context);
+        let public_key_binding = args.public_key.get_output(context);
+        let public_keys_binding = args.public_keys.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let security_configuration_binding = args
             .security_configuration
             .get_output(context);
-        let security_configuration_binding = security_configuration_binding_1
-            .get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let worker_type_binding_1 = args.worker_type.get_output(context);
-        let worker_type_binding = worker_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let worker_type_binding = args.worker_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/devEndpoint:DevEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arguments".into(),
-                    value: &arguments_binding,
+                    value: arguments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extraJarsS3Path".into(),
-                    value: &extra_jars_s3_path_binding,
+                    value: extra_jars_s3_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extraPythonLibsS3Path".into(),
-                    value: &extra_python_libs_s3_path_binding,
+                    value: extra_python_libs_s3_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glueVersion".into(),
-                    value: &glue_version_binding,
+                    value: glue_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfNodes".into(),
-                    value: &number_of_nodes_binding,
+                    value: number_of_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfWorkers".into(),
-                    value: &number_of_workers_binding,
+                    value: number_of_workers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKey".into(),
-                    value: &public_key_binding,
+                    value: public_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKeys".into(),
-                    value: &public_keys_binding,
+                    value: public_keys_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityConfiguration".into(),
-                    value: &security_configuration_binding,
+                    value: security_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerType".into(),
-                    value: &worker_type_binding,
+                    value: worker_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DevEndpointResult {
-            arguments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arguments"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            extra_jars_s3_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extraJarsS3Path"),
-            ),
-            extra_python_libs_s3_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extraPythonLibsS3Path"),
-            ),
-            failure_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureReason"),
-            ),
-            glue_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("glueVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            number_of_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfNodes"),
-            ),
-            number_of_workers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfWorkers"),
-            ),
-            private_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateAddress"),
-            ),
-            public_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicAddress"),
-            ),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
-            public_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeys"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            security_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityConfiguration"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            worker_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerType"),
-            ),
-            yarn_endpoint_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("yarnEndpointAddress"),
-            ),
-            zeppelin_remote_spark_interpreter_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zeppelinRemoteSparkInterpreterPort"),
-            ),
+            arguments: o.get_field("arguments"),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            extra_jars_s3_path: o.get_field("extraJarsS3Path"),
+            extra_python_libs_s3_path: o.get_field("extraPythonLibsS3Path"),
+            failure_reason: o.get_field("failureReason"),
+            glue_version: o.get_field("glueVersion"),
+            name: o.get_field("name"),
+            number_of_nodes: o.get_field("numberOfNodes"),
+            number_of_workers: o.get_field("numberOfWorkers"),
+            private_address: o.get_field("privateAddress"),
+            public_address: o.get_field("publicAddress"),
+            public_key: o.get_field("publicKey"),
+            public_keys: o.get_field("publicKeys"),
+            role_arn: o.get_field("roleArn"),
+            security_configuration: o.get_field("securityConfiguration"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            status: o.get_field("status"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
+            worker_type: o.get_field("workerType"),
+            yarn_endpoint_address: o.get_field("yarnEndpointAddress"),
+            zeppelin_remote_spark_interpreter_port: o
+                .get_field("zeppelinRemoteSparkInterpreterPort"),
         }
     }
 }

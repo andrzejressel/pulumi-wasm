@@ -97,61 +97,48 @@ pub mod secret_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecretVersionArgs,
     ) -> SecretVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let secret_binary_binding_1 = args.secret_binary.get_output(context);
-        let secret_binary_binding = secret_binary_binding_1.get_inner();
-        let secret_id_binding_1 = args.secret_id.get_output(context);
-        let secret_id_binding = secret_id_binding_1.get_inner();
-        let secret_string_binding_1 = args.secret_string.get_output(context);
-        let secret_string_binding = secret_string_binding_1.get_inner();
-        let version_stages_binding_1 = args.version_stages.get_output(context);
-        let version_stages_binding = version_stages_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let secret_binary_binding = args.secret_binary.get_output(context);
+        let secret_id_binding = args.secret_id.get_output(context);
+        let secret_string_binding = args.secret_string.get_output(context);
+        let version_stages_binding = args.version_stages.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:secretsmanager/secretVersion:SecretVersion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretBinary".into(),
-                    value: &secret_binary_binding,
+                    value: secret_binary_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: &secret_id_binding,
+                    value: secret_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretString".into(),
-                    value: &secret_string_binding,
+                    value: secret_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionStages".into(),
-                    value: &version_stages_binding,
+                    value: version_stages_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecretVersionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            secret_binary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretBinary"),
-            ),
-            secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretId"),
-            ),
-            secret_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretString"),
-            ),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
-            version_stages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionStages"),
-            ),
+            arn: o.get_field("arn"),
+            secret_binary: o.get_field("secretBinary"),
+            secret_id: o.get_field("secretId"),
+            secret_string: o.get_field("secretString"),
+            version_id: o.get_field("versionId"),
+            version_stages: o.get_field("versionStages"),
         }
     }
 }

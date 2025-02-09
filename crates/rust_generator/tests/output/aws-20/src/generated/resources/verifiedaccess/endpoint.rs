@@ -150,162 +150,114 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_domain_binding_1 = args.application_domain.get_output(context);
-        let application_domain_binding = application_domain_binding_1.get_inner();
-        let attachment_type_binding_1 = args.attachment_type.get_output(context);
-        let attachment_type_binding = attachment_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let domain_certificate_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_domain_binding = args.application_domain.get_output(context);
+        let attachment_type_binding = args.attachment_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let domain_certificate_arn_binding = args
             .domain_certificate_arn
             .get_output(context);
-        let domain_certificate_arn_binding = domain_certificate_arn_binding_1
-            .get_inner();
-        let endpoint_domain_prefix_binding_1 = args
+        let endpoint_domain_prefix_binding = args
             .endpoint_domain_prefix
             .get_output(context);
-        let endpoint_domain_prefix_binding = endpoint_domain_prefix_binding_1
-            .get_inner();
-        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
-        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
-        let load_balancer_options_binding_1 = args
+        let endpoint_type_binding = args.endpoint_type.get_output(context);
+        let load_balancer_options_binding = args
             .load_balancer_options
             .get_output(context);
-        let load_balancer_options_binding = load_balancer_options_binding_1.get_inner();
-        let network_interface_options_binding_1 = args
+        let network_interface_options_binding = args
             .network_interface_options
             .get_output(context);
-        let network_interface_options_binding = network_interface_options_binding_1
-            .get_inner();
-        let policy_document_binding_1 = args.policy_document.get_output(context);
-        let policy_document_binding = policy_document_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let sse_specification_binding_1 = args.sse_specification.get_output(context);
-        let sse_specification_binding = sse_specification_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let verified_access_group_id_binding_1 = args
+        let policy_document_binding = args.policy_document.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let sse_specification_binding = args.sse_specification.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let verified_access_group_id_binding = args
             .verified_access_group_id
             .get_output(context);
-        let verified_access_group_id_binding = verified_access_group_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:verifiedaccess/endpoint:Endpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationDomain".into(),
-                    value: &application_domain_binding,
+                    value: application_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentType".into(),
-                    value: &attachment_type_binding,
+                    value: attachment_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainCertificateArn".into(),
-                    value: &domain_certificate_arn_binding,
+                    value: domain_certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointDomainPrefix".into(),
-                    value: &endpoint_domain_prefix_binding,
+                    value: endpoint_domain_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: &endpoint_type_binding,
+                    value: endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerOptions".into(),
-                    value: &load_balancer_options_binding,
+                    value: load_balancer_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceOptions".into(),
-                    value: &network_interface_options_binding,
+                    value: network_interface_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: &policy_document_binding,
+                    value: policy_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sseSpecification".into(),
-                    value: &sse_specification_binding,
+                    value: sse_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedAccessGroupId".into(),
-                    value: &verified_access_group_id_binding,
+                    value: verified_access_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointResult {
-            application_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationDomain"),
-            ),
-            attachment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentType"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            device_validation_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceValidationDomain"),
-            ),
-            domain_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainCertificateArn"),
-            ),
-            endpoint_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointDomain"),
-            ),
-            endpoint_domain_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointDomainPrefix"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            load_balancer_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerOptions"),
-            ),
-            network_interface_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceOptions"),
-            ),
-            policy_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDocument"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            sse_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sseSpecification"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            verified_access_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedAccessGroupId"),
-            ),
-            verified_access_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedAccessInstanceId"),
-            ),
+            application_domain: o.get_field("applicationDomain"),
+            attachment_type: o.get_field("attachmentType"),
+            description: o.get_field("description"),
+            device_validation_domain: o.get_field("deviceValidationDomain"),
+            domain_certificate_arn: o.get_field("domainCertificateArn"),
+            endpoint_domain: o.get_field("endpointDomain"),
+            endpoint_domain_prefix: o.get_field("endpointDomainPrefix"),
+            endpoint_type: o.get_field("endpointType"),
+            load_balancer_options: o.get_field("loadBalancerOptions"),
+            network_interface_options: o.get_field("networkInterfaceOptions"),
+            policy_document: o.get_field("policyDocument"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            sse_specification: o.get_field("sseSpecification"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            verified_access_group_id: o.get_field("verifiedAccessGroupId"),
+            verified_access_instance_id: o.get_field("verifiedAccessInstanceId"),
         }
     }
 }

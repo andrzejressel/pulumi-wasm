@@ -112,136 +112,100 @@ pub mod primary_contact {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PrimaryContactArgs,
     ) -> PrimaryContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let address_line1_binding_1 = args.address_line1.get_output(context);
-        let address_line1_binding = address_line1_binding_1.get_inner();
-        let address_line2_binding_1 = args.address_line2.get_output(context);
-        let address_line2_binding = address_line2_binding_1.get_inner();
-        let address_line3_binding_1 = args.address_line3.get_output(context);
-        let address_line3_binding = address_line3_binding_1.get_inner();
-        let city_binding_1 = args.city.get_output(context);
-        let city_binding = city_binding_1.get_inner();
-        let company_name_binding_1 = args.company_name.get_output(context);
-        let company_name_binding = company_name_binding_1.get_inner();
-        let country_code_binding_1 = args.country_code.get_output(context);
-        let country_code_binding = country_code_binding_1.get_inner();
-        let district_or_county_binding_1 = args.district_or_county.get_output(context);
-        let district_or_county_binding = district_or_county_binding_1.get_inner();
-        let full_name_binding_1 = args.full_name.get_output(context);
-        let full_name_binding = full_name_binding_1.get_inner();
-        let phone_number_binding_1 = args.phone_number.get_output(context);
-        let phone_number_binding = phone_number_binding_1.get_inner();
-        let postal_code_binding_1 = args.postal_code.get_output(context);
-        let postal_code_binding = postal_code_binding_1.get_inner();
-        let state_or_region_binding_1 = args.state_or_region.get_output(context);
-        let state_or_region_binding = state_or_region_binding_1.get_inner();
-        let website_url_binding_1 = args.website_url.get_output(context);
-        let website_url_binding = website_url_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let address_line1_binding = args.address_line1.get_output(context);
+        let address_line2_binding = args.address_line2.get_output(context);
+        let address_line3_binding = args.address_line3.get_output(context);
+        let city_binding = args.city.get_output(context);
+        let company_name_binding = args.company_name.get_output(context);
+        let country_code_binding = args.country_code.get_output(context);
+        let district_or_county_binding = args.district_or_county.get_output(context);
+        let full_name_binding = args.full_name.get_output(context);
+        let phone_number_binding = args.phone_number.get_output(context);
+        let postal_code_binding = args.postal_code.get_output(context);
+        let state_or_region_binding = args.state_or_region.get_output(context);
+        let website_url_binding = args.website_url.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:account/primaryContact:PrimaryContact".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressLine1".into(),
-                    value: &address_line1_binding,
+                    value: address_line1_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressLine2".into(),
-                    value: &address_line2_binding,
+                    value: address_line2_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressLine3".into(),
-                    value: &address_line3_binding,
+                    value: address_line3_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "city".into(),
-                    value: &city_binding,
+                    value: city_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "companyName".into(),
-                    value: &company_name_binding,
+                    value: company_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "countryCode".into(),
-                    value: &country_code_binding,
+                    value: country_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "districtOrCounty".into(),
-                    value: &district_or_county_binding,
+                    value: district_or_county_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fullName".into(),
-                    value: &full_name_binding,
+                    value: full_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: &phone_number_binding,
+                    value: phone_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postalCode".into(),
-                    value: &postal_code_binding,
+                    value: postal_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stateOrRegion".into(),
-                    value: &state_or_region_binding,
+                    value: state_or_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "websiteUrl".into(),
-                    value: &website_url_binding,
+                    value: website_url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PrimaryContactResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            address_line1: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressLine1"),
-            ),
-            address_line2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressLine2"),
-            ),
-            address_line3: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressLine3"),
-            ),
-            city: pulumi_gestalt_rust::__private::into_domain(o.extract_field("city")),
-            company_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("companyName"),
-            ),
-            country_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("countryCode"),
-            ),
-            district_or_county: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("districtOrCounty"),
-            ),
-            full_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fullName"),
-            ),
-            phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneNumber"),
-            ),
-            postal_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postalCode"),
-            ),
-            state_or_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateOrRegion"),
-            ),
-            website_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteUrl"),
-            ),
+            account_id: o.get_field("accountId"),
+            address_line1: o.get_field("addressLine1"),
+            address_line2: o.get_field("addressLine2"),
+            address_line3: o.get_field("addressLine3"),
+            city: o.get_field("city"),
+            company_name: o.get_field("companyName"),
+            country_code: o.get_field("countryCode"),
+            district_or_county: o.get_field("districtOrCounty"),
+            full_name: o.get_field("fullName"),
+            phone_number: o.get_field("phoneNumber"),
+            postal_code: o.get_field("postalCode"),
+            state_or_region: o.get_field("stateOrRegion"),
+            website_url: o.get_field("websiteUrl"),
         }
     }
 }

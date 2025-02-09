@@ -527,104 +527,79 @@ pub mod cx_page {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CxPageArgs,
     ) -> CxPageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_settings_binding_1 = args.advanced_settings.get_output(context);
-        let advanced_settings_binding = advanced_settings_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let entry_fulfillment_binding_1 = args.entry_fulfillment.get_output(context);
-        let entry_fulfillment_binding = entry_fulfillment_binding_1.get_inner();
-        let event_handlers_binding_1 = args.event_handlers.get_output(context);
-        let event_handlers_binding = event_handlers_binding_1.get_inner();
-        let form_binding_1 = args.form.get_output(context);
-        let form_binding = form_binding_1.get_inner();
-        let language_code_binding_1 = args.language_code.get_output(context);
-        let language_code_binding = language_code_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let transition_route_groups_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let advanced_settings_binding = args.advanced_settings.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let entry_fulfillment_binding = args.entry_fulfillment.get_output(context);
+        let event_handlers_binding = args.event_handlers.get_output(context);
+        let form_binding = args.form.get_output(context);
+        let language_code_binding = args.language_code.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let transition_route_groups_binding = args
             .transition_route_groups
             .get_output(context);
-        let transition_route_groups_binding = transition_route_groups_binding_1
-            .get_inner();
-        let transition_routes_binding_1 = args.transition_routes.get_output(context);
-        let transition_routes_binding = transition_routes_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let transition_routes_binding = args.transition_routes.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/cxPage:CxPage".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedSettings".into(),
-                    value: &advanced_settings_binding,
+                    value: advanced_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entryFulfillment".into(),
-                    value: &entry_fulfillment_binding,
+                    value: entry_fulfillment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHandlers".into(),
-                    value: &event_handlers_binding,
+                    value: event_handlers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "form".into(),
-                    value: &form_binding,
+                    value: form_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: &language_code_binding,
+                    value: language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitionRouteGroups".into(),
-                    value: &transition_route_groups_binding,
+                    value: transition_route_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitionRoutes".into(),
-                    value: &transition_routes_binding,
+                    value: transition_routes_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CxPageResult {
-            advanced_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedSettings"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            entry_fulfillment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entryFulfillment"),
-            ),
-            event_handlers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHandlers"),
-            ),
-            form: pulumi_gestalt_rust::__private::into_domain(o.extract_field("form")),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            transition_route_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitionRouteGroups"),
-            ),
-            transition_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitionRoutes"),
-            ),
+            advanced_settings: o.get_field("advancedSettings"),
+            display_name: o.get_field("displayName"),
+            entry_fulfillment: o.get_field("entryFulfillment"),
+            event_handlers: o.get_field("eventHandlers"),
+            form: o.get_field("form"),
+            language_code: o.get_field("languageCode"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            transition_route_groups: o.get_field("transitionRouteGroups"),
+            transition_routes: o.get_field("transitionRoutes"),
         }
     }
 }

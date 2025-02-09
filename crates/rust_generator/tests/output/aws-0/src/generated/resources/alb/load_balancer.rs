@@ -262,310 +262,215 @@ pub mod load_balancer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LoadBalancerArgs,
     ) -> LoadBalancerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_logs_binding_1 = args.access_logs.get_output(context);
-        let access_logs_binding = access_logs_binding_1.get_inner();
-        let client_keep_alive_binding_1 = args.client_keep_alive.get_output(context);
-        let client_keep_alive_binding = client_keep_alive_binding_1.get_inner();
-        let connection_logs_binding_1 = args.connection_logs.get_output(context);
-        let connection_logs_binding = connection_logs_binding_1.get_inner();
-        let customer_owned_ipv4_pool_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_logs_binding = args.access_logs.get_output(context);
+        let client_keep_alive_binding = args.client_keep_alive.get_output(context);
+        let connection_logs_binding = args.connection_logs.get_output(context);
+        let customer_owned_ipv4_pool_binding = args
             .customer_owned_ipv4_pool
             .get_output(context);
-        let customer_owned_ipv4_pool_binding = customer_owned_ipv4_pool_binding_1
-            .get_inner();
-        let desync_mitigation_mode_binding_1 = args
+        let desync_mitigation_mode_binding = args
             .desync_mitigation_mode
             .get_output(context);
-        let desync_mitigation_mode_binding = desync_mitigation_mode_binding_1
-            .get_inner();
-        let dns_record_client_routing_policy_binding_1 = args
+        let dns_record_client_routing_policy_binding = args
             .dns_record_client_routing_policy
             .get_output(context);
-        let dns_record_client_routing_policy_binding = dns_record_client_routing_policy_binding_1
-            .get_inner();
-        let drop_invalid_header_fields_binding_1 = args
+        let drop_invalid_header_fields_binding = args
             .drop_invalid_header_fields
             .get_output(context);
-        let drop_invalid_header_fields_binding = drop_invalid_header_fields_binding_1
-            .get_inner();
-        let enable_cross_zone_load_balancing_binding_1 = args
+        let enable_cross_zone_load_balancing_binding = args
             .enable_cross_zone_load_balancing
             .get_output(context);
-        let enable_cross_zone_load_balancing_binding = enable_cross_zone_load_balancing_binding_1
-            .get_inner();
-        let enable_deletion_protection_binding_1 = args
+        let enable_deletion_protection_binding = args
             .enable_deletion_protection
             .get_output(context);
-        let enable_deletion_protection_binding = enable_deletion_protection_binding_1
-            .get_inner();
-        let enable_http2_binding_1 = args.enable_http2.get_output(context);
-        let enable_http2_binding = enable_http2_binding_1.get_inner();
-        let enable_tls_version_and_cipher_suite_headers_binding_1 = args
+        let enable_http2_binding = args.enable_http2.get_output(context);
+        let enable_tls_version_and_cipher_suite_headers_binding = args
             .enable_tls_version_and_cipher_suite_headers
             .get_output(context);
-        let enable_tls_version_and_cipher_suite_headers_binding = enable_tls_version_and_cipher_suite_headers_binding_1
-            .get_inner();
-        let enable_waf_fail_open_binding_1 = args
-            .enable_waf_fail_open
-            .get_output(context);
-        let enable_waf_fail_open_binding = enable_waf_fail_open_binding_1.get_inner();
-        let enable_xff_client_port_binding_1 = args
+        let enable_waf_fail_open_binding = args.enable_waf_fail_open.get_output(context);
+        let enable_xff_client_port_binding = args
             .enable_xff_client_port
             .get_output(context);
-        let enable_xff_client_port_binding = enable_xff_client_port_binding_1
-            .get_inner();
-        let enable_zonal_shift_binding_1 = args.enable_zonal_shift.get_output(context);
-        let enable_zonal_shift_binding = enable_zonal_shift_binding_1.get_inner();
-        let enforce_security_group_inbound_rules_on_private_link_traffic_binding_1 = args
+        let enable_zonal_shift_binding = args.enable_zonal_shift.get_output(context);
+        let enforce_security_group_inbound_rules_on_private_link_traffic_binding = args
             .enforce_security_group_inbound_rules_on_private_link_traffic
             .get_output(context);
-        let enforce_security_group_inbound_rules_on_private_link_traffic_binding = enforce_security_group_inbound_rules_on_private_link_traffic_binding_1
-            .get_inner();
-        let idle_timeout_binding_1 = args.idle_timeout.get_output(context);
-        let idle_timeout_binding = idle_timeout_binding_1.get_inner();
-        let internal_binding_1 = args.internal.get_output(context);
-        let internal_binding = internal_binding_1.get_inner();
-        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
-        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
-        let load_balancer_type_binding_1 = args.load_balancer_type.get_output(context);
-        let load_balancer_type_binding = load_balancer_type_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let preserve_host_header_binding_1 = args
-            .preserve_host_header
-            .get_output(context);
-        let preserve_host_header_binding = preserve_host_header_binding_1.get_inner();
-        let security_groups_binding_1 = args.security_groups.get_output(context);
-        let security_groups_binding = security_groups_binding_1.get_inner();
-        let subnet_mappings_binding_1 = args.subnet_mappings.get_output(context);
-        let subnet_mappings_binding = subnet_mappings_binding_1.get_inner();
-        let subnets_binding_1 = args.subnets.get_output(context);
-        let subnets_binding = subnets_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let xff_header_processing_mode_binding_1 = args
+        let idle_timeout_binding = args.idle_timeout.get_output(context);
+        let internal_binding = args.internal.get_output(context);
+        let ip_address_type_binding = args.ip_address_type.get_output(context);
+        let load_balancer_type_binding = args.load_balancer_type.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let preserve_host_header_binding = args.preserve_host_header.get_output(context);
+        let security_groups_binding = args.security_groups.get_output(context);
+        let subnet_mappings_binding = args.subnet_mappings.get_output(context);
+        let subnets_binding = args.subnets.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let xff_header_processing_mode_binding = args
             .xff_header_processing_mode
             .get_output(context);
-        let xff_header_processing_mode_binding = xff_header_processing_mode_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:alb/loadBalancer:LoadBalancer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLogs".into(),
-                    value: &access_logs_binding,
+                    value: access_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientKeepAlive".into(),
-                    value: &client_keep_alive_binding,
+                    value: client_keep_alive_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionLogs".into(),
-                    value: &connection_logs_binding,
+                    value: connection_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerOwnedIpv4Pool".into(),
-                    value: &customer_owned_ipv4_pool_binding,
+                    value: customer_owned_ipv4_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desyncMitigationMode".into(),
-                    value: &desync_mitigation_mode_binding,
+                    value: desync_mitigation_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsRecordClientRoutingPolicy".into(),
-                    value: &dns_record_client_routing_policy_binding,
+                    value: dns_record_client_routing_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dropInvalidHeaderFields".into(),
-                    value: &drop_invalid_header_fields_binding,
+                    value: drop_invalid_header_fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCrossZoneLoadBalancing".into(),
-                    value: &enable_cross_zone_load_balancing_binding,
+                    value: enable_cross_zone_load_balancing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDeletionProtection".into(),
-                    value: &enable_deletion_protection_binding,
+                    value: enable_deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHttp2".into(),
-                    value: &enable_http2_binding,
+                    value: enable_http2_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableTlsVersionAndCipherSuiteHeaders".into(),
-                    value: &enable_tls_version_and_cipher_suite_headers_binding,
+                    value: enable_tls_version_and_cipher_suite_headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableWafFailOpen".into(),
-                    value: &enable_waf_fail_open_binding,
+                    value: enable_waf_fail_open_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableXffClientPort".into(),
-                    value: &enable_xff_client_port_binding,
+                    value: enable_xff_client_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableZonalShift".into(),
-                    value: &enable_zonal_shift_binding,
+                    value: enable_zonal_shift_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic".into(),
-                    value: &enforce_security_group_inbound_rules_on_private_link_traffic_binding,
+                    value: enforce_security_group_inbound_rules_on_private_link_traffic_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeout".into(),
-                    value: &idle_timeout_binding,
+                    value: idle_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internal".into(),
-                    value: &internal_binding,
+                    value: internal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressType".into(),
-                    value: &ip_address_type_binding,
+                    value: ip_address_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerType".into(),
-                    value: &load_balancer_type_binding,
+                    value: load_balancer_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preserveHostHeader".into(),
-                    value: &preserve_host_header_binding,
+                    value: preserve_host_header_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: &security_groups_binding,
+                    value: security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetMappings".into(),
-                    value: &subnet_mappings_binding,
+                    value: subnet_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnets".into(),
-                    value: &subnets_binding,
+                    value: subnets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xffHeaderProcessingMode".into(),
-                    value: &xff_header_processing_mode_binding,
+                    value: xff_header_processing_mode_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LoadBalancerResult {
-            access_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessLogs"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            arn_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arnSuffix"),
-            ),
-            client_keep_alive: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientKeepAlive"),
-            ),
-            connection_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionLogs"),
-            ),
-            customer_owned_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerOwnedIpv4Pool"),
-            ),
-            desync_mitigation_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desyncMitigationMode"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            dns_record_client_routing_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsRecordClientRoutingPolicy"),
-            ),
-            drop_invalid_header_fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dropInvalidHeaderFields"),
-            ),
-            enable_cross_zone_load_balancing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableCrossZoneLoadBalancing"),
-            ),
-            enable_deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDeletionProtection"),
-            ),
-            enable_http2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableHttp2"),
-            ),
-            enable_tls_version_and_cipher_suite_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableTlsVersionAndCipherSuiteHeaders"),
-            ),
-            enable_waf_fail_open: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableWafFailOpen"),
-            ),
-            enable_xff_client_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableXffClientPort"),
-            ),
-            enable_zonal_shift: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableZonalShift"),
-            ),
-            enforce_security_group_inbound_rules_on_private_link_traffic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"),
-            ),
-            idle_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeout"),
-            ),
-            internal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internal"),
-            ),
-            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressType"),
-            ),
-            load_balancer_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerType"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            preserve_host_header: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preserveHostHeader"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            subnet_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetMappings"),
-            ),
-            subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnets"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            xff_header_processing_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("xffHeaderProcessingMode"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            access_logs: o.get_field("accessLogs"),
+            arn: o.get_field("arn"),
+            arn_suffix: o.get_field("arnSuffix"),
+            client_keep_alive: o.get_field("clientKeepAlive"),
+            connection_logs: o.get_field("connectionLogs"),
+            customer_owned_ipv4_pool: o.get_field("customerOwnedIpv4Pool"),
+            desync_mitigation_mode: o.get_field("desyncMitigationMode"),
+            dns_name: o.get_field("dnsName"),
+            dns_record_client_routing_policy: o
+                .get_field("dnsRecordClientRoutingPolicy"),
+            drop_invalid_header_fields: o.get_field("dropInvalidHeaderFields"),
+            enable_cross_zone_load_balancing: o
+                .get_field("enableCrossZoneLoadBalancing"),
+            enable_deletion_protection: o.get_field("enableDeletionProtection"),
+            enable_http2: o.get_field("enableHttp2"),
+            enable_tls_version_and_cipher_suite_headers: o
+                .get_field("enableTlsVersionAndCipherSuiteHeaders"),
+            enable_waf_fail_open: o.get_field("enableWafFailOpen"),
+            enable_xff_client_port: o.get_field("enableXffClientPort"),
+            enable_zonal_shift: o.get_field("enableZonalShift"),
+            enforce_security_group_inbound_rules_on_private_link_traffic: o
+                .get_field("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"),
+            idle_timeout: o.get_field("idleTimeout"),
+            internal: o.get_field("internal"),
+            ip_address_type: o.get_field("ipAddressType"),
+            load_balancer_type: o.get_field("loadBalancerType"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            preserve_host_header: o.get_field("preserveHostHeader"),
+            security_groups: o.get_field("securityGroups"),
+            subnet_mappings: o.get_field("subnetMappings"),
+            subnets: o.get_field("subnets"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
+            xff_header_processing_mode: o.get_field("xffHeaderProcessingMode"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

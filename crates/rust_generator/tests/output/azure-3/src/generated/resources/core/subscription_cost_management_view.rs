@@ -118,108 +118,83 @@ pub mod subscription_cost_management_view {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubscriptionCostManagementViewArgs,
     ) -> SubscriptionCostManagementViewResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accumulated_binding_1 = args.accumulated.get_output(context);
-        let accumulated_binding = accumulated_binding_1.get_inner();
-        let chart_type_binding_1 = args.chart_type.get_output(context);
-        let chart_type_binding = chart_type_binding_1.get_inner();
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let kpis_binding_1 = args.kpis.get_output(context);
-        let kpis_binding = kpis_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let pivots_binding_1 = args.pivots.get_output(context);
-        let pivots_binding = pivots_binding_1.get_inner();
-        let report_type_binding_1 = args.report_type.get_output(context);
-        let report_type_binding = report_type_binding_1.get_inner();
-        let subscription_id_binding_1 = args.subscription_id.get_output(context);
-        let subscription_id_binding = subscription_id_binding_1.get_inner();
-        let timeframe_binding_1 = args.timeframe.get_output(context);
-        let timeframe_binding = timeframe_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accumulated_binding = args.accumulated.get_output(context);
+        let chart_type_binding = args.chart_type.get_output(context);
+        let dataset_binding = args.dataset.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let kpis_binding = args.kpis.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let pivots_binding = args.pivots.get_output(context);
+        let report_type_binding = args.report_type.get_output(context);
+        let subscription_id_binding = args.subscription_id.get_output(context);
+        let timeframe_binding = args.timeframe.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:core/subscriptionCostManagementView:SubscriptionCostManagementView"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accumulated".into(),
-                    value: &accumulated_binding,
+                    value: accumulated_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "chartType".into(),
-                    value: &chart_type_binding,
+                    value: chart_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kpis".into(),
-                    value: &kpis_binding,
+                    value: kpis_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pivots".into(),
-                    value: &pivots_binding,
+                    value: pivots_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reportType".into(),
-                    value: &report_type_binding,
+                    value: report_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: &subscription_id_binding,
+                    value: subscription_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeframe".into(),
-                    value: &timeframe_binding,
+                    value: timeframe_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubscriptionCostManagementViewResult {
-            accumulated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accumulated"),
-            ),
-            chart_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("chartType"),
-            ),
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            kpis: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kpis")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pivots: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pivots"),
-            ),
-            report_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportType"),
-            ),
-            subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionId"),
-            ),
-            timeframe: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeframe"),
-            ),
+            accumulated: o.get_field("accumulated"),
+            chart_type: o.get_field("chartType"),
+            dataset: o.get_field("dataset"),
+            display_name: o.get_field("displayName"),
+            kpis: o.get_field("kpis"),
+            name: o.get_field("name"),
+            pivots: o.get_field("pivots"),
+            report_type: o.get_field("reportType"),
+            subscription_id: o.get_field("subscriptionId"),
+            timeframe: o.get_field("timeframe"),
         }
     }
 }

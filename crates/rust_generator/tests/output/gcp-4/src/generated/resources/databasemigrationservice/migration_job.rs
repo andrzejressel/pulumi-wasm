@@ -564,178 +564,125 @@ pub mod migration_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MigrationJobArgs,
     ) -> MigrationJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let dump_flags_binding_1 = args.dump_flags.get_output(context);
-        let dump_flags_binding = dump_flags_binding_1.get_inner();
-        let dump_path_binding_1 = args.dump_path.get_output(context);
-        let dump_path_binding = dump_path_binding_1.get_inner();
-        let dump_type_binding_1 = args.dump_type.get_output(context);
-        let dump_type_binding = dump_type_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let migration_job_id_binding_1 = args.migration_job_id.get_output(context);
-        let migration_job_id_binding = migration_job_id_binding_1.get_inner();
-        let performance_config_binding_1 = args.performance_config.get_output(context);
-        let performance_config_binding = performance_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let reverse_ssh_connectivity_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_binding = args.destination.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let dump_flags_binding = args.dump_flags.get_output(context);
+        let dump_path_binding = args.dump_path.get_output(context);
+        let dump_type_binding = args.dump_type.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let migration_job_id_binding = args.migration_job_id.get_output(context);
+        let performance_config_binding = args.performance_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let reverse_ssh_connectivity_binding = args
             .reverse_ssh_connectivity
             .get_output(context);
-        let reverse_ssh_connectivity_binding = reverse_ssh_connectivity_binding_1
-            .get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let static_ip_connectivity_binding_1 = args
+        let source_binding = args.source.get_output(context);
+        let static_ip_connectivity_binding = args
             .static_ip_connectivity
             .get_output(context);
-        let static_ip_connectivity_binding = static_ip_connectivity_binding_1
-            .get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let vpc_peering_connectivity_binding_1 = args
+        let type__binding = args.type_.get_output(context);
+        let vpc_peering_connectivity_binding = args
             .vpc_peering_connectivity
             .get_output(context);
-        let vpc_peering_connectivity_binding = vpc_peering_connectivity_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:databasemigrationservice/migrationJob:MigrationJob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dumpFlags".into(),
-                    value: &dump_flags_binding,
+                    value: dump_flags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dumpPath".into(),
-                    value: &dump_path_binding,
+                    value: dump_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dumpType".into(),
-                    value: &dump_type_binding,
+                    value: dump_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "migrationJobId".into(),
-                    value: &migration_job_id_binding,
+                    value: migration_job_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "performanceConfig".into(),
-                    value: &performance_config_binding,
+                    value: performance_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseSshConnectivity".into(),
-                    value: &reverse_ssh_connectivity_binding,
+                    value: reverse_ssh_connectivity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticIpConnectivity".into(),
-                    value: &static_ip_connectivity_binding,
+                    value: static_ip_connectivity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcPeeringConnectivity".into(),
-                    value: &vpc_peering_connectivity_binding,
+                    value: vpc_peering_connectivity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MigrationJobResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            dump_flags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dumpFlags"),
-            ),
-            dump_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dumpPath"),
-            ),
-            dump_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dumpType"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errors"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            migration_job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("migrationJobId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            performance_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("performanceConfig"),
-            ),
-            phase: pulumi_gestalt_rust::__private::into_domain(o.extract_field("phase")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reverse_ssh_connectivity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reverseSshConnectivity"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            static_ip_connectivity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staticIpConnectivity"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vpc_peering_connectivity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcPeeringConnectivity"),
-            ),
+            create_time: o.get_field("createTime"),
+            destination: o.get_field("destination"),
+            display_name: o.get_field("displayName"),
+            dump_flags: o.get_field("dumpFlags"),
+            dump_path: o.get_field("dumpPath"),
+            dump_type: o.get_field("dumpType"),
+            effective_labels: o.get_field("effectiveLabels"),
+            errors: o.get_field("errors"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            migration_job_id: o.get_field("migrationJobId"),
+            name: o.get_field("name"),
+            performance_config: o.get_field("performanceConfig"),
+            phase: o.get_field("phase"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reverse_ssh_connectivity: o.get_field("reverseSshConnectivity"),
+            source: o.get_field("source"),
+            state: o.get_field("state"),
+            static_ip_connectivity: o.get_field("staticIpConnectivity"),
+            type_: o.get_field("type"),
+            vpc_peering_connectivity: o.get_field("vpcPeeringConnectivity"),
         }
     }
 }

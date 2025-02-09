@@ -54,84 +54,51 @@ pub mod get_replication_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReplicationInstanceArgs,
     ) -> GetReplicationInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replication_instance_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let replication_instance_id_binding = args
             .replication_instance_id
             .get_output(context);
-        let replication_instance_id_binding = replication_instance_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:dms/getReplicationInstance:getReplicationInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationInstanceId".into(),
-                    value: &replication_instance_id_binding,
+                    value: replication_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReplicationInstanceResult {
-            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedStorage"),
-            ),
-            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMinorVersionUpgrade"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            multi_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAz"),
-            ),
-            network_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkType"),
-            ),
-            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMaintenanceWindow"),
-            ),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            replication_instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationInstanceArn"),
-            ),
-            replication_instance_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationInstanceClass"),
-            ),
-            replication_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationInstanceId"),
-            ),
-            replication_instance_private_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationInstancePrivateIps"),
-            ),
-            replication_instance_public_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationInstancePublicIps"),
-            ),
-            replication_subnet_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationSubnetGroupId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
+            allocated_storage: o.get_field("allocatedStorage"),
+            auto_minor_version_upgrade: o.get_field("autoMinorVersionUpgrade"),
+            availability_zone: o.get_field("availabilityZone"),
+            engine_version: o.get_field("engineVersion"),
+            id: o.get_field("id"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            multi_az: o.get_field("multiAz"),
+            network_type: o.get_field("networkType"),
+            preferred_maintenance_window: o.get_field("preferredMaintenanceWindow"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            replication_instance_arn: o.get_field("replicationInstanceArn"),
+            replication_instance_class: o.get_field("replicationInstanceClass"),
+            replication_instance_id: o.get_field("replicationInstanceId"),
+            replication_instance_private_ips: o
+                .get_field("replicationInstancePrivateIps"),
+            replication_instance_public_ips: o.get_field("replicationInstancePublicIps"),
+            replication_subnet_group_id: o.get_field("replicationSubnetGroupId"),
+            tags: o.get_field("tags"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
         }
     }
 }

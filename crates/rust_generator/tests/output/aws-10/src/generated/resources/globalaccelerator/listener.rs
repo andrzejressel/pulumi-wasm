@@ -84,57 +84,46 @@ pub mod listener {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ListenerArgs,
     ) -> ListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_arn_binding_1 = args.accelerator_arn.get_output(context);
-        let accelerator_arn_binding = accelerator_arn_binding_1.get_inner();
-        let client_affinity_binding_1 = args.client_affinity.get_output(context);
-        let client_affinity_binding = client_affinity_binding_1.get_inner();
-        let port_ranges_binding_1 = args.port_ranges.get_output(context);
-        let port_ranges_binding = port_ranges_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accelerator_arn_binding = args.accelerator_arn.get_output(context);
+        let client_affinity_binding = args.client_affinity.get_output(context);
+        let port_ranges_binding = args.port_ranges.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:globalaccelerator/listener:Listener".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorArn".into(),
-                    value: &accelerator_arn_binding,
+                    value: accelerator_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAffinity".into(),
-                    value: &client_affinity_binding,
+                    value: client_affinity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portRanges".into(),
-                    value: &port_ranges_binding,
+                    value: port_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ListenerResult {
-            accelerator_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratorArn"),
-            ),
-            client_affinity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientAffinity"),
-            ),
-            port_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portRanges"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
+            accelerator_arn: o.get_field("acceleratorArn"),
+            client_affinity: o.get_field("clientAffinity"),
+            port_ranges: o.get_field("portRanges"),
+            protocol: o.get_field("protocol"),
         }
     }
 }

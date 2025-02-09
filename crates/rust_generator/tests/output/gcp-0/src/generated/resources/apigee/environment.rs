@@ -178,98 +178,76 @@ pub mod environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_proxy_type_binding_1 = args.api_proxy_type.get_output(context);
-        let api_proxy_type_binding = api_proxy_type_binding_1.get_inner();
-        let deployment_type_binding_1 = args.deployment_type.get_output(context);
-        let deployment_type_binding = deployment_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let forward_proxy_uri_binding_1 = args.forward_proxy_uri.get_output(context);
-        let forward_proxy_uri_binding = forward_proxy_uri_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_config_binding_1 = args.node_config.get_output(context);
-        let node_config_binding = node_config_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_proxy_type_binding = args.api_proxy_type.get_output(context);
+        let deployment_type_binding = args.deployment_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let forward_proxy_uri_binding = args.forward_proxy_uri.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_config_binding = args.node_config.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/environment:Environment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiProxyType".into(),
-                    value: &api_proxy_type_binding,
+                    value: api_proxy_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentType".into(),
-                    value: &deployment_type_binding,
+                    value: deployment_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardProxyUri".into(),
-                    value: &forward_proxy_uri_binding,
+                    value: forward_proxy_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeConfig".into(),
-                    value: &node_config_binding,
+                    value: node_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentResult {
-            api_proxy_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiProxyType"),
-            ),
-            deployment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentType"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            forward_proxy_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardProxyUri"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeConfig"),
-            ),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            api_proxy_type: o.get_field("apiProxyType"),
+            deployment_type: o.get_field("deploymentType"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            forward_proxy_uri: o.get_field("forwardProxyUri"),
+            name: o.get_field("name"),
+            node_config: o.get_field("nodeConfig"),
+            org_id: o.get_field("orgId"),
+            type_: o.get_field("type"),
         }
     }
 }

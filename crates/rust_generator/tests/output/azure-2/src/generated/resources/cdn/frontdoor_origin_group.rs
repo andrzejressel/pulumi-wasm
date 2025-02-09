@@ -118,82 +118,66 @@ pub mod frontdoor_origin_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorOriginGroupArgs,
     ) -> FrontdoorOriginGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cdn_frontdoor_profile_id_binding = args
             .cdn_frontdoor_profile_id
             .get_output(context);
-        let cdn_frontdoor_profile_id_binding = cdn_frontdoor_profile_id_binding_1
-            .get_inner();
-        let health_probe_binding_1 = args.health_probe.get_output(context);
-        let health_probe_binding = health_probe_binding_1.get_inner();
-        let load_balancing_binding_1 = args.load_balancing.get_output(context);
-        let load_balancing_binding = load_balancing_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding_1 = args
+        let health_probe_binding = args.health_probe.get_output(context);
+        let load_balancing_binding = args.load_balancing.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding = args
             .restore_traffic_time_to_healed_or_new_endpoint_in_minutes
             .get_output(context);
-        let restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding = restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding_1
-            .get_inner();
-        let session_affinity_enabled_binding_1 = args
+        let session_affinity_enabled_binding = args
             .session_affinity_enabled
             .get_output(context);
-        let session_affinity_enabled_binding = session_affinity_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorProfileId".into(),
-                    value: &cdn_frontdoor_profile_id_binding,
+                    value: cdn_frontdoor_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthProbe".into(),
-                    value: &health_probe_binding,
+                    value: health_probe_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancing".into(),
-                    value: &load_balancing_binding,
+                    value: load_balancing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreTrafficTimeToHealedOrNewEndpointInMinutes".into(),
-                    value: &restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding,
+                    value: restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinityEnabled".into(),
-                    value: &session_affinity_enabled_binding,
+                    value: session_affinity_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorOriginGroupResult {
-            cdn_frontdoor_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorProfileId"),
-            ),
-            health_probe: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthProbe"),
-            ),
-            load_balancing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancing"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreTrafficTimeToHealedOrNewEndpointInMinutes"),
-            ),
-            session_affinity_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionAffinityEnabled"),
-            ),
+            cdn_frontdoor_profile_id: o.get_field("cdnFrontdoorProfileId"),
+            health_probe: o.get_field("healthProbe"),
+            load_balancing: o.get_field("loadBalancing"),
+            name: o.get_field("name"),
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes: o
+                .get_field("restoreTrafficTimeToHealedOrNewEndpointInMinutes"),
+            session_affinity_enabled: o.get_field("sessionAffinityEnabled"),
         }
     }
 }

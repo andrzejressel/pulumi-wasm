@@ -106,106 +106,79 @@ pub mod internet_monitor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InternetMonitorArgs,
     ) -> InternetMonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let health_events_config_binding_1 = args
-            .health_events_config
-            .get_output(context);
-        let health_events_config_binding = health_events_config_binding_1.get_inner();
-        let internet_measurements_log_delivery_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let health_events_config_binding = args.health_events_config.get_output(context);
+        let internet_measurements_log_delivery_binding = args
             .internet_measurements_log_delivery
             .get_output(context);
-        let internet_measurements_log_delivery_binding = internet_measurements_log_delivery_binding_1
-            .get_inner();
-        let max_city_networks_to_monitor_binding_1 = args
+        let max_city_networks_to_monitor_binding = args
             .max_city_networks_to_monitor
             .get_output(context);
-        let max_city_networks_to_monitor_binding = max_city_networks_to_monitor_binding_1
-            .get_inner();
-        let monitor_name_binding_1 = args.monitor_name.get_output(context);
-        let monitor_name_binding = monitor_name_binding_1.get_inner();
-        let resources_binding_1 = args.resources.get_output(context);
-        let resources_binding = resources_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let traffic_percentage_to_monitor_binding_1 = args
+        let monitor_name_binding = args.monitor_name.get_output(context);
+        let resources_binding = args.resources.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let traffic_percentage_to_monitor_binding = args
             .traffic_percentage_to_monitor
             .get_output(context);
-        let traffic_percentage_to_monitor_binding = traffic_percentage_to_monitor_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/internetMonitor:InternetMonitor".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthEventsConfig".into(),
-                    value: &health_events_config_binding,
+                    value: health_events_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetMeasurementsLogDelivery".into(),
-                    value: &internet_measurements_log_delivery_binding,
+                    value: internet_measurements_log_delivery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxCityNetworksToMonitor".into(),
-                    value: &max_city_networks_to_monitor_binding,
+                    value: max_city_networks_to_monitor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorName".into(),
-                    value: &monitor_name_binding,
+                    value: monitor_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resources".into(),
-                    value: &resources_binding,
+                    value: resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficPercentageToMonitor".into(),
-                    value: &traffic_percentage_to_monitor_binding,
+                    value: traffic_percentage_to_monitor_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InternetMonitorResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            health_events_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthEventsConfig"),
-            ),
-            internet_measurements_log_delivery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetMeasurementsLogDelivery"),
-            ),
-            max_city_networks_to_monitor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxCityNetworksToMonitor"),
-            ),
-            monitor_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitorName"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            traffic_percentage_to_monitor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficPercentageToMonitor"),
-            ),
+            arn: o.get_field("arn"),
+            health_events_config: o.get_field("healthEventsConfig"),
+            internet_measurements_log_delivery: o
+                .get_field("internetMeasurementsLogDelivery"),
+            max_city_networks_to_monitor: o.get_field("maxCityNetworksToMonitor"),
+            monitor_name: o.get_field("monitorName"),
+            resources: o.get_field("resources"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            traffic_percentage_to_monitor: o.get_field("trafficPercentageToMonitor"),
         }
     }
 }

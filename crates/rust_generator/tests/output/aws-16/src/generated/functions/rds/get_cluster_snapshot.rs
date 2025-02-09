@@ -80,121 +80,80 @@ pub mod get_cluster_snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterSnapshotArgs,
     ) -> GetClusterSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_cluster_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let db_cluster_identifier_binding = args
             .db_cluster_identifier
             .get_output(context);
-        let db_cluster_identifier_binding = db_cluster_identifier_binding_1.get_inner();
-        let db_cluster_snapshot_identifier_binding_1 = args
+        let db_cluster_snapshot_identifier_binding = args
             .db_cluster_snapshot_identifier
             .get_output(context);
-        let db_cluster_snapshot_identifier_binding = db_cluster_snapshot_identifier_binding_1
-            .get_inner();
-        let include_public_binding_1 = args.include_public.get_output(context);
-        let include_public_binding = include_public_binding_1.get_inner();
-        let include_shared_binding_1 = args.include_shared.get_output(context);
-        let include_shared_binding = include_shared_binding_1.get_inner();
-        let most_recent_binding_1 = args.most_recent.get_output(context);
-        let most_recent_binding = most_recent_binding_1.get_inner();
-        let snapshot_type_binding_1 = args.snapshot_type.get_output(context);
-        let snapshot_type_binding = snapshot_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let include_public_binding = args.include_public.get_output(context);
+        let include_shared_binding = args.include_shared.get_output(context);
+        let most_recent_binding = args.most_recent.get_output(context);
+        let snapshot_type_binding = args.snapshot_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:rds/getClusterSnapshot:getClusterSnapshot".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbClusterIdentifier".into(),
-                    value: &db_cluster_identifier_binding,
+                    value: db_cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbClusterSnapshotIdentifier".into(),
-                    value: &db_cluster_snapshot_identifier_binding,
+                    value: db_cluster_snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePublic".into(),
-                    value: &include_public_binding,
+                    value: include_public_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeShared".into(),
-                    value: &include_shared_binding,
+                    value: include_shared_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: &most_recent_binding,
+                    value: most_recent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotType".into(),
-                    value: &snapshot_type_binding,
+                    value: snapshot_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterSnapshotResult {
-            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedStorage"),
-            ),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            db_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbClusterIdentifier"),
-            ),
-            db_cluster_snapshot_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbClusterSnapshotArn"),
-            ),
-            db_cluster_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbClusterSnapshotIdentifier"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_public: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includePublic"),
-            ),
-            include_shared: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeShared"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            license_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseModel"),
-            ),
-            most_recent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecent"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            snapshot_create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotCreateTime"),
-            ),
-            snapshot_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotType"),
-            ),
-            source_db_cluster_snapshot_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDbClusterSnapshotArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEncrypted"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            allocated_storage: o.get_field("allocatedStorage"),
+            availability_zones: o.get_field("availabilityZones"),
+            db_cluster_identifier: o.get_field("dbClusterIdentifier"),
+            db_cluster_snapshot_arn: o.get_field("dbClusterSnapshotArn"),
+            db_cluster_snapshot_identifier: o.get_field("dbClusterSnapshotIdentifier"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            id: o.get_field("id"),
+            include_public: o.get_field("includePublic"),
+            include_shared: o.get_field("includeShared"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            license_model: o.get_field("licenseModel"),
+            most_recent: o.get_field("mostRecent"),
+            port: o.get_field("port"),
+            snapshot_create_time: o.get_field("snapshotCreateTime"),
+            snapshot_type: o.get_field("snapshotType"),
+            source_db_cluster_snapshot_arn: o.get_field("sourceDbClusterSnapshotArn"),
+            status: o.get_field("status"),
+            storage_encrypted: o.get_field("storageEncrypted"),
+            tags: o.get_field("tags"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

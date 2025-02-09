@@ -21,32 +21,28 @@ pub mod get_slack_workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSlackWorkspaceArgs,
     ) -> GetSlackWorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let slack_team_name_binding_1 = args.slack_team_name.get_output(context);
-        let slack_team_name_binding = slack_team_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let slack_team_name_binding = args.slack_team_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:chatbot/getSlackWorkspace:getSlackWorkspace".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slackTeamName".into(),
-                    value: &slack_team_name_binding,
+                    value: slack_team_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSlackWorkspaceResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            slack_team_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slackTeamId"),
-            ),
-            slack_team_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slackTeamName"),
-            ),
+            id: o.get_field("id"),
+            slack_team_id: o.get_field("slackTeamId"),
+            slack_team_name: o.get_field("slackTeamName"),
         }
     }
 }

@@ -1,0 +1,7 @@
+[package]
+name = "pulumi_gestalt_rust_adapter"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+serde = { version = "1.0.217", features = ["derive"] }

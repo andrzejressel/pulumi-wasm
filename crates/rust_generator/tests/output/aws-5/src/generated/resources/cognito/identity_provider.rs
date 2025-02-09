@@ -86,75 +86,58 @@ pub mod identity_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IdentityProviderArgs,
     ) -> IdentityProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attribute_mapping_binding_1 = args.attribute_mapping.get_output(context);
-        let attribute_mapping_binding = attribute_mapping_binding_1.get_inner();
-        let idp_identifiers_binding_1 = args.idp_identifiers.get_output(context);
-        let idp_identifiers_binding = idp_identifiers_binding_1.get_inner();
-        let provider_details_binding_1 = args.provider_details.get_output(context);
-        let provider_details_binding = provider_details_binding_1.get_inner();
-        let provider_name_binding_1 = args.provider_name.get_output(context);
-        let provider_name_binding = provider_name_binding_1.get_inner();
-        let provider_type_binding_1 = args.provider_type.get_output(context);
-        let provider_type_binding = provider_type_binding_1.get_inner();
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attribute_mapping_binding = args.attribute_mapping.get_output(context);
+        let idp_identifiers_binding = args.idp_identifiers.get_output(context);
+        let provider_details_binding = args.provider_details.get_output(context);
+        let provider_name_binding = args.provider_name.get_output(context);
+        let provider_type_binding = args.provider_type.get_output(context);
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/identityProvider:IdentityProvider".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributeMapping".into(),
-                    value: &attribute_mapping_binding,
+                    value: attribute_mapping_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpIdentifiers".into(),
-                    value: &idp_identifiers_binding,
+                    value: idp_identifiers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerDetails".into(),
-                    value: &provider_details_binding,
+                    value: provider_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerName".into(),
-                    value: &provider_name_binding,
+                    value: provider_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerType".into(),
-                    value: &provider_type_binding,
+                    value: provider_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IdentityProviderResult {
-            attribute_mapping: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributeMapping"),
-            ),
-            idp_identifiers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idpIdentifiers"),
-            ),
-            provider_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerDetails"),
-            ),
-            provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerName"),
-            ),
-            provider_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerType"),
-            ),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
+            attribute_mapping: o.get_field("attributeMapping"),
+            idp_identifiers: o.get_field("idpIdentifiers"),
+            provider_details: o.get_field("providerDetails"),
+            provider_name: o.get_field("providerName"),
+            provider_type: o.get_field("providerType"),
+            user_pool_id: o.get_field("userPoolId"),
         }
     }
 }

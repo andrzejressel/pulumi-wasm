@@ -102,65 +102,50 @@ pub mod contact_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContactListArgs,
     ) -> ContactListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_list_name_binding_1 = args.contact_list_name.get_output(context);
-        let contact_list_name_binding = contact_list_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let topics_binding_1 = args.topics.get_output(context);
-        let topics_binding = topics_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let contact_list_name_binding = args.contact_list_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let topics_binding = args.topics.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sesv2/contactList:ContactList".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactListName".into(),
-                    value: &contact_list_name_binding,
+                    value: contact_list_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topics".into(),
-                    value: &topics_binding,
+                    value: topics_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContactListResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            contact_list_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactListName"),
-            ),
-            created_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            last_updated_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTimestamp"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            topics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topics"),
-            ),
+            arn: o.get_field("arn"),
+            contact_list_name: o.get_field("contactListName"),
+            created_timestamp: o.get_field("createdTimestamp"),
+            description: o.get_field("description"),
+            last_updated_timestamp: o.get_field("lastUpdatedTimestamp"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            topics: o.get_field("topics"),
         }
     }
 }

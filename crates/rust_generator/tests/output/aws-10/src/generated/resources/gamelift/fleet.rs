@@ -159,173 +159,123 @@ pub mod fleet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FleetArgs,
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_id_binding_1 = args.build_id.get_output(context);
-        let build_id_binding = build_id_binding_1.get_inner();
-        let certificate_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let build_id_binding = args.build_id.get_output(context);
+        let certificate_configuration_binding = args
             .certificate_configuration
             .get_output(context);
-        let certificate_configuration_binding = certificate_configuration_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ec2_inbound_permissions_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let ec2_inbound_permissions_binding = args
             .ec2_inbound_permissions
             .get_output(context);
-        let ec2_inbound_permissions_binding = ec2_inbound_permissions_binding_1
-            .get_inner();
-        let ec2_instance_type_binding_1 = args.ec2_instance_type.get_output(context);
-        let ec2_instance_type_binding = ec2_instance_type_binding_1.get_inner();
-        let fleet_type_binding_1 = args.fleet_type.get_output(context);
-        let fleet_type_binding = fleet_type_binding_1.get_inner();
-        let instance_role_arn_binding_1 = args.instance_role_arn.get_output(context);
-        let instance_role_arn_binding = instance_role_arn_binding_1.get_inner();
-        let metric_groups_binding_1 = args.metric_groups.get_output(context);
-        let metric_groups_binding = metric_groups_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let new_game_session_protection_policy_binding_1 = args
+        let ec2_instance_type_binding = args.ec2_instance_type.get_output(context);
+        let fleet_type_binding = args.fleet_type.get_output(context);
+        let instance_role_arn_binding = args.instance_role_arn.get_output(context);
+        let metric_groups_binding = args.metric_groups.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let new_game_session_protection_policy_binding = args
             .new_game_session_protection_policy
             .get_output(context);
-        let new_game_session_protection_policy_binding = new_game_session_protection_policy_binding_1
-            .get_inner();
-        let resource_creation_limit_policy_binding_1 = args
+        let resource_creation_limit_policy_binding = args
             .resource_creation_limit_policy
             .get_output(context);
-        let resource_creation_limit_policy_binding = resource_creation_limit_policy_binding_1
-            .get_inner();
-        let runtime_configuration_binding_1 = args
+        let runtime_configuration_binding = args
             .runtime_configuration
             .get_output(context);
-        let runtime_configuration_binding = runtime_configuration_binding_1.get_inner();
-        let script_id_binding_1 = args.script_id.get_output(context);
-        let script_id_binding = script_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let script_id_binding = args.script_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:gamelift/fleet:Fleet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildId".into(),
-                    value: &build_id_binding,
+                    value: build_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateConfiguration".into(),
-                    value: &certificate_configuration_binding,
+                    value: certificate_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2InboundPermissions".into(),
-                    value: &ec2_inbound_permissions_binding,
+                    value: ec2_inbound_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2InstanceType".into(),
-                    value: &ec2_instance_type_binding,
+                    value: ec2_instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetType".into(),
-                    value: &fleet_type_binding,
+                    value: fleet_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceRoleArn".into(),
-                    value: &instance_role_arn_binding,
+                    value: instance_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricGroups".into(),
-                    value: &metric_groups_binding,
+                    value: metric_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "newGameSessionProtectionPolicy".into(),
-                    value: &new_game_session_protection_policy_binding,
+                    value: new_game_session_protection_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceCreationLimitPolicy".into(),
-                    value: &resource_creation_limit_policy_binding,
+                    value: resource_creation_limit_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeConfiguration".into(),
-                    value: &runtime_configuration_binding,
+                    value: runtime_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptId".into(),
-                    value: &script_id_binding,
+                    value: script_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FleetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            build_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildArn"),
-            ),
-            build_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildId"),
-            ),
-            certificate_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateConfiguration"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            ec2_inbound_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ec2InboundPermissions"),
-            ),
-            ec2_instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ec2InstanceType"),
-            ),
-            fleet_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fleetType"),
-            ),
-            instance_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceRoleArn"),
-            ),
-            log_paths: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logPaths"),
-            ),
-            metric_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricGroups"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            new_game_session_protection_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("newGameSessionProtectionPolicy"),
-            ),
-            operating_system: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operatingSystem"),
-            ),
-            resource_creation_limit_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceCreationLimitPolicy"),
-            ),
-            runtime_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeConfiguration"),
-            ),
-            script_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptArn"),
-            ),
-            script_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            build_arn: o.get_field("buildArn"),
+            build_id: o.get_field("buildId"),
+            certificate_configuration: o.get_field("certificateConfiguration"),
+            description: o.get_field("description"),
+            ec2_inbound_permissions: o.get_field("ec2InboundPermissions"),
+            ec2_instance_type: o.get_field("ec2InstanceType"),
+            fleet_type: o.get_field("fleetType"),
+            instance_role_arn: o.get_field("instanceRoleArn"),
+            log_paths: o.get_field("logPaths"),
+            metric_groups: o.get_field("metricGroups"),
+            name: o.get_field("name"),
+            new_game_session_protection_policy: o
+                .get_field("newGameSessionProtectionPolicy"),
+            operating_system: o.get_field("operatingSystem"),
+            resource_creation_limit_policy: o.get_field("resourceCreationLimitPolicy"),
+            runtime_configuration: o.get_field("runtimeConfiguration"),
+            script_arn: o.get_field("scriptArn"),
+            script_id: o.get_field("scriptId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -26,42 +26,35 @@ pub mod get_protection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetProtectionArgs,
     ) -> GetProtectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let protection_id_binding_1 = args.protection_id.get_output(context);
-        let protection_id_binding = protection_id_binding_1.get_inner();
-        let resource_arn_binding_1 = args.resource_arn.get_output(context);
-        let resource_arn_binding = resource_arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let protection_id_binding = args.protection_id.get_output(context);
+        let resource_arn_binding = args.resource_arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:shield/getProtection:getProtection".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionId".into(),
-                    value: &protection_id_binding,
+                    value: protection_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: &resource_arn_binding,
+                    value: resource_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetProtectionResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protection_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionArn"),
-            ),
-            protection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionId"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            protection_arn: o.get_field("protectionArn"),
+            protection_id: o.get_field("protectionId"),
+            resource_arn: o.get_field("resourceArn"),
         }
     }
 }

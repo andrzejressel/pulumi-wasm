@@ -117,174 +117,126 @@ pub mod load_balancer_monitor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LoadBalancerMonitorArgs,
     ) -> LoadBalancerMonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let allow_insecure_binding_1 = args.allow_insecure.get_output(context);
-        let allow_insecure_binding = allow_insecure_binding_1.get_inner();
-        let consecutive_down_binding_1 = args.consecutive_down.get_output(context);
-        let consecutive_down_binding = consecutive_down_binding_1.get_inner();
-        let consecutive_up_binding_1 = args.consecutive_up.get_output(context);
-        let consecutive_up_binding = consecutive_up_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let expected_body_binding_1 = args.expected_body.get_output(context);
-        let expected_body_binding = expected_body_binding_1.get_inner();
-        let expected_codes_binding_1 = args.expected_codes.get_output(context);
-        let expected_codes_binding = expected_codes_binding_1.get_inner();
-        let follow_redirects_binding_1 = args.follow_redirects.get_output(context);
-        let follow_redirects_binding = follow_redirects_binding_1.get_inner();
-        let headers_binding_1 = args.headers.get_output(context);
-        let headers_binding = headers_binding_1.get_inner();
-        let interval_binding_1 = args.interval.get_output(context);
-        let interval_binding = interval_binding_1.get_inner();
-        let method_binding_1 = args.method.get_output(context);
-        let method_binding = method_binding_1.get_inner();
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let probe_zone_binding_1 = args.probe_zone.get_output(context);
-        let probe_zone_binding = probe_zone_binding_1.get_inner();
-        let retries_binding_1 = args.retries.get_output(context);
-        let retries_binding = retries_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let allow_insecure_binding = args.allow_insecure.get_output(context);
+        let consecutive_down_binding = args.consecutive_down.get_output(context);
+        let consecutive_up_binding = args.consecutive_up.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let expected_body_binding = args.expected_body.get_output(context);
+        let expected_codes_binding = args.expected_codes.get_output(context);
+        let follow_redirects_binding = args.follow_redirects.get_output(context);
+        let headers_binding = args.headers.get_output(context);
+        let interval_binding = args.interval.get_output(context);
+        let method_binding = args.method.get_output(context);
+        let path_binding = args.path.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let probe_zone_binding = args.probe_zone.get_output(context);
+        let retries_binding = args.retries.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancerMonitor:LoadBalancerMonitor".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowInsecure".into(),
-                    value: &allow_insecure_binding,
+                    value: allow_insecure_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consecutiveDown".into(),
-                    value: &consecutive_down_binding,
+                    value: consecutive_down_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consecutiveUp".into(),
-                    value: &consecutive_up_binding,
+                    value: consecutive_up_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBody".into(),
-                    value: &expected_body_binding,
+                    value: expected_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedCodes".into(),
-                    value: &expected_codes_binding,
+                    value: expected_codes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "followRedirects".into(),
-                    value: &follow_redirects_binding,
+                    value: follow_redirects_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headers".into(),
-                    value: &headers_binding,
+                    value: headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interval".into(),
-                    value: &interval_binding,
+                    value: interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: &method_binding,
+                    value: method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "probeZone".into(),
-                    value: &probe_zone_binding,
+                    value: probe_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retries".into(),
-                    value: &retries_binding,
+                    value: retries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LoadBalancerMonitorResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            allow_insecure: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowInsecure"),
-            ),
-            consecutive_down: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consecutiveDown"),
-            ),
-            consecutive_up: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consecutiveUp"),
-            ),
-            created_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdOn"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            expected_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expectedBody"),
-            ),
-            expected_codes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expectedCodes"),
-            ),
-            follow_redirects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("followRedirects"),
-            ),
-            headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("headers"),
-            ),
-            interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interval"),
-            ),
-            method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("method"),
-            ),
-            modified_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedOn"),
-            ),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            probe_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("probeZone"),
-            ),
-            retries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retries"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            account_id: o.get_field("accountId"),
+            allow_insecure: o.get_field("allowInsecure"),
+            consecutive_down: o.get_field("consecutiveDown"),
+            consecutive_up: o.get_field("consecutiveUp"),
+            created_on: o.get_field("createdOn"),
+            description: o.get_field("description"),
+            expected_body: o.get_field("expectedBody"),
+            expected_codes: o.get_field("expectedCodes"),
+            follow_redirects: o.get_field("followRedirects"),
+            headers: o.get_field("headers"),
+            interval: o.get_field("interval"),
+            method: o.get_field("method"),
+            modified_on: o.get_field("modifiedOn"),
+            path: o.get_field("path"),
+            port: o.get_field("port"),
+            probe_zone: o.get_field("probeZone"),
+            retries: o.get_field("retries"),
+            timeout: o.get_field("timeout"),
+            type_: o.get_field("type"),
         }
     }
 }

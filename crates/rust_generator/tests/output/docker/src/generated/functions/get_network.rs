@@ -34,40 +34,32 @@ pub mod get_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkArgs,
     ) -> GetNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "docker:index/getNetwork:getNetwork".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkResult {
-            driver: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("driver"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            internal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internal"),
-            ),
-            ipam_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamConfigs"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("options"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            driver: o.get_field("driver"),
+            id: o.get_field("id"),
+            internal: o.get_field("internal"),
+            ipam_configs: o.get_field("ipamConfigs"),
+            name: o.get_field("name"),
+            options: o.get_field("options"),
+            scope: o.get_field("scope"),
         }
     }
 }

@@ -201,74 +201,56 @@ pub mod document {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DocumentArgs,
     ) -> DocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let collection_binding_1 = args.collection.get_output(context);
-        let collection_binding = collection_binding_1.get_inner();
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let document_id_binding_1 = args.document_id.get_output(context);
-        let document_id_binding = document_id_binding_1.get_inner();
-        let fields_binding_1 = args.fields.get_output(context);
-        let fields_binding = fields_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let collection_binding = args.collection.get_output(context);
+        let database_binding = args.database.get_output(context);
+        let document_id_binding = args.document_id.get_output(context);
+        let fields_binding = args.fields.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firestore/document:Document".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collection".into(),
-                    value: &collection_binding,
+                    value: collection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentId".into(),
-                    value: &document_id_binding,
+                    value: document_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fields".into(),
-                    value: &fields_binding,
+                    value: fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DocumentResult {
-            collection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collection"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            document_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentId"),
-            ),
-            fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fields"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            collection: o.get_field("collection"),
+            create_time: o.get_field("createTime"),
+            database: o.get_field("database"),
+            document_id: o.get_field("documentId"),
+            fields: o.get_field("fields"),
+            name: o.get_field("name"),
+            path: o.get_field("path"),
+            project: o.get_field("project"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

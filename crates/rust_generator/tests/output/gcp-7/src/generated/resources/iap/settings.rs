@@ -168,48 +168,40 @@ pub mod settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SettingsArgs,
     ) -> SettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_settings_binding_1 = args.access_settings.get_output(context);
-        let access_settings_binding = access_settings_binding_1.get_inner();
-        let application_settings_binding_1 = args
-            .application_settings
-            .get_output(context);
-        let application_settings_binding = application_settings_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_settings_binding = args.access_settings.get_output(context);
+        let application_settings_binding = args.application_settings.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:iap/settings:Settings".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessSettings".into(),
-                    value: &access_settings_binding,
+                    value: access_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSettings".into(),
-                    value: &application_settings_binding,
+                    value: application_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SettingsResult {
-            access_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessSettings"),
-            ),
-            application_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationSettings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            access_settings: o.get_field("accessSettings"),
+            application_settings: o.get_field("applicationSettings"),
+            name: o.get_field("name"),
         }
     }
 }

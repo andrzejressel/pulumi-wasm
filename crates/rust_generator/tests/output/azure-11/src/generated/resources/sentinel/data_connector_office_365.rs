@@ -102,76 +102,60 @@ pub mod data_connector_office_365 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataConnectorOffice365Args,
     ) -> DataConnectorOffice365Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exchange_enabled_binding_1 = args.exchange_enabled.get_output(context);
-        let exchange_enabled_binding = exchange_enabled_binding_1.get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let exchange_enabled_binding = args.exchange_enabled.get_output(context);
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let sharepoint_enabled_binding_1 = args.sharepoint_enabled.get_output(context);
-        let sharepoint_enabled_binding = sharepoint_enabled_binding_1.get_inner();
-        let teams_enabled_binding_1 = args.teams_enabled.get_output(context);
-        let teams_enabled_binding = teams_enabled_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let sharepoint_enabled_binding = args.sharepoint_enabled.get_output(context);
+        let teams_enabled_binding = args.teams_enabled.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exchangeEnabled".into(),
-                    value: &exchange_enabled_binding,
+                    value: exchange_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharepointEnabled".into(),
-                    value: &sharepoint_enabled_binding,
+                    value: sharepoint_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "teamsEnabled".into(),
-                    value: &teams_enabled_binding,
+                    value: teams_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataConnectorOffice365Result {
-            exchange_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exchangeEnabled"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sharepoint_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharepointEnabled"),
-            ),
-            teams_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("teamsEnabled"),
-            ),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
+            exchange_enabled: o.get_field("exchangeEnabled"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            name: o.get_field("name"),
+            sharepoint_enabled: o.get_field("sharepointEnabled"),
+            teams_enabled: o.get_field("teamsEnabled"),
+            tenant_id: o.get_field("tenantId"),
         }
     }
 }

@@ -92,92 +92,68 @@ pub mod agreement {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgreementArgs,
     ) -> AgreementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_role_binding_1 = args.access_role.get_output(context);
-        let access_role_binding = access_role_binding_1.get_inner();
-        let base_directory_binding_1 = args.base_directory.get_output(context);
-        let base_directory_binding = base_directory_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let local_profile_id_binding_1 = args.local_profile_id.get_output(context);
-        let local_profile_id_binding = local_profile_id_binding_1.get_inner();
-        let partner_profile_id_binding_1 = args.partner_profile_id.get_output(context);
-        let partner_profile_id_binding = partner_profile_id_binding_1.get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_role_binding = args.access_role.get_output(context);
+        let base_directory_binding = args.base_directory.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let local_profile_id_binding = args.local_profile_id.get_output(context);
+        let partner_profile_id_binding = args.partner_profile_id.get_output(context);
+        let server_id_binding = args.server_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:transfer/agreement:Agreement".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessRole".into(),
-                    value: &access_role_binding,
+                    value: access_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseDirectory".into(),
-                    value: &base_directory_binding,
+                    value: base_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localProfileId".into(),
-                    value: &local_profile_id_binding,
+                    value: local_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerProfileId".into(),
-                    value: &partner_profile_id_binding,
+                    value: partner_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgreementResult {
-            access_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessRole"),
-            ),
-            agreement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agreementId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            base_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseDirectory"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            local_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localProfileId"),
-            ),
-            partner_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerProfileId"),
-            ),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            access_role: o.get_field("accessRole"),
+            agreement_id: o.get_field("agreementId"),
+            arn: o.get_field("arn"),
+            base_directory: o.get_field("baseDirectory"),
+            description: o.get_field("description"),
+            local_profile_id: o.get_field("localProfileId"),
+            partner_profile_id: o.get_field("partnerProfileId"),
+            server_id: o.get_field("serverId"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

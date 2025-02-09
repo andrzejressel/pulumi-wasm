@@ -78,51 +78,43 @@ pub mod cluster_capacity_providers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterCapacityProvidersArgs,
     ) -> ClusterCapacityProvidersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_providers_binding_1 = args.capacity_providers.get_output(context);
-        let capacity_providers_binding = capacity_providers_binding_1.get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let default_capacity_provider_strategies_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capacity_providers_binding = args.capacity_providers.get_output(context);
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let default_capacity_provider_strategies_binding = args
             .default_capacity_provider_strategies
             .get_output(context);
-        let default_capacity_provider_strategies_binding = default_capacity_provider_strategies_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityProviders".into(),
-                    value: &capacity_providers_binding,
+                    value: capacity_providers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCapacityProviderStrategies".into(),
-                    value: &default_capacity_provider_strategies_binding,
+                    value: default_capacity_provider_strategies_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterCapacityProvidersResult {
-            capacity_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityProviders"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            default_capacity_provider_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCapacityProviderStrategies"),
-            ),
+            capacity_providers: o.get_field("capacityProviders"),
+            cluster_name: o.get_field("clusterName"),
+            default_capacity_provider_strategies: o
+                .get_field("defaultCapacityProviderStrategies"),
         }
     }
 }

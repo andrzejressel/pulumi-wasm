@@ -89,65 +89,54 @@ pub mod workspace_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceTableArgs,
     ) -> WorkspaceTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let retention_in_days_binding_1 = args.retention_in_days.get_output(context);
-        let retention_in_days_binding = retention_in_days_binding_1.get_inner();
-        let total_retention_in_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let retention_in_days_binding = args.retention_in_days.get_output(context);
+        let total_retention_in_days_binding = args
             .total_retention_in_days
             .get_output(context);
-        let total_retention_in_days_binding = total_retention_in_days_binding_1
-            .get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/workspaceTable:WorkspaceTable".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionInDays".into(),
-                    value: &retention_in_days_binding,
+                    value: retention_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "totalRetentionInDays".into(),
-                    value: &total_retention_in_days_binding,
+                    value: total_retention_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceTableResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            retention_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionInDays"),
-            ),
-            total_retention_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalRetentionInDays"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            name: o.get_field("name"),
+            plan: o.get_field("plan"),
+            retention_in_days: o.get_field("retentionInDays"),
+            total_retention_in_days: o.get_field("totalRetentionInDays"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

@@ -57,83 +57,59 @@ pub mod get_zone {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetZoneArgs,
     ) -> GetZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_zone_binding_1 = args.private_zone.get_output(context);
-        let private_zone_binding = private_zone_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let private_zone_binding = args.private_zone.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getZone:getZone".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateZone".into(),
-                    value: &private_zone_binding,
+                    value: private_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetZoneResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            caller_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callerReference"),
-            ),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            linked_service_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedServiceDescription"),
-            ),
-            linked_service_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedServicePrincipal"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameServers"),
-            ),
-            primary_name_server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryNameServer"),
-            ),
-            private_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateZone"),
-            ),
-            resource_record_set_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceRecordSetCount"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            arn: o.get_field("arn"),
+            caller_reference: o.get_field("callerReference"),
+            comment: o.get_field("comment"),
+            id: o.get_field("id"),
+            linked_service_description: o.get_field("linkedServiceDescription"),
+            linked_service_principal: o.get_field("linkedServicePrincipal"),
+            name: o.get_field("name"),
+            name_servers: o.get_field("nameServers"),
+            primary_name_server: o.get_field("primaryNameServer"),
+            private_zone: o.get_field("privateZone"),
+            resource_record_set_count: o.get_field("resourceRecordSetCount"),
+            tags: o.get_field("tags"),
+            vpc_id: o.get_field("vpcId"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

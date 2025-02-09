@@ -175,60 +175,49 @@ pub mod server_transparent_data_encryption {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerTransparentDataEncryptionArgs,
     ) -> ServerTransparentDataEncryptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_rotation_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_rotation_enabled_binding = args
             .auto_rotation_enabled
             .get_output(context);
-        let auto_rotation_enabled_binding = auto_rotation_enabled_binding_1.get_inner();
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let managed_hsm_key_id_binding_1 = args.managed_hsm_key_id.get_output(context);
-        let managed_hsm_key_id_binding = managed_hsm_key_id_binding_1.get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let managed_hsm_key_id_binding = args.managed_hsm_key_id.get_output(context);
+        let server_id_binding = args.server_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRotationEnabled".into(),
-                    value: &auto_rotation_enabled_binding,
+                    value: auto_rotation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmKeyId".into(),
-                    value: &managed_hsm_key_id_binding,
+                    value: managed_hsm_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerTransparentDataEncryptionResult {
-            auto_rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRotationEnabled"),
-            ),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            managed_hsm_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedHsmKeyId"),
-            ),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
+            auto_rotation_enabled: o.get_field("autoRotationEnabled"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            managed_hsm_key_id: o.get_field("managedHsmKeyId"),
+            server_id: o.get_field("serverId"),
         }
     }
 }

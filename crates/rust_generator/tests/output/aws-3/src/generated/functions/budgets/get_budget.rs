@@ -75,89 +75,58 @@ pub mod get_budget {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBudgetArgs,
     ) -> GetBudgetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:budgets/getBudget:getBudget".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBudgetResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_adjust_datas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAdjustDatas"),
-            ),
-            budget_exceeded: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("budgetExceeded"),
-            ),
-            budget_limits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("budgetLimits"),
-            ),
-            budget_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("budgetType"),
-            ),
-            calculated_spends: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("calculatedSpends"),
-            ),
-            cost_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("costFilters"),
-            ),
-            cost_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("costTypes"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notifications"),
-            ),
-            planned_limits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("plannedLimits"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            time_period_end: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timePeriodEnd"),
-            ),
-            time_period_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timePeriodStart"),
-            ),
-            time_unit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeUnit"),
-            ),
+            account_id: o.get_field("accountId"),
+            arn: o.get_field("arn"),
+            auto_adjust_datas: o.get_field("autoAdjustDatas"),
+            budget_exceeded: o.get_field("budgetExceeded"),
+            budget_limits: o.get_field("budgetLimits"),
+            budget_type: o.get_field("budgetType"),
+            calculated_spends: o.get_field("calculatedSpends"),
+            cost_filters: o.get_field("costFilters"),
+            cost_types: o.get_field("costTypes"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            notifications: o.get_field("notifications"),
+            planned_limits: o.get_field("plannedLimits"),
+            tags: o.get_field("tags"),
+            time_period_end: o.get_field("timePeriodEnd"),
+            time_period_start: o.get_field("timePeriodStart"),
+            time_unit: o.get_field("timeUnit"),
         }
     }
 }

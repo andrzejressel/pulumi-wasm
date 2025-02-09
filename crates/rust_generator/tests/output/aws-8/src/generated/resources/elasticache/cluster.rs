@@ -398,321 +398,218 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
-        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
-        let auto_minor_version_upgrade_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let apply_immediately_binding = args.apply_immediately.get_output(context);
+        let auto_minor_version_upgrade_binding = args
             .auto_minor_version_upgrade
             .get_output(context);
-        let auto_minor_version_upgrade_binding = auto_minor_version_upgrade_binding_1
-            .get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let az_mode_binding_1 = args.az_mode.get_output(context);
-        let az_mode_binding = az_mode_binding_1.get_inner();
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let final_snapshot_identifier_binding_1 = args
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let az_mode_binding = args.az_mode.get_output(context);
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let final_snapshot_identifier_binding = args
             .final_snapshot_identifier
             .get_output(context);
-        let final_snapshot_identifier_binding = final_snapshot_identifier_binding_1
-            .get_inner();
-        let ip_discovery_binding_1 = args.ip_discovery.get_output(context);
-        let ip_discovery_binding = ip_discovery_binding_1.get_inner();
-        let log_delivery_configurations_binding_1 = args
+        let ip_discovery_binding = args.ip_discovery.get_output(context);
+        let log_delivery_configurations_binding = args
             .log_delivery_configurations
             .get_output(context);
-        let log_delivery_configurations_binding = log_delivery_configurations_binding_1
-            .get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let network_type_binding_1 = args.network_type.get_output(context);
-        let network_type_binding = network_type_binding_1.get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let notification_topic_arn_binding_1 = args
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let network_type_binding = args.network_type.get_output(context);
+        let node_type_binding = args.node_type.get_output(context);
+        let notification_topic_arn_binding = args
             .notification_topic_arn
             .get_output(context);
-        let notification_topic_arn_binding = notification_topic_arn_binding_1
-            .get_inner();
-        let num_cache_nodes_binding_1 = args.num_cache_nodes.get_output(context);
-        let num_cache_nodes_binding = num_cache_nodes_binding_1.get_inner();
-        let outpost_mode_binding_1 = args.outpost_mode.get_output(context);
-        let outpost_mode_binding = outpost_mode_binding_1.get_inner();
-        let parameter_group_name_binding_1 = args
-            .parameter_group_name
-            .get_output(context);
-        let parameter_group_name_binding = parameter_group_name_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let preferred_availability_zones_binding_1 = args
+        let num_cache_nodes_binding = args.num_cache_nodes.get_output(context);
+        let outpost_mode_binding = args.outpost_mode.get_output(context);
+        let parameter_group_name_binding = args.parameter_group_name.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let preferred_availability_zones_binding = args
             .preferred_availability_zones
             .get_output(context);
-        let preferred_availability_zones_binding = preferred_availability_zones_binding_1
-            .get_inner();
-        let preferred_outpost_arn_binding_1 = args
+        let preferred_outpost_arn_binding = args
             .preferred_outpost_arn
             .get_output(context);
-        let preferred_outpost_arn_binding = preferred_outpost_arn_binding_1.get_inner();
-        let replication_group_id_binding_1 = args
-            .replication_group_id
-            .get_output(context);
-        let replication_group_id_binding = replication_group_id_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let snapshot_arns_binding_1 = args.snapshot_arns.get_output(context);
-        let snapshot_arns_binding = snapshot_arns_binding_1.get_inner();
-        let snapshot_name_binding_1 = args.snapshot_name.get_output(context);
-        let snapshot_name_binding = snapshot_name_binding_1.get_inner();
-        let snapshot_retention_limit_binding_1 = args
+        let replication_group_id_binding = args.replication_group_id.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let snapshot_arns_binding = args.snapshot_arns.get_output(context);
+        let snapshot_name_binding = args.snapshot_name.get_output(context);
+        let snapshot_retention_limit_binding = args
             .snapshot_retention_limit
             .get_output(context);
-        let snapshot_retention_limit_binding = snapshot_retention_limit_binding_1
-            .get_inner();
-        let snapshot_window_binding_1 = args.snapshot_window.get_output(context);
-        let snapshot_window_binding = snapshot_window_binding_1.get_inner();
-        let subnet_group_name_binding_1 = args.subnet_group_name.get_output(context);
-        let subnet_group_name_binding = subnet_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_encryption_enabled_binding_1 = args
+        let snapshot_window_binding = args.snapshot_window.get_output(context);
+        let subnet_group_name_binding = args.subnet_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transit_encryption_enabled_binding = args
             .transit_encryption_enabled
             .get_output(context);
-        let transit_encryption_enabled_binding = transit_encryption_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elasticache/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyImmediately".into(),
-                    value: &apply_immediately_binding,
+                    value: apply_immediately_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoMinorVersionUpgrade".into(),
-                    value: &auto_minor_version_upgrade_binding,
+                    value: auto_minor_version_upgrade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azMode".into(),
-                    value: &az_mode_binding,
+                    value: az_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalSnapshotIdentifier".into(),
-                    value: &final_snapshot_identifier_binding,
+                    value: final_snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipDiscovery".into(),
-                    value: &ip_discovery_binding,
+                    value: ip_discovery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDeliveryConfigurations".into(),
-                    value: &log_delivery_configurations_binding,
+                    value: log_delivery_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkType".into(),
-                    value: &network_type_binding,
+                    value: network_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationTopicArn".into(),
-                    value: &notification_topic_arn_binding,
+                    value: notification_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numCacheNodes".into(),
-                    value: &num_cache_nodes_binding,
+                    value: num_cache_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostMode".into(),
-                    value: &outpost_mode_binding,
+                    value: outpost_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterGroupName".into(),
-                    value: &parameter_group_name_binding,
+                    value: parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredAvailabilityZones".into(),
-                    value: &preferred_availability_zones_binding,
+                    value: preferred_availability_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredOutpostArn".into(),
-                    value: &preferred_outpost_arn_binding,
+                    value: preferred_outpost_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationGroupId".into(),
-                    value: &replication_group_id_binding,
+                    value: replication_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotArns".into(),
-                    value: &snapshot_arns_binding,
+                    value: snapshot_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotName".into(),
-                    value: &snapshot_name_binding,
+                    value: snapshot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotRetentionLimit".into(),
-                    value: &snapshot_retention_limit_binding,
+                    value: snapshot_retention_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotWindow".into(),
-                    value: &snapshot_window_binding,
+                    value: snapshot_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetGroupName".into(),
-                    value: &subnet_group_name_binding,
+                    value: subnet_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitEncryptionEnabled".into(),
-                    value: &transit_encryption_enabled_binding,
+                    value: transit_encryption_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applyImmediately"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMinorVersionUpgrade"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            az_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azMode"),
-            ),
-            cache_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheNodes"),
-            ),
-            cluster_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterAddress"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            configuration_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationEndpoint"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            engine_version_actual: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersionActual"),
-            ),
-            final_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalSnapshotIdentifier"),
-            ),
-            ip_discovery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipDiscovery"),
-            ),
-            log_delivery_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDeliveryConfigurations"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            network_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkType"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            notification_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationTopicArn"),
-            ),
-            num_cache_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numCacheNodes"),
-            ),
-            outpost_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostMode"),
-            ),
-            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterGroupName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preferred_availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredAvailabilityZones"),
-            ),
-            preferred_outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredOutpostArn"),
-            ),
-            replication_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationGroupId"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            snapshot_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotArns"),
-            ),
-            snapshot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotName"),
-            ),
-            snapshot_retention_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotRetentionLimit"),
-            ),
-            snapshot_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotWindow"),
-            ),
-            subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitEncryptionEnabled"),
-            ),
+            apply_immediately: o.get_field("applyImmediately"),
+            arn: o.get_field("arn"),
+            auto_minor_version_upgrade: o.get_field("autoMinorVersionUpgrade"),
+            availability_zone: o.get_field("availabilityZone"),
+            az_mode: o.get_field("azMode"),
+            cache_nodes: o.get_field("cacheNodes"),
+            cluster_address: o.get_field("clusterAddress"),
+            cluster_id: o.get_field("clusterId"),
+            configuration_endpoint: o.get_field("configurationEndpoint"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            engine_version_actual: o.get_field("engineVersionActual"),
+            final_snapshot_identifier: o.get_field("finalSnapshotIdentifier"),
+            ip_discovery: o.get_field("ipDiscovery"),
+            log_delivery_configurations: o.get_field("logDeliveryConfigurations"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            network_type: o.get_field("networkType"),
+            node_type: o.get_field("nodeType"),
+            notification_topic_arn: o.get_field("notificationTopicArn"),
+            num_cache_nodes: o.get_field("numCacheNodes"),
+            outpost_mode: o.get_field("outpostMode"),
+            parameter_group_name: o.get_field("parameterGroupName"),
+            port: o.get_field("port"),
+            preferred_availability_zones: o.get_field("preferredAvailabilityZones"),
+            preferred_outpost_arn: o.get_field("preferredOutpostArn"),
+            replication_group_id: o.get_field("replicationGroupId"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            snapshot_arns: o.get_field("snapshotArns"),
+            snapshot_name: o.get_field("snapshotName"),
+            snapshot_retention_limit: o.get_field("snapshotRetentionLimit"),
+            snapshot_window: o.get_field("snapshotWindow"),
+            subnet_group_name: o.get_field("subnetGroupName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_encryption_enabled: o.get_field("transitEncryptionEnabled"),
         }
     }
 }

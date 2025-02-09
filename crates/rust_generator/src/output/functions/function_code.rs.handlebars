@@ -42,38 +42,38 @@ pub struct {{function.struct_name}}Result {
 ///
 #[allow(non_snake_case, unused_imports, dead_code)]
 pub fn invoke(
-    context: &pulumi_gestalt_rust::PulumiContext,
+    context: &pulumi_gestalt_rust::Context,
 {{#if function.input_properties}}
     args: {{function.struct_name}}Args
 {{/if}}
 ){{#if function.output_properties}} -> {{function.struct_name}}Result{{/if}} {
     use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
     use std::collections::HashMap;
+    use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
 
 {{#each function.input_properties}}
-    let {{arg_name}}_binding_1 = args.{{arg_name}}.get_output(context);
-    let {{arg_name}}_binding = {{arg_name}}_binding_1.get_inner();
+    let {{arg_name}}_binding = args.{{arg_name}}.get_output(context);
 {{/each}}
 
-    let request = register_interface::ResourceInvokeRequest {
+    let request = pulumi_gestalt_rust::InvokeResourceRequest {
         token: "{{function.type}}".into(),
         version: {{function.get_version}},
-        object: Vec::from([
+        object: &[
             {{#each function.input_properties}}
-            register_interface::ObjectField { name: "{{name}}".into(), value: &{{arg_name}}_binding },
+            pulumi_gestalt_rust::ResourceRequestObjectField { name: "{{name}}".into(), value: {{arg_name}}_binding.get_id() },
             {{/each}}
-        ])
+        ]
     };
 
 {{#if function.output_properties}}
-    let o = register_interface::invoke(context.get_inner(), &request);
+    let o = context.invoke_resource(request);
     {{function.struct_name}}Result {
     {{#each function.output_properties}}
-        {{arg_name}}: pulumi_gestalt_rust::__private::into_domain(o.extract_field("{{name}}")),
+        {{arg_name}}: o.get_field("{{name}}"),
     {{/each}}
     }
 {{else}}
-    register_interface::invoke(context.get_inner(), &request);
+    context.invoke_resource(request);
 {{/if}}
 }
 

@@ -27,43 +27,36 @@ pub mod get_subscriptions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSubscriptionsArgs,
     ) -> GetSubscriptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_contains_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_contains_binding = args
             .display_name_contains
             .get_output(context);
-        let display_name_contains_binding = display_name_contains_binding_1.get_inner();
-        let display_name_prefix_binding_1 = args.display_name_prefix.get_output(context);
-        let display_name_prefix_binding = display_name_prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let display_name_prefix_binding = args.display_name_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:core/getSubscriptions:getSubscriptions".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayNameContains".into(),
-                    value: &display_name_contains_binding,
+                    value: display_name_contains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayNamePrefix".into(),
-                    value: &display_name_prefix_binding,
+                    value: display_name_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSubscriptionsResult {
-            display_name_contains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayNameContains"),
-            ),
-            display_name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayNamePrefix"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            subscriptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptions"),
-            ),
+            display_name_contains: o.get_field("displayNameContains"),
+            display_name_prefix: o.get_field("displayNamePrefix"),
+            id: o.get_field("id"),
+            subscriptions: o.get_field("subscriptions"),
         }
     }
 }

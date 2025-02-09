@@ -99,56 +99,47 @@ pub mod spring_cloud_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudCustomDomainArgs,
     ) -> SpringCloudCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_name_binding_1 = args.certificate_name.get_output(context);
-        let certificate_name_binding = certificate_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
-        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
-        let thumbprint_binding_1 = args.thumbprint.get_output(context);
-        let thumbprint_binding = thumbprint_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_name_binding = args.certificate_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_output(context);
+        let thumbprint_binding = args.thumbprint.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateName".into(),
-                    value: &certificate_name_binding,
+                    value: certificate_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: &spring_cloud_app_id_binding,
+                    value: spring_cloud_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbprint".into(),
-                    value: &thumbprint_binding,
+                    value: thumbprint_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudCustomDomainResult {
-            certificate_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudAppId"),
-            ),
-            thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprint"),
-            ),
+            certificate_name: o.get_field("certificateName"),
+            name: o.get_field("name"),
+            spring_cloud_app_id: o.get_field("springCloudAppId"),
+            thumbprint: o.get_field("thumbprint"),
         }
     }
 }

@@ -120,125 +120,93 @@ pub mod endpoint_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointGroupArgs,
     ) -> EndpointGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoint_configurations_binding = args
             .endpoint_configurations
             .get_output(context);
-        let endpoint_configurations_binding = endpoint_configurations_binding_1
-            .get_inner();
-        let endpoint_group_region_binding_1 = args
+        let endpoint_group_region_binding = args
             .endpoint_group_region
             .get_output(context);
-        let endpoint_group_region_binding = endpoint_group_region_binding_1.get_inner();
-        let health_check_interval_seconds_binding_1 = args
+        let health_check_interval_seconds_binding = args
             .health_check_interval_seconds
             .get_output(context);
-        let health_check_interval_seconds_binding = health_check_interval_seconds_binding_1
-            .get_inner();
-        let health_check_path_binding_1 = args.health_check_path.get_output(context);
-        let health_check_path_binding = health_check_path_binding_1.get_inner();
-        let health_check_port_binding_1 = args.health_check_port.get_output(context);
-        let health_check_port_binding = health_check_port_binding_1.get_inner();
-        let health_check_protocol_binding_1 = args
+        let health_check_path_binding = args.health_check_path.get_output(context);
+        let health_check_port_binding = args.health_check_port.get_output(context);
+        let health_check_protocol_binding = args
             .health_check_protocol
             .get_output(context);
-        let health_check_protocol_binding = health_check_protocol_binding_1.get_inner();
-        let listener_arn_binding_1 = args.listener_arn.get_output(context);
-        let listener_arn_binding = listener_arn_binding_1.get_inner();
-        let port_overrides_binding_1 = args.port_overrides.get_output(context);
-        let port_overrides_binding = port_overrides_binding_1.get_inner();
-        let threshold_count_binding_1 = args.threshold_count.get_output(context);
-        let threshold_count_binding = threshold_count_binding_1.get_inner();
-        let traffic_dial_percentage_binding_1 = args
+        let listener_arn_binding = args.listener_arn.get_output(context);
+        let port_overrides_binding = args.port_overrides.get_output(context);
+        let threshold_count_binding = args.threshold_count.get_output(context);
+        let traffic_dial_percentage_binding = args
             .traffic_dial_percentage
             .get_output(context);
-        let traffic_dial_percentage_binding = traffic_dial_percentage_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:globalaccelerator/endpointGroup:EndpointGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointConfigurations".into(),
-                    value: &endpoint_configurations_binding,
+                    value: endpoint_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointGroupRegion".into(),
-                    value: &endpoint_group_region_binding,
+                    value: endpoint_group_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckIntervalSeconds".into(),
-                    value: &health_check_interval_seconds_binding,
+                    value: health_check_interval_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckPath".into(),
-                    value: &health_check_path_binding,
+                    value: health_check_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckPort".into(),
-                    value: &health_check_port_binding,
+                    value: health_check_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckProtocol".into(),
-                    value: &health_check_protocol_binding,
+                    value: health_check_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listenerArn".into(),
-                    value: &listener_arn_binding,
+                    value: listener_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portOverrides".into(),
-                    value: &port_overrides_binding,
+                    value: port_overrides_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thresholdCount".into(),
-                    value: &threshold_count_binding,
+                    value: threshold_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficDialPercentage".into(),
-                    value: &traffic_dial_percentage_binding,
+                    value: traffic_dial_percentage_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            endpoint_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointConfigurations"),
-            ),
-            endpoint_group_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointGroupRegion"),
-            ),
-            health_check_interval_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckIntervalSeconds"),
-            ),
-            health_check_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckPath"),
-            ),
-            health_check_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckPort"),
-            ),
-            health_check_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckProtocol"),
-            ),
-            listener_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listenerArn"),
-            ),
-            port_overrides: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portOverrides"),
-            ),
-            threshold_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thresholdCount"),
-            ),
-            traffic_dial_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficDialPercentage"),
-            ),
+            arn: o.get_field("arn"),
+            endpoint_configurations: o.get_field("endpointConfigurations"),
+            endpoint_group_region: o.get_field("endpointGroupRegion"),
+            health_check_interval_seconds: o.get_field("healthCheckIntervalSeconds"),
+            health_check_path: o.get_field("healthCheckPath"),
+            health_check_port: o.get_field("healthCheckPort"),
+            health_check_protocol: o.get_field("healthCheckProtocol"),
+            listener_arn: o.get_field("listenerArn"),
+            port_overrides: o.get_field("portOverrides"),
+            threshold_count: o.get_field("thresholdCount"),
+            traffic_dial_percentage: o.get_field("trafficDialPercentage"),
         }
     }
 }

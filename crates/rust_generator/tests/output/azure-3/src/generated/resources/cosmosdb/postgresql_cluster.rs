@@ -199,259 +199,181 @@ pub mod postgresql_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PostgresqlClusterArgs,
     ) -> PostgresqlClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_login_password_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administrator_login_password_binding = args
             .administrator_login_password
             .get_output(context);
-        let administrator_login_password_binding = administrator_login_password_binding_1
-            .get_inner();
-        let citus_version_binding_1 = args.citus_version.get_output(context);
-        let citus_version_binding = citus_version_binding_1.get_inner();
-        let coordinator_public_ip_access_enabled_binding_1 = args
+        let citus_version_binding = args.citus_version.get_output(context);
+        let coordinator_public_ip_access_enabled_binding = args
             .coordinator_public_ip_access_enabled
             .get_output(context);
-        let coordinator_public_ip_access_enabled_binding = coordinator_public_ip_access_enabled_binding_1
-            .get_inner();
-        let coordinator_server_edition_binding_1 = args
+        let coordinator_server_edition_binding = args
             .coordinator_server_edition
             .get_output(context);
-        let coordinator_server_edition_binding = coordinator_server_edition_binding_1
-            .get_inner();
-        let coordinator_storage_quota_in_mb_binding_1 = args
+        let coordinator_storage_quota_in_mb_binding = args
             .coordinator_storage_quota_in_mb
             .get_output(context);
-        let coordinator_storage_quota_in_mb_binding = coordinator_storage_quota_in_mb_binding_1
-            .get_inner();
-        let coordinator_vcore_count_binding_1 = args
+        let coordinator_vcore_count_binding = args
             .coordinator_vcore_count
             .get_output(context);
-        let coordinator_vcore_count_binding = coordinator_vcore_count_binding_1
-            .get_inner();
-        let ha_enabled_binding_1 = args.ha_enabled.get_output(context);
-        let ha_enabled_binding = ha_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_count_binding_1 = args.node_count.get_output(context);
-        let node_count_binding = node_count_binding_1.get_inner();
-        let node_public_ip_access_enabled_binding_1 = args
+        let ha_enabled_binding = args.ha_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_count_binding = args.node_count.get_output(context);
+        let node_public_ip_access_enabled_binding = args
             .node_public_ip_access_enabled
             .get_output(context);
-        let node_public_ip_access_enabled_binding = node_public_ip_access_enabled_binding_1
-            .get_inner();
-        let node_server_edition_binding_1 = args.node_server_edition.get_output(context);
-        let node_server_edition_binding = node_server_edition_binding_1.get_inner();
-        let node_storage_quota_in_mb_binding_1 = args
+        let node_server_edition_binding = args.node_server_edition.get_output(context);
+        let node_storage_quota_in_mb_binding = args
             .node_storage_quota_in_mb
             .get_output(context);
-        let node_storage_quota_in_mb_binding = node_storage_quota_in_mb_binding_1
-            .get_inner();
-        let node_vcores_binding_1 = args.node_vcores.get_output(context);
-        let node_vcores_binding = node_vcores_binding_1.get_inner();
-        let point_in_time_in_utc_binding_1 = args
-            .point_in_time_in_utc
-            .get_output(context);
-        let point_in_time_in_utc_binding = point_in_time_in_utc_binding_1.get_inner();
-        let preferred_primary_zone_binding_1 = args
+        let node_vcores_binding = args.node_vcores.get_output(context);
+        let point_in_time_in_utc_binding = args.point_in_time_in_utc.get_output(context);
+        let preferred_primary_zone_binding = args
             .preferred_primary_zone
             .get_output(context);
-        let preferred_primary_zone_binding = preferred_primary_zone_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let shards_on_coordinator_enabled_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let shards_on_coordinator_enabled_binding = args
             .shards_on_coordinator_enabled
             .get_output(context);
-        let shards_on_coordinator_enabled_binding = shards_on_coordinator_enabled_binding_1
-            .get_inner();
-        let source_location_binding_1 = args.source_location.get_output(context);
-        let source_location_binding = source_location_binding_1.get_inner();
-        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
-        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
-        let sql_version_binding_1 = args.sql_version.get_output(context);
-        let sql_version_binding = sql_version_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let source_location_binding = args.source_location.get_output(context);
+        let source_resource_id_binding = args.source_resource_id.get_output(context);
+        let sql_version_binding = args.sql_version.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/postgresqlCluster:PostgresqlCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLoginPassword".into(),
-                    value: &administrator_login_password_binding,
+                    value: administrator_login_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "citusVersion".into(),
-                    value: &citus_version_binding,
+                    value: citus_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coordinatorPublicIpAccessEnabled".into(),
-                    value: &coordinator_public_ip_access_enabled_binding,
+                    value: coordinator_public_ip_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coordinatorServerEdition".into(),
-                    value: &coordinator_server_edition_binding,
+                    value: coordinator_server_edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coordinatorStorageQuotaInMb".into(),
-                    value: &coordinator_storage_quota_in_mb_binding,
+                    value: coordinator_storage_quota_in_mb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coordinatorVcoreCount".into(),
-                    value: &coordinator_vcore_count_binding,
+                    value: coordinator_vcore_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "haEnabled".into(),
-                    value: &ha_enabled_binding,
+                    value: ha_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: &node_count_binding,
+                    value: node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePublicIpAccessEnabled".into(),
-                    value: &node_public_ip_access_enabled_binding,
+                    value: node_public_ip_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeServerEdition".into(),
-                    value: &node_server_edition_binding,
+                    value: node_server_edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeStorageQuotaInMb".into(),
-                    value: &node_storage_quota_in_mb_binding,
+                    value: node_storage_quota_in_mb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeVcores".into(),
-                    value: &node_vcores_binding,
+                    value: node_vcores_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeInUtc".into(),
-                    value: &point_in_time_in_utc_binding,
+                    value: point_in_time_in_utc_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredPrimaryZone".into(),
-                    value: &preferred_primary_zone_binding,
+                    value: preferred_primary_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardsOnCoordinatorEnabled".into(),
-                    value: &shards_on_coordinator_enabled_binding,
+                    value: shards_on_coordinator_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceLocation".into(),
-                    value: &source_location_binding,
+                    value: source_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceResourceId".into(),
-                    value: &source_resource_id_binding,
+                    value: source_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlVersion".into(),
-                    value: &sql_version_binding,
+                    value: sql_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PostgresqlClusterResult {
-            administrator_login_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLoginPassword"),
-            ),
-            citus_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("citusVersion"),
-            ),
-            coordinator_public_ip_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coordinatorPublicIpAccessEnabled"),
-            ),
-            coordinator_server_edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coordinatorServerEdition"),
-            ),
-            coordinator_storage_quota_in_mb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coordinatorStorageQuotaInMb"),
-            ),
-            coordinator_vcore_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coordinatorVcoreCount"),
-            ),
-            earliest_restore_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("earliestRestoreTime"),
-            ),
-            ha_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("haEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeCount"),
-            ),
-            node_public_ip_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePublicIpAccessEnabled"),
-            ),
-            node_server_edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeServerEdition"),
-            ),
-            node_storage_quota_in_mb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeStorageQuotaInMb"),
-            ),
-            node_vcores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeVcores"),
-            ),
-            point_in_time_in_utc: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeInUtc"),
-            ),
-            preferred_primary_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredPrimaryZone"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servers"),
-            ),
-            shards_on_coordinator_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardsOnCoordinatorEnabled"),
-            ),
-            source_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceLocation"),
-            ),
-            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceResourceId"),
-            ),
-            sql_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlVersion"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            administrator_login_password: o.get_field("administratorLoginPassword"),
+            citus_version: o.get_field("citusVersion"),
+            coordinator_public_ip_access_enabled: o
+                .get_field("coordinatorPublicIpAccessEnabled"),
+            coordinator_server_edition: o.get_field("coordinatorServerEdition"),
+            coordinator_storage_quota_in_mb: o.get_field("coordinatorStorageQuotaInMb"),
+            coordinator_vcore_count: o.get_field("coordinatorVcoreCount"),
+            earliest_restore_time: o.get_field("earliestRestoreTime"),
+            ha_enabled: o.get_field("haEnabled"),
+            location: o.get_field("location"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            name: o.get_field("name"),
+            node_count: o.get_field("nodeCount"),
+            node_public_ip_access_enabled: o.get_field("nodePublicIpAccessEnabled"),
+            node_server_edition: o.get_field("nodeServerEdition"),
+            node_storage_quota_in_mb: o.get_field("nodeStorageQuotaInMb"),
+            node_vcores: o.get_field("nodeVcores"),
+            point_in_time_in_utc: o.get_field("pointInTimeInUtc"),
+            preferred_primary_zone: o.get_field("preferredPrimaryZone"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            servers: o.get_field("servers"),
+            shards_on_coordinator_enabled: o.get_field("shardsOnCoordinatorEnabled"),
+            source_location: o.get_field("sourceLocation"),
+            source_resource_id: o.get_field("sourceResourceId"),
+            sql_version: o.get_field("sqlVersion"),
+            tags: o.get_field("tags"),
         }
     }
 }

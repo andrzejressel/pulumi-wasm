@@ -50,79 +50,52 @@ pub mod get_cloud_exadata_infrastructure {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCloudExadataInfrastructureArgs,
     ) -> GetCloudExadataInfrastructureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_exadata_infrastructure_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloud_exadata_infrastructure_id_binding = args
             .cloud_exadata_infrastructure_id
             .get_output(context);
-        let cloud_exadata_infrastructure_id_binding = cloud_exadata_infrastructure_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:oracledatabase/getCloudExadataInfrastructure:getCloudExadataInfrastructure"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudExadataInfrastructureId".into(),
-                    value: &cloud_exadata_infrastructure_id_binding,
+                    value: cloud_exadata_infrastructure_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCloudExadataInfrastructureResult {
-            cloud_exadata_infrastructure_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudExadataInfrastructureId"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            entitlement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entitlementId"),
-            ),
-            gcp_oracle_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcpOracleZone"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("properties"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
+            cloud_exadata_infrastructure_id: o.get_field("cloudExadataInfrastructureId"),
+            create_time: o.get_field("createTime"),
+            deletion_protection: o.get_field("deletionProtection"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            entitlement_id: o.get_field("entitlementId"),
+            gcp_oracle_zone: o.get_field("gcpOracleZone"),
+            id: o.get_field("id"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            properties: o.get_field("properties"),
+            pulumi_labels: o.get_field("pulumiLabels"),
         }
     }
 }

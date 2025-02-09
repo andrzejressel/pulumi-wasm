@@ -46,59 +46,45 @@ pub mod get_repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRepositoryArgs,
     ) -> GetRepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let registry_id_binding_1 = args.registry_id.get_output(context);
-        let registry_id_binding = registry_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let registry_id_binding = args.registry_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecr/getRepository:getRepository".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryId".into(),
-                    value: &registry_id_binding,
+                    value: registry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRepositoryResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            encryption_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfigurations"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_scanning_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageScanningConfigurations"),
-            ),
-            image_tag_mutability: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageTagMutability"),
-            ),
-            most_recent_image_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecentImageTags"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
-            repository_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryUrl"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            encryption_configurations: o.get_field("encryptionConfigurations"),
+            id: o.get_field("id"),
+            image_scanning_configurations: o.get_field("imageScanningConfigurations"),
+            image_tag_mutability: o.get_field("imageTagMutability"),
+            most_recent_image_tags: o.get_field("mostRecentImageTags"),
+            name: o.get_field("name"),
+            registry_id: o.get_field("registryId"),
+            repository_url: o.get_field("repositoryUrl"),
+            tags: o.get_field("tags"),
         }
     }
 }

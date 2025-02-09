@@ -150,153 +150,111 @@ pub mod infrastructure_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InfrastructureConfigurationArgs,
     ) -> InfrastructureConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let instance_metadata_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let instance_metadata_options_binding = args
             .instance_metadata_options
             .get_output(context);
-        let instance_metadata_options_binding = instance_metadata_options_binding_1
-            .get_inner();
-        let instance_profile_name_binding_1 = args
+        let instance_profile_name_binding = args
             .instance_profile_name
             .get_output(context);
-        let instance_profile_name_binding = instance_profile_name_binding_1.get_inner();
-        let instance_types_binding_1 = args.instance_types.get_output(context);
-        let instance_types_binding = instance_types_binding_1.get_inner();
-        let key_pair_binding_1 = args.key_pair.get_output(context);
-        let key_pair_binding = key_pair_binding_1.get_inner();
-        let logging_binding_1 = args.logging.get_output(context);
-        let logging_binding = logging_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_tags_binding_1 = args.resource_tags.get_output(context);
-        let resource_tags_binding = resource_tags_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
-        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let terminate_instance_on_failure_binding_1 = args
+        let instance_types_binding = args.instance_types.get_output(context);
+        let key_pair_binding = args.key_pair.get_output(context);
+        let logging_binding = args.logging.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_tags_binding = args.resource_tags.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let terminate_instance_on_failure_binding = args
             .terminate_instance_on_failure
             .get_output(context);
-        let terminate_instance_on_failure_binding = terminate_instance_on_failure_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMetadataOptions".into(),
-                    value: &instance_metadata_options_binding,
+                    value: instance_metadata_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceProfileName".into(),
-                    value: &instance_profile_name_binding,
+                    value: instance_profile_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceTypes".into(),
-                    value: &instance_types_binding,
+                    value: instance_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyPair".into(),
-                    value: &key_pair_binding,
+                    value: key_pair_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logging".into(),
-                    value: &logging_binding,
+                    value: logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: &resource_tags_binding,
+                    value: resource_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArn".into(),
-                    value: &sns_topic_arn_binding,
+                    value: sns_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminateInstanceOnFailure".into(),
-                    value: &terminate_instance_on_failure_binding,
+                    value: terminate_instance_on_failure_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InfrastructureConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            date_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateCreated"),
-            ),
-            date_updated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateUpdated"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            instance_metadata_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceMetadataOptions"),
-            ),
-            instance_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceProfileName"),
-            ),
-            instance_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceTypes"),
-            ),
-            key_pair: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyPair"),
-            ),
-            logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logging"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTags"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsTopicArn"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            terminate_instance_on_failure: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminateInstanceOnFailure"),
-            ),
+            arn: o.get_field("arn"),
+            date_created: o.get_field("dateCreated"),
+            date_updated: o.get_field("dateUpdated"),
+            description: o.get_field("description"),
+            instance_metadata_options: o.get_field("instanceMetadataOptions"),
+            instance_profile_name: o.get_field("instanceProfileName"),
+            instance_types: o.get_field("instanceTypes"),
+            key_pair: o.get_field("keyPair"),
+            logging: o.get_field("logging"),
+            name: o.get_field("name"),
+            resource_tags: o.get_field("resourceTags"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            sns_topic_arn: o.get_field("snsTopicArn"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            terminate_instance_on_failure: o.get_field("terminateInstanceOnFailure"),
         }
     }
 }

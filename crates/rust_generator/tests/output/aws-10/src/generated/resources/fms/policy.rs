@@ -158,161 +158,118 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delete_all_policy_resources_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delete_all_policy_resources_binding = args
             .delete_all_policy_resources
             .get_output(context);
-        let delete_all_policy_resources_binding = delete_all_policy_resources_binding_1
-            .get_inner();
-        let delete_unused_fm_managed_resources_binding_1 = args
+        let delete_unused_fm_managed_resources_binding = args
             .delete_unused_fm_managed_resources
             .get_output(context);
-        let delete_unused_fm_managed_resources_binding = delete_unused_fm_managed_resources_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let exclude_map_binding_1 = args.exclude_map.get_output(context);
-        let exclude_map_binding = exclude_map_binding_1.get_inner();
-        let exclude_resource_tags_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let exclude_map_binding = args.exclude_map.get_output(context);
+        let exclude_resource_tags_binding = args
             .exclude_resource_tags
             .get_output(context);
-        let exclude_resource_tags_binding = exclude_resource_tags_binding_1.get_inner();
-        let include_map_binding_1 = args.include_map.get_output(context);
-        let include_map_binding = include_map_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let remediation_enabled_binding_1 = args.remediation_enabled.get_output(context);
-        let remediation_enabled_binding = remediation_enabled_binding_1.get_inner();
-        let resource_set_ids_binding_1 = args.resource_set_ids.get_output(context);
-        let resource_set_ids_binding = resource_set_ids_binding_1.get_inner();
-        let resource_tags_binding_1 = args.resource_tags.get_output(context);
-        let resource_tags_binding = resource_tags_binding_1.get_inner();
-        let resource_type_binding_1 = args.resource_type.get_output(context);
-        let resource_type_binding = resource_type_binding_1.get_inner();
-        let resource_type_lists_binding_1 = args.resource_type_lists.get_output(context);
-        let resource_type_lists_binding = resource_type_lists_binding_1.get_inner();
-        let security_service_policy_data_binding_1 = args
+        let include_map_binding = args.include_map.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let remediation_enabled_binding = args.remediation_enabled.get_output(context);
+        let resource_set_ids_binding = args.resource_set_ids.get_output(context);
+        let resource_tags_binding = args.resource_tags.get_output(context);
+        let resource_type_binding = args.resource_type.get_output(context);
+        let resource_type_lists_binding = args.resource_type_lists.get_output(context);
+        let security_service_policy_data_binding = args
             .security_service_policy_data
             .get_output(context);
-        let security_service_policy_data_binding = security_service_policy_data_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fms/policy:Policy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteAllPolicyResources".into(),
-                    value: &delete_all_policy_resources_binding,
+                    value: delete_all_policy_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteUnusedFmManagedResources".into(),
-                    value: &delete_unused_fm_managed_resources_binding,
+                    value: delete_unused_fm_managed_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeMap".into(),
-                    value: &exclude_map_binding,
+                    value: exclude_map_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeResourceTags".into(),
-                    value: &exclude_resource_tags_binding,
+                    value: exclude_resource_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeMap".into(),
-                    value: &include_map_binding,
+                    value: include_map_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remediationEnabled".into(),
-                    value: &remediation_enabled_binding,
+                    value: remediation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSetIds".into(),
-                    value: &resource_set_ids_binding,
+                    value: resource_set_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: &resource_tags_binding,
+                    value: resource_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: &resource_type_binding,
+                    value: resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypeLists".into(),
-                    value: &resource_type_lists_binding,
+                    value: resource_type_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityServicePolicyData".into(),
-                    value: &security_service_policy_data_binding,
+                    value: security_service_policy_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            delete_all_policy_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteAllPolicyResources"),
-            ),
-            delete_unused_fm_managed_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteUnusedFmManagedResources"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            exclude_map: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeMap"),
-            ),
-            exclude_resource_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeResourceTags"),
-            ),
-            include_map: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeMap"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_update_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyUpdateToken"),
-            ),
-            remediation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remediationEnabled"),
-            ),
-            resource_set_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceSetIds"),
-            ),
-            resource_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTags"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            resource_type_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTypeLists"),
-            ),
-            security_service_policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityServicePolicyData"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            delete_all_policy_resources: o.get_field("deleteAllPolicyResources"),
+            delete_unused_fm_managed_resources: o
+                .get_field("deleteUnusedFmManagedResources"),
+            description: o.get_field("description"),
+            exclude_map: o.get_field("excludeMap"),
+            exclude_resource_tags: o.get_field("excludeResourceTags"),
+            include_map: o.get_field("includeMap"),
+            name: o.get_field("name"),
+            policy_update_token: o.get_field("policyUpdateToken"),
+            remediation_enabled: o.get_field("remediationEnabled"),
+            resource_set_ids: o.get_field("resourceSetIds"),
+            resource_tags: o.get_field("resourceTags"),
+            resource_type: o.get_field("resourceType"),
+            resource_type_lists: o.get_field("resourceTypeLists"),
+            security_service_policy_data: o.get_field("securityServicePolicyData"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

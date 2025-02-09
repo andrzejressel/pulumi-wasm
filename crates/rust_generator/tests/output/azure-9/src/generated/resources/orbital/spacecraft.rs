@@ -104,87 +104,70 @@ pub mod spacecraft {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpacecraftArgs,
     ) -> SpacecraftResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let links_binding_1 = args.links.get_output(context);
-        let links_binding = links_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let norad_id_binding_1 = args.norad_id.get_output(context);
-        let norad_id_binding = norad_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let title_line_binding_1 = args.title_line.get_output(context);
-        let title_line_binding = title_line_binding_1.get_inner();
-        let two_line_elements_binding_1 = args.two_line_elements.get_output(context);
-        let two_line_elements_binding = two_line_elements_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let links_binding = args.links.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let norad_id_binding = args.norad_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let title_line_binding = args.title_line.get_output(context);
+        let two_line_elements_binding = args.two_line_elements.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:orbital/spacecraft:Spacecraft".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "links".into(),
-                    value: &links_binding,
+                    value: links_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noradId".into(),
-                    value: &norad_id_binding,
+                    value: norad_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "titleLine".into(),
-                    value: &title_line_binding,
+                    value: title_line_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "twoLineElements".into(),
-                    value: &two_line_elements_binding,
+                    value: two_line_elements_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpacecraftResult {
-            links: pulumi_gestalt_rust::__private::into_domain(o.extract_field("links")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            norad_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noradId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            title_line: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("titleLine"),
-            ),
-            two_line_elements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("twoLineElements"),
-            ),
+            links: o.get_field("links"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            norad_id: o.get_field("noradId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            title_line: o.get_field("titleLine"),
+            two_line_elements: o.get_field("twoLineElements"),
         }
     }
 }

@@ -86,61 +86,50 @@ pub mod provisioned_concurrency_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProvisionedConcurrencyConfigArgs,
     ) -> ProvisionedConcurrencyConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let provisioned_concurrent_executions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let function_name_binding = args.function_name.get_output(context);
+        let provisioned_concurrent_executions_binding = args
             .provisioned_concurrent_executions
             .get_output(context);
-        let provisioned_concurrent_executions_binding = provisioned_concurrent_executions_binding_1
-            .get_inner();
-        let qualifier_binding_1 = args.qualifier.get_output(context);
-        let qualifier_binding = qualifier_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let qualifier_binding = args.qualifier.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedConcurrentExecutions".into(),
-                    value: &provisioned_concurrent_executions_binding,
+                    value: provisioned_concurrent_executions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: &qualifier_binding,
+                    value: qualifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProvisionedConcurrencyConfigResult {
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            provisioned_concurrent_executions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedConcurrentExecutions"),
-            ),
-            qualifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifier"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
+            function_name: o.get_field("functionName"),
+            provisioned_concurrent_executions: o
+                .get_field("provisionedConcurrentExecutions"),
+            qualifier: o.get_field("qualifier"),
+            skip_destroy: o.get_field("skipDestroy"),
         }
     }
 }

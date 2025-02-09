@@ -84,63 +84,48 @@ pub mod package {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PackageArgs,
     ) -> PackageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let package_description_binding_1 = args.package_description.get_output(context);
-        let package_description_binding = package_description_binding_1.get_inner();
-        let package_name_binding_1 = args.package_name.get_output(context);
-        let package_name_binding = package_name_binding_1.get_inner();
-        let package_source_binding_1 = args.package_source.get_output(context);
-        let package_source_binding = package_source_binding_1.get_inner();
-        let package_type_binding_1 = args.package_type.get_output(context);
-        let package_type_binding = package_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let package_description_binding = args.package_description.get_output(context);
+        let package_name_binding = args.package_name.get_output(context);
+        let package_source_binding = args.package_source.get_output(context);
+        let package_type_binding = args.package_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opensearch/package:Package".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageDescription".into(),
-                    value: &package_description_binding,
+                    value: package_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageName".into(),
-                    value: &package_name_binding,
+                    value: package_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageSource".into(),
-                    value: &package_source_binding,
+                    value: package_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageType".into(),
-                    value: &package_type_binding,
+                    value: package_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PackageResult {
-            available_package_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availablePackageVersion"),
-            ),
-            package_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageDescription"),
-            ),
-            package_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageId"),
-            ),
-            package_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageName"),
-            ),
-            package_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageSource"),
-            ),
-            package_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageType"),
-            ),
+            available_package_version: o.get_field("availablePackageVersion"),
+            package_description: o.get_field("packageDescription"),
+            package_id: o.get_field("packageId"),
+            package_name: o.get_field("packageName"),
+            package_source: o.get_field("packageSource"),
+            package_type: o.get_field("packageType"),
         }
     }
 }

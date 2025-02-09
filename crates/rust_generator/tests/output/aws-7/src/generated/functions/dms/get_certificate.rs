@@ -42,63 +42,42 @@ pub mod get_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCertificateArgs,
     ) -> GetCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_id_binding_1 = args.certificate_id.get_output(context);
-        let certificate_id_binding = certificate_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_id_binding = args.certificate_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:dms/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateId".into(),
-                    value: &certificate_id_binding,
+                    value: certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCertificateResult {
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            certificate_creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateCreationDate"),
-            ),
-            certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateId"),
-            ),
-            certificate_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateOwner"),
-            ),
-            certificate_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificatePem"),
-            ),
-            certificate_wallet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateWallet"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyLength"),
-            ),
-            signing_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingAlgorithm"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            valid_from_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validFromDate"),
-            ),
-            valid_to_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validToDate"),
-            ),
+            certificate_arn: o.get_field("certificateArn"),
+            certificate_creation_date: o.get_field("certificateCreationDate"),
+            certificate_id: o.get_field("certificateId"),
+            certificate_owner: o.get_field("certificateOwner"),
+            certificate_pem: o.get_field("certificatePem"),
+            certificate_wallet: o.get_field("certificateWallet"),
+            id: o.get_field("id"),
+            key_length: o.get_field("keyLength"),
+            signing_algorithm: o.get_field("signingAlgorithm"),
+            tags: o.get_field("tags"),
+            valid_from_date: o.get_field("validFromDate"),
+            valid_to_date: o.get_field("validToDate"),
         }
     }
 }

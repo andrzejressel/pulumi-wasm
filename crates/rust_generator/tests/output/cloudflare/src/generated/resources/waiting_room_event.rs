@@ -122,168 +122,118 @@ pub mod waiting_room_event {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WaitingRoomEventArgs,
     ) -> WaitingRoomEventResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_page_html_binding_1 = args.custom_page_html.get_output(context);
-        let custom_page_html_binding = custom_page_html_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_session_renewal_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_page_html_binding = args.custom_page_html.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disable_session_renewal_binding = args
             .disable_session_renewal
             .get_output(context);
-        let disable_session_renewal_binding = disable_session_renewal_binding_1
-            .get_inner();
-        let event_end_time_binding_1 = args.event_end_time.get_output(context);
-        let event_end_time_binding = event_end_time_binding_1.get_inner();
-        let event_start_time_binding_1 = args.event_start_time.get_output(context);
-        let event_start_time_binding = event_start_time_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let new_users_per_minute_binding_1 = args
-            .new_users_per_minute
-            .get_output(context);
-        let new_users_per_minute_binding = new_users_per_minute_binding_1.get_inner();
-        let prequeue_start_time_binding_1 = args.prequeue_start_time.get_output(context);
-        let prequeue_start_time_binding = prequeue_start_time_binding_1.get_inner();
-        let queueing_method_binding_1 = args.queueing_method.get_output(context);
-        let queueing_method_binding = queueing_method_binding_1.get_inner();
-        let session_duration_binding_1 = args.session_duration.get_output(context);
-        let session_duration_binding = session_duration_binding_1.get_inner();
-        let shuffle_at_event_start_binding_1 = args
+        let event_end_time_binding = args.event_end_time.get_output(context);
+        let event_start_time_binding = args.event_start_time.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let new_users_per_minute_binding = args.new_users_per_minute.get_output(context);
+        let prequeue_start_time_binding = args.prequeue_start_time.get_output(context);
+        let queueing_method_binding = args.queueing_method.get_output(context);
+        let session_duration_binding = args.session_duration.get_output(context);
+        let shuffle_at_event_start_binding = args
             .shuffle_at_event_start
             .get_output(context);
-        let shuffle_at_event_start_binding = shuffle_at_event_start_binding_1
-            .get_inner();
-        let suspended_binding_1 = args.suspended.get_output(context);
-        let suspended_binding = suspended_binding_1.get_inner();
-        let total_active_users_binding_1 = args.total_active_users.get_output(context);
-        let total_active_users_binding = total_active_users_binding_1.get_inner();
-        let waiting_room_id_binding_1 = args.waiting_room_id.get_output(context);
-        let waiting_room_id_binding = waiting_room_id_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let suspended_binding = args.suspended.get_output(context);
+        let total_active_users_binding = args.total_active_users.get_output(context);
+        let waiting_room_id_binding = args.waiting_room_id.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/waitingRoomEvent:WaitingRoomEvent".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPageHtml".into(),
-                    value: &custom_page_html_binding,
+                    value: custom_page_html_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableSessionRenewal".into(),
-                    value: &disable_session_renewal_binding,
+                    value: disable_session_renewal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventEndTime".into(),
-                    value: &event_end_time_binding,
+                    value: event_end_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventStartTime".into(),
-                    value: &event_start_time_binding,
+                    value: event_start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "newUsersPerMinute".into(),
-                    value: &new_users_per_minute_binding,
+                    value: new_users_per_minute_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prequeueStartTime".into(),
-                    value: &prequeue_start_time_binding,
+                    value: prequeue_start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueingMethod".into(),
-                    value: &queueing_method_binding,
+                    value: queueing_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: &session_duration_binding,
+                    value: session_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shuffleAtEventStart".into(),
-                    value: &shuffle_at_event_start_binding,
+                    value: shuffle_at_event_start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suspended".into(),
-                    value: &suspended_binding,
+                    value: suspended_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "totalActiveUsers".into(),
-                    value: &total_active_users_binding,
+                    value: total_active_users_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitingRoomId".into(),
-                    value: &waiting_room_id_binding,
+                    value: waiting_room_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WaitingRoomEventResult {
-            created_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdOn"),
-            ),
-            custom_page_html: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customPageHtml"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_session_renewal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableSessionRenewal"),
-            ),
-            event_end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventEndTime"),
-            ),
-            event_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventStartTime"),
-            ),
-            modified_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedOn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            new_users_per_minute: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("newUsersPerMinute"),
-            ),
-            prequeue_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prequeueStartTime"),
-            ),
-            queueing_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueingMethod"),
-            ),
-            session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionDuration"),
-            ),
-            shuffle_at_event_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shuffleAtEventStart"),
-            ),
-            suspended: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suspended"),
-            ),
-            total_active_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalActiveUsers"),
-            ),
-            waiting_room_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitingRoomId"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            created_on: o.get_field("createdOn"),
+            custom_page_html: o.get_field("customPageHtml"),
+            description: o.get_field("description"),
+            disable_session_renewal: o.get_field("disableSessionRenewal"),
+            event_end_time: o.get_field("eventEndTime"),
+            event_start_time: o.get_field("eventStartTime"),
+            modified_on: o.get_field("modifiedOn"),
+            name: o.get_field("name"),
+            new_users_per_minute: o.get_field("newUsersPerMinute"),
+            prequeue_start_time: o.get_field("prequeueStartTime"),
+            queueing_method: o.get_field("queueingMethod"),
+            session_duration: o.get_field("sessionDuration"),
+            shuffle_at_event_start: o.get_field("shuffleAtEventStart"),
+            suspended: o.get_field("suspended"),
+            total_active_users: o.get_field("totalActiveUsers"),
+            waiting_room_id: o.get_field("waitingRoomId"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

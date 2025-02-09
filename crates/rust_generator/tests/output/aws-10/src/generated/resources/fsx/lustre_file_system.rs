@@ -228,300 +228,204 @@ pub mod lustre_file_system {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LustreFileSystemArgs,
     ) -> LustreFileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_import_policy_binding_1 = args.auto_import_policy.get_output(context);
-        let auto_import_policy_binding = auto_import_policy_binding_1.get_inner();
-        let automatic_backup_retention_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_import_policy_binding = args.auto_import_policy.get_output(context);
+        let automatic_backup_retention_days_binding = args
             .automatic_backup_retention_days
             .get_output(context);
-        let automatic_backup_retention_days_binding = automatic_backup_retention_days_binding_1
-            .get_inner();
-        let backup_id_binding_1 = args.backup_id.get_output(context);
-        let backup_id_binding = backup_id_binding_1.get_inner();
-        let copy_tags_to_backups_binding_1 = args
-            .copy_tags_to_backups
-            .get_output(context);
-        let copy_tags_to_backups_binding = copy_tags_to_backups_binding_1.get_inner();
-        let daily_automatic_backup_start_time_binding_1 = args
+        let backup_id_binding = args.backup_id.get_output(context);
+        let copy_tags_to_backups_binding = args.copy_tags_to_backups.get_output(context);
+        let daily_automatic_backup_start_time_binding = args
             .daily_automatic_backup_start_time
             .get_output(context);
-        let daily_automatic_backup_start_time_binding = daily_automatic_backup_start_time_binding_1
-            .get_inner();
-        let data_compression_type_binding_1 = args
+        let data_compression_type_binding = args
             .data_compression_type
             .get_output(context);
-        let data_compression_type_binding = data_compression_type_binding_1.get_inner();
-        let deployment_type_binding_1 = args.deployment_type.get_output(context);
-        let deployment_type_binding = deployment_type_binding_1.get_inner();
-        let drive_cache_type_binding_1 = args.drive_cache_type.get_output(context);
-        let drive_cache_type_binding = drive_cache_type_binding_1.get_inner();
-        let efa_enabled_binding_1 = args.efa_enabled.get_output(context);
-        let efa_enabled_binding = efa_enabled_binding_1.get_inner();
-        let export_path_binding_1 = args.export_path.get_output(context);
-        let export_path_binding = export_path_binding_1.get_inner();
-        let file_system_type_version_binding_1 = args
+        let deployment_type_binding = args.deployment_type.get_output(context);
+        let drive_cache_type_binding = args.drive_cache_type.get_output(context);
+        let efa_enabled_binding = args.efa_enabled.get_output(context);
+        let export_path_binding = args.export_path.get_output(context);
+        let file_system_type_version_binding = args
             .file_system_type_version
             .get_output(context);
-        let file_system_type_version_binding = file_system_type_version_binding_1
-            .get_inner();
-        let final_backup_tags_binding_1 = args.final_backup_tags.get_output(context);
-        let final_backup_tags_binding = final_backup_tags_binding_1.get_inner();
-        let import_path_binding_1 = args.import_path.get_output(context);
-        let import_path_binding = import_path_binding_1.get_inner();
-        let imported_file_chunk_size_binding_1 = args
+        let final_backup_tags_binding = args.final_backup_tags.get_output(context);
+        let import_path_binding = args.import_path.get_output(context);
+        let imported_file_chunk_size_binding = args
             .imported_file_chunk_size
             .get_output(context);
-        let imported_file_chunk_size_binding = imported_file_chunk_size_binding_1
-            .get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let log_configuration_binding_1 = args.log_configuration.get_output(context);
-        let log_configuration_binding = log_configuration_binding_1.get_inner();
-        let metadata_configuration_binding_1 = args
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let log_configuration_binding = args.log_configuration.get_output(context);
+        let metadata_configuration_binding = args
             .metadata_configuration
             .get_output(context);
-        let metadata_configuration_binding = metadata_configuration_binding_1
-            .get_inner();
-        let per_unit_storage_throughput_binding_1 = args
+        let per_unit_storage_throughput_binding = args
             .per_unit_storage_throughput
             .get_output(context);
-        let per_unit_storage_throughput_binding = per_unit_storage_throughput_binding_1
-            .get_inner();
-        let root_squash_configuration_binding_1 = args
+        let root_squash_configuration_binding = args
             .root_squash_configuration
             .get_output(context);
-        let root_squash_configuration_binding = root_squash_configuration_binding_1
-            .get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let skip_final_backup_binding_1 = args.skip_final_backup.get_output(context);
-        let skip_final_backup_binding = skip_final_backup_binding_1.get_inner();
-        let storage_capacity_binding_1 = args.storage_capacity.get_output(context);
-        let storage_capacity_binding = storage_capacity_binding_1.get_inner();
-        let storage_type_binding_1 = args.storage_type.get_output(context);
-        let storage_type_binding = storage_type_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let weekly_maintenance_start_time_binding_1 = args
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let skip_final_backup_binding = args.skip_final_backup.get_output(context);
+        let storage_capacity_binding = args.storage_capacity.get_output(context);
+        let storage_type_binding = args.storage_type.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let weekly_maintenance_start_time_binding = args
             .weekly_maintenance_start_time
             .get_output(context);
-        let weekly_maintenance_start_time_binding = weekly_maintenance_start_time_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fsx/lustreFileSystem:LustreFileSystem".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoImportPolicy".into(),
-                    value: &auto_import_policy_binding,
+                    value: auto_import_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticBackupRetentionDays".into(),
-                    value: &automatic_backup_retention_days_binding,
+                    value: automatic_backup_retention_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupId".into(),
-                    value: &backup_id_binding,
+                    value: backup_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToBackups".into(),
-                    value: &copy_tags_to_backups_binding,
+                    value: copy_tags_to_backups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyAutomaticBackupStartTime".into(),
-                    value: &daily_automatic_backup_start_time_binding,
+                    value: daily_automatic_backup_start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCompressionType".into(),
-                    value: &data_compression_type_binding,
+                    value: data_compression_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentType".into(),
-                    value: &deployment_type_binding,
+                    value: deployment_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "driveCacheType".into(),
-                    value: &drive_cache_type_binding,
+                    value: drive_cache_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "efaEnabled".into(),
-                    value: &efa_enabled_binding,
+                    value: efa_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportPath".into(),
-                    value: &export_path_binding,
+                    value: export_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemTypeVersion".into(),
-                    value: &file_system_type_version_binding,
+                    value: file_system_type_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalBackupTags".into(),
-                    value: &final_backup_tags_binding,
+                    value: final_backup_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importPath".into(),
-                    value: &import_path_binding,
+                    value: import_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importedFileChunkSize".into(),
-                    value: &imported_file_chunk_size_binding,
+                    value: imported_file_chunk_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfiguration".into(),
-                    value: &log_configuration_binding,
+                    value: log_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataConfiguration".into(),
-                    value: &metadata_configuration_binding,
+                    value: metadata_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perUnitStorageThroughput".into(),
-                    value: &per_unit_storage_throughput_binding,
+                    value: per_unit_storage_throughput_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootSquashConfiguration".into(),
-                    value: &root_squash_configuration_binding,
+                    value: root_squash_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFinalBackup".into(),
-                    value: &skip_final_backup_binding,
+                    value: skip_final_backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacity".into(),
-                    value: &storage_capacity_binding,
+                    value: storage_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: &storage_type_binding,
+                    value: storage_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyMaintenanceStartTime".into(),
-                    value: &weekly_maintenance_start_time_binding,
+                    value: weekly_maintenance_start_time_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LustreFileSystemResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_import_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoImportPolicy"),
-            ),
-            automatic_backup_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticBackupRetentionDays"),
-            ),
-            backup_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupId"),
-            ),
-            copy_tags_to_backups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyTagsToBackups"),
-            ),
-            daily_automatic_backup_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyAutomaticBackupStartTime"),
-            ),
-            data_compression_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCompressionType"),
-            ),
-            deployment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentType"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            drive_cache_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("driveCacheType"),
-            ),
-            efa_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("efaEnabled"),
-            ),
-            export_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportPath"),
-            ),
-            file_system_type_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemTypeVersion"),
-            ),
-            final_backup_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalBackupTags"),
-            ),
-            import_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importPath"),
-            ),
-            imported_file_chunk_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importedFileChunkSize"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            log_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfiguration"),
-            ),
-            metadata_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataConfiguration"),
-            ),
-            mount_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountName"),
-            ),
-            network_interface_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceIds"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            per_unit_storage_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perUnitStorageThroughput"),
-            ),
-            root_squash_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootSquashConfiguration"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            skip_final_backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipFinalBackup"),
-            ),
-            storage_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageCapacity"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            weekly_maintenance_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weeklyMaintenanceStartTime"),
-            ),
+            arn: o.get_field("arn"),
+            auto_import_policy: o.get_field("autoImportPolicy"),
+            automatic_backup_retention_days: o.get_field("automaticBackupRetentionDays"),
+            backup_id: o.get_field("backupId"),
+            copy_tags_to_backups: o.get_field("copyTagsToBackups"),
+            daily_automatic_backup_start_time: o
+                .get_field("dailyAutomaticBackupStartTime"),
+            data_compression_type: o.get_field("dataCompressionType"),
+            deployment_type: o.get_field("deploymentType"),
+            dns_name: o.get_field("dnsName"),
+            drive_cache_type: o.get_field("driveCacheType"),
+            efa_enabled: o.get_field("efaEnabled"),
+            export_path: o.get_field("exportPath"),
+            file_system_type_version: o.get_field("fileSystemTypeVersion"),
+            final_backup_tags: o.get_field("finalBackupTags"),
+            import_path: o.get_field("importPath"),
+            imported_file_chunk_size: o.get_field("importedFileChunkSize"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            log_configuration: o.get_field("logConfiguration"),
+            metadata_configuration: o.get_field("metadataConfiguration"),
+            mount_name: o.get_field("mountName"),
+            network_interface_ids: o.get_field("networkInterfaceIds"),
+            owner_id: o.get_field("ownerId"),
+            per_unit_storage_throughput: o.get_field("perUnitStorageThroughput"),
+            root_squash_configuration: o.get_field("rootSquashConfiguration"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            skip_final_backup: o.get_field("skipFinalBackup"),
+            storage_capacity: o.get_field("storageCapacity"),
+            storage_type: o.get_field("storageType"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
+            weekly_maintenance_start_time: o.get_field("weeklyMaintenanceStartTime"),
         }
     }
 }

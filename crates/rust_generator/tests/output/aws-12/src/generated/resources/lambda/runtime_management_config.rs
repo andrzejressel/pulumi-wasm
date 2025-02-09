@@ -92,60 +92,47 @@ pub mod runtime_management_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RuntimeManagementConfigArgs,
     ) -> RuntimeManagementConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let qualifier_binding_1 = args.qualifier.get_output(context);
-        let qualifier_binding = qualifier_binding_1.get_inner();
-        let runtime_version_arn_binding_1 = args.runtime_version_arn.get_output(context);
-        let runtime_version_arn_binding = runtime_version_arn_binding_1.get_inner();
-        let update_runtime_on_binding_1 = args.update_runtime_on.get_output(context);
-        let update_runtime_on_binding = update_runtime_on_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let function_name_binding = args.function_name.get_output(context);
+        let qualifier_binding = args.qualifier.get_output(context);
+        let runtime_version_arn_binding = args.runtime_version_arn.get_output(context);
+        let update_runtime_on_binding = args.update_runtime_on.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: &qualifier_binding,
+                    value: qualifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeVersionArn".into(),
-                    value: &runtime_version_arn_binding,
+                    value: runtime_version_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updateRuntimeOn".into(),
-                    value: &update_runtime_on_binding,
+                    value: update_runtime_on_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RuntimeManagementConfigResult {
-            function_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionArn"),
-            ),
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            qualifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifier"),
-            ),
-            runtime_version_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeVersionArn"),
-            ),
-            update_runtime_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateRuntimeOn"),
-            ),
+            function_arn: o.get_field("functionArn"),
+            function_name: o.get_field("functionName"),
+            qualifier: o.get_field("qualifier"),
+            runtime_version_arn: o.get_field("runtimeVersionArn"),
+            update_runtime_on: o.get_field("updateRuntimeOn"),
         }
     }
 }

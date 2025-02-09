@@ -507,285 +507,194 @@ pub mod disk {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DiskArgs,
     ) -> DiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_mode_binding_1 = args.access_mode.get_output(context);
-        let access_mode_binding = access_mode_binding_1.get_inner();
-        let async_primary_disk_binding_1 = args.async_primary_disk.get_output(context);
-        let async_primary_disk_binding = async_primary_disk_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disk_encryption_key_binding_1 = args.disk_encryption_key.get_output(context);
-        let disk_encryption_key_binding = disk_encryption_key_binding_1.get_inner();
-        let enable_confidential_compute_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_mode_binding = args.access_mode.get_output(context);
+        let async_primary_disk_binding = args.async_primary_disk.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disk_encryption_key_binding = args.disk_encryption_key.get_output(context);
+        let enable_confidential_compute_binding = args
             .enable_confidential_compute
             .get_output(context);
-        let enable_confidential_compute_binding = enable_confidential_compute_binding_1
-            .get_inner();
-        let guest_os_features_binding_1 = args.guest_os_features.get_output(context);
-        let guest_os_features_binding = guest_os_features_binding_1.get_inner();
-        let image_binding_1 = args.image.get_output(context);
-        let image_binding = image_binding_1.get_inner();
-        let interface_binding_1 = args.interface.get_output(context);
-        let interface_binding = interface_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let licenses_binding_1 = args.licenses.get_output(context);
-        let licenses_binding = licenses_binding_1.get_inner();
-        let multi_writer_binding_1 = args.multi_writer.get_output(context);
-        let multi_writer_binding = multi_writer_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let physical_block_size_bytes_binding_1 = args
+        let guest_os_features_binding = args.guest_os_features.get_output(context);
+        let image_binding = args.image.get_output(context);
+        let interface_binding = args.interface.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let licenses_binding = args.licenses.get_output(context);
+        let multi_writer_binding = args.multi_writer.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let physical_block_size_bytes_binding = args
             .physical_block_size_bytes
             .get_output(context);
-        let physical_block_size_bytes_binding = physical_block_size_bytes_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let provisioned_iops_binding_1 = args.provisioned_iops.get_output(context);
-        let provisioned_iops_binding = provisioned_iops_binding_1.get_inner();
-        let provisioned_throughput_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let provisioned_iops_binding = args.provisioned_iops.get_output(context);
+        let provisioned_throughput_binding = args
             .provisioned_throughput
             .get_output(context);
-        let provisioned_throughput_binding = provisioned_throughput_binding_1
-            .get_inner();
-        let resource_policies_binding_1 = args.resource_policies.get_output(context);
-        let resource_policies_binding = resource_policies_binding_1.get_inner();
-        let size_binding_1 = args.size.get_output(context);
-        let size_binding = size_binding_1.get_inner();
-        let snapshot_binding_1 = args.snapshot.get_output(context);
-        let snapshot_binding = snapshot_binding_1.get_inner();
-        let source_disk_binding_1 = args.source_disk.get_output(context);
-        let source_disk_binding = source_disk_binding_1.get_inner();
-        let source_image_encryption_key_binding_1 = args
+        let resource_policies_binding = args.resource_policies.get_output(context);
+        let size_binding = args.size.get_output(context);
+        let snapshot_binding = args.snapshot.get_output(context);
+        let source_disk_binding = args.source_disk.get_output(context);
+        let source_image_encryption_key_binding = args
             .source_image_encryption_key
             .get_output(context);
-        let source_image_encryption_key_binding = source_image_encryption_key_binding_1
-            .get_inner();
-        let source_snapshot_encryption_key_binding_1 = args
+        let source_snapshot_encryption_key_binding = args
             .source_snapshot_encryption_key
             .get_output(context);
-        let source_snapshot_encryption_key_binding = source_snapshot_encryption_key_binding_1
-            .get_inner();
-        let storage_pool_binding_1 = args.storage_pool.get_output(context);
-        let storage_pool_binding = storage_pool_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_pool_binding = args.storage_pool.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/disk:Disk".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessMode".into(),
-                    value: &access_mode_binding,
+                    value: access_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "asyncPrimaryDisk".into(),
-                    value: &async_primary_disk_binding,
+                    value: async_primary_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryptionKey".into(),
-                    value: &disk_encryption_key_binding,
+                    value: disk_encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableConfidentialCompute".into(),
-                    value: &enable_confidential_compute_binding,
+                    value: enable_confidential_compute_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestOsFeatures".into(),
-                    value: &guest_os_features_binding,
+                    value: guest_os_features_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "image".into(),
-                    value: &image_binding,
+                    value: image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interface".into(),
-                    value: &interface_binding,
+                    value: interface_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenses".into(),
-                    value: &licenses_binding,
+                    value: licenses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiWriter".into(),
-                    value: &multi_writer_binding,
+                    value: multi_writer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "physicalBlockSizeBytes".into(),
-                    value: &physical_block_size_bytes_binding,
+                    value: physical_block_size_bytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedIops".into(),
-                    value: &provisioned_iops_binding,
+                    value: provisioned_iops_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedThroughput".into(),
-                    value: &provisioned_throughput_binding,
+                    value: provisioned_throughput_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourcePolicies".into(),
-                    value: &resource_policies_binding,
+                    value: resource_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: &size_binding,
+                    value: size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshot".into(),
-                    value: &snapshot_binding,
+                    value: snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDisk".into(),
-                    value: &source_disk_binding,
+                    value: source_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImageEncryptionKey".into(),
-                    value: &source_image_encryption_key_binding,
+                    value: source_image_encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSnapshotEncryptionKey".into(),
-                    value: &source_snapshot_encryption_key_binding,
+                    value: source_snapshot_encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storagePool".into(),
-                    value: &storage_pool_binding,
+                    value: storage_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DiskResult {
-            access_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessMode"),
-            ),
-            async_primary_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("asyncPrimaryDisk"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disk_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptionKey"),
-            ),
-            disk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskId"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_confidential_compute: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableConfidentialCompute"),
-            ),
-            guest_os_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestOsFeatures"),
-            ),
-            image: pulumi_gestalt_rust::__private::into_domain(o.extract_field("image")),
-            interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interface"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            last_attach_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastAttachTimestamp"),
-            ),
-            last_detach_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastDetachTimestamp"),
-            ),
-            licenses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenses"),
-            ),
-            multi_writer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiWriter"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            physical_block_size_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("physicalBlockSizeBytes"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            provisioned_iops: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedIops"),
-            ),
-            provisioned_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedThroughput"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            resource_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourcePolicies"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshot"),
-            ),
-            source_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDisk"),
-            ),
-            source_disk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDiskId"),
-            ),
-            source_image_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceImageEncryptionKey"),
-            ),
-            source_image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceImageId"),
-            ),
-            source_snapshot_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSnapshotEncryptionKey"),
-            ),
-            source_snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSnapshotId"),
-            ),
-            storage_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storagePool"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            access_mode: o.get_field("accessMode"),
+            async_primary_disk: o.get_field("asyncPrimaryDisk"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            disk_encryption_key: o.get_field("diskEncryptionKey"),
+            disk_id: o.get_field("diskId"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_confidential_compute: o.get_field("enableConfidentialCompute"),
+            guest_os_features: o.get_field("guestOsFeatures"),
+            image: o.get_field("image"),
+            interface: o.get_field("interface"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            last_attach_timestamp: o.get_field("lastAttachTimestamp"),
+            last_detach_timestamp: o.get_field("lastDetachTimestamp"),
+            licenses: o.get_field("licenses"),
+            multi_writer: o.get_field("multiWriter"),
+            name: o.get_field("name"),
+            physical_block_size_bytes: o.get_field("physicalBlockSizeBytes"),
+            project: o.get_field("project"),
+            provisioned_iops: o.get_field("provisionedIops"),
+            provisioned_throughput: o.get_field("provisionedThroughput"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            resource_policies: o.get_field("resourcePolicies"),
+            self_link: o.get_field("selfLink"),
+            size: o.get_field("size"),
+            snapshot: o.get_field("snapshot"),
+            source_disk: o.get_field("sourceDisk"),
+            source_disk_id: o.get_field("sourceDiskId"),
+            source_image_encryption_key: o.get_field("sourceImageEncryptionKey"),
+            source_image_id: o.get_field("sourceImageId"),
+            source_snapshot_encryption_key: o.get_field("sourceSnapshotEncryptionKey"),
+            source_snapshot_id: o.get_field("sourceSnapshotId"),
+            storage_pool: o.get_field("storagePool"),
+            type_: o.get_field("type"),
+            users: o.get_field("users"),
+            zone: o.get_field("zone"),
         }
     }
 }

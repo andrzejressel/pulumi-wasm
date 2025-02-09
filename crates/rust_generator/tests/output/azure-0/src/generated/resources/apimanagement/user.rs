@@ -117,105 +117,82 @@ pub mod user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let confirmation_binding_1 = args.confirmation.get_output(context);
-        let confirmation_binding = confirmation_binding_1.get_inner();
-        let email_binding_1 = args.email.get_output(context);
-        let email_binding = email_binding_1.get_inner();
-        let first_name_binding_1 = args.first_name.get_output(context);
-        let first_name_binding = first_name_binding_1.get_inner();
-        let last_name_binding_1 = args.last_name.get_output(context);
-        let last_name_binding = last_name_binding_1.get_inner();
-        let note_binding_1 = args.note.get_output(context);
-        let note_binding = note_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let confirmation_binding = args.confirmation.get_output(context);
+        let email_binding = args.email.get_output(context);
+        let first_name_binding = args.first_name.get_output(context);
+        let last_name_binding = args.last_name.get_output(context);
+        let note_binding = args.note.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/user:User".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confirmation".into(),
-                    value: &confirmation_binding,
+                    value: confirmation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: &email_binding,
+                    value: email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstName".into(),
-                    value: &first_name_binding,
+                    value: first_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastName".into(),
-                    value: &last_name_binding,
+                    value: last_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "note".into(),
-                    value: &note_binding,
+                    value: note_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            confirmation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confirmation"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            first_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstName"),
-            ),
-            last_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastName"),
-            ),
-            note: pulumi_gestalt_rust::__private::into_domain(o.extract_field("note")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
+            api_management_name: o.get_field("apiManagementName"),
+            confirmation: o.get_field("confirmation"),
+            email: o.get_field("email"),
+            first_name: o.get_field("firstName"),
+            last_name: o.get_field("lastName"),
+            note: o.get_field("note"),
+            password: o.get_field("password"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            state: o.get_field("state"),
+            user_id: o.get_field("userId"),
         }
     }
 }

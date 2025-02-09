@@ -183,101 +183,74 @@ pub mod stack_instances {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StackInstancesArgs,
     ) -> StackInstancesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accounts_binding_1 = args.accounts.get_output(context);
-        let accounts_binding = accounts_binding_1.get_inner();
-        let call_as_binding_1 = args.call_as.get_output(context);
-        let call_as_binding = call_as_binding_1.get_inner();
-        let deployment_targets_binding_1 = args.deployment_targets.get_output(context);
-        let deployment_targets_binding = deployment_targets_binding_1.get_inner();
-        let operation_preferences_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accounts_binding = args.accounts.get_output(context);
+        let call_as_binding = args.call_as.get_output(context);
+        let deployment_targets_binding = args.deployment_targets.get_output(context);
+        let operation_preferences_binding = args
             .operation_preferences
             .get_output(context);
-        let operation_preferences_binding = operation_preferences_binding_1.get_inner();
-        let parameter_overrides_binding_1 = args.parameter_overrides.get_output(context);
-        let parameter_overrides_binding = parameter_overrides_binding_1.get_inner();
-        let regions_binding_1 = args.regions.get_output(context);
-        let regions_binding = regions_binding_1.get_inner();
-        let retain_stacks_binding_1 = args.retain_stacks.get_output(context);
-        let retain_stacks_binding = retain_stacks_binding_1.get_inner();
-        let stack_set_name_binding_1 = args.stack_set_name.get_output(context);
-        let stack_set_name_binding = stack_set_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let parameter_overrides_binding = args.parameter_overrides.get_output(context);
+        let regions_binding = args.regions.get_output(context);
+        let retain_stacks_binding = args.retain_stacks.get_output(context);
+        let stack_set_name_binding = args.stack_set_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudformation/stackInstances:StackInstances".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accounts".into(),
-                    value: &accounts_binding,
+                    value: accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callAs".into(),
-                    value: &call_as_binding,
+                    value: call_as_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentTargets".into(),
-                    value: &deployment_targets_binding,
+                    value: deployment_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationPreferences".into(),
-                    value: &operation_preferences_binding,
+                    value: operation_preferences_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterOverrides".into(),
-                    value: &parameter_overrides_binding,
+                    value: parameter_overrides_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: &regions_binding,
+                    value: regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainStacks".into(),
-                    value: &retain_stacks_binding,
+                    value: retain_stacks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackSetName".into(),
-                    value: &stack_set_name_binding,
+                    value: stack_set_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StackInstancesResult {
-            accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accounts"),
-            ),
-            call_as: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callAs"),
-            ),
-            deployment_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentTargets"),
-            ),
-            operation_preferences: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operationPreferences"),
-            ),
-            parameter_overrides: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterOverrides"),
-            ),
-            regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regions"),
-            ),
-            retain_stacks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retainStacks"),
-            ),
-            stack_instance_summaries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackInstanceSummaries"),
-            ),
-            stack_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackSetId"),
-            ),
-            stack_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackSetName"),
-            ),
+            accounts: o.get_field("accounts"),
+            call_as: o.get_field("callAs"),
+            deployment_targets: o.get_field("deploymentTargets"),
+            operation_preferences: o.get_field("operationPreferences"),
+            parameter_overrides: o.get_field("parameterOverrides"),
+            regions: o.get_field("regions"),
+            retain_stacks: o.get_field("retainStacks"),
+            stack_instance_summaries: o.get_field("stackInstanceSummaries"),
+            stack_set_id: o.get_field("stackSetId"),
+            stack_set_name: o.get_field("stackSetName"),
         }
     }
 }

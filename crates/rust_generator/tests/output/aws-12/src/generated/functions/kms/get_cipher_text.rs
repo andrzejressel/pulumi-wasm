@@ -33,50 +33,40 @@ pub mod get_cipher_text {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCipherTextArgs,
     ) -> GetCipherTextResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let context_binding_1 = args.context.get_output(context);
-        let context_binding = context_binding_1.get_inner();
-        let key_id_binding_1 = args.key_id.get_output(context);
-        let key_id_binding = key_id_binding_1.get_inner();
-        let plaintext_binding_1 = args.plaintext.get_output(context);
-        let plaintext_binding = plaintext_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let context_binding = args.context.get_output(context);
+        let key_id_binding = args.key_id.get_output(context);
+        let plaintext_binding = args.plaintext.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kms/getCipherText:getCipherText".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: &context_binding,
+                    value: context_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: &key_id_binding,
+                    value: key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plaintext".into(),
-                    value: &plaintext_binding,
+                    value: plaintext_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCipherTextResult {
-            ciphertext_blob: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ciphertextBlob"),
-            ),
-            context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("context"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyId"),
-            ),
-            plaintext: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("plaintext"),
-            ),
+            ciphertext_blob: o.get_field("ciphertextBlob"),
+            context: o.get_field("context"),
+            id: o.get_field("id"),
+            key_id: o.get_field("keyId"),
+            plaintext: o.get_field("plaintext"),
         }
     }
 }

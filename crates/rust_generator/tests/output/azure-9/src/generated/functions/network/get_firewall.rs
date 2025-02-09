@@ -58,74 +58,50 @@ pub mod get_firewall {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFirewallArgs,
     ) -> GetFirewallResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_proxy_enabled_binding_1 = args.dns_proxy_enabled.get_output(context);
-        let dns_proxy_enabled_binding = dns_proxy_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dns_proxy_enabled_binding = args.dns_proxy_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getFirewall:getFirewall".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsProxyEnabled".into(),
-                    value: &dns_proxy_enabled_binding,
+                    value: dns_proxy_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFirewallResult {
-            dns_proxy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsProxyEnabled"),
-            ),
-            dns_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsServers"),
-            ),
-            firewall_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallPolicyId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfigurations"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementIpConfigurations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            sku_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuTier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            threat_intel_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatIntelMode"),
-            ),
-            virtual_hubs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualHubs"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            dns_proxy_enabled: o.get_field("dnsProxyEnabled"),
+            dns_servers: o.get_field("dnsServers"),
+            firewall_policy_id: o.get_field("firewallPolicyId"),
+            id: o.get_field("id"),
+            ip_configurations: o.get_field("ipConfigurations"),
+            location: o.get_field("location"),
+            management_ip_configurations: o.get_field("managementIpConfigurations"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            sku_tier: o.get_field("skuTier"),
+            tags: o.get_field("tags"),
+            threat_intel_mode: o.get_field("threatIntelMode"),
+            virtual_hubs: o.get_field("virtualHubs"),
+            zones: o.get_field("zones"),
         }
     }
 }

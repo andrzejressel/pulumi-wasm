@@ -132,102 +132,76 @@ pub mod rate_limit {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RateLimitArgs,
     ) -> RateLimitResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let bypass_url_patterns_binding_1 = args.bypass_url_patterns.get_output(context);
-        let bypass_url_patterns_binding = bypass_url_patterns_binding_1.get_inner();
-        let correlate_binding_1 = args.correlate.get_output(context);
-        let correlate_binding = correlate_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let match__binding_1 = args.match_.get_output(context);
-        let match__binding = match__binding_1.get_inner();
-        let period_binding_1 = args.period.get_output(context);
-        let period_binding = period_binding_1.get_inner();
-        let threshold_binding_1 = args.threshold.get_output(context);
-        let threshold_binding = threshold_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let bypass_url_patterns_binding = args.bypass_url_patterns.get_output(context);
+        let correlate_binding = args.correlate.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let match__binding = args.match_.get_output(context);
+        let period_binding = args.period.get_output(context);
+        let threshold_binding = args.threshold.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/rateLimit:RateLimit".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassUrlPatterns".into(),
-                    value: &bypass_url_patterns_binding,
+                    value: bypass_url_patterns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "correlate".into(),
-                    value: &correlate_binding,
+                    value: correlate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: &match__binding,
+                    value: match__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "period".into(),
-                    value: &period_binding,
+                    value: period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threshold".into(),
-                    value: &threshold_binding,
+                    value: threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RateLimitResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            bypass_url_patterns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bypassUrlPatterns"),
-            ),
-            correlate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("correlate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            match_: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("match"),
-            ),
-            period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("period"),
-            ),
-            threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threshold"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            action: o.get_field("action"),
+            bypass_url_patterns: o.get_field("bypassUrlPatterns"),
+            correlate: o.get_field("correlate"),
+            description: o.get_field("description"),
+            disabled: o.get_field("disabled"),
+            match_: o.get_field("match"),
+            period: o.get_field("period"),
+            threshold: o.get_field("threshold"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

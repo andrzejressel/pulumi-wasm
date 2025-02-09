@@ -43,59 +43,42 @@ pub mod get_bootstrap_brokers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBootstrapBrokersArgs,
     ) -> GetBootstrapBrokersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_arn_binding_1 = args.cluster_arn.get_output(context);
-        let cluster_arn_binding = cluster_arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_arn_binding = args.cluster_arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:msk/getBootstrapBrokers:getBootstrapBrokers".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterArn".into(),
-                    value: &cluster_arn_binding,
+                    value: cluster_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBootstrapBrokersResult {
-            bootstrap_brokers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokers"),
-            ),
-            bootstrap_brokers_public_sasl_iam: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersPublicSaslIam"),
-            ),
-            bootstrap_brokers_public_sasl_scram: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersPublicSaslScram"),
-            ),
-            bootstrap_brokers_public_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersPublicTls"),
-            ),
-            bootstrap_brokers_sasl_iam: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersSaslIam"),
-            ),
-            bootstrap_brokers_sasl_scram: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersSaslScram"),
-            ),
-            bootstrap_brokers_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersTls"),
-            ),
-            bootstrap_brokers_vpc_connectivity_sasl_iam: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersVpcConnectivitySaslIam"),
-            ),
-            bootstrap_brokers_vpc_connectivity_sasl_scram: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersVpcConnectivitySaslScram"),
-            ),
-            bootstrap_brokers_vpc_connectivity_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersVpcConnectivityTls"),
-            ),
-            cluster_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            bootstrap_brokers: o.get_field("bootstrapBrokers"),
+            bootstrap_brokers_public_sasl_iam: o
+                .get_field("bootstrapBrokersPublicSaslIam"),
+            bootstrap_brokers_public_sasl_scram: o
+                .get_field("bootstrapBrokersPublicSaslScram"),
+            bootstrap_brokers_public_tls: o.get_field("bootstrapBrokersPublicTls"),
+            bootstrap_brokers_sasl_iam: o.get_field("bootstrapBrokersSaslIam"),
+            bootstrap_brokers_sasl_scram: o.get_field("bootstrapBrokersSaslScram"),
+            bootstrap_brokers_tls: o.get_field("bootstrapBrokersTls"),
+            bootstrap_brokers_vpc_connectivity_sasl_iam: o
+                .get_field("bootstrapBrokersVpcConnectivitySaslIam"),
+            bootstrap_brokers_vpc_connectivity_sasl_scram: o
+                .get_field("bootstrapBrokersVpcConnectivitySaslScram"),
+            bootstrap_brokers_vpc_connectivity_tls: o
+                .get_field("bootstrapBrokersVpcConnectivityTls"),
+            cluster_arn: o.get_field("clusterArn"),
+            id: o.get_field("id"),
         }
     }
 }

@@ -86,98 +86,56 @@ pub mod get_gateway_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetGatewayConnectionArgs,
     ) -> GetGatewayConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getGatewayConnection:getGatewayConnection".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetGatewayConnectionResult {
-            authorization_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationKey"),
-            ),
-            connection_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionProtocol"),
-            ),
-            dpd_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dpdTimeoutSeconds"),
-            ),
-            egress_bytes_transferred: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("egressBytesTransferred"),
-            ),
-            enable_bgp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBgp"),
-            ),
-            express_route_circuit_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressRouteCircuitId"),
-            ),
-            express_route_gateway_bypass: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressRouteGatewayBypass"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ingress_bytes_transferred: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressBytesTransferred"),
-            ),
-            ipsec_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipsecPolicies"),
-            ),
-            local_azure_ip_address_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAzureIpAddressEnabled"),
-            ),
-            local_network_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localNetworkGatewayId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peer_virtual_network_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerVirtualNetworkGatewayId"),
-            ),
-            private_link_fast_path_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkFastPathEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            resource_guid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGuid"),
-            ),
-            routing_weight: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingWeight"),
-            ),
-            shared_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedKey"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            traffic_selector_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficSelectorPolicies"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            use_policy_based_traffic_selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usePolicyBasedTrafficSelectors"),
-            ),
-            virtual_network_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkGatewayId"),
-            ),
+            authorization_key: o.get_field("authorizationKey"),
+            connection_protocol: o.get_field("connectionProtocol"),
+            dpd_timeout_seconds: o.get_field("dpdTimeoutSeconds"),
+            egress_bytes_transferred: o.get_field("egressBytesTransferred"),
+            enable_bgp: o.get_field("enableBgp"),
+            express_route_circuit_id: o.get_field("expressRouteCircuitId"),
+            express_route_gateway_bypass: o.get_field("expressRouteGatewayBypass"),
+            id: o.get_field("id"),
+            ingress_bytes_transferred: o.get_field("ingressBytesTransferred"),
+            ipsec_policies: o.get_field("ipsecPolicies"),
+            local_azure_ip_address_enabled: o.get_field("localAzureIpAddressEnabled"),
+            local_network_gateway_id: o.get_field("localNetworkGatewayId"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            peer_virtual_network_gateway_id: o.get_field("peerVirtualNetworkGatewayId"),
+            private_link_fast_path_enabled: o.get_field("privateLinkFastPathEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            resource_guid: o.get_field("resourceGuid"),
+            routing_weight: o.get_field("routingWeight"),
+            shared_key: o.get_field("sharedKey"),
+            tags: o.get_field("tags"),
+            traffic_selector_policies: o.get_field("trafficSelectorPolicies"),
+            type_: o.get_field("type"),
+            use_policy_based_traffic_selectors: o
+                .get_field("usePolicyBasedTrafficSelectors"),
+            virtual_network_gateway_id: o.get_field("virtualNetworkGatewayId"),
         }
     }
 }

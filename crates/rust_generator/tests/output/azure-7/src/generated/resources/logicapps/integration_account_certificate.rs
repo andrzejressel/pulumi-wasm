@@ -98,77 +98,61 @@ pub mod integration_account_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntegrationAccountCertificateArgs,
     ) -> IntegrationAccountCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let integration_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let integration_account_name_binding = args
             .integration_account_name
             .get_output(context);
-        let integration_account_name_binding = integration_account_name_binding_1
-            .get_inner();
-        let key_vault_key_binding_1 = args.key_vault_key.get_output(context);
-        let key_vault_key_binding = key_vault_key_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_certificate_binding_1 = args.public_certificate.get_output(context);
-        let public_certificate_binding = public_certificate_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_vault_key_binding = args.key_vault_key.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_certificate_binding = args.public_certificate.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationAccountName".into(),
-                    value: &integration_account_name_binding,
+                    value: integration_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKey".into(),
-                    value: &key_vault_key_binding,
+                    value: key_vault_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicCertificate".into(),
-                    value: &public_certificate_binding,
+                    value: public_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntegrationAccountCertificateResult {
-            integration_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationAccountName"),
-            ),
-            key_vault_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKey"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicCertificate"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            integration_account_name: o.get_field("integrationAccountName"),
+            key_vault_key: o.get_field("keyVaultKey"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            public_certificate: o.get_field("publicCertificate"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

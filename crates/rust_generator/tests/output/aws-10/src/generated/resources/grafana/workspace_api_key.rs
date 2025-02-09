@@ -57,58 +57,47 @@ pub mod workspace_api_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceApiKeyArgs,
     ) -> WorkspaceApiKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_name_binding_1 = args.key_name.get_output(context);
-        let key_name_binding = key_name_binding_1.get_inner();
-        let key_role_binding_1 = args.key_role.get_output(context);
-        let key_role_binding = key_role_binding_1.get_inner();
-        let seconds_to_live_binding_1 = args.seconds_to_live.get_output(context);
-        let seconds_to_live_binding = seconds_to_live_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let key_name_binding = args.key_name.get_output(context);
+        let key_role_binding = args.key_role.get_output(context);
+        let seconds_to_live_binding = args.seconds_to_live.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:grafana/workspaceApiKey:WorkspaceApiKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: &key_name_binding,
+                    value: key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRole".into(),
-                    value: &key_role_binding,
+                    value: key_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondsToLive".into(),
-                    value: &seconds_to_live_binding,
+                    value: seconds_to_live_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceApiKeyResult {
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            key_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyRole"),
-            ),
-            seconds_to_live: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondsToLive"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            key: o.get_field("key"),
+            key_name: o.get_field("keyName"),
+            key_role: o.get_field("keyRole"),
+            seconds_to_live: o.get_field("secondsToLive"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

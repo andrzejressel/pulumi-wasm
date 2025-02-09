@@ -181,78 +181,64 @@ pub mod attached_disk {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AttachedDiskArgs,
     ) -> AttachedDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_name_binding_1 = args.device_name.get_output(context);
-        let device_name_binding = device_name_binding_1.get_inner();
-        let disk_binding_1 = args.disk.get_output(context);
-        let disk_binding = disk_binding_1.get_inner();
-        let instance_binding_1 = args.instance.get_output(context);
-        let instance_binding = instance_binding_1.get_inner();
-        let interface_binding_1 = args.interface.get_output(context);
-        let interface_binding = interface_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let device_name_binding = args.device_name.get_output(context);
+        let disk_binding = args.disk.get_output(context);
+        let instance_binding = args.instance.get_output(context);
+        let interface_binding = args.interface.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/attachedDisk:AttachedDisk".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceName".into(),
-                    value: &device_name_binding,
+                    value: device_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disk".into(),
-                    value: &disk_binding,
+                    value: disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: &instance_binding,
+                    value: instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interface".into(),
-                    value: &interface_binding,
+                    value: interface_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AttachedDiskResult {
-            device_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceName"),
-            ),
-            disk: pulumi_gestalt_rust::__private::into_domain(o.extract_field("disk")),
-            instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instance"),
-            ),
-            interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interface"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            device_name: o.get_field("deviceName"),
+            disk: o.get_field("disk"),
+            instance: o.get_field("instance"),
+            interface: o.get_field("interface"),
+            mode: o.get_field("mode"),
+            project: o.get_field("project"),
+            zone: o.get_field("zone"),
         }
     }
 }

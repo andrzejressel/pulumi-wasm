@@ -178,203 +178,140 @@ pub mod canary {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CanaryArgs,
     ) -> CanaryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let artifact_config_binding_1 = args.artifact_config.get_output(context);
-        let artifact_config_binding = artifact_config_binding_1.get_inner();
-        let artifact_s3_location_binding_1 = args
-            .artifact_s3_location
-            .get_output(context);
-        let artifact_s3_location_binding = artifact_s3_location_binding_1.get_inner();
-        let delete_lambda_binding_1 = args.delete_lambda.get_output(context);
-        let delete_lambda_binding = delete_lambda_binding_1.get_inner();
-        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
-        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
-        let failure_retention_period_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let artifact_config_binding = args.artifact_config.get_output(context);
+        let artifact_s3_location_binding = args.artifact_s3_location.get_output(context);
+        let delete_lambda_binding = args.delete_lambda.get_output(context);
+        let execution_role_arn_binding = args.execution_role_arn.get_output(context);
+        let failure_retention_period_binding = args
             .failure_retention_period
             .get_output(context);
-        let failure_retention_period_binding = failure_retention_period_binding_1
-            .get_inner();
-        let handler_binding_1 = args.handler.get_output(context);
-        let handler_binding = handler_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let run_config_binding_1 = args.run_config.get_output(context);
-        let run_config_binding = run_config_binding_1.get_inner();
-        let runtime_version_binding_1 = args.runtime_version.get_output(context);
-        let runtime_version_binding = runtime_version_binding_1.get_inner();
-        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
-        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
-        let s3_key_binding_1 = args.s3_key.get_output(context);
-        let s3_key_binding = s3_key_binding_1.get_inner();
-        let s3_version_binding_1 = args.s3_version.get_output(context);
-        let s3_version_binding = s3_version_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let start_canary_binding_1 = args.start_canary.get_output(context);
-        let start_canary_binding = start_canary_binding_1.get_inner();
-        let success_retention_period_binding_1 = args
+        let handler_binding = args.handler.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let run_config_binding = args.run_config.get_output(context);
+        let runtime_version_binding = args.runtime_version.get_output(context);
+        let s3_bucket_binding = args.s3_bucket.get_output(context);
+        let s3_key_binding = args.s3_key.get_output(context);
+        let s3_version_binding = args.s3_version.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let start_canary_binding = args.start_canary.get_output(context);
+        let success_retention_period_binding = args
             .success_retention_period
             .get_output(context);
-        let success_retention_period_binding = success_retention_period_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_config_binding_1 = args.vpc_config.get_output(context);
-        let vpc_config_binding = vpc_config_binding_1.get_inner();
-        let zip_file_binding_1 = args.zip_file.get_output(context);
-        let zip_file_binding = zip_file_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let vpc_config_binding = args.vpc_config.get_output(context);
+        let zip_file_binding = args.zip_file.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:synthetics/canary:Canary".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "artifactConfig".into(),
-                    value: &artifact_config_binding,
+                    value: artifact_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "artifactS3Location".into(),
-                    value: &artifact_s3_location_binding,
+                    value: artifact_s3_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteLambda".into(),
-                    value: &delete_lambda_binding,
+                    value: delete_lambda_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: &execution_role_arn_binding,
+                    value: execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failureRetentionPeriod".into(),
-                    value: &failure_retention_period_binding,
+                    value: failure_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "handler".into(),
-                    value: &handler_binding,
+                    value: handler_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runConfig".into(),
-                    value: &run_config_binding,
+                    value: run_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeVersion".into(),
-                    value: &runtime_version_binding,
+                    value: runtime_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Bucket".into(),
-                    value: &s3_bucket_binding,
+                    value: s3_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Key".into(),
-                    value: &s3_key_binding,
+                    value: s3_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Version".into(),
-                    value: &s3_version_binding,
+                    value: s3_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startCanary".into(),
-                    value: &start_canary_binding,
+                    value: start_canary_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "successRetentionPeriod".into(),
-                    value: &success_retention_period_binding,
+                    value: success_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: &vpc_config_binding,
+                    value: vpc_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zipFile".into(),
-                    value: &zip_file_binding,
+                    value: zip_file_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CanaryResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            artifact_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("artifactConfig"),
-            ),
-            artifact_s3_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("artifactS3Location"),
-            ),
-            delete_lambda: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteLambda"),
-            ),
-            engine_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineArn"),
-            ),
-            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRoleArn"),
-            ),
-            failure_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureRetentionPeriod"),
-            ),
-            handler: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("handler"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            run_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runConfig"),
-            ),
-            runtime_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeVersion"),
-            ),
-            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Bucket"),
-            ),
-            s3_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Key"),
-            ),
-            s3_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Version"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            source_location_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceLocationArn"),
-            ),
-            start_canary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startCanary"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            success_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("successRetentionPeriod"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timelines: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timelines"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
-            zip_file: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zipFile"),
-            ),
+            arn: o.get_field("arn"),
+            artifact_config: o.get_field("artifactConfig"),
+            artifact_s3_location: o.get_field("artifactS3Location"),
+            delete_lambda: o.get_field("deleteLambda"),
+            engine_arn: o.get_field("engineArn"),
+            execution_role_arn: o.get_field("executionRoleArn"),
+            failure_retention_period: o.get_field("failureRetentionPeriod"),
+            handler: o.get_field("handler"),
+            name: o.get_field("name"),
+            run_config: o.get_field("runConfig"),
+            runtime_version: o.get_field("runtimeVersion"),
+            s3_bucket: o.get_field("s3Bucket"),
+            s3_key: o.get_field("s3Key"),
+            s3_version: o.get_field("s3Version"),
+            schedule: o.get_field("schedule"),
+            source_location_arn: o.get_field("sourceLocationArn"),
+            start_canary: o.get_field("startCanary"),
+            status: o.get_field("status"),
+            success_retention_period: o.get_field("successRetentionPeriod"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timelines: o.get_field("timelines"),
+            vpc_config: o.get_field("vpcConfig"),
+            zip_file: o.get_field("zipFile"),
         }
     }
 }

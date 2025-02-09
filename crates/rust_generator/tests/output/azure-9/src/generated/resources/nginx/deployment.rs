@@ -200,175 +200,128 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scale_profiles_binding_1 = args.auto_scale_profiles.get_output(context);
-        let auto_scale_profiles_binding = auto_scale_profiles_binding_1.get_inner();
-        let automatic_upgrade_channel_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_scale_profiles_binding = args.auto_scale_profiles.get_output(context);
+        let automatic_upgrade_channel_binding = args
             .automatic_upgrade_channel
             .get_output(context);
-        let automatic_upgrade_channel_binding = automatic_upgrade_channel_binding_1
-            .get_inner();
-        let capacity_binding_1 = args.capacity.get_output(context);
-        let capacity_binding = capacity_binding_1.get_inner();
-        let diagnose_support_enabled_binding_1 = args
+        let capacity_binding = args.capacity.get_output(context);
+        let diagnose_support_enabled_binding = args
             .diagnose_support_enabled
             .get_output(context);
-        let diagnose_support_enabled_binding = diagnose_support_enabled_binding_1
-            .get_inner();
-        let email_binding_1 = args.email.get_output(context);
-        let email_binding = email_binding_1.get_inner();
-        let frontend_privates_binding_1 = args.frontend_privates.get_output(context);
-        let frontend_privates_binding = frontend_privates_binding_1.get_inner();
-        let frontend_public_binding_1 = args.frontend_public.get_output(context);
-        let frontend_public_binding = frontend_public_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logging_storage_accounts_binding_1 = args
+        let email_binding = args.email.get_output(context);
+        let frontend_privates_binding = args.frontend_privates.get_output(context);
+        let frontend_public_binding = args.frontend_public.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let logging_storage_accounts_binding = args
             .logging_storage_accounts
             .get_output(context);
-        let logging_storage_accounts_binding = logging_storage_accounts_binding_1
-            .get_inner();
-        let managed_resource_group_binding_1 = args
+        let managed_resource_group_binding = args
             .managed_resource_group
             .get_output(context);
-        let managed_resource_group_binding = managed_resource_group_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
-        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let network_interfaces_binding = args.network_interfaces.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:nginx/deployment:Deployment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScaleProfiles".into(),
-                    value: &auto_scale_profiles_binding,
+                    value: auto_scale_profiles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticUpgradeChannel".into(),
-                    value: &automatic_upgrade_channel_binding,
+                    value: automatic_upgrade_channel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacity".into(),
-                    value: &capacity_binding,
+                    value: capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diagnoseSupportEnabled".into(),
-                    value: &diagnose_support_enabled_binding,
+                    value: diagnose_support_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: &email_binding,
+                    value: email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendPrivates".into(),
-                    value: &frontend_privates_binding,
+                    value: frontend_privates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendPublic".into(),
-                    value: &frontend_public_binding,
+                    value: frontend_public_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingStorageAccounts".into(),
-                    value: &logging_storage_accounts_binding,
+                    value: logging_storage_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedResourceGroup".into(),
-                    value: &managed_resource_group_binding,
+                    value: managed_resource_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaces".into(),
-                    value: &network_interfaces_binding,
+                    value: network_interfaces_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentResult {
-            auto_scale_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScaleProfiles"),
-            ),
-            automatic_upgrade_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticUpgradeChannel"),
-            ),
-            capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacity"),
-            ),
-            diagnose_support_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diagnoseSupportEnabled"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            frontend_privates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendPrivates"),
-            ),
-            frontend_public: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendPublic"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logging_storage_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingStorageAccounts"),
-            ),
-            managed_resource_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedResourceGroup"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaces"),
-            ),
-            nginx_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nginxVersion"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            auto_scale_profiles: o.get_field("autoScaleProfiles"),
+            automatic_upgrade_channel: o.get_field("automaticUpgradeChannel"),
+            capacity: o.get_field("capacity"),
+            diagnose_support_enabled: o.get_field("diagnoseSupportEnabled"),
+            email: o.get_field("email"),
+            frontend_privates: o.get_field("frontendPrivates"),
+            frontend_public: o.get_field("frontendPublic"),
+            identity: o.get_field("identity"),
+            ip_address: o.get_field("ipAddress"),
+            location: o.get_field("location"),
+            logging_storage_accounts: o.get_field("loggingStorageAccounts"),
+            managed_resource_group: o.get_field("managedResourceGroup"),
+            name: o.get_field("name"),
+            network_interfaces: o.get_field("networkInterfaces"),
+            nginx_version: o.get_field("nginxVersion"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
         }
     }
 }

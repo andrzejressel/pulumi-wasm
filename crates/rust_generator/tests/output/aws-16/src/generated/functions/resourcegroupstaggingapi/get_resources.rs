@@ -57,76 +57,58 @@ pub mod get_resources {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResourcesArgs,
     ) -> GetResourcesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exclude_compliant_resources_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let exclude_compliant_resources_binding = args
             .exclude_compliant_resources
             .get_output(context);
-        let exclude_compliant_resources_binding = exclude_compliant_resources_binding_1
-            .get_inner();
-        let include_compliance_details_binding_1 = args
+        let include_compliance_details_binding = args
             .include_compliance_details
             .get_output(context);
-        let include_compliance_details_binding = include_compliance_details_binding_1
-            .get_inner();
-        let resource_arn_lists_binding_1 = args.resource_arn_lists.get_output(context);
-        let resource_arn_lists_binding = resource_arn_lists_binding_1.get_inner();
-        let resource_type_filters_binding_1 = args
+        let resource_arn_lists_binding = args.resource_arn_lists.get_output(context);
+        let resource_type_filters_binding = args
             .resource_type_filters
             .get_output(context);
-        let resource_type_filters_binding = resource_type_filters_binding_1.get_inner();
-        let tag_filters_binding_1 = args.tag_filters.get_output(context);
-        let tag_filters_binding = tag_filters_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tag_filters_binding = args.tag_filters.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:resourcegroupstaggingapi/getResources:getResources".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeCompliantResources".into(),
-                    value: &exclude_compliant_resources_binding,
+                    value: exclude_compliant_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeComplianceDetails".into(),
-                    value: &include_compliance_details_binding,
+                    value: include_compliance_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArnLists".into(),
-                    value: &resource_arn_lists_binding,
+                    value: resource_arn_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypeFilters".into(),
-                    value: &resource_type_filters_binding,
+                    value: resource_type_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagFilters".into(),
-                    value: &tag_filters_binding,
+                    value: tag_filters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResourcesResult {
-            exclude_compliant_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeCompliantResources"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_compliance_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeComplianceDetails"),
-            ),
-            resource_arn_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArnLists"),
-            ),
-            resource_tag_mapping_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTagMappingLists"),
-            ),
-            resource_type_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTypeFilters"),
-            ),
-            tag_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagFilters"),
-            ),
+            exclude_compliant_resources: o.get_field("excludeCompliantResources"),
+            id: o.get_field("id"),
+            include_compliance_details: o.get_field("includeComplianceDetails"),
+            resource_arn_lists: o.get_field("resourceArnLists"),
+            resource_tag_mapping_lists: o.get_field("resourceTagMappingLists"),
+            resource_type_filters: o.get_field("resourceTypeFilters"),
+            tag_filters: o.get_field("tagFilters"),
         }
     }
 }

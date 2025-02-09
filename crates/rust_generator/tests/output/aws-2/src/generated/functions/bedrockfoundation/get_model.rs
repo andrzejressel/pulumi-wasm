@@ -34,53 +34,35 @@ pub mod get_model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetModelArgs,
     ) -> GetModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let model_id_binding_1 = args.model_id.get_output(context);
-        let model_id_binding = model_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let model_id_binding = args.model_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:bedrockfoundation/getModel:getModel".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelId".into(),
-                    value: &model_id_binding,
+                    value: model_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetModelResult {
-            customizations_supporteds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customizationsSupporteds"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            inference_types_supporteds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inferenceTypesSupporteds"),
-            ),
-            input_modalities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputModalities"),
-            ),
-            model_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelArn"),
-            ),
-            model_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelId"),
-            ),
-            model_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelName"),
-            ),
-            output_modalities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputModalities"),
-            ),
-            provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerName"),
-            ),
-            response_streaming_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseStreamingSupported"),
-            ),
+            customizations_supporteds: o.get_field("customizationsSupporteds"),
+            id: o.get_field("id"),
+            inference_types_supporteds: o.get_field("inferenceTypesSupporteds"),
+            input_modalities: o.get_field("inputModalities"),
+            model_arn: o.get_field("modelArn"),
+            model_id: o.get_field("modelId"),
+            model_name: o.get_field("modelName"),
+            output_modalities: o.get_field("outputModalities"),
+            provider_name: o.get_field("providerName"),
+            response_streaming_supported: o.get_field("responseStreamingSupported"),
         }
     }
 }

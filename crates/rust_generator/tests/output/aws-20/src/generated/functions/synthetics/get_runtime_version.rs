@@ -37,59 +37,43 @@ pub mod get_runtime_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRuntimeVersionArgs,
     ) -> GetRuntimeVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let latest_binding_1 = args.latest.get_output(context);
-        let latest_binding = latest_binding_1.get_inner();
-        let prefix_binding_1 = args.prefix.get_output(context);
-        let prefix_binding = prefix_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let latest_binding = args.latest.get_output(context);
+        let prefix_binding = args.prefix.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:synthetics/getRuntimeVersion:getRuntimeVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latest".into(),
-                    value: &latest_binding,
+                    value: latest_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: &prefix_binding,
+                    value: prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRuntimeVersionResult {
-            deprecation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deprecationDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            latest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latest"),
-            ),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
-            release_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseDate"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            version_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionName"),
-            ),
+            deprecation_date: o.get_field("deprecationDate"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            latest: o.get_field("latest"),
+            prefix: o.get_field("prefix"),
+            release_date: o.get_field("releaseDate"),
+            version: o.get_field("version"),
+            version_name: o.get_field("versionName"),
         }
     }
 }

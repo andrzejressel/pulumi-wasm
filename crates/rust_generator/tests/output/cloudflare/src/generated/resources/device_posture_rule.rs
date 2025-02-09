@@ -98,89 +98,70 @@ pub mod device_posture_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DevicePostureRuleArgs,
     ) -> DevicePostureRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let expiration_binding_1 = args.expiration.get_output(context);
-        let expiration_binding = expiration_binding_1.get_inner();
-        let inputs_binding_1 = args.inputs.get_output(context);
-        let inputs_binding = inputs_binding_1.get_inner();
-        let matches_binding_1 = args.matches.get_output(context);
-        let matches_binding = matches_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let expiration_binding = args.expiration.get_output(context);
+        let inputs_binding = args.inputs.get_output(context);
+        let matches_binding = args.matches.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/devicePostureRule:DevicePostureRule".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiration".into(),
-                    value: &expiration_binding,
+                    value: expiration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputs".into(),
-                    value: &inputs_binding,
+                    value: inputs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matches".into(),
-                    value: &matches_binding,
+                    value: matches_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DevicePostureRuleResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiration"),
-            ),
-            inputs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputs"),
-            ),
-            matches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("matches"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            account_id: o.get_field("accountId"),
+            description: o.get_field("description"),
+            expiration: o.get_field("expiration"),
+            inputs: o.get_field("inputs"),
+            matches: o.get_field("matches"),
+            name: o.get_field("name"),
+            schedule: o.get_field("schedule"),
+            type_: o.get_field("type"),
         }
     }
 }

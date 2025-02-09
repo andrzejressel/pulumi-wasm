@@ -204,79 +204,60 @@ pub mod organization_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationPolicyArgs,
     ) -> OrganizationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let boolean_policy_binding_1 = args.boolean_policy.get_output(context);
-        let boolean_policy_binding = boolean_policy_binding_1.get_inner();
-        let constraint_binding_1 = args.constraint.get_output(context);
-        let constraint_binding = constraint_binding_1.get_inner();
-        let list_policy_binding_1 = args.list_policy.get_output(context);
-        let list_policy_binding = list_policy_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let restore_policy_binding_1 = args.restore_policy.get_output(context);
-        let restore_policy_binding = restore_policy_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let boolean_policy_binding = args.boolean_policy.get_output(context);
+        let constraint_binding = args.constraint.get_output(context);
+        let list_policy_binding = args.list_policy.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let restore_policy_binding = args.restore_policy.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:projects/organizationPolicy:OrganizationPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "booleanPolicy".into(),
-                    value: &boolean_policy_binding,
+                    value: boolean_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "constraint".into(),
-                    value: &constraint_binding,
+                    value: constraint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listPolicy".into(),
-                    value: &list_policy_binding,
+                    value: list_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restorePolicy".into(),
-                    value: &restore_policy_binding,
+                    value: restore_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationPolicyResult {
-            boolean_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("booleanPolicy"),
-            ),
-            constraint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("constraint"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            list_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listPolicy"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            restore_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restorePolicy"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            boolean_policy: o.get_field("booleanPolicy"),
+            constraint: o.get_field("constraint"),
+            etag: o.get_field("etag"),
+            list_policy: o.get_field("listPolicy"),
+            project: o.get_field("project"),
+            restore_policy: o.get_field("restorePolicy"),
+            update_time: o.get_field("updateTime"),
+            version: o.get_field("version"),
         }
     }
 }

@@ -176,117 +176,88 @@ pub mod task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TaskArgs,
     ) -> TaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_log_group_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloudwatch_log_group_arn_binding = args
             .cloudwatch_log_group_arn
             .get_output(context);
-        let cloudwatch_log_group_arn_binding = cloudwatch_log_group_arn_binding_1
-            .get_inner();
-        let destination_location_arn_binding_1 = args
+        let destination_location_arn_binding = args
             .destination_location_arn
             .get_output(context);
-        let destination_location_arn_binding = destination_location_arn_binding_1
-            .get_inner();
-        let excludes_binding_1 = args.excludes.get_output(context);
-        let excludes_binding = excludes_binding_1.get_inner();
-        let includes_binding_1 = args.includes.get_output(context);
-        let includes_binding = includes_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let options_binding_1 = args.options.get_output(context);
-        let options_binding = options_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let source_location_arn_binding_1 = args.source_location_arn.get_output(context);
-        let source_location_arn_binding = source_location_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let task_report_config_binding_1 = args.task_report_config.get_output(context);
-        let task_report_config_binding = task_report_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let excludes_binding = args.excludes.get_output(context);
+        let includes_binding = args.includes.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let options_binding = args.options.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let source_location_arn_binding = args.source_location_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let task_report_config_binding = args.task_report_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/task:Task".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLogGroupArn".into(),
-                    value: &cloudwatch_log_group_arn_binding,
+                    value: cloudwatch_log_group_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationLocationArn".into(),
-                    value: &destination_location_arn_binding,
+                    value: destination_location_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludes".into(),
-                    value: &excludes_binding,
+                    value: excludes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includes".into(),
-                    value: &includes_binding,
+                    value: includes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: &options_binding,
+                    value: options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceLocationArn".into(),
-                    value: &source_location_arn_binding,
+                    value: source_location_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskReportConfig".into(),
-                    value: &task_report_config_binding,
+                    value: task_report_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TaskResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_log_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchLogGroupArn"),
-            ),
-            destination_location_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationLocationArn"),
-            ),
-            excludes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludes"),
-            ),
-            includes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("options"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            source_location_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceLocationArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            task_report_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskReportConfig"),
-            ),
+            arn: o.get_field("arn"),
+            cloudwatch_log_group_arn: o.get_field("cloudwatchLogGroupArn"),
+            destination_location_arn: o.get_field("destinationLocationArn"),
+            excludes: o.get_field("excludes"),
+            includes: o.get_field("includes"),
+            name: o.get_field("name"),
+            options: o.get_field("options"),
+            schedule: o.get_field("schedule"),
+            source_location_arn: o.get_field("sourceLocationArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            task_report_config: o.get_field("taskReportConfig"),
         }
     }
 }

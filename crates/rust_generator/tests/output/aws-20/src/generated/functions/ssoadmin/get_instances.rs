@@ -13,21 +13,20 @@ pub mod get_instances {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(context: &pulumi_gestalt_rust::PulumiContext) -> GetInstancesResult {
+    pub fn invoke(context: &pulumi_gestalt_rust::Context) -> GetInstancesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssoadmin/getInstances:getInstances".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstancesResult {
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identity_store_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityStoreIds"),
-            ),
+            arns: o.get_field("arns"),
+            id: o.get_field("id"),
+            identity_store_ids: o.get_field("identityStoreIds"),
         }
     }
 }

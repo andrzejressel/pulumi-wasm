@@ -41,63 +41,48 @@ pub mod get_sdk {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSdkArgs,
     ) -> GetSdkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
-        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
-        let sdk_type_binding_1 = args.sdk_type.get_output(context);
-        let sdk_type_binding = sdk_type_binding_1.get_inner();
-        let stage_name_binding_1 = args.stage_name.get_output(context);
-        let stage_name_binding = stage_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let parameters_binding = args.parameters.get_output(context);
+        let rest_api_id_binding = args.rest_api_id.get_output(context);
+        let sdk_type_binding = args.sdk_type.get_output(context);
+        let stage_name_binding = args.stage_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:apigateway/getSdk:getSdk".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: &rest_api_id_binding,
+                    value: rest_api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sdkType".into(),
-                    value: &sdk_type_binding,
+                    value: sdk_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: &stage_name_binding,
+                    value: stage_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSdkResult {
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            content_disposition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentDisposition"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            rest_api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApiId"),
-            ),
-            sdk_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sdkType"),
-            ),
-            stage_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stageName"),
-            ),
+            body: o.get_field("body"),
+            content_disposition: o.get_field("contentDisposition"),
+            content_type: o.get_field("contentType"),
+            id: o.get_field("id"),
+            parameters: o.get_field("parameters"),
+            rest_api_id: o.get_field("restApiId"),
+            sdk_type: o.get_field("sdkType"),
+            stage_name: o.get_field("stageName"),
         }
     }
 }

@@ -107,100 +107,70 @@ pub mod server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerArgs,
     ) -> ServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_managed_key_binding_1 = args
-            .customer_managed_key
-            .get_output(context);
-        let customer_managed_key_binding = customer_managed_key_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let storage_sku_binding_1 = args.storage_sku.get_output(context);
-        let storage_sku_binding = storage_sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let customer_managed_key_binding = args.customer_managed_key.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let storage_sku_binding = args.storage_sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:fluidrelay/server:Server".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKey".into(),
-                    value: &customer_managed_key_binding,
+                    value: customer_managed_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageSku".into(),
-                    value: &storage_sku_binding,
+                    value: storage_sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerResult {
-            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKey"),
-            ),
-            frs_tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frsTenantId"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            orderer_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ordererEndpoints"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            service_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceEndpoints"),
-            ),
-            storage_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEndpoints"),
-            ),
-            storage_sku: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageSku"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            customer_managed_key: o.get_field("customerManagedKey"),
+            frs_tenant_id: o.get_field("frsTenantId"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            orderer_endpoints: o.get_field("ordererEndpoints"),
+            primary_key: o.get_field("primaryKey"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_key: o.get_field("secondaryKey"),
+            service_endpoints: o.get_field("serviceEndpoints"),
+            storage_endpoints: o.get_field("storageEndpoints"),
+            storage_sku: o.get_field("storageSku"),
+            tags: o.get_field("tags"),
         }
     }
 }

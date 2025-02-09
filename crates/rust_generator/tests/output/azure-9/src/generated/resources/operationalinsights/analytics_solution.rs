@@ -103,83 +103,67 @@ pub mod analytics_solution {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AnalyticsSolutionArgs,
     ) -> AnalyticsSolutionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let solution_name_binding_1 = args.solution_name.get_output(context);
-        let solution_name_binding = solution_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workspace_name_binding_1 = args.workspace_name.get_output(context);
-        let workspace_name_binding = workspace_name_binding_1.get_inner();
-        let workspace_resource_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let solution_name_binding = args.solution_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let workspace_name_binding = args.workspace_name.get_output(context);
+        let workspace_resource_id_binding = args
             .workspace_resource_id
             .get_output(context);
-        let workspace_resource_id_binding = workspace_resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:operationalinsights/analyticsSolution:AnalyticsSolution"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "solutionName".into(),
-                    value: &solution_name_binding,
+                    value: solution_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceName".into(),
-                    value: &workspace_name_binding,
+                    value: workspace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceResourceId".into(),
-                    value: &workspace_resource_id_binding,
+                    value: workspace_resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AnalyticsSolutionResult {
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            solution_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("solutionName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceName"),
-            ),
-            workspace_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceResourceId"),
-            ),
+            location: o.get_field("location"),
+            plan: o.get_field("plan"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            solution_name: o.get_field("solutionName"),
+            tags: o.get_field("tags"),
+            workspace_name: o.get_field("workspaceName"),
+            workspace_resource_id: o.get_field("workspaceResourceId"),
         }
     }
 }

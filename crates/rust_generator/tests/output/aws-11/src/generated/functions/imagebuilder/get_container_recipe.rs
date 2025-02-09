@@ -66,75 +66,48 @@ pub mod get_container_recipe {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetContainerRecipeArgs,
     ) -> GetContainerRecipeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:imagebuilder/getContainerRecipe:getContainerRecipe".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetContainerRecipeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            components: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("components"),
-            ),
-            container_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerType"),
-            ),
-            date_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateCreated"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dockerfile_template_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerfileTemplateData"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceConfigurations"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            parent_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentImage"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_repositories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRepositories"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            working_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workingDirectory"),
-            ),
+            arn: o.get_field("arn"),
+            components: o.get_field("components"),
+            container_type: o.get_field("containerType"),
+            date_created: o.get_field("dateCreated"),
+            description: o.get_field("description"),
+            dockerfile_template_data: o.get_field("dockerfileTemplateData"),
+            encrypted: o.get_field("encrypted"),
+            id: o.get_field("id"),
+            instance_configurations: o.get_field("instanceConfigurations"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            parent_image: o.get_field("parentImage"),
+            platform: o.get_field("platform"),
+            tags: o.get_field("tags"),
+            target_repositories: o.get_field("targetRepositories"),
+            version: o.get_field("version"),
+            working_directory: o.get_field("workingDirectory"),
         }
     }
 }

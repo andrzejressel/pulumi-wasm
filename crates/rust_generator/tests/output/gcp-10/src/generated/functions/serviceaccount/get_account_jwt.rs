@@ -33,60 +33,48 @@ pub mod get_account_jwt {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccountJwtArgs,
     ) -> GetAccountJwtResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegates_binding_1 = args.delegates.get_output(context);
-        let delegates_binding = delegates_binding_1.get_inner();
-        let expires_in_binding_1 = args.expires_in.get_output(context);
-        let expires_in_binding = expires_in_binding_1.get_inner();
-        let payload_binding_1 = args.payload.get_output(context);
-        let payload_binding = payload_binding_1.get_inner();
-        let target_service_account_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delegates_binding = args.delegates.get_output(context);
+        let expires_in_binding = args.expires_in.get_output(context);
+        let payload_binding = args.payload.get_output(context);
+        let target_service_account_binding = args
             .target_service_account
             .get_output(context);
-        let target_service_account_binding = target_service_account_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:serviceaccount/getAccountJwt:getAccountJwt".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegates".into(),
-                    value: &delegates_binding,
+                    value: delegates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiresIn".into(),
-                    value: &expires_in_binding,
+                    value: expires_in_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "payload".into(),
-                    value: &payload_binding,
+                    value: payload_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccount".into(),
-                    value: &target_service_account_binding,
+                    value: target_service_account_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccountJwtResult {
-            delegates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegates"),
-            ),
-            expires_in: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresIn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            jwt: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jwt")),
-            payload: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("payload"),
-            ),
-            target_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetServiceAccount"),
-            ),
+            delegates: o.get_field("delegates"),
+            expires_in: o.get_field("expiresIn"),
+            id: o.get_field("id"),
+            jwt: o.get_field("jwt"),
+            payload: o.get_field("payload"),
+            target_service_account: o.get_field("targetServiceAccount"),
         }
     }
 }

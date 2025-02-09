@@ -78,102 +78,57 @@ pub mod get_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterArgs,
     ) -> GetClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:memorydb/getCluster:getCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterResult {
-            acl_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aclName"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMinorVersionUpgrade"),
-            ),
-            cluster_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterEndpoints"),
-            ),
-            data_tiering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataTiering"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_patch_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enginePatchVersion"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            final_snapshot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalSnapshotName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            num_replicas_per_shard: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numReplicasPerShard"),
-            ),
-            num_shards: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numShards"),
-            ),
-            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterGroupName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            shards: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shards"),
-            ),
-            snapshot_retention_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotRetentionLimit"),
-            ),
-            snapshot_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotWindow"),
-            ),
-            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsTopicArn"),
-            ),
-            subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tls_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsEnabled"),
-            ),
+            acl_name: o.get_field("aclName"),
+            arn: o.get_field("arn"),
+            auto_minor_version_upgrade: o.get_field("autoMinorVersionUpgrade"),
+            cluster_endpoints: o.get_field("clusterEndpoints"),
+            data_tiering: o.get_field("dataTiering"),
+            description: o.get_field("description"),
+            engine: o.get_field("engine"),
+            engine_patch_version: o.get_field("enginePatchVersion"),
+            engine_version: o.get_field("engineVersion"),
+            final_snapshot_name: o.get_field("finalSnapshotName"),
+            id: o.get_field("id"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            name: o.get_field("name"),
+            node_type: o.get_field("nodeType"),
+            num_replicas_per_shard: o.get_field("numReplicasPerShard"),
+            num_shards: o.get_field("numShards"),
+            parameter_group_name: o.get_field("parameterGroupName"),
+            port: o.get_field("port"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            shards: o.get_field("shards"),
+            snapshot_retention_limit: o.get_field("snapshotRetentionLimit"),
+            snapshot_window: o.get_field("snapshotWindow"),
+            sns_topic_arn: o.get_field("snsTopicArn"),
+            subnet_group_name: o.get_field("subnetGroupName"),
+            tags: o.get_field("tags"),
+            tls_enabled: o.get_field("tlsEnabled"),
         }
     }
 }

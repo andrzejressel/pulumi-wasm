@@ -29,46 +29,38 @@ pub mod get_resolver_virtual_network_link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResolverVirtualNetworkLinkArgs,
     ) -> GetResolverVirtualNetworkLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_forwarding_ruleset_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dns_forwarding_ruleset_id_binding = args
             .dns_forwarding_ruleset_id
             .get_output(context);
-        let dns_forwarding_ruleset_id_binding = dns_forwarding_ruleset_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsForwardingRulesetId".into(),
-                    value: &dns_forwarding_ruleset_id_binding,
+                    value: dns_forwarding_ruleset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResolverVirtualNetworkLinkResult {
-            dns_forwarding_ruleset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsForwardingRulesetId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
+            dns_forwarding_ruleset_id: o.get_field("dnsForwardingRulesetId"),
+            id: o.get_field("id"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
         }
     }
 }

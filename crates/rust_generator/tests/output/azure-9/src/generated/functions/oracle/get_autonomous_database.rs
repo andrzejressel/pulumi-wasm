@@ -142,200 +142,96 @@ pub mod get_autonomous_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAutonomousDatabaseArgs,
     ) -> GetAutonomousDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:oracle/getAutonomousDatabase:getAutonomousDatabase".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAutonomousDatabaseResult {
-            actual_used_data_storage_size_in_tbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actualUsedDataStorageSizeInTbs"),
-            ),
-            allocated_storage_size_in_tbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedStorageSizeInTbs"),
-            ),
-            allowed_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedIps"),
-            ),
-            auto_scaling_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingEnabled"),
-            ),
-            auto_scaling_for_storage_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingForStorageEnabled"),
-            ),
-            autonomous_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autonomousDatabaseId"),
-            ),
-            available_upgrade_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableUpgradeVersions"),
-            ),
-            backup_retention_period_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionPeriodInDays"),
-            ),
-            character_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("characterSet"),
-            ),
-            compute_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeCount"),
-            ),
-            cpu_core_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuCoreCount"),
-            ),
-            data_storage_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataStorageSizeInGbs"),
-            ),
-            data_storage_size_in_tbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataStorageSizeInTbs"),
-            ),
-            db_node_storage_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbNodeStorageSizeInGbs"),
-            ),
-            db_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbVersion"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            failed_data_recovery_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failedDataRecoveryInSeconds"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            in_memory_area_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inMemoryAreaInGbs"),
-            ),
-            lifecycle_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleDetails"),
-            ),
-            local_adg_auto_failover_max_data_loss_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAdgAutoFailoverMaxDataLossLimit"),
-            ),
-            local_data_guard_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localDataGuardEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            memory_per_oracle_compute_unit_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memoryPerOracleComputeUnitInGbs"),
-            ),
-            mtls_connection_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mtlsConnectionRequired"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            national_character_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nationalCharacterSet"),
-            ),
-            next_long_term_backup_time_stamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextLongTermBackupTimeStamp"),
-            ),
-            oci_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ociUrl"),
-            ),
-            ocid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ocid")),
-            peer_db_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerDbId"),
-            ),
-            peer_db_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerDbIds"),
-            ),
-            preview: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preview"),
-            ),
-            preview_version_with_service_terms_accepted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("previewVersionWithServiceTermsAccepted"),
-            ),
-            private_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpoint"),
-            ),
-            private_endpoint_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpointIp"),
-            ),
-            private_endpoint_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpointLabel"),
-            ),
-            provisionable_cpuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionableCpuses"),
-            ),
-            remote_data_guard_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteDataGuardEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_console_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceConsoleUrl"),
-            ),
-            sql_web_developer_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlWebDeveloperUrl"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            supported_regions_to_clone_tos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedRegionsToCloneTos"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            time_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeCreated"),
-            ),
-            time_data_guard_role_changed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeDataGuardRoleChanged"),
-            ),
-            time_deletion_of_free_autonomous_database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeDeletionOfFreeAutonomousDatabase"),
-            ),
-            time_local_data_guard_enabled_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeLocalDataGuardEnabledOn"),
-            ),
-            time_maintenance_begin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeMaintenanceBegin"),
-            ),
-            time_maintenance_end: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeMaintenanceEnd"),
-            ),
-            time_of_last_failover: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeOfLastFailover"),
-            ),
-            time_of_last_refresh: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeOfLastRefresh"),
-            ),
-            time_of_last_refresh_point: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeOfLastRefreshPoint"),
-            ),
-            time_of_last_switchover: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeOfLastSwitchover"),
-            ),
-            time_reclamation_of_free_autonomous_database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeReclamationOfFreeAutonomousDatabase"),
-            ),
-            used_data_storage_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usedDataStorageSizeInGbs"),
-            ),
-            used_data_storage_size_in_tbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usedDataStorageSizeInTbs"),
-            ),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
+            actual_used_data_storage_size_in_tbs: o
+                .get_field("actualUsedDataStorageSizeInTbs"),
+            allocated_storage_size_in_tbs: o.get_field("allocatedStorageSizeInTbs"),
+            allowed_ips: o.get_field("allowedIps"),
+            auto_scaling_enabled: o.get_field("autoScalingEnabled"),
+            auto_scaling_for_storage_enabled: o
+                .get_field("autoScalingForStorageEnabled"),
+            autonomous_database_id: o.get_field("autonomousDatabaseId"),
+            available_upgrade_versions: o.get_field("availableUpgradeVersions"),
+            backup_retention_period_in_days: o.get_field("backupRetentionPeriodInDays"),
+            character_set: o.get_field("characterSet"),
+            compute_count: o.get_field("computeCount"),
+            cpu_core_count: o.get_field("cpuCoreCount"),
+            data_storage_size_in_gbs: o.get_field("dataStorageSizeInGbs"),
+            data_storage_size_in_tbs: o.get_field("dataStorageSizeInTbs"),
+            db_node_storage_size_in_gbs: o.get_field("dbNodeStorageSizeInGbs"),
+            db_version: o.get_field("dbVersion"),
+            display_name: o.get_field("displayName"),
+            failed_data_recovery_in_seconds: o.get_field("failedDataRecoveryInSeconds"),
+            id: o.get_field("id"),
+            in_memory_area_in_gbs: o.get_field("inMemoryAreaInGbs"),
+            lifecycle_details: o.get_field("lifecycleDetails"),
+            local_adg_auto_failover_max_data_loss_limit: o
+                .get_field("localAdgAutoFailoverMaxDataLossLimit"),
+            local_data_guard_enabled: o.get_field("localDataGuardEnabled"),
+            location: o.get_field("location"),
+            memory_per_oracle_compute_unit_in_gbs: o
+                .get_field("memoryPerOracleComputeUnitInGbs"),
+            mtls_connection_required: o.get_field("mtlsConnectionRequired"),
+            name: o.get_field("name"),
+            national_character_set: o.get_field("nationalCharacterSet"),
+            next_long_term_backup_time_stamp: o.get_field("nextLongTermBackupTimeStamp"),
+            oci_url: o.get_field("ociUrl"),
+            ocid: o.get_field("ocid"),
+            peer_db_id: o.get_field("peerDbId"),
+            peer_db_ids: o.get_field("peerDbIds"),
+            preview: o.get_field("preview"),
+            preview_version_with_service_terms_accepted: o
+                .get_field("previewVersionWithServiceTermsAccepted"),
+            private_endpoint: o.get_field("privateEndpoint"),
+            private_endpoint_ip: o.get_field("privateEndpointIp"),
+            private_endpoint_label: o.get_field("privateEndpointLabel"),
+            provisionable_cpuses: o.get_field("provisionableCpuses"),
+            remote_data_guard_enabled: o.get_field("remoteDataGuardEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_console_url: o.get_field("serviceConsoleUrl"),
+            sql_web_developer_url: o.get_field("sqlWebDeveloperUrl"),
+            subnet_id: o.get_field("subnetId"),
+            supported_regions_to_clone_tos: o.get_field("supportedRegionsToCloneTos"),
+            tags: o.get_field("tags"),
+            time_created: o.get_field("timeCreated"),
+            time_data_guard_role_changed: o.get_field("timeDataGuardRoleChanged"),
+            time_deletion_of_free_autonomous_database: o
+                .get_field("timeDeletionOfFreeAutonomousDatabase"),
+            time_local_data_guard_enabled_on: o.get_field("timeLocalDataGuardEnabledOn"),
+            time_maintenance_begin: o.get_field("timeMaintenanceBegin"),
+            time_maintenance_end: o.get_field("timeMaintenanceEnd"),
+            time_of_last_failover: o.get_field("timeOfLastFailover"),
+            time_of_last_refresh: o.get_field("timeOfLastRefresh"),
+            time_of_last_refresh_point: o.get_field("timeOfLastRefreshPoint"),
+            time_of_last_switchover: o.get_field("timeOfLastSwitchover"),
+            time_reclamation_of_free_autonomous_database: o
+                .get_field("timeReclamationOfFreeAutonomousDatabase"),
+            used_data_storage_size_in_gbs: o.get_field("usedDataStorageSizeInGbs"),
+            used_data_storage_size_in_tbs: o.get_field("usedDataStorageSizeInTbs"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
         }
     }
 }

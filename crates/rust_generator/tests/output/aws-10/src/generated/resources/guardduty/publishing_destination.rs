@@ -148,57 +148,46 @@ pub mod publishing_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PublishingDestinationArgs,
     ) -> PublishingDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_arn_binding_1 = args.destination_arn.get_output(context);
-        let destination_arn_binding = destination_arn_binding_1.get_inner();
-        let destination_type_binding_1 = args.destination_type.get_output(context);
-        let destination_type_binding = destination_type_binding_1.get_inner();
-        let detector_id_binding_1 = args.detector_id.get_output(context);
-        let detector_id_binding = detector_id_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_arn_binding = args.destination_arn.get_output(context);
+        let destination_type_binding = args.destination_type.get_output(context);
+        let detector_id_binding = args.detector_id.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:guardduty/publishingDestination:PublishingDestination".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationArn".into(),
-                    value: &destination_arn_binding,
+                    value: destination_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationType".into(),
-                    value: &destination_type_binding,
+                    value: destination_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: &detector_id_binding,
+                    value: detector_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PublishingDestinationResult {
-            destination_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationArn"),
-            ),
-            destination_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationType"),
-            ),
-            detector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectorId"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
+            destination_arn: o.get_field("destinationArn"),
+            destination_type: o.get_field("destinationType"),
+            detector_id: o.get_field("detectorId"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
         }
     }
 }

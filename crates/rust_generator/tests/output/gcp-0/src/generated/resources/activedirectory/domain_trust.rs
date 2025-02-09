@@ -124,102 +124,76 @@ pub mod domain_trust {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainTrustArgs,
     ) -> DomainTrustResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let selective_authentication_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_binding = args.domain.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let selective_authentication_binding = args
             .selective_authentication
             .get_output(context);
-        let selective_authentication_binding = selective_authentication_binding_1
-            .get_inner();
-        let target_dns_ip_addresses_binding_1 = args
+        let target_dns_ip_addresses_binding = args
             .target_dns_ip_addresses
             .get_output(context);
-        let target_dns_ip_addresses_binding = target_dns_ip_addresses_binding_1
-            .get_inner();
-        let target_domain_name_binding_1 = args.target_domain_name.get_output(context);
-        let target_domain_name_binding = target_domain_name_binding_1.get_inner();
-        let trust_direction_binding_1 = args.trust_direction.get_output(context);
-        let trust_direction_binding = trust_direction_binding_1.get_inner();
-        let trust_handshake_secret_binding_1 = args
+        let target_domain_name_binding = args.target_domain_name.get_output(context);
+        let trust_direction_binding = args.trust_direction.get_output(context);
+        let trust_handshake_secret_binding = args
             .trust_handshake_secret
             .get_output(context);
-        let trust_handshake_secret_binding = trust_handshake_secret_binding_1
-            .get_inner();
-        let trust_type_binding_1 = args.trust_type.get_output(context);
-        let trust_type_binding = trust_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let trust_type_binding = args.trust_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:activedirectory/domainTrust:DomainTrust".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectiveAuthentication".into(),
-                    value: &selective_authentication_binding,
+                    value: selective_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDnsIpAddresses".into(),
-                    value: &target_dns_ip_addresses_binding,
+                    value: target_dns_ip_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDomainName".into(),
-                    value: &target_domain_name_binding,
+                    value: target_domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustDirection".into(),
-                    value: &trust_direction_binding,
+                    value: trust_direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustHandshakeSecret".into(),
-                    value: &trust_handshake_secret_binding,
+                    value: trust_handshake_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustType".into(),
-                    value: &trust_type_binding,
+                    value: trust_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainTrustResult {
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            selective_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selectiveAuthentication"),
-            ),
-            target_dns_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetDnsIpAddresses"),
-            ),
-            target_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetDomainName"),
-            ),
-            trust_direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustDirection"),
-            ),
-            trust_handshake_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustHandshakeSecret"),
-            ),
-            trust_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustType"),
-            ),
+            domain: o.get_field("domain"),
+            project: o.get_field("project"),
+            selective_authentication: o.get_field("selectiveAuthentication"),
+            target_dns_ip_addresses: o.get_field("targetDnsIpAddresses"),
+            target_domain_name: o.get_field("targetDomainName"),
+            trust_direction: o.get_field("trustDirection"),
+            trust_handshake_secret: o.get_field("trustHandshakeSecret"),
+            trust_type: o.get_field("trustType"),
         }
     }
 }

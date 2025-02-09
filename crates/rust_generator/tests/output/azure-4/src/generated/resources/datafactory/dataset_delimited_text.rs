@@ -220,218 +220,154 @@ pub mod dataset_delimited_text {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatasetDelimitedTextArgs,
     ) -> DatasetDelimitedTextResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_properties_binding = args
             .additional_properties
             .get_output(context);
-        let additional_properties_binding = additional_properties_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let azure_blob_fs_location_binding_1 = args
+        let annotations_binding = args.annotations.get_output(context);
+        let azure_blob_fs_location_binding = args
             .azure_blob_fs_location
             .get_output(context);
-        let azure_blob_fs_location_binding = azure_blob_fs_location_binding_1
-            .get_inner();
-        let azure_blob_storage_location_binding_1 = args
+        let azure_blob_storage_location_binding = args
             .azure_blob_storage_location
             .get_output(context);
-        let azure_blob_storage_location_binding = azure_blob_storage_location_binding_1
-            .get_inner();
-        let column_delimiter_binding_1 = args.column_delimiter.get_output(context);
-        let column_delimiter_binding = column_delimiter_binding_1.get_inner();
-        let compression_codec_binding_1 = args.compression_codec.get_output(context);
-        let compression_codec_binding = compression_codec_binding_1.get_inner();
-        let compression_level_binding_1 = args.compression_level.get_output(context);
-        let compression_level_binding = compression_level_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let encoding_binding_1 = args.encoding.get_output(context);
-        let encoding_binding = encoding_binding_1.get_inner();
-        let escape_character_binding_1 = args.escape_character.get_output(context);
-        let escape_character_binding = escape_character_binding_1.get_inner();
-        let first_row_as_header_binding_1 = args.first_row_as_header.get_output(context);
-        let first_row_as_header_binding = first_row_as_header_binding_1.get_inner();
-        let folder_binding_1 = args.folder.get_output(context);
-        let folder_binding = folder_binding_1.get_inner();
-        let http_server_location_binding_1 = args
-            .http_server_location
-            .get_output(context);
-        let http_server_location_binding = http_server_location_binding_1.get_inner();
-        let linked_service_name_binding_1 = args.linked_service_name.get_output(context);
-        let linked_service_name_binding = linked_service_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let null_value_binding_1 = args.null_value.get_output(context);
-        let null_value_binding = null_value_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let quote_character_binding_1 = args.quote_character.get_output(context);
-        let quote_character_binding = quote_character_binding_1.get_inner();
-        let row_delimiter_binding_1 = args.row_delimiter.get_output(context);
-        let row_delimiter_binding = row_delimiter_binding_1.get_inner();
-        let schema_columns_binding_1 = args.schema_columns.get_output(context);
-        let schema_columns_binding = schema_columns_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let column_delimiter_binding = args.column_delimiter.get_output(context);
+        let compression_codec_binding = args.compression_codec.get_output(context);
+        let compression_level_binding = args.compression_level.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let encoding_binding = args.encoding.get_output(context);
+        let escape_character_binding = args.escape_character.get_output(context);
+        let first_row_as_header_binding = args.first_row_as_header.get_output(context);
+        let folder_binding = args.folder.get_output(context);
+        let http_server_location_binding = args.http_server_location.get_output(context);
+        let linked_service_name_binding = args.linked_service_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let null_value_binding = args.null_value.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let quote_character_binding = args.quote_character.get_output(context);
+        let row_delimiter_binding = args.row_delimiter.get_output(context);
+        let schema_columns_binding = args.schema_columns.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/datasetDelimitedText:DatasetDelimitedText".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: &additional_properties_binding,
+                    value: additional_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureBlobFsLocation".into(),
-                    value: &azure_blob_fs_location_binding,
+                    value: azure_blob_fs_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureBlobStorageLocation".into(),
-                    value: &azure_blob_storage_location_binding,
+                    value: azure_blob_storage_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnDelimiter".into(),
-                    value: &column_delimiter_binding,
+                    value: column_delimiter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compressionCodec".into(),
-                    value: &compression_codec_binding,
+                    value: compression_codec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compressionLevel".into(),
-                    value: &compression_level_binding,
+                    value: compression_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoding".into(),
-                    value: &encoding_binding,
+                    value: encoding_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "escapeCharacter".into(),
-                    value: &escape_character_binding,
+                    value: escape_character_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstRowAsHeader".into(),
-                    value: &first_row_as_header_binding,
+                    value: first_row_as_header_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: &folder_binding,
+                    value: folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpServerLocation".into(),
-                    value: &http_server_location_binding,
+                    value: http_server_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedServiceName".into(),
-                    value: &linked_service_name_binding,
+                    value: linked_service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nullValue".into(),
-                    value: &null_value_binding,
+                    value: null_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quoteCharacter".into(),
-                    value: &quote_character_binding,
+                    value: quote_character_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowDelimiter".into(),
-                    value: &row_delimiter_binding,
+                    value: row_delimiter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaColumns".into(),
-                    value: &schema_columns_binding,
+                    value: schema_columns_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatasetDelimitedTextResult {
-            additional_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalProperties"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            azure_blob_fs_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureBlobFsLocation"),
-            ),
-            azure_blob_storage_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureBlobStorageLocation"),
-            ),
-            column_delimiter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("columnDelimiter"),
-            ),
-            compression_codec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compressionCodec"),
-            ),
-            compression_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compressionLevel"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            encoding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encoding"),
-            ),
-            escape_character: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("escapeCharacter"),
-            ),
-            first_row_as_header: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstRowAsHeader"),
-            ),
-            folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folder"),
-            ),
-            http_server_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpServerLocation"),
-            ),
-            linked_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedServiceName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            null_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nullValue"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            quote_character: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quoteCharacter"),
-            ),
-            row_delimiter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowDelimiter"),
-            ),
-            schema_columns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaColumns"),
-            ),
+            additional_properties: o.get_field("additionalProperties"),
+            annotations: o.get_field("annotations"),
+            azure_blob_fs_location: o.get_field("azureBlobFsLocation"),
+            azure_blob_storage_location: o.get_field("azureBlobStorageLocation"),
+            column_delimiter: o.get_field("columnDelimiter"),
+            compression_codec: o.get_field("compressionCodec"),
+            compression_level: o.get_field("compressionLevel"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            encoding: o.get_field("encoding"),
+            escape_character: o.get_field("escapeCharacter"),
+            first_row_as_header: o.get_field("firstRowAsHeader"),
+            folder: o.get_field("folder"),
+            http_server_location: o.get_field("httpServerLocation"),
+            linked_service_name: o.get_field("linkedServiceName"),
+            name: o.get_field("name"),
+            null_value: o.get_field("nullValue"),
+            parameters: o.get_field("parameters"),
+            quote_character: o.get_field("quoteCharacter"),
+            row_delimiter: o.get_field("rowDelimiter"),
+            schema_columns: o.get_field("schemaColumns"),
         }
     }
 }

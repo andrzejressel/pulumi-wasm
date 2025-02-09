@@ -118,145 +118,103 @@ pub mod replication_task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReplicationTaskArgs,
     ) -> ReplicationTaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdc_start_position_binding_1 = args.cdc_start_position.get_output(context);
-        let cdc_start_position_binding = cdc_start_position_binding_1.get_inner();
-        let cdc_start_time_binding_1 = args.cdc_start_time.get_output(context);
-        let cdc_start_time_binding = cdc_start_time_binding_1.get_inner();
-        let migration_type_binding_1 = args.migration_type.get_output(context);
-        let migration_type_binding = migration_type_binding_1.get_inner();
-        let replication_instance_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cdc_start_position_binding = args.cdc_start_position.get_output(context);
+        let cdc_start_time_binding = args.cdc_start_time.get_output(context);
+        let migration_type_binding = args.migration_type.get_output(context);
+        let replication_instance_arn_binding = args
             .replication_instance_arn
             .get_output(context);
-        let replication_instance_arn_binding = replication_instance_arn_binding_1
-            .get_inner();
-        let replication_task_id_binding_1 = args.replication_task_id.get_output(context);
-        let replication_task_id_binding = replication_task_id_binding_1.get_inner();
-        let replication_task_settings_binding_1 = args
+        let replication_task_id_binding = args.replication_task_id.get_output(context);
+        let replication_task_settings_binding = args
             .replication_task_settings
             .get_output(context);
-        let replication_task_settings_binding = replication_task_settings_binding_1
-            .get_inner();
-        let resource_identifier_binding_1 = args.resource_identifier.get_output(context);
-        let resource_identifier_binding = resource_identifier_binding_1.get_inner();
-        let source_endpoint_arn_binding_1 = args.source_endpoint_arn.get_output(context);
-        let source_endpoint_arn_binding = source_endpoint_arn_binding_1.get_inner();
-        let start_replication_task_binding_1 = args
+        let resource_identifier_binding = args.resource_identifier.get_output(context);
+        let source_endpoint_arn_binding = args.source_endpoint_arn.get_output(context);
+        let start_replication_task_binding = args
             .start_replication_task
             .get_output(context);
-        let start_replication_task_binding = start_replication_task_binding_1
-            .get_inner();
-        let table_mappings_binding_1 = args.table_mappings.get_output(context);
-        let table_mappings_binding = table_mappings_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_endpoint_arn_binding_1 = args.target_endpoint_arn.get_output(context);
-        let target_endpoint_arn_binding = target_endpoint_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let table_mappings_binding = args.table_mappings.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_endpoint_arn_binding = args.target_endpoint_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dms/replicationTask:ReplicationTask".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcStartPosition".into(),
-                    value: &cdc_start_position_binding,
+                    value: cdc_start_position_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcStartTime".into(),
-                    value: &cdc_start_time_binding,
+                    value: cdc_start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "migrationType".into(),
-                    value: &migration_type_binding,
+                    value: migration_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationInstanceArn".into(),
-                    value: &replication_instance_arn_binding,
+                    value: replication_instance_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationTaskId".into(),
-                    value: &replication_task_id_binding,
+                    value: replication_task_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationTaskSettings".into(),
-                    value: &replication_task_settings_binding,
+                    value: replication_task_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceIdentifier".into(),
-                    value: &resource_identifier_binding,
+                    value: resource_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceEndpointArn".into(),
-                    value: &source_endpoint_arn_binding,
+                    value: source_endpoint_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startReplicationTask".into(),
-                    value: &start_replication_task_binding,
+                    value: start_replication_task_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableMappings".into(),
-                    value: &table_mappings_binding,
+                    value: table_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetEndpointArn".into(),
-                    value: &target_endpoint_arn_binding,
+                    value: target_endpoint_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReplicationTaskResult {
-            cdc_start_position: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcStartPosition"),
-            ),
-            cdc_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcStartTime"),
-            ),
-            migration_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("migrationType"),
-            ),
-            replication_instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationInstanceArn"),
-            ),
-            replication_task_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationTaskArn"),
-            ),
-            replication_task_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationTaskId"),
-            ),
-            replication_task_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationTaskSettings"),
-            ),
-            resource_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceIdentifier"),
-            ),
-            source_endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceEndpointArn"),
-            ),
-            start_replication_task: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startReplicationTask"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            table_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableMappings"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetEndpointArn"),
-            ),
+            cdc_start_position: o.get_field("cdcStartPosition"),
+            cdc_start_time: o.get_field("cdcStartTime"),
+            migration_type: o.get_field("migrationType"),
+            replication_instance_arn: o.get_field("replicationInstanceArn"),
+            replication_task_arn: o.get_field("replicationTaskArn"),
+            replication_task_id: o.get_field("replicationTaskId"),
+            replication_task_settings: o.get_field("replicationTaskSettings"),
+            resource_identifier: o.get_field("resourceIdentifier"),
+            source_endpoint_arn: o.get_field("sourceEndpointArn"),
+            start_replication_task: o.get_field("startReplicationTask"),
+            status: o.get_field("status"),
+            table_mappings: o.get_field("tableMappings"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_endpoint_arn: o.get_field("targetEndpointArn"),
         }
     }
 }

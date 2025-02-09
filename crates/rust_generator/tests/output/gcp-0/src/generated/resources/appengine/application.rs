@@ -134,101 +134,71 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_domain_binding_1 = args.auth_domain.get_output(context);
-        let auth_domain_binding = auth_domain_binding_1.get_inner();
-        let database_type_binding_1 = args.database_type.get_output(context);
-        let database_type_binding = database_type_binding_1.get_inner();
-        let feature_settings_binding_1 = args.feature_settings.get_output(context);
-        let feature_settings_binding = feature_settings_binding_1.get_inner();
-        let iap_binding_1 = args.iap.get_output(context);
-        let iap_binding = iap_binding_1.get_inner();
-        let location_id_binding_1 = args.location_id.get_output(context);
-        let location_id_binding = location_id_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let serving_status_binding_1 = args.serving_status.get_output(context);
-        let serving_status_binding = serving_status_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auth_domain_binding = args.auth_domain.get_output(context);
+        let database_type_binding = args.database_type.get_output(context);
+        let feature_settings_binding = args.feature_settings.get_output(context);
+        let iap_binding = args.iap.get_output(context);
+        let location_id_binding = args.location_id.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let serving_status_binding = args.serving_status.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:appengine/application:Application".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authDomain".into(),
-                    value: &auth_domain_binding,
+                    value: auth_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseType".into(),
-                    value: &database_type_binding,
+                    value: database_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureSettings".into(),
-                    value: &feature_settings_binding,
+                    value: feature_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iap".into(),
-                    value: &iap_binding,
+                    value: iap_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationId".into(),
-                    value: &location_id_binding,
+                    value: location_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servingStatus".into(),
-                    value: &serving_status_binding,
+                    value: serving_status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationResult {
-            app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appId"),
-            ),
-            auth_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authDomain"),
-            ),
-            code_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeBucket"),
-            ),
-            database_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseType"),
-            ),
-            default_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultBucket"),
-            ),
-            default_hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultHostname"),
-            ),
-            feature_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("featureSettings"),
-            ),
-            gcr_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcrDomain"),
-            ),
-            iap: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iap")),
-            location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            serving_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servingStatus"),
-            ),
-            url_dispatch_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("urlDispatchRules"),
-            ),
+            app_id: o.get_field("appId"),
+            auth_domain: o.get_field("authDomain"),
+            code_bucket: o.get_field("codeBucket"),
+            database_type: o.get_field("databaseType"),
+            default_bucket: o.get_field("defaultBucket"),
+            default_hostname: o.get_field("defaultHostname"),
+            feature_settings: o.get_field("featureSettings"),
+            gcr_domain: o.get_field("gcrDomain"),
+            iap: o.get_field("iap"),
+            location_id: o.get_field("locationId"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            serving_status: o.get_field("servingStatus"),
+            url_dispatch_rules: o.get_field("urlDispatchRules"),
         }
     }
 }

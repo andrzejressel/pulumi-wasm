@@ -303,132 +303,97 @@ pub mod internal_range {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InternalRangeArgs,
     ) -> InternalRangeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
-        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let migration_binding_1 = args.migration.get_output(context);
-        let migration_binding = migration_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let overlaps_binding_1 = args.overlaps.get_output(context);
-        let overlaps_binding = overlaps_binding_1.get_inner();
-        let peering_binding_1 = args.peering.get_output(context);
-        let peering_binding = peering_binding_1.get_inner();
-        let prefix_length_binding_1 = args.prefix_length.get_output(context);
-        let prefix_length_binding = prefix_length_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let target_cidr_ranges_binding_1 = args.target_cidr_ranges.get_output(context);
-        let target_cidr_ranges_binding = target_cidr_ranges_binding_1.get_inner();
-        let usage_binding_1 = args.usage.get_output(context);
-        let usage_binding = usage_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let migration_binding = args.migration.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let overlaps_binding = args.overlaps.get_output(context);
+        let peering_binding = args.peering.get_output(context);
+        let prefix_length_binding = args.prefix_length.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let target_cidr_ranges_binding = args.target_cidr_ranges.get_output(context);
+        let usage_binding = args.usage.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/internalRange:InternalRange".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipCidrRange".into(),
-                    value: &ip_cidr_range_binding,
+                    value: ip_cidr_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "migration".into(),
-                    value: &migration_binding,
+                    value: migration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overlaps".into(),
-                    value: &overlaps_binding,
+                    value: overlaps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peering".into(),
-                    value: &peering_binding,
+                    value: peering_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixLength".into(),
-                    value: &prefix_length_binding,
+                    value: prefix_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCidrRanges".into(),
-                    value: &target_cidr_ranges_binding,
+                    value: target_cidr_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usage".into(),
-                    value: &usage_binding,
+                    value: usage_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InternalRangeResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipCidrRange"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            migration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("migration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            overlaps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overlaps"),
-            ),
-            peering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peering"),
-            ),
-            prefix_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixLength"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            target_cidr_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetCidrRanges"),
-            ),
-            usage: pulumi_gestalt_rust::__private::into_domain(o.extract_field("usage")),
-            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            ip_cidr_range: o.get_field("ipCidrRange"),
+            labels: o.get_field("labels"),
+            migration: o.get_field("migration"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            overlaps: o.get_field("overlaps"),
+            peering: o.get_field("peering"),
+            prefix_length: o.get_field("prefixLength"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            target_cidr_ranges: o.get_field("targetCidrRanges"),
+            usage: o.get_field("usage"),
+            users: o.get_field("users"),
         }
     }
 }

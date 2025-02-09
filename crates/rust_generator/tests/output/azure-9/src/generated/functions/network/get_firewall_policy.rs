@@ -39,59 +39,42 @@ pub mod get_firewall_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFirewallPolicyArgs,
     ) -> GetFirewallPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getFirewallPolicy:getFirewallPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFirewallPolicyResult {
-            base_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basePolicyId"),
-            ),
-            child_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("childPolicies"),
-            ),
-            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
-            firewalls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewalls"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            rule_collection_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleCollectionGroups"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            threat_intelligence_allowlists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatIntelligenceAllowlists"),
-            ),
-            threat_intelligence_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatIntelligenceMode"),
-            ),
+            base_policy_id: o.get_field("basePolicyId"),
+            child_policies: o.get_field("childPolicies"),
+            dns: o.get_field("dns"),
+            firewalls: o.get_field("firewalls"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            rule_collection_groups: o.get_field("ruleCollectionGroups"),
+            tags: o.get_field("tags"),
+            threat_intelligence_allowlists: o.get_field("threatIntelligenceAllowlists"),
+            threat_intelligence_mode: o.get_field("threatIntelligenceMode"),
         }
     }
 }

@@ -142,86 +142,69 @@ pub mod script {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScriptArgs,
     ) -> ScriptResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let continue_on_errors_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let continue_on_errors_enabled_binding = args
             .continue_on_errors_enabled
             .get_output(context);
-        let continue_on_errors_enabled_binding = continue_on_errors_enabled_binding_1
-            .get_inner();
-        let database_id_binding_1 = args.database_id.get_output(context);
-        let database_id_binding = database_id_binding_1.get_inner();
-        let force_an_update_when_value_changed_binding_1 = args
+        let database_id_binding = args.database_id.get_output(context);
+        let force_an_update_when_value_changed_binding = args
             .force_an_update_when_value_changed
             .get_output(context);
-        let force_an_update_when_value_changed_binding = force_an_update_when_value_changed_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let sas_token_binding_1 = args.sas_token.get_output(context);
-        let sas_token_binding = sas_token_binding_1.get_inner();
-        let script_content_binding_1 = args.script_content.get_output(context);
-        let script_content_binding = script_content_binding_1.get_inner();
-        let url_binding_1 = args.url.get_output(context);
-        let url_binding = url_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let sas_token_binding = args.sas_token.get_output(context);
+        let script_content_binding = args.script_content.get_output(context);
+        let url_binding = args.url.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:kusto/script:Script".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "continueOnErrorsEnabled".into(),
-                    value: &continue_on_errors_enabled_binding,
+                    value: continue_on_errors_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseId".into(),
-                    value: &database_id_binding,
+                    value: database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceAnUpdateWhenValueChanged".into(),
-                    value: &force_an_update_when_value_changed_binding,
+                    value: force_an_update_when_value_changed_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasToken".into(),
-                    value: &sas_token_binding,
+                    value: sas_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptContent".into(),
-                    value: &script_content_binding,
+                    value: script_content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: &url_binding,
+                    value: url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScriptResult {
-            continue_on_errors_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("continueOnErrorsEnabled"),
-            ),
-            database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseId"),
-            ),
-            force_an_update_when_value_changed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceAnUpdateWhenValueChanged"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sas_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sasToken"),
-            ),
-            script_content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptContent"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            continue_on_errors_enabled: o.get_field("continueOnErrorsEnabled"),
+            database_id: o.get_field("databaseId"),
+            force_an_update_when_value_changed: o
+                .get_field("forceAnUpdateWhenValueChanged"),
+            name: o.get_field("name"),
+            sas_token: o.get_field("sasToken"),
+            script_content: o.get_field("scriptContent"),
+            url: o.get_field("url"),
         }
     }
 }

@@ -132,105 +132,76 @@ pub mod source_control_slot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SourceControlSlotArgs,
     ) -> SourceControlSlotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let branch_binding_1 = args.branch.get_output(context);
-        let branch_binding = branch_binding_1.get_inner();
-        let github_action_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let branch_binding = args.branch.get_output(context);
+        let github_action_configuration_binding = args
             .github_action_configuration
             .get_output(context);
-        let github_action_configuration_binding = github_action_configuration_binding_1
-            .get_inner();
-        let repo_url_binding_1 = args.repo_url.get_output(context);
-        let repo_url_binding = repo_url_binding_1.get_inner();
-        let rollback_enabled_binding_1 = args.rollback_enabled.get_output(context);
-        let rollback_enabled_binding = rollback_enabled_binding_1.get_inner();
-        let slot_id_binding_1 = args.slot_id.get_output(context);
-        let slot_id_binding = slot_id_binding_1.get_inner();
-        let use_local_git_binding_1 = args.use_local_git.get_output(context);
-        let use_local_git_binding = use_local_git_binding_1.get_inner();
-        let use_manual_integration_binding_1 = args
+        let repo_url_binding = args.repo_url.get_output(context);
+        let rollback_enabled_binding = args.rollback_enabled.get_output(context);
+        let slot_id_binding = args.slot_id.get_output(context);
+        let use_local_git_binding = args.use_local_git.get_output(context);
+        let use_manual_integration_binding = args
             .use_manual_integration
             .get_output(context);
-        let use_manual_integration_binding = use_manual_integration_binding_1
-            .get_inner();
-        let use_mercurial_binding_1 = args.use_mercurial.get_output(context);
-        let use_mercurial_binding = use_mercurial_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let use_mercurial_binding = args.use_mercurial.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/sourceControlSlot:SourceControlSlot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branch".into(),
-                    value: &branch_binding,
+                    value: branch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "githubActionConfiguration".into(),
-                    value: &github_action_configuration_binding,
+                    value: github_action_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repoUrl".into(),
-                    value: &repo_url_binding,
+                    value: repo_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rollbackEnabled".into(),
-                    value: &rollback_enabled_binding,
+                    value: rollback_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotId".into(),
-                    value: &slot_id_binding,
+                    value: slot_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useLocalGit".into(),
-                    value: &use_local_git_binding,
+                    value: use_local_git_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useManualIntegration".into(),
-                    value: &use_manual_integration_binding,
+                    value: use_manual_integration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useMercurial".into(),
-                    value: &use_mercurial_binding,
+                    value: use_mercurial_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SourceControlSlotResult {
-            branch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("branch"),
-            ),
-            github_action_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("githubActionConfiguration"),
-            ),
-            repo_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repoUrl"),
-            ),
-            rollback_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rollbackEnabled"),
-            ),
-            scm_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scmType"),
-            ),
-            slot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotId"),
-            ),
-            use_local_git: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useLocalGit"),
-            ),
-            use_manual_integration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useManualIntegration"),
-            ),
-            use_mercurial: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useMercurial"),
-            ),
-            uses_github_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usesGithubAction"),
-            ),
+            branch: o.get_field("branch"),
+            github_action_configuration: o.get_field("githubActionConfiguration"),
+            repo_url: o.get_field("repoUrl"),
+            rollback_enabled: o.get_field("rollbackEnabled"),
+            scm_type: o.get_field("scmType"),
+            slot_id: o.get_field("slotId"),
+            use_local_git: o.get_field("useLocalGit"),
+            use_manual_integration: o.get_field("useManualIntegration"),
+            use_mercurial: o.get_field("useMercurial"),
+            uses_github_action: o.get_field("usesGithubAction"),
         }
     }
 }

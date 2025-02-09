@@ -83,106 +83,62 @@ pub mod get_metastore_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetMetastoreServiceArgs,
     ) -> GetMetastoreServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_id_binding_1 = args.service_id.get_output(context);
-        let service_id_binding = service_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_id_binding = args.service_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:dataproc/getMetastoreService:getMetastoreService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: &service_id_binding,
+                    value: service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetMetastoreServiceResult {
-            artifact_gcs_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("artifactGcsUri"),
-            ),
-            database_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseType"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            encryption_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfigs"),
-            ),
-            endpoint_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointUri"),
-            ),
-            hive_metastore_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hiveMetastoreConfigs"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_windows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindows"),
-            ),
-            metadata_integrations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataIntegrations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            network_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfigs"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            release_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseChannel"),
-            ),
-            scaling_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingConfigs"),
-            ),
-            scheduled_backups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduledBackups"),
-            ),
-            service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceId"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateMessage"),
-            ),
-            telemetry_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("telemetryConfigs"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            artifact_gcs_uri: o.get_field("artifactGcsUri"),
+            database_type: o.get_field("databaseType"),
+            deletion_protection: o.get_field("deletionProtection"),
+            effective_labels: o.get_field("effectiveLabels"),
+            encryption_configs: o.get_field("encryptionConfigs"),
+            endpoint_uri: o.get_field("endpointUri"),
+            hive_metastore_configs: o.get_field("hiveMetastoreConfigs"),
+            id: o.get_field("id"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            maintenance_windows: o.get_field("maintenanceWindows"),
+            metadata_integrations: o.get_field("metadataIntegrations"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            network_configs: o.get_field("networkConfigs"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            release_channel: o.get_field("releaseChannel"),
+            scaling_configs: o.get_field("scalingConfigs"),
+            scheduled_backups: o.get_field("scheduledBackups"),
+            service_id: o.get_field("serviceId"),
+            state: o.get_field("state"),
+            state_message: o.get_field("stateMessage"),
+            telemetry_configs: o.get_field("telemetryConfigs"),
+            tier: o.get_field("tier"),
+            uid: o.get_field("uid"),
         }
     }
 }

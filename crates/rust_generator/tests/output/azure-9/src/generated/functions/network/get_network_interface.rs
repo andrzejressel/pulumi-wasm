@@ -52,73 +52,46 @@ pub mod get_network_interface {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkInterfaceArgs,
     ) -> GetNetworkInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getNetworkInterface:getNetworkInterface".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkInterfaceResult {
-            accelerated_networking_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratedNetworkingEnabled"),
-            ),
-            applied_dns_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appliedDnsServers"),
-            ),
-            dns_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsServers"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            internal_dns_name_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalDnsNameLabel"),
-            ),
-            ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfigurations"),
-            ),
-            ip_forwarding_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipForwardingEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mac_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("macAddress"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkSecurityGroupId"),
-            ),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            private_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddresses"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineId"),
-            ),
+            accelerated_networking_enabled: o.get_field("acceleratedNetworkingEnabled"),
+            applied_dns_servers: o.get_field("appliedDnsServers"),
+            dns_servers: o.get_field("dnsServers"),
+            id: o.get_field("id"),
+            internal_dns_name_label: o.get_field("internalDnsNameLabel"),
+            ip_configurations: o.get_field("ipConfigurations"),
+            ip_forwarding_enabled: o.get_field("ipForwardingEnabled"),
+            location: o.get_field("location"),
+            mac_address: o.get_field("macAddress"),
+            name: o.get_field("name"),
+            network_security_group_id: o.get_field("networkSecurityGroupId"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            private_ip_addresses: o.get_field("privateIpAddresses"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            virtual_machine_id: o.get_field("virtualMachineId"),
         }
     }
 }

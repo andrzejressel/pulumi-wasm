@@ -166,99 +166,74 @@ pub mod customer_managed_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomerManagedKeyArgs,
     ) -> CustomerManagedKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let federated_identity_client_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let federated_identity_client_id_binding = args
             .federated_identity_client_id
             .get_output(context);
-        let federated_identity_client_id_binding = federated_identity_client_id_binding_1
-            .get_inner();
-        let key_name_binding_1 = args.key_name.get_output(context);
-        let key_name_binding = key_name_binding_1.get_inner();
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let key_vault_uri_binding_1 = args.key_vault_uri.get_output(context);
-        let key_vault_uri_binding = key_vault_uri_binding_1.get_inner();
-        let key_version_binding_1 = args.key_version.get_output(context);
-        let key_version_binding = key_version_binding_1.get_inner();
-        let managed_hsm_key_id_binding_1 = args.managed_hsm_key_id.get_output(context);
-        let managed_hsm_key_id_binding = managed_hsm_key_id_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let user_assigned_identity_id_binding_1 = args
+        let key_name_binding = args.key_name.get_output(context);
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let key_vault_uri_binding = args.key_vault_uri.get_output(context);
+        let key_version_binding = args.key_version.get_output(context);
+        let managed_hsm_key_id_binding = args.managed_hsm_key_id.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let user_assigned_identity_id_binding = args
             .user_assigned_identity_id
             .get_output(context);
-        let user_assigned_identity_id_binding = user_assigned_identity_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/customerManagedKey:CustomerManagedKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "federatedIdentityClientId".into(),
-                    value: &federated_identity_client_id_binding,
+                    value: federated_identity_client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: &key_name_binding,
+                    value: key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultUri".into(),
-                    value: &key_vault_uri_binding,
+                    value: key_vault_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVersion".into(),
-                    value: &key_version_binding,
+                    value: key_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmKeyId".into(),
-                    value: &managed_hsm_key_id_binding,
+                    value: managed_hsm_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAssignedIdentityId".into(),
-                    value: &user_assigned_identity_id_binding,
+                    value: user_assigned_identity_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomerManagedKeyResult {
-            federated_identity_client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("federatedIdentityClientId"),
-            ),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            key_vault_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultUri"),
-            ),
-            key_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVersion"),
-            ),
-            managed_hsm_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedHsmKeyId"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userAssignedIdentityId"),
-            ),
+            federated_identity_client_id: o.get_field("federatedIdentityClientId"),
+            key_name: o.get_field("keyName"),
+            key_vault_id: o.get_field("keyVaultId"),
+            key_vault_uri: o.get_field("keyVaultUri"),
+            key_version: o.get_field("keyVersion"),
+            managed_hsm_key_id: o.get_field("managedHsmKeyId"),
+            storage_account_id: o.get_field("storageAccountId"),
+            user_assigned_identity_id: o.get_field("userAssignedIdentityId"),
         }
     }
 }

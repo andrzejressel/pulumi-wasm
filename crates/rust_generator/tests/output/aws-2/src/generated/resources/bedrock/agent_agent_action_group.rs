@@ -241,140 +241,101 @@ pub mod agent_agent_action_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgentAgentActionGroupArgs,
     ) -> AgentAgentActionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_group_executor_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_group_executor_binding = args
             .action_group_executor
             .get_output(context);
-        let action_group_executor_binding = action_group_executor_binding_1.get_inner();
-        let action_group_name_binding_1 = args.action_group_name.get_output(context);
-        let action_group_name_binding = action_group_name_binding_1.get_inner();
-        let action_group_state_binding_1 = args.action_group_state.get_output(context);
-        let action_group_state_binding = action_group_state_binding_1.get_inner();
-        let agent_id_binding_1 = args.agent_id.get_output(context);
-        let agent_id_binding = agent_id_binding_1.get_inner();
-        let agent_version_binding_1 = args.agent_version.get_output(context);
-        let agent_version_binding = agent_version_binding_1.get_inner();
-        let api_schema_binding_1 = args.api_schema.get_output(context);
-        let api_schema_binding = api_schema_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let function_schema_binding_1 = args.function_schema.get_output(context);
-        let function_schema_binding = function_schema_binding_1.get_inner();
-        let parent_action_group_signature_binding_1 = args
+        let action_group_name_binding = args.action_group_name.get_output(context);
+        let action_group_state_binding = args.action_group_state.get_output(context);
+        let agent_id_binding = args.agent_id.get_output(context);
+        let agent_version_binding = args.agent_version.get_output(context);
+        let api_schema_binding = args.api_schema.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let function_schema_binding = args.function_schema.get_output(context);
+        let parent_action_group_signature_binding = args
             .parent_action_group_signature
             .get_output(context);
-        let parent_action_group_signature_binding = parent_action_group_signature_binding_1
-            .get_inner();
-        let prepare_agent_binding_1 = args.prepare_agent.get_output(context);
-        let prepare_agent_binding = prepare_agent_binding_1.get_inner();
-        let skip_resource_in_use_check_binding_1 = args
+        let prepare_agent_binding = args.prepare_agent.get_output(context);
+        let skip_resource_in_use_check_binding = args
             .skip_resource_in_use_check
             .get_output(context);
-        let skip_resource_in_use_check_binding = skip_resource_in_use_check_binding_1
-            .get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionGroupExecutor".into(),
-                    value: &action_group_executor_binding,
+                    value: action_group_executor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionGroupName".into(),
-                    value: &action_group_name_binding,
+                    value: action_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionGroupState".into(),
-                    value: &action_group_state_binding,
+                    value: action_group_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentId".into(),
-                    value: &agent_id_binding,
+                    value: agent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersion".into(),
-                    value: &agent_version_binding,
+                    value: agent_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiSchema".into(),
-                    value: &api_schema_binding,
+                    value: api_schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionSchema".into(),
-                    value: &function_schema_binding,
+                    value: function_schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentActionGroupSignature".into(),
-                    value: &parent_action_group_signature_binding,
+                    value: parent_action_group_signature_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prepareAgent".into(),
-                    value: &prepare_agent_binding,
+                    value: prepare_agent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipResourceInUseCheck".into(),
-                    value: &skip_resource_in_use_check_binding,
+                    value: skip_resource_in_use_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgentAgentActionGroupResult {
-            action_group_executor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionGroupExecutor"),
-            ),
-            action_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionGroupId"),
-            ),
-            action_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionGroupName"),
-            ),
-            action_group_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionGroupState"),
-            ),
-            agent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentId"),
-            ),
-            agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentVersion"),
-            ),
-            api_schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiSchema"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            function_schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionSchema"),
-            ),
-            parent_action_group_signature: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentActionGroupSignature"),
-            ),
-            prepare_agent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prepareAgent"),
-            ),
-            skip_resource_in_use_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipResourceInUseCheck"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            action_group_executor: o.get_field("actionGroupExecutor"),
+            action_group_id: o.get_field("actionGroupId"),
+            action_group_name: o.get_field("actionGroupName"),
+            action_group_state: o.get_field("actionGroupState"),
+            agent_id: o.get_field("agentId"),
+            agent_version: o.get_field("agentVersion"),
+            api_schema: o.get_field("apiSchema"),
+            description: o.get_field("description"),
+            function_schema: o.get_field("functionSchema"),
+            parent_action_group_signature: o.get_field("parentActionGroupSignature"),
+            prepare_agent: o.get_field("prepareAgent"),
+            skip_resource_in_use_check: o.get_field("skipResourceInUseCheck"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

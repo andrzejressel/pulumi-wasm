@@ -222,200 +222,144 @@ pub mod integration_runtime_ssis {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntegrationRuntimeSsisArgs,
     ) -> IntegrationRuntimeSsisResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_info_binding_1 = args.catalog_info.get_output(context);
-        let catalog_info_binding = catalog_info_binding_1.get_inner();
-        let copy_compute_scale_binding_1 = args.copy_compute_scale.get_output(context);
-        let copy_compute_scale_binding = copy_compute_scale_binding_1.get_inner();
-        let credential_name_binding_1 = args.credential_name.get_output(context);
-        let credential_name_binding = credential_name_binding_1.get_inner();
-        let custom_setup_script_binding_1 = args.custom_setup_script.get_output(context);
-        let custom_setup_script_binding = custom_setup_script_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let edition_binding_1 = args.edition.get_output(context);
-        let edition_binding = edition_binding_1.get_inner();
-        let express_custom_setup_binding_1 = args
-            .express_custom_setup
-            .get_output(context);
-        let express_custom_setup_binding = express_custom_setup_binding_1.get_inner();
-        let express_vnet_integration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_info_binding = args.catalog_info.get_output(context);
+        let copy_compute_scale_binding = args.copy_compute_scale.get_output(context);
+        let credential_name_binding = args.credential_name.get_output(context);
+        let custom_setup_script_binding = args.custom_setup_script.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let edition_binding = args.edition.get_output(context);
+        let express_custom_setup_binding = args.express_custom_setup.get_output(context);
+        let express_vnet_integration_binding = args
             .express_vnet_integration
             .get_output(context);
-        let express_vnet_integration_binding = express_vnet_integration_binding_1
-            .get_inner();
-        let license_type_binding_1 = args.license_type.get_output(context);
-        let license_type_binding = license_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let max_parallel_executions_per_node_binding_1 = args
+        let license_type_binding = args.license_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let max_parallel_executions_per_node_binding = args
             .max_parallel_executions_per_node
             .get_output(context);
-        let max_parallel_executions_per_node_binding = max_parallel_executions_per_node_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_size_binding_1 = args.node_size.get_output(context);
-        let node_size_binding = node_size_binding_1.get_inner();
-        let number_of_nodes_binding_1 = args.number_of_nodes.get_output(context);
-        let number_of_nodes_binding = number_of_nodes_binding_1.get_inner();
-        let package_stores_binding_1 = args.package_stores.get_output(context);
-        let package_stores_binding = package_stores_binding_1.get_inner();
-        let pipeline_external_compute_scale_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let node_size_binding = args.node_size.get_output(context);
+        let number_of_nodes_binding = args.number_of_nodes.get_output(context);
+        let package_stores_binding = args.package_stores.get_output(context);
+        let pipeline_external_compute_scale_binding = args
             .pipeline_external_compute_scale
             .get_output(context);
-        let pipeline_external_compute_scale_binding = pipeline_external_compute_scale_binding_1
-            .get_inner();
-        let proxy_binding_1 = args.proxy.get_output(context);
-        let proxy_binding = proxy_binding_1.get_inner();
-        let vnet_integration_binding_1 = args.vnet_integration.get_output(context);
-        let vnet_integration_binding = vnet_integration_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let proxy_binding = args.proxy.get_output(context);
+        let vnet_integration_binding = args.vnet_integration.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogInfo".into(),
-                    value: &catalog_info_binding,
+                    value: catalog_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyComputeScale".into(),
-                    value: &copy_compute_scale_binding,
+                    value: copy_compute_scale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentialName".into(),
-                    value: &credential_name_binding,
+                    value: credential_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSetupScript".into(),
-                    value: &custom_setup_script_binding,
+                    value: custom_setup_script_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: &edition_binding,
+                    value: edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressCustomSetup".into(),
-                    value: &express_custom_setup_binding,
+                    value: express_custom_setup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressVnetIntegration".into(),
-                    value: &express_vnet_integration_binding,
+                    value: express_vnet_integration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: &license_type_binding,
+                    value: license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxParallelExecutionsPerNode".into(),
-                    value: &max_parallel_executions_per_node_binding,
+                    value: max_parallel_executions_per_node_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeSize".into(),
-                    value: &node_size_binding,
+                    value: node_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfNodes".into(),
-                    value: &number_of_nodes_binding,
+                    value: number_of_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageStores".into(),
-                    value: &package_stores_binding,
+                    value: package_stores_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineExternalComputeScale".into(),
-                    value: &pipeline_external_compute_scale_binding,
+                    value: pipeline_external_compute_scale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxy".into(),
-                    value: &proxy_binding,
+                    value: proxy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vnetIntegration".into(),
-                    value: &vnet_integration_binding,
+                    value: vnet_integration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntegrationRuntimeSsisResult {
-            catalog_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogInfo"),
-            ),
-            copy_compute_scale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyComputeScale"),
-            ),
-            credential_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentialName"),
-            ),
-            custom_setup_script: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customSetupScript"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edition"),
-            ),
-            express_custom_setup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressCustomSetup"),
-            ),
-            express_vnet_integration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressVnetIntegration"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_parallel_executions_per_node: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxParallelExecutionsPerNode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeSize"),
-            ),
-            number_of_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfNodes"),
-            ),
-            package_stores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageStores"),
-            ),
-            pipeline_external_compute_scale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineExternalComputeScale"),
-            ),
-            proxy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("proxy")),
-            vnet_integration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vnetIntegration"),
-            ),
+            catalog_info: o.get_field("catalogInfo"),
+            copy_compute_scale: o.get_field("copyComputeScale"),
+            credential_name: o.get_field("credentialName"),
+            custom_setup_script: o.get_field("customSetupScript"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            edition: o.get_field("edition"),
+            express_custom_setup: o.get_field("expressCustomSetup"),
+            express_vnet_integration: o.get_field("expressVnetIntegration"),
+            license_type: o.get_field("licenseType"),
+            location: o.get_field("location"),
+            max_parallel_executions_per_node: o
+                .get_field("maxParallelExecutionsPerNode"),
+            name: o.get_field("name"),
+            node_size: o.get_field("nodeSize"),
+            number_of_nodes: o.get_field("numberOfNodes"),
+            package_stores: o.get_field("packageStores"),
+            pipeline_external_compute_scale: o.get_field("pipelineExternalComputeScale"),
+            proxy: o.get_field("proxy"),
+            vnet_integration: o.get_field("vnetIntegration"),
         }
     }
 }

@@ -306,205 +306,133 @@ pub mod database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
-        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let backup_retention_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let apply_immediately_binding = args.apply_immediately.get_output(context);
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let backup_retention_enabled_binding = args
             .backup_retention_enabled
             .get_output(context);
-        let backup_retention_enabled_binding = backup_retention_enabled_binding_1
-            .get_inner();
-        let blueprint_id_binding_1 = args.blueprint_id.get_output(context);
-        let blueprint_id_binding = blueprint_id_binding_1.get_inner();
-        let bundle_id_binding_1 = args.bundle_id.get_output(context);
-        let bundle_id_binding = bundle_id_binding_1.get_inner();
-        let final_snapshot_name_binding_1 = args.final_snapshot_name.get_output(context);
-        let final_snapshot_name_binding = final_snapshot_name_binding_1.get_inner();
-        let master_database_name_binding_1 = args
-            .master_database_name
-            .get_output(context);
-        let master_database_name_binding = master_database_name_binding_1.get_inner();
-        let master_password_binding_1 = args.master_password.get_output(context);
-        let master_password_binding = master_password_binding_1.get_inner();
-        let master_username_binding_1 = args.master_username.get_output(context);
-        let master_username_binding = master_username_binding_1.get_inner();
-        let preferred_backup_window_binding_1 = args
+        let blueprint_id_binding = args.blueprint_id.get_output(context);
+        let bundle_id_binding = args.bundle_id.get_output(context);
+        let final_snapshot_name_binding = args.final_snapshot_name.get_output(context);
+        let master_database_name_binding = args.master_database_name.get_output(context);
+        let master_password_binding = args.master_password.get_output(context);
+        let master_username_binding = args.master_username.get_output(context);
+        let preferred_backup_window_binding = args
             .preferred_backup_window
             .get_output(context);
-        let preferred_backup_window_binding = preferred_backup_window_binding_1
-            .get_inner();
-        let preferred_maintenance_window_binding_1 = args
+        let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
             .get_output(context);
-        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
-            .get_inner();
-        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
-        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
-        let relational_database_name_binding_1 = args
+        let publicly_accessible_binding = args.publicly_accessible.get_output(context);
+        let relational_database_name_binding = args
             .relational_database_name
             .get_output(context);
-        let relational_database_name_binding = relational_database_name_binding_1
-            .get_inner();
-        let skip_final_snapshot_binding_1 = args.skip_final_snapshot.get_output(context);
-        let skip_final_snapshot_binding = skip_final_snapshot_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let skip_final_snapshot_binding = args.skip_final_snapshot.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/database:Database".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyImmediately".into(),
-                    value: &apply_immediately_binding,
+                    value: apply_immediately_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRetentionEnabled".into(),
-                    value: &backup_retention_enabled_binding,
+                    value: backup_retention_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blueprintId".into(),
-                    value: &blueprint_id_binding,
+                    value: blueprint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bundleId".into(),
-                    value: &bundle_id_binding,
+                    value: bundle_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalSnapshotName".into(),
-                    value: &final_snapshot_name_binding,
+                    value: final_snapshot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterDatabaseName".into(),
-                    value: &master_database_name_binding,
+                    value: master_database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterPassword".into(),
-                    value: &master_password_binding,
+                    value: master_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterUsername".into(),
-                    value: &master_username_binding,
+                    value: master_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredBackupWindow".into(),
-                    value: &preferred_backup_window_binding,
+                    value: preferred_backup_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMaintenanceWindow".into(),
-                    value: &preferred_maintenance_window_binding,
+                    value: preferred_maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publiclyAccessible".into(),
-                    value: &publicly_accessible_binding,
+                    value: publicly_accessible_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relationalDatabaseName".into(),
-                    value: &relational_database_name_binding,
+                    value: relational_database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFinalSnapshot".into(),
-                    value: &skip_final_snapshot_binding,
+                    value: skip_final_snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatabaseResult {
-            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applyImmediately"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            backup_retention_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionEnabled"),
-            ),
-            blueprint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blueprintId"),
-            ),
-            bundle_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bundleId"),
-            ),
-            ca_certificate_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertificateIdentifier"),
-            ),
-            cpu_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuCount"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            disk_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSize"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            final_snapshot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalSnapshotName"),
-            ),
-            master_database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterDatabaseName"),
-            ),
-            master_endpoint_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterEndpointAddress"),
-            ),
-            master_endpoint_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterEndpointPort"),
-            ),
-            master_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterPassword"),
-            ),
-            master_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterUsername"),
-            ),
-            preferred_backup_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredBackupWindow"),
-            ),
-            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMaintenanceWindow"),
-            ),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            ram_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ramSize"),
-            ),
-            relational_database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relationalDatabaseName"),
-            ),
-            secondary_availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAvailabilityZone"),
-            ),
-            skip_final_snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipFinalSnapshot"),
-            ),
-            support_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportCode"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            apply_immediately: o.get_field("applyImmediately"),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            backup_retention_enabled: o.get_field("backupRetentionEnabled"),
+            blueprint_id: o.get_field("blueprintId"),
+            bundle_id: o.get_field("bundleId"),
+            ca_certificate_identifier: o.get_field("caCertificateIdentifier"),
+            cpu_count: o.get_field("cpuCount"),
+            created_at: o.get_field("createdAt"),
+            disk_size: o.get_field("diskSize"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            final_snapshot_name: o.get_field("finalSnapshotName"),
+            master_database_name: o.get_field("masterDatabaseName"),
+            master_endpoint_address: o.get_field("masterEndpointAddress"),
+            master_endpoint_port: o.get_field("masterEndpointPort"),
+            master_password: o.get_field("masterPassword"),
+            master_username: o.get_field("masterUsername"),
+            preferred_backup_window: o.get_field("preferredBackupWindow"),
+            preferred_maintenance_window: o.get_field("preferredMaintenanceWindow"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            ram_size: o.get_field("ramSize"),
+            relational_database_name: o.get_field("relationalDatabaseName"),
+            secondary_availability_zone: o.get_field("secondaryAvailabilityZone"),
+            skip_final_snapshot: o.get_field("skipFinalSnapshot"),
+            support_code: o.get_field("supportCode"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

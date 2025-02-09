@@ -127,67 +127,55 @@ pub mod virtual_network_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualNetworkRuleArgs,
     ) -> VirtualNetworkRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ignore_missing_vnet_service_endpoint_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ignore_missing_vnet_service_endpoint_binding = args
             .ignore_missing_vnet_service_endpoint
             .get_output(context);
-        let ignore_missing_vnet_service_endpoint_binding = ignore_missing_vnet_service_endpoint_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let server_name_binding_1 = args.server_name.get_output(context);
-        let server_name_binding = server_name_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let server_name_binding = args.server_name.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:postgresql/virtualNetworkRule:VirtualNetworkRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreMissingVnetServiceEndpoint".into(),
-                    value: &ignore_missing_vnet_service_endpoint_binding,
+                    value: ignore_missing_vnet_service_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: &server_name_binding,
+                    value: server_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualNetworkRuleResult {
-            ignore_missing_vnet_service_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreMissingVnetServiceEndpoint"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            server_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverName"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
+            ignore_missing_vnet_service_endpoint: o
+                .get_field("ignoreMissingVnetServiceEndpoint"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            server_name: o.get_field("serverName"),
+            subnet_id: o.get_field("subnetId"),
         }
     }
 }

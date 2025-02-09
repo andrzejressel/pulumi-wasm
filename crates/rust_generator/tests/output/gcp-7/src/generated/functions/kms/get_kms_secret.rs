@@ -33,53 +33,42 @@ pub mod get_kms_secret {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKmsSecretArgs,
     ) -> GetKmsSecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_authenticated_data_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_authenticated_data_binding = args
             .additional_authenticated_data
             .get_output(context);
-        let additional_authenticated_data_binding = additional_authenticated_data_binding_1
-            .get_inner();
-        let ciphertext_binding_1 = args.ciphertext.get_output(context);
-        let ciphertext_binding = ciphertext_binding_1.get_inner();
-        let crypto_key_binding_1 = args.crypto_key.get_output(context);
-        let crypto_key_binding = crypto_key_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let ciphertext_binding = args.ciphertext.get_output(context);
+        let crypto_key_binding = args.crypto_key.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:kms/getKMSSecret:getKMSSecret".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalAuthenticatedData".into(),
-                    value: &additional_authenticated_data_binding,
+                    value: additional_authenticated_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ciphertext".into(),
-                    value: &ciphertext_binding,
+                    value: ciphertext_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKey".into(),
-                    value: &crypto_key_binding,
+                    value: crypto_key_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKmsSecretResult {
-            additional_authenticated_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalAuthenticatedData"),
-            ),
-            ciphertext: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ciphertext"),
-            ),
-            crypto_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cryptoKey"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            plaintext: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("plaintext"),
-            ),
+            additional_authenticated_data: o.get_field("additionalAuthenticatedData"),
+            ciphertext: o.get_field("ciphertext"),
+            crypto_key: o.get_field("cryptoKey"),
+            id: o.get_field("id"),
+            plaintext: o.get_field("plaintext"),
         }
     }
 }

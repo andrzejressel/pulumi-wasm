@@ -45,83 +45,58 @@ pub mod get_capacity_block_offering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCapacityBlockOfferingArgs,
     ) -> GetCapacityBlockOfferingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_duration_hours_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capacity_duration_hours_binding = args
             .capacity_duration_hours
             .get_output(context);
-        let capacity_duration_hours_binding = capacity_duration_hours_binding_1
-            .get_inner();
-        let end_date_range_binding_1 = args.end_date_range.get_output(context);
-        let end_date_range_binding = end_date_range_binding_1.get_inner();
-        let instance_count_binding_1 = args.instance_count.get_output(context);
-        let instance_count_binding = instance_count_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let start_date_range_binding_1 = args.start_date_range.get_output(context);
-        let start_date_range_binding = start_date_range_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let end_date_range_binding = args.end_date_range.get_output(context);
+        let instance_count_binding = args.instance_count.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let start_date_range_binding = args.start_date_range.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityDurationHours".into(),
-                    value: &capacity_duration_hours_binding,
+                    value: capacity_duration_hours_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDateRange".into(),
-                    value: &end_date_range_binding,
+                    value: end_date_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: &instance_count_binding,
+                    value: instance_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startDateRange".into(),
-                    value: &start_date_range_binding,
+                    value: start_date_range_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCapacityBlockOfferingResult {
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            capacity_block_offering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityBlockOfferingId"),
-            ),
-            capacity_duration_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityDurationHours"),
-            ),
-            currency_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currencyCode"),
-            ),
-            end_date_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endDateRange"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            start_date_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startDateRange"),
-            ),
-            tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenancy"),
-            ),
-            upfront_fee: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upfrontFee"),
-            ),
+            availability_zone: o.get_field("availabilityZone"),
+            capacity_block_offering_id: o.get_field("capacityBlockOfferingId"),
+            capacity_duration_hours: o.get_field("capacityDurationHours"),
+            currency_code: o.get_field("currencyCode"),
+            end_date_range: o.get_field("endDateRange"),
+            id: o.get_field("id"),
+            instance_count: o.get_field("instanceCount"),
+            instance_type: o.get_field("instanceType"),
+            start_date_range: o.get_field("startDateRange"),
+            tenancy: o.get_field("tenancy"),
+            upfront_fee: o.get_field("upfrontFee"),
         }
     }
 }

@@ -445,141 +445,94 @@ pub mod batch {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BatchArgs,
     ) -> BatchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_id_binding_1 = args.batch_id.get_output(context);
-        let batch_id_binding = batch_id_binding_1.get_inner();
-        let environment_config_binding_1 = args.environment_config.get_output(context);
-        let environment_config_binding = environment_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let pyspark_batch_binding_1 = args.pyspark_batch.get_output(context);
-        let pyspark_batch_binding = pyspark_batch_binding_1.get_inner();
-        let runtime_config_binding_1 = args.runtime_config.get_output(context);
-        let runtime_config_binding = runtime_config_binding_1.get_inner();
-        let spark_batch_binding_1 = args.spark_batch.get_output(context);
-        let spark_batch_binding = spark_batch_binding_1.get_inner();
-        let spark_r_batch_binding_1 = args.spark_r_batch.get_output(context);
-        let spark_r_batch_binding = spark_r_batch_binding_1.get_inner();
-        let spark_sql_batch_binding_1 = args.spark_sql_batch.get_output(context);
-        let spark_sql_batch_binding = spark_sql_batch_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let batch_id_binding = args.batch_id.get_output(context);
+        let environment_config_binding = args.environment_config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let pyspark_batch_binding = args.pyspark_batch.get_output(context);
+        let runtime_config_binding = args.runtime_config.get_output(context);
+        let spark_batch_binding = args.spark_batch.get_output(context);
+        let spark_r_batch_binding = args.spark_r_batch.get_output(context);
+        let spark_sql_batch_binding = args.spark_sql_batch.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataproc/batch:Batch".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchId".into(),
-                    value: &batch_id_binding,
+                    value: batch_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentConfig".into(),
-                    value: &environment_config_binding,
+                    value: environment_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pysparkBatch".into(),
-                    value: &pyspark_batch_binding,
+                    value: pyspark_batch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeConfig".into(),
-                    value: &runtime_config_binding,
+                    value: runtime_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkBatch".into(),
-                    value: &spark_batch_binding,
+                    value: spark_batch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkRBatch".into(),
-                    value: &spark_r_batch_binding,
+                    value: spark_r_batch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkSqlBatch".into(),
-                    value: &spark_sql_batch_binding,
+                    value: spark_sql_batch_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BatchResult {
-            batch_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchId"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            creator: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creator"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            environment_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentConfig"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            operation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operation"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            pyspark_batch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pysparkBatch"),
-            ),
-            runtime_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeConfig"),
-            ),
-            runtime_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeInfos"),
-            ),
-            spark_batch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkBatch"),
-            ),
-            spark_r_batch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkRBatch"),
-            ),
-            spark_sql_batch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkSqlBatch"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_histories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateHistories"),
-            ),
-            state_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateMessage"),
-            ),
-            state_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateTime"),
-            ),
-            uuid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uuid")),
+            batch_id: o.get_field("batchId"),
+            create_time: o.get_field("createTime"),
+            creator: o.get_field("creator"),
+            effective_labels: o.get_field("effectiveLabels"),
+            environment_config: o.get_field("environmentConfig"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            operation: o.get_field("operation"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            pyspark_batch: o.get_field("pysparkBatch"),
+            runtime_config: o.get_field("runtimeConfig"),
+            runtime_infos: o.get_field("runtimeInfos"),
+            spark_batch: o.get_field("sparkBatch"),
+            spark_r_batch: o.get_field("sparkRBatch"),
+            spark_sql_batch: o.get_field("sparkSqlBatch"),
+            state: o.get_field("state"),
+            state_histories: o.get_field("stateHistories"),
+            state_message: o.get_field("stateMessage"),
+            state_time: o.get_field("stateTime"),
+            uuid: o.get_field("uuid"),
         }
     }
 }

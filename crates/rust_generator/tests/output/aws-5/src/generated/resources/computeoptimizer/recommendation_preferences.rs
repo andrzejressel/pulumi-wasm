@@ -165,116 +165,88 @@ pub mod recommendation_preferences {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RecommendationPreferencesArgs,
     ) -> RecommendationPreferencesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enhanced_infrastructure_metrics_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let enhanced_infrastructure_metrics_binding = args
             .enhanced_infrastructure_metrics
             .get_output(context);
-        let enhanced_infrastructure_metrics_binding = enhanced_infrastructure_metrics_binding_1
-            .get_inner();
-        let external_metrics_preference_binding_1 = args
+        let external_metrics_preference_binding = args
             .external_metrics_preference
             .get_output(context);
-        let external_metrics_preference_binding = external_metrics_preference_binding_1
-            .get_inner();
-        let inferred_workload_types_binding_1 = args
+        let inferred_workload_types_binding = args
             .inferred_workload_types
             .get_output(context);
-        let inferred_workload_types_binding = inferred_workload_types_binding_1
-            .get_inner();
-        let look_back_period_binding_1 = args.look_back_period.get_output(context);
-        let look_back_period_binding = look_back_period_binding_1.get_inner();
-        let preferred_resources_binding_1 = args.preferred_resources.get_output(context);
-        let preferred_resources_binding = preferred_resources_binding_1.get_inner();
-        let resource_type_binding_1 = args.resource_type.get_output(context);
-        let resource_type_binding = resource_type_binding_1.get_inner();
-        let savings_estimation_mode_binding_1 = args
+        let look_back_period_binding = args.look_back_period.get_output(context);
+        let preferred_resources_binding = args.preferred_resources.get_output(context);
+        let resource_type_binding = args.resource_type.get_output(context);
+        let savings_estimation_mode_binding = args
             .savings_estimation_mode
             .get_output(context);
-        let savings_estimation_mode_binding = savings_estimation_mode_binding_1
-            .get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let utilization_preferences_binding_1 = args
+        let scope_binding = args.scope.get_output(context);
+        let utilization_preferences_binding = args
             .utilization_preferences
             .get_output(context);
-        let utilization_preferences_binding = utilization_preferences_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:computeoptimizer/recommendationPreferences:RecommendationPreferences"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedInfrastructureMetrics".into(),
-                    value: &enhanced_infrastructure_metrics_binding,
+                    value: enhanced_infrastructure_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalMetricsPreference".into(),
-                    value: &external_metrics_preference_binding,
+                    value: external_metrics_preference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inferredWorkloadTypes".into(),
-                    value: &inferred_workload_types_binding,
+                    value: inferred_workload_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lookBackPeriod".into(),
-                    value: &look_back_period_binding,
+                    value: look_back_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredResources".into(),
-                    value: &preferred_resources_binding,
+                    value: preferred_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: &resource_type_binding,
+                    value: resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "savingsEstimationMode".into(),
-                    value: &savings_estimation_mode_binding,
+                    value: savings_estimation_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "utilizationPreferences".into(),
-                    value: &utilization_preferences_binding,
+                    value: utilization_preferences_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RecommendationPreferencesResult {
-            enhanced_infrastructure_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enhancedInfrastructureMetrics"),
-            ),
-            external_metrics_preference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalMetricsPreference"),
-            ),
-            inferred_workload_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inferredWorkloadTypes"),
-            ),
-            look_back_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lookBackPeriod"),
-            ),
-            preferred_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredResources"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            savings_estimation_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("savingsEstimationMode"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            utilization_preferences: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("utilizationPreferences"),
-            ),
+            enhanced_infrastructure_metrics: o
+                .get_field("enhancedInfrastructureMetrics"),
+            external_metrics_preference: o.get_field("externalMetricsPreference"),
+            inferred_workload_types: o.get_field("inferredWorkloadTypes"),
+            look_back_period: o.get_field("lookBackPeriod"),
+            preferred_resources: o.get_field("preferredResources"),
+            resource_type: o.get_field("resourceType"),
+            savings_estimation_mode: o.get_field("savingsEstimationMode"),
+            scope: o.get_field("scope"),
+            utilization_preferences: o.get_field("utilizationPreferences"),
         }
     }
 }

@@ -48,59 +48,40 @@ pub mod get_web_app_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetWebAppConfigArgs,
     ) -> GetWebAppConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let web_app_id_binding_1 = args.web_app_id.get_output(context);
-        let web_app_id_binding = web_app_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let project_binding = args.project.get_output(context);
+        let web_app_id_binding = args.web_app_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:firebase/getWebAppConfig:getWebAppConfig".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webAppId".into(),
-                    value: &web_app_id_binding,
+                    value: web_app_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetWebAppConfigResult {
-            api_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKey"),
-            ),
-            auth_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authDomain"),
-            ),
-            database_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseUrl"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationId"),
-            ),
-            measurement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("measurementId"),
-            ),
-            messaging_sender_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messagingSenderId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            storage_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageBucket"),
-            ),
-            web_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webAppId"),
-            ),
+            api_key: o.get_field("apiKey"),
+            auth_domain: o.get_field("authDomain"),
+            database_url: o.get_field("databaseUrl"),
+            id: o.get_field("id"),
+            location_id: o.get_field("locationId"),
+            measurement_id: o.get_field("measurementId"),
+            messaging_sender_id: o.get_field("messagingSenderId"),
+            project: o.get_field("project"),
+            storage_bucket: o.get_field("storageBucket"),
+            web_app_id: o.get_field("webAppId"),
         }
     }
 }

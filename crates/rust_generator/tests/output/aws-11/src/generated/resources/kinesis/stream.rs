@@ -109,111 +109,85 @@ pub mod stream {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StreamArgs,
     ) -> StreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let encryption_type_binding_1 = args.encryption_type.get_output(context);
-        let encryption_type_binding = encryption_type_binding_1.get_inner();
-        let enforce_consumer_deletion_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let encryption_type_binding = args.encryption_type.get_output(context);
+        let enforce_consumer_deletion_binding = args
             .enforce_consumer_deletion
             .get_output(context);
-        let enforce_consumer_deletion_binding = enforce_consumer_deletion_binding_1
-            .get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let retention_period_binding_1 = args.retention_period.get_output(context);
-        let retention_period_binding = retention_period_binding_1.get_inner();
-        let shard_count_binding_1 = args.shard_count.get_output(context);
-        let shard_count_binding = shard_count_binding_1.get_inner();
-        let shard_level_metrics_binding_1 = args.shard_level_metrics.get_output(context);
-        let shard_level_metrics_binding = shard_level_metrics_binding_1.get_inner();
-        let stream_mode_details_binding_1 = args.stream_mode_details.get_output(context);
-        let stream_mode_details_binding = stream_mode_details_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let retention_period_binding = args.retention_period.get_output(context);
+        let shard_count_binding = args.shard_count.get_output(context);
+        let shard_level_metrics_binding = args.shard_level_metrics.get_output(context);
+        let stream_mode_details_binding = args.stream_mode_details.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kinesis/stream:Stream".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionType".into(),
-                    value: &encryption_type_binding,
+                    value: encryption_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enforceConsumerDeletion".into(),
-                    value: &enforce_consumer_deletion_binding,
+                    value: enforce_consumer_deletion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: &retention_period_binding,
+                    value: retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardCount".into(),
-                    value: &shard_count_binding,
+                    value: shard_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardLevelMetrics".into(),
-                    value: &shard_level_metrics_binding,
+                    value: shard_level_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamModeDetails".into(),
-                    value: &stream_mode_details_binding,
+                    value: stream_mode_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StreamResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            encryption_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionType"),
-            ),
-            enforce_consumer_deletion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enforceConsumerDeletion"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPeriod"),
-            ),
-            shard_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardCount"),
-            ),
-            shard_level_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardLevelMetrics"),
-            ),
-            stream_mode_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamModeDetails"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            encryption_type: o.get_field("encryptionType"),
+            enforce_consumer_deletion: o.get_field("enforceConsumerDeletion"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            name: o.get_field("name"),
+            retention_period: o.get_field("retentionPeriod"),
+            shard_count: o.get_field("shardCount"),
+            shard_level_metrics: o.get_field("shardLevelMetrics"),
+            stream_mode_details: o.get_field("streamModeDetails"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

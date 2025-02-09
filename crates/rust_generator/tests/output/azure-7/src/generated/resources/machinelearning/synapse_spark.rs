@@ -165,94 +165,74 @@ pub mod synapse_spark {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SynapseSparkArgs,
     ) -> SynapseSparkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
-        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let machine_learning_workspace_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let local_auth_enabled_binding = args.local_auth_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let machine_learning_workspace_id_binding = args
             .machine_learning_workspace_id
             .get_output(context);
-        let machine_learning_workspace_id_binding = machine_learning_workspace_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let synapse_spark_pool_id_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let synapse_spark_pool_id_binding = args
             .synapse_spark_pool_id
             .get_output(context);
-        let synapse_spark_pool_id_binding = synapse_spark_pool_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:machinelearning/synapseSpark:SynapseSpark".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthEnabled".into(),
-                    value: &local_auth_enabled_binding,
+                    value: local_auth_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineLearningWorkspaceId".into(),
-                    value: &machine_learning_workspace_id_binding,
+                    value: machine_learning_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseSparkPoolId".into(),
-                    value: &synapse_spark_pool_id_binding,
+                    value: synapse_spark_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SynapseSparkResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            machine_learning_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineLearningWorkspaceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            synapse_spark_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synapseSparkPoolId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            description: o.get_field("description"),
+            identity: o.get_field("identity"),
+            local_auth_enabled: o.get_field("localAuthEnabled"),
+            location: o.get_field("location"),
+            machine_learning_workspace_id: o.get_field("machineLearningWorkspaceId"),
+            name: o.get_field("name"),
+            synapse_spark_pool_id: o.get_field("synapseSparkPoolId"),
+            tags: o.get_field("tags"),
         }
     }
 }

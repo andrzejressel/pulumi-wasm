@@ -33,48 +33,34 @@ pub mod get_bucket {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBucketArgs,
     ) -> GetBucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:s3/getBucket:getBucket".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBucketResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            bucket_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketDomainName"),
-            ),
-            bucket_regional_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketRegionalDomainName"),
-            ),
-            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostedZoneId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            website_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteDomain"),
-            ),
-            website_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteEndpoint"),
-            ),
+            arn: o.get_field("arn"),
+            bucket: o.get_field("bucket"),
+            bucket_domain_name: o.get_field("bucketDomainName"),
+            bucket_regional_domain_name: o.get_field("bucketRegionalDomainName"),
+            hosted_zone_id: o.get_field("hostedZoneId"),
+            id: o.get_field("id"),
+            region: o.get_field("region"),
+            website_domain: o.get_field("websiteDomain"),
+            website_endpoint: o.get_field("websiteEndpoint"),
         }
     }
 }

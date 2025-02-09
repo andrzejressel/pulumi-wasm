@@ -154,114 +154,87 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_kms_key_arn_binding_1 = args.aws_kms_key_arn.get_output(context);
-        let aws_kms_key_arn_binding = aws_kms_key_arn_binding_1.get_inner();
-        let content_config_binding_1 = args.content_config.get_output(context);
-        let content_config_binding = content_config_binding_1.get_inner();
-        let content_config_permissions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_kms_key_arn_binding = args.aws_kms_key_arn.get_output(context);
+        let content_config_binding = args.content_config.get_output(context);
+        let content_config_permissions_binding = args
             .content_config_permissions
             .get_output(context);
-        let content_config_permissions_binding = content_config_permissions_binding_1
-            .get_inner();
-        let input_bucket_binding_1 = args.input_bucket.get_output(context);
-        let input_bucket_binding = input_bucket_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notifications_binding_1 = args.notifications.get_output(context);
-        let notifications_binding = notifications_binding_1.get_inner();
-        let output_bucket_binding_1 = args.output_bucket.get_output(context);
-        let output_bucket_binding = output_bucket_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let thumbnail_config_binding_1 = args.thumbnail_config.get_output(context);
-        let thumbnail_config_binding = thumbnail_config_binding_1.get_inner();
-        let thumbnail_config_permissions_binding_1 = args
+        let input_bucket_binding = args.input_bucket.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notifications_binding = args.notifications.get_output(context);
+        let output_bucket_binding = args.output_bucket.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let thumbnail_config_binding = args.thumbnail_config.get_output(context);
+        let thumbnail_config_permissions_binding = args
             .thumbnail_config_permissions
             .get_output(context);
-        let thumbnail_config_permissions_binding = thumbnail_config_permissions_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elastictranscoder/pipeline:Pipeline".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsKmsKeyArn".into(),
-                    value: &aws_kms_key_arn_binding,
+                    value: aws_kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentConfig".into(),
-                    value: &content_config_binding,
+                    value: content_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentConfigPermissions".into(),
-                    value: &content_config_permissions_binding,
+                    value: content_config_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputBucket".into(),
-                    value: &input_bucket_binding,
+                    value: input_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: &notifications_binding,
+                    value: notifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputBucket".into(),
-                    value: &output_bucket_binding,
+                    value: output_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbnailConfig".into(),
-                    value: &thumbnail_config_binding,
+                    value: thumbnail_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbnailConfigPermissions".into(),
-                    value: &thumbnail_config_permissions_binding,
+                    value: thumbnail_config_permissions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PipelineResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsKmsKeyArn"),
-            ),
-            content_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentConfig"),
-            ),
-            content_config_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentConfigPermissions"),
-            ),
-            input_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputBucket"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notifications"),
-            ),
-            output_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputBucket"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            thumbnail_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbnailConfig"),
-            ),
-            thumbnail_config_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbnailConfigPermissions"),
-            ),
+            arn: o.get_field("arn"),
+            aws_kms_key_arn: o.get_field("awsKmsKeyArn"),
+            content_config: o.get_field("contentConfig"),
+            content_config_permissions: o.get_field("contentConfigPermissions"),
+            input_bucket: o.get_field("inputBucket"),
+            name: o.get_field("name"),
+            notifications: o.get_field("notifications"),
+            output_bucket: o.get_field("outputBucket"),
+            role: o.get_field("role"),
+            thumbnail_config: o.get_field("thumbnailConfig"),
+            thumbnail_config_permissions: o.get_field("thumbnailConfigPermissions"),
         }
     }
 }

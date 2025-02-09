@@ -209,162 +209,117 @@ pub mod domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainArgs,
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_network_access_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_network_access_type_binding = args
             .app_network_access_type
             .get_output(context);
-        let app_network_access_type_binding = app_network_access_type_binding_1
-            .get_inner();
-        let app_security_group_management_binding_1 = args
+        let app_security_group_management_binding = args
             .app_security_group_management
             .get_output(context);
-        let app_security_group_management_binding = app_security_group_management_binding_1
-            .get_inner();
-        let auth_mode_binding_1 = args.auth_mode.get_output(context);
-        let auth_mode_binding = auth_mode_binding_1.get_inner();
-        let default_space_settings_binding_1 = args
+        let auth_mode_binding = args.auth_mode.get_output(context);
+        let default_space_settings_binding = args
             .default_space_settings
             .get_output(context);
-        let default_space_settings_binding = default_space_settings_binding_1
-            .get_inner();
-        let default_user_settings_binding_1 = args
+        let default_user_settings_binding = args
             .default_user_settings
             .get_output(context);
-        let default_user_settings_binding = default_user_settings_binding_1.get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let domain_settings_binding_1 = args.domain_settings.get_output(context);
-        let domain_settings_binding = domain_settings_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let retention_policy_binding_1 = args.retention_policy.get_output(context);
-        let retention_policy_binding = retention_policy_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tag_propagation_binding_1 = args.tag_propagation.get_output(context);
-        let tag_propagation_binding = tag_propagation_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let domain_name_binding = args.domain_name.get_output(context);
+        let domain_settings_binding = args.domain_settings.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let retention_policy_binding = args.retention_policy.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tag_propagation_binding = args.tag_propagation.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/domain:Domain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appNetworkAccessType".into(),
-                    value: &app_network_access_type_binding,
+                    value: app_network_access_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appSecurityGroupManagement".into(),
-                    value: &app_security_group_management_binding,
+                    value: app_security_group_management_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authMode".into(),
-                    value: &auth_mode_binding,
+                    value: auth_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSpaceSettings".into(),
-                    value: &default_space_settings_binding,
+                    value: default_space_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultUserSettings".into(),
-                    value: &default_user_settings_binding,
+                    value: default_user_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainSettings".into(),
-                    value: &domain_settings_binding,
+                    value: domain_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPolicy".into(),
-                    value: &retention_policy_binding,
+                    value: retention_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagPropagation".into(),
-                    value: &tag_propagation_binding,
+                    value: tag_propagation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainResult {
-            app_network_access_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appNetworkAccessType"),
-            ),
-            app_security_group_management: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appSecurityGroupManagement"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auth_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authMode"),
-            ),
-            default_space_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSpaceSettings"),
-            ),
-            default_user_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultUserSettings"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainSettings"),
-            ),
-            home_efs_file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeEfsFileSystemId"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            retention_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPolicy"),
-            ),
-            security_group_id_for_domain_boundary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIdForDomainBoundary"),
-            ),
-            single_sign_on_application_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleSignOnApplicationArn"),
-            ),
-            single_sign_on_managed_application_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleSignOnManagedApplicationInstanceId"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tag_propagation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagPropagation"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            app_network_access_type: o.get_field("appNetworkAccessType"),
+            app_security_group_management: o.get_field("appSecurityGroupManagement"),
+            arn: o.get_field("arn"),
+            auth_mode: o.get_field("authMode"),
+            default_space_settings: o.get_field("defaultSpaceSettings"),
+            default_user_settings: o.get_field("defaultUserSettings"),
+            domain_name: o.get_field("domainName"),
+            domain_settings: o.get_field("domainSettings"),
+            home_efs_file_system_id: o.get_field("homeEfsFileSystemId"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            retention_policy: o.get_field("retentionPolicy"),
+            security_group_id_for_domain_boundary: o
+                .get_field("securityGroupIdForDomainBoundary"),
+            single_sign_on_application_arn: o.get_field("singleSignOnApplicationArn"),
+            single_sign_on_managed_application_instance_id: o
+                .get_field("singleSignOnManagedApplicationInstanceId"),
+            subnet_ids: o.get_field("subnetIds"),
+            tag_propagation: o.get_field("tagPropagation"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

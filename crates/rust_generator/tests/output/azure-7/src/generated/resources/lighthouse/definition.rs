@@ -98,93 +98,74 @@ pub mod definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DefinitionArgs,
     ) -> DefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorizations_binding_1 = args.authorizations.get_output(context);
-        let authorizations_binding = authorizations_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let eligible_authorizations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorizations_binding = args.authorizations.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let eligible_authorizations_binding = args
             .eligible_authorizations
             .get_output(context);
-        let eligible_authorizations_binding = eligible_authorizations_binding_1
-            .get_inner();
-        let lighthouse_definition_id_binding_1 = args
+        let lighthouse_definition_id_binding = args
             .lighthouse_definition_id
             .get_output(context);
-        let lighthouse_definition_id_binding = lighthouse_definition_id_binding_1
-            .get_inner();
-        let managing_tenant_id_binding_1 = args.managing_tenant_id.get_output(context);
-        let managing_tenant_id_binding = managing_tenant_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let managing_tenant_id_binding = args.managing_tenant_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:lighthouse/definition:Definition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizations".into(),
-                    value: &authorizations_binding,
+                    value: authorizations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eligibleAuthorizations".into(),
-                    value: &eligible_authorizations_binding,
+                    value: eligible_authorizations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lighthouseDefinitionId".into(),
-                    value: &lighthouse_definition_id_binding,
+                    value: lighthouse_definition_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managingTenantId".into(),
-                    value: &managing_tenant_id_binding,
+                    value: managing_tenant_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DefinitionResult {
-            authorizations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizations"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            eligible_authorizations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eligibleAuthorizations"),
-            ),
-            lighthouse_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lighthouseDefinitionId"),
-            ),
-            managing_tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managingTenantId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            authorizations: o.get_field("authorizations"),
+            description: o.get_field("description"),
+            eligible_authorizations: o.get_field("eligibleAuthorizations"),
+            lighthouse_definition_id: o.get_field("lighthouseDefinitionId"),
+            managing_tenant_id: o.get_field("managingTenantId"),
+            name: o.get_field("name"),
+            plan: o.get_field("plan"),
+            scope: o.get_field("scope"),
         }
     }
 }

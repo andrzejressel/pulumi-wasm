@@ -25,32 +25,30 @@ pub mod get_instance_profiles {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceProfilesArgs,
     ) -> GetInstanceProfilesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let role_name_binding_1 = args.role_name.get_output(context);
-        let role_name_binding = role_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let role_name_binding = args.role_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getInstanceProfiles:getInstanceProfiles".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: &role_name_binding,
+                    value: role_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceProfilesResult {
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            names: pulumi_gestalt_rust::__private::into_domain(o.extract_field("names")),
-            paths: pulumi_gestalt_rust::__private::into_domain(o.extract_field("paths")),
-            role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleName"),
-            ),
+            arns: o.get_field("arns"),
+            id: o.get_field("id"),
+            names: o.get_field("names"),
+            paths: o.get_field("paths"),
+            role_name: o.get_field("roleName"),
         }
     }
 }

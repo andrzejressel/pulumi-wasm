@@ -52,54 +52,44 @@ pub mod multicast_group_member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MulticastGroupMemberArgs,
     ) -> MulticastGroupMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_ip_address_binding_1 = args.group_ip_address.get_output(context);
-        let group_ip_address_binding = group_ip_address_binding_1.get_inner();
-        let network_interface_id_binding_1 = args
-            .network_interface_id
-            .get_output(context);
-        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
-        let transit_gateway_multicast_domain_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_ip_address_binding = args.group_ip_address.get_output(context);
+        let network_interface_id_binding = args.network_interface_id.get_output(context);
+        let transit_gateway_multicast_domain_id_binding = args
             .transit_gateway_multicast_domain_id
             .get_output(context);
-        let transit_gateway_multicast_domain_id_binding = transit_gateway_multicast_domain_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupIpAddress".into(),
-                    value: &group_ip_address_binding,
+                    value: group_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: &network_interface_id_binding,
+                    value: network_interface_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayMulticastDomainId".into(),
-                    value: &transit_gateway_multicast_domain_id_binding,
+                    value: transit_gateway_multicast_domain_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MulticastGroupMemberResult {
-            group_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupIpAddress"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            transit_gateway_multicast_domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayMulticastDomainId"),
-            ),
+            group_ip_address: o.get_field("groupIpAddress"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            transit_gateway_multicast_domain_id: o
+                .get_field("transitGatewayMulticastDomainId"),
         }
     }
 }

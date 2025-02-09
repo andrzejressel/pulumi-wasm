@@ -312,178 +312,132 @@ pub mod record {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RecordArgs,
     ) -> RecordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aliases_binding_1 = args.aliases.get_output(context);
-        let aliases_binding = aliases_binding_1.get_inner();
-        let allow_overwrite_binding_1 = args.allow_overwrite.get_output(context);
-        let allow_overwrite_binding = allow_overwrite_binding_1.get_inner();
-        let cidr_routing_policy_binding_1 = args.cidr_routing_policy.get_output(context);
-        let cidr_routing_policy_binding = cidr_routing_policy_binding_1.get_inner();
-        let failover_routing_policies_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aliases_binding = args.aliases.get_output(context);
+        let allow_overwrite_binding = args.allow_overwrite.get_output(context);
+        let cidr_routing_policy_binding = args.cidr_routing_policy.get_output(context);
+        let failover_routing_policies_binding = args
             .failover_routing_policies
             .get_output(context);
-        let failover_routing_policies_binding = failover_routing_policies_binding_1
-            .get_inner();
-        let geolocation_routing_policies_binding_1 = args
+        let geolocation_routing_policies_binding = args
             .geolocation_routing_policies
             .get_output(context);
-        let geolocation_routing_policies_binding = geolocation_routing_policies_binding_1
-            .get_inner();
-        let geoproximity_routing_policy_binding_1 = args
+        let geoproximity_routing_policy_binding = args
             .geoproximity_routing_policy
             .get_output(context);
-        let geoproximity_routing_policy_binding = geoproximity_routing_policy_binding_1
-            .get_inner();
-        let health_check_id_binding_1 = args.health_check_id.get_output(context);
-        let health_check_id_binding = health_check_id_binding_1.get_inner();
-        let latency_routing_policies_binding_1 = args
+        let health_check_id_binding = args.health_check_id.get_output(context);
+        let latency_routing_policies_binding = args
             .latency_routing_policies
             .get_output(context);
-        let latency_routing_policies_binding = latency_routing_policies_binding_1
-            .get_inner();
-        let multivalue_answer_routing_policy_binding_1 = args
+        let multivalue_answer_routing_policy_binding = args
             .multivalue_answer_routing_policy
             .get_output(context);
-        let multivalue_answer_routing_policy_binding = multivalue_answer_routing_policy_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let records_binding_1 = args.records.get_output(context);
-        let records_binding = records_binding_1.get_inner();
-        let set_identifier_binding_1 = args.set_identifier.get_output(context);
-        let set_identifier_binding = set_identifier_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let weighted_routing_policies_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let records_binding = args.records.get_output(context);
+        let set_identifier_binding = args.set_identifier.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let weighted_routing_policies_binding = args
             .weighted_routing_policies
             .get_output(context);
-        let weighted_routing_policies_binding = weighted_routing_policies_binding_1
-            .get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/record:Record".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliases".into(),
-                    value: &aliases_binding,
+                    value: aliases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowOverwrite".into(),
-                    value: &allow_overwrite_binding,
+                    value: allow_overwrite_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrRoutingPolicy".into(),
-                    value: &cidr_routing_policy_binding,
+                    value: cidr_routing_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverRoutingPolicies".into(),
-                    value: &failover_routing_policies_binding,
+                    value: failover_routing_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geolocationRoutingPolicies".into(),
-                    value: &geolocation_routing_policies_binding,
+                    value: geolocation_routing_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoproximityRoutingPolicy".into(),
-                    value: &geoproximity_routing_policy_binding,
+                    value: geoproximity_routing_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckId".into(),
-                    value: &health_check_id_binding,
+                    value: health_check_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latencyRoutingPolicies".into(),
-                    value: &latency_routing_policies_binding,
+                    value: latency_routing_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multivalueAnswerRoutingPolicy".into(),
-                    value: &multivalue_answer_routing_policy_binding,
+                    value: multivalue_answer_routing_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "records".into(),
-                    value: &records_binding,
+                    value: records_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "setIdentifier".into(),
-                    value: &set_identifier_binding,
+                    value: set_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weightedRoutingPolicies".into(),
-                    value: &weighted_routing_policies_binding,
+                    value: weighted_routing_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RecordResult {
-            aliases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliases"),
-            ),
-            allow_overwrite: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowOverwrite"),
-            ),
-            cidr_routing_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrRoutingPolicy"),
-            ),
-            failover_routing_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failoverRoutingPolicies"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            geolocation_routing_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geolocationRoutingPolicies"),
-            ),
-            geoproximity_routing_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoproximityRoutingPolicy"),
-            ),
-            health_check_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckId"),
-            ),
-            latency_routing_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latencyRoutingPolicies"),
-            ),
-            multivalue_answer_routing_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multivalueAnswerRoutingPolicy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("records"),
-            ),
-            set_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("setIdentifier"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            weighted_routing_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weightedRoutingPolicies"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            aliases: o.get_field("aliases"),
+            allow_overwrite: o.get_field("allowOverwrite"),
+            cidr_routing_policy: o.get_field("cidrRoutingPolicy"),
+            failover_routing_policies: o.get_field("failoverRoutingPolicies"),
+            fqdn: o.get_field("fqdn"),
+            geolocation_routing_policies: o.get_field("geolocationRoutingPolicies"),
+            geoproximity_routing_policy: o.get_field("geoproximityRoutingPolicy"),
+            health_check_id: o.get_field("healthCheckId"),
+            latency_routing_policies: o.get_field("latencyRoutingPolicies"),
+            multivalue_answer_routing_policy: o
+                .get_field("multivalueAnswerRoutingPolicy"),
+            name: o.get_field("name"),
+            records: o.get_field("records"),
+            set_identifier: o.get_field("setIdentifier"),
+            ttl: o.get_field("ttl"),
+            type_: o.get_field("type"),
+            weighted_routing_policies: o.get_field("weightedRoutingPolicies"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

@@ -98,92 +98,71 @@ pub mod efs_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EfsLocationArgs,
     ) -> EfsLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_point_arn_binding_1 = args.access_point_arn.get_output(context);
-        let access_point_arn_binding = access_point_arn_binding_1.get_inner();
-        let ec2_config_binding_1 = args.ec2_config.get_output(context);
-        let ec2_config_binding = ec2_config_binding_1.get_inner();
-        let efs_file_system_arn_binding_1 = args.efs_file_system_arn.get_output(context);
-        let efs_file_system_arn_binding = efs_file_system_arn_binding_1.get_inner();
-        let file_system_access_role_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_point_arn_binding = args.access_point_arn.get_output(context);
+        let ec2_config_binding = args.ec2_config.get_output(context);
+        let efs_file_system_arn_binding = args.efs_file_system_arn.get_output(context);
+        let file_system_access_role_arn_binding = args
             .file_system_access_role_arn
             .get_output(context);
-        let file_system_access_role_arn_binding = file_system_access_role_arn_binding_1
-            .get_inner();
-        let in_transit_encryption_binding_1 = args
+        let in_transit_encryption_binding = args
             .in_transit_encryption
             .get_output(context);
-        let in_transit_encryption_binding = in_transit_encryption_binding_1.get_inner();
-        let subdirectory_binding_1 = args.subdirectory.get_output(context);
-        let subdirectory_binding = subdirectory_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subdirectory_binding = args.subdirectory.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/efsLocation:EfsLocation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPointArn".into(),
-                    value: &access_point_arn_binding,
+                    value: access_point_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2Config".into(),
-                    value: &ec2_config_binding,
+                    value: ec2_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "efsFileSystemArn".into(),
-                    value: &efs_file_system_arn_binding,
+                    value: efs_file_system_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemAccessRoleArn".into(),
-                    value: &file_system_access_role_arn_binding,
+                    value: file_system_access_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inTransitEncryption".into(),
-                    value: &in_transit_encryption_binding,
+                    value: in_transit_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: &subdirectory_binding,
+                    value: subdirectory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EfsLocationResult {
-            access_point_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessPointArn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            ec2_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ec2Config"),
-            ),
-            efs_file_system_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("efsFileSystemArn"),
-            ),
-            file_system_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemAccessRoleArn"),
-            ),
-            in_transit_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inTransitEncryption"),
-            ),
-            subdirectory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdirectory"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            access_point_arn: o.get_field("accessPointArn"),
+            arn: o.get_field("arn"),
+            ec2_config: o.get_field("ec2Config"),
+            efs_file_system_arn: o.get_field("efsFileSystemArn"),
+            file_system_access_role_arn: o.get_field("fileSystemAccessRoleArn"),
+            in_transit_encryption: o.get_field("inTransitEncryption"),
+            subdirectory: o.get_field("subdirectory"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uri: o.get_field("uri"),
         }
     }
 }

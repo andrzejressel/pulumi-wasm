@@ -47,55 +47,40 @@ pub mod get_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTableArgs,
     ) -> GetTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let database_name_binding = args.database_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:timestreamwrite/getTable:getTable".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTableResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTime"),
-            ),
-            magnetic_store_write_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("magneticStoreWriteProperties"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            retention_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionProperties"),
-            ),
-            schemas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemas"),
-            ),
-            table_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableStatus"),
-            ),
+            arn: o.get_field("arn"),
+            creation_time: o.get_field("creationTime"),
+            database_name: o.get_field("databaseName"),
+            id: o.get_field("id"),
+            last_updated_time: o.get_field("lastUpdatedTime"),
+            magnetic_store_write_properties: o.get_field("magneticStoreWriteProperties"),
+            name: o.get_field("name"),
+            retention_properties: o.get_field("retentionProperties"),
+            schemas: o.get_field("schemas"),
+            table_status: o.get_field("tableStatus"),
         }
     }
 }

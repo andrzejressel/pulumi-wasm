@@ -104,94 +104,68 @@ pub mod shared_access_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SharedAccessPolicyArgs,
     ) -> SharedAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_connect_binding_1 = args.device_connect.get_output(context);
-        let device_connect_binding = device_connect_binding_1.get_inner();
-        let iothub_name_binding_1 = args.iothub_name.get_output(context);
-        let iothub_name_binding = iothub_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let registry_read_binding_1 = args.registry_read.get_output(context);
-        let registry_read_binding = registry_read_binding_1.get_inner();
-        let registry_write_binding_1 = args.registry_write.get_output(context);
-        let registry_write_binding = registry_write_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_connect_binding_1 = args.service_connect.get_output(context);
-        let service_connect_binding = service_connect_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let device_connect_binding = args.device_connect.get_output(context);
+        let iothub_name_binding = args.iothub_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let registry_read_binding = args.registry_read.get_output(context);
+        let registry_write_binding = args.registry_write.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_connect_binding = args.service_connect.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/sharedAccessPolicy:SharedAccessPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceConnect".into(),
-                    value: &device_connect_binding,
+                    value: device_connect_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubName".into(),
-                    value: &iothub_name_binding,
+                    value: iothub_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryRead".into(),
-                    value: &registry_read_binding,
+                    value: registry_read_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryWrite".into(),
-                    value: &registry_write_binding,
+                    value: registry_write_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceConnect".into(),
-                    value: &service_connect_binding,
+                    value: service_connect_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SharedAccessPolicyResult {
-            device_connect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceConnect"),
-            ),
-            iothub_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iothubName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            registry_read: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryRead"),
-            ),
-            registry_write: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryWrite"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            service_connect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceConnect"),
-            ),
+            device_connect: o.get_field("deviceConnect"),
+            iothub_name: o.get_field("iothubName"),
+            name: o.get_field("name"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            primary_key: o.get_field("primaryKey"),
+            registry_read: o.get_field("registryRead"),
+            registry_write: o.get_field("registryWrite"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            secondary_key: o.get_field("secondaryKey"),
+            service_connect: o.get_field("serviceConnect"),
         }
     }
 }

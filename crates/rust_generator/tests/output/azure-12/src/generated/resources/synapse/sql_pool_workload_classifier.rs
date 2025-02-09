@@ -134,90 +134,71 @@ pub mod sql_pool_workload_classifier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SqlPoolWorkloadClassifierArgs,
     ) -> SqlPoolWorkloadClassifierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let context_binding_1 = args.context.get_output(context);
-        let context_binding = context_binding_1.get_inner();
-        let end_time_binding_1 = args.end_time.get_output(context);
-        let end_time_binding = end_time_binding_1.get_inner();
-        let importance_binding_1 = args.importance.get_output(context);
-        let importance_binding = importance_binding_1.get_inner();
-        let label_binding_1 = args.label.get_output(context);
-        let label_binding = label_binding_1.get_inner();
-        let member_name_binding_1 = args.member_name.get_output(context);
-        let member_name_binding = member_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let start_time_binding_1 = args.start_time.get_output(context);
-        let start_time_binding = start_time_binding_1.get_inner();
-        let workload_group_id_binding_1 = args.workload_group_id.get_output(context);
-        let workload_group_id_binding = workload_group_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let context_binding = args.context.get_output(context);
+        let end_time_binding = args.end_time.get_output(context);
+        let importance_binding = args.importance.get_output(context);
+        let label_binding = args.label.get_output(context);
+        let member_name_binding = args.member_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let start_time_binding = args.start_time.get_output(context);
+        let workload_group_id_binding = args.workload_group_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: &context_binding,
+                    value: context_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endTime".into(),
-                    value: &end_time_binding,
+                    value: end_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importance".into(),
-                    value: &importance_binding,
+                    value: importance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "label".into(),
-                    value: &label_binding,
+                    value: label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberName".into(),
-                    value: &member_name_binding,
+                    value: member_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: &start_time_binding,
+                    value: start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadGroupId".into(),
-                    value: &workload_group_id_binding,
+                    value: workload_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SqlPoolWorkloadClassifierResult {
-            context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("context"),
-            ),
-            end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endTime"),
-            ),
-            importance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importance"),
-            ),
-            label: pulumi_gestalt_rust::__private::into_domain(o.extract_field("label")),
-            member_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            workload_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadGroupId"),
-            ),
+            context: o.get_field("context"),
+            end_time: o.get_field("endTime"),
+            importance: o.get_field("importance"),
+            label: o.get_field("label"),
+            member_name: o.get_field("memberName"),
+            name: o.get_field("name"),
+            start_time: o.get_field("startTime"),
+            workload_group_id: o.get_field("workloadGroupId"),
         }
     }
 }

@@ -56,74 +56,56 @@ pub mod api_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiTokenArgs,
     ) -> ApiTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let expires_on_binding_1 = args.expires_on.get_output(context);
-        let expires_on_binding = expires_on_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let not_before_binding_1 = args.not_before.get_output(context);
-        let not_before_binding = not_before_binding_1.get_inner();
-        let policies_binding_1 = args.policies.get_output(context);
-        let policies_binding = policies_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let condition_binding = args.condition.get_output(context);
+        let expires_on_binding = args.expires_on.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let not_before_binding = args.not_before.get_output(context);
+        let policies_binding = args.policies.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/apiToken:ApiToken".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiresOn".into(),
-                    value: &expires_on_binding,
+                    value: expires_on_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notBefore".into(),
-                    value: &not_before_binding,
+                    value: not_before_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policies".into(),
-                    value: &policies_binding,
+                    value: policies_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiTokenResult {
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            expires_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresOn"),
-            ),
-            issued_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuedOn"),
-            ),
-            modified_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedOn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            not_before: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notBefore"),
-            ),
-            policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policies"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            condition: o.get_field("condition"),
+            expires_on: o.get_field("expiresOn"),
+            issued_on: o.get_field("issuedOn"),
+            modified_on: o.get_field("modifiedOn"),
+            name: o.get_field("name"),
+            not_before: o.get_field("notBefore"),
+            policies: o.get_field("policies"),
+            status: o.get_field("status"),
+            value: o.get_field("value"),
         }
     }
 }

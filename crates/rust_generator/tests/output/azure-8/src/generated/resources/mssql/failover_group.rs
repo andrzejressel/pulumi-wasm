@@ -126,86 +126,70 @@ pub mod failover_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FailoverGroupArgs,
     ) -> FailoverGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let databases_binding_1 = args.databases.get_output(context);
-        let databases_binding = databases_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partner_servers_binding_1 = args.partner_servers.get_output(context);
-        let partner_servers_binding = partner_servers_binding_1.get_inner();
-        let read_write_endpoint_failover_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let databases_binding = args.databases.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let partner_servers_binding = args.partner_servers.get_output(context);
+        let read_write_endpoint_failover_policy_binding = args
             .read_write_endpoint_failover_policy
             .get_output(context);
-        let read_write_endpoint_failover_policy_binding = read_write_endpoint_failover_policy_binding_1
-            .get_inner();
-        let readonly_endpoint_failover_policy_enabled_binding_1 = args
+        let readonly_endpoint_failover_policy_enabled_binding = args
             .readonly_endpoint_failover_policy_enabled
             .get_output(context);
-        let readonly_endpoint_failover_policy_enabled_binding = readonly_endpoint_failover_policy_enabled_binding_1
-            .get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let server_id_binding = args.server_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/failoverGroup:FailoverGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databases".into(),
-                    value: &databases_binding,
+                    value: databases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerServers".into(),
-                    value: &partner_servers_binding,
+                    value: partner_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readWriteEndpointFailoverPolicy".into(),
-                    value: &read_write_endpoint_failover_policy_binding,
+                    value: read_write_endpoint_failover_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readonlyEndpointFailoverPolicyEnabled".into(),
-                    value: &readonly_endpoint_failover_policy_enabled_binding,
+                    value: readonly_endpoint_failover_policy_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FailoverGroupResult {
-            databases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databases"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partner_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerServers"),
-            ),
-            read_write_endpoint_failover_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readWriteEndpointFailoverPolicy"),
-            ),
-            readonly_endpoint_failover_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readonlyEndpointFailoverPolicyEnabled"),
-            ),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            databases: o.get_field("databases"),
+            name: o.get_field("name"),
+            partner_servers: o.get_field("partnerServers"),
+            read_write_endpoint_failover_policy: o
+                .get_field("readWriteEndpointFailoverPolicy"),
+            readonly_endpoint_failover_policy_enabled: o
+                .get_field("readonlyEndpointFailoverPolicyEnabled"),
+            server_id: o.get_field("serverId"),
+            tags: o.get_field("tags"),
         }
     }
 }

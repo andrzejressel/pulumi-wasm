@@ -542,680 +542,459 @@ pub mod vpn_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpnConnectionArgs,
     ) -> VpnConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_gateway_id_binding_1 = args.customer_gateway_id.get_output(context);
-        let customer_gateway_id_binding = customer_gateway_id_binding_1.get_inner();
-        let enable_acceleration_binding_1 = args.enable_acceleration.get_output(context);
-        let enable_acceleration_binding = enable_acceleration_binding_1.get_inner();
-        let local_ipv4_network_cidr_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let customer_gateway_id_binding = args.customer_gateway_id.get_output(context);
+        let enable_acceleration_binding = args.enable_acceleration.get_output(context);
+        let local_ipv4_network_cidr_binding = args
             .local_ipv4_network_cidr
             .get_output(context);
-        let local_ipv4_network_cidr_binding = local_ipv4_network_cidr_binding_1
-            .get_inner();
-        let local_ipv6_network_cidr_binding_1 = args
+        let local_ipv6_network_cidr_binding = args
             .local_ipv6_network_cidr
             .get_output(context);
-        let local_ipv6_network_cidr_binding = local_ipv6_network_cidr_binding_1
-            .get_inner();
-        let outside_ip_address_type_binding_1 = args
+        let outside_ip_address_type_binding = args
             .outside_ip_address_type
             .get_output(context);
-        let outside_ip_address_type_binding = outside_ip_address_type_binding_1
-            .get_inner();
-        let remote_ipv4_network_cidr_binding_1 = args
+        let remote_ipv4_network_cidr_binding = args
             .remote_ipv4_network_cidr
             .get_output(context);
-        let remote_ipv4_network_cidr_binding = remote_ipv4_network_cidr_binding_1
-            .get_inner();
-        let remote_ipv6_network_cidr_binding_1 = args
+        let remote_ipv6_network_cidr_binding = args
             .remote_ipv6_network_cidr
             .get_output(context);
-        let remote_ipv6_network_cidr_binding = remote_ipv6_network_cidr_binding_1
-            .get_inner();
-        let static_routes_only_binding_1 = args.static_routes_only.get_output(context);
-        let static_routes_only_binding = static_routes_only_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
-        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
-        let transport_transit_gateway_attachment_id_binding_1 = args
+        let static_routes_only_binding = args.static_routes_only.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_id_binding = args.transit_gateway_id.get_output(context);
+        let transport_transit_gateway_attachment_id_binding = args
             .transport_transit_gateway_attachment_id
             .get_output(context);
-        let transport_transit_gateway_attachment_id_binding = transport_transit_gateway_attachment_id_binding_1
-            .get_inner();
-        let tunnel1_dpd_timeout_action_binding_1 = args
+        let tunnel1_dpd_timeout_action_binding = args
             .tunnel1_dpd_timeout_action
             .get_output(context);
-        let tunnel1_dpd_timeout_action_binding = tunnel1_dpd_timeout_action_binding_1
-            .get_inner();
-        let tunnel1_dpd_timeout_seconds_binding_1 = args
+        let tunnel1_dpd_timeout_seconds_binding = args
             .tunnel1_dpd_timeout_seconds
             .get_output(context);
-        let tunnel1_dpd_timeout_seconds_binding = tunnel1_dpd_timeout_seconds_binding_1
-            .get_inner();
-        let tunnel1_enable_tunnel_lifecycle_control_binding_1 = args
+        let tunnel1_enable_tunnel_lifecycle_control_binding = args
             .tunnel1_enable_tunnel_lifecycle_control
             .get_output(context);
-        let tunnel1_enable_tunnel_lifecycle_control_binding = tunnel1_enable_tunnel_lifecycle_control_binding_1
-            .get_inner();
-        let tunnel1_ike_versions_binding_1 = args
-            .tunnel1_ike_versions
-            .get_output(context);
-        let tunnel1_ike_versions_binding = tunnel1_ike_versions_binding_1.get_inner();
-        let tunnel1_inside_cidr_binding_1 = args.tunnel1_inside_cidr.get_output(context);
-        let tunnel1_inside_cidr_binding = tunnel1_inside_cidr_binding_1.get_inner();
-        let tunnel1_inside_ipv6_cidr_binding_1 = args
+        let tunnel1_ike_versions_binding = args.tunnel1_ike_versions.get_output(context);
+        let tunnel1_inside_cidr_binding = args.tunnel1_inside_cidr.get_output(context);
+        let tunnel1_inside_ipv6_cidr_binding = args
             .tunnel1_inside_ipv6_cidr
             .get_output(context);
-        let tunnel1_inside_ipv6_cidr_binding = tunnel1_inside_ipv6_cidr_binding_1
-            .get_inner();
-        let tunnel1_log_options_binding_1 = args.tunnel1_log_options.get_output(context);
-        let tunnel1_log_options_binding = tunnel1_log_options_binding_1.get_inner();
-        let tunnel1_phase1_dh_group_numbers_binding_1 = args
+        let tunnel1_log_options_binding = args.tunnel1_log_options.get_output(context);
+        let tunnel1_phase1_dh_group_numbers_binding = args
             .tunnel1_phase1_dh_group_numbers
             .get_output(context);
-        let tunnel1_phase1_dh_group_numbers_binding = tunnel1_phase1_dh_group_numbers_binding_1
-            .get_inner();
-        let tunnel1_phase1_encryption_algorithms_binding_1 = args
+        let tunnel1_phase1_encryption_algorithms_binding = args
             .tunnel1_phase1_encryption_algorithms
             .get_output(context);
-        let tunnel1_phase1_encryption_algorithms_binding = tunnel1_phase1_encryption_algorithms_binding_1
-            .get_inner();
-        let tunnel1_phase1_integrity_algorithms_binding_1 = args
+        let tunnel1_phase1_integrity_algorithms_binding = args
             .tunnel1_phase1_integrity_algorithms
             .get_output(context);
-        let tunnel1_phase1_integrity_algorithms_binding = tunnel1_phase1_integrity_algorithms_binding_1
-            .get_inner();
-        let tunnel1_phase1_lifetime_seconds_binding_1 = args
+        let tunnel1_phase1_lifetime_seconds_binding = args
             .tunnel1_phase1_lifetime_seconds
             .get_output(context);
-        let tunnel1_phase1_lifetime_seconds_binding = tunnel1_phase1_lifetime_seconds_binding_1
-            .get_inner();
-        let tunnel1_phase2_dh_group_numbers_binding_1 = args
+        let tunnel1_phase2_dh_group_numbers_binding = args
             .tunnel1_phase2_dh_group_numbers
             .get_output(context);
-        let tunnel1_phase2_dh_group_numbers_binding = tunnel1_phase2_dh_group_numbers_binding_1
-            .get_inner();
-        let tunnel1_phase2_encryption_algorithms_binding_1 = args
+        let tunnel1_phase2_encryption_algorithms_binding = args
             .tunnel1_phase2_encryption_algorithms
             .get_output(context);
-        let tunnel1_phase2_encryption_algorithms_binding = tunnel1_phase2_encryption_algorithms_binding_1
-            .get_inner();
-        let tunnel1_phase2_integrity_algorithms_binding_1 = args
+        let tunnel1_phase2_integrity_algorithms_binding = args
             .tunnel1_phase2_integrity_algorithms
             .get_output(context);
-        let tunnel1_phase2_integrity_algorithms_binding = tunnel1_phase2_integrity_algorithms_binding_1
-            .get_inner();
-        let tunnel1_phase2_lifetime_seconds_binding_1 = args
+        let tunnel1_phase2_lifetime_seconds_binding = args
             .tunnel1_phase2_lifetime_seconds
             .get_output(context);
-        let tunnel1_phase2_lifetime_seconds_binding = tunnel1_phase2_lifetime_seconds_binding_1
-            .get_inner();
-        let tunnel1_preshared_key_binding_1 = args
+        let tunnel1_preshared_key_binding = args
             .tunnel1_preshared_key
             .get_output(context);
-        let tunnel1_preshared_key_binding = tunnel1_preshared_key_binding_1.get_inner();
-        let tunnel1_rekey_fuzz_percentage_binding_1 = args
+        let tunnel1_rekey_fuzz_percentage_binding = args
             .tunnel1_rekey_fuzz_percentage
             .get_output(context);
-        let tunnel1_rekey_fuzz_percentage_binding = tunnel1_rekey_fuzz_percentage_binding_1
-            .get_inner();
-        let tunnel1_rekey_margin_time_seconds_binding_1 = args
+        let tunnel1_rekey_margin_time_seconds_binding = args
             .tunnel1_rekey_margin_time_seconds
             .get_output(context);
-        let tunnel1_rekey_margin_time_seconds_binding = tunnel1_rekey_margin_time_seconds_binding_1
-            .get_inner();
-        let tunnel1_replay_window_size_binding_1 = args
+        let tunnel1_replay_window_size_binding = args
             .tunnel1_replay_window_size
             .get_output(context);
-        let tunnel1_replay_window_size_binding = tunnel1_replay_window_size_binding_1
-            .get_inner();
-        let tunnel1_startup_action_binding_1 = args
+        let tunnel1_startup_action_binding = args
             .tunnel1_startup_action
             .get_output(context);
-        let tunnel1_startup_action_binding = tunnel1_startup_action_binding_1
-            .get_inner();
-        let tunnel2_dpd_timeout_action_binding_1 = args
+        let tunnel2_dpd_timeout_action_binding = args
             .tunnel2_dpd_timeout_action
             .get_output(context);
-        let tunnel2_dpd_timeout_action_binding = tunnel2_dpd_timeout_action_binding_1
-            .get_inner();
-        let tunnel2_dpd_timeout_seconds_binding_1 = args
+        let tunnel2_dpd_timeout_seconds_binding = args
             .tunnel2_dpd_timeout_seconds
             .get_output(context);
-        let tunnel2_dpd_timeout_seconds_binding = tunnel2_dpd_timeout_seconds_binding_1
-            .get_inner();
-        let tunnel2_enable_tunnel_lifecycle_control_binding_1 = args
+        let tunnel2_enable_tunnel_lifecycle_control_binding = args
             .tunnel2_enable_tunnel_lifecycle_control
             .get_output(context);
-        let tunnel2_enable_tunnel_lifecycle_control_binding = tunnel2_enable_tunnel_lifecycle_control_binding_1
-            .get_inner();
-        let tunnel2_ike_versions_binding_1 = args
-            .tunnel2_ike_versions
-            .get_output(context);
-        let tunnel2_ike_versions_binding = tunnel2_ike_versions_binding_1.get_inner();
-        let tunnel2_inside_cidr_binding_1 = args.tunnel2_inside_cidr.get_output(context);
-        let tunnel2_inside_cidr_binding = tunnel2_inside_cidr_binding_1.get_inner();
-        let tunnel2_inside_ipv6_cidr_binding_1 = args
+        let tunnel2_ike_versions_binding = args.tunnel2_ike_versions.get_output(context);
+        let tunnel2_inside_cidr_binding = args.tunnel2_inside_cidr.get_output(context);
+        let tunnel2_inside_ipv6_cidr_binding = args
             .tunnel2_inside_ipv6_cidr
             .get_output(context);
-        let tunnel2_inside_ipv6_cidr_binding = tunnel2_inside_ipv6_cidr_binding_1
-            .get_inner();
-        let tunnel2_log_options_binding_1 = args.tunnel2_log_options.get_output(context);
-        let tunnel2_log_options_binding = tunnel2_log_options_binding_1.get_inner();
-        let tunnel2_phase1_dh_group_numbers_binding_1 = args
+        let tunnel2_log_options_binding = args.tunnel2_log_options.get_output(context);
+        let tunnel2_phase1_dh_group_numbers_binding = args
             .tunnel2_phase1_dh_group_numbers
             .get_output(context);
-        let tunnel2_phase1_dh_group_numbers_binding = tunnel2_phase1_dh_group_numbers_binding_1
-            .get_inner();
-        let tunnel2_phase1_encryption_algorithms_binding_1 = args
+        let tunnel2_phase1_encryption_algorithms_binding = args
             .tunnel2_phase1_encryption_algorithms
             .get_output(context);
-        let tunnel2_phase1_encryption_algorithms_binding = tunnel2_phase1_encryption_algorithms_binding_1
-            .get_inner();
-        let tunnel2_phase1_integrity_algorithms_binding_1 = args
+        let tunnel2_phase1_integrity_algorithms_binding = args
             .tunnel2_phase1_integrity_algorithms
             .get_output(context);
-        let tunnel2_phase1_integrity_algorithms_binding = tunnel2_phase1_integrity_algorithms_binding_1
-            .get_inner();
-        let tunnel2_phase1_lifetime_seconds_binding_1 = args
+        let tunnel2_phase1_lifetime_seconds_binding = args
             .tunnel2_phase1_lifetime_seconds
             .get_output(context);
-        let tunnel2_phase1_lifetime_seconds_binding = tunnel2_phase1_lifetime_seconds_binding_1
-            .get_inner();
-        let tunnel2_phase2_dh_group_numbers_binding_1 = args
+        let tunnel2_phase2_dh_group_numbers_binding = args
             .tunnel2_phase2_dh_group_numbers
             .get_output(context);
-        let tunnel2_phase2_dh_group_numbers_binding = tunnel2_phase2_dh_group_numbers_binding_1
-            .get_inner();
-        let tunnel2_phase2_encryption_algorithms_binding_1 = args
+        let tunnel2_phase2_encryption_algorithms_binding = args
             .tunnel2_phase2_encryption_algorithms
             .get_output(context);
-        let tunnel2_phase2_encryption_algorithms_binding = tunnel2_phase2_encryption_algorithms_binding_1
-            .get_inner();
-        let tunnel2_phase2_integrity_algorithms_binding_1 = args
+        let tunnel2_phase2_integrity_algorithms_binding = args
             .tunnel2_phase2_integrity_algorithms
             .get_output(context);
-        let tunnel2_phase2_integrity_algorithms_binding = tunnel2_phase2_integrity_algorithms_binding_1
-            .get_inner();
-        let tunnel2_phase2_lifetime_seconds_binding_1 = args
+        let tunnel2_phase2_lifetime_seconds_binding = args
             .tunnel2_phase2_lifetime_seconds
             .get_output(context);
-        let tunnel2_phase2_lifetime_seconds_binding = tunnel2_phase2_lifetime_seconds_binding_1
-            .get_inner();
-        let tunnel2_preshared_key_binding_1 = args
+        let tunnel2_preshared_key_binding = args
             .tunnel2_preshared_key
             .get_output(context);
-        let tunnel2_preshared_key_binding = tunnel2_preshared_key_binding_1.get_inner();
-        let tunnel2_rekey_fuzz_percentage_binding_1 = args
+        let tunnel2_rekey_fuzz_percentage_binding = args
             .tunnel2_rekey_fuzz_percentage
             .get_output(context);
-        let tunnel2_rekey_fuzz_percentage_binding = tunnel2_rekey_fuzz_percentage_binding_1
-            .get_inner();
-        let tunnel2_rekey_margin_time_seconds_binding_1 = args
+        let tunnel2_rekey_margin_time_seconds_binding = args
             .tunnel2_rekey_margin_time_seconds
             .get_output(context);
-        let tunnel2_rekey_margin_time_seconds_binding = tunnel2_rekey_margin_time_seconds_binding_1
-            .get_inner();
-        let tunnel2_replay_window_size_binding_1 = args
+        let tunnel2_replay_window_size_binding = args
             .tunnel2_replay_window_size
             .get_output(context);
-        let tunnel2_replay_window_size_binding = tunnel2_replay_window_size_binding_1
-            .get_inner();
-        let tunnel2_startup_action_binding_1 = args
+        let tunnel2_startup_action_binding = args
             .tunnel2_startup_action
             .get_output(context);
-        let tunnel2_startup_action_binding = tunnel2_startup_action_binding_1
-            .get_inner();
-        let tunnel_inside_ip_version_binding_1 = args
+        let tunnel_inside_ip_version_binding = args
             .tunnel_inside_ip_version
             .get_output(context);
-        let tunnel_inside_ip_version_binding = tunnel_inside_ip_version_binding_1
-            .get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let vpn_gateway_id_binding_1 = args.vpn_gateway_id.get_output(context);
-        let vpn_gateway_id_binding = vpn_gateway_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let type__binding = args.type_.get_output(context);
+        let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpnConnection:VpnConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerGatewayId".into(),
-                    value: &customer_gateway_id_binding,
+                    value: customer_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAcceleration".into(),
-                    value: &enable_acceleration_binding,
+                    value: enable_acceleration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localIpv4NetworkCidr".into(),
-                    value: &local_ipv4_network_cidr_binding,
+                    value: local_ipv4_network_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localIpv6NetworkCidr".into(),
-                    value: &local_ipv6_network_cidr_binding,
+                    value: local_ipv6_network_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outsideIpAddressType".into(),
-                    value: &outside_ip_address_type_binding,
+                    value: outside_ip_address_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteIpv4NetworkCidr".into(),
-                    value: &remote_ipv4_network_cidr_binding,
+                    value: remote_ipv4_network_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteIpv6NetworkCidr".into(),
-                    value: &remote_ipv6_network_cidr_binding,
+                    value: remote_ipv6_network_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticRoutesOnly".into(),
-                    value: &static_routes_only_binding,
+                    value: static_routes_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: &transit_gateway_id_binding,
+                    value: transit_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transportTransitGatewayAttachmentId".into(),
-                    value: &transport_transit_gateway_attachment_id_binding,
+                    value: transport_transit_gateway_attachment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1DpdTimeoutAction".into(),
-                    value: &tunnel1_dpd_timeout_action_binding,
+                    value: tunnel1_dpd_timeout_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1DpdTimeoutSeconds".into(),
-                    value: &tunnel1_dpd_timeout_seconds_binding,
+                    value: tunnel1_dpd_timeout_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1EnableTunnelLifecycleControl".into(),
-                    value: &tunnel1_enable_tunnel_lifecycle_control_binding,
+                    value: tunnel1_enable_tunnel_lifecycle_control_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1IkeVersions".into(),
-                    value: &tunnel1_ike_versions_binding,
+                    value: tunnel1_ike_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1InsideCidr".into(),
-                    value: &tunnel1_inside_cidr_binding,
+                    value: tunnel1_inside_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1InsideIpv6Cidr".into(),
-                    value: &tunnel1_inside_ipv6_cidr_binding,
+                    value: tunnel1_inside_ipv6_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1LogOptions".into(),
-                    value: &tunnel1_log_options_binding,
+                    value: tunnel1_log_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase1DhGroupNumbers".into(),
-                    value: &tunnel1_phase1_dh_group_numbers_binding,
+                    value: tunnel1_phase1_dh_group_numbers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase1EncryptionAlgorithms".into(),
-                    value: &tunnel1_phase1_encryption_algorithms_binding,
+                    value: tunnel1_phase1_encryption_algorithms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase1IntegrityAlgorithms".into(),
-                    value: &tunnel1_phase1_integrity_algorithms_binding,
+                    value: tunnel1_phase1_integrity_algorithms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase1LifetimeSeconds".into(),
-                    value: &tunnel1_phase1_lifetime_seconds_binding,
+                    value: tunnel1_phase1_lifetime_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase2DhGroupNumbers".into(),
-                    value: &tunnel1_phase2_dh_group_numbers_binding,
+                    value: tunnel1_phase2_dh_group_numbers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase2EncryptionAlgorithms".into(),
-                    value: &tunnel1_phase2_encryption_algorithms_binding,
+                    value: tunnel1_phase2_encryption_algorithms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase2IntegrityAlgorithms".into(),
-                    value: &tunnel1_phase2_integrity_algorithms_binding,
+                    value: tunnel1_phase2_integrity_algorithms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1Phase2LifetimeSeconds".into(),
-                    value: &tunnel1_phase2_lifetime_seconds_binding,
+                    value: tunnel1_phase2_lifetime_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1PresharedKey".into(),
-                    value: &tunnel1_preshared_key_binding,
+                    value: tunnel1_preshared_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1RekeyFuzzPercentage".into(),
-                    value: &tunnel1_rekey_fuzz_percentage_binding,
+                    value: tunnel1_rekey_fuzz_percentage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1RekeyMarginTimeSeconds".into(),
-                    value: &tunnel1_rekey_margin_time_seconds_binding,
+                    value: tunnel1_rekey_margin_time_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1ReplayWindowSize".into(),
-                    value: &tunnel1_replay_window_size_binding,
+                    value: tunnel1_replay_window_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel1StartupAction".into(),
-                    value: &tunnel1_startup_action_binding,
+                    value: tunnel1_startup_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2DpdTimeoutAction".into(),
-                    value: &tunnel2_dpd_timeout_action_binding,
+                    value: tunnel2_dpd_timeout_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2DpdTimeoutSeconds".into(),
-                    value: &tunnel2_dpd_timeout_seconds_binding,
+                    value: tunnel2_dpd_timeout_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2EnableTunnelLifecycleControl".into(),
-                    value: &tunnel2_enable_tunnel_lifecycle_control_binding,
+                    value: tunnel2_enable_tunnel_lifecycle_control_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2IkeVersions".into(),
-                    value: &tunnel2_ike_versions_binding,
+                    value: tunnel2_ike_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2InsideCidr".into(),
-                    value: &tunnel2_inside_cidr_binding,
+                    value: tunnel2_inside_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2InsideIpv6Cidr".into(),
-                    value: &tunnel2_inside_ipv6_cidr_binding,
+                    value: tunnel2_inside_ipv6_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2LogOptions".into(),
-                    value: &tunnel2_log_options_binding,
+                    value: tunnel2_log_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase1DhGroupNumbers".into(),
-                    value: &tunnel2_phase1_dh_group_numbers_binding,
+                    value: tunnel2_phase1_dh_group_numbers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase1EncryptionAlgorithms".into(),
-                    value: &tunnel2_phase1_encryption_algorithms_binding,
+                    value: tunnel2_phase1_encryption_algorithms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase1IntegrityAlgorithms".into(),
-                    value: &tunnel2_phase1_integrity_algorithms_binding,
+                    value: tunnel2_phase1_integrity_algorithms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase1LifetimeSeconds".into(),
-                    value: &tunnel2_phase1_lifetime_seconds_binding,
+                    value: tunnel2_phase1_lifetime_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase2DhGroupNumbers".into(),
-                    value: &tunnel2_phase2_dh_group_numbers_binding,
+                    value: tunnel2_phase2_dh_group_numbers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase2EncryptionAlgorithms".into(),
-                    value: &tunnel2_phase2_encryption_algorithms_binding,
+                    value: tunnel2_phase2_encryption_algorithms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase2IntegrityAlgorithms".into(),
-                    value: &tunnel2_phase2_integrity_algorithms_binding,
+                    value: tunnel2_phase2_integrity_algorithms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2Phase2LifetimeSeconds".into(),
-                    value: &tunnel2_phase2_lifetime_seconds_binding,
+                    value: tunnel2_phase2_lifetime_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2PresharedKey".into(),
-                    value: &tunnel2_preshared_key_binding,
+                    value: tunnel2_preshared_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2RekeyFuzzPercentage".into(),
-                    value: &tunnel2_rekey_fuzz_percentage_binding,
+                    value: tunnel2_rekey_fuzz_percentage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2RekeyMarginTimeSeconds".into(),
-                    value: &tunnel2_rekey_margin_time_seconds_binding,
+                    value: tunnel2_rekey_margin_time_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2ReplayWindowSize".into(),
-                    value: &tunnel2_replay_window_size_binding,
+                    value: tunnel2_replay_window_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnel2StartupAction".into(),
-                    value: &tunnel2_startup_action_binding,
+                    value: tunnel2_startup_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnelInsideIpVersion".into(),
-                    value: &tunnel_inside_ip_version_binding,
+                    value: tunnel_inside_ip_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayId".into(),
-                    value: &vpn_gateway_id_binding,
+                    value: vpn_gateway_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpnConnectionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkArn"),
-            ),
-            core_network_attachment_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkAttachmentArn"),
-            ),
-            customer_gateway_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerGatewayConfiguration"),
-            ),
-            customer_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerGatewayId"),
-            ),
-            enable_acceleration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableAcceleration"),
-            ),
-            local_ipv4_network_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localIpv4NetworkCidr"),
-            ),
-            local_ipv6_network_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localIpv6NetworkCidr"),
-            ),
-            outside_ip_address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outsideIpAddressType"),
-            ),
-            remote_ipv4_network_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteIpv4NetworkCidr"),
-            ),
-            remote_ipv6_network_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteIpv6NetworkCidr"),
-            ),
-            routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routes"),
-            ),
-            static_routes_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staticRoutesOnly"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAttachmentId"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
-            transport_transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transportTransitGatewayAttachmentId"),
-            ),
-            tunnel1_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Address"),
-            ),
-            tunnel1_bgp_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1BgpAsn"),
-            ),
-            tunnel1_bgp_holdtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1BgpHoldtime"),
-            ),
-            tunnel1_cgw_inside_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1CgwInsideAddress"),
-            ),
-            tunnel1_dpd_timeout_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1DpdTimeoutAction"),
-            ),
-            tunnel1_dpd_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1DpdTimeoutSeconds"),
-            ),
-            tunnel1_enable_tunnel_lifecycle_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1EnableTunnelLifecycleControl"),
-            ),
-            tunnel1_ike_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1IkeVersions"),
-            ),
-            tunnel1_inside_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1InsideCidr"),
-            ),
-            tunnel1_inside_ipv6_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1InsideIpv6Cidr"),
-            ),
-            tunnel1_log_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1LogOptions"),
-            ),
-            tunnel1_phase1_dh_group_numbers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Phase1DhGroupNumbers"),
-            ),
-            tunnel1_phase1_encryption_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Phase1EncryptionAlgorithms"),
-            ),
-            tunnel1_phase1_integrity_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Phase1IntegrityAlgorithms"),
-            ),
-            tunnel1_phase1_lifetime_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Phase1LifetimeSeconds"),
-            ),
-            tunnel1_phase2_dh_group_numbers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Phase2DhGroupNumbers"),
-            ),
-            tunnel1_phase2_encryption_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Phase2EncryptionAlgorithms"),
-            ),
-            tunnel1_phase2_integrity_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Phase2IntegrityAlgorithms"),
-            ),
-            tunnel1_phase2_lifetime_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1Phase2LifetimeSeconds"),
-            ),
-            tunnel1_preshared_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1PresharedKey"),
-            ),
-            tunnel1_rekey_fuzz_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1RekeyFuzzPercentage"),
-            ),
-            tunnel1_rekey_margin_time_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1RekeyMarginTimeSeconds"),
-            ),
-            tunnel1_replay_window_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1ReplayWindowSize"),
-            ),
-            tunnel1_startup_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1StartupAction"),
-            ),
-            tunnel1_vgw_inside_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel1VgwInsideAddress"),
-            ),
-            tunnel2_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Address"),
-            ),
-            tunnel2_bgp_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2BgpAsn"),
-            ),
-            tunnel2_bgp_holdtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2BgpHoldtime"),
-            ),
-            tunnel2_cgw_inside_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2CgwInsideAddress"),
-            ),
-            tunnel2_dpd_timeout_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2DpdTimeoutAction"),
-            ),
-            tunnel2_dpd_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2DpdTimeoutSeconds"),
-            ),
-            tunnel2_enable_tunnel_lifecycle_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2EnableTunnelLifecycleControl"),
-            ),
-            tunnel2_ike_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2IkeVersions"),
-            ),
-            tunnel2_inside_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2InsideCidr"),
-            ),
-            tunnel2_inside_ipv6_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2InsideIpv6Cidr"),
-            ),
-            tunnel2_log_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2LogOptions"),
-            ),
-            tunnel2_phase1_dh_group_numbers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Phase1DhGroupNumbers"),
-            ),
-            tunnel2_phase1_encryption_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Phase1EncryptionAlgorithms"),
-            ),
-            tunnel2_phase1_integrity_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Phase1IntegrityAlgorithms"),
-            ),
-            tunnel2_phase1_lifetime_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Phase1LifetimeSeconds"),
-            ),
-            tunnel2_phase2_dh_group_numbers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Phase2DhGroupNumbers"),
-            ),
-            tunnel2_phase2_encryption_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Phase2EncryptionAlgorithms"),
-            ),
-            tunnel2_phase2_integrity_algorithms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Phase2IntegrityAlgorithms"),
-            ),
-            tunnel2_phase2_lifetime_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2Phase2LifetimeSeconds"),
-            ),
-            tunnel2_preshared_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2PresharedKey"),
-            ),
-            tunnel2_rekey_fuzz_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2RekeyFuzzPercentage"),
-            ),
-            tunnel2_rekey_margin_time_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2RekeyMarginTimeSeconds"),
-            ),
-            tunnel2_replay_window_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2ReplayWindowSize"),
-            ),
-            tunnel2_startup_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2StartupAction"),
-            ),
-            tunnel2_vgw_inside_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnel2VgwInsideAddress"),
-            ),
-            tunnel_inside_ip_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnelInsideIpVersion"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vgw_telemetries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vgwTelemetries"),
-            ),
-            vpn_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnGatewayId"),
-            ),
+            arn: o.get_field("arn"),
+            core_network_arn: o.get_field("coreNetworkArn"),
+            core_network_attachment_arn: o.get_field("coreNetworkAttachmentArn"),
+            customer_gateway_configuration: o.get_field("customerGatewayConfiguration"),
+            customer_gateway_id: o.get_field("customerGatewayId"),
+            enable_acceleration: o.get_field("enableAcceleration"),
+            local_ipv4_network_cidr: o.get_field("localIpv4NetworkCidr"),
+            local_ipv6_network_cidr: o.get_field("localIpv6NetworkCidr"),
+            outside_ip_address_type: o.get_field("outsideIpAddressType"),
+            remote_ipv4_network_cidr: o.get_field("remoteIpv4NetworkCidr"),
+            remote_ipv6_network_cidr: o.get_field("remoteIpv6NetworkCidr"),
+            routes: o.get_field("routes"),
+            static_routes_only: o.get_field("staticRoutesOnly"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_attachment_id: o.get_field("transitGatewayAttachmentId"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
+            transport_transit_gateway_attachment_id: o
+                .get_field("transportTransitGatewayAttachmentId"),
+            tunnel1_address: o.get_field("tunnel1Address"),
+            tunnel1_bgp_asn: o.get_field("tunnel1BgpAsn"),
+            tunnel1_bgp_holdtime: o.get_field("tunnel1BgpHoldtime"),
+            tunnel1_cgw_inside_address: o.get_field("tunnel1CgwInsideAddress"),
+            tunnel1_dpd_timeout_action: o.get_field("tunnel1DpdTimeoutAction"),
+            tunnel1_dpd_timeout_seconds: o.get_field("tunnel1DpdTimeoutSeconds"),
+            tunnel1_enable_tunnel_lifecycle_control: o
+                .get_field("tunnel1EnableTunnelLifecycleControl"),
+            tunnel1_ike_versions: o.get_field("tunnel1IkeVersions"),
+            tunnel1_inside_cidr: o.get_field("tunnel1InsideCidr"),
+            tunnel1_inside_ipv6_cidr: o.get_field("tunnel1InsideIpv6Cidr"),
+            tunnel1_log_options: o.get_field("tunnel1LogOptions"),
+            tunnel1_phase1_dh_group_numbers: o.get_field("tunnel1Phase1DhGroupNumbers"),
+            tunnel1_phase1_encryption_algorithms: o
+                .get_field("tunnel1Phase1EncryptionAlgorithms"),
+            tunnel1_phase1_integrity_algorithms: o
+                .get_field("tunnel1Phase1IntegrityAlgorithms"),
+            tunnel1_phase1_lifetime_seconds: o.get_field("tunnel1Phase1LifetimeSeconds"),
+            tunnel1_phase2_dh_group_numbers: o.get_field("tunnel1Phase2DhGroupNumbers"),
+            tunnel1_phase2_encryption_algorithms: o
+                .get_field("tunnel1Phase2EncryptionAlgorithms"),
+            tunnel1_phase2_integrity_algorithms: o
+                .get_field("tunnel1Phase2IntegrityAlgorithms"),
+            tunnel1_phase2_lifetime_seconds: o.get_field("tunnel1Phase2LifetimeSeconds"),
+            tunnel1_preshared_key: o.get_field("tunnel1PresharedKey"),
+            tunnel1_rekey_fuzz_percentage: o.get_field("tunnel1RekeyFuzzPercentage"),
+            tunnel1_rekey_margin_time_seconds: o
+                .get_field("tunnel1RekeyMarginTimeSeconds"),
+            tunnel1_replay_window_size: o.get_field("tunnel1ReplayWindowSize"),
+            tunnel1_startup_action: o.get_field("tunnel1StartupAction"),
+            tunnel1_vgw_inside_address: o.get_field("tunnel1VgwInsideAddress"),
+            tunnel2_address: o.get_field("tunnel2Address"),
+            tunnel2_bgp_asn: o.get_field("tunnel2BgpAsn"),
+            tunnel2_bgp_holdtime: o.get_field("tunnel2BgpHoldtime"),
+            tunnel2_cgw_inside_address: o.get_field("tunnel2CgwInsideAddress"),
+            tunnel2_dpd_timeout_action: o.get_field("tunnel2DpdTimeoutAction"),
+            tunnel2_dpd_timeout_seconds: o.get_field("tunnel2DpdTimeoutSeconds"),
+            tunnel2_enable_tunnel_lifecycle_control: o
+                .get_field("tunnel2EnableTunnelLifecycleControl"),
+            tunnel2_ike_versions: o.get_field("tunnel2IkeVersions"),
+            tunnel2_inside_cidr: o.get_field("tunnel2InsideCidr"),
+            tunnel2_inside_ipv6_cidr: o.get_field("tunnel2InsideIpv6Cidr"),
+            tunnel2_log_options: o.get_field("tunnel2LogOptions"),
+            tunnel2_phase1_dh_group_numbers: o.get_field("tunnel2Phase1DhGroupNumbers"),
+            tunnel2_phase1_encryption_algorithms: o
+                .get_field("tunnel2Phase1EncryptionAlgorithms"),
+            tunnel2_phase1_integrity_algorithms: o
+                .get_field("tunnel2Phase1IntegrityAlgorithms"),
+            tunnel2_phase1_lifetime_seconds: o.get_field("tunnel2Phase1LifetimeSeconds"),
+            tunnel2_phase2_dh_group_numbers: o.get_field("tunnel2Phase2DhGroupNumbers"),
+            tunnel2_phase2_encryption_algorithms: o
+                .get_field("tunnel2Phase2EncryptionAlgorithms"),
+            tunnel2_phase2_integrity_algorithms: o
+                .get_field("tunnel2Phase2IntegrityAlgorithms"),
+            tunnel2_phase2_lifetime_seconds: o.get_field("tunnel2Phase2LifetimeSeconds"),
+            tunnel2_preshared_key: o.get_field("tunnel2PresharedKey"),
+            tunnel2_rekey_fuzz_percentage: o.get_field("tunnel2RekeyFuzzPercentage"),
+            tunnel2_rekey_margin_time_seconds: o
+                .get_field("tunnel2RekeyMarginTimeSeconds"),
+            tunnel2_replay_window_size: o.get_field("tunnel2ReplayWindowSize"),
+            tunnel2_startup_action: o.get_field("tunnel2StartupAction"),
+            tunnel2_vgw_inside_address: o.get_field("tunnel2VgwInsideAddress"),
+            tunnel_inside_ip_version: o.get_field("tunnelInsideIpVersion"),
+            type_: o.get_field("type"),
+            vgw_telemetries: o.get_field("vgwTelemetries"),
+            vpn_gateway_id: o.get_field("vpnGatewayId"),
         }
     }
 }

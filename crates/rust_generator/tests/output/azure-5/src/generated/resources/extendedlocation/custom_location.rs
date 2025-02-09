@@ -74,102 +74,78 @@ pub mod custom_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomLocationArgs,
     ) -> CustomLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding_1 = args.authentication.get_output(context);
-        let authentication_binding = authentication_binding_1.get_inner();
-        let cluster_extension_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_binding = args.authentication.get_output(context);
+        let cluster_extension_ids_binding = args
             .cluster_extension_ids
             .get_output(context);
-        let cluster_extension_ids_binding = cluster_extension_ids_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let host_resource_id_binding_1 = args.host_resource_id.get_output(context);
-        let host_resource_id_binding = host_resource_id_binding_1.get_inner();
-        let host_type_binding_1 = args.host_type.get_output(context);
-        let host_type_binding = host_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let display_name_binding = args.display_name.get_output(context);
+        let host_resource_id_binding = args.host_resource_id.get_output(context);
+        let host_type_binding = args.host_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:extendedlocation/customLocation:CustomLocation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: &authentication_binding,
+                    value: authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterExtensionIds".into(),
-                    value: &cluster_extension_ids_binding,
+                    value: cluster_extension_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostResourceId".into(),
-                    value: &host_resource_id_binding,
+                    value: host_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostType".into(),
-                    value: &host_type_binding,
+                    value: host_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomLocationResult {
-            authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authentication"),
-            ),
-            cluster_extension_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterExtensionIds"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            host_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostResourceId"),
-            ),
-            host_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            authentication: o.get_field("authentication"),
+            cluster_extension_ids: o.get_field("clusterExtensionIds"),
+            display_name: o.get_field("displayName"),
+            host_resource_id: o.get_field("hostResourceId"),
+            host_type: o.get_field("hostType"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            namespace: o.get_field("namespace"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

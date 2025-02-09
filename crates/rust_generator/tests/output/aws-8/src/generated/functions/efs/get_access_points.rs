@@ -23,31 +23,29 @@ pub mod get_access_points {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccessPointsArgs,
     ) -> GetAccessPointsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let file_system_id_binding_1 = args.file_system_id.get_output(context);
-        let file_system_id_binding = file_system_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let file_system_id_binding = args.file_system_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:efs/getAccessPoints:getAccessPoints".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: &file_system_id_binding,
+                    value: file_system_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccessPointsResult {
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
+            arns: o.get_field("arns"),
+            file_system_id: o.get_field("fileSystemId"),
+            id: o.get_field("id"),
+            ids: o.get_field("ids"),
         }
     }
 }

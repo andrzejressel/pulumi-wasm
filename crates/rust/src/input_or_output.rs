@@ -1,4 +1,6 @@
-use crate::{Output, PulumiContext};
+use crate::{Context, Output};
+use pulumi_gestalt_rust_adapter::GestaltContext;
+use pulumi_gestalt_rust_adapter::GestaltOutput;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 
@@ -10,9 +12,9 @@ pub enum InputOrOutput<T> {
 
 impl<T: Serialize> InputOrOutput<T> {
     #[doc(hidden)]
-    pub fn get_output(self, engine: &PulumiContext) -> Output<T> {
+    pub fn get_output(self, engine: &Context) -> Output<T> {
         match self {
-            InputOrOutput::StaticValue(value) => Output::new(engine, &value),
+            InputOrOutput::StaticValue(value) => engine.new_output(&value),
             InputOrOutput::Output(output) => output,
         }
     }

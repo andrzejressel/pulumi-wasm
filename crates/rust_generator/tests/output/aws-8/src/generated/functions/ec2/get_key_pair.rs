@@ -52,76 +52,56 @@ pub mod get_key_pair {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKeyPairArgs,
     ) -> GetKeyPairResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let include_public_key_binding_1 = args.include_public_key.get_output(context);
-        let include_public_key_binding = include_public_key_binding_1.get_inner();
-        let key_name_binding_1 = args.key_name.get_output(context);
-        let key_name_binding = key_name_binding_1.get_inner();
-        let key_pair_id_binding_1 = args.key_pair_id.get_output(context);
-        let key_pair_id_binding = key_pair_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let include_public_key_binding = args.include_public_key.get_output(context);
+        let key_name_binding = args.key_name.get_output(context);
+        let key_pair_id_binding = args.key_pair_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getKeyPair:getKeyPair".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePublicKey".into(),
-                    value: &include_public_key_binding,
+                    value: include_public_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: &key_name_binding,
+                    value: key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyPairId".into(),
-                    value: &key_pair_id_binding,
+                    value: key_pair_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKeyPairResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includePublicKey"),
-            ),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            key_pair_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyPairId"),
-            ),
-            key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyType"),
-            ),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            create_time: o.get_field("createTime"),
+            filters: o.get_field("filters"),
+            fingerprint: o.get_field("fingerprint"),
+            id: o.get_field("id"),
+            include_public_key: o.get_field("includePublicKey"),
+            key_name: o.get_field("keyName"),
+            key_pair_id: o.get_field("keyPairId"),
+            key_type: o.get_field("keyType"),
+            public_key: o.get_field("publicKey"),
+            tags: o.get_field("tags"),
         }
     }
 }

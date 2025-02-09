@@ -301,251 +301,175 @@ pub mod user_pool_client {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserPoolClientArgs,
     ) -> UserPoolClientResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_token_validity_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_token_validity_binding = args
             .access_token_validity
             .get_output(context);
-        let access_token_validity_binding = access_token_validity_binding_1.get_inner();
-        let allowed_oauth_flows_binding_1 = args.allowed_oauth_flows.get_output(context);
-        let allowed_oauth_flows_binding = allowed_oauth_flows_binding_1.get_inner();
-        let allowed_oauth_flows_user_pool_client_binding_1 = args
+        let allowed_oauth_flows_binding = args.allowed_oauth_flows.get_output(context);
+        let allowed_oauth_flows_user_pool_client_binding = args
             .allowed_oauth_flows_user_pool_client
             .get_output(context);
-        let allowed_oauth_flows_user_pool_client_binding = allowed_oauth_flows_user_pool_client_binding_1
-            .get_inner();
-        let allowed_oauth_scopes_binding_1 = args
-            .allowed_oauth_scopes
-            .get_output(context);
-        let allowed_oauth_scopes_binding = allowed_oauth_scopes_binding_1.get_inner();
-        let analytics_configuration_binding_1 = args
+        let allowed_oauth_scopes_binding = args.allowed_oauth_scopes.get_output(context);
+        let analytics_configuration_binding = args
             .analytics_configuration
             .get_output(context);
-        let analytics_configuration_binding = analytics_configuration_binding_1
-            .get_inner();
-        let auth_session_validity_binding_1 = args
+        let auth_session_validity_binding = args
             .auth_session_validity
             .get_output(context);
-        let auth_session_validity_binding = auth_session_validity_binding_1.get_inner();
-        let callback_urls_binding_1 = args.callback_urls.get_output(context);
-        let callback_urls_binding = callback_urls_binding_1.get_inner();
-        let default_redirect_uri_binding_1 = args
-            .default_redirect_uri
-            .get_output(context);
-        let default_redirect_uri_binding = default_redirect_uri_binding_1.get_inner();
-        let enable_propagate_additional_user_context_data_binding_1 = args
+        let callback_urls_binding = args.callback_urls.get_output(context);
+        let default_redirect_uri_binding = args.default_redirect_uri.get_output(context);
+        let enable_propagate_additional_user_context_data_binding = args
             .enable_propagate_additional_user_context_data
             .get_output(context);
-        let enable_propagate_additional_user_context_data_binding = enable_propagate_additional_user_context_data_binding_1
-            .get_inner();
-        let enable_token_revocation_binding_1 = args
+        let enable_token_revocation_binding = args
             .enable_token_revocation
             .get_output(context);
-        let enable_token_revocation_binding = enable_token_revocation_binding_1
-            .get_inner();
-        let explicit_auth_flows_binding_1 = args.explicit_auth_flows.get_output(context);
-        let explicit_auth_flows_binding = explicit_auth_flows_binding_1.get_inner();
-        let generate_secret_binding_1 = args.generate_secret.get_output(context);
-        let generate_secret_binding = generate_secret_binding_1.get_inner();
-        let id_token_validity_binding_1 = args.id_token_validity.get_output(context);
-        let id_token_validity_binding = id_token_validity_binding_1.get_inner();
-        let logout_urls_binding_1 = args.logout_urls.get_output(context);
-        let logout_urls_binding = logout_urls_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let prevent_user_existence_errors_binding_1 = args
+        let explicit_auth_flows_binding = args.explicit_auth_flows.get_output(context);
+        let generate_secret_binding = args.generate_secret.get_output(context);
+        let id_token_validity_binding = args.id_token_validity.get_output(context);
+        let logout_urls_binding = args.logout_urls.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let prevent_user_existence_errors_binding = args
             .prevent_user_existence_errors
             .get_output(context);
-        let prevent_user_existence_errors_binding = prevent_user_existence_errors_binding_1
-            .get_inner();
-        let read_attributes_binding_1 = args.read_attributes.get_output(context);
-        let read_attributes_binding = read_attributes_binding_1.get_inner();
-        let refresh_token_validity_binding_1 = args
+        let read_attributes_binding = args.read_attributes.get_output(context);
+        let refresh_token_validity_binding = args
             .refresh_token_validity
             .get_output(context);
-        let refresh_token_validity_binding = refresh_token_validity_binding_1
-            .get_inner();
-        let supported_identity_providers_binding_1 = args
+        let supported_identity_providers_binding = args
             .supported_identity_providers
             .get_output(context);
-        let supported_identity_providers_binding = supported_identity_providers_binding_1
-            .get_inner();
-        let token_validity_units_binding_1 = args
-            .token_validity_units
-            .get_output(context);
-        let token_validity_units_binding = token_validity_units_binding_1.get_inner();
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let write_attributes_binding_1 = args.write_attributes.get_output(context);
-        let write_attributes_binding = write_attributes_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let token_validity_units_binding = args.token_validity_units.get_output(context);
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let write_attributes_binding = args.write_attributes.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/userPoolClient:UserPoolClient".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessTokenValidity".into(),
-                    value: &access_token_validity_binding,
+                    value: access_token_validity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOauthFlows".into(),
-                    value: &allowed_oauth_flows_binding,
+                    value: allowed_oauth_flows_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOauthFlowsUserPoolClient".into(),
-                    value: &allowed_oauth_flows_user_pool_client_binding,
+                    value: allowed_oauth_flows_user_pool_client_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOauthScopes".into(),
-                    value: &allowed_oauth_scopes_binding,
+                    value: allowed_oauth_scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticsConfiguration".into(),
-                    value: &analytics_configuration_binding,
+                    value: analytics_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authSessionValidity".into(),
-                    value: &auth_session_validity_binding,
+                    value: auth_session_validity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callbackUrls".into(),
-                    value: &callback_urls_binding,
+                    value: callback_urls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRedirectUri".into(),
-                    value: &default_redirect_uri_binding,
+                    value: default_redirect_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePropagateAdditionalUserContextData".into(),
-                    value: &enable_propagate_additional_user_context_data_binding,
+                    value: enable_propagate_additional_user_context_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableTokenRevocation".into(),
-                    value: &enable_token_revocation_binding,
+                    value: enable_token_revocation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "explicitAuthFlows".into(),
-                    value: &explicit_auth_flows_binding,
+                    value: explicit_auth_flows_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "generateSecret".into(),
-                    value: &generate_secret_binding,
+                    value: generate_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idTokenValidity".into(),
-                    value: &id_token_validity_binding,
+                    value: id_token_validity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logoutUrls".into(),
-                    value: &logout_urls_binding,
+                    value: logout_urls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preventUserExistenceErrors".into(),
-                    value: &prevent_user_existence_errors_binding,
+                    value: prevent_user_existence_errors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readAttributes".into(),
-                    value: &read_attributes_binding,
+                    value: read_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshTokenValidity".into(),
-                    value: &refresh_token_validity_binding,
+                    value: refresh_token_validity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedIdentityProviders".into(),
-                    value: &supported_identity_providers_binding,
+                    value: supported_identity_providers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenValidityUnits".into(),
-                    value: &token_validity_units_binding,
+                    value: token_validity_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeAttributes".into(),
-                    value: &write_attributes_binding,
+                    value: write_attributes_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserPoolClientResult {
-            access_token_validity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessTokenValidity"),
-            ),
-            allowed_oauth_flows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedOauthFlows"),
-            ),
-            allowed_oauth_flows_user_pool_client: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedOauthFlowsUserPoolClient"),
-            ),
-            allowed_oauth_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedOauthScopes"),
-            ),
-            analytics_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyticsConfiguration"),
-            ),
-            auth_session_validity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authSessionValidity"),
-            ),
-            callback_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callbackUrls"),
-            ),
-            client_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSecret"),
-            ),
-            default_redirect_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRedirectUri"),
-            ),
-            enable_propagate_additional_user_context_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enablePropagateAdditionalUserContextData"),
-            ),
-            enable_token_revocation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableTokenRevocation"),
-            ),
-            explicit_auth_flows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("explicitAuthFlows"),
-            ),
-            generate_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("generateSecret"),
-            ),
-            id_token_validity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idTokenValidity"),
-            ),
-            logout_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logoutUrls"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            prevent_user_existence_errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preventUserExistenceErrors"),
-            ),
-            read_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readAttributes"),
-            ),
-            refresh_token_validity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("refreshTokenValidity"),
-            ),
-            supported_identity_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedIdentityProviders"),
-            ),
-            token_validity_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenValidityUnits"),
-            ),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
-            write_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writeAttributes"),
-            ),
+            access_token_validity: o.get_field("accessTokenValidity"),
+            allowed_oauth_flows: o.get_field("allowedOauthFlows"),
+            allowed_oauth_flows_user_pool_client: o
+                .get_field("allowedOauthFlowsUserPoolClient"),
+            allowed_oauth_scopes: o.get_field("allowedOauthScopes"),
+            analytics_configuration: o.get_field("analyticsConfiguration"),
+            auth_session_validity: o.get_field("authSessionValidity"),
+            callback_urls: o.get_field("callbackUrls"),
+            client_secret: o.get_field("clientSecret"),
+            default_redirect_uri: o.get_field("defaultRedirectUri"),
+            enable_propagate_additional_user_context_data: o
+                .get_field("enablePropagateAdditionalUserContextData"),
+            enable_token_revocation: o.get_field("enableTokenRevocation"),
+            explicit_auth_flows: o.get_field("explicitAuthFlows"),
+            generate_secret: o.get_field("generateSecret"),
+            id_token_validity: o.get_field("idTokenValidity"),
+            logout_urls: o.get_field("logoutUrls"),
+            name: o.get_field("name"),
+            prevent_user_existence_errors: o.get_field("preventUserExistenceErrors"),
+            read_attributes: o.get_field("readAttributes"),
+            refresh_token_validity: o.get_field("refreshTokenValidity"),
+            supported_identity_providers: o.get_field("supportedIdentityProviders"),
+            token_validity_units: o.get_field("tokenValidityUnits"),
+            user_pool_id: o.get_field("userPoolId"),
+            write_attributes: o.get_field("writeAttributes"),
         }
     }
 }

@@ -37,60 +37,41 @@ pub mod get_folder {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFolderArgs,
     ) -> GetFolderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let folder_binding_1 = args.folder.get_output(context);
-        let folder_binding = folder_binding_1.get_inner();
-        let lookup_organization_binding_1 = args.lookup_organization.get_output(context);
-        let lookup_organization_binding = lookup_organization_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let folder_binding = args.folder.get_output(context);
+        let lookup_organization_binding = args.lookup_organization.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:organizations/getFolder:getFolder".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: &folder_binding,
+                    value: folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lookupOrganization".into(),
-                    value: &lookup_organization_binding,
+                    value: lookup_organization_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFolderResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folder"),
-            ),
-            folder_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folderId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lifecycle_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleState"),
-            ),
-            lookup_organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lookupOrganization"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organization"),
-            ),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
+            create_time: o.get_field("createTime"),
+            deletion_protection: o.get_field("deletionProtection"),
+            display_name: o.get_field("displayName"),
+            folder: o.get_field("folder"),
+            folder_id: o.get_field("folderId"),
+            id: o.get_field("id"),
+            lifecycle_state: o.get_field("lifecycleState"),
+            lookup_organization: o.get_field("lookupOrganization"),
+            name: o.get_field("name"),
+            organization: o.get_field("organization"),
+            parent: o.get_field("parent"),
         }
     }
 }

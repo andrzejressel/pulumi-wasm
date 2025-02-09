@@ -49,40 +49,35 @@ pub mod vpc_endpoint_route_table_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcEndpointRouteTableAssociationArgs,
     ) -> VpcEndpointRouteTableAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let route_table_id_binding_1 = args.route_table_id.get_output(context);
-        let route_table_id_binding = route_table_id_binding_1.get_inner();
-        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
-        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let route_table_id_binding = args.route_table_id.get_output(context);
+        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableId".into(),
-                    value: &route_table_id_binding,
+                    value: route_table_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: &vpc_endpoint_id_binding,
+                    value: vpc_endpoint_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcEndpointRouteTableAssociationResult {
-            route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeTableId"),
-            ),
-            vpc_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointId"),
-            ),
+            route_table_id: o.get_field("routeTableId"),
+            vpc_endpoint_id: o.get_field("vpcEndpointId"),
         }
     }
 }

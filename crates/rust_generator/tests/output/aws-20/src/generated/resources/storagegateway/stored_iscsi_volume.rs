@@ -140,136 +140,89 @@ pub mod stored_iscsi_volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StoredIscsiVolumeArgs,
     ) -> StoredIscsiVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disk_id_binding_1 = args.disk_id.get_output(context);
-        let disk_id_binding = disk_id_binding_1.get_inner();
-        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
-        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
-        let kms_encrypted_binding_1 = args.kms_encrypted.get_output(context);
-        let kms_encrypted_binding = kms_encrypted_binding_1.get_inner();
-        let kms_key_binding_1 = args.kms_key.get_output(context);
-        let kms_key_binding = kms_key_binding_1.get_inner();
-        let network_interface_id_binding_1 = args
-            .network_interface_id
-            .get_output(context);
-        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
-        let preserve_existing_data_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disk_id_binding = args.disk_id.get_output(context);
+        let gateway_arn_binding = args.gateway_arn.get_output(context);
+        let kms_encrypted_binding = args.kms_encrypted.get_output(context);
+        let kms_key_binding = args.kms_key.get_output(context);
+        let network_interface_id_binding = args.network_interface_id.get_output(context);
+        let preserve_existing_data_binding = args
             .preserve_existing_data
             .get_output(context);
-        let preserve_existing_data_binding = preserve_existing_data_binding_1
-            .get_inner();
-        let snapshot_id_binding_1 = args.snapshot_id.get_output(context);
-        let snapshot_id_binding = snapshot_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_name_binding_1 = args.target_name.get_output(context);
-        let target_name_binding = target_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let snapshot_id_binding = args.snapshot_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_name_binding = args.target_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:storagegateway/storedIscsiVolume:StoredIscsiVolume".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskId".into(),
-                    value: &disk_id_binding,
+                    value: disk_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: &gateway_arn_binding,
+                    value: gateway_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsEncrypted".into(),
-                    value: &kms_encrypted_binding,
+                    value: kms_encrypted_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: &kms_key_binding,
+                    value: kms_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: &network_interface_id_binding,
+                    value: network_interface_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preserveExistingData".into(),
-                    value: &preserve_existing_data_binding,
+                    value: preserve_existing_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotId".into(),
-                    value: &snapshot_id_binding,
+                    value: snapshot_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetName".into(),
-                    value: &target_name_binding,
+                    value: target_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StoredIscsiVolumeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            chap_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("chapEnabled"),
-            ),
-            disk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskId"),
-            ),
-            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayArn"),
-            ),
-            kms_encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsEncrypted"),
-            ),
-            kms_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKey"),
-            ),
-            lun_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lunNumber"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            network_interface_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfacePort"),
-            ),
-            preserve_existing_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preserveExistingData"),
-            ),
-            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetArn"),
-            ),
-            target_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetName"),
-            ),
-            volume_attachment_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeAttachmentStatus"),
-            ),
-            volume_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeId"),
-            ),
-            volume_size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeSizeInBytes"),
-            ),
-            volume_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeStatus"),
-            ),
-            volume_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeType"),
-            ),
+            arn: o.get_field("arn"),
+            chap_enabled: o.get_field("chapEnabled"),
+            disk_id: o.get_field("diskId"),
+            gateway_arn: o.get_field("gatewayArn"),
+            kms_encrypted: o.get_field("kmsEncrypted"),
+            kms_key: o.get_field("kmsKey"),
+            lun_number: o.get_field("lunNumber"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            network_interface_port: o.get_field("networkInterfacePort"),
+            preserve_existing_data: o.get_field("preserveExistingData"),
+            snapshot_id: o.get_field("snapshotId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_arn: o.get_field("targetArn"),
+            target_name: o.get_field("targetName"),
+            volume_attachment_status: o.get_field("volumeAttachmentStatus"),
+            volume_id: o.get_field("volumeId"),
+            volume_size_in_bytes: o.get_field("volumeSizeInBytes"),
+            volume_status: o.get_field("volumeStatus"),
+            volume_type: o.get_field("volumeType"),
         }
     }
 }

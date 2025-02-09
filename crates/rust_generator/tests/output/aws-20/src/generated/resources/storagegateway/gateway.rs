@@ -285,213 +285,147 @@ pub mod gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GatewayArgs,
     ) -> GatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activation_key_binding_1 = args.activation_key.get_output(context);
-        let activation_key_binding = activation_key_binding_1.get_inner();
-        let average_download_rate_limit_in_bits_per_sec_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let activation_key_binding = args.activation_key.get_output(context);
+        let average_download_rate_limit_in_bits_per_sec_binding = args
             .average_download_rate_limit_in_bits_per_sec
             .get_output(context);
-        let average_download_rate_limit_in_bits_per_sec_binding = average_download_rate_limit_in_bits_per_sec_binding_1
-            .get_inner();
-        let average_upload_rate_limit_in_bits_per_sec_binding_1 = args
+        let average_upload_rate_limit_in_bits_per_sec_binding = args
             .average_upload_rate_limit_in_bits_per_sec
             .get_output(context);
-        let average_upload_rate_limit_in_bits_per_sec_binding = average_upload_rate_limit_in_bits_per_sec_binding_1
-            .get_inner();
-        let cloudwatch_log_group_arn_binding_1 = args
+        let cloudwatch_log_group_arn_binding = args
             .cloudwatch_log_group_arn
             .get_output(context);
-        let cloudwatch_log_group_arn_binding = cloudwatch_log_group_arn_binding_1
-            .get_inner();
-        let gateway_ip_address_binding_1 = args.gateway_ip_address.get_output(context);
-        let gateway_ip_address_binding = gateway_ip_address_binding_1.get_inner();
-        let gateway_name_binding_1 = args.gateway_name.get_output(context);
-        let gateway_name_binding = gateway_name_binding_1.get_inner();
-        let gateway_timezone_binding_1 = args.gateway_timezone.get_output(context);
-        let gateway_timezone_binding = gateway_timezone_binding_1.get_inner();
-        let gateway_type_binding_1 = args.gateway_type.get_output(context);
-        let gateway_type_binding = gateway_type_binding_1.get_inner();
-        let gateway_vpc_endpoint_binding_1 = args
-            .gateway_vpc_endpoint
-            .get_output(context);
-        let gateway_vpc_endpoint_binding = gateway_vpc_endpoint_binding_1.get_inner();
-        let maintenance_start_time_binding_1 = args
+        let gateway_ip_address_binding = args.gateway_ip_address.get_output(context);
+        let gateway_name_binding = args.gateway_name.get_output(context);
+        let gateway_timezone_binding = args.gateway_timezone.get_output(context);
+        let gateway_type_binding = args.gateway_type.get_output(context);
+        let gateway_vpc_endpoint_binding = args.gateway_vpc_endpoint.get_output(context);
+        let maintenance_start_time_binding = args
             .maintenance_start_time
             .get_output(context);
-        let maintenance_start_time_binding = maintenance_start_time_binding_1
-            .get_inner();
-        let medium_changer_type_binding_1 = args.medium_changer_type.get_output(context);
-        let medium_changer_type_binding = medium_changer_type_binding_1.get_inner();
-        let smb_active_directory_settings_binding_1 = args
+        let medium_changer_type_binding = args.medium_changer_type.get_output(context);
+        let smb_active_directory_settings_binding = args
             .smb_active_directory_settings
             .get_output(context);
-        let smb_active_directory_settings_binding = smb_active_directory_settings_binding_1
-            .get_inner();
-        let smb_file_share_visibility_binding_1 = args
+        let smb_file_share_visibility_binding = args
             .smb_file_share_visibility
             .get_output(context);
-        let smb_file_share_visibility_binding = smb_file_share_visibility_binding_1
-            .get_inner();
-        let smb_guest_password_binding_1 = args.smb_guest_password.get_output(context);
-        let smb_guest_password_binding = smb_guest_password_binding_1.get_inner();
-        let smb_security_strategy_binding_1 = args
+        let smb_guest_password_binding = args.smb_guest_password.get_output(context);
+        let smb_security_strategy_binding = args
             .smb_security_strategy
             .get_output(context);
-        let smb_security_strategy_binding = smb_security_strategy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tape_drive_type_binding_1 = args.tape_drive_type.get_output(context);
-        let tape_drive_type_binding = tape_drive_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let tape_drive_type_binding = args.tape_drive_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:storagegateway/gateway:Gateway".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activationKey".into(),
-                    value: &activation_key_binding,
+                    value: activation_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "averageDownloadRateLimitInBitsPerSec".into(),
-                    value: &average_download_rate_limit_in_bits_per_sec_binding,
+                    value: average_download_rate_limit_in_bits_per_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "averageUploadRateLimitInBitsPerSec".into(),
-                    value: &average_upload_rate_limit_in_bits_per_sec_binding,
+                    value: average_upload_rate_limit_in_bits_per_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLogGroupArn".into(),
-                    value: &cloudwatch_log_group_arn_binding,
+                    value: cloudwatch_log_group_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayIpAddress".into(),
-                    value: &gateway_ip_address_binding,
+                    value: gateway_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayName".into(),
-                    value: &gateway_name_binding,
+                    value: gateway_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayTimezone".into(),
-                    value: &gateway_timezone_binding,
+                    value: gateway_timezone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayType".into(),
-                    value: &gateway_type_binding,
+                    value: gateway_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayVpcEndpoint".into(),
-                    value: &gateway_vpc_endpoint_binding,
+                    value: gateway_vpc_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceStartTime".into(),
-                    value: &maintenance_start_time_binding,
+                    value: maintenance_start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mediumChangerType".into(),
-                    value: &medium_changer_type_binding,
+                    value: medium_changer_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbActiveDirectorySettings".into(),
-                    value: &smb_active_directory_settings_binding,
+                    value: smb_active_directory_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbFileShareVisibility".into(),
-                    value: &smb_file_share_visibility_binding,
+                    value: smb_file_share_visibility_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbGuestPassword".into(),
-                    value: &smb_guest_password_binding,
+                    value: smb_guest_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbSecurityStrategy".into(),
-                    value: &smb_security_strategy_binding,
+                    value: smb_security_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tapeDriveType".into(),
-                    value: &tape_drive_type_binding,
+                    value: tape_drive_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GatewayResult {
-            activation_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activationKey"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            average_download_rate_limit_in_bits_per_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("averageDownloadRateLimitInBitsPerSec"),
-            ),
-            average_upload_rate_limit_in_bits_per_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("averageUploadRateLimitInBitsPerSec"),
-            ),
-            cloudwatch_log_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchLogGroupArn"),
-            ),
-            ec2_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ec2InstanceId"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayId"),
-            ),
-            gateway_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayIpAddress"),
-            ),
-            gateway_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayName"),
-            ),
-            gateway_network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayNetworkInterfaces"),
-            ),
-            gateway_timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayTimezone"),
-            ),
-            gateway_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayType"),
-            ),
-            gateway_vpc_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayVpcEndpoint"),
-            ),
-            host_environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostEnvironment"),
-            ),
-            maintenance_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceStartTime"),
-            ),
-            medium_changer_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mediumChangerType"),
-            ),
-            smb_active_directory_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbActiveDirectorySettings"),
-            ),
-            smb_file_share_visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbFileShareVisibility"),
-            ),
-            smb_guest_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbGuestPassword"),
-            ),
-            smb_security_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbSecurityStrategy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tape_drive_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tapeDriveType"),
-            ),
+            activation_key: o.get_field("activationKey"),
+            arn: o.get_field("arn"),
+            average_download_rate_limit_in_bits_per_sec: o
+                .get_field("averageDownloadRateLimitInBitsPerSec"),
+            average_upload_rate_limit_in_bits_per_sec: o
+                .get_field("averageUploadRateLimitInBitsPerSec"),
+            cloudwatch_log_group_arn: o.get_field("cloudwatchLogGroupArn"),
+            ec2_instance_id: o.get_field("ec2InstanceId"),
+            endpoint_type: o.get_field("endpointType"),
+            gateway_id: o.get_field("gatewayId"),
+            gateway_ip_address: o.get_field("gatewayIpAddress"),
+            gateway_name: o.get_field("gatewayName"),
+            gateway_network_interfaces: o.get_field("gatewayNetworkInterfaces"),
+            gateway_timezone: o.get_field("gatewayTimezone"),
+            gateway_type: o.get_field("gatewayType"),
+            gateway_vpc_endpoint: o.get_field("gatewayVpcEndpoint"),
+            host_environment: o.get_field("hostEnvironment"),
+            maintenance_start_time: o.get_field("maintenanceStartTime"),
+            medium_changer_type: o.get_field("mediumChangerType"),
+            smb_active_directory_settings: o.get_field("smbActiveDirectorySettings"),
+            smb_file_share_visibility: o.get_field("smbFileShareVisibility"),
+            smb_guest_password: o.get_field("smbGuestPassword"),
+            smb_security_strategy: o.get_field("smbSecurityStrategy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tape_drive_type: o.get_field("tapeDriveType"),
         }
     }
 }

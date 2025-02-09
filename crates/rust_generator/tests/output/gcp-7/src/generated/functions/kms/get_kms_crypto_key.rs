@@ -54,72 +54,46 @@ pub mod get_kms_crypto_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKmsCryptoKeyArgs,
     ) -> GetKmsCryptoKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_ring_binding_1 = args.key_ring.get_output(context);
-        let key_ring_binding = key_ring_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let key_ring_binding = args.key_ring.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:kms/getKMSCryptoKey:getKMSCryptoKey".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRing".into(),
-                    value: &key_ring_binding,
+                    value: key_ring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKmsCryptoKeyResult {
-            crypto_key_backend: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cryptoKeyBackend"),
-            ),
-            destroy_scheduled_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destroyScheduledDuration"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            import_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importOnly"),
-            ),
-            key_access_justifications_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyAccessJustificationsPolicies"),
-            ),
-            key_ring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyRing"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primaries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaries"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            purpose: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purpose"),
-            ),
-            rotation_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rotationPeriod"),
-            ),
-            skip_initial_version_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipInitialVersionCreation"),
-            ),
-            version_templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionTemplates"),
-            ),
+            crypto_key_backend: o.get_field("cryptoKeyBackend"),
+            destroy_scheduled_duration: o.get_field("destroyScheduledDuration"),
+            effective_labels: o.get_field("effectiveLabels"),
+            id: o.get_field("id"),
+            import_only: o.get_field("importOnly"),
+            key_access_justifications_policies: o
+                .get_field("keyAccessJustificationsPolicies"),
+            key_ring: o.get_field("keyRing"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            primaries: o.get_field("primaries"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            purpose: o.get_field("purpose"),
+            rotation_period: o.get_field("rotationPeriod"),
+            skip_initial_version_creation: o.get_field("skipInitialVersionCreation"),
+            version_templates: o.get_field("versionTemplates"),
         }
     }
 }

@@ -84,67 +84,47 @@ pub mod ssl_cert {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SslCertArgs,
     ) -> SslCertResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let common_name_binding_1 = args.common_name.get_output(context);
-        let common_name_binding = common_name_binding_1.get_inner();
-        let instance_binding_1 = args.instance.get_output(context);
-        let instance_binding = instance_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let common_name_binding = args.common_name.get_output(context);
+        let instance_binding = args.instance.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:sql/sslCert:SslCert".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commonName".into(),
-                    value: &common_name_binding,
+                    value: common_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: &instance_binding,
+                    value: instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SslCertResult {
-            cert: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cert")),
-            cert_serial_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certSerialNumber"),
-            ),
-            common_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commonName"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            expiration_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationTime"),
-            ),
-            instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instance"),
-            ),
-            private_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateKey"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            server_ca_cert: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverCaCert"),
-            ),
-            sha1_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sha1Fingerprint"),
-            ),
+            cert: o.get_field("cert"),
+            cert_serial_number: o.get_field("certSerialNumber"),
+            common_name: o.get_field("commonName"),
+            create_time: o.get_field("createTime"),
+            expiration_time: o.get_field("expirationTime"),
+            instance: o.get_field("instance"),
+            private_key: o.get_field("privateKey"),
+            project: o.get_field("project"),
+            server_ca_cert: o.get_field("serverCaCert"),
+            sha1_fingerprint: o.get_field("sha1Fingerprint"),
         }
     }
 }

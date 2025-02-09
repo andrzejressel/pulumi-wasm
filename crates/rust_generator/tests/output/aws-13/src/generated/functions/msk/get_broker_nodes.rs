@@ -22,32 +22,28 @@ pub mod get_broker_nodes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBrokerNodesArgs,
     ) -> GetBrokerNodesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_arn_binding_1 = args.cluster_arn.get_output(context);
-        let cluster_arn_binding = cluster_arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_arn_binding = args.cluster_arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:msk/getBrokerNodes:getBrokerNodes".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterArn".into(),
-                    value: &cluster_arn_binding,
+                    value: cluster_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBrokerNodesResult {
-            cluster_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            node_info_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeInfoLists"),
-            ),
+            cluster_arn: o.get_field("clusterArn"),
+            id: o.get_field("id"),
+            node_info_lists: o.get_field("nodeInfoLists"),
         }
     }
 }

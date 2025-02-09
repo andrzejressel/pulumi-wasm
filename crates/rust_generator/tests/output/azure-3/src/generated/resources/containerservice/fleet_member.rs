@@ -94,55 +94,48 @@ pub mod fleet_member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FleetMemberArgs,
     ) -> FleetMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_binding_1 = args.group.get_output(context);
-        let group_binding = group_binding_1.get_inner();
-        let kubernetes_cluster_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_binding = args.group.get_output(context);
+        let kubernetes_cluster_id_binding = args
             .kubernetes_cluster_id
             .get_output(context);
-        let kubernetes_cluster_id_binding = kubernetes_cluster_id_binding_1.get_inner();
-        let kubernetes_fleet_id_binding_1 = args.kubernetes_fleet_id.get_output(context);
-        let kubernetes_fleet_id_binding = kubernetes_fleet_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kubernetes_fleet_id_binding = args.kubernetes_fleet_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/fleetMember:FleetMember".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: &group_binding,
+                    value: group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterId".into(),
-                    value: &kubernetes_cluster_id_binding,
+                    value: kubernetes_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesFleetId".into(),
-                    value: &kubernetes_fleet_id_binding,
+                    value: kubernetes_fleet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FleetMemberResult {
-            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
-            kubernetes_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesClusterId"),
-            ),
-            kubernetes_fleet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesFleetId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            group: o.get_field("group"),
+            kubernetes_cluster_id: o.get_field("kubernetesClusterId"),
+            kubernetes_fleet_id: o.get_field("kubernetesFleetId"),
+            name: o.get_field("name"),
         }
     }
 }

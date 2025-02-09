@@ -44,55 +44,41 @@ pub mod get_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterArgs,
     ) -> GetClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecs/getCluster:getCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            pending_tasks_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pendingTasksCount"),
-            ),
-            registered_container_instances_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registeredContainerInstancesCount"),
-            ),
-            running_tasks_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runningTasksCount"),
-            ),
-            service_connect_defaults: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceConnectDefaults"),
-            ),
-            settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settings"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            cluster_name: o.get_field("clusterName"),
+            id: o.get_field("id"),
+            pending_tasks_count: o.get_field("pendingTasksCount"),
+            registered_container_instances_count: o
+                .get_field("registeredContainerInstancesCount"),
+            running_tasks_count: o.get_field("runningTasksCount"),
+            service_connect_defaults: o.get_field("serviceConnectDefaults"),
+            settings: o.get_field("settings"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
         }
     }
 }

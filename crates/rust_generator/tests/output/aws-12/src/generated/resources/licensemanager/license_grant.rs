@@ -71,68 +71,51 @@ pub mod license_grant {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LicenseGrantArgs,
     ) -> LicenseGrantResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_operations_binding_1 = args.allowed_operations.get_output(context);
-        let allowed_operations_binding = allowed_operations_binding_1.get_inner();
-        let license_arn_binding_1 = args.license_arn.get_output(context);
-        let license_arn_binding = license_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let principal_binding_1 = args.principal.get_output(context);
-        let principal_binding = principal_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allowed_operations_binding = args.allowed_operations.get_output(context);
+        let license_arn_binding = args.license_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let principal_binding = args.principal.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:licensemanager/licenseGrant:LicenseGrant".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedOperations".into(),
-                    value: &allowed_operations_binding,
+                    value: allowed_operations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseArn".into(),
-                    value: &license_arn_binding,
+                    value: license_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: &principal_binding,
+                    value: principal_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LicenseGrantResult {
-            allowed_operations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedOperations"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            home_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeRegion"),
-            ),
-            license_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentArn"),
-            ),
-            principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principal"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            allowed_operations: o.get_field("allowedOperations"),
+            arn: o.get_field("arn"),
+            home_region: o.get_field("homeRegion"),
+            license_arn: o.get_field("licenseArn"),
+            name: o.get_field("name"),
+            parent_arn: o.get_field("parentArn"),
+            principal: o.get_field("principal"),
+            status: o.get_field("status"),
+            version: o.get_field("version"),
         }
     }
 }

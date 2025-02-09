@@ -314,276 +314,178 @@ pub mod volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VolumeArgs,
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_config_binding_1 = args.backup_config.get_output(context);
-        let backup_config_binding = backup_config_binding_1.get_inner();
-        let capacity_gib_binding_1 = args.capacity_gib.get_output(context);
-        let capacity_gib_binding = capacity_gib_binding_1.get_inner();
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let export_policy_binding_1 = args.export_policy.get_output(context);
-        let export_policy_binding = export_policy_binding_1.get_inner();
-        let kerberos_enabled_binding_1 = args.kerberos_enabled.get_output(context);
-        let kerberos_enabled_binding = kerberos_enabled_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let large_capacity_binding_1 = args.large_capacity.get_output(context);
-        let large_capacity_binding = large_capacity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let multiple_endpoints_binding_1 = args.multiple_endpoints.get_output(context);
-        let multiple_endpoints_binding = multiple_endpoints_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let protocols_binding_1 = args.protocols.get_output(context);
-        let protocols_binding = protocols_binding_1.get_inner();
-        let restore_parameters_binding_1 = args.restore_parameters.get_output(context);
-        let restore_parameters_binding = restore_parameters_binding_1.get_inner();
-        let restricted_actions_binding_1 = args.restricted_actions.get_output(context);
-        let restricted_actions_binding = restricted_actions_binding_1.get_inner();
-        let security_style_binding_1 = args.security_style.get_output(context);
-        let security_style_binding = security_style_binding_1.get_inner();
-        let share_name_binding_1 = args.share_name.get_output(context);
-        let share_name_binding = share_name_binding_1.get_inner();
-        let smb_settings_binding_1 = args.smb_settings.get_output(context);
-        let smb_settings_binding = smb_settings_binding_1.get_inner();
-        let snapshot_directory_binding_1 = args.snapshot_directory.get_output(context);
-        let snapshot_directory_binding = snapshot_directory_binding_1.get_inner();
-        let snapshot_policy_binding_1 = args.snapshot_policy.get_output(context);
-        let snapshot_policy_binding = snapshot_policy_binding_1.get_inner();
-        let storage_pool_binding_1 = args.storage_pool.get_output(context);
-        let storage_pool_binding = storage_pool_binding_1.get_inner();
-        let tiering_policy_binding_1 = args.tiering_policy.get_output(context);
-        let tiering_policy_binding = tiering_policy_binding_1.get_inner();
-        let unix_permissions_binding_1 = args.unix_permissions.get_output(context);
-        let unix_permissions_binding = unix_permissions_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_config_binding = args.backup_config.get_output(context);
+        let capacity_gib_binding = args.capacity_gib.get_output(context);
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let export_policy_binding = args.export_policy.get_output(context);
+        let kerberos_enabled_binding = args.kerberos_enabled.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let large_capacity_binding = args.large_capacity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let multiple_endpoints_binding = args.multiple_endpoints.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let protocols_binding = args.protocols.get_output(context);
+        let restore_parameters_binding = args.restore_parameters.get_output(context);
+        let restricted_actions_binding = args.restricted_actions.get_output(context);
+        let security_style_binding = args.security_style.get_output(context);
+        let share_name_binding = args.share_name.get_output(context);
+        let smb_settings_binding = args.smb_settings.get_output(context);
+        let snapshot_directory_binding = args.snapshot_directory.get_output(context);
+        let snapshot_policy_binding = args.snapshot_policy.get_output(context);
+        let storage_pool_binding = args.storage_pool.get_output(context);
+        let tiering_policy_binding = args.tiering_policy.get_output(context);
+        let unix_permissions_binding = args.unix_permissions.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:netapp/volume:Volume".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupConfig".into(),
-                    value: &backup_config_binding,
+                    value: backup_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityGib".into(),
-                    value: &capacity_gib_binding,
+                    value: capacity_gib_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportPolicy".into(),
-                    value: &export_policy_binding,
+                    value: export_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosEnabled".into(),
-                    value: &kerberos_enabled_binding,
+                    value: kerberos_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "largeCapacity".into(),
-                    value: &large_capacity_binding,
+                    value: large_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multipleEndpoints".into(),
-                    value: &multiple_endpoints_binding,
+                    value: multiple_endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocols".into(),
-                    value: &protocols_binding,
+                    value: protocols_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreParameters".into(),
-                    value: &restore_parameters_binding,
+                    value: restore_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictedActions".into(),
-                    value: &restricted_actions_binding,
+                    value: restricted_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityStyle".into(),
-                    value: &security_style_binding,
+                    value: security_style_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareName".into(),
-                    value: &share_name_binding,
+                    value: share_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbSettings".into(),
-                    value: &smb_settings_binding,
+                    value: smb_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotDirectory".into(),
-                    value: &snapshot_directory_binding,
+                    value: snapshot_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotPolicy".into(),
-                    value: &snapshot_policy_binding,
+                    value: snapshot_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storagePool".into(),
-                    value: &storage_pool_binding,
+                    value: storage_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tieringPolicy".into(),
-                    value: &tiering_policy_binding,
+                    value: tiering_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "unixPermissions".into(),
-                    value: &unix_permissions_binding,
+                    value: unix_permissions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VolumeResult {
-            active_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeDirectory"),
-            ),
-            backup_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupConfig"),
-            ),
-            capacity_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityGib"),
-            ),
-            cold_tier_size_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coldTierSizeGib"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            encryption_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionType"),
-            ),
-            export_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportPolicy"),
-            ),
-            has_replication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasReplication"),
-            ),
-            kerberos_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosEnabled"),
-            ),
-            kms_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsConfig"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            large_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("largeCapacity"),
-            ),
-            ldap_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ldapEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mount_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountOptions"),
-            ),
-            multiple_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multipleEndpoints"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocols"),
-            ),
-            psa_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("psaRange"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            replica_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaZone"),
-            ),
-            restore_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreParameters"),
-            ),
-            restricted_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restrictedActions"),
-            ),
-            security_style: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityStyle"),
-            ),
-            service_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceLevel"),
-            ),
-            share_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareName"),
-            ),
-            smb_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbSettings"),
-            ),
-            snapshot_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotDirectory"),
-            ),
-            snapshot_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotPolicy"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateDetails"),
-            ),
-            storage_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storagePool"),
-            ),
-            tiering_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tieringPolicy"),
-            ),
-            unix_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("unixPermissions"),
-            ),
-            used_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usedGib"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            active_directory: o.get_field("activeDirectory"),
+            backup_config: o.get_field("backupConfig"),
+            capacity_gib: o.get_field("capacityGib"),
+            cold_tier_size_gib: o.get_field("coldTierSizeGib"),
+            create_time: o.get_field("createTime"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            encryption_type: o.get_field("encryptionType"),
+            export_policy: o.get_field("exportPolicy"),
+            has_replication: o.get_field("hasReplication"),
+            kerberos_enabled: o.get_field("kerberosEnabled"),
+            kms_config: o.get_field("kmsConfig"),
+            labels: o.get_field("labels"),
+            large_capacity: o.get_field("largeCapacity"),
+            ldap_enabled: o.get_field("ldapEnabled"),
+            location: o.get_field("location"),
+            mount_options: o.get_field("mountOptions"),
+            multiple_endpoints: o.get_field("multipleEndpoints"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            project: o.get_field("project"),
+            protocols: o.get_field("protocols"),
+            psa_range: o.get_field("psaRange"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            replica_zone: o.get_field("replicaZone"),
+            restore_parameters: o.get_field("restoreParameters"),
+            restricted_actions: o.get_field("restrictedActions"),
+            security_style: o.get_field("securityStyle"),
+            service_level: o.get_field("serviceLevel"),
+            share_name: o.get_field("shareName"),
+            smb_settings: o.get_field("smbSettings"),
+            snapshot_directory: o.get_field("snapshotDirectory"),
+            snapshot_policy: o.get_field("snapshotPolicy"),
+            state: o.get_field("state"),
+            state_details: o.get_field("stateDetails"),
+            storage_pool: o.get_field("storagePool"),
+            tiering_policy: o.get_field("tieringPolicy"),
+            unix_permissions: o.get_field("unixPermissions"),
+            used_gib: o.get_field("usedGib"),
+            zone: o.get_field("zone"),
         }
     }
 }

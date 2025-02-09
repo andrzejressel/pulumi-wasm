@@ -139,104 +139,79 @@ pub mod scheduled_action {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScheduledActionArgs,
     ) -> ScheduledActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let end_time_binding_1 = args.end_time.get_output(context);
-        let end_time_binding = end_time_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let scalable_dimension_binding_1 = args.scalable_dimension.get_output(context);
-        let scalable_dimension_binding = scalable_dimension_binding_1.get_inner();
-        let scalable_target_action_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let end_time_binding = args.end_time.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_id_binding = args.resource_id.get_output(context);
+        let scalable_dimension_binding = args.scalable_dimension.get_output(context);
+        let scalable_target_action_binding = args
             .scalable_target_action
             .get_output(context);
-        let scalable_target_action_binding = scalable_target_action_binding_1
-            .get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let service_namespace_binding_1 = args.service_namespace.get_output(context);
-        let service_namespace_binding = service_namespace_binding_1.get_inner();
-        let start_time_binding_1 = args.start_time.get_output(context);
-        let start_time_binding = start_time_binding_1.get_inner();
-        let timezone_binding_1 = args.timezone.get_output(context);
-        let timezone_binding = timezone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let schedule_binding = args.schedule.get_output(context);
+        let service_namespace_binding = args.service_namespace.get_output(context);
+        let start_time_binding = args.start_time.get_output(context);
+        let timezone_binding = args.timezone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appautoscaling/scheduledAction:ScheduledAction".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endTime".into(),
-                    value: &end_time_binding,
+                    value: end_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalableDimension".into(),
-                    value: &scalable_dimension_binding,
+                    value: scalable_dimension_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalableTargetAction".into(),
-                    value: &scalable_target_action_binding,
+                    value: scalable_target_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNamespace".into(),
-                    value: &service_namespace_binding,
+                    value: service_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: &start_time_binding,
+                    value: start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezone".into(),
-                    value: &timezone_binding,
+                    value: timezone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScheduledActionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            scalable_dimension: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalableDimension"),
-            ),
-            scalable_target_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalableTargetAction"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            service_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceNamespace"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezone"),
-            ),
+            arn: o.get_field("arn"),
+            end_time: o.get_field("endTime"),
+            name: o.get_field("name"),
+            resource_id: o.get_field("resourceId"),
+            scalable_dimension: o.get_field("scalableDimension"),
+            scalable_target_action: o.get_field("scalableTargetAction"),
+            schedule: o.get_field("schedule"),
+            service_namespace: o.get_field("serviceNamespace"),
+            start_time: o.get_field("startTime"),
+            timezone: o.get_field("timezone"),
         }
     }
 }

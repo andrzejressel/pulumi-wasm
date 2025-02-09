@@ -50,71 +50,49 @@ pub mod get_elastic_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetElasticPoolArgs,
     ) -> GetElasticPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let server_name_binding_1 = args.server_name.get_output(context);
-        let server_name_binding = server_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let server_name_binding = args.server_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mssql/getElasticPool:getElasticPool".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: &server_name_binding,
+                    value: server_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetElasticPoolResult {
-            enclave_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enclaveType"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_size_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSizeBytes"),
-            ),
-            max_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSizeGb"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            per_db_max_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perDbMaxCapacity"),
-            ),
-            per_db_min_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perDbMinCapacity"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            server_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverName"),
-            ),
-            skus: pulumi_gestalt_rust::__private::into_domain(o.extract_field("skus")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneRedundant"),
-            ),
+            enclave_type: o.get_field("enclaveType"),
+            id: o.get_field("id"),
+            license_type: o.get_field("licenseType"),
+            location: o.get_field("location"),
+            max_size_bytes: o.get_field("maxSizeBytes"),
+            max_size_gb: o.get_field("maxSizeGb"),
+            name: o.get_field("name"),
+            per_db_max_capacity: o.get_field("perDbMaxCapacity"),
+            per_db_min_capacity: o.get_field("perDbMinCapacity"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            server_name: o.get_field("serverName"),
+            skus: o.get_field("skus"),
+            tags: o.get_field("tags"),
+            zone_redundant: o.get_field("zoneRedundant"),
         }
     }
 }

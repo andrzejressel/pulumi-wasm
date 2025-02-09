@@ -88,95 +88,72 @@ pub mod hsm_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HsmConfigurationArgs,
     ) -> HsmConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let hsm_configuration_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let hsm_configuration_identifier_binding = args
             .hsm_configuration_identifier
             .get_output(context);
-        let hsm_configuration_identifier_binding = hsm_configuration_identifier_binding_1
-            .get_inner();
-        let hsm_ip_address_binding_1 = args.hsm_ip_address.get_output(context);
-        let hsm_ip_address_binding = hsm_ip_address_binding_1.get_inner();
-        let hsm_partition_name_binding_1 = args.hsm_partition_name.get_output(context);
-        let hsm_partition_name_binding = hsm_partition_name_binding_1.get_inner();
-        let hsm_partition_password_binding_1 = args
+        let hsm_ip_address_binding = args.hsm_ip_address.get_output(context);
+        let hsm_partition_name_binding = args.hsm_partition_name.get_output(context);
+        let hsm_partition_password_binding = args
             .hsm_partition_password
             .get_output(context);
-        let hsm_partition_password_binding = hsm_partition_password_binding_1
-            .get_inner();
-        let hsm_server_public_certificate_binding_1 = args
+        let hsm_server_public_certificate_binding = args
             .hsm_server_public_certificate
             .get_output(context);
-        let hsm_server_public_certificate_binding = hsm_server_public_certificate_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/hsmConfiguration:HsmConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmConfigurationIdentifier".into(),
-                    value: &hsm_configuration_identifier_binding,
+                    value: hsm_configuration_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmIpAddress".into(),
-                    value: &hsm_ip_address_binding,
+                    value: hsm_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmPartitionName".into(),
-                    value: &hsm_partition_name_binding,
+                    value: hsm_partition_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmPartitionPassword".into(),
-                    value: &hsm_partition_password_binding,
+                    value: hsm_partition_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmServerPublicCertificate".into(),
-                    value: &hsm_server_public_certificate_binding,
+                    value: hsm_server_public_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HsmConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            hsm_configuration_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmConfigurationIdentifier"),
-            ),
-            hsm_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmIpAddress"),
-            ),
-            hsm_partition_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmPartitionName"),
-            ),
-            hsm_partition_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmPartitionPassword"),
-            ),
-            hsm_server_public_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmServerPublicCertificate"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            hsm_configuration_identifier: o.get_field("hsmConfigurationIdentifier"),
+            hsm_ip_address: o.get_field("hsmIpAddress"),
+            hsm_partition_name: o.get_field("hsmPartitionName"),
+            hsm_partition_password: o.get_field("hsmPartitionPassword"),
+            hsm_server_public_certificate: o.get_field("hsmServerPublicCertificate"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -70,41 +70,36 @@ pub mod get_host_pool_registration_info {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: getHostPoolRegistrationInfoArgs,
     ) -> getHostPoolRegistrationInfoResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let expiration_date_binding_1 = args.expiration_date.get_output(context);
-        let expiration_date_binding = expiration_date_binding_1.get_inner();
-        let hostpool_id_binding_1 = args.hostpool_id.get_output(context);
-        let hostpool_id_binding = hostpool_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let expiration_date_binding = args.expiration_date.get_output(context);
+        let hostpool_id_binding = args.hostpool_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationDate".into(),
-                    value: &expiration_date_binding,
+                    value: expiration_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostpoolId".into(),
-                    value: &hostpool_id_binding,
+                    value: hostpool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         getHostPoolRegistrationInfoResult {
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            hostpool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostpoolId"),
-            ),
-            token: pulumi_gestalt_rust::__private::into_domain(o.extract_field("token")),
+            expiration_date: o.get_field("expirationDate"),
+            hostpool_id: o.get_field("hostpoolId"),
+            token: o.get_field("token"),
         }
     }
 }

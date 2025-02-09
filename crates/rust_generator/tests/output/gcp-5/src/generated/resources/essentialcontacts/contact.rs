@@ -94,59 +94,50 @@ pub mod contact {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContactArgs,
     ) -> ContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_binding_1 = args.email.get_output(context);
-        let email_binding = email_binding_1.get_inner();
-        let language_tag_binding_1 = args.language_tag.get_output(context);
-        let language_tag_binding = language_tag_binding_1.get_inner();
-        let notification_category_subscriptions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let email_binding = args.email.get_output(context);
+        let language_tag_binding = args.language_tag.get_output(context);
+        let notification_category_subscriptions_binding = args
             .notification_category_subscriptions
             .get_output(context);
-        let notification_category_subscriptions_binding = notification_category_subscriptions_binding_1
-            .get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let parent_binding = args.parent.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/contact:Contact".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: &email_binding,
+                    value: email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageTag".into(),
-                    value: &language_tag_binding,
+                    value: language_tag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationCategorySubscriptions".into(),
-                    value: &notification_category_subscriptions_binding,
+                    value: notification_category_subscriptions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContactResult {
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            language_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageTag"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_category_subscriptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationCategorySubscriptions"),
-            ),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
+            email: o.get_field("email"),
+            language_tag: o.get_field("languageTag"),
+            name: o.get_field("name"),
+            notification_category_subscriptions: o
+                .get_field("notificationCategorySubscriptions"),
+            parent: o.get_field("parent"),
         }
     }
 }

@@ -224,98 +224,75 @@ pub mod region_network_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionNetworkEndpointArgs,
     ) -> RegionNetworkEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_destination_port_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_destination_port_binding = args
             .client_destination_port
             .get_output(context);
-        let client_destination_port_binding = client_destination_port_binding_1
-            .get_inner();
-        let fqdn_binding_1 = args.fqdn.get_output(context);
-        let fqdn_binding = fqdn_binding_1.get_inner();
-        let instance_binding_1 = args.instance.get_output(context);
-        let instance_binding = instance_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let region_network_endpoint_group_binding_1 = args
+        let fqdn_binding = args.fqdn.get_output(context);
+        let instance_binding = args.instance.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let region_network_endpoint_group_binding = args
             .region_network_endpoint_group
             .get_output(context);
-        let region_network_endpoint_group_binding = region_network_endpoint_group_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionNetworkEndpoint:RegionNetworkEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientDestinationPort".into(),
-                    value: &client_destination_port_binding,
+                    value: client_destination_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fqdn".into(),
-                    value: &fqdn_binding,
+                    value: fqdn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: &instance_binding,
+                    value: instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionNetworkEndpointGroup".into(),
-                    value: &region_network_endpoint_group_binding,
+                    value: region_network_endpoint_group_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionNetworkEndpointResult {
-            client_destination_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientDestinationPort"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instance"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            network_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkEndpointId"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            region_network_endpoint_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionNetworkEndpointGroup"),
-            ),
+            client_destination_port: o.get_field("clientDestinationPort"),
+            fqdn: o.get_field("fqdn"),
+            instance: o.get_field("instance"),
+            ip_address: o.get_field("ipAddress"),
+            network_endpoint_id: o.get_field("networkEndpointId"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            region_network_endpoint_group: o.get_field("regionNetworkEndpointGroup"),
         }
     }
 }

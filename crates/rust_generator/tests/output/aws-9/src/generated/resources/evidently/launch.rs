@@ -292,112 +292,80 @@ pub mod launch {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LaunchArgs,
     ) -> LaunchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let groups_binding_1 = args.groups.get_output(context);
-        let groups_binding = groups_binding_1.get_inner();
-        let metric_monitors_binding_1 = args.metric_monitors.get_output(context);
-        let metric_monitors_binding = metric_monitors_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let randomization_salt_binding_1 = args.randomization_salt.get_output(context);
-        let randomization_salt_binding = randomization_salt_binding_1.get_inner();
-        let scheduled_splits_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let groups_binding = args.groups.get_output(context);
+        let metric_monitors_binding = args.metric_monitors.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let randomization_salt_binding = args.randomization_salt.get_output(context);
+        let scheduled_splits_config_binding = args
             .scheduled_splits_config
             .get_output(context);
-        let scheduled_splits_config_binding = scheduled_splits_config_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:evidently/launch:Launch".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groups".into(),
-                    value: &groups_binding,
+                    value: groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricMonitors".into(),
-                    value: &metric_monitors_binding,
+                    value: metric_monitors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "randomizationSalt".into(),
-                    value: &randomization_salt_binding,
+                    value: randomization_salt_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduledSplitsConfig".into(),
-                    value: &scheduled_splits_config_binding,
+                    value: scheduled_splits_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LaunchResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            executions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executions"),
-            ),
-            groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groups"),
-            ),
-            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTime"),
-            ),
-            metric_monitors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricMonitors"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            randomization_salt: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("randomizationSalt"),
-            ),
-            scheduled_splits_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduledSplitsConfig"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusReason"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            created_time: o.get_field("createdTime"),
+            description: o.get_field("description"),
+            executions: o.get_field("executions"),
+            groups: o.get_field("groups"),
+            last_updated_time: o.get_field("lastUpdatedTime"),
+            metric_monitors: o.get_field("metricMonitors"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            randomization_salt: o.get_field("randomizationSalt"),
+            scheduled_splits_config: o.get_field("scheduledSplitsConfig"),
+            status: o.get_field("status"),
+            status_reason: o.get_field("statusReason"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
         }
     }
 }

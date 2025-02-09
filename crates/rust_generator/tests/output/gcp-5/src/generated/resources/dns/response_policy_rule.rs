@@ -129,75 +129,58 @@ pub mod response_policy_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResponsePolicyRuleArgs,
     ) -> ResponsePolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let behavior_binding_1 = args.behavior.get_output(context);
-        let behavior_binding = behavior_binding_1.get_inner();
-        let dns_name_binding_1 = args.dns_name.get_output(context);
-        let dns_name_binding = dns_name_binding_1.get_inner();
-        let local_data_binding_1 = args.local_data.get_output(context);
-        let local_data_binding = local_data_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let response_policy_binding_1 = args.response_policy.get_output(context);
-        let response_policy_binding = response_policy_binding_1.get_inner();
-        let rule_name_binding_1 = args.rule_name.get_output(context);
-        let rule_name_binding = rule_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let behavior_binding = args.behavior.get_output(context);
+        let dns_name_binding = args.dns_name.get_output(context);
+        let local_data_binding = args.local_data.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let response_policy_binding = args.response_policy.get_output(context);
+        let rule_name_binding = args.rule_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dns/responsePolicyRule:ResponsePolicyRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "behavior".into(),
-                    value: &behavior_binding,
+                    value: behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsName".into(),
-                    value: &dns_name_binding,
+                    value: dns_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localData".into(),
-                    value: &local_data_binding,
+                    value: local_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responsePolicy".into(),
-                    value: &response_policy_binding,
+                    value: response_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: &rule_name_binding,
+                    value: rule_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResponsePolicyRuleResult {
-            behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("behavior"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            local_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localData"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            response_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responsePolicy"),
-            ),
-            rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleName"),
-            ),
+            behavior: o.get_field("behavior"),
+            dns_name: o.get_field("dnsName"),
+            local_data: o.get_field("localData"),
+            project: o.get_field("project"),
+            response_policy: o.get_field("responsePolicy"),
+            rule_name: o.get_field("ruleName"),
         }
     }
 }

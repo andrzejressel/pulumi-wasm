@@ -90,77 +90,61 @@ pub mod local_rulestack_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocalRulestackCertificateArgs,
     ) -> LocalRulestackCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_comment_binding_1 = args.audit_comment.get_output(context);
-        let audit_comment_binding = audit_comment_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let key_vault_certificate_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audit_comment_binding = args.audit_comment.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let key_vault_certificate_id_binding = args
             .key_vault_certificate_id
             .get_output(context);
-        let key_vault_certificate_id_binding = key_vault_certificate_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rulestack_id_binding_1 = args.rulestack_id.get_output(context);
-        let rulestack_id_binding = rulestack_id_binding_1.get_inner();
-        let self_signed_binding_1 = args.self_signed.get_output(context);
-        let self_signed_binding = self_signed_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let rulestack_id_binding = args.rulestack_id.get_output(context);
+        let self_signed_binding = args.self_signed.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackCertificate:LocalRulestackCertificate"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditComment".into(),
-                    value: &audit_comment_binding,
+                    value: audit_comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultCertificateId".into(),
-                    value: &key_vault_certificate_id_binding,
+                    value: key_vault_certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulestackId".into(),
-                    value: &rulestack_id_binding,
+                    value: rulestack_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfSigned".into(),
-                    value: &self_signed_binding,
+                    value: self_signed_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocalRulestackCertificateResult {
-            audit_comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditComment"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            key_vault_certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultCertificateId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rulestack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rulestackId"),
-            ),
-            self_signed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfSigned"),
-            ),
+            audit_comment: o.get_field("auditComment"),
+            description: o.get_field("description"),
+            key_vault_certificate_id: o.get_field("keyVaultCertificateId"),
+            name: o.get_field("name"),
+            rulestack_id: o.get_field("rulestackId"),
+            self_signed: o.get_field("selfSigned"),
         }
     }
 }

@@ -92,82 +92,63 @@ pub mod get_core_network_policy_document {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCoreNetworkPolicyDocumentArgs,
     ) -> GetCoreNetworkPolicyDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachment_policies_binding_1 = args.attachment_policies.get_output(context);
-        let attachment_policies_binding = attachment_policies_binding_1.get_inner();
-        let core_network_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attachment_policies_binding = args.attachment_policies.get_output(context);
+        let core_network_configurations_binding = args
             .core_network_configurations
             .get_output(context);
-        let core_network_configurations_binding = core_network_configurations_binding_1
-            .get_inner();
-        let network_function_groups_binding_1 = args
+        let network_function_groups_binding = args
             .network_function_groups
             .get_output(context);
-        let network_function_groups_binding = network_function_groups_binding_1
-            .get_inner();
-        let segment_actions_binding_1 = args.segment_actions.get_output(context);
-        let segment_actions_binding = segment_actions_binding_1.get_inner();
-        let segments_binding_1 = args.segments.get_output(context);
-        let segments_binding = segments_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let segment_actions_binding = args.segment_actions.get_output(context);
+        let segments_binding = args.segments.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentPolicies".into(),
-                    value: &attachment_policies_binding,
+                    value: attachment_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkConfigurations".into(),
-                    value: &core_network_configurations_binding,
+                    value: core_network_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkFunctionGroups".into(),
-                    value: &network_function_groups_binding,
+                    value: network_function_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "segmentActions".into(),
-                    value: &segment_actions_binding,
+                    value: segment_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "segments".into(),
-                    value: &segments_binding,
+                    value: segments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCoreNetworkPolicyDocumentResult {
-            attachment_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentPolicies"),
-            ),
-            core_network_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkConfigurations"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            json: pulumi_gestalt_rust::__private::into_domain(o.extract_field("json")),
-            network_function_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkFunctionGroups"),
-            ),
-            segment_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("segmentActions"),
-            ),
-            segments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("segments"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            attachment_policies: o.get_field("attachmentPolicies"),
+            core_network_configurations: o.get_field("coreNetworkConfigurations"),
+            id: o.get_field("id"),
+            json: o.get_field("json"),
+            network_function_groups: o.get_field("networkFunctionGroups"),
+            segment_actions: o.get_field("segmentActions"),
+            segments: o.get_field("segments"),
+            version: o.get_field("version"),
         }
     }
 }

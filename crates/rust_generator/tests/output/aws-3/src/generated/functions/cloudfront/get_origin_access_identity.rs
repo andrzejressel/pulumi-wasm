@@ -36,43 +36,33 @@ pub mod get_origin_access_identity {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOriginAccessIdentityArgs,
     ) -> GetOriginAccessIdentityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let id_binding = args.id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOriginAccessIdentityResult {
-            caller_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callerReference"),
-            ),
-            cloudfront_access_identity_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudfrontAccessIdentityPath"),
-            ),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            iam_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            s3_canonical_user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3CanonicalUserId"),
-            ),
+            caller_reference: o.get_field("callerReference"),
+            cloudfront_access_identity_path: o.get_field("cloudfrontAccessIdentityPath"),
+            comment: o.get_field("comment"),
+            etag: o.get_field("etag"),
+            iam_arn: o.get_field("iamArn"),
+            id: o.get_field("id"),
+            s3_canonical_user_id: o.get_field("s3CanonicalUserId"),
         }
     }
 }

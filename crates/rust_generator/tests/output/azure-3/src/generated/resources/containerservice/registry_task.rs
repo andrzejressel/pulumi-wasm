@@ -205,181 +205,132 @@ pub mod registry_task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegistryTaskArgs,
     ) -> RegistryTaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_pool_name_binding_1 = args.agent_pool_name.get_output(context);
-        let agent_pool_name_binding = agent_pool_name_binding_1.get_inner();
-        let agent_setting_binding_1 = args.agent_setting.get_output(context);
-        let agent_setting_binding = agent_setting_binding_1.get_inner();
-        let base_image_trigger_binding_1 = args.base_image_trigger.get_output(context);
-        let base_image_trigger_binding = base_image_trigger_binding_1.get_inner();
-        let container_registry_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_pool_name_binding = args.agent_pool_name.get_output(context);
+        let agent_setting_binding = args.agent_setting.get_output(context);
+        let base_image_trigger_binding = args.base_image_trigger.get_output(context);
+        let container_registry_id_binding = args
             .container_registry_id
             .get_output(context);
-        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
-        let docker_step_binding_1 = args.docker_step.get_output(context);
-        let docker_step_binding = docker_step_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let encoded_step_binding_1 = args.encoded_step.get_output(context);
-        let encoded_step_binding = encoded_step_binding_1.get_inner();
-        let file_step_binding_1 = args.file_step.get_output(context);
-        let file_step_binding = file_step_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let is_system_task_binding_1 = args.is_system_task.get_output(context);
-        let is_system_task_binding = is_system_task_binding_1.get_inner();
-        let log_template_binding_1 = args.log_template.get_output(context);
-        let log_template_binding = log_template_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let platform_binding_1 = args.platform.get_output(context);
-        let platform_binding = platform_binding_1.get_inner();
-        let registry_credential_binding_1 = args.registry_credential.get_output(context);
-        let registry_credential_binding = registry_credential_binding_1.get_inner();
-        let source_triggers_binding_1 = args.source_triggers.get_output(context);
-        let source_triggers_binding = source_triggers_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeout_in_seconds_binding_1 = args.timeout_in_seconds.get_output(context);
-        let timeout_in_seconds_binding = timeout_in_seconds_binding_1.get_inner();
-        let timer_triggers_binding_1 = args.timer_triggers.get_output(context);
-        let timer_triggers_binding = timer_triggers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let docker_step_binding = args.docker_step.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let encoded_step_binding = args.encoded_step.get_output(context);
+        let file_step_binding = args.file_step.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let is_system_task_binding = args.is_system_task.get_output(context);
+        let log_template_binding = args.log_template.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let platform_binding = args.platform.get_output(context);
+        let registry_credential_binding = args.registry_credential.get_output(context);
+        let source_triggers_binding = args.source_triggers.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeout_in_seconds_binding = args.timeout_in_seconds.get_output(context);
+        let timer_triggers_binding = args.timer_triggers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/registryTask:RegistryTask".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentPoolName".into(),
-                    value: &agent_pool_name_binding,
+                    value: agent_pool_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentSetting".into(),
-                    value: &agent_setting_binding,
+                    value: agent_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseImageTrigger".into(),
-                    value: &base_image_trigger_binding,
+                    value: base_image_trigger_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryId".into(),
-                    value: &container_registry_id_binding,
+                    value: container_registry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerStep".into(),
-                    value: &docker_step_binding,
+                    value: docker_step_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encodedStep".into(),
-                    value: &encoded_step_binding,
+                    value: encoded_step_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileStep".into(),
-                    value: &file_step_binding,
+                    value: file_step_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isSystemTask".into(),
-                    value: &is_system_task_binding,
+                    value: is_system_task_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logTemplate".into(),
-                    value: &log_template_binding,
+                    value: log_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: &platform_binding,
+                    value: platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryCredential".into(),
-                    value: &registry_credential_binding,
+                    value: registry_credential_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceTriggers".into(),
-                    value: &source_triggers_binding,
+                    value: source_triggers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutInSeconds".into(),
-                    value: &timeout_in_seconds_binding,
+                    value: timeout_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timerTriggers".into(),
-                    value: &timer_triggers_binding,
+                    value: timer_triggers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegistryTaskResult {
-            agent_pool_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentPoolName"),
-            ),
-            agent_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentSetting"),
-            ),
-            base_image_trigger: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseImageTrigger"),
-            ),
-            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRegistryId"),
-            ),
-            docker_step: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerStep"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            encoded_step: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encodedStep"),
-            ),
-            file_step: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileStep"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            is_system_task: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isSystemTask"),
-            ),
-            log_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logTemplate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            registry_credential: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryCredential"),
-            ),
-            source_triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceTriggers"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutInSeconds"),
-            ),
-            timer_triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timerTriggers"),
-            ),
+            agent_pool_name: o.get_field("agentPoolName"),
+            agent_setting: o.get_field("agentSetting"),
+            base_image_trigger: o.get_field("baseImageTrigger"),
+            container_registry_id: o.get_field("containerRegistryId"),
+            docker_step: o.get_field("dockerStep"),
+            enabled: o.get_field("enabled"),
+            encoded_step: o.get_field("encodedStep"),
+            file_step: o.get_field("fileStep"),
+            identity: o.get_field("identity"),
+            is_system_task: o.get_field("isSystemTask"),
+            log_template: o.get_field("logTemplate"),
+            name: o.get_field("name"),
+            platform: o.get_field("platform"),
+            registry_credential: o.get_field("registryCredential"),
+            source_triggers: o.get_field("sourceTriggers"),
+            tags: o.get_field("tags"),
+            timeout_in_seconds: o.get_field("timeoutInSeconds"),
+            timer_triggers: o.get_field("timerTriggers"),
         }
     }
 }

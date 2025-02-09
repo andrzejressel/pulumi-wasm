@@ -390,152 +390,107 @@ pub mod route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteArgs,
     ) -> RouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dest_range_binding_1 = args.dest_range.get_output(context);
-        let dest_range_binding = dest_range_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let next_hop_gateway_binding_1 = args.next_hop_gateway.get_output(context);
-        let next_hop_gateway_binding = next_hop_gateway_binding_1.get_inner();
-        let next_hop_ilb_binding_1 = args.next_hop_ilb.get_output(context);
-        let next_hop_ilb_binding = next_hop_ilb_binding_1.get_inner();
-        let next_hop_instance_binding_1 = args.next_hop_instance.get_output(context);
-        let next_hop_instance_binding = next_hop_instance_binding_1.get_inner();
-        let next_hop_instance_zone_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let dest_range_binding = args.dest_range.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let next_hop_gateway_binding = args.next_hop_gateway.get_output(context);
+        let next_hop_ilb_binding = args.next_hop_ilb.get_output(context);
+        let next_hop_instance_binding = args.next_hop_instance.get_output(context);
+        let next_hop_instance_zone_binding = args
             .next_hop_instance_zone
             .get_output(context);
-        let next_hop_instance_zone_binding = next_hop_instance_zone_binding_1
-            .get_inner();
-        let next_hop_ip_binding_1 = args.next_hop_ip.get_output(context);
-        let next_hop_ip_binding = next_hop_ip_binding_1.get_inner();
-        let next_hop_vpn_tunnel_binding_1 = args.next_hop_vpn_tunnel.get_output(context);
-        let next_hop_vpn_tunnel_binding = next_hop_vpn_tunnel_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let next_hop_ip_binding = args.next_hop_ip.get_output(context);
+        let next_hop_vpn_tunnel_binding = args.next_hop_vpn_tunnel.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/route:Route".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destRange".into(),
-                    value: &dest_range_binding,
+                    value: dest_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopGateway".into(),
-                    value: &next_hop_gateway_binding,
+                    value: next_hop_gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopIlb".into(),
-                    value: &next_hop_ilb_binding,
+                    value: next_hop_ilb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopInstance".into(),
-                    value: &next_hop_instance_binding,
+                    value: next_hop_instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopInstanceZone".into(),
-                    value: &next_hop_instance_zone_binding,
+                    value: next_hop_instance_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopIp".into(),
-                    value: &next_hop_ip_binding,
+                    value: next_hop_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopVpnTunnel".into(),
-                    value: &next_hop_vpn_tunnel_binding,
+                    value: next_hop_vpn_tunnel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dest_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destRange"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            next_hop_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopGateway"),
-            ),
-            next_hop_ilb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopIlb"),
-            ),
-            next_hop_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopInstance"),
-            ),
-            next_hop_instance_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopInstanceZone"),
-            ),
-            next_hop_inter_region_cost: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopInterRegionCost"),
-            ),
-            next_hop_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopIp"),
-            ),
-            next_hop_med: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopMed"),
-            ),
-            next_hop_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopNetwork"),
-            ),
-            next_hop_origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopOrigin"),
-            ),
-            next_hop_vpn_tunnel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopVpnTunnel"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            description: o.get_field("description"),
+            dest_range: o.get_field("destRange"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            next_hop_gateway: o.get_field("nextHopGateway"),
+            next_hop_ilb: o.get_field("nextHopIlb"),
+            next_hop_instance: o.get_field("nextHopInstance"),
+            next_hop_instance_zone: o.get_field("nextHopInstanceZone"),
+            next_hop_inter_region_cost: o.get_field("nextHopInterRegionCost"),
+            next_hop_ip: o.get_field("nextHopIp"),
+            next_hop_med: o.get_field("nextHopMed"),
+            next_hop_network: o.get_field("nextHopNetwork"),
+            next_hop_origin: o.get_field("nextHopOrigin"),
+            next_hop_vpn_tunnel: o.get_field("nextHopVpnTunnel"),
+            priority: o.get_field("priority"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
+            tags: o.get_field("tags"),
         }
     }
 }

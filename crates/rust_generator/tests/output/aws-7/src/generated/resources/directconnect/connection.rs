@@ -153,117 +153,80 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bandwidth_binding_1 = args.bandwidth.get_output(context);
-        let bandwidth_binding = bandwidth_binding_1.get_inner();
-        let encryption_mode_binding_1 = args.encryption_mode.get_output(context);
-        let encryption_mode_binding = encryption_mode_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let provider_name_binding_1 = args.provider_name.get_output(context);
-        let provider_name_binding = provider_name_binding_1.get_inner();
-        let request_macsec_binding_1 = args.request_macsec.get_output(context);
-        let request_macsec_binding = request_macsec_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bandwidth_binding = args.bandwidth.get_output(context);
+        let encryption_mode_binding = args.encryption_mode.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let provider_name_binding = args.provider_name.get_output(context);
+        let request_macsec_binding = args.request_macsec.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:directconnect/connection:Connection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidth".into(),
-                    value: &bandwidth_binding,
+                    value: bandwidth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionMode".into(),
-                    value: &encryption_mode_binding,
+                    value: encryption_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerName".into(),
-                    value: &provider_name_binding,
+                    value: provider_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestMacsec".into(),
-                    value: &request_macsec_binding,
+                    value: request_macsec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsDevice"),
-            ),
-            bandwidth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidth"),
-            ),
-            encryption_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionMode"),
-            ),
-            has_logical_redundancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasLogicalRedundancy"),
-            ),
-            jumbo_frame_capable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jumboFrameCapable"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            macsec_capable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("macsecCapable"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccountId"),
-            ),
-            partner_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerName"),
-            ),
-            port_encryption_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portEncryptionStatus"),
-            ),
-            provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerName"),
-            ),
-            request_macsec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestMacsec"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vlan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vlanId"),
-            ),
+            arn: o.get_field("arn"),
+            aws_device: o.get_field("awsDevice"),
+            bandwidth: o.get_field("bandwidth"),
+            encryption_mode: o.get_field("encryptionMode"),
+            has_logical_redundancy: o.get_field("hasLogicalRedundancy"),
+            jumbo_frame_capable: o.get_field("jumboFrameCapable"),
+            location: o.get_field("location"),
+            macsec_capable: o.get_field("macsecCapable"),
+            name: o.get_field("name"),
+            owner_account_id: o.get_field("ownerAccountId"),
+            partner_name: o.get_field("partnerName"),
+            port_encryption_status: o.get_field("portEncryptionStatus"),
+            provider_name: o.get_field("providerName"),
+            request_macsec: o.get_field("requestMacsec"),
+            skip_destroy: o.get_field("skipDestroy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vlan_id: o.get_field("vlanId"),
         }
     }
 }

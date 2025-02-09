@@ -35,56 +35,42 @@ pub mod get_environment_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEnvironmentCertificateArgs,
     ) -> GetEnvironmentCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_app_environment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_app_environment_id_binding = args
             .container_app_environment_id
             .get_output(context);
-        let container_app_environment_id_binding = container_app_environment_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: &container_app_environment_id_binding,
+                    value: container_app_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEnvironmentCertificateResult {
-            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppEnvironmentId"),
-            ),
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            issue_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issueDate"),
-            ),
-            issuer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuer"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            subject_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subjectName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprint"),
-            ),
+            container_app_environment_id: o.get_field("containerAppEnvironmentId"),
+            expiration_date: o.get_field("expirationDate"),
+            id: o.get_field("id"),
+            issue_date: o.get_field("issueDate"),
+            issuer: o.get_field("issuer"),
+            name: o.get_field("name"),
+            subject_name: o.get_field("subjectName"),
+            tags: o.get_field("tags"),
+            thumbprint: o.get_field("thumbprint"),
         }
     }
 }

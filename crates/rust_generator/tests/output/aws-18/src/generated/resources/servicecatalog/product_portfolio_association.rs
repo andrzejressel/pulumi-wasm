@@ -65,58 +65,47 @@ pub mod product_portfolio_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProductPortfolioAssociationArgs,
     ) -> ProductPortfolioAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding_1 = args.accept_language.get_output(context);
-        let accept_language_binding = accept_language_binding_1.get_inner();
-        let portfolio_id_binding_1 = args.portfolio_id.get_output(context);
-        let portfolio_id_binding = portfolio_id_binding_1.get_inner();
-        let product_id_binding_1 = args.product_id.get_output(context);
-        let product_id_binding = product_id_binding_1.get_inner();
-        let source_portfolio_id_binding_1 = args.source_portfolio_id.get_output(context);
-        let source_portfolio_id_binding = source_portfolio_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accept_language_binding = args.accept_language.get_output(context);
+        let portfolio_id_binding = args.portfolio_id.get_output(context);
+        let product_id_binding = args.product_id.get_output(context);
+        let source_portfolio_id_binding = args.source_portfolio_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: &accept_language_binding,
+                    value: accept_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portfolioId".into(),
-                    value: &portfolio_id_binding,
+                    value: portfolio_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: &product_id_binding,
+                    value: product_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortfolioId".into(),
-                    value: &source_portfolio_id_binding,
+                    value: source_portfolio_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProductPortfolioAssociationResult {
-            accept_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptLanguage"),
-            ),
-            portfolio_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portfolioId"),
-            ),
-            product_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productId"),
-            ),
-            source_portfolio_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourcePortfolioId"),
-            ),
+            accept_language: o.get_field("acceptLanguage"),
+            portfolio_id: o.get_field("portfolioId"),
+            product_id: o.get_field("productId"),
+            source_portfolio_id: o.get_field("sourcePortfolioId"),
         }
     }
 }

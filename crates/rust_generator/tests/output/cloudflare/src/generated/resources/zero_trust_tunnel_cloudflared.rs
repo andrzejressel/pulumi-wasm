@@ -65,60 +65,49 @@ pub mod zero_trust_tunnel_cloudflared {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZeroTrustTunnelCloudflaredArgs,
     ) -> ZeroTrustTunnelCloudflaredResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let config_src_binding_1 = args.config_src.get_output(context);
-        let config_src_binding = config_src_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let secret_binding_1 = args.secret.get_output(context);
-        let secret_binding = secret_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let config_src_binding = args.config_src.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let secret_binding = args.secret.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustTunnelCloudflared:ZeroTrustTunnelCloudflared"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configSrc".into(),
-                    value: &config_src_binding,
+                    value: config_src_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secret".into(),
-                    value: &secret_binding,
+                    value: secret_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZeroTrustTunnelCloudflaredResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            cname: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cname")),
-            config_src: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configSrc"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secret"),
-            ),
-            tunnel_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnelToken"),
-            ),
+            account_id: o.get_field("accountId"),
+            cname: o.get_field("cname"),
+            config_src: o.get_field("configSrc"),
+            name: o.get_field("name"),
+            secret: o.get_field("secret"),
+            tunnel_token: o.get_field("tunnelToken"),
         }
     }
 }

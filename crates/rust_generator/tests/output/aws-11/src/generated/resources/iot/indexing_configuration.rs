@@ -79,45 +79,39 @@ pub mod indexing_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IndexingConfigurationArgs,
     ) -> IndexingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let thing_group_indexing_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let thing_group_indexing_configuration_binding = args
             .thing_group_indexing_configuration
             .get_output(context);
-        let thing_group_indexing_configuration_binding = thing_group_indexing_configuration_binding_1
-            .get_inner();
-        let thing_indexing_configuration_binding_1 = args
+        let thing_indexing_configuration_binding = args
             .thing_indexing_configuration
             .get_output(context);
-        let thing_indexing_configuration_binding = thing_indexing_configuration_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iot/indexingConfiguration:IndexingConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingGroupIndexingConfiguration".into(),
-                    value: &thing_group_indexing_configuration_binding,
+                    value: thing_group_indexing_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingIndexingConfiguration".into(),
-                    value: &thing_indexing_configuration_binding,
+                    value: thing_indexing_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IndexingConfigurationResult {
-            thing_group_indexing_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thingGroupIndexingConfiguration"),
-            ),
-            thing_indexing_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thingIndexingConfiguration"),
-            ),
+            thing_group_indexing_configuration: o
+                .get_field("thingGroupIndexingConfiguration"),
+            thing_indexing_configuration: o.get_field("thingIndexingConfiguration"),
         }
     }
 }

@@ -334,414 +334,283 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_key_metadata_writes_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_key_metadata_writes_enabled_binding = args
             .access_key_metadata_writes_enabled
             .get_output(context);
-        let access_key_metadata_writes_enabled_binding = access_key_metadata_writes_enabled_binding_1
-            .get_inner();
-        let analytical_storage_binding_1 = args.analytical_storage.get_output(context);
-        let analytical_storage_binding = analytical_storage_binding_1.get_inner();
-        let analytical_storage_enabled_binding_1 = args
+        let analytical_storage_binding = args.analytical_storage.get_output(context);
+        let analytical_storage_enabled_binding = args
             .analytical_storage_enabled
             .get_output(context);
-        let analytical_storage_enabled_binding = analytical_storage_enabled_binding_1
-            .get_inner();
-        let automatic_failover_enabled_binding_1 = args
+        let automatic_failover_enabled_binding = args
             .automatic_failover_enabled
             .get_output(context);
-        let automatic_failover_enabled_binding = automatic_failover_enabled_binding_1
-            .get_inner();
-        let backup_binding_1 = args.backup.get_output(context);
-        let backup_binding = backup_binding_1.get_inner();
-        let burst_capacity_enabled_binding_1 = args
+        let backup_binding = args.backup.get_output(context);
+        let burst_capacity_enabled_binding = args
             .burst_capacity_enabled
             .get_output(context);
-        let burst_capacity_enabled_binding = burst_capacity_enabled_binding_1
-            .get_inner();
-        let capabilities_binding_1 = args.capabilities.get_output(context);
-        let capabilities_binding = capabilities_binding_1.get_inner();
-        let capacity_binding_1 = args.capacity.get_output(context);
-        let capacity_binding = capacity_binding_1.get_inner();
-        let consistency_policy_binding_1 = args.consistency_policy.get_output(context);
-        let consistency_policy_binding = consistency_policy_binding_1.get_inner();
-        let cors_rule_binding_1 = args.cors_rule.get_output(context);
-        let cors_rule_binding = cors_rule_binding_1.get_inner();
-        let create_mode_binding_1 = args.create_mode.get_output(context);
-        let create_mode_binding = create_mode_binding_1.get_inner();
-        let default_identity_type_binding_1 = args
+        let capabilities_binding = args.capabilities.get_output(context);
+        let capacity_binding = args.capacity.get_output(context);
+        let consistency_policy_binding = args.consistency_policy.get_output(context);
+        let cors_rule_binding = args.cors_rule.get_output(context);
+        let create_mode_binding = args.create_mode.get_output(context);
+        let default_identity_type_binding = args
             .default_identity_type
             .get_output(context);
-        let default_identity_type_binding = default_identity_type_binding_1.get_inner();
-        let free_tier_enabled_binding_1 = args.free_tier_enabled.get_output(context);
-        let free_tier_enabled_binding = free_tier_enabled_binding_1.get_inner();
-        let geo_locations_binding_1 = args.geo_locations.get_output(context);
-        let geo_locations_binding = geo_locations_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let ip_range_filters_binding_1 = args.ip_range_filters.get_output(context);
-        let ip_range_filters_binding = ip_range_filters_binding_1.get_inner();
-        let is_virtual_network_filter_enabled_binding_1 = args
+        let free_tier_enabled_binding = args.free_tier_enabled.get_output(context);
+        let geo_locations_binding = args.geo_locations.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let ip_range_filters_binding = args.ip_range_filters.get_output(context);
+        let is_virtual_network_filter_enabled_binding = args
             .is_virtual_network_filter_enabled
             .get_output(context);
-        let is_virtual_network_filter_enabled_binding = is_virtual_network_filter_enabled_binding_1
-            .get_inner();
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let kind_binding_1 = args.kind.get_output(context);
-        let kind_binding = kind_binding_1.get_inner();
-        let local_authentication_disabled_binding_1 = args
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let kind_binding = args.kind.get_output(context);
+        let local_authentication_disabled_binding = args
             .local_authentication_disabled
             .get_output(context);
-        let local_authentication_disabled_binding = local_authentication_disabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let managed_hsm_key_id_binding_1 = args.managed_hsm_key_id.get_output(context);
-        let managed_hsm_key_id_binding = managed_hsm_key_id_binding_1.get_inner();
-        let minimal_tls_version_binding_1 = args.minimal_tls_version.get_output(context);
-        let minimal_tls_version_binding = minimal_tls_version_binding_1.get_inner();
-        let mongo_server_version_binding_1 = args
-            .mongo_server_version
-            .get_output(context);
-        let mongo_server_version_binding = mongo_server_version_binding_1.get_inner();
-        let multiple_write_locations_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let managed_hsm_key_id_binding = args.managed_hsm_key_id.get_output(context);
+        let minimal_tls_version_binding = args.minimal_tls_version.get_output(context);
+        let mongo_server_version_binding = args.mongo_server_version.get_output(context);
+        let multiple_write_locations_enabled_binding = args
             .multiple_write_locations_enabled
             .get_output(context);
-        let multiple_write_locations_enabled_binding = multiple_write_locations_enabled_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_acl_bypass_for_azure_services_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let network_acl_bypass_for_azure_services_binding = args
             .network_acl_bypass_for_azure_services
             .get_output(context);
-        let network_acl_bypass_for_azure_services_binding = network_acl_bypass_for_azure_services_binding_1
-            .get_inner();
-        let network_acl_bypass_ids_binding_1 = args
+        let network_acl_bypass_ids_binding = args
             .network_acl_bypass_ids
             .get_output(context);
-        let network_acl_bypass_ids_binding = network_acl_bypass_ids_binding_1
-            .get_inner();
-        let offer_type_binding_1 = args.offer_type.get_output(context);
-        let offer_type_binding = offer_type_binding_1.get_inner();
-        let partition_merge_enabled_binding_1 = args
+        let offer_type_binding = args.offer_type.get_output(context);
+        let partition_merge_enabled_binding = args
             .partition_merge_enabled
             .get_output(context);
-        let partition_merge_enabled_binding = partition_merge_enabled_binding_1
-            .get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let restore_binding_1 = args.restore.get_output(context);
-        let restore_binding = restore_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_network_rules_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let restore_binding = args.restore.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let virtual_network_rules_binding = args
             .virtual_network_rules
             .get_output(context);
-        let virtual_network_rules_binding = virtual_network_rules_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/account:Account".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessKeyMetadataWritesEnabled".into(),
-                    value: &access_key_metadata_writes_enabled_binding,
+                    value: access_key_metadata_writes_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticalStorage".into(),
-                    value: &analytical_storage_binding,
+                    value: analytical_storage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticalStorageEnabled".into(),
-                    value: &analytical_storage_enabled_binding,
+                    value: analytical_storage_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticFailoverEnabled".into(),
-                    value: &automatic_failover_enabled_binding,
+                    value: automatic_failover_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backup".into(),
-                    value: &backup_binding,
+                    value: backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "burstCapacityEnabled".into(),
-                    value: &burst_capacity_enabled_binding,
+                    value: burst_capacity_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capabilities".into(),
-                    value: &capabilities_binding,
+                    value: capabilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacity".into(),
-                    value: &capacity_binding,
+                    value: capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consistencyPolicy".into(),
-                    value: &consistency_policy_binding,
+                    value: consistency_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsRule".into(),
-                    value: &cors_rule_binding,
+                    value: cors_rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createMode".into(),
-                    value: &create_mode_binding,
+                    value: create_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultIdentityType".into(),
-                    value: &default_identity_type_binding,
+                    value: default_identity_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "freeTierEnabled".into(),
-                    value: &free_tier_enabled_binding,
+                    value: free_tier_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoLocations".into(),
-                    value: &geo_locations_binding,
+                    value: geo_locations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRangeFilters".into(),
-                    value: &ip_range_filters_binding,
+                    value: ip_range_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isVirtualNetworkFilterEnabled".into(),
-                    value: &is_virtual_network_filter_enabled_binding,
+                    value: is_virtual_network_filter_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: &kind_binding,
+                    value: kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationDisabled".into(),
-                    value: &local_authentication_disabled_binding,
+                    value: local_authentication_disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmKeyId".into(),
-                    value: &managed_hsm_key_id_binding,
+                    value: managed_hsm_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimalTlsVersion".into(),
-                    value: &minimal_tls_version_binding,
+                    value: minimal_tls_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mongoServerVersion".into(),
-                    value: &mongo_server_version_binding,
+                    value: mongo_server_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multipleWriteLocationsEnabled".into(),
-                    value: &multiple_write_locations_enabled_binding,
+                    value: multiple_write_locations_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAclBypassForAzureServices".into(),
-                    value: &network_acl_bypass_for_azure_services_binding,
+                    value: network_acl_bypass_for_azure_services_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAclBypassIds".into(),
-                    value: &network_acl_bypass_ids_binding,
+                    value: network_acl_bypass_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offerType".into(),
-                    value: &offer_type_binding,
+                    value: offer_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionMergeEnabled".into(),
-                    value: &partition_merge_enabled_binding,
+                    value: partition_merge_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restore".into(),
-                    value: &restore_binding,
+                    value: restore_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkRules".into(),
-                    value: &virtual_network_rules_binding,
+                    value: virtual_network_rules_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountResult {
-            access_key_metadata_writes_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessKeyMetadataWritesEnabled"),
-            ),
-            analytical_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyticalStorage"),
-            ),
-            analytical_storage_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyticalStorageEnabled"),
-            ),
-            automatic_failover_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticFailoverEnabled"),
-            ),
-            backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backup"),
-            ),
-            burst_capacity_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("burstCapacityEnabled"),
-            ),
-            capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capabilities"),
-            ),
-            capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacity"),
-            ),
-            consistency_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consistencyPolicy"),
-            ),
-            cors_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("corsRule"),
-            ),
-            create_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createMode"),
-            ),
-            default_identity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultIdentityType"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            free_tier_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("freeTierEnabled"),
-            ),
-            geo_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoLocations"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            ip_range_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipRangeFilters"),
-            ),
-            is_virtual_network_filter_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isVirtualNetworkFilterEnabled"),
-            ),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            local_authentication_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthenticationDisabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_hsm_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedHsmKeyId"),
-            ),
-            minimal_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimalTlsVersion"),
-            ),
-            mongo_server_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mongoServerVersion"),
-            ),
-            multiple_write_locations_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multipleWriteLocationsEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_acl_bypass_for_azure_services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkAclBypassForAzureServices"),
-            ),
-            network_acl_bypass_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkAclBypassIds"),
-            ),
-            offer_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("offerType"),
-            ),
-            partition_merge_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionMergeEnabled"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            primary_mongodb_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryMongodbConnectionString"),
-            ),
-            primary_readonly_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReadonlyKey"),
-            ),
-            primary_readonly_mongodb_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReadonlyMongodbConnectionString"),
-            ),
-            primary_readonly_sql_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReadonlySqlConnectionString"),
-            ),
-            primary_sql_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primarySqlConnectionString"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            read_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readEndpoints"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            restore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restore"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            secondary_mongodb_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryMongodbConnectionString"),
-            ),
-            secondary_readonly_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryReadonlyKey"),
-            ),
-            secondary_readonly_mongodb_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryReadonlyMongodbConnectionString"),
-            ),
-            secondary_readonly_sql_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryReadonlySqlConnectionString"),
-            ),
-            secondary_sql_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondarySqlConnectionString"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_network_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkRules"),
-            ),
-            write_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writeEndpoints"),
-            ),
+            access_key_metadata_writes_enabled: o
+                .get_field("accessKeyMetadataWritesEnabled"),
+            analytical_storage: o.get_field("analyticalStorage"),
+            analytical_storage_enabled: o.get_field("analyticalStorageEnabled"),
+            automatic_failover_enabled: o.get_field("automaticFailoverEnabled"),
+            backup: o.get_field("backup"),
+            burst_capacity_enabled: o.get_field("burstCapacityEnabled"),
+            capabilities: o.get_field("capabilities"),
+            capacity: o.get_field("capacity"),
+            consistency_policy: o.get_field("consistencyPolicy"),
+            cors_rule: o.get_field("corsRule"),
+            create_mode: o.get_field("createMode"),
+            default_identity_type: o.get_field("defaultIdentityType"),
+            endpoint: o.get_field("endpoint"),
+            free_tier_enabled: o.get_field("freeTierEnabled"),
+            geo_locations: o.get_field("geoLocations"),
+            identity: o.get_field("identity"),
+            ip_range_filters: o.get_field("ipRangeFilters"),
+            is_virtual_network_filter_enabled: o
+                .get_field("isVirtualNetworkFilterEnabled"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            kind: o.get_field("kind"),
+            local_authentication_disabled: o.get_field("localAuthenticationDisabled"),
+            location: o.get_field("location"),
+            managed_hsm_key_id: o.get_field("managedHsmKeyId"),
+            minimal_tls_version: o.get_field("minimalTlsVersion"),
+            mongo_server_version: o.get_field("mongoServerVersion"),
+            multiple_write_locations_enabled: o
+                .get_field("multipleWriteLocationsEnabled"),
+            name: o.get_field("name"),
+            network_acl_bypass_for_azure_services: o
+                .get_field("networkAclBypassForAzureServices"),
+            network_acl_bypass_ids: o.get_field("networkAclBypassIds"),
+            offer_type: o.get_field("offerType"),
+            partition_merge_enabled: o.get_field("partitionMergeEnabled"),
+            primary_key: o.get_field("primaryKey"),
+            primary_mongodb_connection_string: o
+                .get_field("primaryMongodbConnectionString"),
+            primary_readonly_key: o.get_field("primaryReadonlyKey"),
+            primary_readonly_mongodb_connection_string: o
+                .get_field("primaryReadonlyMongodbConnectionString"),
+            primary_readonly_sql_connection_string: o
+                .get_field("primaryReadonlySqlConnectionString"),
+            primary_sql_connection_string: o.get_field("primarySqlConnectionString"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            read_endpoints: o.get_field("readEndpoints"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            restore: o.get_field("restore"),
+            secondary_key: o.get_field("secondaryKey"),
+            secondary_mongodb_connection_string: o
+                .get_field("secondaryMongodbConnectionString"),
+            secondary_readonly_key: o.get_field("secondaryReadonlyKey"),
+            secondary_readonly_mongodb_connection_string: o
+                .get_field("secondaryReadonlyMongodbConnectionString"),
+            secondary_readonly_sql_connection_string: o
+                .get_field("secondaryReadonlySqlConnectionString"),
+            secondary_sql_connection_string: o.get_field("secondarySqlConnectionString"),
+            tags: o.get_field("tags"),
+            virtual_network_rules: o.get_field("virtualNetworkRules"),
+            write_endpoints: o.get_field("writeEndpoints"),
         }
     }
 }

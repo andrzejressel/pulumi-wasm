@@ -33,49 +33,35 @@ pub mod get_approval_rule_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApprovalRuleTemplateArgs,
     ) -> GetApprovalRuleTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApprovalRuleTemplateResult {
-            approval_rule_template_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalRuleTemplateId"),
-            ),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedDate"),
-            ),
-            last_modified_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedUser"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rule_content_sha256: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleContentSha256"),
-            ),
+            approval_rule_template_id: o.get_field("approvalRuleTemplateId"),
+            content: o.get_field("content"),
+            creation_date: o.get_field("creationDate"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            last_modified_date: o.get_field("lastModifiedDate"),
+            last_modified_user: o.get_field("lastModifiedUser"),
+            name: o.get_field("name"),
+            rule_content_sha256: o.get_field("ruleContentSha256"),
         }
     }
 }

@@ -129,55 +129,46 @@ pub mod engine_split_traffic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EngineSplitTrafficArgs,
     ) -> EngineSplitTrafficResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let migrate_traffic_binding_1 = args.migrate_traffic.get_output(context);
-        let migrate_traffic_binding = migrate_traffic_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let split_binding_1 = args.split.get_output(context);
-        let split_binding = split_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let migrate_traffic_binding = args.migrate_traffic.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_binding = args.service.get_output(context);
+        let split_binding = args.split.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:appengine/engineSplitTraffic:EngineSplitTraffic".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "migrateTraffic".into(),
-                    value: &migrate_traffic_binding,
+                    value: migrate_traffic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "split".into(),
-                    value: &split_binding,
+                    value: split_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EngineSplitTrafficResult {
-            migrate_traffic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("migrateTraffic"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
-            split: pulumi_gestalt_rust::__private::into_domain(o.extract_field("split")),
+            migrate_traffic: o.get_field("migrateTraffic"),
+            project: o.get_field("project"),
+            service: o.get_field("service"),
+            split: o.get_field("split"),
         }
     }
 }

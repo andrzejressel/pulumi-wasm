@@ -484,289 +484,206 @@ pub mod scale_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScaleSetArgs,
     ) -> ScaleSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_os_upgrade_binding_1 = args
-            .automatic_os_upgrade
-            .get_output(context);
-        let automatic_os_upgrade_binding = automatic_os_upgrade_binding_1.get_inner();
-        let boot_diagnostics_binding_1 = args.boot_diagnostics.get_output(context);
-        let boot_diagnostics_binding = boot_diagnostics_binding_1.get_inner();
-        let eviction_policy_binding_1 = args.eviction_policy.get_output(context);
-        let eviction_policy_binding = eviction_policy_binding_1.get_inner();
-        let extensions_binding_1 = args.extensions.get_output(context);
-        let extensions_binding = extensions_binding_1.get_inner();
-        let health_probe_id_binding_1 = args.health_probe_id.get_output(context);
-        let health_probe_id_binding = health_probe_id_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let license_type_binding_1 = args.license_type.get_output(context);
-        let license_type_binding = license_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_profiles_binding_1 = args.network_profiles.get_output(context);
-        let network_profiles_binding = network_profiles_binding_1.get_inner();
-        let os_profile_binding_1 = args.os_profile.get_output(context);
-        let os_profile_binding = os_profile_binding_1.get_inner();
-        let os_profile_linux_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automatic_os_upgrade_binding = args.automatic_os_upgrade.get_output(context);
+        let boot_diagnostics_binding = args.boot_diagnostics.get_output(context);
+        let eviction_policy_binding = args.eviction_policy.get_output(context);
+        let extensions_binding = args.extensions.get_output(context);
+        let health_probe_id_binding = args.health_probe_id.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let license_type_binding = args.license_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_profiles_binding = args.network_profiles.get_output(context);
+        let os_profile_binding = args.os_profile.get_output(context);
+        let os_profile_linux_config_binding = args
             .os_profile_linux_config
             .get_output(context);
-        let os_profile_linux_config_binding = os_profile_linux_config_binding_1
-            .get_inner();
-        let os_profile_secrets_binding_1 = args.os_profile_secrets.get_output(context);
-        let os_profile_secrets_binding = os_profile_secrets_binding_1.get_inner();
-        let os_profile_windows_config_binding_1 = args
+        let os_profile_secrets_binding = args.os_profile_secrets.get_output(context);
+        let os_profile_windows_config_binding = args
             .os_profile_windows_config
             .get_output(context);
-        let os_profile_windows_config_binding = os_profile_windows_config_binding_1
-            .get_inner();
-        let overprovision_binding_1 = args.overprovision.get_output(context);
-        let overprovision_binding = overprovision_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let proximity_placement_group_id_binding_1 = args
+        let overprovision_binding = args.overprovision.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let proximity_placement_group_id_binding = args
             .proximity_placement_group_id
             .get_output(context);
-        let proximity_placement_group_id_binding = proximity_placement_group_id_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let rolling_upgrade_policy_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let rolling_upgrade_policy_binding = args
             .rolling_upgrade_policy
             .get_output(context);
-        let rolling_upgrade_policy_binding = rolling_upgrade_policy_binding_1
-            .get_inner();
-        let single_placement_group_binding_1 = args
+        let single_placement_group_binding = args
             .single_placement_group
             .get_output(context);
-        let single_placement_group_binding = single_placement_group_binding_1
-            .get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let storage_profile_data_disks_binding_1 = args
+        let sku_binding = args.sku.get_output(context);
+        let storage_profile_data_disks_binding = args
             .storage_profile_data_disks
             .get_output(context);
-        let storage_profile_data_disks_binding = storage_profile_data_disks_binding_1
-            .get_inner();
-        let storage_profile_image_reference_binding_1 = args
+        let storage_profile_image_reference_binding = args
             .storage_profile_image_reference
             .get_output(context);
-        let storage_profile_image_reference_binding = storage_profile_image_reference_binding_1
-            .get_inner();
-        let storage_profile_os_disk_binding_1 = args
+        let storage_profile_os_disk_binding = args
             .storage_profile_os_disk
             .get_output(context);
-        let storage_profile_os_disk_binding = storage_profile_os_disk_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let upgrade_policy_mode_binding_1 = args.upgrade_policy_mode.get_output(context);
-        let upgrade_policy_mode_binding = upgrade_policy_mode_binding_1.get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let upgrade_policy_mode_binding = args.upgrade_policy_mode.get_output(context);
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/scaleSet:ScaleSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticOsUpgrade".into(),
-                    value: &automatic_os_upgrade_binding,
+                    value: automatic_os_upgrade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootDiagnostics".into(),
-                    value: &boot_diagnostics_binding,
+                    value: boot_diagnostics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evictionPolicy".into(),
-                    value: &eviction_policy_binding,
+                    value: eviction_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensions".into(),
-                    value: &extensions_binding,
+                    value: extensions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthProbeId".into(),
-                    value: &health_probe_id_binding,
+                    value: health_probe_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: &license_type_binding,
+                    value: license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfiles".into(),
-                    value: &network_profiles_binding,
+                    value: network_profiles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osProfile".into(),
-                    value: &os_profile_binding,
+                    value: os_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osProfileLinuxConfig".into(),
-                    value: &os_profile_linux_config_binding,
+                    value: os_profile_linux_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osProfileSecrets".into(),
-                    value: &os_profile_secrets_binding,
+                    value: os_profile_secrets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osProfileWindowsConfig".into(),
-                    value: &os_profile_windows_config_binding,
+                    value: os_profile_windows_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overprovision".into(),
-                    value: &overprovision_binding,
+                    value: overprovision_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proximityPlacementGroupId".into(),
-                    value: &proximity_placement_group_id_binding,
+                    value: proximity_placement_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rollingUpgradePolicy".into(),
-                    value: &rolling_upgrade_policy_binding,
+                    value: rolling_upgrade_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singlePlacementGroup".into(),
-                    value: &single_placement_group_binding,
+                    value: single_placement_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageProfileDataDisks".into(),
-                    value: &storage_profile_data_disks_binding,
+                    value: storage_profile_data_disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageProfileImageReference".into(),
-                    value: &storage_profile_image_reference_binding,
+                    value: storage_profile_image_reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageProfileOsDisk".into(),
-                    value: &storage_profile_os_disk_binding,
+                    value: storage_profile_os_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradePolicyMode".into(),
-                    value: &upgrade_policy_mode_binding,
+                    value: upgrade_policy_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScaleSetResult {
-            automatic_os_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticOsUpgrade"),
-            ),
-            boot_diagnostics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootDiagnostics"),
-            ),
-            eviction_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evictionPolicy"),
-            ),
-            extensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extensions"),
-            ),
-            health_probe_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthProbeId"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfiles"),
-            ),
-            os_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfile"),
-            ),
-            os_profile_linux_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfileLinuxConfig"),
-            ),
-            os_profile_secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfileSecrets"),
-            ),
-            os_profile_windows_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfileWindowsConfig"),
-            ),
-            overprovision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overprovision"),
-            ),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proximityPlacementGroupId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            rolling_upgrade_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rollingUpgradePolicy"),
-            ),
-            single_placement_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singlePlacementGroup"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            storage_profile_data_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageProfileDataDisks"),
-            ),
-            storage_profile_image_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageProfileImageReference"),
-            ),
-            storage_profile_os_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageProfileOsDisk"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            upgrade_policy_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradePolicyMode"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            automatic_os_upgrade: o.get_field("automaticOsUpgrade"),
+            boot_diagnostics: o.get_field("bootDiagnostics"),
+            eviction_policy: o.get_field("evictionPolicy"),
+            extensions: o.get_field("extensions"),
+            health_probe_id: o.get_field("healthProbeId"),
+            identity: o.get_field("identity"),
+            license_type: o.get_field("licenseType"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_profiles: o.get_field("networkProfiles"),
+            os_profile: o.get_field("osProfile"),
+            os_profile_linux_config: o.get_field("osProfileLinuxConfig"),
+            os_profile_secrets: o.get_field("osProfileSecrets"),
+            os_profile_windows_config: o.get_field("osProfileWindowsConfig"),
+            overprovision: o.get_field("overprovision"),
+            plan: o.get_field("plan"),
+            priority: o.get_field("priority"),
+            proximity_placement_group_id: o.get_field("proximityPlacementGroupId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            rolling_upgrade_policy: o.get_field("rollingUpgradePolicy"),
+            single_placement_group: o.get_field("singlePlacementGroup"),
+            sku: o.get_field("sku"),
+            storage_profile_data_disks: o.get_field("storageProfileDataDisks"),
+            storage_profile_image_reference: o.get_field("storageProfileImageReference"),
+            storage_profile_os_disk: o.get_field("storageProfileOsDisk"),
+            tags: o.get_field("tags"),
+            upgrade_policy_mode: o.get_field("upgradePolicyMode"),
+            zones: o.get_field("zones"),
         }
     }
 }

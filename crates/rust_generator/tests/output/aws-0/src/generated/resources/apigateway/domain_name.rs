@@ -239,185 +239,127 @@ pub mod domain_name {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainNameArgs,
     ) -> DomainNameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
-        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
-        let certificate_body_binding_1 = args.certificate_body.get_output(context);
-        let certificate_body_binding = certificate_body_binding_1.get_inner();
-        let certificate_chain_binding_1 = args.certificate_chain.get_output(context);
-        let certificate_chain_binding = certificate_chain_binding_1.get_inner();
-        let certificate_name_binding_1 = args.certificate_name.get_output(context);
-        let certificate_name_binding = certificate_name_binding_1.get_inner();
-        let certificate_private_key_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_arn_binding = args.certificate_arn.get_output(context);
+        let certificate_body_binding = args.certificate_body.get_output(context);
+        let certificate_chain_binding = args.certificate_chain.get_output(context);
+        let certificate_name_binding = args.certificate_name.get_output(context);
+        let certificate_private_key_binding = args
             .certificate_private_key
             .get_output(context);
-        let certificate_private_key_binding = certificate_private_key_binding_1
-            .get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let endpoint_configuration_binding_1 = args
+        let domain_name_binding = args.domain_name.get_output(context);
+        let endpoint_configuration_binding = args
             .endpoint_configuration
             .get_output(context);
-        let endpoint_configuration_binding = endpoint_configuration_binding_1
-            .get_inner();
-        let mutual_tls_authentication_binding_1 = args
+        let mutual_tls_authentication_binding = args
             .mutual_tls_authentication
             .get_output(context);
-        let mutual_tls_authentication_binding = mutual_tls_authentication_binding_1
-            .get_inner();
-        let ownership_verification_certificate_arn_binding_1 = args
+        let ownership_verification_certificate_arn_binding = args
             .ownership_verification_certificate_arn
             .get_output(context);
-        let ownership_verification_certificate_arn_binding = ownership_verification_certificate_arn_binding_1
-            .get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let regional_certificate_arn_binding_1 = args
+        let policy_binding = args.policy.get_output(context);
+        let regional_certificate_arn_binding = args
             .regional_certificate_arn
             .get_output(context);
-        let regional_certificate_arn_binding = regional_certificate_arn_binding_1
-            .get_inner();
-        let regional_certificate_name_binding_1 = args
+        let regional_certificate_name_binding = args
             .regional_certificate_name
             .get_output(context);
-        let regional_certificate_name_binding = regional_certificate_name_binding_1
-            .get_inner();
-        let security_policy_binding_1 = args.security_policy.get_output(context);
-        let security_policy_binding = security_policy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let security_policy_binding = args.security_policy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/domainName:DomainName".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: &certificate_arn_binding,
+                    value: certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateBody".into(),
-                    value: &certificate_body_binding,
+                    value: certificate_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateChain".into(),
-                    value: &certificate_chain_binding,
+                    value: certificate_chain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateName".into(),
-                    value: &certificate_name_binding,
+                    value: certificate_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificatePrivateKey".into(),
-                    value: &certificate_private_key_binding,
+                    value: certificate_private_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointConfiguration".into(),
-                    value: &endpoint_configuration_binding,
+                    value: endpoint_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mutualTlsAuthentication".into(),
-                    value: &mutual_tls_authentication_binding,
+                    value: mutual_tls_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownershipVerificationCertificateArn".into(),
-                    value: &ownership_verification_certificate_arn_binding,
+                    value: ownership_verification_certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionalCertificateArn".into(),
-                    value: &regional_certificate_arn_binding,
+                    value: regional_certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionalCertificateName".into(),
-                    value: &regional_certificate_name_binding,
+                    value: regional_certificate_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicy".into(),
-                    value: &security_policy_binding,
+                    value: security_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainNameResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            certificate_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateBody"),
-            ),
-            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateChain"),
-            ),
-            certificate_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateName"),
-            ),
-            certificate_private_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificatePrivateKey"),
-            ),
-            certificate_upload_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateUploadDate"),
-            ),
-            cloudfront_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudfrontDomainName"),
-            ),
-            cloudfront_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudfrontZoneId"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_name_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNameId"),
-            ),
-            endpoint_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointConfiguration"),
-            ),
-            mutual_tls_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mutualTlsAuthentication"),
-            ),
-            ownership_verification_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownershipVerificationCertificateArn"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            regional_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalCertificateArn"),
-            ),
-            regional_certificate_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalCertificateName"),
-            ),
-            regional_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalDomainName"),
-            ),
-            regional_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalZoneId"),
-            ),
-            security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPolicy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            certificate_arn: o.get_field("certificateArn"),
+            certificate_body: o.get_field("certificateBody"),
+            certificate_chain: o.get_field("certificateChain"),
+            certificate_name: o.get_field("certificateName"),
+            certificate_private_key: o.get_field("certificatePrivateKey"),
+            certificate_upload_date: o.get_field("certificateUploadDate"),
+            cloudfront_domain_name: o.get_field("cloudfrontDomainName"),
+            cloudfront_zone_id: o.get_field("cloudfrontZoneId"),
+            domain_name: o.get_field("domainName"),
+            domain_name_id: o.get_field("domainNameId"),
+            endpoint_configuration: o.get_field("endpointConfiguration"),
+            mutual_tls_authentication: o.get_field("mutualTlsAuthentication"),
+            ownership_verification_certificate_arn: o
+                .get_field("ownershipVerificationCertificateArn"),
+            policy: o.get_field("policy"),
+            regional_certificate_arn: o.get_field("regionalCertificateArn"),
+            regional_certificate_name: o.get_field("regionalCertificateName"),
+            regional_domain_name: o.get_field("regionalDomainName"),
+            regional_zone_id: o.get_field("regionalZoneId"),
+            security_policy: o.get_field("securityPolicy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

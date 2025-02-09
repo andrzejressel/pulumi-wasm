@@ -1,0 +1,14 @@
+[package]
+name = "pulumi_gestalt_rust_adapter_wasm"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+pulumi_gestalt_rust_adapter.workspace = true
+pulumi_gestalt_wit.workspace = true
+anyhow.workspace = true
+serde.workspace = true
+uuid.workspace = true
+serde_json.workspace = true
+pulumi_gestalt_rust_common.workspace = true
+log.workspace = true

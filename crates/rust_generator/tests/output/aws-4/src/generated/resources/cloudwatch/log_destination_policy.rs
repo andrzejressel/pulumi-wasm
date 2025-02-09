@@ -71,48 +71,40 @@ pub mod log_destination_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LogDestinationPolicyArgs,
     ) -> LogDestinationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policy_binding_1 = args.access_policy.get_output(context);
-        let access_policy_binding = access_policy_binding_1.get_inner();
-        let destination_name_binding_1 = args.destination_name.get_output(context);
-        let destination_name_binding = destination_name_binding_1.get_inner();
-        let force_update_binding_1 = args.force_update.get_output(context);
-        let force_update_binding = force_update_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_policy_binding = args.access_policy.get_output(context);
+        let destination_name_binding = args.destination_name.get_output(context);
+        let force_update_binding = args.force_update.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPolicy".into(),
-                    value: &access_policy_binding,
+                    value: access_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationName".into(),
-                    value: &destination_name_binding,
+                    value: destination_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceUpdate".into(),
-                    value: &force_update_binding,
+                    value: force_update_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LogDestinationPolicyResult {
-            access_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessPolicy"),
-            ),
-            destination_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationName"),
-            ),
-            force_update: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceUpdate"),
-            ),
+            access_policy: o.get_field("accessPolicy"),
+            destination_name: o.get_field("destinationName"),
+            force_update: o.get_field("forceUpdate"),
         }
     }
 }

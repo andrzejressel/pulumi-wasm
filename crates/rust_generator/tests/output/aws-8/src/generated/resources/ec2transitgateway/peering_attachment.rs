@@ -97,80 +97,62 @@ pub mod peering_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PeeringAttachmentArgs,
     ) -> PeeringAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let options_binding_1 = args.options.get_output(context);
-        let options_binding = options_binding_1.get_inner();
-        let peer_account_id_binding_1 = args.peer_account_id.get_output(context);
-        let peer_account_id_binding = peer_account_id_binding_1.get_inner();
-        let peer_region_binding_1 = args.peer_region.get_output(context);
-        let peer_region_binding = peer_region_binding_1.get_inner();
-        let peer_transit_gateway_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let options_binding = args.options.get_output(context);
+        let peer_account_id_binding = args.peer_account_id.get_output(context);
+        let peer_region_binding = args.peer_region.get_output(context);
+        let peer_transit_gateway_id_binding = args
             .peer_transit_gateway_id
             .get_output(context);
-        let peer_transit_gateway_id_binding = peer_transit_gateway_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
-        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_id_binding = args.transit_gateway_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/peeringAttachment:PeeringAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: &options_binding,
+                    value: options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAccountId".into(),
-                    value: &peer_account_id_binding,
+                    value: peer_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerRegion".into(),
-                    value: &peer_region_binding,
+                    value: peer_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerTransitGatewayId".into(),
-                    value: &peer_transit_gateway_id_binding,
+                    value: peer_transit_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: &transit_gateway_id_binding,
+                    value: transit_gateway_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PeeringAttachmentResult {
-            options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("options"),
-            ),
-            peer_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerAccountId"),
-            ),
-            peer_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerRegion"),
-            ),
-            peer_transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerTransitGatewayId"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
+            options: o.get_field("options"),
+            peer_account_id: o.get_field("peerAccountId"),
+            peer_region: o.get_field("peerRegion"),
+            peer_transit_gateway_id: o.get_field("peerTransitGatewayId"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
         }
     }
 }

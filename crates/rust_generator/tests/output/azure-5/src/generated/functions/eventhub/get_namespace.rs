@@ -56,74 +56,51 @@ pub mod get_namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNamespaceArgs,
     ) -> GetNamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:eventhub/getNamespace:getNamespace".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNamespaceResult {
-            auto_inflate_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoInflateEnabled"),
-            ),
-            capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacity"),
-            ),
-            dedicated_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedClusterId"),
-            ),
-            default_primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPrimaryConnectionString"),
-            ),
-            default_primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPrimaryConnectionStringAlias"),
-            ),
-            default_primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPrimaryKey"),
-            ),
-            default_secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSecondaryConnectionString"),
-            ),
-            default_secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSecondaryConnectionStringAlias"),
-            ),
-            default_secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSecondaryKey"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kafka_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maximum_throughput_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumThroughputUnits"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            auto_inflate_enabled: o.get_field("autoInflateEnabled"),
+            capacity: o.get_field("capacity"),
+            dedicated_cluster_id: o.get_field("dedicatedClusterId"),
+            default_primary_connection_string: o
+                .get_field("defaultPrimaryConnectionString"),
+            default_primary_connection_string_alias: o
+                .get_field("defaultPrimaryConnectionStringAlias"),
+            default_primary_key: o.get_field("defaultPrimaryKey"),
+            default_secondary_connection_string: o
+                .get_field("defaultSecondaryConnectionString"),
+            default_secondary_connection_string_alias: o
+                .get_field("defaultSecondaryConnectionStringAlias"),
+            default_secondary_key: o.get_field("defaultSecondaryKey"),
+            id: o.get_field("id"),
+            kafka_enabled: o.get_field("kafkaEnabled"),
+            location: o.get_field("location"),
+            maximum_throughput_units: o.get_field("maximumThroughputUnits"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
         }
     }
 }

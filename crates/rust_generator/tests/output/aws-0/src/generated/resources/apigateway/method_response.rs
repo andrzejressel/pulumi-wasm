@@ -182,75 +182,58 @@ pub mod method_response {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MethodResponseArgs,
     ) -> MethodResponseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let http_method_binding_1 = args.http_method.get_output(context);
-        let http_method_binding = http_method_binding_1.get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let response_models_binding_1 = args.response_models.get_output(context);
-        let response_models_binding = response_models_binding_1.get_inner();
-        let response_parameters_binding_1 = args.response_parameters.get_output(context);
-        let response_parameters_binding = response_parameters_binding_1.get_inner();
-        let rest_api_binding_1 = args.rest_api.get_output(context);
-        let rest_api_binding = rest_api_binding_1.get_inner();
-        let status_code_binding_1 = args.status_code.get_output(context);
-        let status_code_binding = status_code_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let http_method_binding = args.http_method.get_output(context);
+        let resource_id_binding = args.resource_id.get_output(context);
+        let response_models_binding = args.response_models.get_output(context);
+        let response_parameters_binding = args.response_parameters.get_output(context);
+        let rest_api_binding = args.rest_api.get_output(context);
+        let status_code_binding = args.status_code.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/methodResponse:MethodResponse".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpMethod".into(),
-                    value: &http_method_binding,
+                    value: http_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseModels".into(),
-                    value: &response_models_binding,
+                    value: response_models_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseParameters".into(),
-                    value: &response_parameters_binding,
+                    value: response_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: &rest_api_binding,
+                    value: rest_api_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusCode".into(),
-                    value: &status_code_binding,
+                    value: status_code_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MethodResponseResult {
-            http_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpMethod"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            response_models: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseModels"),
-            ),
-            response_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseParameters"),
-            ),
-            rest_api: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApi"),
-            ),
-            status_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusCode"),
-            ),
+            http_method: o.get_field("httpMethod"),
+            resource_id: o.get_field("resourceId"),
+            response_models: o.get_field("responseModels"),
+            response_parameters: o.get_field("responseParameters"),
+            rest_api: o.get_field("restApi"),
+            status_code: o.get_field("statusCode"),
         }
     }
 }

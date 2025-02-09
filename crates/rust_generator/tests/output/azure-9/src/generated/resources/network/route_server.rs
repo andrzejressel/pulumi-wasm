@@ -127,101 +127,76 @@ pub mod route_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteServerArgs,
     ) -> RouteServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let branch_to_branch_traffic_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let branch_to_branch_traffic_enabled_binding = args
             .branch_to_branch_traffic_enabled
             .get_output(context);
-        let branch_to_branch_traffic_enabled_binding = branch_to_branch_traffic_enabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_ip_address_id_binding_1 = args
-            .public_ip_address_id
-            .get_output(context);
-        let public_ip_address_id_binding = public_ip_address_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_ip_address_id_binding = args.public_ip_address_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/routeServer:RouteServer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branchToBranchTrafficEnabled".into(),
-                    value: &branch_to_branch_traffic_enabled_binding,
+                    value: branch_to_branch_traffic_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpAddressId".into(),
-                    value: &public_ip_address_id_binding,
+                    value: public_ip_address_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteServerResult {
-            branch_to_branch_traffic_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("branchToBranchTrafficEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_ip_address_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddressId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            routing_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingState"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_router_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualRouterAsn"),
-            ),
-            virtual_router_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualRouterIps"),
-            ),
+            branch_to_branch_traffic_enabled: o
+                .get_field("branchToBranchTrafficEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            public_ip_address_id: o.get_field("publicIpAddressId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            routing_state: o.get_field("routingState"),
+            sku: o.get_field("sku"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            virtual_router_asn: o.get_field("virtualRouterAsn"),
+            virtual_router_ips: o.get_field("virtualRouterIps"),
         }
     }
 }

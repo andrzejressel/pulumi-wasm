@@ -37,54 +37,39 @@ pub mod get_management_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetManagementGroupArgs,
     ) -> GetManagementGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:managementgroups/getManagementGroup:getManagementGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetManagementGroupResult {
-            all_management_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allManagementGroupIds"),
-            ),
-            all_subscription_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allSubscriptionIds"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            management_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementGroupIds"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_management_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentManagementGroupId"),
-            ),
-            subscription_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionIds"),
-            ),
-            tenant_scoped_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantScopedId"),
-            ),
+            all_management_group_ids: o.get_field("allManagementGroupIds"),
+            all_subscription_ids: o.get_field("allSubscriptionIds"),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            management_group_ids: o.get_field("managementGroupIds"),
+            name: o.get_field("name"),
+            parent_management_group_id: o.get_field("parentManagementGroupId"),
+            subscription_ids: o.get_field("subscriptionIds"),
+            tenant_scoped_id: o.get_field("tenantScopedId"),
         }
     }
 }

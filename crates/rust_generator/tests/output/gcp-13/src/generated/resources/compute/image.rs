@@ -333,165 +333,112 @@ pub mod image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ImageArgs,
     ) -> ImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disk_size_gb_binding_1 = args.disk_size_gb.get_output(context);
-        let disk_size_gb_binding = disk_size_gb_binding_1.get_inner();
-        let family_binding_1 = args.family.get_output(context);
-        let family_binding = family_binding_1.get_inner();
-        let guest_os_features_binding_1 = args.guest_os_features.get_output(context);
-        let guest_os_features_binding = guest_os_features_binding_1.get_inner();
-        let image_encryption_key_binding_1 = args
-            .image_encryption_key
-            .get_output(context);
-        let image_encryption_key_binding = image_encryption_key_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let licenses_binding_1 = args.licenses.get_output(context);
-        let licenses_binding = licenses_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let raw_disk_binding_1 = args.raw_disk.get_output(context);
-        let raw_disk_binding = raw_disk_binding_1.get_inner();
-        let source_disk_binding_1 = args.source_disk.get_output(context);
-        let source_disk_binding = source_disk_binding_1.get_inner();
-        let source_image_binding_1 = args.source_image.get_output(context);
-        let source_image_binding = source_image_binding_1.get_inner();
-        let source_snapshot_binding_1 = args.source_snapshot.get_output(context);
-        let source_snapshot_binding = source_snapshot_binding_1.get_inner();
-        let storage_locations_binding_1 = args.storage_locations.get_output(context);
-        let storage_locations_binding = storage_locations_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let disk_size_gb_binding = args.disk_size_gb.get_output(context);
+        let family_binding = args.family.get_output(context);
+        let guest_os_features_binding = args.guest_os_features.get_output(context);
+        let image_encryption_key_binding = args.image_encryption_key.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let licenses_binding = args.licenses.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let raw_disk_binding = args.raw_disk.get_output(context);
+        let source_disk_binding = args.source_disk.get_output(context);
+        let source_image_binding = args.source_image.get_output(context);
+        let source_snapshot_binding = args.source_snapshot.get_output(context);
+        let storage_locations_binding = args.storage_locations.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/image:Image".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSizeGb".into(),
-                    value: &disk_size_gb_binding,
+                    value: disk_size_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "family".into(),
-                    value: &family_binding,
+                    value: family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestOsFeatures".into(),
-                    value: &guest_os_features_binding,
+                    value: guest_os_features_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageEncryptionKey".into(),
-                    value: &image_encryption_key_binding,
+                    value: image_encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenses".into(),
-                    value: &licenses_binding,
+                    value: licenses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rawDisk".into(),
-                    value: &raw_disk_binding,
+                    value: raw_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDisk".into(),
-                    value: &source_disk_binding,
+                    value: source_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImage".into(),
-                    value: &source_image_binding,
+                    value: source_image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSnapshot".into(),
-                    value: &source_snapshot_binding,
+                    value: source_snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageLocations".into(),
-                    value: &storage_locations_binding,
+                    value: storage_locations_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ImageResult {
-            archive_size_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("archiveSizeBytes"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSizeGb"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("family"),
-            ),
-            guest_os_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestOsFeatures"),
-            ),
-            image_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageEncryptionKey"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            licenses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenses"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            raw_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rawDisk"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            source_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDisk"),
-            ),
-            source_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceImage"),
-            ),
-            source_snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSnapshot"),
-            ),
-            storage_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageLocations"),
-            ),
+            archive_size_bytes: o.get_field("archiveSizeBytes"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            disk_size_gb: o.get_field("diskSizeGb"),
+            effective_labels: o.get_field("effectiveLabels"),
+            family: o.get_field("family"),
+            guest_os_features: o.get_field("guestOsFeatures"),
+            image_encryption_key: o.get_field("imageEncryptionKey"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            licenses: o.get_field("licenses"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            raw_disk: o.get_field("rawDisk"),
+            self_link: o.get_field("selfLink"),
+            source_disk: o.get_field("sourceDisk"),
+            source_image: o.get_field("sourceImage"),
+            source_snapshot: o.get_field("sourceSnapshot"),
+            storage_locations: o.get_field("storageLocations"),
         }
     }
 }

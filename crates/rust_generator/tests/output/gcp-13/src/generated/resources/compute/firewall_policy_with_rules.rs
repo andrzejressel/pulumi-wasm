@@ -190,76 +190,53 @@ pub mod firewall_policy_with_rules {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirewallPolicyWithRulesArgs,
     ) -> FirewallPolicyWithRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let short_name_binding_1 = args.short_name.get_output(context);
-        let short_name_binding = short_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let short_name_binding = args.short_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/firewallPolicyWithRules:FirewallPolicyWithRules".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortName".into(),
-                    value: &short_name_binding,
+                    value: short_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirewallPolicyWithRulesResult {
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyId"),
-            ),
-            predefined_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predefinedRules"),
-            ),
-            rule_tuple_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleTupleCount"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            self_link_with_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLinkWithId"),
-            ),
-            short_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortName"),
-            ),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            fingerprint: o.get_field("fingerprint"),
+            parent: o.get_field("parent"),
+            policy_id: o.get_field("policyId"),
+            predefined_rules: o.get_field("predefinedRules"),
+            rule_tuple_count: o.get_field("ruleTupleCount"),
+            rules: o.get_field("rules"),
+            self_link: o.get_field("selfLink"),
+            self_link_with_id: o.get_field("selfLinkWithId"),
+            short_name: o.get_field("shortName"),
         }
     }
 }

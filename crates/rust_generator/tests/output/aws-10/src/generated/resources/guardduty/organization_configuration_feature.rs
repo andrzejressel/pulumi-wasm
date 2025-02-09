@@ -76,59 +76,49 @@ pub mod organization_configuration_feature {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationConfigurationFeatureArgs,
     ) -> OrganizationConfigurationFeatureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_configurations_binding = args
             .additional_configurations
             .get_output(context);
-        let additional_configurations_binding = additional_configurations_binding_1
-            .get_inner();
-        let auto_enable_binding_1 = args.auto_enable.get_output(context);
-        let auto_enable_binding = auto_enable_binding_1.get_inner();
-        let detector_id_binding_1 = args.detector_id.get_output(context);
-        let detector_id_binding = detector_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let auto_enable_binding = args.auto_enable.get_output(context);
+        let detector_id_binding = args.detector_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalConfigurations".into(),
-                    value: &additional_configurations_binding,
+                    value: additional_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnable".into(),
-                    value: &auto_enable_binding,
+                    value: auto_enable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: &detector_id_binding,
+                    value: detector_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationConfigurationFeatureResult {
-            additional_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalConfigurations"),
-            ),
-            auto_enable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoEnable"),
-            ),
-            detector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectorId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            additional_configurations: o.get_field("additionalConfigurations"),
+            auto_enable: o.get_field("autoEnable"),
+            detector_id: o.get_field("detectorId"),
+            name: o.get_field("name"),
         }
     }
 }

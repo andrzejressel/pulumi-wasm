@@ -204,76 +204,59 @@ pub mod index {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IndexArgs,
     ) -> IndexResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_scope_binding_1 = args.api_scope.get_output(context);
-        let api_scope_binding = api_scope_binding_1.get_inner();
-        let collection_binding_1 = args.collection.get_output(context);
-        let collection_binding = collection_binding_1.get_inner();
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let fields_binding_1 = args.fields.get_output(context);
-        let fields_binding = fields_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let query_scope_binding_1 = args.query_scope.get_output(context);
-        let query_scope_binding = query_scope_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_scope_binding = args.api_scope.get_output(context);
+        let collection_binding = args.collection.get_output(context);
+        let database_binding = args.database.get_output(context);
+        let fields_binding = args.fields.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let query_scope_binding = args.query_scope.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firestore/index:Index".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiScope".into(),
-                    value: &api_scope_binding,
+                    value: api_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collection".into(),
-                    value: &collection_binding,
+                    value: collection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fields".into(),
-                    value: &fields_binding,
+                    value: fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryScope".into(),
-                    value: &query_scope_binding,
+                    value: query_scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IndexResult {
-            api_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiScope"),
-            ),
-            collection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collection"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fields"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            query_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryScope"),
-            ),
+            api_scope: o.get_field("apiScope"),
+            collection: o.get_field("collection"),
+            database: o.get_field("database"),
+            fields: o.get_field("fields"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            query_scope: o.get_field("queryScope"),
         }
     }
 }

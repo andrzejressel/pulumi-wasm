@@ -139,119 +139,90 @@ pub mod authomation_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthomationRuleArgs,
     ) -> AuthomationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_incidents_binding_1 = args.action_incidents.get_output(context);
-        let action_incidents_binding = action_incidents_binding_1.get_inner();
-        let action_playbooks_binding_1 = args.action_playbooks.get_output(context);
-        let action_playbooks_binding = action_playbooks_binding_1.get_inner();
-        let condition_json_binding_1 = args.condition_json.get_output(context);
-        let condition_json_binding = condition_json_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let expiration_binding_1 = args.expiration.get_output(context);
-        let expiration_binding = expiration_binding_1.get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_incidents_binding = args.action_incidents.get_output(context);
+        let action_playbooks_binding = args.action_playbooks.get_output(context);
+        let condition_json_binding = args.condition_json.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let expiration_binding = args.expiration.get_output(context);
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let order_binding_1 = args.order.get_output(context);
-        let order_binding = order_binding_1.get_inner();
-        let triggers_on_binding_1 = args.triggers_on.get_output(context);
-        let triggers_on_binding = triggers_on_binding_1.get_inner();
-        let triggers_when_binding_1 = args.triggers_when.get_output(context);
-        let triggers_when_binding = triggers_when_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let order_binding = args.order.get_output(context);
+        let triggers_on_binding = args.triggers_on.get_output(context);
+        let triggers_when_binding = args.triggers_when.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:sentinel/authomationRule:AuthomationRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionIncidents".into(),
-                    value: &action_incidents_binding,
+                    value: action_incidents_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionPlaybooks".into(),
-                    value: &action_playbooks_binding,
+                    value: action_playbooks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditionJson".into(),
-                    value: &condition_json_binding,
+                    value: condition_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiration".into(),
-                    value: &expiration_binding,
+                    value: expiration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "order".into(),
-                    value: &order_binding,
+                    value: order_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggersOn".into(),
-                    value: &triggers_on_binding,
+                    value: triggers_on_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggersWhen".into(),
-                    value: &triggers_when_binding,
+                    value: triggers_when_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthomationRuleResult {
-            action_incidents: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionIncidents"),
-            ),
-            action_playbooks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionPlaybooks"),
-            ),
-            condition_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditionJson"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiration"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            order: pulumi_gestalt_rust::__private::into_domain(o.extract_field("order")),
-            triggers_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggersOn"),
-            ),
-            triggers_when: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggersWhen"),
-            ),
+            action_incidents: o.get_field("actionIncidents"),
+            action_playbooks: o.get_field("actionPlaybooks"),
+            condition_json: o.get_field("conditionJson"),
+            display_name: o.get_field("displayName"),
+            enabled: o.get_field("enabled"),
+            expiration: o.get_field("expiration"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            name: o.get_field("name"),
+            order: o.get_field("order"),
+            triggers_on: o.get_field("triggersOn"),
+            triggers_when: o.get_field("triggersWhen"),
         }
     }
 }

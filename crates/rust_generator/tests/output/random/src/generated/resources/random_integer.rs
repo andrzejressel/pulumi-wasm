@@ -75,54 +75,47 @@ pub mod random_integer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RandomIntegerArgs,
     ) -> RandomIntegerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let keepers_binding_1 = args.keepers.get_output(context);
-        let keepers_binding = keepers_binding_1.get_inner();
-        let max_binding_1 = args.max.get_output(context);
-        let max_binding = max_binding_1.get_inner();
-        let min_binding_1 = args.min.get_output(context);
-        let min_binding = min_binding_1.get_inner();
-        let seed_binding_1 = args.seed.get_output(context);
-        let seed_binding = seed_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let keepers_binding = args.keepers.get_output(context);
+        let max_binding = args.max.get_output(context);
+        let min_binding = args.min.get_output(context);
+        let seed_binding = args.seed.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "random:index/randomInteger:RandomInteger".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: &keepers_binding,
+                    value: keepers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "max".into(),
-                    value: &max_binding,
+                    value: max_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "min".into(),
-                    value: &min_binding,
+                    value: min_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "seed".into(),
-                    value: &seed_binding,
+                    value: seed_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RandomIntegerResult {
-            keepers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepers"),
-            ),
-            max: pulumi_gestalt_rust::__private::into_domain(o.extract_field("max")),
-            min: pulumi_gestalt_rust::__private::into_domain(o.extract_field("min")),
-            result: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("result"),
-            ),
-            seed: pulumi_gestalt_rust::__private::into_domain(o.extract_field("seed")),
+            keepers: o.get_field("keepers"),
+            max: o.get_field("max"),
+            min: o.get_field("min"),
+            result: o.get_field("result"),
+            seed: o.get_field("seed"),
         }
     }
 }

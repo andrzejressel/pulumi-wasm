@@ -88,92 +88,53 @@ pub mod get_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterArgs,
     ) -> GetClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:eks/getCluster:getCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterResult {
-            access_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessConfigs"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_authorities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorities"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            compute_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeConfigs"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            enabled_cluster_log_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledClusterLogTypes"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            kubernetes_network_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesNetworkConfigs"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outpost_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostConfigs"),
-            ),
-            platform_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformVersion"),
-            ),
-            remote_network_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteNetworkConfigs"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            storage_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageConfigs"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            upgrade_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradePolicies"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
-            zonal_shift_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zonalShiftConfigs"),
-            ),
+            access_configs: o.get_field("accessConfigs"),
+            arn: o.get_field("arn"),
+            certificate_authorities: o.get_field("certificateAuthorities"),
+            cluster_id: o.get_field("clusterId"),
+            compute_configs: o.get_field("computeConfigs"),
+            created_at: o.get_field("createdAt"),
+            enabled_cluster_log_types: o.get_field("enabledClusterLogTypes"),
+            endpoint: o.get_field("endpoint"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            kubernetes_network_configs: o.get_field("kubernetesNetworkConfigs"),
+            name: o.get_field("name"),
+            outpost_configs: o.get_field("outpostConfigs"),
+            platform_version: o.get_field("platformVersion"),
+            remote_network_configs: o.get_field("remoteNetworkConfigs"),
+            role_arn: o.get_field("roleArn"),
+            status: o.get_field("status"),
+            storage_configs: o.get_field("storageConfigs"),
+            tags: o.get_field("tags"),
+            upgrade_policies: o.get_field("upgradePolicies"),
+            version: o.get_field("version"),
+            vpc_config: o.get_field("vpcConfig"),
+            zonal_shift_configs: o.get_field("zonalShiftConfigs"),
         }
     }
 }

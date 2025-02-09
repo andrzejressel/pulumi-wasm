@@ -108,155 +108,114 @@ pub mod logpush_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LogpushJobArgs,
     ) -> LogpushJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let destination_conf_binding_1 = args.destination_conf.get_output(context);
-        let destination_conf_binding = destination_conf_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let frequency_binding_1 = args.frequency.get_output(context);
-        let frequency_binding = frequency_binding_1.get_inner();
-        let kind_binding_1 = args.kind.get_output(context);
-        let kind_binding = kind_binding_1.get_inner();
-        let logpull_options_binding_1 = args.logpull_options.get_output(context);
-        let logpull_options_binding = logpull_options_binding_1.get_inner();
-        let max_upload_bytes_binding_1 = args.max_upload_bytes.get_output(context);
-        let max_upload_bytes_binding = max_upload_bytes_binding_1.get_inner();
-        let max_upload_interval_seconds_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let dataset_binding = args.dataset.get_output(context);
+        let destination_conf_binding = args.destination_conf.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let frequency_binding = args.frequency.get_output(context);
+        let kind_binding = args.kind.get_output(context);
+        let logpull_options_binding = args.logpull_options.get_output(context);
+        let max_upload_bytes_binding = args.max_upload_bytes.get_output(context);
+        let max_upload_interval_seconds_binding = args
             .max_upload_interval_seconds
             .get_output(context);
-        let max_upload_interval_seconds_binding = max_upload_interval_seconds_binding_1
-            .get_inner();
-        let max_upload_records_binding_1 = args.max_upload_records.get_output(context);
-        let max_upload_records_binding = max_upload_records_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let output_options_binding_1 = args.output_options.get_output(context);
-        let output_options_binding = output_options_binding_1.get_inner();
-        let ownership_challenge_binding_1 = args.ownership_challenge.get_output(context);
-        let ownership_challenge_binding = ownership_challenge_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let max_upload_records_binding = args.max_upload_records.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let output_options_binding = args.output_options.get_output(context);
+        let ownership_challenge_binding = args.ownership_challenge.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/logpushJob:LogpushJob".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConf".into(),
-                    value: &destination_conf_binding,
+                    value: destination_conf_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: &frequency_binding,
+                    value: frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: &kind_binding,
+                    value: kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logpullOptions".into(),
-                    value: &logpull_options_binding,
+                    value: logpull_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxUploadBytes".into(),
-                    value: &max_upload_bytes_binding,
+                    value: max_upload_bytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxUploadIntervalSeconds".into(),
-                    value: &max_upload_interval_seconds_binding,
+                    value: max_upload_interval_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxUploadRecords".into(),
-                    value: &max_upload_records_binding,
+                    value: max_upload_records_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputOptions".into(),
-                    value: &output_options_binding,
+                    value: output_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownershipChallenge".into(),
-                    value: &ownership_challenge_binding,
+                    value: ownership_challenge_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LogpushJobResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            destination_conf: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationConf"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            logpull_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logpullOptions"),
-            ),
-            max_upload_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxUploadBytes"),
-            ),
-            max_upload_interval_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxUploadIntervalSeconds"),
-            ),
-            max_upload_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxUploadRecords"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputOptions"),
-            ),
-            ownership_challenge: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownershipChallenge"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            account_id: o.get_field("accountId"),
+            dataset: o.get_field("dataset"),
+            destination_conf: o.get_field("destinationConf"),
+            enabled: o.get_field("enabled"),
+            filter: o.get_field("filter"),
+            frequency: o.get_field("frequency"),
+            kind: o.get_field("kind"),
+            logpull_options: o.get_field("logpullOptions"),
+            max_upload_bytes: o.get_field("maxUploadBytes"),
+            max_upload_interval_seconds: o.get_field("maxUploadIntervalSeconds"),
+            max_upload_records: o.get_field("maxUploadRecords"),
+            name: o.get_field("name"),
+            output_options: o.get_field("outputOptions"),
+            ownership_challenge: o.get_field("ownershipChallenge"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

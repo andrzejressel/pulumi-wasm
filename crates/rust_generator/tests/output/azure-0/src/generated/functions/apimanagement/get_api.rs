@@ -59,88 +59,58 @@ pub mod get_api {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApiArgs,
     ) -> GetApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let revision_binding_1 = args.revision.get_output(context);
-        let revision_binding = revision_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let revision_binding = args.revision.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:apimanagement/getApi:getApi".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revision".into(),
-                    value: &revision_binding,
+                    value: revision_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApiResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            is_current: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isCurrent"),
-            ),
-            is_online: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isOnline"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocols"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revision"),
-            ),
-            service_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceUrl"),
-            ),
-            soap_pass_through: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("soapPassThrough"),
-            ),
-            subscription_key_parameter_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionKeyParameterNames"),
-            ),
-            subscription_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionRequired"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            version_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionSetId"),
-            ),
+            api_management_name: o.get_field("apiManagementName"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            is_current: o.get_field("isCurrent"),
+            is_online: o.get_field("isOnline"),
+            name: o.get_field("name"),
+            path: o.get_field("path"),
+            protocols: o.get_field("protocols"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            revision: o.get_field("revision"),
+            service_url: o.get_field("serviceUrl"),
+            soap_pass_through: o.get_field("soapPassThrough"),
+            subscription_key_parameter_names: o
+                .get_field("subscriptionKeyParameterNames"),
+            subscription_required: o.get_field("subscriptionRequired"),
+            version: o.get_field("version"),
+            version_set_id: o.get_field("versionSetId"),
         }
     }
 }

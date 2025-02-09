@@ -185,178 +185,127 @@ pub mod insights {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InsightsArgs,
     ) -> InsightsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_type_binding_1 = args.application_type.get_output(context);
-        let application_type_binding = application_type_binding_1.get_inner();
-        let daily_data_cap_in_gb_binding_1 = args
-            .daily_data_cap_in_gb
-            .get_output(context);
-        let daily_data_cap_in_gb_binding = daily_data_cap_in_gb_binding_1.get_inner();
-        let daily_data_cap_notifications_disabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_type_binding = args.application_type.get_output(context);
+        let daily_data_cap_in_gb_binding = args.daily_data_cap_in_gb.get_output(context);
+        let daily_data_cap_notifications_disabled_binding = args
             .daily_data_cap_notifications_disabled
             .get_output(context);
-        let daily_data_cap_notifications_disabled_binding = daily_data_cap_notifications_disabled_binding_1
-            .get_inner();
-        let disable_ip_masking_binding_1 = args.disable_ip_masking.get_output(context);
-        let disable_ip_masking_binding = disable_ip_masking_binding_1.get_inner();
-        let force_customer_storage_for_profiler_binding_1 = args
+        let disable_ip_masking_binding = args.disable_ip_masking.get_output(context);
+        let force_customer_storage_for_profiler_binding = args
             .force_customer_storage_for_profiler
             .get_output(context);
-        let force_customer_storage_for_profiler_binding = force_customer_storage_for_profiler_binding_1
-            .get_inner();
-        let internet_ingestion_enabled_binding_1 = args
+        let internet_ingestion_enabled_binding = args
             .internet_ingestion_enabled
             .get_output(context);
-        let internet_ingestion_enabled_binding = internet_ingestion_enabled_binding_1
-            .get_inner();
-        let internet_query_enabled_binding_1 = args
+        let internet_query_enabled_binding = args
             .internet_query_enabled
             .get_output(context);
-        let internet_query_enabled_binding = internet_query_enabled_binding_1
-            .get_inner();
-        let local_authentication_disabled_binding_1 = args
+        let local_authentication_disabled_binding = args
             .local_authentication_disabled
             .get_output(context);
-        let local_authentication_disabled_binding = local_authentication_disabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let retention_in_days_binding_1 = args.retention_in_days.get_output(context);
-        let retention_in_days_binding = retention_in_days_binding_1.get_inner();
-        let sampling_percentage_binding_1 = args.sampling_percentage.get_output(context);
-        let sampling_percentage_binding = sampling_percentage_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let retention_in_days_binding = args.retention_in_days.get_output(context);
+        let sampling_percentage_binding = args.sampling_percentage.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appinsights/insights:Insights".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationType".into(),
-                    value: &application_type_binding,
+                    value: application_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyDataCapInGb".into(),
-                    value: &daily_data_cap_in_gb_binding,
+                    value: daily_data_cap_in_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyDataCapNotificationsDisabled".into(),
-                    value: &daily_data_cap_notifications_disabled_binding,
+                    value: daily_data_cap_notifications_disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableIpMasking".into(),
-                    value: &disable_ip_masking_binding,
+                    value: disable_ip_masking_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceCustomerStorageForProfiler".into(),
-                    value: &force_customer_storage_for_profiler_binding,
+                    value: force_customer_storage_for_profiler_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetIngestionEnabled".into(),
-                    value: &internet_ingestion_enabled_binding,
+                    value: internet_ingestion_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetQueryEnabled".into(),
-                    value: &internet_query_enabled_binding,
+                    value: internet_query_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationDisabled".into(),
-                    value: &local_authentication_disabled_binding,
+                    value: local_authentication_disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionInDays".into(),
-                    value: &retention_in_days_binding,
+                    value: retention_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingPercentage".into(),
-                    value: &sampling_percentage_binding,
+                    value: sampling_percentage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InsightsResult {
-            app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appId"),
-            ),
-            application_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationType"),
-            ),
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            daily_data_cap_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyDataCapInGb"),
-            ),
-            daily_data_cap_notifications_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyDataCapNotificationsDisabled"),
-            ),
-            disable_ip_masking: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableIpMasking"),
-            ),
-            force_customer_storage_for_profiler: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceCustomerStorageForProfiler"),
-            ),
-            instrumentation_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instrumentationKey"),
-            ),
-            internet_ingestion_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetIngestionEnabled"),
-            ),
-            internet_query_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetQueryEnabled"),
-            ),
-            local_authentication_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthenticationDisabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retention_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionInDays"),
-            ),
-            sampling_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samplingPercentage"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            app_id: o.get_field("appId"),
+            application_type: o.get_field("applicationType"),
+            connection_string: o.get_field("connectionString"),
+            daily_data_cap_in_gb: o.get_field("dailyDataCapInGb"),
+            daily_data_cap_notifications_disabled: o
+                .get_field("dailyDataCapNotificationsDisabled"),
+            disable_ip_masking: o.get_field("disableIpMasking"),
+            force_customer_storage_for_profiler: o
+                .get_field("forceCustomerStorageForProfiler"),
+            instrumentation_key: o.get_field("instrumentationKey"),
+            internet_ingestion_enabled: o.get_field("internetIngestionEnabled"),
+            internet_query_enabled: o.get_field("internetQueryEnabled"),
+            local_authentication_disabled: o.get_field("localAuthenticationDisabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retention_in_days: o.get_field("retentionInDays"),
+            sampling_percentage: o.get_field("samplingPercentage"),
+            tags: o.get_field("tags"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

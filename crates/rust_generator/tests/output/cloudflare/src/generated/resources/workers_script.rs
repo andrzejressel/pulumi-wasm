@@ -193,211 +193,148 @@ pub mod workers_script {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkersScriptArgs,
     ) -> WorkersScriptResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let analytics_engine_bindings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let analytics_engine_bindings_binding = args
             .analytics_engine_bindings
             .get_output(context);
-        let analytics_engine_bindings_binding = analytics_engine_bindings_binding_1
-            .get_inner();
-        let compatibility_date_binding_1 = args.compatibility_date.get_output(context);
-        let compatibility_date_binding = compatibility_date_binding_1.get_inner();
-        let compatibility_flags_binding_1 = args.compatibility_flags.get_output(context);
-        let compatibility_flags_binding = compatibility_flags_binding_1.get_inner();
-        let content_binding_1 = args.content.get_output(context);
-        let content_binding = content_binding_1.get_inner();
-        let d1_database_bindings_binding_1 = args
-            .d1_database_bindings
-            .get_output(context);
-        let d1_database_bindings_binding = d1_database_bindings_binding_1.get_inner();
-        let dispatch_namespace_binding_1 = args.dispatch_namespace.get_output(context);
-        let dispatch_namespace_binding = dispatch_namespace_binding_1.get_inner();
-        let hyperdrive_config_bindings_binding_1 = args
+        let compatibility_date_binding = args.compatibility_date.get_output(context);
+        let compatibility_flags_binding = args.compatibility_flags.get_output(context);
+        let content_binding = args.content.get_output(context);
+        let d1_database_bindings_binding = args.d1_database_bindings.get_output(context);
+        let dispatch_namespace_binding = args.dispatch_namespace.get_output(context);
+        let hyperdrive_config_bindings_binding = args
             .hyperdrive_config_bindings
             .get_output(context);
-        let hyperdrive_config_bindings_binding = hyperdrive_config_bindings_binding_1
-            .get_inner();
-        let kv_namespace_bindings_binding_1 = args
+        let kv_namespace_bindings_binding = args
             .kv_namespace_bindings
             .get_output(context);
-        let kv_namespace_bindings_binding = kv_namespace_bindings_binding_1.get_inner();
-        let logpush_binding_1 = args.logpush.get_output(context);
-        let logpush_binding = logpush_binding_1.get_inner();
-        let module_binding_1 = args.module.get_output(context);
-        let module_binding = module_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let placements_binding_1 = args.placements.get_output(context);
-        let placements_binding = placements_binding_1.get_inner();
-        let plain_text_bindings_binding_1 = args.plain_text_bindings.get_output(context);
-        let plain_text_bindings_binding = plain_text_bindings_binding_1.get_inner();
-        let queue_bindings_binding_1 = args.queue_bindings.get_output(context);
-        let queue_bindings_binding = queue_bindings_binding_1.get_inner();
-        let r2_bucket_bindings_binding_1 = args.r2_bucket_bindings.get_output(context);
-        let r2_bucket_bindings_binding = r2_bucket_bindings_binding_1.get_inner();
-        let secret_text_bindings_binding_1 = args
-            .secret_text_bindings
-            .get_output(context);
-        let secret_text_bindings_binding = secret_text_bindings_binding_1.get_inner();
-        let service_bindings_binding_1 = args.service_bindings.get_output(context);
-        let service_bindings_binding = service_bindings_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let webassembly_bindings_binding_1 = args
-            .webassembly_bindings
-            .get_output(context);
-        let webassembly_bindings_binding = webassembly_bindings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let logpush_binding = args.logpush.get_output(context);
+        let module_binding = args.module.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let placements_binding = args.placements.get_output(context);
+        let plain_text_bindings_binding = args.plain_text_bindings.get_output(context);
+        let queue_bindings_binding = args.queue_bindings.get_output(context);
+        let r2_bucket_bindings_binding = args.r2_bucket_bindings.get_output(context);
+        let secret_text_bindings_binding = args.secret_text_bindings.get_output(context);
+        let service_bindings_binding = args.service_bindings.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let webassembly_bindings_binding = args.webassembly_bindings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/workersScript:WorkersScript".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticsEngineBindings".into(),
-                    value: &analytics_engine_bindings_binding,
+                    value: analytics_engine_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibilityDate".into(),
-                    value: &compatibility_date_binding,
+                    value: compatibility_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibilityFlags".into(),
-                    value: &compatibility_flags_binding,
+                    value: compatibility_flags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: &content_binding,
+                    value: content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "d1DatabaseBindings".into(),
-                    value: &d1_database_bindings_binding,
+                    value: d1_database_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dispatchNamespace".into(),
-                    value: &dispatch_namespace_binding,
+                    value: dispatch_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hyperdriveConfigBindings".into(),
-                    value: &hyperdrive_config_bindings_binding,
+                    value: hyperdrive_config_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kvNamespaceBindings".into(),
-                    value: &kv_namespace_bindings_binding,
+                    value: kv_namespace_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logpush".into(),
-                    value: &logpush_binding,
+                    value: logpush_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "module".into(),
-                    value: &module_binding,
+                    value: module_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placements".into(),
-                    value: &placements_binding,
+                    value: placements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plainTextBindings".into(),
-                    value: &plain_text_bindings_binding,
+                    value: plain_text_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueBindings".into(),
-                    value: &queue_bindings_binding,
+                    value: queue_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "r2BucketBindings".into(),
-                    value: &r2_bucket_bindings_binding,
+                    value: r2_bucket_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretTextBindings".into(),
-                    value: &secret_text_bindings_binding,
+                    value: secret_text_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceBindings".into(),
-                    value: &service_bindings_binding,
+                    value: service_bindings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webassemblyBindings".into(),
-                    value: &webassembly_bindings_binding,
+                    value: webassembly_bindings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkersScriptResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            analytics_engine_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyticsEngineBindings"),
-            ),
-            compatibility_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibilityDate"),
-            ),
-            compatibility_flags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibilityFlags"),
-            ),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            d1_database_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("d1DatabaseBindings"),
-            ),
-            dispatch_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dispatchNamespace"),
-            ),
-            hyperdrive_config_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hyperdriveConfigBindings"),
-            ),
-            kv_namespace_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kvNamespaceBindings"),
-            ),
-            logpush: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logpush"),
-            ),
-            module: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("module"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            placements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placements"),
-            ),
-            plain_text_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("plainTextBindings"),
-            ),
-            queue_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueBindings"),
-            ),
-            r2_bucket_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("r2BucketBindings"),
-            ),
-            secret_text_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretTextBindings"),
-            ),
-            service_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceBindings"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            webassembly_bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webassemblyBindings"),
-            ),
+            account_id: o.get_field("accountId"),
+            analytics_engine_bindings: o.get_field("analyticsEngineBindings"),
+            compatibility_date: o.get_field("compatibilityDate"),
+            compatibility_flags: o.get_field("compatibilityFlags"),
+            content: o.get_field("content"),
+            d1_database_bindings: o.get_field("d1DatabaseBindings"),
+            dispatch_namespace: o.get_field("dispatchNamespace"),
+            hyperdrive_config_bindings: o.get_field("hyperdriveConfigBindings"),
+            kv_namespace_bindings: o.get_field("kvNamespaceBindings"),
+            logpush: o.get_field("logpush"),
+            module: o.get_field("module"),
+            name: o.get_field("name"),
+            placements: o.get_field("placements"),
+            plain_text_bindings: o.get_field("plainTextBindings"),
+            queue_bindings: o.get_field("queueBindings"),
+            r2_bucket_bindings: o.get_field("r2BucketBindings"),
+            secret_text_bindings: o.get_field("secretTextBindings"),
+            service_bindings: o.get_field("serviceBindings"),
+            tags: o.get_field("tags"),
+            webassembly_bindings: o.get_field("webassemblyBindings"),
         }
     }
 }

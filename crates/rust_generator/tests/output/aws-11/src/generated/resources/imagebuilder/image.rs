@@ -138,146 +138,101 @@ pub mod image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ImageArgs,
     ) -> ImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_recipe_arn_binding_1 = args
-            .container_recipe_arn
-            .get_output(context);
-        let container_recipe_arn_binding = container_recipe_arn_binding_1.get_inner();
-        let distribution_configuration_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_recipe_arn_binding = args.container_recipe_arn.get_output(context);
+        let distribution_configuration_arn_binding = args
             .distribution_configuration_arn
             .get_output(context);
-        let distribution_configuration_arn_binding = distribution_configuration_arn_binding_1
-            .get_inner();
-        let enhanced_image_metadata_enabled_binding_1 = args
+        let enhanced_image_metadata_enabled_binding = args
             .enhanced_image_metadata_enabled
             .get_output(context);
-        let enhanced_image_metadata_enabled_binding = enhanced_image_metadata_enabled_binding_1
-            .get_inner();
-        let execution_role_binding_1 = args.execution_role.get_output(context);
-        let execution_role_binding = execution_role_binding_1.get_inner();
-        let image_recipe_arn_binding_1 = args.image_recipe_arn.get_output(context);
-        let image_recipe_arn_binding = image_recipe_arn_binding_1.get_inner();
-        let image_scanning_configuration_binding_1 = args
+        let execution_role_binding = args.execution_role.get_output(context);
+        let image_recipe_arn_binding = args.image_recipe_arn.get_output(context);
+        let image_scanning_configuration_binding = args
             .image_scanning_configuration
             .get_output(context);
-        let image_scanning_configuration_binding = image_scanning_configuration_binding_1
-            .get_inner();
-        let image_tests_configuration_binding_1 = args
+        let image_tests_configuration_binding = args
             .image_tests_configuration
             .get_output(context);
-        let image_tests_configuration_binding = image_tests_configuration_binding_1
-            .get_inner();
-        let infrastructure_configuration_arn_binding_1 = args
+        let infrastructure_configuration_arn_binding = args
             .infrastructure_configuration_arn
             .get_output(context);
-        let infrastructure_configuration_arn_binding = infrastructure_configuration_arn_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workflows_binding_1 = args.workflows.get_output(context);
-        let workflows_binding = workflows_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let workflows_binding = args.workflows.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:imagebuilder/image:Image".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRecipeArn".into(),
-                    value: &container_recipe_arn_binding,
+                    value: container_recipe_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "distributionConfigurationArn".into(),
-                    value: &distribution_configuration_arn_binding,
+                    value: distribution_configuration_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedImageMetadataEnabled".into(),
-                    value: &enhanced_image_metadata_enabled_binding,
+                    value: enhanced_image_metadata_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRole".into(),
-                    value: &execution_role_binding,
+                    value: execution_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageRecipeArn".into(),
-                    value: &image_recipe_arn_binding,
+                    value: image_recipe_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageScanningConfiguration".into(),
-                    value: &image_scanning_configuration_binding,
+                    value: image_scanning_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTestsConfiguration".into(),
-                    value: &image_tests_configuration_binding,
+                    value: image_tests_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureConfigurationArn".into(),
-                    value: &infrastructure_configuration_arn_binding,
+                    value: infrastructure_configuration_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflows".into(),
-                    value: &workflows_binding,
+                    value: workflows_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ImageResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            container_recipe_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRecipeArn"),
-            ),
-            date_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateCreated"),
-            ),
-            distribution_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distributionConfigurationArn"),
-            ),
-            enhanced_image_metadata_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enhancedImageMetadataEnabled"),
-            ),
-            execution_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRole"),
-            ),
-            image_recipe_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageRecipeArn"),
-            ),
-            image_scanning_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageScanningConfiguration"),
-            ),
-            image_tests_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageTestsConfiguration"),
-            ),
-            infrastructure_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureConfigurationArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            os_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osVersion"),
-            ),
-            output_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputResources"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            workflows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workflows"),
-            ),
+            arn: o.get_field("arn"),
+            container_recipe_arn: o.get_field("containerRecipeArn"),
+            date_created: o.get_field("dateCreated"),
+            distribution_configuration_arn: o.get_field("distributionConfigurationArn"),
+            enhanced_image_metadata_enabled: o.get_field("enhancedImageMetadataEnabled"),
+            execution_role: o.get_field("executionRole"),
+            image_recipe_arn: o.get_field("imageRecipeArn"),
+            image_scanning_configuration: o.get_field("imageScanningConfiguration"),
+            image_tests_configuration: o.get_field("imageTestsConfiguration"),
+            infrastructure_configuration_arn: o
+                .get_field("infrastructureConfigurationArn"),
+            name: o.get_field("name"),
+            os_version: o.get_field("osVersion"),
+            output_resources: o.get_field("outputResources"),
+            platform: o.get_field("platform"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            version: o.get_field("version"),
+            workflows: o.get_field("workflows"),
         }
     }
 }

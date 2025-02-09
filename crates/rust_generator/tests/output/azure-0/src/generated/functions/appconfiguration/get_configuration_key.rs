@@ -41,60 +41,49 @@ pub mod get_configuration_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetConfigurationKeyArgs,
     ) -> GetConfigurationKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_store_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_store_id_binding = args
             .configuration_store_id
             .get_output(context);
-        let configuration_store_id_binding = configuration_store_id_binding_1
-            .get_inner();
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let label_binding_1 = args.label.get_output(context);
-        let label_binding = label_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let key_binding = args.key.get_output(context);
+        let label_binding = args.label.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:appconfiguration/getConfigurationKey:getConfigurationKey"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationStoreId".into(),
-                    value: &configuration_store_id_binding,
+                    value: configuration_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "label".into(),
-                    value: &label_binding,
+                    value: label_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetConfigurationKeyResult {
-            configuration_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationStoreId"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            label: pulumi_gestalt_rust::__private::into_domain(o.extract_field("label")),
-            locked: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locked"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
-            vault_key_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vaultKeyReference"),
-            ),
+            configuration_store_id: o.get_field("configurationStoreId"),
+            content_type: o.get_field("contentType"),
+            etag: o.get_field("etag"),
+            id: o.get_field("id"),
+            key: o.get_field("key"),
+            label: o.get_field("label"),
+            locked: o.get_field("locked"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
+            value: o.get_field("value"),
+            vault_key_reference: o.get_field("vaultKeyReference"),
         }
     }
 }

@@ -65,67 +65,50 @@ pub mod get_ontap_storage_virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOntapStorageVirtualMachineArgs,
     ) -> GetOntapStorageVirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOntapStorageVirtualMachineResult {
-            active_directory_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeDirectoryConfigurations"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lifecycle_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleStatus"),
-            ),
-            lifecycle_transition_reasons: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleTransitionReasons"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            subtype: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subtype"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            uuid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uuid")),
+            active_directory_configurations: o
+                .get_field("activeDirectoryConfigurations"),
+            arn: o.get_field("arn"),
+            creation_time: o.get_field("creationTime"),
+            endpoints: o.get_field("endpoints"),
+            file_system_id: o.get_field("fileSystemId"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            lifecycle_status: o.get_field("lifecycleStatus"),
+            lifecycle_transition_reasons: o.get_field("lifecycleTransitionReasons"),
+            name: o.get_field("name"),
+            subtype: o.get_field("subtype"),
+            tags: o.get_field("tags"),
+            uuid: o.get_field("uuid"),
         }
     }
 }

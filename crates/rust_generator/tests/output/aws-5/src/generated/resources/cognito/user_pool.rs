@@ -301,290 +301,197 @@ pub mod user_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserPoolArgs,
     ) -> UserPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_recovery_setting_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_recovery_setting_binding = args
             .account_recovery_setting
             .get_output(context);
-        let account_recovery_setting_binding = account_recovery_setting_binding_1
-            .get_inner();
-        let admin_create_user_config_binding_1 = args
+        let admin_create_user_config_binding = args
             .admin_create_user_config
             .get_output(context);
-        let admin_create_user_config_binding = admin_create_user_config_binding_1
-            .get_inner();
-        let alias_attributes_binding_1 = args.alias_attributes.get_output(context);
-        let alias_attributes_binding = alias_attributes_binding_1.get_inner();
-        let auto_verified_attributes_binding_1 = args
+        let alias_attributes_binding = args.alias_attributes.get_output(context);
+        let auto_verified_attributes_binding = args
             .auto_verified_attributes
             .get_output(context);
-        let auto_verified_attributes_binding = auto_verified_attributes_binding_1
-            .get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let device_configuration_binding_1 = args
-            .device_configuration
-            .get_output(context);
-        let device_configuration_binding = device_configuration_binding_1.get_inner();
-        let email_configuration_binding_1 = args.email_configuration.get_output(context);
-        let email_configuration_binding = email_configuration_binding_1.get_inner();
-        let email_verification_message_binding_1 = args
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let device_configuration_binding = args.device_configuration.get_output(context);
+        let email_configuration_binding = args.email_configuration.get_output(context);
+        let email_verification_message_binding = args
             .email_verification_message
             .get_output(context);
-        let email_verification_message_binding = email_verification_message_binding_1
-            .get_inner();
-        let email_verification_subject_binding_1 = args
+        let email_verification_subject_binding = args
             .email_verification_subject
             .get_output(context);
-        let email_verification_subject_binding = email_verification_subject_binding_1
-            .get_inner();
-        let lambda_config_binding_1 = args.lambda_config.get_output(context);
-        let lambda_config_binding = lambda_config_binding_1.get_inner();
-        let mfa_configuration_binding_1 = args.mfa_configuration.get_output(context);
-        let mfa_configuration_binding = mfa_configuration_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let password_policy_binding_1 = args.password_policy.get_output(context);
-        let password_policy_binding = password_policy_binding_1.get_inner();
-        let schemas_binding_1 = args.schemas.get_output(context);
-        let schemas_binding = schemas_binding_1.get_inner();
-        let sms_authentication_message_binding_1 = args
+        let lambda_config_binding = args.lambda_config.get_output(context);
+        let mfa_configuration_binding = args.mfa_configuration.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let password_policy_binding = args.password_policy.get_output(context);
+        let schemas_binding = args.schemas.get_output(context);
+        let sms_authentication_message_binding = args
             .sms_authentication_message
             .get_output(context);
-        let sms_authentication_message_binding = sms_authentication_message_binding_1
-            .get_inner();
-        let sms_configuration_binding_1 = args.sms_configuration.get_output(context);
-        let sms_configuration_binding = sms_configuration_binding_1.get_inner();
-        let sms_verification_message_binding_1 = args
+        let sms_configuration_binding = args.sms_configuration.get_output(context);
+        let sms_verification_message_binding = args
             .sms_verification_message
             .get_output(context);
-        let sms_verification_message_binding = sms_verification_message_binding_1
-            .get_inner();
-        let software_token_mfa_configuration_binding_1 = args
+        let software_token_mfa_configuration_binding = args
             .software_token_mfa_configuration
             .get_output(context);
-        let software_token_mfa_configuration_binding = software_token_mfa_configuration_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_attribute_update_settings_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let user_attribute_update_settings_binding = args
             .user_attribute_update_settings
             .get_output(context);
-        let user_attribute_update_settings_binding = user_attribute_update_settings_binding_1
-            .get_inner();
-        let user_pool_add_ons_binding_1 = args.user_pool_add_ons.get_output(context);
-        let user_pool_add_ons_binding = user_pool_add_ons_binding_1.get_inner();
-        let username_attributes_binding_1 = args.username_attributes.get_output(context);
-        let username_attributes_binding = username_attributes_binding_1.get_inner();
-        let username_configuration_binding_1 = args
+        let user_pool_add_ons_binding = args.user_pool_add_ons.get_output(context);
+        let username_attributes_binding = args.username_attributes.get_output(context);
+        let username_configuration_binding = args
             .username_configuration
             .get_output(context);
-        let username_configuration_binding = username_configuration_binding_1
-            .get_inner();
-        let verification_message_template_binding_1 = args
+        let verification_message_template_binding = args
             .verification_message_template
             .get_output(context);
-        let verification_message_template_binding = verification_message_template_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/userPool:UserPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountRecoverySetting".into(),
-                    value: &account_recovery_setting_binding,
+                    value: account_recovery_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminCreateUserConfig".into(),
-                    value: &admin_create_user_config_binding,
+                    value: admin_create_user_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasAttributes".into(),
-                    value: &alias_attributes_binding,
+                    value: alias_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoVerifiedAttributes".into(),
-                    value: &auto_verified_attributes_binding,
+                    value: auto_verified_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceConfiguration".into(),
-                    value: &device_configuration_binding,
+                    value: device_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailConfiguration".into(),
-                    value: &email_configuration_binding,
+                    value: email_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailVerificationMessage".into(),
-                    value: &email_verification_message_binding,
+                    value: email_verification_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailVerificationSubject".into(),
-                    value: &email_verification_subject_binding,
+                    value: email_verification_subject_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaConfig".into(),
-                    value: &lambda_config_binding,
+                    value: lambda_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mfaConfiguration".into(),
-                    value: &mfa_configuration_binding,
+                    value: mfa_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordPolicy".into(),
-                    value: &password_policy_binding,
+                    value: password_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemas".into(),
-                    value: &schemas_binding,
+                    value: schemas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsAuthenticationMessage".into(),
-                    value: &sms_authentication_message_binding,
+                    value: sms_authentication_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsConfiguration".into(),
-                    value: &sms_configuration_binding,
+                    value: sms_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsVerificationMessage".into(),
-                    value: &sms_verification_message_binding,
+                    value: sms_verification_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softwareTokenMfaConfiguration".into(),
-                    value: &software_token_mfa_configuration_binding,
+                    value: software_token_mfa_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAttributeUpdateSettings".into(),
-                    value: &user_attribute_update_settings_binding,
+                    value: user_attribute_update_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolAddOns".into(),
-                    value: &user_pool_add_ons_binding,
+                    value: user_pool_add_ons_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usernameAttributes".into(),
-                    value: &username_attributes_binding,
+                    value: username_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usernameConfiguration".into(),
-                    value: &username_configuration_binding,
+                    value: username_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationMessageTemplate".into(),
-                    value: &verification_message_template_binding,
+                    value: verification_message_template_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserPoolResult {
-            account_recovery_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountRecoverySetting"),
-            ),
-            admin_create_user_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminCreateUserConfig"),
-            ),
-            alias_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliasAttributes"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_verified_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoVerifiedAttributes"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            custom_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomain"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            device_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceConfiguration"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            email_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailConfiguration"),
-            ),
-            email_verification_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailVerificationMessage"),
-            ),
-            email_verification_subject: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailVerificationSubject"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            estimated_number_of_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("estimatedNumberOfUsers"),
-            ),
-            lambda_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaConfig"),
-            ),
-            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedDate"),
-            ),
-            mfa_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mfaConfiguration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passwordPolicy"),
-            ),
-            schemas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemas"),
-            ),
-            sms_authentication_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsAuthenticationMessage"),
-            ),
-            sms_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsConfiguration"),
-            ),
-            sms_verification_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsVerificationMessage"),
-            ),
-            software_token_mfa_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softwareTokenMfaConfiguration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_attribute_update_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userAttributeUpdateSettings"),
-            ),
-            user_pool_add_ons: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolAddOns"),
-            ),
-            username_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usernameAttributes"),
-            ),
-            username_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usernameConfiguration"),
-            ),
-            verification_message_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verificationMessageTemplate"),
-            ),
+            account_recovery_setting: o.get_field("accountRecoverySetting"),
+            admin_create_user_config: o.get_field("adminCreateUserConfig"),
+            alias_attributes: o.get_field("aliasAttributes"),
+            arn: o.get_field("arn"),
+            auto_verified_attributes: o.get_field("autoVerifiedAttributes"),
+            creation_date: o.get_field("creationDate"),
+            custom_domain: o.get_field("customDomain"),
+            deletion_protection: o.get_field("deletionProtection"),
+            device_configuration: o.get_field("deviceConfiguration"),
+            domain: o.get_field("domain"),
+            email_configuration: o.get_field("emailConfiguration"),
+            email_verification_message: o.get_field("emailVerificationMessage"),
+            email_verification_subject: o.get_field("emailVerificationSubject"),
+            endpoint: o.get_field("endpoint"),
+            estimated_number_of_users: o.get_field("estimatedNumberOfUsers"),
+            lambda_config: o.get_field("lambdaConfig"),
+            last_modified_date: o.get_field("lastModifiedDate"),
+            mfa_configuration: o.get_field("mfaConfiguration"),
+            name: o.get_field("name"),
+            password_policy: o.get_field("passwordPolicy"),
+            schemas: o.get_field("schemas"),
+            sms_authentication_message: o.get_field("smsAuthenticationMessage"),
+            sms_configuration: o.get_field("smsConfiguration"),
+            sms_verification_message: o.get_field("smsVerificationMessage"),
+            software_token_mfa_configuration: o
+                .get_field("softwareTokenMfaConfiguration"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_attribute_update_settings: o.get_field("userAttributeUpdateSettings"),
+            user_pool_add_ons: o.get_field("userPoolAddOns"),
+            username_attributes: o.get_field("usernameAttributes"),
+            username_configuration: o.get_field("usernameConfiguration"),
+            verification_message_template: o.get_field("verificationMessageTemplate"),
         }
     }
 }

@@ -241,96 +241,69 @@ pub mod hl_7_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: Hl7StoreArgs,
     ) -> Hl7StoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_config_binding_1 = args.notification_config.get_output(context);
-        let notification_config_binding = notification_config_binding_1.get_inner();
-        let notification_configs_binding_1 = args
-            .notification_configs
-            .get_output(context);
-        let notification_configs_binding = notification_configs_binding_1.get_inner();
-        let parser_config_binding_1 = args.parser_config.get_output(context);
-        let parser_config_binding = parser_config_binding_1.get_inner();
-        let reject_duplicate_message_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dataset_binding = args.dataset.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_config_binding = args.notification_config.get_output(context);
+        let notification_configs_binding = args.notification_configs.get_output(context);
+        let parser_config_binding = args.parser_config.get_output(context);
+        let reject_duplicate_message_binding = args
             .reject_duplicate_message
             .get_output(context);
-        let reject_duplicate_message_binding = reject_duplicate_message_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:healthcare/hl7Store:Hl7Store".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfig".into(),
-                    value: &notification_config_binding,
+                    value: notification_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfigs".into(),
-                    value: &notification_configs_binding,
+                    value: notification_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parserConfig".into(),
-                    value: &parser_config_binding,
+                    value: parser_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rejectDuplicateMessage".into(),
-                    value: &reject_duplicate_message_binding,
+                    value: reject_duplicate_message_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         Hl7StoreResult {
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationConfig"),
-            ),
-            notification_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationConfigs"),
-            ),
-            parser_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parserConfig"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reject_duplicate_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rejectDuplicateMessage"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
+            dataset: o.get_field("dataset"),
+            effective_labels: o.get_field("effectiveLabels"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            notification_config: o.get_field("notificationConfig"),
+            notification_configs: o.get_field("notificationConfigs"),
+            parser_config: o.get_field("parserConfig"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reject_duplicate_message: o.get_field("rejectDuplicateMessage"),
+            self_link: o.get_field("selfLink"),
         }
     }
 }

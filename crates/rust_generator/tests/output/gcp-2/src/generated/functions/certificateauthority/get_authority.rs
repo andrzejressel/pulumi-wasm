@@ -72,114 +72,69 @@ pub mod get_authority {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAuthorityArgs,
     ) -> GetAuthorityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_authority_id_binding = args
             .certificate_authority_id
             .get_output(context);
-        let certificate_authority_id_binding = certificate_authority_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let pool_binding_1 = args.pool.get_output(context);
-        let pool_binding = pool_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let location_binding = args.location.get_output(context);
+        let pool_binding = args.pool.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:certificateauthority/getAuthority:getAuthority".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityId".into(),
-                    value: &certificate_authority_id_binding,
+                    value: certificate_authority_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pool".into(),
-                    value: &pool_binding,
+                    value: pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAuthorityResult {
-            access_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessUrls"),
-            ),
-            certificate_authority_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorityId"),
-            ),
-            configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configs"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            desired_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredState"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            gcs_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcsBucket"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ignore_active_certificates_on_deletion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreActiveCertificatesOnDeletion"),
-            ),
-            key_specs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySpecs"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            lifetime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifetime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pem_ca_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pemCaCertificate"),
-            ),
-            pem_ca_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pemCaCertificates"),
-            ),
-            pem_csr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pemCsr"),
-            ),
-            pool: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pool")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            skip_grace_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipGracePeriod"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subordinate_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subordinateConfigs"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            access_urls: o.get_field("accessUrls"),
+            certificate_authority_id: o.get_field("certificateAuthorityId"),
+            configs: o.get_field("configs"),
+            create_time: o.get_field("createTime"),
+            deletion_protection: o.get_field("deletionProtection"),
+            desired_state: o.get_field("desiredState"),
+            effective_labels: o.get_field("effectiveLabels"),
+            gcs_bucket: o.get_field("gcsBucket"),
+            id: o.get_field("id"),
+            ignore_active_certificates_on_deletion: o
+                .get_field("ignoreActiveCertificatesOnDeletion"),
+            key_specs: o.get_field("keySpecs"),
+            labels: o.get_field("labels"),
+            lifetime: o.get_field("lifetime"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            pem_ca_certificate: o.get_field("pemCaCertificate"),
+            pem_ca_certificates: o.get_field("pemCaCertificates"),
+            pem_csr: o.get_field("pemCsr"),
+            pool: o.get_field("pool"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            skip_grace_period: o.get_field("skipGracePeriod"),
+            state: o.get_field("state"),
+            subordinate_configs: o.get_field("subordinateConfigs"),
+            type_: o.get_field("type"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

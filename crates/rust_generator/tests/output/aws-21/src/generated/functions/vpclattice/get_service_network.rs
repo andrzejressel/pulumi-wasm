@@ -38,56 +38,42 @@ pub mod get_service_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceNetworkArgs,
     ) -> GetServiceNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_network_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let service_network_identifier_binding = args
             .service_network_identifier
             .get_output(context);
-        let service_network_identifier_binding = service_network_identifier_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:vpclattice/getServiceNetwork:getServiceNetwork".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNetworkIdentifier".into(),
-                    value: &service_network_identifier_binding,
+                    value: service_network_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceNetworkResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auth_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authType"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedAt"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            number_of_associated_services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfAssociatedServices"),
-            ),
-            number_of_associated_vpcs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfAssociatedVpcs"),
-            ),
-            service_network_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceNetworkIdentifier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            auth_type: o.get_field("authType"),
+            created_at: o.get_field("createdAt"),
+            id: o.get_field("id"),
+            last_updated_at: o.get_field("lastUpdatedAt"),
+            name: o.get_field("name"),
+            number_of_associated_services: o.get_field("numberOfAssociatedServices"),
+            number_of_associated_vpcs: o.get_field("numberOfAssociatedVpcs"),
+            service_network_identifier: o.get_field("serviceNetworkIdentifier"),
+            tags: o.get_field("tags"),
         }
     }
 }

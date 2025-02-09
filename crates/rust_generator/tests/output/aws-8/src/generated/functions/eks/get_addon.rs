@@ -46,64 +46,46 @@ pub mod get_addon {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAddonArgs,
     ) -> GetAddonResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_name_binding_1 = args.addon_name.get_output(context);
-        let addon_name_binding = addon_name_binding_1.get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let addon_name_binding = args.addon_name.get_output(context);
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:eks/getAddon:getAddon".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonName".into(),
-                    value: &addon_name_binding,
+                    value: addon_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAddonResult {
-            addon_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addonName"),
-            ),
-            addon_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addonVersion"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            configuration_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationValues"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            modified_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedAt"),
-            ),
-            pod_identity_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("podIdentityAssociations"),
-            ),
-            service_account_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountRoleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            addon_name: o.get_field("addonName"),
+            addon_version: o.get_field("addonVersion"),
+            arn: o.get_field("arn"),
+            cluster_name: o.get_field("clusterName"),
+            configuration_values: o.get_field("configurationValues"),
+            created_at: o.get_field("createdAt"),
+            id: o.get_field("id"),
+            modified_at: o.get_field("modifiedAt"),
+            pod_identity_associations: o.get_field("podIdentityAssociations"),
+            service_account_role_arn: o.get_field("serviceAccountRoleArn"),
+            tags: o.get_field("tags"),
         }
     }
 }

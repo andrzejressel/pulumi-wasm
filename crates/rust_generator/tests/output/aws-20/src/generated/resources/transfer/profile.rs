@@ -68,62 +68,49 @@ pub mod profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProfileArgs,
     ) -> ProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let as2_id_binding_1 = args.as2_id.get_output(context);
-        let as2_id_binding = as2_id_binding_1.get_inner();
-        let certificate_ids_binding_1 = args.certificate_ids.get_output(context);
-        let certificate_ids_binding = certificate_ids_binding_1.get_inner();
-        let profile_type_binding_1 = args.profile_type.get_output(context);
-        let profile_type_binding = profile_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let as2_id_binding = args.as2_id.get_output(context);
+        let certificate_ids_binding = args.certificate_ids.get_output(context);
+        let profile_type_binding = args.profile_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:transfer/profile:Profile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "as2Id".into(),
-                    value: &as2_id_binding,
+                    value: as2_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateIds".into(),
-                    value: &certificate_ids_binding,
+                    value: certificate_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileType".into(),
-                    value: &profile_type_binding,
+                    value: profile_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            as2_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("as2Id"),
-            ),
-            certificate_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateIds"),
-            ),
-            profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileId"),
-            ),
-            profile_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            as2_id: o.get_field("as2Id"),
+            certificate_ids: o.get_field("certificateIds"),
+            profile_id: o.get_field("profileId"),
+            profile_type: o.get_field("profileType"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

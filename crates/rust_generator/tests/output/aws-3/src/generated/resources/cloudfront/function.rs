@@ -74,82 +74,64 @@ pub mod function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionArgs,
     ) -> FunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let code_binding_1 = args.code.get_output(context);
-        let code_binding = code_binding_1.get_inner();
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let key_value_store_associations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let code_binding = args.code.get_output(context);
+        let comment_binding = args.comment.get_output(context);
+        let key_value_store_associations_binding = args
             .key_value_store_associations
             .get_output(context);
-        let key_value_store_associations_binding = key_value_store_associations_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let publish_binding_1 = args.publish.get_output(context);
-        let publish_binding = publish_binding_1.get_inner();
-        let runtime_binding_1 = args.runtime.get_output(context);
-        let runtime_binding = runtime_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let publish_binding = args.publish.get_output(context);
+        let runtime_binding = args.runtime.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/function:Function".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: &code_binding,
+                    value: code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyValueStoreAssociations".into(),
-                    value: &key_value_store_associations_binding,
+                    value: key_value_store_associations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publish".into(),
-                    value: &publish_binding,
+                    value: publish_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: &runtime_binding,
+                    value: runtime_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            key_value_store_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyValueStoreAssociations"),
-            ),
-            live_stage_etag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("liveStageEtag"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            publish: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publish"),
-            ),
-            runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtime"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            arn: o.get_field("arn"),
+            code: o.get_field("code"),
+            comment: o.get_field("comment"),
+            etag: o.get_field("etag"),
+            key_value_store_associations: o.get_field("keyValueStoreAssociations"),
+            live_stage_etag: o.get_field("liveStageEtag"),
+            name: o.get_field("name"),
+            publish: o.get_field("publish"),
+            runtime: o.get_field("runtime"),
+            status: o.get_field("status"),
         }
     }
 }

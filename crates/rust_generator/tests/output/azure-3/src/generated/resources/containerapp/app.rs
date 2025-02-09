@@ -186,155 +186,111 @@ pub mod app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppArgs,
     ) -> AppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_app_environment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_app_environment_id_binding = args
             .container_app_environment_id
             .get_output(context);
-        let container_app_environment_id_binding = container_app_environment_id_binding_1
-            .get_inner();
-        let dapr_binding_1 = args.dapr.get_output(context);
-        let dapr_binding = dapr_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let ingress_binding_1 = args.ingress.get_output(context);
-        let ingress_binding = ingress_binding_1.get_inner();
-        let max_inactive_revisions_binding_1 = args
+        let dapr_binding = args.dapr.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let ingress_binding = args.ingress.get_output(context);
+        let max_inactive_revisions_binding = args
             .max_inactive_revisions
             .get_output(context);
-        let max_inactive_revisions_binding = max_inactive_revisions_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let registries_binding_1 = args.registries.get_output(context);
-        let registries_binding = registries_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let revision_mode_binding_1 = args.revision_mode.get_output(context);
-        let revision_mode_binding = revision_mode_binding_1.get_inner();
-        let secrets_binding_1 = args.secrets.get_output(context);
-        let secrets_binding = secrets_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let template_binding_1 = args.template.get_output(context);
-        let template_binding = template_binding_1.get_inner();
-        let workload_profile_name_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let registries_binding = args.registries.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let revision_mode_binding = args.revision_mode.get_output(context);
+        let secrets_binding = args.secrets.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let template_binding = args.template.get_output(context);
+        let workload_profile_name_binding = args
             .workload_profile_name
             .get_output(context);
-        let workload_profile_name_binding = workload_profile_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerapp/app:App".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: &container_app_environment_id_binding,
+                    value: container_app_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dapr".into(),
-                    value: &dapr_binding,
+                    value: dapr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingress".into(),
-                    value: &ingress_binding,
+                    value: ingress_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxInactiveRevisions".into(),
-                    value: &max_inactive_revisions_binding,
+                    value: max_inactive_revisions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registries".into(),
-                    value: &registries_binding,
+                    value: registries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revisionMode".into(),
-                    value: &revision_mode_binding,
+                    value: revision_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secrets".into(),
-                    value: &secrets_binding,
+                    value: secrets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "template".into(),
-                    value: &template_binding,
+                    value: template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadProfileName".into(),
-                    value: &workload_profile_name_binding,
+                    value: workload_profile_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppResult {
-            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppEnvironmentId"),
-            ),
-            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomainVerificationId"),
-            ),
-            dapr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dapr")),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            ingress: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingress"),
-            ),
-            latest_revision_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestRevisionFqdn"),
-            ),
-            latest_revision_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestRevisionName"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_inactive_revisions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxInactiveRevisions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundIpAddresses"),
-            ),
-            registries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registries"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            revision_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revisionMode"),
-            ),
-            secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secrets"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("template"),
-            ),
-            workload_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadProfileName"),
-            ),
+            container_app_environment_id: o.get_field("containerAppEnvironmentId"),
+            custom_domain_verification_id: o.get_field("customDomainVerificationId"),
+            dapr: o.get_field("dapr"),
+            identity: o.get_field("identity"),
+            ingress: o.get_field("ingress"),
+            latest_revision_fqdn: o.get_field("latestRevisionFqdn"),
+            latest_revision_name: o.get_field("latestRevisionName"),
+            location: o.get_field("location"),
+            max_inactive_revisions: o.get_field("maxInactiveRevisions"),
+            name: o.get_field("name"),
+            outbound_ip_addresses: o.get_field("outboundIpAddresses"),
+            registries: o.get_field("registries"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            revision_mode: o.get_field("revisionMode"),
+            secrets: o.get_field("secrets"),
+            tags: o.get_field("tags"),
+            template: o.get_field("template"),
+            workload_profile_name: o.get_field("workloadProfileName"),
         }
     }
 }

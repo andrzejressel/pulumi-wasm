@@ -510,256 +510,185 @@ pub mod router_nat {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouterNatArgs,
     ) -> RouterNatResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_network_tier_binding_1 = args.auto_network_tier.get_output(context);
-        let auto_network_tier_binding = auto_network_tier_binding_1.get_inner();
-        let drain_nat_ips_binding_1 = args.drain_nat_ips.get_output(context);
-        let drain_nat_ips_binding = drain_nat_ips_binding_1.get_inner();
-        let enable_dynamic_port_allocation_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_network_tier_binding = args.auto_network_tier.get_output(context);
+        let drain_nat_ips_binding = args.drain_nat_ips.get_output(context);
+        let enable_dynamic_port_allocation_binding = args
             .enable_dynamic_port_allocation
             .get_output(context);
-        let enable_dynamic_port_allocation_binding = enable_dynamic_port_allocation_binding_1
-            .get_inner();
-        let enable_endpoint_independent_mapping_binding_1 = args
+        let enable_endpoint_independent_mapping_binding = args
             .enable_endpoint_independent_mapping
             .get_output(context);
-        let enable_endpoint_independent_mapping_binding = enable_endpoint_independent_mapping_binding_1
-            .get_inner();
-        let endpoint_types_binding_1 = args.endpoint_types.get_output(context);
-        let endpoint_types_binding = endpoint_types_binding_1.get_inner();
-        let icmp_idle_timeout_sec_binding_1 = args
+        let endpoint_types_binding = args.endpoint_types.get_output(context);
+        let icmp_idle_timeout_sec_binding = args
             .icmp_idle_timeout_sec
             .get_output(context);
-        let icmp_idle_timeout_sec_binding = icmp_idle_timeout_sec_binding_1.get_inner();
-        let initial_nat_ips_binding_1 = args.initial_nat_ips.get_output(context);
-        let initial_nat_ips_binding = initial_nat_ips_binding_1.get_inner();
-        let log_config_binding_1 = args.log_config.get_output(context);
-        let log_config_binding = log_config_binding_1.get_inner();
-        let max_ports_per_vm_binding_1 = args.max_ports_per_vm.get_output(context);
-        let max_ports_per_vm_binding = max_ports_per_vm_binding_1.get_inner();
-        let min_ports_per_vm_binding_1 = args.min_ports_per_vm.get_output(context);
-        let min_ports_per_vm_binding = min_ports_per_vm_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nat_ip_allocate_option_binding_1 = args
+        let initial_nat_ips_binding = args.initial_nat_ips.get_output(context);
+        let log_config_binding = args.log_config.get_output(context);
+        let max_ports_per_vm_binding = args.max_ports_per_vm.get_output(context);
+        let min_ports_per_vm_binding = args.min_ports_per_vm.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let nat_ip_allocate_option_binding = args
             .nat_ip_allocate_option
             .get_output(context);
-        let nat_ip_allocate_option_binding = nat_ip_allocate_option_binding_1
-            .get_inner();
-        let nat_ips_binding_1 = args.nat_ips.get_output(context);
-        let nat_ips_binding = nat_ips_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let router_binding_1 = args.router.get_output(context);
-        let router_binding = router_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let source_subnetwork_ip_ranges_to_nat_binding_1 = args
+        let nat_ips_binding = args.nat_ips.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let router_binding = args.router.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let source_subnetwork_ip_ranges_to_nat_binding = args
             .source_subnetwork_ip_ranges_to_nat
             .get_output(context);
-        let source_subnetwork_ip_ranges_to_nat_binding = source_subnetwork_ip_ranges_to_nat_binding_1
-            .get_inner();
-        let subnetworks_binding_1 = args.subnetworks.get_output(context);
-        let subnetworks_binding = subnetworks_binding_1.get_inner();
-        let tcp_established_idle_timeout_sec_binding_1 = args
+        let subnetworks_binding = args.subnetworks.get_output(context);
+        let tcp_established_idle_timeout_sec_binding = args
             .tcp_established_idle_timeout_sec
             .get_output(context);
-        let tcp_established_idle_timeout_sec_binding = tcp_established_idle_timeout_sec_binding_1
-            .get_inner();
-        let tcp_time_wait_timeout_sec_binding_1 = args
+        let tcp_time_wait_timeout_sec_binding = args
             .tcp_time_wait_timeout_sec
             .get_output(context);
-        let tcp_time_wait_timeout_sec_binding = tcp_time_wait_timeout_sec_binding_1
-            .get_inner();
-        let tcp_transitory_idle_timeout_sec_binding_1 = args
+        let tcp_transitory_idle_timeout_sec_binding = args
             .tcp_transitory_idle_timeout_sec
             .get_output(context);
-        let tcp_transitory_idle_timeout_sec_binding = tcp_transitory_idle_timeout_sec_binding_1
-            .get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let udp_idle_timeout_sec_binding_1 = args
-            .udp_idle_timeout_sec
-            .get_output(context);
-        let udp_idle_timeout_sec_binding = udp_idle_timeout_sec_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let type__binding = args.type_.get_output(context);
+        let udp_idle_timeout_sec_binding = args.udp_idle_timeout_sec.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/routerNat:RouterNat".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoNetworkTier".into(),
-                    value: &auto_network_tier_binding,
+                    value: auto_network_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "drainNatIps".into(),
-                    value: &drain_nat_ips_binding,
+                    value: drain_nat_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDynamicPortAllocation".into(),
-                    value: &enable_dynamic_port_allocation_binding,
+                    value: enable_dynamic_port_allocation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableEndpointIndependentMapping".into(),
-                    value: &enable_endpoint_independent_mapping_binding,
+                    value: enable_endpoint_independent_mapping_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointTypes".into(),
-                    value: &endpoint_types_binding,
+                    value: endpoint_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icmpIdleTimeoutSec".into(),
-                    value: &icmp_idle_timeout_sec_binding,
+                    value: icmp_idle_timeout_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialNatIps".into(),
-                    value: &initial_nat_ips_binding,
+                    value: initial_nat_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: &log_config_binding,
+                    value: log_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxPortsPerVm".into(),
-                    value: &max_ports_per_vm_binding,
+                    value: max_ports_per_vm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minPortsPerVm".into(),
-                    value: &min_ports_per_vm_binding,
+                    value: min_ports_per_vm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natIpAllocateOption".into(),
-                    value: &nat_ip_allocate_option_binding,
+                    value: nat_ip_allocate_option_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natIps".into(),
-                    value: &nat_ips_binding,
+                    value: nat_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: &router_binding,
+                    value: router_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSubnetworkIpRangesToNat".into(),
-                    value: &source_subnetwork_ip_ranges_to_nat_binding,
+                    value: source_subnetwork_ip_ranges_to_nat_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetworks".into(),
-                    value: &subnetworks_binding,
+                    value: subnetworks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpEstablishedIdleTimeoutSec".into(),
-                    value: &tcp_established_idle_timeout_sec_binding,
+                    value: tcp_established_idle_timeout_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpTimeWaitTimeoutSec".into(),
-                    value: &tcp_time_wait_timeout_sec_binding,
+                    value: tcp_time_wait_timeout_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpTransitoryIdleTimeoutSec".into(),
-                    value: &tcp_transitory_idle_timeout_sec_binding,
+                    value: tcp_transitory_idle_timeout_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "udpIdleTimeoutSec".into(),
-                    value: &udp_idle_timeout_sec_binding,
+                    value: udp_idle_timeout_sec_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouterNatResult {
-            auto_network_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoNetworkTier"),
-            ),
-            drain_nat_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("drainNatIps"),
-            ),
-            enable_dynamic_port_allocation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDynamicPortAllocation"),
-            ),
-            enable_endpoint_independent_mapping: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableEndpointIndependentMapping"),
-            ),
-            endpoint_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointTypes"),
-            ),
-            icmp_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("icmpIdleTimeoutSec"),
-            ),
-            initial_nat_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialNatIps"),
-            ),
-            log_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfig"),
-            ),
-            max_ports_per_vm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxPortsPerVm"),
-            ),
-            min_ports_per_vm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minPortsPerVm"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nat_ip_allocate_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natIpAllocateOption"),
-            ),
-            nat_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natIps"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            router: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("router"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            source_subnetwork_ip_ranges_to_nat: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSubnetworkIpRangesToNat"),
-            ),
-            subnetworks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetworks"),
-            ),
-            tcp_established_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpEstablishedIdleTimeoutSec"),
-            ),
-            tcp_time_wait_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpTimeWaitTimeoutSec"),
-            ),
-            tcp_transitory_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpTransitoryIdleTimeoutSec"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            udp_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("udpIdleTimeoutSec"),
-            ),
+            auto_network_tier: o.get_field("autoNetworkTier"),
+            drain_nat_ips: o.get_field("drainNatIps"),
+            enable_dynamic_port_allocation: o.get_field("enableDynamicPortAllocation"),
+            enable_endpoint_independent_mapping: o
+                .get_field("enableEndpointIndependentMapping"),
+            endpoint_types: o.get_field("endpointTypes"),
+            icmp_idle_timeout_sec: o.get_field("icmpIdleTimeoutSec"),
+            initial_nat_ips: o.get_field("initialNatIps"),
+            log_config: o.get_field("logConfig"),
+            max_ports_per_vm: o.get_field("maxPortsPerVm"),
+            min_ports_per_vm: o.get_field("minPortsPerVm"),
+            name: o.get_field("name"),
+            nat_ip_allocate_option: o.get_field("natIpAllocateOption"),
+            nat_ips: o.get_field("natIps"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            router: o.get_field("router"),
+            rules: o.get_field("rules"),
+            source_subnetwork_ip_ranges_to_nat: o
+                .get_field("sourceSubnetworkIpRangesToNat"),
+            subnetworks: o.get_field("subnetworks"),
+            tcp_established_idle_timeout_sec: o
+                .get_field("tcpEstablishedIdleTimeoutSec"),
+            tcp_time_wait_timeout_sec: o.get_field("tcpTimeWaitTimeoutSec"),
+            tcp_transitory_idle_timeout_sec: o.get_field("tcpTransitoryIdleTimeoutSec"),
+            type_: o.get_field("type"),
+            udp_idle_timeout_sec: o.get_field("udpIdleTimeoutSec"),
         }
     }
 }

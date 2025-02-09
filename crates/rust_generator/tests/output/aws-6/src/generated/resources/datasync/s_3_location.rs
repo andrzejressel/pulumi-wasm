@@ -89,78 +89,61 @@ pub mod s_3_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: S3LocationArgs,
     ) -> S3LocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_arns_binding_1 = args.agent_arns.get_output(context);
-        let agent_arns_binding = agent_arns_binding_1.get_inner();
-        let s3_bucket_arn_binding_1 = args.s3_bucket_arn.get_output(context);
-        let s3_bucket_arn_binding = s3_bucket_arn_binding_1.get_inner();
-        let s3_config_binding_1 = args.s3_config.get_output(context);
-        let s3_config_binding = s3_config_binding_1.get_inner();
-        let s3_storage_class_binding_1 = args.s3_storage_class.get_output(context);
-        let s3_storage_class_binding = s3_storage_class_binding_1.get_inner();
-        let subdirectory_binding_1 = args.subdirectory.get_output(context);
-        let subdirectory_binding = subdirectory_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_arns_binding = args.agent_arns.get_output(context);
+        let s3_bucket_arn_binding = args.s3_bucket_arn.get_output(context);
+        let s3_config_binding = args.s3_config.get_output(context);
+        let s3_storage_class_binding = args.s3_storage_class.get_output(context);
+        let subdirectory_binding = args.subdirectory.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/s3Location:S3Location".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentArns".into(),
-                    value: &agent_arns_binding,
+                    value: agent_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketArn".into(),
-                    value: &s3_bucket_arn_binding,
+                    value: s3_bucket_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Config".into(),
-                    value: &s3_config_binding,
+                    value: s3_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3StorageClass".into(),
-                    value: &s3_storage_class_binding,
+                    value: s3_storage_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: &subdirectory_binding,
+                    value: subdirectory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         S3LocationResult {
-            agent_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentArns"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            s3_bucket_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3BucketArn"),
-            ),
-            s3_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Config"),
-            ),
-            s3_storage_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3StorageClass"),
-            ),
-            subdirectory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdirectory"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            agent_arns: o.get_field("agentArns"),
+            arn: o.get_field("arn"),
+            s3_bucket_arn: o.get_field("s3BucketArn"),
+            s3_config: o.get_field("s3Config"),
+            s3_storage_class: o.get_field("s3StorageClass"),
+            subdirectory: o.get_field("subdirectory"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uri: o.get_field("uri"),
         }
     }
 }

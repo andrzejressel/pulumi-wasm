@@ -73,49 +73,41 @@ pub mod voice_connector_organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VoiceConnectorOrganizationArgs,
     ) -> VoiceConnectorOrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let routes_binding_1 = args.routes.get_output(context);
-        let routes_binding = routes_binding_1.get_inner();
-        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
-        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disabled_binding = args.disabled.get_output(context);
+        let routes_binding = args.routes.get_output(context);
+        let voice_connector_id_binding = args.voice_connector_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: &routes_binding,
+                    value: routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: &voice_connector_id_binding,
+                    value: voice_connector_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VoiceConnectorOrganizationResult {
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routes"),
-            ),
-            voice_connector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceConnectorId"),
-            ),
+            disabled: o.get_field("disabled"),
+            routes: o.get_field("routes"),
+            voice_connector_id: o.get_field("voiceConnectorId"),
         }
     }
 }

@@ -98,87 +98,69 @@ pub mod room {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RoomArgs,
     ) -> RoomResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let logging_configuration_identifiers_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let logging_configuration_identifiers_binding = args
             .logging_configuration_identifiers
             .get_output(context);
-        let logging_configuration_identifiers_binding = logging_configuration_identifiers_binding_1
-            .get_inner();
-        let maximum_message_length_binding_1 = args
+        let maximum_message_length_binding = args
             .maximum_message_length
             .get_output(context);
-        let maximum_message_length_binding = maximum_message_length_binding_1
-            .get_inner();
-        let maximum_message_rate_per_second_binding_1 = args
+        let maximum_message_rate_per_second_binding = args
             .maximum_message_rate_per_second
             .get_output(context);
-        let maximum_message_rate_per_second_binding = maximum_message_rate_per_second_binding_1
-            .get_inner();
-        let message_review_handler_binding_1 = args
+        let message_review_handler_binding = args
             .message_review_handler
             .get_output(context);
-        let message_review_handler_binding = message_review_handler_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ivschat/room:Room".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfigurationIdentifiers".into(),
-                    value: &logging_configuration_identifiers_binding,
+                    value: logging_configuration_identifiers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumMessageLength".into(),
-                    value: &maximum_message_length_binding,
+                    value: maximum_message_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumMessageRatePerSecond".into(),
-                    value: &maximum_message_rate_per_second_binding,
+                    value: maximum_message_rate_per_second_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageReviewHandler".into(),
-                    value: &message_review_handler_binding,
+                    value: message_review_handler_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RoomResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            logging_configuration_identifiers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfigurationIdentifiers"),
-            ),
-            maximum_message_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumMessageLength"),
-            ),
-            maximum_message_rate_per_second: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumMessageRatePerSecond"),
-            ),
-            message_review_handler: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageReviewHandler"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            logging_configuration_identifiers: o
+                .get_field("loggingConfigurationIdentifiers"),
+            maximum_message_length: o.get_field("maximumMessageLength"),
+            maximum_message_rate_per_second: o.get_field("maximumMessageRatePerSecond"),
+            message_review_handler: o.get_field("messageReviewHandler"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

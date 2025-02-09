@@ -165,89 +165,68 @@ pub mod integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntegrationArgs,
     ) -> IntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_encryption_context_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_encryption_context_binding = args
             .additional_encryption_context
             .get_output(context);
-        let additional_encryption_context_binding = additional_encryption_context_binding_1
-            .get_inner();
-        let integration_name_binding_1 = args.integration_name.get_output(context);
-        let integration_name_binding = integration_name_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let source_arn_binding_1 = args.source_arn.get_output(context);
-        let source_arn_binding = source_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_arn_binding_1 = args.target_arn.get_output(context);
-        let target_arn_binding = target_arn_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let integration_name_binding = args.integration_name.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let source_arn_binding = args.source_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_arn_binding = args.target_arn.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/integration:Integration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalEncryptionContext".into(),
-                    value: &additional_encryption_context_binding,
+                    value: additional_encryption_context_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationName".into(),
-                    value: &integration_name_binding,
+                    value: integration_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArn".into(),
-                    value: &source_arn_binding,
+                    value: source_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetArn".into(),
-                    value: &target_arn_binding,
+                    value: target_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntegrationResult {
-            additional_encryption_context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalEncryptionContext"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            integration_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationName"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            source_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetArn"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            additional_encryption_context: o.get_field("additionalEncryptionContext"),
+            arn: o.get_field("arn"),
+            integration_name: o.get_field("integrationName"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            source_arn: o.get_field("sourceArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_arn: o.get_field("targetArn"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

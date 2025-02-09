@@ -436,124 +436,91 @@ pub mod region_security_policy_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionSecurityPolicyRuleArgs,
     ) -> RegionSecurityPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let match__binding_1 = args.match_.get_output(context);
-        let match__binding = match__binding_1.get_inner();
-        let network_match_binding_1 = args.network_match.get_output(context);
-        let network_match_binding = network_match_binding_1.get_inner();
-        let preconfigured_waf_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let match__binding = args.match_.get_output(context);
+        let network_match_binding = args.network_match.get_output(context);
+        let preconfigured_waf_config_binding = args
             .preconfigured_waf_config
             .get_output(context);
-        let preconfigured_waf_config_binding = preconfigured_waf_config_binding_1
-            .get_inner();
-        let preview_binding_1 = args.preview.get_output(context);
-        let preview_binding = preview_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let rate_limit_options_binding_1 = args.rate_limit_options.get_output(context);
-        let rate_limit_options_binding = rate_limit_options_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let security_policy_binding_1 = args.security_policy.get_output(context);
-        let security_policy_binding = security_policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let preview_binding = args.preview.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let rate_limit_options_binding = args.rate_limit_options.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let security_policy_binding = args.security_policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionSecurityPolicyRule:RegionSecurityPolicyRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: &match__binding,
+                    value: match__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkMatch".into(),
-                    value: &network_match_binding,
+                    value: network_match_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preconfiguredWafConfig".into(),
-                    value: &preconfigured_waf_config_binding,
+                    value: preconfigured_waf_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preview".into(),
-                    value: &preview_binding,
+                    value: preview_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rateLimitOptions".into(),
-                    value: &rate_limit_options_binding,
+                    value: rate_limit_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicy".into(),
-                    value: &security_policy_binding,
+                    value: security_policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionSecurityPolicyRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            match_: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("match"),
-            ),
-            network_match: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkMatch"),
-            ),
-            preconfigured_waf_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preconfiguredWafConfig"),
-            ),
-            preview: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preview"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            rate_limit_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rateLimitOptions"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPolicy"),
-            ),
+            action: o.get_field("action"),
+            description: o.get_field("description"),
+            match_: o.get_field("match"),
+            network_match: o.get_field("networkMatch"),
+            preconfigured_waf_config: o.get_field("preconfiguredWafConfig"),
+            preview: o.get_field("preview"),
+            priority: o.get_field("priority"),
+            project: o.get_field("project"),
+            rate_limit_options: o.get_field("rateLimitOptions"),
+            region: o.get_field("region"),
+            security_policy: o.get_field("securityPolicy"),
         }
     }
 }

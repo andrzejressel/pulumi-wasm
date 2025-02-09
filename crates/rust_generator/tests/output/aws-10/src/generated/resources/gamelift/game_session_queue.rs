@@ -103,87 +103,68 @@ pub mod game_session_queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GameSessionQueueArgs,
     ) -> GameSessionQueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_event_data_binding_1 = args.custom_event_data.get_output(context);
-        let custom_event_data_binding = custom_event_data_binding_1.get_inner();
-        let destinations_binding_1 = args.destinations.get_output(context);
-        let destinations_binding = destinations_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_target_binding_1 = args.notification_target.get_output(context);
-        let notification_target_binding = notification_target_binding_1.get_inner();
-        let player_latency_policies_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_event_data_binding = args.custom_event_data.get_output(context);
+        let destinations_binding = args.destinations.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_target_binding = args.notification_target.get_output(context);
+        let player_latency_policies_binding = args
             .player_latency_policies
             .get_output(context);
-        let player_latency_policies_binding = player_latency_policies_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeout_in_seconds_binding_1 = args.timeout_in_seconds.get_output(context);
-        let timeout_in_seconds_binding = timeout_in_seconds_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeout_in_seconds_binding = args.timeout_in_seconds.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:gamelift/gameSessionQueue:GameSessionQueue".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customEventData".into(),
-                    value: &custom_event_data_binding,
+                    value: custom_event_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinations".into(),
-                    value: &destinations_binding,
+                    value: destinations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationTarget".into(),
-                    value: &notification_target_binding,
+                    value: notification_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "playerLatencyPolicies".into(),
-                    value: &player_latency_policies_binding,
+                    value: player_latency_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutInSeconds".into(),
-                    value: &timeout_in_seconds_binding,
+                    value: timeout_in_seconds_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GameSessionQueueResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            custom_event_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customEventData"),
-            ),
-            destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationTarget"),
-            ),
-            player_latency_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("playerLatencyPolicies"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutInSeconds"),
-            ),
+            arn: o.get_field("arn"),
+            custom_event_data: o.get_field("customEventData"),
+            destinations: o.get_field("destinations"),
+            name: o.get_field("name"),
+            notification_target: o.get_field("notificationTarget"),
+            player_latency_policies: o.get_field("playerLatencyPolicies"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeout_in_seconds: o.get_field("timeoutInSeconds"),
         }
     }
 }

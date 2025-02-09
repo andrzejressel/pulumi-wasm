@@ -105,119 +105,86 @@ pub mod external_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExternalKeyArgs,
     ) -> ExternalKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bypass_policy_lockout_safety_check_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bypass_policy_lockout_safety_check_binding = args
             .bypass_policy_lockout_safety_check
             .get_output(context);
-        let bypass_policy_lockout_safety_check_binding = bypass_policy_lockout_safety_check_binding_1
-            .get_inner();
-        let deletion_window_in_days_binding_1 = args
+        let deletion_window_in_days_binding = args
             .deletion_window_in_days
             .get_output(context);
-        let deletion_window_in_days_binding = deletion_window_in_days_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let key_material_base64_binding_1 = args.key_material_base64.get_output(context);
-        let key_material_base64_binding = key_material_base64_binding_1.get_inner();
-        let multi_region_binding_1 = args.multi_region.get_output(context);
-        let multi_region_binding = multi_region_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let valid_to_binding_1 = args.valid_to.get_output(context);
-        let valid_to_binding = valid_to_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let key_material_base64_binding = args.key_material_base64.get_output(context);
+        let multi_region_binding = args.multi_region.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let valid_to_binding = args.valid_to.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kms/externalKey:ExternalKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPolicyLockoutSafetyCheck".into(),
-                    value: &bypass_policy_lockout_safety_check_binding,
+                    value: bypass_policy_lockout_safety_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionWindowInDays".into(),
-                    value: &deletion_window_in_days_binding,
+                    value: deletion_window_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyMaterialBase64".into(),
-                    value: &key_material_base64_binding,
+                    value: key_material_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegion".into(),
-                    value: &multi_region_binding,
+                    value: multi_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validTo".into(),
-                    value: &valid_to_binding,
+                    value: valid_to_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExternalKeyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bypass_policy_lockout_safety_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bypassPolicyLockoutSafetyCheck"),
-            ),
-            deletion_window_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionWindowInDays"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            expiration_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationModel"),
-            ),
-            key_material_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyMaterialBase64"),
-            ),
-            key_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyState"),
-            ),
-            key_usage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyUsage"),
-            ),
-            multi_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegion"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            valid_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validTo"),
-            ),
+            arn: o.get_field("arn"),
+            bypass_policy_lockout_safety_check: o
+                .get_field("bypassPolicyLockoutSafetyCheck"),
+            deletion_window_in_days: o.get_field("deletionWindowInDays"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            expiration_model: o.get_field("expirationModel"),
+            key_material_base64: o.get_field("keyMaterialBase64"),
+            key_state: o.get_field("keyState"),
+            key_usage: o.get_field("keyUsage"),
+            multi_region: o.get_field("multiRegion"),
+            policy: o.get_field("policy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            valid_to: o.get_field("validTo"),
         }
     }
 }

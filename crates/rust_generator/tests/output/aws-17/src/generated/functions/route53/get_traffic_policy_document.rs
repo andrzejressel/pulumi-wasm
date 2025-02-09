@@ -61,74 +61,59 @@ pub mod get_traffic_policy_document {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTrafficPolicyDocumentArgs,
     ) -> GetTrafficPolicyDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoints_binding_1 = args.endpoints.get_output(context);
-        let endpoints_binding = endpoints_binding_1.get_inner();
-        let record_type_binding_1 = args.record_type.get_output(context);
-        let record_type_binding = record_type_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let start_endpoint_binding_1 = args.start_endpoint.get_output(context);
-        let start_endpoint_binding = start_endpoint_binding_1.get_inner();
-        let start_rule_binding_1 = args.start_rule.get_output(context);
-        let start_rule_binding = start_rule_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoints_binding = args.endpoints.get_output(context);
+        let record_type_binding = args.record_type.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let start_endpoint_binding = args.start_endpoint.get_output(context);
+        let start_rule_binding = args.start_rule.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoints".into(),
-                    value: &endpoints_binding,
+                    value: endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recordType".into(),
-                    value: &record_type_binding,
+                    value: record_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startEndpoint".into(),
-                    value: &start_endpoint_binding,
+                    value: start_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startRule".into(),
-                    value: &start_rule_binding,
+                    value: start_rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTrafficPolicyDocumentResult {
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            json: pulumi_gestalt_rust::__private::into_domain(o.extract_field("json")),
-            record_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recordType"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            start_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startEndpoint"),
-            ),
-            start_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startRule"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            endpoints: o.get_field("endpoints"),
+            id: o.get_field("id"),
+            json: o.get_field("json"),
+            record_type: o.get_field("recordType"),
+            rules: o.get_field("rules"),
+            start_endpoint: o.get_field("startEndpoint"),
+            start_rule: o.get_field("startRule"),
+            version: o.get_field("version"),
         }
     }
 }

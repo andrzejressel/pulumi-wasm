@@ -58,63 +58,49 @@ pub mod get_fhir_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFhirServiceArgs,
     ) -> GetFhirServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:healthcare/getFhirService:getFhirService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFhirServiceResult {
-            access_policy_object_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessPolicyObjectIds"),
-            ),
-            authentications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authentications"),
-            ),
-            configuration_export_storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationExportStorageAccountName"),
-            ),
-            container_registry_login_server_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRegistryLoginServerUrls"),
-            ),
-            cors: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cors")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            access_policy_object_ids: o.get_field("accessPolicyObjectIds"),
+            authentications: o.get_field("authentications"),
+            configuration_export_storage_account_name: o
+                .get_field("configurationExportStorageAccountName"),
+            container_registry_login_server_urls: o
+                .get_field("containerRegistryLoginServerUrls"),
+            cors: o.get_field("cors"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

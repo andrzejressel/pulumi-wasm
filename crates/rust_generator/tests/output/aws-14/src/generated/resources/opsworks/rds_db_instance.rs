@@ -53,57 +53,46 @@ pub mod rds_db_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RdsDbInstanceArgs,
     ) -> RdsDbInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_password_binding_1 = args.db_password.get_output(context);
-        let db_password_binding = db_password_binding_1.get_inner();
-        let db_user_binding_1 = args.db_user.get_output(context);
-        let db_user_binding = db_user_binding_1.get_inner();
-        let rds_db_instance_arn_binding_1 = args.rds_db_instance_arn.get_output(context);
-        let rds_db_instance_arn_binding = rds_db_instance_arn_binding_1.get_inner();
-        let stack_id_binding_1 = args.stack_id.get_output(context);
-        let stack_id_binding = stack_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let db_password_binding = args.db_password.get_output(context);
+        let db_user_binding = args.db_user.get_output(context);
+        let rds_db_instance_arn_binding = args.rds_db_instance_arn.get_output(context);
+        let stack_id_binding = args.stack_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opsworks/rdsDbInstance:RdsDbInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbPassword".into(),
-                    value: &db_password_binding,
+                    value: db_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbUser".into(),
-                    value: &db_user_binding,
+                    value: db_user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rdsDbInstanceArn".into(),
-                    value: &rds_db_instance_arn_binding,
+                    value: rds_db_instance_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: &stack_id_binding,
+                    value: stack_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RdsDbInstanceResult {
-            db_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbPassword"),
-            ),
-            db_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbUser"),
-            ),
-            rds_db_instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rdsDbInstanceArn"),
-            ),
-            stack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackId"),
-            ),
+            db_password: o.get_field("dbPassword"),
+            db_user: o.get_field("dbUser"),
+            rds_db_instance_arn: o.get_field("rdsDbInstanceArn"),
+            stack_id: o.get_field("stackId"),
         }
     }
 }

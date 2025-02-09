@@ -130,68 +130,54 @@ pub mod domain_name {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainNameArgs,
     ) -> DomainNameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let domain_name_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let domain_name_configuration_binding = args
             .domain_name_configuration
             .get_output(context);
-        let domain_name_configuration_binding = domain_name_configuration_binding_1
-            .get_inner();
-        let mutual_tls_authentication_binding_1 = args
+        let mutual_tls_authentication_binding = args
             .mutual_tls_authentication
             .get_output(context);
-        let mutual_tls_authentication_binding = mutual_tls_authentication_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigatewayv2/domainName:DomainName".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameConfiguration".into(),
-                    value: &domain_name_configuration_binding,
+                    value: domain_name_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mutualTlsAuthentication".into(),
-                    value: &mutual_tls_authentication_binding,
+                    value: mutual_tls_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainNameResult {
-            api_mapping_selection_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiMappingSelectionExpression"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_name_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNameConfiguration"),
-            ),
-            mutual_tls_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mutualTlsAuthentication"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            api_mapping_selection_expression: o
+                .get_field("apiMappingSelectionExpression"),
+            arn: o.get_field("arn"),
+            domain_name: o.get_field("domainName"),
+            domain_name_configuration: o.get_field("domainNameConfiguration"),
+            mutual_tls_authentication: o.get_field("mutualTlsAuthentication"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

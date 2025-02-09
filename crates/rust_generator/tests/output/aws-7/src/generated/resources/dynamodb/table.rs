@@ -343,264 +343,184 @@ pub mod table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding_1 = args.attributes.get_output(context);
-        let attributes_binding = attributes_binding_1.get_inner();
-        let billing_mode_binding_1 = args.billing_mode.get_output(context);
-        let billing_mode_binding = billing_mode_binding_1.get_inner();
-        let deletion_protection_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attributes_binding = args.attributes.get_output(context);
+        let billing_mode_binding = args.billing_mode.get_output(context);
+        let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
             .get_output(context);
-        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
-            .get_inner();
-        let global_secondary_indexes_binding_1 = args
+        let global_secondary_indexes_binding = args
             .global_secondary_indexes
             .get_output(context);
-        let global_secondary_indexes_binding = global_secondary_indexes_binding_1
-            .get_inner();
-        let hash_key_binding_1 = args.hash_key.get_output(context);
-        let hash_key_binding = hash_key_binding_1.get_inner();
-        let import_table_binding_1 = args.import_table.get_output(context);
-        let import_table_binding = import_table_binding_1.get_inner();
-        let local_secondary_indexes_binding_1 = args
+        let hash_key_binding = args.hash_key.get_output(context);
+        let import_table_binding = args.import_table.get_output(context);
+        let local_secondary_indexes_binding = args
             .local_secondary_indexes
             .get_output(context);
-        let local_secondary_indexes_binding = local_secondary_indexes_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let on_demand_throughput_binding_1 = args
-            .on_demand_throughput
-            .get_output(context);
-        let on_demand_throughput_binding = on_demand_throughput_binding_1.get_inner();
-        let point_in_time_recovery_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let on_demand_throughput_binding = args.on_demand_throughput.get_output(context);
+        let point_in_time_recovery_binding = args
             .point_in_time_recovery
             .get_output(context);
-        let point_in_time_recovery_binding = point_in_time_recovery_binding_1
-            .get_inner();
-        let range_key_binding_1 = args.range_key.get_output(context);
-        let range_key_binding = range_key_binding_1.get_inner();
-        let read_capacity_binding_1 = args.read_capacity.get_output(context);
-        let read_capacity_binding = read_capacity_binding_1.get_inner();
-        let replicas_binding_1 = args.replicas.get_output(context);
-        let replicas_binding = replicas_binding_1.get_inner();
-        let restore_date_time_binding_1 = args.restore_date_time.get_output(context);
-        let restore_date_time_binding = restore_date_time_binding_1.get_inner();
-        let restore_source_name_binding_1 = args.restore_source_name.get_output(context);
-        let restore_source_name_binding = restore_source_name_binding_1.get_inner();
-        let restore_source_table_arn_binding_1 = args
+        let range_key_binding = args.range_key.get_output(context);
+        let read_capacity_binding = args.read_capacity.get_output(context);
+        let replicas_binding = args.replicas.get_output(context);
+        let restore_date_time_binding = args.restore_date_time.get_output(context);
+        let restore_source_name_binding = args.restore_source_name.get_output(context);
+        let restore_source_table_arn_binding = args
             .restore_source_table_arn
             .get_output(context);
-        let restore_source_table_arn_binding = restore_source_table_arn_binding_1
-            .get_inner();
-        let restore_to_latest_time_binding_1 = args
+        let restore_to_latest_time_binding = args
             .restore_to_latest_time
             .get_output(context);
-        let restore_to_latest_time_binding = restore_to_latest_time_binding_1
-            .get_inner();
-        let server_side_encryption_binding_1 = args
+        let server_side_encryption_binding = args
             .server_side_encryption
             .get_output(context);
-        let server_side_encryption_binding = server_side_encryption_binding_1
-            .get_inner();
-        let stream_enabled_binding_1 = args.stream_enabled.get_output(context);
-        let stream_enabled_binding = stream_enabled_binding_1.get_inner();
-        let stream_view_type_binding_1 = args.stream_view_type.get_output(context);
-        let stream_view_type_binding = stream_view_type_binding_1.get_inner();
-        let table_class_binding_1 = args.table_class.get_output(context);
-        let table_class_binding = table_class_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let write_capacity_binding_1 = args.write_capacity.get_output(context);
-        let write_capacity_binding = write_capacity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let stream_enabled_binding = args.stream_enabled.get_output(context);
+        let stream_view_type_binding = args.stream_view_type.get_output(context);
+        let table_class_binding = args.table_class.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let write_capacity_binding = args.write_capacity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dynamodb/table:Table".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: &attributes_binding,
+                    value: attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingMode".into(),
-                    value: &billing_mode_binding,
+                    value: billing_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtectionEnabled".into(),
-                    value: &deletion_protection_enabled_binding,
+                    value: deletion_protection_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalSecondaryIndexes".into(),
-                    value: &global_secondary_indexes_binding,
+                    value: global_secondary_indexes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hashKey".into(),
-                    value: &hash_key_binding,
+                    value: hash_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importTable".into(),
-                    value: &import_table_binding,
+                    value: import_table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localSecondaryIndexes".into(),
-                    value: &local_secondary_indexes_binding,
+                    value: local_secondary_indexes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onDemandThroughput".into(),
-                    value: &on_demand_throughput_binding,
+                    value: on_demand_throughput_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRecovery".into(),
-                    value: &point_in_time_recovery_binding,
+                    value: point_in_time_recovery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rangeKey".into(),
-                    value: &range_key_binding,
+                    value: range_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readCapacity".into(),
-                    value: &read_capacity_binding,
+                    value: read_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicas".into(),
-                    value: &replicas_binding,
+                    value: replicas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreDateTime".into(),
-                    value: &restore_date_time_binding,
+                    value: restore_date_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreSourceName".into(),
-                    value: &restore_source_name_binding,
+                    value: restore_source_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreSourceTableArn".into(),
-                    value: &restore_source_table_arn_binding,
+                    value: restore_source_table_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreToLatestTime".into(),
-                    value: &restore_to_latest_time_binding,
+                    value: restore_to_latest_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryption".into(),
-                    value: &server_side_encryption_binding,
+                    value: server_side_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamEnabled".into(),
-                    value: &stream_enabled_binding,
+                    value: stream_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamViewType".into(),
-                    value: &stream_view_type_binding,
+                    value: stream_view_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableClass".into(),
-                    value: &table_class_binding,
+                    value: table_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeCapacity".into(),
-                    value: &write_capacity_binding,
+                    value: write_capacity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TableResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            billing_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingMode"),
-            ),
-            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtectionEnabled"),
-            ),
-            global_secondary_indexes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalSecondaryIndexes"),
-            ),
-            hash_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hashKey"),
-            ),
-            import_table: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importTable"),
-            ),
-            local_secondary_indexes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localSecondaryIndexes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            on_demand_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onDemandThroughput"),
-            ),
-            point_in_time_recovery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeRecovery"),
-            ),
-            range_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rangeKey"),
-            ),
-            read_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readCapacity"),
-            ),
-            replicas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicas"),
-            ),
-            restore_date_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreDateTime"),
-            ),
-            restore_source_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreSourceName"),
-            ),
-            restore_source_table_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreSourceTableArn"),
-            ),
-            restore_to_latest_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreToLatestTime"),
-            ),
-            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryption"),
-            ),
-            stream_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamArn"),
-            ),
-            stream_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamEnabled"),
-            ),
-            stream_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamLabel"),
-            ),
-            stream_view_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamViewType"),
-            ),
-            table_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableClass"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
-            write_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writeCapacity"),
-            ),
+            arn: o.get_field("arn"),
+            attributes: o.get_field("attributes"),
+            billing_mode: o.get_field("billingMode"),
+            deletion_protection_enabled: o.get_field("deletionProtectionEnabled"),
+            global_secondary_indexes: o.get_field("globalSecondaryIndexes"),
+            hash_key: o.get_field("hashKey"),
+            import_table: o.get_field("importTable"),
+            local_secondary_indexes: o.get_field("localSecondaryIndexes"),
+            name: o.get_field("name"),
+            on_demand_throughput: o.get_field("onDemandThroughput"),
+            point_in_time_recovery: o.get_field("pointInTimeRecovery"),
+            range_key: o.get_field("rangeKey"),
+            read_capacity: o.get_field("readCapacity"),
+            replicas: o.get_field("replicas"),
+            restore_date_time: o.get_field("restoreDateTime"),
+            restore_source_name: o.get_field("restoreSourceName"),
+            restore_source_table_arn: o.get_field("restoreSourceTableArn"),
+            restore_to_latest_time: o.get_field("restoreToLatestTime"),
+            server_side_encryption: o.get_field("serverSideEncryption"),
+            stream_arn: o.get_field("streamArn"),
+            stream_enabled: o.get_field("streamEnabled"),
+            stream_label: o.get_field("streamLabel"),
+            stream_view_type: o.get_field("streamViewType"),
+            table_class: o.get_field("tableClass"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            ttl: o.get_field("ttl"),
+            write_capacity: o.get_field("writeCapacity"),
         }
     }
 }

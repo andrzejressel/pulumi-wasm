@@ -179,103 +179,76 @@ pub mod network_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkPolicyArgs,
     ) -> NetworkPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let edge_services_cidr_binding_1 = args.edge_services_cidr.get_output(context);
-        let edge_services_cidr_binding = edge_services_cidr_binding_1.get_inner();
-        let external_ip_binding_1 = args.external_ip.get_output(context);
-        let external_ip_binding = external_ip_binding_1.get_inner();
-        let internet_access_binding_1 = args.internet_access.get_output(context);
-        let internet_access_binding = internet_access_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let vmware_engine_network_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let edge_services_cidr_binding = args.edge_services_cidr.get_output(context);
+        let external_ip_binding = args.external_ip.get_output(context);
+        let internet_access_binding = args.internet_access.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let vmware_engine_network_binding = args
             .vmware_engine_network
             .get_output(context);
-        let vmware_engine_network_binding = vmware_engine_network_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vmwareengine/networkPolicy:NetworkPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeServicesCidr".into(),
-                    value: &edge_services_cidr_binding,
+                    value: edge_services_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalIp".into(),
-                    value: &external_ip_binding,
+                    value: external_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetAccess".into(),
-                    value: &internet_access_binding,
+                    value: internet_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmwareEngineNetwork".into(),
-                    value: &vmware_engine_network_binding,
+                    value: vmware_engine_network_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkPolicyResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            edge_services_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeServicesCidr"),
-            ),
-            external_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalIp"),
-            ),
-            internet_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetAccess"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            vmware_engine_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmwareEngineNetwork"),
-            ),
-            vmware_engine_network_canonical: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmwareEngineNetworkCanonical"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            edge_services_cidr: o.get_field("edgeServicesCidr"),
+            external_ip: o.get_field("externalIp"),
+            internet_access: o.get_field("internetAccess"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            vmware_engine_network: o.get_field("vmwareEngineNetwork"),
+            vmware_engine_network_canonical: o.get_field("vmwareEngineNetworkCanonical"),
         }
     }
 }

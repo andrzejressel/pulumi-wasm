@@ -75,40 +75,35 @@ pub mod vault_resource_guard_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VaultResourceGuardAssociationArgs,
     ) -> VaultResourceGuardAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_guard_id_binding_1 = args.resource_guard_id.get_output(context);
-        let resource_guard_id_binding = resource_guard_id_binding_1.get_inner();
-        let vault_id_binding_1 = args.vault_id.get_output(context);
-        let vault_id_binding = vault_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let resource_guard_id_binding = args.resource_guard_id.get_output(context);
+        let vault_id_binding = args.vault_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGuardId".into(),
-                    value: &resource_guard_id_binding,
+                    value: resource_guard_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultId".into(),
-                    value: &vault_id_binding,
+                    value: vault_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VaultResourceGuardAssociationResult {
-            resource_guard_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGuardId"),
-            ),
-            vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vaultId"),
-            ),
+            resource_guard_id: o.get_field("resourceGuardId"),
+            vault_id: o.get_field("vaultId"),
         }
     }
 }

@@ -226,145 +226,103 @@ pub mod azure_node_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AzureNodePoolArgs,
     ) -> AzureNodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let autoscaling_binding_1 = args.autoscaling.get_output(context);
-        let autoscaling_binding = autoscaling_binding_1.get_inner();
-        let azure_availability_zone_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let autoscaling_binding = args.autoscaling.get_output(context);
+        let azure_availability_zone_binding = args
             .azure_availability_zone
             .get_output(context);
-        let azure_availability_zone_binding = azure_availability_zone_binding_1
-            .get_inner();
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let config_binding_1 = args.config.get_output(context);
-        let config_binding = config_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let management_binding_1 = args.management.get_output(context);
-        let management_binding = management_binding_1.get_inner();
-        let max_pods_constraint_binding_1 = args.max_pods_constraint.get_output(context);
-        let max_pods_constraint_binding = max_pods_constraint_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let cluster_binding = args.cluster.get_output(context);
+        let config_binding = args.config.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let management_binding = args.management.get_output(context);
+        let max_pods_constraint_binding = args.max_pods_constraint.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:container/azureNodePool:AzureNodePool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscaling".into(),
-                    value: &autoscaling_binding,
+                    value: autoscaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureAvailabilityZone".into(),
-                    value: &azure_availability_zone_binding,
+                    value: azure_availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: &config_binding,
+                    value: config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "management".into(),
-                    value: &management_binding,
+                    value: management_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxPodsConstraint".into(),
-                    value: &max_pods_constraint_binding,
+                    value: max_pods_constraint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AzureNodePoolResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            autoscaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscaling"),
-            ),
-            azure_availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureAvailabilityZone"),
-            ),
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("config"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("management"),
-            ),
-            max_pods_constraint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxPodsConstraint"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            annotations: o.get_field("annotations"),
+            autoscaling: o.get_field("autoscaling"),
+            azure_availability_zone: o.get_field("azureAvailabilityZone"),
+            cluster: o.get_field("cluster"),
+            config: o.get_field("config"),
+            create_time: o.get_field("createTime"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            etag: o.get_field("etag"),
+            location: o.get_field("location"),
+            management: o.get_field("management"),
+            max_pods_constraint: o.get_field("maxPodsConstraint"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            reconciling: o.get_field("reconciling"),
+            state: o.get_field("state"),
+            subnet_id: o.get_field("subnetId"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            version: o.get_field("version"),
         }
     }
 }

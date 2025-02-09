@@ -95,59 +95,49 @@ pub mod spring_cloud_build_pack_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudBuildPackBindingArgs,
     ) -> SpringCloudBuildPackBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let binding_type_binding_1 = args.binding_type.get_output(context);
-        let binding_type_binding = binding_type_binding_1.get_inner();
-        let launch_binding_1 = args.launch.get_output(context);
-        let launch_binding = launch_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_builder_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let binding_type_binding = args.binding_type.get_output(context);
+        let launch_binding = args.launch.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_builder_id_binding = args
             .spring_cloud_builder_id
             .get_output(context);
-        let spring_cloud_builder_id_binding = spring_cloud_builder_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bindingType".into(),
-                    value: &binding_type_binding,
+                    value: binding_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launch".into(),
-                    value: &launch_binding,
+                    value: launch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudBuilderId".into(),
-                    value: &spring_cloud_builder_id_binding,
+                    value: spring_cloud_builder_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudBuildPackBindingResult {
-            binding_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bindingType"),
-            ),
-            launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launch"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_builder_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudBuilderId"),
-            ),
+            binding_type: o.get_field("bindingType"),
+            launch: o.get_field("launch"),
+            name: o.get_field("name"),
+            spring_cloud_builder_id: o.get_field("springCloudBuilderId"),
         }
     }
 }

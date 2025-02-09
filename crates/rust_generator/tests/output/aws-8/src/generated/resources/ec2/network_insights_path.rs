@@ -93,92 +93,68 @@ pub mod network_insights_path {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkInsightsPathArgs,
     ) -> NetworkInsightsPathResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let destination_ip_binding_1 = args.destination_ip.get_output(context);
-        let destination_ip_binding = destination_ip_binding_1.get_inner();
-        let destination_port_binding_1 = args.destination_port.get_output(context);
-        let destination_port_binding = destination_port_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let source_ip_binding_1 = args.source_ip.get_output(context);
-        let source_ip_binding = source_ip_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_binding = args.destination.get_output(context);
+        let destination_ip_binding = args.destination_ip.get_output(context);
+        let destination_port_binding = args.destination_port.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let source_ip_binding = args.source_ip.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/networkInsightsPath:NetworkInsightsPath".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationIp".into(),
-                    value: &destination_ip_binding,
+                    value: destination_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPort".into(),
-                    value: &destination_port_binding,
+                    value: destination_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIp".into(),
-                    value: &source_ip_binding,
+                    value: source_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkInsightsPathResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            destination_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationArn"),
-            ),
-            destination_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationIp"),
-            ),
-            destination_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationPort"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            source_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArn"),
-            ),
-            source_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceIp"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            destination: o.get_field("destination"),
+            destination_arn: o.get_field("destinationArn"),
+            destination_ip: o.get_field("destinationIp"),
+            destination_port: o.get_field("destinationPort"),
+            protocol: o.get_field("protocol"),
+            source: o.get_field("source"),
+            source_arn: o.get_field("sourceArn"),
+            source_ip: o.get_field("sourceIp"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -78,69 +78,54 @@ pub mod account_public_access_block {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountPublicAccessBlockArgs,
     ) -> AccountPublicAccessBlockResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let block_public_acls_binding_1 = args.block_public_acls.get_output(context);
-        let block_public_acls_binding = block_public_acls_binding_1.get_inner();
-        let block_public_policy_binding_1 = args.block_public_policy.get_output(context);
-        let block_public_policy_binding = block_public_policy_binding_1.get_inner();
-        let ignore_public_acls_binding_1 = args.ignore_public_acls.get_output(context);
-        let ignore_public_acls_binding = ignore_public_acls_binding_1.get_inner();
-        let restrict_public_buckets_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let block_public_acls_binding = args.block_public_acls.get_output(context);
+        let block_public_policy_binding = args.block_public_policy.get_output(context);
+        let ignore_public_acls_binding = args.ignore_public_acls.get_output(context);
+        let restrict_public_buckets_binding = args
             .restrict_public_buckets
             .get_output(context);
-        let restrict_public_buckets_binding = restrict_public_buckets_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPublicAcls".into(),
-                    value: &block_public_acls_binding,
+                    value: block_public_acls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPublicPolicy".into(),
-                    value: &block_public_policy_binding,
+                    value: block_public_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignorePublicAcls".into(),
-                    value: &ignore_public_acls_binding,
+                    value: ignore_public_acls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictPublicBuckets".into(),
-                    value: &restrict_public_buckets_binding,
+                    value: restrict_public_buckets_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountPublicAccessBlockResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            block_public_acls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockPublicAcls"),
-            ),
-            block_public_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockPublicPolicy"),
-            ),
-            ignore_public_acls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignorePublicAcls"),
-            ),
-            restrict_public_buckets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restrictPublicBuckets"),
-            ),
+            account_id: o.get_field("accountId"),
+            block_public_acls: o.get_field("blockPublicAcls"),
+            block_public_policy: o.get_field("blockPublicPolicy"),
+            ignore_public_acls: o.get_field("ignorePublicAcls"),
+            restrict_public_buckets: o.get_field("restrictPublicBuckets"),
         }
     }
 }

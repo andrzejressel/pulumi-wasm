@@ -242,234 +242,164 @@ pub mod kx_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KxClusterArgs,
     ) -> KxClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_scaling_configuration_binding = args
             .auto_scaling_configuration
             .get_output(context);
-        let auto_scaling_configuration_binding = auto_scaling_configuration_binding_1
-            .get_inner();
-        let availability_zone_id_binding_1 = args
-            .availability_zone_id
-            .get_output(context);
-        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
-        let az_mode_binding_1 = args.az_mode.get_output(context);
-        let az_mode_binding = az_mode_binding_1.get_inner();
-        let cache_storage_configurations_binding_1 = args
+        let availability_zone_id_binding = args.availability_zone_id.get_output(context);
+        let az_mode_binding = args.az_mode.get_output(context);
+        let cache_storage_configurations_binding = args
             .cache_storage_configurations
             .get_output(context);
-        let cache_storage_configurations_binding = cache_storage_configurations_binding_1
-            .get_inner();
-        let capacity_configuration_binding_1 = args
+        let capacity_configuration_binding = args
             .capacity_configuration
             .get_output(context);
-        let capacity_configuration_binding = capacity_configuration_binding_1
-            .get_inner();
-        let code_binding_1 = args.code.get_output(context);
-        let code_binding = code_binding_1.get_inner();
-        let command_line_arguments_binding_1 = args
+        let code_binding = args.code.get_output(context);
+        let command_line_arguments_binding = args
             .command_line_arguments
             .get_output(context);
-        let command_line_arguments_binding = command_line_arguments_binding_1
-            .get_inner();
-        let databases_binding_1 = args.databases.get_output(context);
-        let databases_binding = databases_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let environment_id_binding_1 = args.environment_id.get_output(context);
-        let environment_id_binding = environment_id_binding_1.get_inner();
-        let execution_role_binding_1 = args.execution_role.get_output(context);
-        let execution_role_binding = execution_role_binding_1.get_inner();
-        let initialization_script_binding_1 = args
+        let databases_binding = args.databases.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let environment_id_binding = args.environment_id.get_output(context);
+        let execution_role_binding = args.execution_role.get_output(context);
+        let initialization_script_binding = args
             .initialization_script
             .get_output(context);
-        let initialization_script_binding = initialization_script_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let release_label_binding_1 = args.release_label.get_output(context);
-        let release_label_binding = release_label_binding_1.get_inner();
-        let savedown_storage_configuration_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let release_label_binding = args.release_label.get_output(context);
+        let savedown_storage_configuration_binding = args
             .savedown_storage_configuration
             .get_output(context);
-        let savedown_storage_configuration_binding = savedown_storage_configuration_binding_1
-            .get_inner();
-        let scaling_group_configuration_binding_1 = args
+        let scaling_group_configuration_binding = args
             .scaling_group_configuration
             .get_output(context);
-        let scaling_group_configuration_binding = scaling_group_configuration_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tickerplant_log_configurations_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let tickerplant_log_configurations_binding = args
             .tickerplant_log_configurations
             .get_output(context);
-        let tickerplant_log_configurations_binding = tickerplant_log_configurations_binding_1
-            .get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let vpc_configuration_binding_1 = args.vpc_configuration.get_output(context);
-        let vpc_configuration_binding = vpc_configuration_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let type__binding = args.type_.get_output(context);
+        let vpc_configuration_binding = args.vpc_configuration.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:finspace/kxCluster:KxCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingConfiguration".into(),
-                    value: &auto_scaling_configuration_binding,
+                    value: auto_scaling_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneId".into(),
-                    value: &availability_zone_id_binding,
+                    value: availability_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azMode".into(),
-                    value: &az_mode_binding,
+                    value: az_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheStorageConfigurations".into(),
-                    value: &cache_storage_configurations_binding,
+                    value: cache_storage_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityConfiguration".into(),
-                    value: &capacity_configuration_binding,
+                    value: capacity_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: &code_binding,
+                    value: code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commandLineArguments".into(),
-                    value: &command_line_arguments_binding,
+                    value: command_line_arguments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databases".into(),
-                    value: &databases_binding,
+                    value: databases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: &environment_id_binding,
+                    value: environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRole".into(),
-                    value: &execution_role_binding,
+                    value: execution_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initializationScript".into(),
-                    value: &initialization_script_binding,
+                    value: initialization_script_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseLabel".into(),
-                    value: &release_label_binding,
+                    value: release_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "savedownStorageConfiguration".into(),
-                    value: &savedown_storage_configuration_binding,
+                    value: savedown_storage_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingGroupConfiguration".into(),
-                    value: &scaling_group_configuration_binding,
+                    value: scaling_group_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tickerplantLogConfigurations".into(),
-                    value: &tickerplant_log_configurations_binding,
+                    value: tickerplant_log_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfiguration".into(),
-                    value: &vpc_configuration_binding,
+                    value: vpc_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KxClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_scaling_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingConfiguration"),
-            ),
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            az_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azMode"),
-            ),
-            cache_storage_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheStorageConfigurations"),
-            ),
-            capacity_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityConfiguration"),
-            ),
-            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
-            command_line_arguments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commandLineArguments"),
-            ),
-            created_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTimestamp"),
-            ),
-            databases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databases"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentId"),
-            ),
-            execution_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRole"),
-            ),
-            initialization_script: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initializationScript"),
-            ),
-            last_modified_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedTimestamp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            release_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseLabel"),
-            ),
-            savedown_storage_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("savedownStorageConfiguration"),
-            ),
-            scaling_group_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingGroupConfiguration"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusReason"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tickerplant_log_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tickerplantLogConfigurations"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vpc_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfiguration"),
-            ),
+            arn: o.get_field("arn"),
+            auto_scaling_configuration: o.get_field("autoScalingConfiguration"),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            az_mode: o.get_field("azMode"),
+            cache_storage_configurations: o.get_field("cacheStorageConfigurations"),
+            capacity_configuration: o.get_field("capacityConfiguration"),
+            code: o.get_field("code"),
+            command_line_arguments: o.get_field("commandLineArguments"),
+            created_timestamp: o.get_field("createdTimestamp"),
+            databases: o.get_field("databases"),
+            description: o.get_field("description"),
+            environment_id: o.get_field("environmentId"),
+            execution_role: o.get_field("executionRole"),
+            initialization_script: o.get_field("initializationScript"),
+            last_modified_timestamp: o.get_field("lastModifiedTimestamp"),
+            name: o.get_field("name"),
+            release_label: o.get_field("releaseLabel"),
+            savedown_storage_configuration: o.get_field("savedownStorageConfiguration"),
+            scaling_group_configuration: o.get_field("scalingGroupConfiguration"),
+            status: o.get_field("status"),
+            status_reason: o.get_field("statusReason"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tickerplant_log_configurations: o.get_field("tickerplantLogConfigurations"),
+            type_: o.get_field("type"),
+            vpc_configuration: o.get_field("vpcConfiguration"),
         }
     }
 }

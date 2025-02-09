@@ -137,127 +137,93 @@ pub mod nat_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NatPoolArgs,
     ) -> NatPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_port_binding_1 = args.backend_port.get_output(context);
-        let backend_port_binding = backend_port_binding_1.get_inner();
-        let floating_ip_enabled_binding_1 = args.floating_ip_enabled.get_output(context);
-        let floating_ip_enabled_binding = floating_ip_enabled_binding_1.get_inner();
-        let frontend_ip_configuration_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backend_port_binding = args.backend_port.get_output(context);
+        let floating_ip_enabled_binding = args.floating_ip_enabled.get_output(context);
+        let frontend_ip_configuration_name_binding = args
             .frontend_ip_configuration_name
             .get_output(context);
-        let frontend_ip_configuration_name_binding = frontend_ip_configuration_name_binding_1
-            .get_inner();
-        let frontend_port_end_binding_1 = args.frontend_port_end.get_output(context);
-        let frontend_port_end_binding = frontend_port_end_binding_1.get_inner();
-        let frontend_port_start_binding_1 = args.frontend_port_start.get_output(context);
-        let frontend_port_start_binding = frontend_port_start_binding_1.get_inner();
-        let idle_timeout_in_minutes_binding_1 = args
+        let frontend_port_end_binding = args.frontend_port_end.get_output(context);
+        let frontend_port_start_binding = args.frontend_port_start.get_output(context);
+        let idle_timeout_in_minutes_binding = args
             .idle_timeout_in_minutes
             .get_output(context);
-        let idle_timeout_in_minutes_binding = idle_timeout_in_minutes_binding_1
-            .get_inner();
-        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
-        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tcp_reset_enabled_binding_1 = args.tcp_reset_enabled.get_output(context);
-        let tcp_reset_enabled_binding = tcp_reset_enabled_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let loadbalancer_id_binding = args.loadbalancer_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tcp_reset_enabled_binding = args.tcp_reset_enabled.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:lb/natPool:NatPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPort".into(),
-                    value: &backend_port_binding,
+                    value: backend_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "floatingIpEnabled".into(),
-                    value: &floating_ip_enabled_binding,
+                    value: floating_ip_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendIpConfigurationName".into(),
-                    value: &frontend_ip_configuration_name_binding,
+                    value: frontend_ip_configuration_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendPortEnd".into(),
-                    value: &frontend_port_end_binding,
+                    value: frontend_port_end_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendPortStart".into(),
-                    value: &frontend_port_start_binding,
+                    value: frontend_port_start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeoutInMinutes".into(),
-                    value: &idle_timeout_in_minutes_binding,
+                    value: idle_timeout_in_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: &loadbalancer_id_binding,
+                    value: loadbalancer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpResetEnabled".into(),
-                    value: &tcp_reset_enabled_binding,
+                    value: tcp_reset_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NatPoolResult {
-            backend_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPort"),
-            ),
-            floating_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("floatingIpEnabled"),
-            ),
-            frontend_ip_configuration_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendIpConfigurationId"),
-            ),
-            frontend_ip_configuration_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendIpConfigurationName"),
-            ),
-            frontend_port_end: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendPortEnd"),
-            ),
-            frontend_port_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendPortStart"),
-            ),
-            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeoutInMinutes"),
-            ),
-            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadbalancerId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tcp_reset_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpResetEnabled"),
-            ),
+            backend_port: o.get_field("backendPort"),
+            floating_ip_enabled: o.get_field("floatingIpEnabled"),
+            frontend_ip_configuration_id: o.get_field("frontendIpConfigurationId"),
+            frontend_ip_configuration_name: o.get_field("frontendIpConfigurationName"),
+            frontend_port_end: o.get_field("frontendPortEnd"),
+            frontend_port_start: o.get_field("frontendPortStart"),
+            idle_timeout_in_minutes: o.get_field("idleTimeoutInMinutes"),
+            loadbalancer_id: o.get_field("loadbalancerId"),
+            name: o.get_field("name"),
+            protocol: o.get_field("protocol"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tcp_reset_enabled: o.get_field("tcpResetEnabled"),
         }
     }
 }

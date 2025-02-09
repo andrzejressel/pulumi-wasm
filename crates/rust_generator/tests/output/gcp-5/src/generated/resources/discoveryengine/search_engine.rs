@@ -150,111 +150,79 @@ pub mod search_engine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SearchEngineArgs,
     ) -> SearchEngineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let collection_id_binding_1 = args.collection_id.get_output(context);
-        let collection_id_binding = collection_id_binding_1.get_inner();
-        let common_config_binding_1 = args.common_config.get_output(context);
-        let common_config_binding = common_config_binding_1.get_inner();
-        let data_store_ids_binding_1 = args.data_store_ids.get_output(context);
-        let data_store_ids_binding = data_store_ids_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let engine_id_binding_1 = args.engine_id.get_output(context);
-        let engine_id_binding = engine_id_binding_1.get_inner();
-        let industry_vertical_binding_1 = args.industry_vertical.get_output(context);
-        let industry_vertical_binding = industry_vertical_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let search_engine_config_binding_1 = args
-            .search_engine_config
-            .get_output(context);
-        let search_engine_config_binding = search_engine_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let collection_id_binding = args.collection_id.get_output(context);
+        let common_config_binding = args.common_config.get_output(context);
+        let data_store_ids_binding = args.data_store_ids.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let engine_id_binding = args.engine_id.get_output(context);
+        let industry_vertical_binding = args.industry_vertical.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let search_engine_config_binding = args.search_engine_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:discoveryengine/searchEngine:SearchEngine".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collectionId".into(),
-                    value: &collection_id_binding,
+                    value: collection_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commonConfig".into(),
-                    value: &common_config_binding,
+                    value: common_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStoreIds".into(),
-                    value: &data_store_ids_binding,
+                    value: data_store_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineId".into(),
-                    value: &engine_id_binding,
+                    value: engine_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "industryVertical".into(),
-                    value: &industry_vertical_binding,
+                    value: industry_vertical_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "searchEngineConfig".into(),
-                    value: &search_engine_config_binding,
+                    value: search_engine_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SearchEngineResult {
-            collection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collectionId"),
-            ),
-            common_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commonConfig"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            data_store_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataStoreIds"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            engine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineId"),
-            ),
-            industry_vertical: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("industryVertical"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            search_engine_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("searchEngineConfig"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            collection_id: o.get_field("collectionId"),
+            common_config: o.get_field("commonConfig"),
+            create_time: o.get_field("createTime"),
+            data_store_ids: o.get_field("dataStoreIds"),
+            display_name: o.get_field("displayName"),
+            engine_id: o.get_field("engineId"),
+            industry_vertical: o.get_field("industryVertical"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            search_engine_config: o.get_field("searchEngineConfig"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

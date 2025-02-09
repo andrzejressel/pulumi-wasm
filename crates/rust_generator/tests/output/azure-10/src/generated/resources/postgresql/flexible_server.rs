@@ -333,266 +333,190 @@ pub mod flexible_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FlexibleServerArgs,
     ) -> FlexibleServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_login_binding_1 = args.administrator_login.get_output(context);
-        let administrator_login_binding = administrator_login_binding_1.get_inner();
-        let administrator_password_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administrator_login_binding = args.administrator_login.get_output(context);
+        let administrator_password_binding = args
             .administrator_password
             .get_output(context);
-        let administrator_password_binding = administrator_password_binding_1
-            .get_inner();
-        let authentication_binding_1 = args.authentication.get_output(context);
-        let authentication_binding = authentication_binding_1.get_inner();
-        let auto_grow_enabled_binding_1 = args.auto_grow_enabled.get_output(context);
-        let auto_grow_enabled_binding = auto_grow_enabled_binding_1.get_inner();
-        let backup_retention_days_binding_1 = args
+        let authentication_binding = args.authentication.get_output(context);
+        let auto_grow_enabled_binding = args.auto_grow_enabled.get_output(context);
+        let backup_retention_days_binding = args
             .backup_retention_days
             .get_output(context);
-        let backup_retention_days_binding = backup_retention_days_binding_1.get_inner();
-        let create_mode_binding_1 = args.create_mode.get_output(context);
-        let create_mode_binding = create_mode_binding_1.get_inner();
-        let customer_managed_key_binding_1 = args
-            .customer_managed_key
-            .get_output(context);
-        let customer_managed_key_binding = customer_managed_key_binding_1.get_inner();
-        let delegated_subnet_id_binding_1 = args.delegated_subnet_id.get_output(context);
-        let delegated_subnet_id_binding = delegated_subnet_id_binding_1.get_inner();
-        let geo_redundant_backup_enabled_binding_1 = args
+        let create_mode_binding = args.create_mode.get_output(context);
+        let customer_managed_key_binding = args.customer_managed_key.get_output(context);
+        let delegated_subnet_id_binding = args.delegated_subnet_id.get_output(context);
+        let geo_redundant_backup_enabled_binding = args
             .geo_redundant_backup_enabled
             .get_output(context);
-        let geo_redundant_backup_enabled_binding = geo_redundant_backup_enabled_binding_1
-            .get_inner();
-        let high_availability_binding_1 = args.high_availability.get_output(context);
-        let high_availability_binding = high_availability_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let point_in_time_restore_time_in_utc_binding_1 = args
+        let high_availability_binding = args.high_availability.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let point_in_time_restore_time_in_utc_binding = args
             .point_in_time_restore_time_in_utc
             .get_output(context);
-        let point_in_time_restore_time_in_utc_binding = point_in_time_restore_time_in_utc_binding_1
-            .get_inner();
-        let private_dns_zone_id_binding_1 = args.private_dns_zone_id.get_output(context);
-        let private_dns_zone_id_binding = private_dns_zone_id_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let private_dns_zone_id_binding = args.private_dns_zone_id.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let replication_role_binding_1 = args.replication_role.get_output(context);
-        let replication_role_binding = replication_role_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let source_server_id_binding_1 = args.source_server_id.get_output(context);
-        let source_server_id_binding = source_server_id_binding_1.get_inner();
-        let storage_mb_binding_1 = args.storage_mb.get_output(context);
-        let storage_mb_binding = storage_mb_binding_1.get_inner();
-        let storage_tier_binding_1 = args.storage_tier.get_output(context);
-        let storage_tier_binding = storage_tier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let replication_role_binding = args.replication_role.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let source_server_id_binding = args.source_server_id.get_output(context);
+        let storage_mb_binding = args.storage_mb.get_output(context);
+        let storage_tier_binding = args.storage_tier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:postgresql/flexibleServer:FlexibleServer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLogin".into(),
-                    value: &administrator_login_binding,
+                    value: administrator_login_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorPassword".into(),
-                    value: &administrator_password_binding,
+                    value: administrator_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: &authentication_binding,
+                    value: authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoGrowEnabled".into(),
-                    value: &auto_grow_enabled_binding,
+                    value: auto_grow_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRetentionDays".into(),
-                    value: &backup_retention_days_binding,
+                    value: backup_retention_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createMode".into(),
-                    value: &create_mode_binding,
+                    value: create_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKey".into(),
-                    value: &customer_managed_key_binding,
+                    value: customer_managed_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedSubnetId".into(),
-                    value: &delegated_subnet_id_binding,
+                    value: delegated_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoRedundantBackupEnabled".into(),
-                    value: &geo_redundant_backup_enabled_binding,
+                    value: geo_redundant_backup_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "highAvailability".into(),
-                    value: &high_availability_binding,
+                    value: high_availability_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRestoreTimeInUtc".into(),
-                    value: &point_in_time_restore_time_in_utc_binding,
+                    value: point_in_time_restore_time_in_utc_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsZoneId".into(),
-                    value: &private_dns_zone_id_binding,
+                    value: private_dns_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationRole".into(),
-                    value: &replication_role_binding,
+                    value: replication_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceServerId".into(),
-                    value: &source_server_id_binding,
+                    value: source_server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageMb".into(),
-                    value: &storage_mb_binding,
+                    value: storage_mb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageTier".into(),
-                    value: &storage_tier_binding,
+                    value: storage_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FlexibleServerResult {
-            administrator_login: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLogin"),
-            ),
-            administrator_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorPassword"),
-            ),
-            authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authentication"),
-            ),
-            auto_grow_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoGrowEnabled"),
-            ),
-            backup_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionDays"),
-            ),
-            create_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createMode"),
-            ),
-            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKey"),
-            ),
-            delegated_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegatedSubnetId"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            geo_redundant_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoRedundantBackupEnabled"),
-            ),
-            high_availability: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("highAvailability"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_restore_time_in_utc: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeRestoreTimeInUtc"),
-            ),
-            private_dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsZoneId"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            replication_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationRole"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            source_server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceServerId"),
-            ),
-            storage_mb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageMb"),
-            ),
-            storage_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageTier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            administrator_login: o.get_field("administratorLogin"),
+            administrator_password: o.get_field("administratorPassword"),
+            authentication: o.get_field("authentication"),
+            auto_grow_enabled: o.get_field("autoGrowEnabled"),
+            backup_retention_days: o.get_field("backupRetentionDays"),
+            create_mode: o.get_field("createMode"),
+            customer_managed_key: o.get_field("customerManagedKey"),
+            delegated_subnet_id: o.get_field("delegatedSubnetId"),
+            fqdn: o.get_field("fqdn"),
+            geo_redundant_backup_enabled: o.get_field("geoRedundantBackupEnabled"),
+            high_availability: o.get_field("highAvailability"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            name: o.get_field("name"),
+            point_in_time_restore_time_in_utc: o
+                .get_field("pointInTimeRestoreTimeInUtc"),
+            private_dns_zone_id: o.get_field("privateDnsZoneId"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            replication_role: o.get_field("replicationRole"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            source_server_id: o.get_field("sourceServerId"),
+            storage_mb: o.get_field("storageMb"),
+            storage_tier: o.get_field("storageTier"),
+            tags: o.get_field("tags"),
+            version: o.get_field("version"),
+            zone: o.get_field("zone"),
         }
     }
 }

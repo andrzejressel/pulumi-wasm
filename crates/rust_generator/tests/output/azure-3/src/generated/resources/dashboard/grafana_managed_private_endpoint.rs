@@ -112,96 +112,75 @@ pub mod grafana_managed_private_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GrafanaManagedPrivateEndpointArgs,
     ) -> GrafanaManagedPrivateEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grafana_id_binding_1 = args.grafana_id.get_output(context);
-        let grafana_id_binding = grafana_id_binding_1.get_inner();
-        let group_ids_binding_1 = args.group_ids.get_output(context);
-        let group_ids_binding = group_ids_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_link_resource_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let grafana_id_binding = args.grafana_id.get_output(context);
+        let group_ids_binding = args.group_ids.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let private_link_resource_id_binding = args
             .private_link_resource_id
             .get_output(context);
-        let private_link_resource_id_binding = private_link_resource_id_binding_1
-            .get_inner();
-        let private_link_resource_region_binding_1 = args
+        let private_link_resource_region_binding = args
             .private_link_resource_region
             .get_output(context);
-        let private_link_resource_region_binding = private_link_resource_region_binding_1
-            .get_inner();
-        let request_message_binding_1 = args.request_message.get_output(context);
-        let request_message_binding = request_message_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request_message_binding = args.request_message.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grafanaId".into(),
-                    value: &grafana_id_binding,
+                    value: grafana_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupIds".into(),
-                    value: &group_ids_binding,
+                    value: group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkResourceId".into(),
-                    value: &private_link_resource_id_binding,
+                    value: private_link_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkResourceRegion".into(),
-                    value: &private_link_resource_region_binding,
+                    value: private_link_resource_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestMessage".into(),
-                    value: &request_message_binding,
+                    value: request_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GrafanaManagedPrivateEndpointResult {
-            grafana_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grafanaId"),
-            ),
-            group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupIds"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_link_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkResourceId"),
-            ),
-            private_link_resource_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkResourceRegion"),
-            ),
-            request_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestMessage"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            grafana_id: o.get_field("grafanaId"),
+            group_ids: o.get_field("groupIds"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            private_link_resource_id: o.get_field("privateLinkResourceId"),
+            private_link_resource_region: o.get_field("privateLinkResourceRegion"),
+            request_message: o.get_field("requestMessage"),
+            tags: o.get_field("tags"),
         }
     }
 }

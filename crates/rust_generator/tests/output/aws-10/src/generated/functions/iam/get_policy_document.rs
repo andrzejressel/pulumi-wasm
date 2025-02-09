@@ -53,93 +53,69 @@ pub mod get_policy_document {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPolicyDocumentArgs,
     ) -> GetPolicyDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let override_json_binding_1 = args.override_json.get_output(context);
-        let override_json_binding = override_json_binding_1.get_inner();
-        let override_policy_documents_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let override_json_binding = args.override_json.get_output(context);
+        let override_policy_documents_binding = args
             .override_policy_documents
             .get_output(context);
-        let override_policy_documents_binding = override_policy_documents_binding_1
-            .get_inner();
-        let policy_id_binding_1 = args.policy_id.get_output(context);
-        let policy_id_binding = policy_id_binding_1.get_inner();
-        let source_json_binding_1 = args.source_json.get_output(context);
-        let source_json_binding = source_json_binding_1.get_inner();
-        let source_policy_documents_binding_1 = args
+        let policy_id_binding = args.policy_id.get_output(context);
+        let source_json_binding = args.source_json.get_output(context);
+        let source_policy_documents_binding = args
             .source_policy_documents
             .get_output(context);
-        let source_policy_documents_binding = source_policy_documents_binding_1
-            .get_inner();
-        let statements_binding_1 = args.statements.get_output(context);
-        let statements_binding = statements_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let statements_binding = args.statements.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getPolicyDocument:getPolicyDocument".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideJson".into(),
-                    value: &override_json_binding,
+                    value: override_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overridePolicyDocuments".into(),
-                    value: &override_policy_documents_binding,
+                    value: override_policy_documents_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyId".into(),
-                    value: &policy_id_binding,
+                    value: policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceJson".into(),
-                    value: &source_json_binding,
+                    value: source_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePolicyDocuments".into(),
-                    value: &source_policy_documents_binding,
+                    value: source_policy_documents_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statements".into(),
-                    value: &statements_binding,
+                    value: statements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPolicyDocumentResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            json: pulumi_gestalt_rust::__private::into_domain(o.extract_field("json")),
-            minified_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minifiedJson"),
-            ),
-            override_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrideJson"),
-            ),
-            override_policy_documents: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overridePolicyDocuments"),
-            ),
-            policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyId"),
-            ),
-            source_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceJson"),
-            ),
-            source_policy_documents: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourcePolicyDocuments"),
-            ),
-            statements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statements"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            id: o.get_field("id"),
+            json: o.get_field("json"),
+            minified_json: o.get_field("minifiedJson"),
+            override_json: o.get_field("overrideJson"),
+            override_policy_documents: o.get_field("overridePolicyDocuments"),
+            policy_id: o.get_field("policyId"),
+            source_json: o.get_field("sourceJson"),
+            source_policy_documents: o.get_field("sourcePolicyDocuments"),
+            statements: o.get_field("statements"),
+            version: o.get_field("version"),
         }
     }
 }

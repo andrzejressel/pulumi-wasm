@@ -121,57 +121,46 @@ pub mod managed_private_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedPrivateEndpointArgs,
     ) -> ManagedPrivateEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let subresource_name_binding_1 = args.subresource_name.get_output(context);
-        let subresource_name_binding = subresource_name_binding_1.get_inner();
-        let synapse_workspace_id_binding_1 = args
-            .synapse_workspace_id
-            .get_output(context);
-        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
-        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
-        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let subresource_name_binding = args.subresource_name.get_output(context);
+        let synapse_workspace_id_binding = args.synapse_workspace_id.get_output(context);
+        let target_resource_id_binding = args.target_resource_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subresourceName".into(),
-                    value: &subresource_name_binding,
+                    value: subresource_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: &synapse_workspace_id_binding,
+                    value: synapse_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: &target_resource_id_binding,
+                    value: target_resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedPrivateEndpointResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            subresource_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subresourceName"),
-            ),
-            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synapseWorkspaceId"),
-            ),
-            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceId"),
-            ),
+            name: o.get_field("name"),
+            subresource_name: o.get_field("subresourceName"),
+            synapse_workspace_id: o.get_field("synapseWorkspaceId"),
+            target_resource_id: o.get_field("targetResourceId"),
         }
     }
 }

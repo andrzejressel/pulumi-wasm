@@ -198,107 +198,82 @@ pub mod data_flow {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataFlowArgs,
     ) -> DataFlowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let folder_binding_1 = args.folder.get_output(context);
-        let folder_binding = folder_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let script_binding_1 = args.script.get_output(context);
-        let script_binding = script_binding_1.get_inner();
-        let script_lines_binding_1 = args.script_lines.get_output(context);
-        let script_lines_binding = script_lines_binding_1.get_inner();
-        let sinks_binding_1 = args.sinks.get_output(context);
-        let sinks_binding = sinks_binding_1.get_inner();
-        let sources_binding_1 = args.sources.get_output(context);
-        let sources_binding = sources_binding_1.get_inner();
-        let transformations_binding_1 = args.transformations.get_output(context);
-        let transformations_binding = transformations_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let folder_binding = args.folder.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let script_binding = args.script.get_output(context);
+        let script_lines_binding = args.script_lines.get_output(context);
+        let sinks_binding = args.sinks.get_output(context);
+        let sources_binding = args.sources.get_output(context);
+        let transformations_binding = args.transformations.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/dataFlow:DataFlow".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: &folder_binding,
+                    value: folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "script".into(),
-                    value: &script_binding,
+                    value: script_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptLines".into(),
-                    value: &script_lines_binding,
+                    value: script_lines_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sinks".into(),
-                    value: &sinks_binding,
+                    value: sinks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sources".into(),
-                    value: &sources_binding,
+                    value: sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transformations".into(),
-                    value: &transformations_binding,
+                    value: transformations_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataFlowResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folder"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            script: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("script"),
-            ),
-            script_lines: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptLines"),
-            ),
-            sinks: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sinks")),
-            sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sources"),
-            ),
-            transformations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transformations"),
-            ),
+            annotations: o.get_field("annotations"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            folder: o.get_field("folder"),
+            name: o.get_field("name"),
+            script: o.get_field("script"),
+            script_lines: o.get_field("scriptLines"),
+            sinks: o.get_field("sinks"),
+            sources: o.get_field("sources"),
+            transformations: o.get_field("transformations"),
         }
     }
 }

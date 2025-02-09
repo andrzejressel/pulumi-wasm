@@ -162,82 +162,63 @@ pub mod firewall_policy_rule_collection_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirewallPolicyRuleCollectionGroupArgs,
     ) -> FirewallPolicyRuleCollectionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_rule_collections_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_rule_collections_binding = args
             .application_rule_collections
             .get_output(context);
-        let application_rule_collections_binding = application_rule_collections_binding_1
-            .get_inner();
-        let firewall_policy_id_binding_1 = args.firewall_policy_id.get_output(context);
-        let firewall_policy_id_binding = firewall_policy_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nat_rule_collections_binding_1 = args
-            .nat_rule_collections
-            .get_output(context);
-        let nat_rule_collections_binding = nat_rule_collections_binding_1.get_inner();
-        let network_rule_collections_binding_1 = args
+        let firewall_policy_id_binding = args.firewall_policy_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let nat_rule_collections_binding = args.nat_rule_collections.get_output(context);
+        let network_rule_collections_binding = args
             .network_rule_collections
             .get_output(context);
-        let network_rule_collections_binding = network_rule_collections_binding_1
-            .get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let priority_binding = args.priority.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationRuleCollections".into(),
-                    value: &application_rule_collections_binding,
+                    value: application_rule_collections_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicyId".into(),
-                    value: &firewall_policy_id_binding,
+                    value: firewall_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natRuleCollections".into(),
-                    value: &nat_rule_collections_binding,
+                    value: nat_rule_collections_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRuleCollections".into(),
-                    value: &network_rule_collections_binding,
+                    value: network_rule_collections_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirewallPolicyRuleCollectionGroupResult {
-            application_rule_collections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationRuleCollections"),
-            ),
-            firewall_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallPolicyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nat_rule_collections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natRuleCollections"),
-            ),
-            network_rule_collections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRuleCollections"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
+            application_rule_collections: o.get_field("applicationRuleCollections"),
+            firewall_policy_id: o.get_field("firewallPolicyId"),
+            name: o.get_field("name"),
+            nat_rule_collections: o.get_field("natRuleCollections"),
+            network_rule_collections: o.get_field("networkRuleCollections"),
+            priority: o.get_field("priority"),
         }
     }
 }

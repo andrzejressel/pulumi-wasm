@@ -80,68 +80,52 @@ pub mod v_2_models_bot_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: V2modelsBotVersionArgs,
     ) -> V2modelsBotVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_id_binding_1 = args.bot_id.get_output(context);
-        let bot_id_binding = bot_id_binding_1.get_inner();
-        let bot_version_binding_1 = args.bot_version.get_output(context);
-        let bot_version_binding = bot_version_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let locale_specification_binding_1 = args
-            .locale_specification
-            .get_output(context);
-        let locale_specification_binding = locale_specification_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_id_binding = args.bot_id.get_output(context);
+        let bot_version_binding = args.bot_version.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let locale_specification_binding = args.locale_specification.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/v2modelsBotVersion:V2modelsBotVersion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: &bot_id_binding,
+                    value: bot_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: &bot_version_binding,
+                    value: bot_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeSpecification".into(),
-                    value: &locale_specification_binding,
+                    value: locale_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         V2modelsBotVersionResult {
-            bot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botId"),
-            ),
-            bot_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botVersion"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            locale_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localeSpecification"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            bot_id: o.get_field("botId"),
+            bot_version: o.get_field("botVersion"),
+            description: o.get_field("description"),
+            locale_specification: o.get_field("localeSpecification"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

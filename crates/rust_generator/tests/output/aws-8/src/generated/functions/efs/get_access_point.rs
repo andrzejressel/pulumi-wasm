@@ -41,52 +41,39 @@ pub mod get_access_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccessPointArgs,
     ) -> GetAccessPointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_point_id_binding_1 = args.access_point_id.get_output(context);
-        let access_point_id_binding = access_point_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_point_id_binding = args.access_point_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:efs/getAccessPoint:getAccessPoint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPointId".into(),
-                    value: &access_point_id_binding,
+                    value: access_point_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccessPointResult {
-            access_point_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessPointId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            file_system_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemArn"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            posix_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("posixUsers"),
-            ),
-            root_directories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootDirectories"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            access_point_id: o.get_field("accessPointId"),
+            arn: o.get_field("arn"),
+            file_system_arn: o.get_field("fileSystemArn"),
+            file_system_id: o.get_field("fileSystemId"),
+            id: o.get_field("id"),
+            owner_id: o.get_field("ownerId"),
+            posix_users: o.get_field("posixUsers"),
+            root_directories: o.get_field("rootDirectories"),
+            tags: o.get_field("tags"),
         }
     }
 }

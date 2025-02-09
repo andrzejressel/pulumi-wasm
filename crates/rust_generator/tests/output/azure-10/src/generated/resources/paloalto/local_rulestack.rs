@@ -98,117 +98,88 @@ pub mod local_rulestack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocalRulestackArgs,
     ) -> LocalRulestackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let anti_spyware_profile_binding_1 = args
-            .anti_spyware_profile
-            .get_output(context);
-        let anti_spyware_profile_binding = anti_spyware_profile_binding_1.get_inner();
-        let anti_virus_profile_binding_1 = args.anti_virus_profile.get_output(context);
-        let anti_virus_profile_binding = anti_virus_profile_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dns_subscription_binding_1 = args.dns_subscription.get_output(context);
-        let dns_subscription_binding = dns_subscription_binding_1.get_inner();
-        let file_blocking_profile_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let anti_spyware_profile_binding = args.anti_spyware_profile.get_output(context);
+        let anti_virus_profile_binding = args.anti_virus_profile.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dns_subscription_binding = args.dns_subscription.get_output(context);
+        let file_blocking_profile_binding = args
             .file_blocking_profile
             .get_output(context);
-        let file_blocking_profile_binding = file_blocking_profile_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let url_filtering_profile_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let url_filtering_profile_binding = args
             .url_filtering_profile
             .get_output(context);
-        let url_filtering_profile_binding = url_filtering_profile_binding_1.get_inner();
-        let vulnerability_profile_binding_1 = args
+        let vulnerability_profile_binding = args
             .vulnerability_profile
             .get_output(context);
-        let vulnerability_profile_binding = vulnerability_profile_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestack:LocalRulestack".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "antiSpywareProfile".into(),
-                    value: &anti_spyware_profile_binding,
+                    value: anti_spyware_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "antiVirusProfile".into(),
-                    value: &anti_virus_profile_binding,
+                    value: anti_virus_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSubscription".into(),
-                    value: &dns_subscription_binding,
+                    value: dns_subscription_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileBlockingProfile".into(),
-                    value: &file_blocking_profile_binding,
+                    value: file_blocking_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlFilteringProfile".into(),
-                    value: &url_filtering_profile_binding,
+                    value: url_filtering_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vulnerabilityProfile".into(),
-                    value: &vulnerability_profile_binding,
+                    value: vulnerability_profile_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocalRulestackResult {
-            anti_spyware_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("antiSpywareProfile"),
-            ),
-            anti_virus_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("antiVirusProfile"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns_subscription: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSubscription"),
-            ),
-            file_blocking_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileBlockingProfile"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            url_filtering_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("urlFilteringProfile"),
-            ),
-            vulnerability_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vulnerabilityProfile"),
-            ),
+            anti_spyware_profile: o.get_field("antiSpywareProfile"),
+            anti_virus_profile: o.get_field("antiVirusProfile"),
+            description: o.get_field("description"),
+            dns_subscription: o.get_field("dnsSubscription"),
+            file_blocking_profile: o.get_field("fileBlockingProfile"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            url_filtering_profile: o.get_field("urlFilteringProfile"),
+            vulnerability_profile: o.get_field("vulnerabilityProfile"),
         }
     }
 }

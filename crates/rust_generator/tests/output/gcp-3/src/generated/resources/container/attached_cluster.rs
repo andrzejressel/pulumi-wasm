@@ -349,192 +349,130 @@ pub mod attached_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AttachedClusterArgs,
     ) -> AttachedClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let authorization_binding_1 = args.authorization.get_output(context);
-        let authorization_binding = authorization_binding_1.get_inner();
-        let binary_authorization_binding_1 = args
-            .binary_authorization
-            .get_output(context);
-        let binary_authorization_binding = binary_authorization_binding_1.get_inner();
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let distribution_binding_1 = args.distribution.get_output(context);
-        let distribution_binding = distribution_binding_1.get_inner();
-        let fleet_binding_1 = args.fleet.get_output(context);
-        let fleet_binding = fleet_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logging_config_binding_1 = args.logging_config.get_output(context);
-        let logging_config_binding = logging_config_binding_1.get_inner();
-        let monitoring_config_binding_1 = args.monitoring_config.get_output(context);
-        let monitoring_config_binding = monitoring_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let oidc_config_binding_1 = args.oidc_config.get_output(context);
-        let oidc_config_binding = oidc_config_binding_1.get_inner();
-        let platform_version_binding_1 = args.platform_version.get_output(context);
-        let platform_version_binding = platform_version_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let proxy_config_binding_1 = args.proxy_config.get_output(context);
-        let proxy_config_binding = proxy_config_binding_1.get_inner();
-        let security_posture_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let authorization_binding = args.authorization.get_output(context);
+        let binary_authorization_binding = args.binary_authorization.get_output(context);
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let distribution_binding = args.distribution.get_output(context);
+        let fleet_binding = args.fleet.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let logging_config_binding = args.logging_config.get_output(context);
+        let monitoring_config_binding = args.monitoring_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let oidc_config_binding = args.oidc_config.get_output(context);
+        let platform_version_binding = args.platform_version.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let proxy_config_binding = args.proxy_config.get_output(context);
+        let security_posture_config_binding = args
             .security_posture_config
             .get_output(context);
-        let security_posture_config_binding = security_posture_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:container/attachedCluster:AttachedCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorization".into(),
-                    value: &authorization_binding,
+                    value: authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "binaryAuthorization".into(),
-                    value: &binary_authorization_binding,
+                    value: binary_authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "distribution".into(),
-                    value: &distribution_binding,
+                    value: distribution_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleet".into(),
-                    value: &fleet_binding,
+                    value: fleet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfig".into(),
-                    value: &logging_config_binding,
+                    value: logging_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoringConfig".into(),
-                    value: &monitoring_config_binding,
+                    value: monitoring_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oidcConfig".into(),
-                    value: &oidc_config_binding,
+                    value: oidc_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformVersion".into(),
-                    value: &platform_version_binding,
+                    value: platform_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyConfig".into(),
-                    value: &proxy_config_binding,
+                    value: proxy_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPostureConfig".into(),
-                    value: &security_posture_config_binding,
+                    value: security_posture_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AttachedClusterResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorization"),
-            ),
-            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("binaryAuthorization"),
-            ),
-            cluster_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterRegion"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            distribution: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distribution"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errors"),
-            ),
-            fleet: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fleet")),
-            kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesVersion"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logging_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfig"),
-            ),
-            monitoring_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            oidc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oidcConfig"),
-            ),
-            platform_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformVersion"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            proxy_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyConfig"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            security_posture_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPostureConfig"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            workload_identity_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadIdentityConfigs"),
-            ),
+            annotations: o.get_field("annotations"),
+            authorization: o.get_field("authorization"),
+            binary_authorization: o.get_field("binaryAuthorization"),
+            cluster_region: o.get_field("clusterRegion"),
+            create_time: o.get_field("createTime"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            description: o.get_field("description"),
+            distribution: o.get_field("distribution"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            errors: o.get_field("errors"),
+            fleet: o.get_field("fleet"),
+            kubernetes_version: o.get_field("kubernetesVersion"),
+            location: o.get_field("location"),
+            logging_config: o.get_field("loggingConfig"),
+            monitoring_config: o.get_field("monitoringConfig"),
+            name: o.get_field("name"),
+            oidc_config: o.get_field("oidcConfig"),
+            platform_version: o.get_field("platformVersion"),
+            project: o.get_field("project"),
+            proxy_config: o.get_field("proxyConfig"),
+            reconciling: o.get_field("reconciling"),
+            security_posture_config: o.get_field("securityPostureConfig"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            workload_identity_configs: o.get_field("workloadIdentityConfigs"),
         }
     }
 }

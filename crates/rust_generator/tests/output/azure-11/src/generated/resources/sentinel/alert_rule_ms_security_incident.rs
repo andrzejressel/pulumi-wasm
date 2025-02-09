@@ -127,121 +127,89 @@ pub mod alert_rule_ms_security_incident {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AlertRuleMsSecurityIncidentArgs,
     ) -> AlertRuleMsSecurityIncidentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alert_rule_template_guid_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alert_rule_template_guid_binding = args
             .alert_rule_template_guid
             .get_output(context);
-        let alert_rule_template_guid_binding = alert_rule_template_guid_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let display_name_exclude_filters_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let display_name_exclude_filters_binding = args
             .display_name_exclude_filters
             .get_output(context);
-        let display_name_exclude_filters_binding = display_name_exclude_filters_binding_1
-            .get_inner();
-        let display_name_filters_binding_1 = args
-            .display_name_filters
-            .get_output(context);
-        let display_name_filters_binding = display_name_filters_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        let display_name_filters_binding = args.display_name_filters.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let product_filter_binding_1 = args.product_filter.get_output(context);
-        let product_filter_binding = product_filter_binding_1.get_inner();
-        let severity_filters_binding_1 = args.severity_filters.get_output(context);
-        let severity_filters_binding = severity_filters_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let product_filter_binding = args.product_filter.get_output(context);
+        let severity_filters_binding = args.severity_filters.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertRuleTemplateGuid".into(),
-                    value: &alert_rule_template_guid_binding,
+                    value: alert_rule_template_guid_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayNameExcludeFilters".into(),
-                    value: &display_name_exclude_filters_binding,
+                    value: display_name_exclude_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayNameFilters".into(),
-                    value: &display_name_filters_binding,
+                    value: display_name_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productFilter".into(),
-                    value: &product_filter_binding,
+                    value: product_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severityFilters".into(),
-                    value: &severity_filters_binding,
+                    value: severity_filters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AlertRuleMsSecurityIncidentResult {
-            alert_rule_template_guid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alertRuleTemplateGuid"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            display_name_exclude_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayNameExcludeFilters"),
-            ),
-            display_name_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayNameFilters"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            product_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productFilter"),
-            ),
-            severity_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("severityFilters"),
-            ),
+            alert_rule_template_guid: o.get_field("alertRuleTemplateGuid"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            display_name_exclude_filters: o.get_field("displayNameExcludeFilters"),
+            display_name_filters: o.get_field("displayNameFilters"),
+            enabled: o.get_field("enabled"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            name: o.get_field("name"),
+            product_filter: o.get_field("productFilter"),
+            severity_filters: o.get_field("severityFilters"),
         }
     }
 }

@@ -38,54 +38,39 @@ pub mod get_lb_outbound_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLbOutboundRuleArgs,
     ) -> GetLbOutboundRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
-        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let loadbalancer_id_binding = args.loadbalancer_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:lb/getLBOutboundRule:getLBOutboundRule".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: &loadbalancer_id_binding,
+                    value: loadbalancer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLbOutboundRuleResult {
-            allocated_outbound_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedOutboundPorts"),
-            ),
-            backend_address_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendAddressPoolId"),
-            ),
-            frontend_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendIpConfigurations"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeoutInMinutes"),
-            ),
-            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadbalancerId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            tcp_reset_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpResetEnabled"),
-            ),
+            allocated_outbound_ports: o.get_field("allocatedOutboundPorts"),
+            backend_address_pool_id: o.get_field("backendAddressPoolId"),
+            frontend_ip_configurations: o.get_field("frontendIpConfigurations"),
+            id: o.get_field("id"),
+            idle_timeout_in_minutes: o.get_field("idleTimeoutInMinutes"),
+            loadbalancer_id: o.get_field("loadbalancerId"),
+            name: o.get_field("name"),
+            protocol: o.get_field("protocol"),
+            tcp_reset_enabled: o.get_field("tcpResetEnabled"),
         }
     }
 }

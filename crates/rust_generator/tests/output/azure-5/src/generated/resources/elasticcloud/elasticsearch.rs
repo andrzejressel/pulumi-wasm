@@ -118,108 +118,78 @@ pub mod elasticsearch {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ElasticsearchArgs,
     ) -> ElasticsearchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let elastic_cloud_email_address_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let elastic_cloud_email_address_binding = args
             .elastic_cloud_email_address
             .get_output(context);
-        let elastic_cloud_email_address_binding = elastic_cloud_email_address_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logs_binding_1 = args.logs.get_output(context);
-        let logs_binding = logs_binding_1.get_inner();
-        let monitoring_enabled_binding_1 = args.monitoring_enabled.get_output(context);
-        let monitoring_enabled_binding = monitoring_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let logs_binding = args.logs.get_output(context);
+        let monitoring_enabled_binding = args.monitoring_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:elasticcloud/elasticsearch:Elasticsearch".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticCloudEmailAddress".into(),
-                    value: &elastic_cloud_email_address_binding,
+                    value: elastic_cloud_email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logs".into(),
-                    value: &logs_binding,
+                    value: logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoringEnabled".into(),
-                    value: &monitoring_enabled_binding,
+                    value: monitoring_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ElasticsearchResult {
-            elastic_cloud_deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticCloudDeploymentId"),
-            ),
-            elastic_cloud_email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticCloudEmailAddress"),
-            ),
-            elastic_cloud_sso_default_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticCloudSsoDefaultUrl"),
-            ),
-            elastic_cloud_user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticCloudUserId"),
-            ),
-            elasticsearch_service_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticsearchServiceUrl"),
-            ),
-            kibana_service_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kibanaServiceUrl"),
-            ),
-            kibana_sso_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kibanaSsoUri"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
-            monitoring_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            elastic_cloud_deployment_id: o.get_field("elasticCloudDeploymentId"),
+            elastic_cloud_email_address: o.get_field("elasticCloudEmailAddress"),
+            elastic_cloud_sso_default_url: o.get_field("elasticCloudSsoDefaultUrl"),
+            elastic_cloud_user_id: o.get_field("elasticCloudUserId"),
+            elasticsearch_service_url: o.get_field("elasticsearchServiceUrl"),
+            kibana_service_url: o.get_field("kibanaServiceUrl"),
+            kibana_sso_uri: o.get_field("kibanaSsoUri"),
+            location: o.get_field("location"),
+            logs: o.get_field("logs"),
+            monitoring_enabled: o.get_field("monitoringEnabled"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            tags: o.get_field("tags"),
         }
     }
 }

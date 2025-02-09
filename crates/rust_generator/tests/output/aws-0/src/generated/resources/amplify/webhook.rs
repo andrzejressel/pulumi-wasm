@@ -67,50 +67,42 @@ pub mod webhook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebhookArgs,
     ) -> WebhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding_1 = args.app_id.get_output(context);
-        let app_id_binding = app_id_binding_1.get_inner();
-        let branch_name_binding_1 = args.branch_name.get_output(context);
-        let branch_name_binding = branch_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_id_binding = args.app_id.get_output(context);
+        let branch_name_binding = args.branch_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:amplify/webhook:Webhook".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: &app_id_binding,
+                    value: app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branchName".into(),
-                    value: &branch_name_binding,
+                    value: branch_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebhookResult {
-            app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            branch_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("branchName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            app_id: o.get_field("appId"),
+            arn: o.get_field("arn"),
+            branch_name: o.get_field("branchName"),
+            description: o.get_field("description"),
+            url: o.get_field("url"),
         }
     }
 }

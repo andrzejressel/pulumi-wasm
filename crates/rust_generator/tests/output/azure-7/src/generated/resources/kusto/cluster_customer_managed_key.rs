@@ -136,67 +136,53 @@ pub mod cluster_customer_managed_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterCustomerManagedKeyArgs,
     ) -> ClusterCustomerManagedKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let key_name_binding_1 = args.key_name.get_output(context);
-        let key_name_binding = key_name_binding_1.get_inner();
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let key_version_binding_1 = args.key_version.get_output(context);
-        let key_version_binding = key_version_binding_1.get_inner();
-        let user_identity_binding_1 = args.user_identity.get_output(context);
-        let user_identity_binding = user_identity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let key_name_binding = args.key_name.get_output(context);
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let key_version_binding = args.key_version.get_output(context);
+        let user_identity_binding = args.user_identity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: &key_name_binding,
+                    value: key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVersion".into(),
-                    value: &key_version_binding,
+                    value: key_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userIdentity".into(),
-                    value: &user_identity_binding,
+                    value: user_identity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterCustomerManagedKeyResult {
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            key_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVersion"),
-            ),
-            user_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userIdentity"),
-            ),
+            cluster_id: o.get_field("clusterId"),
+            key_name: o.get_field("keyName"),
+            key_vault_id: o.get_field("keyVaultId"),
+            key_version: o.get_field("keyVersion"),
+            user_identity: o.get_field("userIdentity"),
         }
     }
 }

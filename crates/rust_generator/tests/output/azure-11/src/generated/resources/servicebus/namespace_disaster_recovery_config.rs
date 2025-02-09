@@ -99,75 +99,54 @@ pub mod namespace_disaster_recovery_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NamespaceDisasterRecoveryConfigArgs,
     ) -> NamespaceDisasterRecoveryConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_authorization_rule_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_authorization_rule_id_binding = args
             .alias_authorization_rule_id
             .get_output(context);
-        let alias_authorization_rule_id_binding = alias_authorization_rule_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partner_namespace_id_binding_1 = args
-            .partner_namespace_id
-            .get_output(context);
-        let partner_namespace_id_binding = partner_namespace_id_binding_1.get_inner();
-        let primary_namespace_id_binding_1 = args
-            .primary_namespace_id
-            .get_output(context);
-        let primary_namespace_id_binding = primary_namespace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let partner_namespace_id_binding = args.partner_namespace_id.get_output(context);
+        let primary_namespace_id_binding = args.primary_namespace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasAuthorizationRuleId".into(),
-                    value: &alias_authorization_rule_id_binding,
+                    value: alias_authorization_rule_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerNamespaceId".into(),
-                    value: &partner_namespace_id_binding,
+                    value: partner_namespace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryNamespaceId".into(),
-                    value: &primary_namespace_id_binding,
+                    value: primary_namespace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NamespaceDisasterRecoveryConfigResult {
-            alias_authorization_rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliasAuthorizationRuleId"),
-            ),
-            default_primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPrimaryKey"),
-            ),
-            default_secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSecondaryKey"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partner_namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerNamespaceId"),
-            ),
-            primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionStringAlias"),
-            ),
-            primary_namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryNamespaceId"),
-            ),
-            secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionStringAlias"),
-            ),
+            alias_authorization_rule_id: o.get_field("aliasAuthorizationRuleId"),
+            default_primary_key: o.get_field("defaultPrimaryKey"),
+            default_secondary_key: o.get_field("defaultSecondaryKey"),
+            name: o.get_field("name"),
+            partner_namespace_id: o.get_field("partnerNamespaceId"),
+            primary_connection_string_alias: o.get_field("primaryConnectionStringAlias"),
+            primary_namespace_id: o.get_field("primaryNamespaceId"),
+            secondary_connection_string_alias: o
+                .get_field("secondaryConnectionStringAlias"),
         }
     }
 }

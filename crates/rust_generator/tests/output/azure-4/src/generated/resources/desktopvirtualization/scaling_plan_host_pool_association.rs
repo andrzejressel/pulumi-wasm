@@ -120,49 +120,41 @@ pub mod scaling_plan_host_pool_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScalingPlanHostPoolAssociationArgs,
     ) -> ScalingPlanHostPoolAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let host_pool_id_binding_1 = args.host_pool_id.get_output(context);
-        let host_pool_id_binding = host_pool_id_binding_1.get_inner();
-        let scaling_plan_id_binding_1 = args.scaling_plan_id.get_output(context);
-        let scaling_plan_id_binding = scaling_plan_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let enabled_binding = args.enabled.get_output(context);
+        let host_pool_id_binding = args.host_pool_id.get_output(context);
+        let scaling_plan_id_binding = args.scaling_plan_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostPoolId".into(),
-                    value: &host_pool_id_binding,
+                    value: host_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingPlanId".into(),
-                    value: &scaling_plan_id_binding,
+                    value: scaling_plan_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScalingPlanHostPoolAssociationResult {
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            host_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostPoolId"),
-            ),
-            scaling_plan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingPlanId"),
-            ),
+            enabled: o.get_field("enabled"),
+            host_pool_id: o.get_field("hostPoolId"),
+            scaling_plan_id: o.get_field("scalingPlanId"),
         }
     }
 }

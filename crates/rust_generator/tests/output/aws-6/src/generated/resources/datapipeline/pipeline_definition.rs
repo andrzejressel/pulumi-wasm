@@ -114,57 +114,46 @@ pub mod pipeline_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PipelineDefinitionArgs,
     ) -> PipelineDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parameter_objects_binding_1 = args.parameter_objects.get_output(context);
-        let parameter_objects_binding = parameter_objects_binding_1.get_inner();
-        let parameter_values_binding_1 = args.parameter_values.get_output(context);
-        let parameter_values_binding = parameter_values_binding_1.get_inner();
-        let pipeline_id_binding_1 = args.pipeline_id.get_output(context);
-        let pipeline_id_binding = pipeline_id_binding_1.get_inner();
-        let pipeline_objects_binding_1 = args.pipeline_objects.get_output(context);
-        let pipeline_objects_binding = pipeline_objects_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let parameter_objects_binding = args.parameter_objects.get_output(context);
+        let parameter_values_binding = args.parameter_values.get_output(context);
+        let pipeline_id_binding = args.pipeline_id.get_output(context);
+        let pipeline_objects_binding = args.pipeline_objects.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datapipeline/pipelineDefinition:PipelineDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterObjects".into(),
-                    value: &parameter_objects_binding,
+                    value: parameter_objects_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterValues".into(),
-                    value: &parameter_values_binding,
+                    value: parameter_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineId".into(),
-                    value: &pipeline_id_binding,
+                    value: pipeline_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineObjects".into(),
-                    value: &pipeline_objects_binding,
+                    value: pipeline_objects_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PipelineDefinitionResult {
-            parameter_objects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterObjects"),
-            ),
-            parameter_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterValues"),
-            ),
-            pipeline_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineId"),
-            ),
-            pipeline_objects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineObjects"),
-            ),
+            parameter_objects: o.get_field("parameterObjects"),
+            parameter_values: o.get_field("parameterValues"),
+            pipeline_id: o.get_field("pipelineId"),
+            pipeline_objects: o.get_field("pipelineObjects"),
         }
     }
 }

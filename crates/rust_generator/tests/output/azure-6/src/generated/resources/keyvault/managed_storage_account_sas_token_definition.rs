@@ -156,78 +156,62 @@ pub mod managed_storage_account_sas_token_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedStorageAccountSasTokenDefinitionArgs,
     ) -> ManagedStorageAccountSasTokenDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_storage_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let managed_storage_account_id_binding = args
             .managed_storage_account_id
             .get_output(context);
-        let managed_storage_account_id_binding = managed_storage_account_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let sas_template_uri_binding_1 = args.sas_template_uri.get_output(context);
-        let sas_template_uri_binding = sas_template_uri_binding_1.get_inner();
-        let sas_type_binding_1 = args.sas_type.get_output(context);
-        let sas_type_binding = sas_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let validity_period_binding_1 = args.validity_period.get_output(context);
-        let validity_period_binding = validity_period_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let sas_template_uri_binding = args.sas_template_uri.get_output(context);
+        let sas_type_binding = args.sas_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let validity_period_binding = args.validity_period.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedStorageAccountId".into(),
-                    value: &managed_storage_account_id_binding,
+                    value: managed_storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasTemplateUri".into(),
-                    value: &sas_template_uri_binding,
+                    value: sas_template_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasType".into(),
-                    value: &sas_type_binding,
+                    value: sas_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validityPeriod".into(),
-                    value: &validity_period_binding,
+                    value: validity_period_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedStorageAccountSasTokenDefinitionResult {
-            managed_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedStorageAccountId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sas_template_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sasTemplateUri"),
-            ),
-            sas_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sasType"),
-            ),
-            secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            validity_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validityPeriod"),
-            ),
+            managed_storage_account_id: o.get_field("managedStorageAccountId"),
+            name: o.get_field("name"),
+            sas_template_uri: o.get_field("sasTemplateUri"),
+            sas_type: o.get_field("sasType"),
+            secret_id: o.get_field("secretId"),
+            tags: o.get_field("tags"),
+            validity_period: o.get_field("validityPeriod"),
         }
     }
 }

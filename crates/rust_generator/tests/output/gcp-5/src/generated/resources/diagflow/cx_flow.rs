@@ -437,117 +437,87 @@ pub mod cx_flow {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CxFlowArgs,
     ) -> CxFlowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_settings_binding_1 = args.advanced_settings.get_output(context);
-        let advanced_settings_binding = advanced_settings_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let event_handlers_binding_1 = args.event_handlers.get_output(context);
-        let event_handlers_binding = event_handlers_binding_1.get_inner();
-        let is_default_start_flow_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let advanced_settings_binding = args.advanced_settings.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let event_handlers_binding = args.event_handlers.get_output(context);
+        let is_default_start_flow_binding = args
             .is_default_start_flow
             .get_output(context);
-        let is_default_start_flow_binding = is_default_start_flow_binding_1.get_inner();
-        let language_code_binding_1 = args.language_code.get_output(context);
-        let language_code_binding = language_code_binding_1.get_inner();
-        let nlu_settings_binding_1 = args.nlu_settings.get_output(context);
-        let nlu_settings_binding = nlu_settings_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let transition_route_groups_binding_1 = args
+        let language_code_binding = args.language_code.get_output(context);
+        let nlu_settings_binding = args.nlu_settings.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let transition_route_groups_binding = args
             .transition_route_groups
             .get_output(context);
-        let transition_route_groups_binding = transition_route_groups_binding_1
-            .get_inner();
-        let transition_routes_binding_1 = args.transition_routes.get_output(context);
-        let transition_routes_binding = transition_routes_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let transition_routes_binding = args.transition_routes.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/cxFlow:CxFlow".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedSettings".into(),
-                    value: &advanced_settings_binding,
+                    value: advanced_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHandlers".into(),
-                    value: &event_handlers_binding,
+                    value: event_handlers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDefaultStartFlow".into(),
-                    value: &is_default_start_flow_binding,
+                    value: is_default_start_flow_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: &language_code_binding,
+                    value: language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nluSettings".into(),
-                    value: &nlu_settings_binding,
+                    value: nlu_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitionRouteGroups".into(),
-                    value: &transition_route_groups_binding,
+                    value: transition_route_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitionRoutes".into(),
-                    value: &transition_routes_binding,
+                    value: transition_routes_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CxFlowResult {
-            advanced_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedSettings"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            event_handlers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHandlers"),
-            ),
-            is_default_start_flow: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefaultStartFlow"),
-            ),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nlu_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nluSettings"),
-            ),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            transition_route_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitionRouteGroups"),
-            ),
-            transition_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitionRoutes"),
-            ),
+            advanced_settings: o.get_field("advancedSettings"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            event_handlers: o.get_field("eventHandlers"),
+            is_default_start_flow: o.get_field("isDefaultStartFlow"),
+            language_code: o.get_field("languageCode"),
+            name: o.get_field("name"),
+            nlu_settings: o.get_field("nluSettings"),
+            parent: o.get_field("parent"),
+            transition_route_groups: o.get_field("transitionRouteGroups"),
+            transition_routes: o.get_field("transitionRoutes"),
         }
     }
 }

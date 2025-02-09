@@ -328,253 +328,177 @@ pub mod bucket {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketArgs,
     ) -> BucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoclass_binding_1 = args.autoclass.get_output(context);
-        let autoclass_binding = autoclass_binding_1.get_inner();
-        let cors_binding_1 = args.cors.get_output(context);
-        let cors_binding = cors_binding_1.get_inner();
-        let custom_placement_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoclass_binding = args.autoclass.get_output(context);
+        let cors_binding = args.cors.get_output(context);
+        let custom_placement_config_binding = args
             .custom_placement_config
             .get_output(context);
-        let custom_placement_config_binding = custom_placement_config_binding_1
-            .get_inner();
-        let default_event_based_hold_binding_1 = args
+        let default_event_based_hold_binding = args
             .default_event_based_hold
             .get_output(context);
-        let default_event_based_hold_binding = default_event_based_hold_binding_1
-            .get_inner();
-        let enable_object_retention_binding_1 = args
+        let enable_object_retention_binding = args
             .enable_object_retention
             .get_output(context);
-        let enable_object_retention_binding = enable_object_retention_binding_1
-            .get_inner();
-        let encryption_binding_1 = args.encryption.get_output(context);
-        let encryption_binding = encryption_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let hierarchical_namespace_binding_1 = args
+        let encryption_binding = args.encryption.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let hierarchical_namespace_binding = args
             .hierarchical_namespace
             .get_output(context);
-        let hierarchical_namespace_binding = hierarchical_namespace_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let lifecycle_rules_binding_1 = args.lifecycle_rules.get_output(context);
-        let lifecycle_rules_binding = lifecycle_rules_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logging_binding_1 = args.logging.get_output(context);
-        let logging_binding = logging_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let public_access_prevention_binding_1 = args
+        let labels_binding = args.labels.get_output(context);
+        let lifecycle_rules_binding = args.lifecycle_rules.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let logging_binding = args.logging.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let public_access_prevention_binding = args
             .public_access_prevention
             .get_output(context);
-        let public_access_prevention_binding = public_access_prevention_binding_1
-            .get_inner();
-        let requester_pays_binding_1 = args.requester_pays.get_output(context);
-        let requester_pays_binding = requester_pays_binding_1.get_inner();
-        let retention_policy_binding_1 = args.retention_policy.get_output(context);
-        let retention_policy_binding = retention_policy_binding_1.get_inner();
-        let rpo_binding_1 = args.rpo.get_output(context);
-        let rpo_binding = rpo_binding_1.get_inner();
-        let soft_delete_policy_binding_1 = args.soft_delete_policy.get_output(context);
-        let soft_delete_policy_binding = soft_delete_policy_binding_1.get_inner();
-        let storage_class_binding_1 = args.storage_class.get_output(context);
-        let storage_class_binding = storage_class_binding_1.get_inner();
-        let uniform_bucket_level_access_binding_1 = args
+        let requester_pays_binding = args.requester_pays.get_output(context);
+        let retention_policy_binding = args.retention_policy.get_output(context);
+        let rpo_binding = args.rpo.get_output(context);
+        let soft_delete_policy_binding = args.soft_delete_policy.get_output(context);
+        let storage_class_binding = args.storage_class.get_output(context);
+        let uniform_bucket_level_access_binding = args
             .uniform_bucket_level_access
             .get_output(context);
-        let uniform_bucket_level_access_binding = uniform_bucket_level_access_binding_1
-            .get_inner();
-        let versioning_binding_1 = args.versioning.get_output(context);
-        let versioning_binding = versioning_binding_1.get_inner();
-        let website_binding_1 = args.website.get_output(context);
-        let website_binding = website_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let versioning_binding = args.versioning.get_output(context);
+        let website_binding = args.website.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:storage/bucket:Bucket".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoclass".into(),
-                    value: &autoclass_binding,
+                    value: autoclass_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cors".into(),
-                    value: &cors_binding,
+                    value: cors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPlacementConfig".into(),
-                    value: &custom_placement_config_binding,
+                    value: custom_placement_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEventBasedHold".into(),
-                    value: &default_event_based_hold_binding,
+                    value: default_event_based_hold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableObjectRetention".into(),
-                    value: &enable_object_retention_binding,
+                    value: enable_object_retention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: &encryption_binding,
+                    value: encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hierarchicalNamespace".into(),
-                    value: &hierarchical_namespace_binding,
+                    value: hierarchical_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecycleRules".into(),
-                    value: &lifecycle_rules_binding,
+                    value: lifecycle_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logging".into(),
-                    value: &logging_binding,
+                    value: logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicAccessPrevention".into(),
-                    value: &public_access_prevention_binding,
+                    value: public_access_prevention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requesterPays".into(),
-                    value: &requester_pays_binding,
+                    value: requester_pays_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPolicy".into(),
-                    value: &retention_policy_binding,
+                    value: retention_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rpo".into(),
-                    value: &rpo_binding,
+                    value: rpo_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softDeletePolicy".into(),
-                    value: &soft_delete_policy_binding,
+                    value: soft_delete_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageClass".into(),
-                    value: &storage_class_binding,
+                    value: storage_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uniformBucketLevelAccess".into(),
-                    value: &uniform_bucket_level_access_binding,
+                    value: uniform_bucket_level_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versioning".into(),
-                    value: &versioning_binding,
+                    value: versioning_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "website".into(),
-                    value: &website_binding,
+                    value: website_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketResult {
-            autoclass: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoclass"),
-            ),
-            cors: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cors")),
-            custom_placement_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customPlacementConfig"),
-            ),
-            default_event_based_hold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultEventBasedHold"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_object_retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableObjectRetention"),
-            ),
-            encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryption"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            hierarchical_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hierarchicalNamespace"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            lifecycle_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleRules"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logging"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            project_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectNumber"),
-            ),
-            public_access_prevention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicAccessPrevention"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            requester_pays: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requesterPays"),
-            ),
-            retention_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPolicy"),
-            ),
-            rpo: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rpo")),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            soft_delete_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softDeletePolicy"),
-            ),
-            storage_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageClass"),
-            ),
-            uniform_bucket_level_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniformBucketLevelAccess"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
-            versioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versioning"),
-            ),
-            website: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("website"),
-            ),
+            autoclass: o.get_field("autoclass"),
+            cors: o.get_field("cors"),
+            custom_placement_config: o.get_field("customPlacementConfig"),
+            default_event_based_hold: o.get_field("defaultEventBasedHold"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_object_retention: o.get_field("enableObjectRetention"),
+            encryption: o.get_field("encryption"),
+            force_destroy: o.get_field("forceDestroy"),
+            hierarchical_namespace: o.get_field("hierarchicalNamespace"),
+            labels: o.get_field("labels"),
+            lifecycle_rules: o.get_field("lifecycleRules"),
+            location: o.get_field("location"),
+            logging: o.get_field("logging"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            project_number: o.get_field("projectNumber"),
+            public_access_prevention: o.get_field("publicAccessPrevention"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            requester_pays: o.get_field("requesterPays"),
+            retention_policy: o.get_field("retentionPolicy"),
+            rpo: o.get_field("rpo"),
+            self_link: o.get_field("selfLink"),
+            soft_delete_policy: o.get_field("softDeletePolicy"),
+            storage_class: o.get_field("storageClass"),
+            uniform_bucket_level_access: o.get_field("uniformBucketLevelAccess"),
+            url: o.get_field("url"),
+            versioning: o.get_field("versioning"),
+            website: o.get_field("website"),
         }
     }
 }

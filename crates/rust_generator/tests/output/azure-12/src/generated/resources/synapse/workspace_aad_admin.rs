@@ -134,57 +134,46 @@ pub mod workspace_aad_admin {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceAadAdminArgs,
     ) -> WorkspaceAadAdminResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let login_binding_1 = args.login.get_output(context);
-        let login_binding = login_binding_1.get_inner();
-        let object_id_binding_1 = args.object_id.get_output(context);
-        let object_id_binding = object_id_binding_1.get_inner();
-        let synapse_workspace_id_binding_1 = args
-            .synapse_workspace_id
-            .get_output(context);
-        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let login_binding = args.login.get_output(context);
+        let object_id_binding = args.object_id.get_output(context);
+        let synapse_workspace_id_binding = args.synapse_workspace_id.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "login".into(),
-                    value: &login_binding,
+                    value: login_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: &object_id_binding,
+                    value: object_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: &synapse_workspace_id_binding,
+                    value: synapse_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceAadAdminResult {
-            login: pulumi_gestalt_rust::__private::into_domain(o.extract_field("login")),
-            object_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectId"),
-            ),
-            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synapseWorkspaceId"),
-            ),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
+            login: o.get_field("login"),
+            object_id: o.get_field("objectId"),
+            synapse_workspace_id: o.get_field("synapseWorkspaceId"),
+            tenant_id: o.get_field("tenantId"),
         }
     }
 }

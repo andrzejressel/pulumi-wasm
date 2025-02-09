@@ -142,56 +142,49 @@ pub mod cluster_trusted_access_role_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterTrustedAccessRoleBindingArgs,
     ) -> ClusterTrustedAccessRoleBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kubernetes_cluster_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let kubernetes_cluster_id_binding = args
             .kubernetes_cluster_id
             .get_output(context);
-        let kubernetes_cluster_id_binding = kubernetes_cluster_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let roles_binding_1 = args.roles.get_output(context);
-        let roles_binding = roles_binding_1.get_inner();
-        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
-        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let roles_binding = args.roles.get_output(context);
+        let source_resource_id_binding = args.source_resource_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterId".into(),
-                    value: &kubernetes_cluster_id_binding,
+                    value: kubernetes_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: &roles_binding,
+                    value: roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceResourceId".into(),
-                    value: &source_resource_id_binding,
+                    value: source_resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterTrustedAccessRoleBindingResult {
-            kubernetes_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesClusterId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
-            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceResourceId"),
-            ),
+            kubernetes_cluster_id: o.get_field("kubernetesClusterId"),
+            name: o.get_field("name"),
+            roles: o.get_field("roles"),
+            source_resource_id: o.get_field("sourceResourceId"),
         }
     }
 }

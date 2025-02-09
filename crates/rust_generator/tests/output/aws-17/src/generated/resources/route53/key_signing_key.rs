@@ -136,86 +136,58 @@ pub mod key_signing_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeySigningKeyArgs,
     ) -> KeySigningKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hosted_zone_id_binding_1 = args.hosted_zone_id.get_output(context);
-        let hosted_zone_id_binding = hosted_zone_id_binding_1.get_inner();
-        let key_management_service_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context);
+        let key_management_service_arn_binding = args
             .key_management_service_arn
             .get_output(context);
-        let key_management_service_arn_binding = key_management_service_arn_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/keySigningKey:KeySigningKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostedZoneId".into(),
-                    value: &hosted_zone_id_binding,
+                    value: hosted_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyManagementServiceArn".into(),
-                    value: &key_management_service_arn_binding,
+                    value: key_management_service_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeySigningKeyResult {
-            digest_algorithm_mnemonic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digestAlgorithmMnemonic"),
-            ),
-            digest_algorithm_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digestAlgorithmType"),
-            ),
-            digest_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digestValue"),
-            ),
-            dnskey_record: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnskeyRecord"),
-            ),
-            ds_record: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dsRecord"),
-            ),
-            flag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("flag")),
-            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostedZoneId"),
-            ),
-            key_management_service_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyManagementServiceArn"),
-            ),
-            key_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyTag"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
-            signing_algorithm_mnemonic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingAlgorithmMnemonic"),
-            ),
-            signing_algorithm_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingAlgorithmType"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            digest_algorithm_mnemonic: o.get_field("digestAlgorithmMnemonic"),
+            digest_algorithm_type: o.get_field("digestAlgorithmType"),
+            digest_value: o.get_field("digestValue"),
+            dnskey_record: o.get_field("dnskeyRecord"),
+            ds_record: o.get_field("dsRecord"),
+            flag: o.get_field("flag"),
+            hosted_zone_id: o.get_field("hostedZoneId"),
+            key_management_service_arn: o.get_field("keyManagementServiceArn"),
+            key_tag: o.get_field("keyTag"),
+            name: o.get_field("name"),
+            public_key: o.get_field("publicKey"),
+            signing_algorithm_mnemonic: o.get_field("signingAlgorithmMnemonic"),
+            signing_algorithm_type: o.get_field("signingAlgorithmType"),
+            status: o.get_field("status"),
         }
     }
 }

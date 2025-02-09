@@ -60,82 +60,49 @@ pub mod get_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSubscriptionArgs,
     ) -> GetSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:pubsub/getSubscription:getSubscription".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSubscriptionResult {
-            ack_deadline_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ackDeadlineSeconds"),
-            ),
-            bigquery_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryConfigs"),
-            ),
-            cloud_storage_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudStorageConfigs"),
-            ),
-            dead_letter_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetterPolicies"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_exactly_once_delivery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableExactlyOnceDelivery"),
-            ),
-            enable_message_ordering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableMessageOrdering"),
-            ),
-            expiration_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationPolicies"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            message_retention_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageRetentionDuration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            push_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pushConfigs"),
-            ),
-            retain_acked_messages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retainAckedMessages"),
-            ),
-            retry_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryPolicies"),
-            ),
-            topic: pulumi_gestalt_rust::__private::into_domain(o.extract_field("topic")),
+            ack_deadline_seconds: o.get_field("ackDeadlineSeconds"),
+            bigquery_configs: o.get_field("bigqueryConfigs"),
+            cloud_storage_configs: o.get_field("cloudStorageConfigs"),
+            dead_letter_policies: o.get_field("deadLetterPolicies"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_exactly_once_delivery: o.get_field("enableExactlyOnceDelivery"),
+            enable_message_ordering: o.get_field("enableMessageOrdering"),
+            expiration_policies: o.get_field("expirationPolicies"),
+            filter: o.get_field("filter"),
+            id: o.get_field("id"),
+            labels: o.get_field("labels"),
+            message_retention_duration: o.get_field("messageRetentionDuration"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            push_configs: o.get_field("pushConfigs"),
+            retain_acked_messages: o.get_field("retainAckedMessages"),
+            retry_policies: o.get_field("retryPolicies"),
+            topic: o.get_field("topic"),
         }
     }
 }

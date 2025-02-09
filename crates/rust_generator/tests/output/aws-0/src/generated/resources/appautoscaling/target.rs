@@ -202,95 +202,72 @@ pub mod target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TargetArgs,
     ) -> TargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let max_capacity_binding_1 = args.max_capacity.get_output(context);
-        let max_capacity_binding = max_capacity_binding_1.get_inner();
-        let min_capacity_binding_1 = args.min_capacity.get_output(context);
-        let min_capacity_binding = min_capacity_binding_1.get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let scalable_dimension_binding_1 = args.scalable_dimension.get_output(context);
-        let scalable_dimension_binding = scalable_dimension_binding_1.get_inner();
-        let service_namespace_binding_1 = args.service_namespace.get_output(context);
-        let service_namespace_binding = service_namespace_binding_1.get_inner();
-        let suspended_state_binding_1 = args.suspended_state.get_output(context);
-        let suspended_state_binding = suspended_state_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let max_capacity_binding = args.max_capacity.get_output(context);
+        let min_capacity_binding = args.min_capacity.get_output(context);
+        let resource_id_binding = args.resource_id.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let scalable_dimension_binding = args.scalable_dimension.get_output(context);
+        let service_namespace_binding = args.service_namespace.get_output(context);
+        let suspended_state_binding = args.suspended_state.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appautoscaling/target:Target".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxCapacity".into(),
-                    value: &max_capacity_binding,
+                    value: max_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minCapacity".into(),
-                    value: &min_capacity_binding,
+                    value: min_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalableDimension".into(),
-                    value: &scalable_dimension_binding,
+                    value: scalable_dimension_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNamespace".into(),
-                    value: &service_namespace_binding,
+                    value: service_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suspendedState".into(),
-                    value: &suspended_state_binding,
+                    value: suspended_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TargetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            max_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxCapacity"),
-            ),
-            min_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minCapacity"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            scalable_dimension: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalableDimension"),
-            ),
-            service_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceNamespace"),
-            ),
-            suspended_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suspendedState"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            max_capacity: o.get_field("maxCapacity"),
+            min_capacity: o.get_field("minCapacity"),
+            resource_id: o.get_field("resourceId"),
+            role_arn: o.get_field("roleArn"),
+            scalable_dimension: o.get_field("scalableDimension"),
+            service_namespace: o.get_field("serviceNamespace"),
+            suspended_state: o.get_field("suspendedState"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

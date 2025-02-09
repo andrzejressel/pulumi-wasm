@@ -91,85 +91,65 @@ pub mod portfolio_share {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PortfolioShareArgs,
     ) -> PortfolioShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding_1 = args.accept_language.get_output(context);
-        let accept_language_binding = accept_language_binding_1.get_inner();
-        let portfolio_id_binding_1 = args.portfolio_id.get_output(context);
-        let portfolio_id_binding = portfolio_id_binding_1.get_inner();
-        let principal_id_binding_1 = args.principal_id.get_output(context);
-        let principal_id_binding = principal_id_binding_1.get_inner();
-        let share_principals_binding_1 = args.share_principals.get_output(context);
-        let share_principals_binding = share_principals_binding_1.get_inner();
-        let share_tag_options_binding_1 = args.share_tag_options.get_output(context);
-        let share_tag_options_binding = share_tag_options_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let wait_for_acceptance_binding_1 = args.wait_for_acceptance.get_output(context);
-        let wait_for_acceptance_binding = wait_for_acceptance_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accept_language_binding = args.accept_language.get_output(context);
+        let portfolio_id_binding = args.portfolio_id.get_output(context);
+        let principal_id_binding = args.principal_id.get_output(context);
+        let share_principals_binding = args.share_principals.get_output(context);
+        let share_tag_options_binding = args.share_tag_options.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let wait_for_acceptance_binding = args.wait_for_acceptance.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:servicecatalog/portfolioShare:PortfolioShare".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: &accept_language_binding,
+                    value: accept_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portfolioId".into(),
-                    value: &portfolio_id_binding,
+                    value: portfolio_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: &principal_id_binding,
+                    value: principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharePrincipals".into(),
-                    value: &share_principals_binding,
+                    value: share_principals_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareTagOptions".into(),
-                    value: &share_tag_options_binding,
+                    value: share_tag_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForAcceptance".into(),
-                    value: &wait_for_acceptance_binding,
+                    value: wait_for_acceptance_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PortfolioShareResult {
-            accept_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptLanguage"),
-            ),
-            accepted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accepted"),
-            ),
-            portfolio_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portfolioId"),
-            ),
-            principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalId"),
-            ),
-            share_principals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharePrincipals"),
-            ),
-            share_tag_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareTagOptions"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            wait_for_acceptance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForAcceptance"),
-            ),
+            accept_language: o.get_field("acceptLanguage"),
+            accepted: o.get_field("accepted"),
+            portfolio_id: o.get_field("portfolioId"),
+            principal_id: o.get_field("principalId"),
+            share_principals: o.get_field("sharePrincipals"),
+            share_tag_options: o.get_field("shareTagOptions"),
+            type_: o.get_field("type"),
+            wait_for_acceptance: o.get_field("waitForAcceptance"),
         }
     }
 }

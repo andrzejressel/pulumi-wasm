@@ -83,84 +83,66 @@ pub mod customer_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomerGatewayArgs,
     ) -> CustomerGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bgp_asn_binding_1 = args.bgp_asn.get_output(context);
-        let bgp_asn_binding = bgp_asn_binding_1.get_inner();
-        let bgp_asn_extended_binding_1 = args.bgp_asn_extended.get_output(context);
-        let bgp_asn_extended_binding = bgp_asn_extended_binding_1.get_inner();
-        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
-        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
-        let device_name_binding_1 = args.device_name.get_output(context);
-        let device_name_binding = device_name_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bgp_asn_binding = args.bgp_asn.get_output(context);
+        let bgp_asn_extended_binding = args.bgp_asn_extended.get_output(context);
+        let certificate_arn_binding = args.certificate_arn.get_output(context);
+        let device_name_binding = args.device_name.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/customerGateway:CustomerGateway".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAsn".into(),
-                    value: &bgp_asn_binding,
+                    value: bgp_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAsnExtended".into(),
-                    value: &bgp_asn_extended_binding,
+                    value: bgp_asn_extended_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: &certificate_arn_binding,
+                    value: certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceName".into(),
-                    value: &device_name_binding,
+                    value: device_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomerGatewayResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bgp_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpAsn"),
-            ),
-            bgp_asn_extended: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpAsnExtended"),
-            ),
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            device_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceName"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            bgp_asn: o.get_field("bgpAsn"),
+            bgp_asn_extended: o.get_field("bgpAsnExtended"),
+            certificate_arn: o.get_field("certificateArn"),
+            device_name: o.get_field("deviceName"),
+            ip_address: o.get_field("ipAddress"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
         }
     }
 }

@@ -174,192 +174,138 @@ pub mod analytics_workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AnalyticsWorkspaceArgs,
     ) -> AnalyticsWorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_resource_only_permissions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_resource_only_permissions_binding = args
             .allow_resource_only_permissions
             .get_output(context);
-        let allow_resource_only_permissions_binding = allow_resource_only_permissions_binding_1
-            .get_inner();
-        let cmk_for_query_forced_binding_1 = args
-            .cmk_for_query_forced
-            .get_output(context);
-        let cmk_for_query_forced_binding = cmk_for_query_forced_binding_1.get_inner();
-        let daily_quota_gb_binding_1 = args.daily_quota_gb.get_output(context);
-        let daily_quota_gb_binding = daily_quota_gb_binding_1.get_inner();
-        let data_collection_rule_id_binding_1 = args
+        let cmk_for_query_forced_binding = args.cmk_for_query_forced.get_output(context);
+        let daily_quota_gb_binding = args.daily_quota_gb.get_output(context);
+        let data_collection_rule_id_binding = args
             .data_collection_rule_id
             .get_output(context);
-        let data_collection_rule_id_binding = data_collection_rule_id_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let immediate_data_purge_on30_days_enabled_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let immediate_data_purge_on30_days_enabled_binding = args
             .immediate_data_purge_on30_days_enabled
             .get_output(context);
-        let immediate_data_purge_on30_days_enabled_binding = immediate_data_purge_on30_days_enabled_binding_1
-            .get_inner();
-        let internet_ingestion_enabled_binding_1 = args
+        let internet_ingestion_enabled_binding = args
             .internet_ingestion_enabled
             .get_output(context);
-        let internet_ingestion_enabled_binding = internet_ingestion_enabled_binding_1
-            .get_inner();
-        let internet_query_enabled_binding_1 = args
+        let internet_query_enabled_binding = args
             .internet_query_enabled
             .get_output(context);
-        let internet_query_enabled_binding = internet_query_enabled_binding_1
-            .get_inner();
-        let local_authentication_disabled_binding_1 = args
+        let local_authentication_disabled_binding = args
             .local_authentication_disabled
             .get_output(context);
-        let local_authentication_disabled_binding = local_authentication_disabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let reservation_capacity_in_gb_per_day_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let reservation_capacity_in_gb_per_day_binding = args
             .reservation_capacity_in_gb_per_day
             .get_output(context);
-        let reservation_capacity_in_gb_per_day_binding = reservation_capacity_in_gb_per_day_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let retention_in_days_binding_1 = args.retention_in_days.get_output(context);
-        let retention_in_days_binding = retention_in_days_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let retention_in_days_binding = args.retention_in_days.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowResourceOnlyPermissions".into(),
-                    value: &allow_resource_only_permissions_binding,
+                    value: allow_resource_only_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cmkForQueryForced".into(),
-                    value: &cmk_for_query_forced_binding,
+                    value: cmk_for_query_forced_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyQuotaGb".into(),
-                    value: &daily_quota_gb_binding,
+                    value: daily_quota_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCollectionRuleId".into(),
-                    value: &data_collection_rule_id_binding,
+                    value: data_collection_rule_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "immediateDataPurgeOn30DaysEnabled".into(),
-                    value: &immediate_data_purge_on30_days_enabled_binding,
+                    value: immediate_data_purge_on30_days_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetIngestionEnabled".into(),
-                    value: &internet_ingestion_enabled_binding,
+                    value: internet_ingestion_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetQueryEnabled".into(),
-                    value: &internet_query_enabled_binding,
+                    value: internet_query_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationDisabled".into(),
-                    value: &local_authentication_disabled_binding,
+                    value: local_authentication_disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationCapacityInGbPerDay".into(),
-                    value: &reservation_capacity_in_gb_per_day_binding,
+                    value: reservation_capacity_in_gb_per_day_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionInDays".into(),
-                    value: &retention_in_days_binding,
+                    value: retention_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AnalyticsWorkspaceResult {
-            allow_resource_only_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowResourceOnlyPermissions"),
-            ),
-            cmk_for_query_forced: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cmkForQueryForced"),
-            ),
-            daily_quota_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyQuotaGb"),
-            ),
-            data_collection_rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCollectionRuleId"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            immediate_data_purge_on30_days_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("immediateDataPurgeOn30DaysEnabled"),
-            ),
-            internet_ingestion_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetIngestionEnabled"),
-            ),
-            internet_query_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetQueryEnabled"),
-            ),
-            local_authentication_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthenticationDisabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_shared_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primarySharedKey"),
-            ),
-            reservation_capacity_in_gb_per_day: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationCapacityInGbPerDay"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retention_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionInDays"),
-            ),
-            secondary_shared_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondarySharedKey"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            allow_resource_only_permissions: o.get_field("allowResourceOnlyPermissions"),
+            cmk_for_query_forced: o.get_field("cmkForQueryForced"),
+            daily_quota_gb: o.get_field("dailyQuotaGb"),
+            data_collection_rule_id: o.get_field("dataCollectionRuleId"),
+            identity: o.get_field("identity"),
+            immediate_data_purge_on30_days_enabled: o
+                .get_field("immediateDataPurgeOn30DaysEnabled"),
+            internet_ingestion_enabled: o.get_field("internetIngestionEnabled"),
+            internet_query_enabled: o.get_field("internetQueryEnabled"),
+            local_authentication_disabled: o.get_field("localAuthenticationDisabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            primary_shared_key: o.get_field("primarySharedKey"),
+            reservation_capacity_in_gb_per_day: o
+                .get_field("reservationCapacityInGbPerDay"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retention_in_days: o.get_field("retentionInDays"),
+            secondary_shared_key: o.get_field("secondarySharedKey"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

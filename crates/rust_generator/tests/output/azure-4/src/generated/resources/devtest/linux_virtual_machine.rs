@@ -191,179 +191,132 @@ pub mod linux_virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinuxVirtualMachineArgs,
     ) -> LinuxVirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_claim_binding_1 = args.allow_claim.get_output(context);
-        let allow_claim_binding = allow_claim_binding_1.get_inner();
-        let disallow_public_ip_address_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_claim_binding = args.allow_claim.get_output(context);
+        let disallow_public_ip_address_binding = args
             .disallow_public_ip_address
             .get_output(context);
-        let disallow_public_ip_address_binding = disallow_public_ip_address_binding_1
-            .get_inner();
-        let gallery_image_reference_binding_1 = args
+        let gallery_image_reference_binding = args
             .gallery_image_reference
             .get_output(context);
-        let gallery_image_reference_binding = gallery_image_reference_binding_1
-            .get_inner();
-        let inbound_nat_rules_binding_1 = args.inbound_nat_rules.get_output(context);
-        let inbound_nat_rules_binding = inbound_nat_rules_binding_1.get_inner();
-        let lab_name_binding_1 = args.lab_name.get_output(context);
-        let lab_name_binding = lab_name_binding_1.get_inner();
-        let lab_subnet_name_binding_1 = args.lab_subnet_name.get_output(context);
-        let lab_subnet_name_binding = lab_subnet_name_binding_1.get_inner();
-        let lab_virtual_network_id_binding_1 = args
+        let inbound_nat_rules_binding = args.inbound_nat_rules.get_output(context);
+        let lab_name_binding = args.lab_name.get_output(context);
+        let lab_subnet_name_binding = args.lab_subnet_name.get_output(context);
+        let lab_virtual_network_id_binding = args
             .lab_virtual_network_id
             .get_output(context);
-        let lab_virtual_network_id_binding = lab_virtual_network_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notes_binding_1 = args.notes.get_output(context);
-        let notes_binding = notes_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let size_binding_1 = args.size.get_output(context);
-        let size_binding = size_binding_1.get_inner();
-        let ssh_key_binding_1 = args.ssh_key.get_output(context);
-        let ssh_key_binding = ssh_key_binding_1.get_inner();
-        let storage_type_binding_1 = args.storage_type.get_output(context);
-        let storage_type_binding = storage_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notes_binding = args.notes.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let size_binding = args.size.get_output(context);
+        let ssh_key_binding = args.ssh_key.get_output(context);
+        let storage_type_binding = args.storage_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:devtest/linuxVirtualMachine:LinuxVirtualMachine".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowClaim".into(),
-                    value: &allow_claim_binding,
+                    value: allow_claim_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disallowPublicIpAddress".into(),
-                    value: &disallow_public_ip_address_binding,
+                    value: disallow_public_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryImageReference".into(),
-                    value: &gallery_image_reference_binding,
+                    value: gallery_image_reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inboundNatRules".into(),
-                    value: &inbound_nat_rules_binding,
+                    value: inbound_nat_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labName".into(),
-                    value: &lab_name_binding,
+                    value: lab_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labSubnetName".into(),
-                    value: &lab_subnet_name_binding,
+                    value: lab_subnet_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labVirtualNetworkId".into(),
-                    value: &lab_virtual_network_id_binding,
+                    value: lab_virtual_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: &notes_binding,
+                    value: notes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: &size_binding,
+                    value: size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshKey".into(),
-                    value: &ssh_key_binding,
+                    value: ssh_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: &storage_type_binding,
+                    value: storage_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinuxVirtualMachineResult {
-            allow_claim: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowClaim"),
-            ),
-            disallow_public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disallowPublicIpAddress"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            gallery_image_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("galleryImageReference"),
-            ),
-            inbound_nat_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inboundNatRules"),
-            ),
-            lab_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labName"),
-            ),
-            lab_subnet_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labSubnetName"),
-            ),
-            lab_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labVirtualNetworkId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("notes")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            ssh_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshKey"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            unique_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueIdentifier"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            allow_claim: o.get_field("allowClaim"),
+            disallow_public_ip_address: o.get_field("disallowPublicIpAddress"),
+            fqdn: o.get_field("fqdn"),
+            gallery_image_reference: o.get_field("galleryImageReference"),
+            inbound_nat_rules: o.get_field("inboundNatRules"),
+            lab_name: o.get_field("labName"),
+            lab_subnet_name: o.get_field("labSubnetName"),
+            lab_virtual_network_id: o.get_field("labVirtualNetworkId"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            notes: o.get_field("notes"),
+            password: o.get_field("password"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            size: o.get_field("size"),
+            ssh_key: o.get_field("sshKey"),
+            storage_type: o.get_field("storageType"),
+            tags: o.get_field("tags"),
+            unique_identifier: o.get_field("uniqueIdentifier"),
+            username: o.get_field("username"),
         }
     }
 }

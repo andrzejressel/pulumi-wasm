@@ -198,155 +198,113 @@ pub mod stack_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StackSetArgs,
     ) -> StackSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administration_role_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administration_role_arn_binding = args
             .administration_role_arn
             .get_output(context);
-        let administration_role_arn_binding = administration_role_arn_binding_1
-            .get_inner();
-        let auto_deployment_binding_1 = args.auto_deployment.get_output(context);
-        let auto_deployment_binding = auto_deployment_binding_1.get_inner();
-        let call_as_binding_1 = args.call_as.get_output(context);
-        let call_as_binding = call_as_binding_1.get_inner();
-        let capabilities_binding_1 = args.capabilities.get_output(context);
-        let capabilities_binding = capabilities_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let execution_role_name_binding_1 = args.execution_role_name.get_output(context);
-        let execution_role_name_binding = execution_role_name_binding_1.get_inner();
-        let managed_execution_binding_1 = args.managed_execution.get_output(context);
-        let managed_execution_binding = managed_execution_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let operation_preferences_binding_1 = args
+        let auto_deployment_binding = args.auto_deployment.get_output(context);
+        let call_as_binding = args.call_as.get_output(context);
+        let capabilities_binding = args.capabilities.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let execution_role_name_binding = args.execution_role_name.get_output(context);
+        let managed_execution_binding = args.managed_execution.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let operation_preferences_binding = args
             .operation_preferences
             .get_output(context);
-        let operation_preferences_binding = operation_preferences_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let permission_model_binding_1 = args.permission_model.get_output(context);
-        let permission_model_binding = permission_model_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let template_body_binding_1 = args.template_body.get_output(context);
-        let template_body_binding = template_body_binding_1.get_inner();
-        let template_url_binding_1 = args.template_url.get_output(context);
-        let template_url_binding = template_url_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let parameters_binding = args.parameters.get_output(context);
+        let permission_model_binding = args.permission_model.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let template_body_binding = args.template_body.get_output(context);
+        let template_url_binding = args.template_url.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudformation/stackSet:StackSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administrationRoleArn".into(),
-                    value: &administration_role_arn_binding,
+                    value: administration_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoDeployment".into(),
-                    value: &auto_deployment_binding,
+                    value: auto_deployment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callAs".into(),
-                    value: &call_as_binding,
+                    value: call_as_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capabilities".into(),
-                    value: &capabilities_binding,
+                    value: capabilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleName".into(),
-                    value: &execution_role_name_binding,
+                    value: execution_role_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedExecution".into(),
-                    value: &managed_execution_binding,
+                    value: managed_execution_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationPreferences".into(),
-                    value: &operation_preferences_binding,
+                    value: operation_preferences_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionModel".into(),
-                    value: &permission_model_binding,
+                    value: permission_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateBody".into(),
-                    value: &template_body_binding,
+                    value: template_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateUrl".into(),
-                    value: &template_url_binding,
+                    value: template_url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StackSetResult {
-            administration_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administrationRoleArn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_deployment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoDeployment"),
-            ),
-            call_as: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callAs"),
-            ),
-            capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capabilities"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            execution_role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRoleName"),
-            ),
-            managed_execution: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedExecution"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            operation_preferences: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operationPreferences"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            permission_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionModel"),
-            ),
-            stack_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackSetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            template_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateBody"),
-            ),
-            template_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateUrl"),
-            ),
+            administration_role_arn: o.get_field("administrationRoleArn"),
+            arn: o.get_field("arn"),
+            auto_deployment: o.get_field("autoDeployment"),
+            call_as: o.get_field("callAs"),
+            capabilities: o.get_field("capabilities"),
+            description: o.get_field("description"),
+            execution_role_name: o.get_field("executionRoleName"),
+            managed_execution: o.get_field("managedExecution"),
+            name: o.get_field("name"),
+            operation_preferences: o.get_field("operationPreferences"),
+            parameters: o.get_field("parameters"),
+            permission_model: o.get_field("permissionModel"),
+            stack_set_id: o.get_field("stackSetId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            template_body: o.get_field("templateBody"),
+            template_url: o.get_field("templateUrl"),
         }
     }
 }

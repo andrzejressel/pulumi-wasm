@@ -108,67 +108,53 @@ pub mod origin_request_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OriginRequestPolicyArgs,
     ) -> OriginRequestPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let cookies_config_binding_1 = args.cookies_config.get_output(context);
-        let cookies_config_binding = cookies_config_binding_1.get_inner();
-        let headers_config_binding_1 = args.headers_config.get_output(context);
-        let headers_config_binding = headers_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_strings_config_binding_1 = args
-            .query_strings_config
-            .get_output(context);
-        let query_strings_config_binding = query_strings_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let comment_binding = args.comment.get_output(context);
+        let cookies_config_binding = args.cookies_config.get_output(context);
+        let headers_config_binding = args.headers_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let query_strings_config_binding = args.query_strings_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/originRequestPolicy:OriginRequestPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cookiesConfig".into(),
-                    value: &cookies_config_binding,
+                    value: cookies_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headersConfig".into(),
-                    value: &headers_config_binding,
+                    value: headers_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryStringsConfig".into(),
-                    value: &query_strings_config_binding,
+                    value: query_strings_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OriginRequestPolicyResult {
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            cookies_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cookiesConfig"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            headers_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("headersConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query_strings_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryStringsConfig"),
-            ),
+            comment: o.get_field("comment"),
+            cookies_config: o.get_field("cookiesConfig"),
+            etag: o.get_field("etag"),
+            headers_config: o.get_field("headersConfig"),
+            name: o.get_field("name"),
+            query_strings_config: o.get_field("queryStringsConfig"),
         }
     }
 }

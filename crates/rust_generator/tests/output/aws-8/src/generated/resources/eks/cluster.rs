@@ -451,212 +451,144 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_config_binding_1 = args.access_config.get_output(context);
-        let access_config_binding = access_config_binding_1.get_inner();
-        let bootstrap_self_managed_addons_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_config_binding = args.access_config.get_output(context);
+        let bootstrap_self_managed_addons_binding = args
             .bootstrap_self_managed_addons
             .get_output(context);
-        let bootstrap_self_managed_addons_binding = bootstrap_self_managed_addons_binding_1
-            .get_inner();
-        let compute_config_binding_1 = args.compute_config.get_output(context);
-        let compute_config_binding = compute_config_binding_1.get_inner();
-        let default_addons_to_removes_binding_1 = args
+        let compute_config_binding = args.compute_config.get_output(context);
+        let default_addons_to_removes_binding = args
             .default_addons_to_removes
             .get_output(context);
-        let default_addons_to_removes_binding = default_addons_to_removes_binding_1
-            .get_inner();
-        let enabled_cluster_log_types_binding_1 = args
+        let enabled_cluster_log_types_binding = args
             .enabled_cluster_log_types
             .get_output(context);
-        let enabled_cluster_log_types_binding = enabled_cluster_log_types_binding_1
-            .get_inner();
-        let encryption_config_binding_1 = args.encryption_config.get_output(context);
-        let encryption_config_binding = encryption_config_binding_1.get_inner();
-        let kubernetes_network_config_binding_1 = args
+        let encryption_config_binding = args.encryption_config.get_output(context);
+        let kubernetes_network_config_binding = args
             .kubernetes_network_config
             .get_output(context);
-        let kubernetes_network_config_binding = kubernetes_network_config_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let outpost_config_binding_1 = args.outpost_config.get_output(context);
-        let outpost_config_binding = outpost_config_binding_1.get_inner();
-        let remote_network_config_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let outpost_config_binding = args.outpost_config.get_output(context);
+        let remote_network_config_binding = args
             .remote_network_config
             .get_output(context);
-        let remote_network_config_binding = remote_network_config_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let storage_config_binding_1 = args.storage_config.get_output(context);
-        let storage_config_binding = storage_config_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let upgrade_policy_binding_1 = args.upgrade_policy.get_output(context);
-        let upgrade_policy_binding = upgrade_policy_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let vpc_config_binding_1 = args.vpc_config.get_output(context);
-        let vpc_config_binding = vpc_config_binding_1.get_inner();
-        let zonal_shift_config_binding_1 = args.zonal_shift_config.get_output(context);
-        let zonal_shift_config_binding = zonal_shift_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let role_arn_binding = args.role_arn.get_output(context);
+        let storage_config_binding = args.storage_config.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let upgrade_policy_binding = args.upgrade_policy.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let vpc_config_binding = args.vpc_config.get_output(context);
+        let zonal_shift_config_binding = args.zonal_shift_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:eks/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessConfig".into(),
-                    value: &access_config_binding,
+                    value: access_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootstrapSelfManagedAddons".into(),
-                    value: &bootstrap_self_managed_addons_binding,
+                    value: bootstrap_self_managed_addons_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeConfig".into(),
-                    value: &compute_config_binding,
+                    value: compute_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAddonsToRemoves".into(),
-                    value: &default_addons_to_removes_binding,
+                    value: default_addons_to_removes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledClusterLogTypes".into(),
-                    value: &enabled_cluster_log_types_binding,
+                    value: enabled_cluster_log_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfig".into(),
-                    value: &encryption_config_binding,
+                    value: encryption_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesNetworkConfig".into(),
-                    value: &kubernetes_network_config_binding,
+                    value: kubernetes_network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostConfig".into(),
-                    value: &outpost_config_binding,
+                    value: outpost_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteNetworkConfig".into(),
-                    value: &remote_network_config_binding,
+                    value: remote_network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageConfig".into(),
-                    value: &storage_config_binding,
+                    value: storage_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradePolicy".into(),
-                    value: &upgrade_policy_binding,
+                    value: upgrade_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: &vpc_config_binding,
+                    value: vpc_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zonalShiftConfig".into(),
-                    value: &zonal_shift_config_binding,
+                    value: zonal_shift_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            access_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessConfig"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bootstrap_self_managed_addons: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapSelfManagedAddons"),
-            ),
-            certificate_authorities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorities"),
-            ),
-            certificate_authority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthority"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            compute_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeConfig"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            default_addons_to_removes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAddonsToRemoves"),
-            ),
-            enabled_cluster_log_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledClusterLogTypes"),
-            ),
-            encryption_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfig"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            kubernetes_network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesNetworkConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outpost_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostConfig"),
-            ),
-            platform_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformVersion"),
-            ),
-            remote_network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteNetworkConfig"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            storage_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageConfig"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            upgrade_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradePolicy"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
-            zonal_shift_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zonalShiftConfig"),
-            ),
+            access_config: o.get_field("accessConfig"),
+            arn: o.get_field("arn"),
+            bootstrap_self_managed_addons: o.get_field("bootstrapSelfManagedAddons"),
+            certificate_authorities: o.get_field("certificateAuthorities"),
+            certificate_authority: o.get_field("certificateAuthority"),
+            cluster_id: o.get_field("clusterId"),
+            compute_config: o.get_field("computeConfig"),
+            created_at: o.get_field("createdAt"),
+            default_addons_to_removes: o.get_field("defaultAddonsToRemoves"),
+            enabled_cluster_log_types: o.get_field("enabledClusterLogTypes"),
+            encryption_config: o.get_field("encryptionConfig"),
+            endpoint: o.get_field("endpoint"),
+            identities: o.get_field("identities"),
+            kubernetes_network_config: o.get_field("kubernetesNetworkConfig"),
+            name: o.get_field("name"),
+            outpost_config: o.get_field("outpostConfig"),
+            platform_version: o.get_field("platformVersion"),
+            remote_network_config: o.get_field("remoteNetworkConfig"),
+            role_arn: o.get_field("roleArn"),
+            status: o.get_field("status"),
+            storage_config: o.get_field("storageConfig"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            upgrade_policy: o.get_field("upgradePolicy"),
+            version: o.get_field("version"),
+            vpc_config: o.get_field("vpcConfig"),
+            zonal_shift_config: o.get_field("zonalShiftConfig"),
         }
     }
 }

@@ -176,175 +176,119 @@ pub mod bot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BotArgs,
     ) -> BotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let abort_statement_binding_1 = args.abort_statement.get_output(context);
-        let abort_statement_binding = abort_statement_binding_1.get_inner();
-        let child_directed_binding_1 = args.child_directed.get_output(context);
-        let child_directed_binding = child_directed_binding_1.get_inner();
-        let clarification_prompt_binding_1 = args
-            .clarification_prompt
-            .get_output(context);
-        let clarification_prompt_binding = clarification_prompt_binding_1.get_inner();
-        let create_version_binding_1 = args.create_version.get_output(context);
-        let create_version_binding = create_version_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let detect_sentiment_binding_1 = args.detect_sentiment.get_output(context);
-        let detect_sentiment_binding = detect_sentiment_binding_1.get_inner();
-        let enable_model_improvements_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let abort_statement_binding = args.abort_statement.get_output(context);
+        let child_directed_binding = args.child_directed.get_output(context);
+        let clarification_prompt_binding = args.clarification_prompt.get_output(context);
+        let create_version_binding = args.create_version.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let detect_sentiment_binding = args.detect_sentiment.get_output(context);
+        let enable_model_improvements_binding = args
             .enable_model_improvements
             .get_output(context);
-        let enable_model_improvements_binding = enable_model_improvements_binding_1
-            .get_inner();
-        let idle_session_ttl_in_seconds_binding_1 = args
+        let idle_session_ttl_in_seconds_binding = args
             .idle_session_ttl_in_seconds
             .get_output(context);
-        let idle_session_ttl_in_seconds_binding = idle_session_ttl_in_seconds_binding_1
-            .get_inner();
-        let intents_binding_1 = args.intents.get_output(context);
-        let intents_binding = intents_binding_1.get_inner();
-        let locale_binding_1 = args.locale.get_output(context);
-        let locale_binding = locale_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nlu_intent_confidence_threshold_binding_1 = args
+        let intents_binding = args.intents.get_output(context);
+        let locale_binding = args.locale.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let nlu_intent_confidence_threshold_binding = args
             .nlu_intent_confidence_threshold
             .get_output(context);
-        let nlu_intent_confidence_threshold_binding = nlu_intent_confidence_threshold_binding_1
-            .get_inner();
-        let process_behavior_binding_1 = args.process_behavior.get_output(context);
-        let process_behavior_binding = process_behavior_binding_1.get_inner();
-        let voice_id_binding_1 = args.voice_id.get_output(context);
-        let voice_id_binding = voice_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let process_behavior_binding = args.process_behavior.get_output(context);
+        let voice_id_binding = args.voice_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/bot:Bot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "abortStatement".into(),
-                    value: &abort_statement_binding,
+                    value: abort_statement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "childDirected".into(),
-                    value: &child_directed_binding,
+                    value: child_directed_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clarificationPrompt".into(),
-                    value: &clarification_prompt_binding,
+                    value: clarification_prompt_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createVersion".into(),
-                    value: &create_version_binding,
+                    value: create_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectSentiment".into(),
-                    value: &detect_sentiment_binding,
+                    value: detect_sentiment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableModelImprovements".into(),
-                    value: &enable_model_improvements_binding,
+                    value: enable_model_improvements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleSessionTtlInSeconds".into(),
-                    value: &idle_session_ttl_in_seconds_binding,
+                    value: idle_session_ttl_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intents".into(),
-                    value: &intents_binding,
+                    value: intents_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locale".into(),
-                    value: &locale_binding,
+                    value: locale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nluIntentConfidenceThreshold".into(),
-                    value: &nlu_intent_confidence_threshold_binding,
+                    value: nlu_intent_confidence_threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "processBehavior".into(),
-                    value: &process_behavior_binding,
+                    value: process_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceId".into(),
-                    value: &voice_id_binding,
+                    value: voice_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BotResult {
-            abort_statement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("abortStatement"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            checksum: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksum"),
-            ),
-            child_directed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("childDirected"),
-            ),
-            clarification_prompt: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clarificationPrompt"),
-            ),
-            create_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createVersion"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            detect_sentiment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectSentiment"),
-            ),
-            enable_model_improvements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableModelImprovements"),
-            ),
-            failure_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureReason"),
-            ),
-            idle_session_ttl_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleSessionTtlInSeconds"),
-            ),
-            intents: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("intents"),
-            ),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            locale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locale"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nlu_intent_confidence_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nluIntentConfidenceThreshold"),
-            ),
-            process_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("processBehavior"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            voice_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceId"),
-            ),
+            abort_statement: o.get_field("abortStatement"),
+            arn: o.get_field("arn"),
+            checksum: o.get_field("checksum"),
+            child_directed: o.get_field("childDirected"),
+            clarification_prompt: o.get_field("clarificationPrompt"),
+            create_version: o.get_field("createVersion"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            detect_sentiment: o.get_field("detectSentiment"),
+            enable_model_improvements: o.get_field("enableModelImprovements"),
+            failure_reason: o.get_field("failureReason"),
+            idle_session_ttl_in_seconds: o.get_field("idleSessionTtlInSeconds"),
+            intents: o.get_field("intents"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            locale: o.get_field("locale"),
+            name: o.get_field("name"),
+            nlu_intent_confidence_threshold: o.get_field("nluIntentConfidenceThreshold"),
+            process_behavior: o.get_field("processBehavior"),
+            status: o.get_field("status"),
+            version: o.get_field("version"),
+            voice_id: o.get_field("voiceId"),
         }
     }
 }

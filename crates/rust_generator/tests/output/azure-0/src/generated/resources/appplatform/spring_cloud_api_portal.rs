@@ -126,96 +126,75 @@ pub mod spring_cloud_api_portal {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudApiPortalArgs,
     ) -> SpringCloudApiPortalResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_try_out_enabled_binding_1 = args.api_try_out_enabled.get_output(context);
-        let api_try_out_enabled_binding = api_try_out_enabled_binding_1.get_inner();
-        let gateway_ids_binding_1 = args.gateway_ids.get_output(context);
-        let gateway_ids_binding = gateway_ids_binding_1.get_inner();
-        let https_only_enabled_binding_1 = args.https_only_enabled.get_output(context);
-        let https_only_enabled_binding = https_only_enabled_binding_1.get_inner();
-        let instance_count_binding_1 = args.instance_count.get_output(context);
-        let instance_count_binding = instance_count_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_try_out_enabled_binding = args.api_try_out_enabled.get_output(context);
+        let gateway_ids_binding = args.gateway_ids.get_output(context);
+        let https_only_enabled_binding = args.https_only_enabled.get_output(context);
+        let instance_count_binding = args.instance_count.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let spring_cloud_service_id_binding_1 = args
+        let spring_cloud_service_id_binding = args
             .spring_cloud_service_id
             .get_output(context);
-        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
-            .get_inner();
-        let sso_binding_1 = args.sso.get_output(context);
-        let sso_binding = sso_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sso_binding = args.sso.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiTryOutEnabled".into(),
-                    value: &api_try_out_enabled_binding,
+                    value: api_try_out_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayIds".into(),
-                    value: &gateway_ids_binding,
+                    value: gateway_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnlyEnabled".into(),
-                    value: &https_only_enabled_binding,
+                    value: https_only_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: &instance_count_binding,
+                    value: instance_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: &spring_cloud_service_id_binding,
+                    value: spring_cloud_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sso".into(),
-                    value: &sso_binding,
+                    value: sso_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudApiPortalResult {
-            api_try_out_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiTryOutEnabled"),
-            ),
-            gateway_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayIds"),
-            ),
-            https_only_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsOnlyEnabled"),
-            ),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudServiceId"),
-            ),
-            sso: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sso")),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            api_try_out_enabled: o.get_field("apiTryOutEnabled"),
+            gateway_ids: o.get_field("gatewayIds"),
+            https_only_enabled: o.get_field("httpsOnlyEnabled"),
+            instance_count: o.get_field("instanceCount"),
+            name: o.get_field("name"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            spring_cloud_service_id: o.get_field("springCloudServiceId"),
+            sso: o.get_field("sso"),
+            url: o.get_field("url"),
         }
     }
 }

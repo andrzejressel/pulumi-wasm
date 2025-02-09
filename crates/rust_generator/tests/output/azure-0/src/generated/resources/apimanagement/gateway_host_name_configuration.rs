@@ -131,104 +131,80 @@ pub mod gateway_host_name_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GatewayHostNameConfigurationArgs,
     ) -> GatewayHostNameConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding_1 = args.api_management_id.get_output(context);
-        let api_management_id_binding = api_management_id_binding_1.get_inner();
-        let certificate_id_binding_1 = args.certificate_id.get_output(context);
-        let certificate_id_binding = certificate_id_binding_1.get_inner();
-        let gateway_name_binding_1 = args.gateway_name.get_output(context);
-        let gateway_name_binding = gateway_name_binding_1.get_inner();
-        let host_name_binding_1 = args.host_name.get_output(context);
-        let host_name_binding = host_name_binding_1.get_inner();
-        let http2_enabled_binding_1 = args.http2_enabled.get_output(context);
-        let http2_enabled_binding = http2_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request_client_certificate_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_id_binding = args.api_management_id.get_output(context);
+        let certificate_id_binding = args.certificate_id.get_output(context);
+        let gateway_name_binding = args.gateway_name.get_output(context);
+        let host_name_binding = args.host_name.get_output(context);
+        let http2_enabled_binding = args.http2_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request_client_certificate_enabled_binding = args
             .request_client_certificate_enabled
             .get_output(context);
-        let request_client_certificate_enabled_binding = request_client_certificate_enabled_binding_1
-            .get_inner();
-        let tls10_enabled_binding_1 = args.tls10_enabled.get_output(context);
-        let tls10_enabled_binding = tls10_enabled_binding_1.get_inner();
-        let tls11_enabled_binding_1 = args.tls11_enabled.get_output(context);
-        let tls11_enabled_binding = tls11_enabled_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tls10_enabled_binding = args.tls10_enabled.get_output(context);
+        let tls11_enabled_binding = args.tls11_enabled.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: &api_management_id_binding,
+                    value: api_management_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateId".into(),
-                    value: &certificate_id_binding,
+                    value: certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayName".into(),
-                    value: &gateway_name_binding,
+                    value: gateway_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostName".into(),
-                    value: &host_name_binding,
+                    value: host_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "http2Enabled".into(),
-                    value: &http2_enabled_binding,
+                    value: http2_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestClientCertificateEnabled".into(),
-                    value: &request_client_certificate_enabled_binding,
+                    value: request_client_certificate_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls10Enabled".into(),
-                    value: &tls10_enabled_binding,
+                    value: tls10_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls11Enabled".into(),
-                    value: &tls11_enabled_binding,
+                    value: tls11_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GatewayHostNameConfigurationResult {
-            api_management_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementId"),
-            ),
-            certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateId"),
-            ),
-            gateway_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayName"),
-            ),
-            host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostName"),
-            ),
-            http2_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("http2Enabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            request_client_certificate_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestClientCertificateEnabled"),
-            ),
-            tls10_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tls10Enabled"),
-            ),
-            tls11_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tls11Enabled"),
-            ),
+            api_management_id: o.get_field("apiManagementId"),
+            certificate_id: o.get_field("certificateId"),
+            gateway_name: o.get_field("gatewayName"),
+            host_name: o.get_field("hostName"),
+            http2_enabled: o.get_field("http2Enabled"),
+            name: o.get_field("name"),
+            request_client_certificate_enabled: o
+                .get_field("requestClientCertificateEnabled"),
+            tls10_enabled: o.get_field("tls10Enabled"),
+            tls11_enabled: o.get_field("tls11Enabled"),
         }
     }
 }

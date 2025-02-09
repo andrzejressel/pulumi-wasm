@@ -44,55 +44,43 @@ pub mod get_bundle {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBundleArgs,
     ) -> GetBundleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bundle_id_binding_1 = args.bundle_id.get_output(context);
-        let bundle_id_binding = bundle_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let owner_binding_1 = args.owner.get_output(context);
-        let owner_binding = owner_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bundle_id_binding = args.bundle_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let owner_binding = args.owner.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:workspaces/getBundle:getBundle".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bundleId".into(),
-                    value: &bundle_id_binding,
+                    value: bundle_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: &owner_binding,
+                    value: owner_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBundleResult {
-            bundle_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bundleId"),
-            ),
-            compute_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeTypes"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            root_storages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootStorages"),
-            ),
-            user_storages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userStorages"),
-            ),
+            bundle_id: o.get_field("bundleId"),
+            compute_types: o.get_field("computeTypes"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            root_storages: o.get_field("rootStorages"),
+            user_storages: o.get_field("userStorages"),
         }
     }
 }

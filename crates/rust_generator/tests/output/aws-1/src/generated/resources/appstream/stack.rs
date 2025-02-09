@@ -165,137 +165,99 @@ pub mod stack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StackArgs,
     ) -> StackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_endpoints_binding_1 = args.access_endpoints.get_output(context);
-        let access_endpoints_binding = access_endpoints_binding_1.get_inner();
-        let application_settings_binding_1 = args
-            .application_settings
-            .get_output(context);
-        let application_settings_binding = application_settings_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let embed_host_domains_binding_1 = args.embed_host_domains.get_output(context);
-        let embed_host_domains_binding = embed_host_domains_binding_1.get_inner();
-        let feedback_url_binding_1 = args.feedback_url.get_output(context);
-        let feedback_url_binding = feedback_url_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let redirect_url_binding_1 = args.redirect_url.get_output(context);
-        let redirect_url_binding = redirect_url_binding_1.get_inner();
-        let storage_connectors_binding_1 = args.storage_connectors.get_output(context);
-        let storage_connectors_binding = storage_connectors_binding_1.get_inner();
-        let streaming_experience_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_endpoints_binding = args.access_endpoints.get_output(context);
+        let application_settings_binding = args.application_settings.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let embed_host_domains_binding = args.embed_host_domains.get_output(context);
+        let feedback_url_binding = args.feedback_url.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let redirect_url_binding = args.redirect_url.get_output(context);
+        let storage_connectors_binding = args.storage_connectors.get_output(context);
+        let streaming_experience_settings_binding = args
             .streaming_experience_settings
             .get_output(context);
-        let streaming_experience_settings_binding = streaming_experience_settings_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_settings_binding_1 = args.user_settings.get_output(context);
-        let user_settings_binding = user_settings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let user_settings_binding = args.user_settings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appstream/stack:Stack".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessEndpoints".into(),
-                    value: &access_endpoints_binding,
+                    value: access_endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSettings".into(),
-                    value: &application_settings_binding,
+                    value: application_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "embedHostDomains".into(),
-                    value: &embed_host_domains_binding,
+                    value: embed_host_domains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feedbackUrl".into(),
-                    value: &feedback_url_binding,
+                    value: feedback_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectUrl".into(),
-                    value: &redirect_url_binding,
+                    value: redirect_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageConnectors".into(),
-                    value: &storage_connectors_binding,
+                    value: storage_connectors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingExperienceSettings".into(),
-                    value: &streaming_experience_settings_binding,
+                    value: streaming_experience_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userSettings".into(),
-                    value: &user_settings_binding,
+                    value: user_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StackResult {
-            access_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessEndpoints"),
-            ),
-            application_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationSettings"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            embed_host_domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("embedHostDomains"),
-            ),
-            feedback_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("feedbackUrl"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            redirect_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redirectUrl"),
-            ),
-            storage_connectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageConnectors"),
-            ),
-            streaming_experience_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamingExperienceSettings"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userSettings"),
-            ),
+            access_endpoints: o.get_field("accessEndpoints"),
+            application_settings: o.get_field("applicationSettings"),
+            arn: o.get_field("arn"),
+            created_time: o.get_field("createdTime"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            embed_host_domains: o.get_field("embedHostDomains"),
+            feedback_url: o.get_field("feedbackUrl"),
+            name: o.get_field("name"),
+            redirect_url: o.get_field("redirectUrl"),
+            storage_connectors: o.get_field("storageConnectors"),
+            streaming_experience_settings: o.get_field("streamingExperienceSettings"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_settings: o.get_field("userSettings"),
         }
     }
 }

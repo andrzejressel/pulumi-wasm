@@ -172,172 +172,126 @@ pub mod mongo_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MongoClusterArgs,
     ) -> MongoClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_password_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administrator_password_binding = args
             .administrator_password
             .get_output(context);
-        let administrator_password_binding = administrator_password_binding_1
-            .get_inner();
-        let administrator_username_binding_1 = args
+        let administrator_username_binding = args
             .administrator_username
             .get_output(context);
-        let administrator_username_binding = administrator_username_binding_1
-            .get_inner();
-        let compute_tier_binding_1 = args.compute_tier.get_output(context);
-        let compute_tier_binding = compute_tier_binding_1.get_inner();
-        let create_mode_binding_1 = args.create_mode.get_output(context);
-        let create_mode_binding = create_mode_binding_1.get_inner();
-        let high_availability_mode_binding_1 = args
+        let compute_tier_binding = args.compute_tier.get_output(context);
+        let create_mode_binding = args.create_mode.get_output(context);
+        let high_availability_mode_binding = args
             .high_availability_mode
             .get_output(context);
-        let high_availability_mode_binding = high_availability_mode_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let preview_features_binding_1 = args.preview_features.get_output(context);
-        let preview_features_binding = preview_features_binding_1.get_inner();
-        let public_network_access_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let preview_features_binding = args.preview_features.get_output(context);
+        let public_network_access_binding = args
             .public_network_access
             .get_output(context);
-        let public_network_access_binding = public_network_access_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let shard_count_binding_1 = args.shard_count.get_output(context);
-        let shard_count_binding = shard_count_binding_1.get_inner();
-        let source_location_binding_1 = args.source_location.get_output(context);
-        let source_location_binding = source_location_binding_1.get_inner();
-        let source_server_id_binding_1 = args.source_server_id.get_output(context);
-        let source_server_id_binding = source_server_id_binding_1.get_inner();
-        let storage_size_in_gb_binding_1 = args.storage_size_in_gb.get_output(context);
-        let storage_size_in_gb_binding = storage_size_in_gb_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let shard_count_binding = args.shard_count.get_output(context);
+        let source_location_binding = args.source_location.get_output(context);
+        let source_server_id_binding = args.source_server_id.get_output(context);
+        let storage_size_in_gb_binding = args.storage_size_in_gb.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/mongoCluster:MongoCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorPassword".into(),
-                    value: &administrator_password_binding,
+                    value: administrator_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorUsername".into(),
-                    value: &administrator_username_binding,
+                    value: administrator_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeTier".into(),
-                    value: &compute_tier_binding,
+                    value: compute_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createMode".into(),
-                    value: &create_mode_binding,
+                    value: create_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "highAvailabilityMode".into(),
-                    value: &high_availability_mode_binding,
+                    value: high_availability_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "previewFeatures".into(),
-                    value: &preview_features_binding,
+                    value: preview_features_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccess".into(),
-                    value: &public_network_access_binding,
+                    value: public_network_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardCount".into(),
-                    value: &shard_count_binding,
+                    value: shard_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceLocation".into(),
-                    value: &source_location_binding,
+                    value: source_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceServerId".into(),
-                    value: &source_server_id_binding,
+                    value: source_server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageSizeInGb".into(),
-                    value: &storage_size_in_gb_binding,
+                    value: storage_size_in_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MongoClusterResult {
-            administrator_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorPassword"),
-            ),
-            administrator_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorUsername"),
-            ),
-            compute_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeTier"),
-            ),
-            create_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createMode"),
-            ),
-            high_availability_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("highAvailabilityMode"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            preview_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("previewFeatures"),
-            ),
-            public_network_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccess"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            shard_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardCount"),
-            ),
-            source_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceLocation"),
-            ),
-            source_server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceServerId"),
-            ),
-            storage_size_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageSizeInGb"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            administrator_password: o.get_field("administratorPassword"),
+            administrator_username: o.get_field("administratorUsername"),
+            compute_tier: o.get_field("computeTier"),
+            create_mode: o.get_field("createMode"),
+            high_availability_mode: o.get_field("highAvailabilityMode"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            preview_features: o.get_field("previewFeatures"),
+            public_network_access: o.get_field("publicNetworkAccess"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            shard_count: o.get_field("shardCount"),
+            source_location: o.get_field("sourceLocation"),
+            source_server_id: o.get_field("sourceServerId"),
+            storage_size_in_gb: o.get_field("storageSizeInGb"),
+            tags: o.get_field("tags"),
+            version: o.get_field("version"),
         }
     }
 }

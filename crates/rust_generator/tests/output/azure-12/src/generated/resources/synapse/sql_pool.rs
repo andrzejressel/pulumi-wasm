@@ -134,125 +134,90 @@ pub mod sql_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SqlPoolArgs,
     ) -> SqlPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let collation_binding_1 = args.collation.get_output(context);
-        let collation_binding = collation_binding_1.get_inner();
-        let create_mode_binding_1 = args.create_mode.get_output(context);
-        let create_mode_binding = create_mode_binding_1.get_inner();
-        let data_encrypted_binding_1 = args.data_encrypted.get_output(context);
-        let data_encrypted_binding = data_encrypted_binding_1.get_inner();
-        let geo_backup_policy_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let collation_binding = args.collation.get_output(context);
+        let create_mode_binding = args.create_mode.get_output(context);
+        let data_encrypted_binding = args.data_encrypted.get_output(context);
+        let geo_backup_policy_enabled_binding = args
             .geo_backup_policy_enabled
             .get_output(context);
-        let geo_backup_policy_enabled_binding = geo_backup_policy_enabled_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recovery_database_id_binding_1 = args
-            .recovery_database_id
-            .get_output(context);
-        let recovery_database_id_binding = recovery_database_id_binding_1.get_inner();
-        let restore_binding_1 = args.restore.get_output(context);
-        let restore_binding = restore_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let storage_account_type_binding_1 = args
-            .storage_account_type
-            .get_output(context);
-        let storage_account_type_binding = storage_account_type_binding_1.get_inner();
-        let synapse_workspace_id_binding_1 = args
-            .synapse_workspace_id
-            .get_output(context);
-        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let recovery_database_id_binding = args.recovery_database_id.get_output(context);
+        let restore_binding = args.restore.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let storage_account_type_binding = args.storage_account_type.get_output(context);
+        let synapse_workspace_id_binding = args.synapse_workspace_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:synapse/sqlPool:SqlPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collation".into(),
-                    value: &collation_binding,
+                    value: collation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createMode".into(),
-                    value: &create_mode_binding,
+                    value: create_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataEncrypted".into(),
-                    value: &data_encrypted_binding,
+                    value: data_encrypted_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoBackupPolicyEnabled".into(),
-                    value: &geo_backup_policy_enabled_binding,
+                    value: geo_backup_policy_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryDatabaseId".into(),
-                    value: &recovery_database_id_binding,
+                    value: recovery_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restore".into(),
-                    value: &restore_binding,
+                    value: restore_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountType".into(),
-                    value: &storage_account_type_binding,
+                    value: storage_account_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: &synapse_workspace_id_binding,
+                    value: synapse_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SqlPoolResult {
-            collation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collation"),
-            ),
-            create_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createMode"),
-            ),
-            data_encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataEncrypted"),
-            ),
-            geo_backup_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoBackupPolicyEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recovery_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryDatabaseId"),
-            ),
-            restore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restore"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            storage_account_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountType"),
-            ),
-            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synapseWorkspaceId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            collation: o.get_field("collation"),
+            create_mode: o.get_field("createMode"),
+            data_encrypted: o.get_field("dataEncrypted"),
+            geo_backup_policy_enabled: o.get_field("geoBackupPolicyEnabled"),
+            name: o.get_field("name"),
+            recovery_database_id: o.get_field("recoveryDatabaseId"),
+            restore: o.get_field("restore"),
+            sku_name: o.get_field("skuName"),
+            storage_account_type: o.get_field("storageAccountType"),
+            synapse_workspace_id: o.get_field("synapseWorkspaceId"),
+            tags: o.get_field("tags"),
         }
     }
 }

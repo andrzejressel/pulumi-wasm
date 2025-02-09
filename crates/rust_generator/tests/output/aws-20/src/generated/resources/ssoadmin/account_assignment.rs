@@ -136,75 +136,58 @@ pub mod account_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountAssignmentArgs,
     ) -> AccountAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_arn_binding_1 = args.instance_arn.get_output(context);
-        let instance_arn_binding = instance_arn_binding_1.get_inner();
-        let permission_set_arn_binding_1 = args.permission_set_arn.get_output(context);
-        let permission_set_arn_binding = permission_set_arn_binding_1.get_inner();
-        let principal_id_binding_1 = args.principal_id.get_output(context);
-        let principal_id_binding = principal_id_binding_1.get_inner();
-        let principal_type_binding_1 = args.principal_type.get_output(context);
-        let principal_type_binding = principal_type_binding_1.get_inner();
-        let target_id_binding_1 = args.target_id.get_output(context);
-        let target_id_binding = target_id_binding_1.get_inner();
-        let target_type_binding_1 = args.target_type.get_output(context);
-        let target_type_binding = target_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_arn_binding = args.instance_arn.get_output(context);
+        let permission_set_arn_binding = args.permission_set_arn.get_output(context);
+        let principal_id_binding = args.principal_id.get_output(context);
+        let principal_type_binding = args.principal_type.get_output(context);
+        let target_id_binding = args.target_id.get_output(context);
+        let target_type_binding = args.target_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssoadmin/accountAssignment:AccountAssignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: &instance_arn_binding,
+                    value: instance_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionSetArn".into(),
-                    value: &permission_set_arn_binding,
+                    value: permission_set_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: &principal_id_binding,
+                    value: principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: &principal_type_binding,
+                    value: principal_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetId".into(),
-                    value: &target_id_binding,
+                    value: target_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetType".into(),
-                    value: &target_type_binding,
+                    value: target_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountAssignmentResult {
-            instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceArn"),
-            ),
-            permission_set_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionSetArn"),
-            ),
-            principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalId"),
-            ),
-            principal_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalType"),
-            ),
-            target_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetId"),
-            ),
-            target_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetType"),
-            ),
+            instance_arn: o.get_field("instanceArn"),
+            permission_set_arn: o.get_field("permissionSetArn"),
+            principal_id: o.get_field("principalId"),
+            principal_type: o.get_field("principalType"),
+            target_id: o.get_field("targetId"),
+            target_type: o.get_field("targetType"),
         }
     }
 }

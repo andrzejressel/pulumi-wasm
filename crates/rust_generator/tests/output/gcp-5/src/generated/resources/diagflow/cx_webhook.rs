@@ -156,112 +156,82 @@ pub mod cx_webhook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CxWebhookArgs,
     ) -> CxWebhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_spell_correction_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disabled_binding = args.disabled.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_spell_correction_binding = args
             .enable_spell_correction
             .get_output(context);
-        let enable_spell_correction_binding = enable_spell_correction_binding_1
-            .get_inner();
-        let enable_stackdriver_logging_binding_1 = args
+        let enable_stackdriver_logging_binding = args
             .enable_stackdriver_logging
             .get_output(context);
-        let enable_stackdriver_logging_binding = enable_stackdriver_logging_binding_1
-            .get_inner();
-        let generic_web_service_binding_1 = args.generic_web_service.get_output(context);
-        let generic_web_service_binding = generic_web_service_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let security_settings_binding_1 = args.security_settings.get_output(context);
-        let security_settings_binding = security_settings_binding_1.get_inner();
-        let service_directory_binding_1 = args.service_directory.get_output(context);
-        let service_directory_binding = service_directory_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let generic_web_service_binding = args.generic_web_service.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let security_settings_binding = args.security_settings.get_output(context);
+        let service_directory_binding = args.service_directory.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/cxWebhook:CxWebhook".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSpellCorrection".into(),
-                    value: &enable_spell_correction_binding,
+                    value: enable_spell_correction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStackdriverLogging".into(),
-                    value: &enable_stackdriver_logging_binding,
+                    value: enable_stackdriver_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "genericWebService".into(),
-                    value: &generic_web_service_binding,
+                    value: generic_web_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securitySettings".into(),
-                    value: &security_settings_binding,
+                    value: security_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceDirectory".into(),
-                    value: &service_directory_binding,
+                    value: service_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CxWebhookResult {
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enable_spell_correction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSpellCorrection"),
-            ),
-            enable_stackdriver_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableStackdriverLogging"),
-            ),
-            generic_web_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("genericWebService"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            security_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securitySettings"),
-            ),
-            service_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceDirectory"),
-            ),
-            start_flow: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startFlow"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
+            disabled: o.get_field("disabled"),
+            display_name: o.get_field("displayName"),
+            enable_spell_correction: o.get_field("enableSpellCorrection"),
+            enable_stackdriver_logging: o.get_field("enableStackdriverLogging"),
+            generic_web_service: o.get_field("genericWebService"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            security_settings: o.get_field("securitySettings"),
+            service_directory: o.get_field("serviceDirectory"),
+            start_flow: o.get_field("startFlow"),
+            timeout: o.get_field("timeout"),
         }
     }
 }

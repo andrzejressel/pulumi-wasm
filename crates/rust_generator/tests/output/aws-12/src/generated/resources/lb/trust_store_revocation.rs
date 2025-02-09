@@ -74,65 +74,51 @@ pub mod trust_store_revocation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrustStoreRevocationArgs,
     ) -> TrustStoreRevocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let revocations_s3_bucket_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let revocations_s3_bucket_binding = args
             .revocations_s3_bucket
             .get_output(context);
-        let revocations_s3_bucket_binding = revocations_s3_bucket_binding_1.get_inner();
-        let revocations_s3_key_binding_1 = args.revocations_s3_key.get_output(context);
-        let revocations_s3_key_binding = revocations_s3_key_binding_1.get_inner();
-        let revocations_s3_object_version_binding_1 = args
+        let revocations_s3_key_binding = args.revocations_s3_key.get_output(context);
+        let revocations_s3_object_version_binding = args
             .revocations_s3_object_version
             .get_output(context);
-        let revocations_s3_object_version_binding = revocations_s3_object_version_binding_1
-            .get_inner();
-        let trust_store_arn_binding_1 = args.trust_store_arn.get_output(context);
-        let trust_store_arn_binding = trust_store_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let trust_store_arn_binding = args.trust_store_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lb/trustStoreRevocation:TrustStoreRevocation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revocationsS3Bucket".into(),
-                    value: &revocations_s3_bucket_binding,
+                    value: revocations_s3_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revocationsS3Key".into(),
-                    value: &revocations_s3_key_binding,
+                    value: revocations_s3_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revocationsS3ObjectVersion".into(),
-                    value: &revocations_s3_object_version_binding,
+                    value: revocations_s3_object_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustStoreArn".into(),
-                    value: &trust_store_arn_binding,
+                    value: trust_store_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrustStoreRevocationResult {
-            revocation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationId"),
-            ),
-            revocations_s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationsS3Bucket"),
-            ),
-            revocations_s3_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationsS3Key"),
-            ),
-            revocations_s3_object_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationsS3ObjectVersion"),
-            ),
-            trust_store_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustStoreArn"),
-            ),
+            revocation_id: o.get_field("revocationId"),
+            revocations_s3_bucket: o.get_field("revocationsS3Bucket"),
+            revocations_s3_key: o.get_field("revocationsS3Key"),
+            revocations_s3_object_version: o.get_field("revocationsS3ObjectVersion"),
+            trust_store_arn: o.get_field("trustStoreArn"),
         }
     }
 }

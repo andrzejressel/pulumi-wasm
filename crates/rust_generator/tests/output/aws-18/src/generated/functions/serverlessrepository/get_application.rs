@@ -32,48 +32,37 @@ pub mod get_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApplicationArgs,
     ) -> GetApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let semantic_version_binding_1 = args.semantic_version.get_output(context);
-        let semantic_version_binding = semantic_version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let semantic_version_binding = args.semantic_version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:serverlessrepository/getApplication:getApplication".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "semanticVersion".into(),
-                    value: &semantic_version_binding,
+                    value: semantic_version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApplicationResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            required_capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiredCapabilities"),
-            ),
-            semantic_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("semanticVersion"),
-            ),
-            source_code_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeUrl"),
-            ),
-            template_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateUrl"),
-            ),
+            application_id: o.get_field("applicationId"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            required_capabilities: o.get_field("requiredCapabilities"),
+            semantic_version: o.get_field("semanticVersion"),
+            source_code_url: o.get_field("sourceCodeUrl"),
+            template_url: o.get_field("templateUrl"),
         }
     }
 }

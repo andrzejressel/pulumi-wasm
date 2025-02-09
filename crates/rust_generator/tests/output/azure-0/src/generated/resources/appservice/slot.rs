@@ -265,180 +265,130 @@ pub mod slot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SlotArgs,
     ) -> SlotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_name_binding_1 = args.app_service_name.get_output(context);
-        let app_service_name_binding = app_service_name_binding_1.get_inner();
-        let app_service_plan_id_binding_1 = args.app_service_plan_id.get_output(context);
-        let app_service_plan_id_binding = app_service_plan_id_binding_1.get_inner();
-        let app_settings_binding_1 = args.app_settings.get_output(context);
-        let app_settings_binding = app_settings_binding_1.get_inner();
-        let auth_settings_binding_1 = args.auth_settings.get_output(context);
-        let auth_settings_binding = auth_settings_binding_1.get_inner();
-        let client_affinity_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_service_name_binding = args.app_service_name.get_output(context);
+        let app_service_plan_id_binding = args.app_service_plan_id.get_output(context);
+        let app_settings_binding = args.app_settings.get_output(context);
+        let auth_settings_binding = args.auth_settings.get_output(context);
+        let client_affinity_enabled_binding = args
             .client_affinity_enabled
             .get_output(context);
-        let client_affinity_enabled_binding = client_affinity_enabled_binding_1
-            .get_inner();
-        let connection_strings_binding_1 = args.connection_strings.get_output(context);
-        let connection_strings_binding = connection_strings_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let https_only_binding_1 = args.https_only.get_output(context);
-        let https_only_binding = https_only_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let key_vault_reference_identity_id_binding_1 = args
+        let connection_strings_binding = args.connection_strings.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let https_only_binding = args.https_only.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let key_vault_reference_identity_id_binding = args
             .key_vault_reference_identity_id
             .get_output(context);
-        let key_vault_reference_identity_id_binding = key_vault_reference_identity_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logs_binding_1 = args.logs.get_output(context);
-        let logs_binding = logs_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let site_config_binding_1 = args.site_config.get_output(context);
-        let site_config_binding = site_config_binding_1.get_inner();
-        let storage_accounts_binding_1 = args.storage_accounts.get_output(context);
-        let storage_accounts_binding = storage_accounts_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let logs_binding = args.logs.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let site_config_binding = args.site_config.get_output(context);
+        let storage_accounts_binding = args.storage_accounts.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/slot:Slot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceName".into(),
-                    value: &app_service_name_binding,
+                    value: app_service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServicePlanId".into(),
-                    value: &app_service_plan_id_binding,
+                    value: app_service_plan_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appSettings".into(),
-                    value: &app_settings_binding,
+                    value: app_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authSettings".into(),
-                    value: &auth_settings_binding,
+                    value: auth_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAffinityEnabled".into(),
-                    value: &client_affinity_enabled_binding,
+                    value: client_affinity_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionStrings".into(),
-                    value: &connection_strings_binding,
+                    value: connection_strings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: &https_only_binding,
+                    value: https_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultReferenceIdentityId".into(),
-                    value: &key_vault_reference_identity_id_binding,
+                    value: key_vault_reference_identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logs".into(),
-                    value: &logs_binding,
+                    value: logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteConfig".into(),
-                    value: &site_config_binding,
+                    value: site_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccounts".into(),
-                    value: &storage_accounts_binding,
+                    value: storage_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SlotResult {
-            app_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceName"),
-            ),
-            app_service_plan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServicePlanId"),
-            ),
-            app_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appSettings"),
-            ),
-            auth_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authSettings"),
-            ),
-            client_affinity_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientAffinityEnabled"),
-            ),
-            connection_strings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionStrings"),
-            ),
-            default_site_hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSiteHostname"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            https_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsOnly"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            key_vault_reference_identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultReferenceIdentityId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            site_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteConfig"),
-            ),
-            site_credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteCredentials"),
-            ),
-            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccounts"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            app_service_name: o.get_field("appServiceName"),
+            app_service_plan_id: o.get_field("appServicePlanId"),
+            app_settings: o.get_field("appSettings"),
+            auth_settings: o.get_field("authSettings"),
+            client_affinity_enabled: o.get_field("clientAffinityEnabled"),
+            connection_strings: o.get_field("connectionStrings"),
+            default_site_hostname: o.get_field("defaultSiteHostname"),
+            enabled: o.get_field("enabled"),
+            https_only: o.get_field("httpsOnly"),
+            identity: o.get_field("identity"),
+            key_vault_reference_identity_id: o.get_field("keyVaultReferenceIdentityId"),
+            location: o.get_field("location"),
+            logs: o.get_field("logs"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            site_config: o.get_field("siteConfig"),
+            site_credentials: o.get_field("siteCredentials"),
+            storage_accounts: o.get_field("storageAccounts"),
+            tags: o.get_field("tags"),
         }
     }
 }

@@ -177,150 +177,110 @@ pub mod eventhub_data_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventhubDataConnectionArgs,
     ) -> EventhubDataConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let compression_binding_1 = args.compression.get_output(context);
-        let compression_binding = compression_binding_1.get_inner();
-        let consumer_group_binding_1 = args.consumer_group.get_output(context);
-        let consumer_group_binding = consumer_group_binding_1.get_inner();
-        let data_format_binding_1 = args.data_format.get_output(context);
-        let data_format_binding = data_format_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let database_routing_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let compression_binding = args.compression.get_output(context);
+        let consumer_group_binding = args.consumer_group.get_output(context);
+        let data_format_binding = args.data_format.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let database_routing_type_binding = args
             .database_routing_type
             .get_output(context);
-        let database_routing_type_binding = database_routing_type_binding_1.get_inner();
-        let event_system_properties_binding_1 = args
+        let event_system_properties_binding = args
             .event_system_properties
             .get_output(context);
-        let event_system_properties_binding = event_system_properties_binding_1
-            .get_inner();
-        let eventhub_id_binding_1 = args.eventhub_id.get_output(context);
-        let eventhub_id_binding = eventhub_id_binding_1.get_inner();
-        let identity_id_binding_1 = args.identity_id.get_output(context);
-        let identity_id_binding = identity_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mapping_rule_name_binding_1 = args.mapping_rule_name.get_output(context);
-        let mapping_rule_name_binding = mapping_rule_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let table_name_binding_1 = args.table_name.get_output(context);
-        let table_name_binding = table_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let eventhub_id_binding = args.eventhub_id.get_output(context);
+        let identity_id_binding = args.identity_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mapping_rule_name_binding = args.mapping_rule_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let table_name_binding = args.table_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:kusto/eventhubDataConnection:EventhubDataConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compression".into(),
-                    value: &compression_binding,
+                    value: compression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerGroup".into(),
-                    value: &consumer_group_binding,
+                    value: consumer_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFormat".into(),
-                    value: &data_format_binding,
+                    value: data_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseRoutingType".into(),
-                    value: &database_routing_type_binding,
+                    value: database_routing_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSystemProperties".into(),
-                    value: &event_system_properties_binding,
+                    value: event_system_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubId".into(),
-                    value: &eventhub_id_binding,
+                    value: eventhub_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: &identity_id_binding,
+                    value: identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mappingRuleName".into(),
-                    value: &mapping_rule_name_binding,
+                    value: mapping_rule_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: &table_name_binding,
+                    value: table_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventhubDataConnectionResult {
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            compression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compression"),
-            ),
-            consumer_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumerGroup"),
-            ),
-            data_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFormat"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            database_routing_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseRoutingType"),
-            ),
-            event_system_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventSystemProperties"),
-            ),
-            eventhub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubId"),
-            ),
-            identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mapping_rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mappingRuleName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            table_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableName"),
-            ),
+            cluster_name: o.get_field("clusterName"),
+            compression: o.get_field("compression"),
+            consumer_group: o.get_field("consumerGroup"),
+            data_format: o.get_field("dataFormat"),
+            database_name: o.get_field("databaseName"),
+            database_routing_type: o.get_field("databaseRoutingType"),
+            event_system_properties: o.get_field("eventSystemProperties"),
+            eventhub_id: o.get_field("eventhubId"),
+            identity_id: o.get_field("identityId"),
+            location: o.get_field("location"),
+            mapping_rule_name: o.get_field("mappingRuleName"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            table_name: o.get_field("tableName"),
         }
     }
 }

@@ -181,64 +181,53 @@ pub mod custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomDomainArgs,
     ) -> CustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_binding_type_binding = args
             .certificate_binding_type
             .get_output(context);
-        let certificate_binding_type_binding = certificate_binding_type_binding_1
-            .get_inner();
-        let container_app_environment_certificate_id_binding_1 = args
+        let container_app_environment_certificate_id_binding = args
             .container_app_environment_certificate_id
             .get_output(context);
-        let container_app_environment_certificate_id_binding = container_app_environment_certificate_id_binding_1
-            .get_inner();
-        let container_app_id_binding_1 = args.container_app_id.get_output(context);
-        let container_app_id_binding = container_app_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let container_app_id_binding = args.container_app_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerapp/customDomain:CustomDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateBindingType".into(),
-                    value: &certificate_binding_type_binding,
+                    value: certificate_binding_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentCertificateId".into(),
-                    value: &container_app_environment_certificate_id_binding,
+                    value: container_app_environment_certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppId".into(),
-                    value: &container_app_id_binding,
+                    value: container_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomDomainResult {
-            certificate_binding_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateBindingType"),
-            ),
-            container_app_environment_certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppEnvironmentCertificateId"),
-            ),
-            container_app_environment_managed_certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppEnvironmentManagedCertificateId"),
-            ),
-            container_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            certificate_binding_type: o.get_field("certificateBindingType"),
+            container_app_environment_certificate_id: o
+                .get_field("containerAppEnvironmentCertificateId"),
+            container_app_environment_managed_certificate_id: o
+                .get_field("containerAppEnvironmentManagedCertificateId"),
+            container_app_id: o.get_field("containerAppId"),
+            name: o.get_field("name"),
         }
     }
 }

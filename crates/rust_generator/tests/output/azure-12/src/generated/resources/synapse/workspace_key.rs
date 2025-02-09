@@ -161,65 +161,51 @@ pub mod workspace_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceKeyArgs,
     ) -> WorkspaceKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding_1 = args.active.get_output(context);
-        let active_binding = active_binding_1.get_inner();
-        let customer_managed_key_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let active_binding = args.active.get_output(context);
+        let customer_managed_key_name_binding = args
             .customer_managed_key_name
             .get_output(context);
-        let customer_managed_key_name_binding = customer_managed_key_name_binding_1
-            .get_inner();
-        let customer_managed_key_versionless_id_binding_1 = args
+        let customer_managed_key_versionless_id_binding = args
             .customer_managed_key_versionless_id
             .get_output(context);
-        let customer_managed_key_versionless_id_binding = customer_managed_key_versionless_id_binding_1
-            .get_inner();
-        let synapse_workspace_id_binding_1 = args
-            .synapse_workspace_id
-            .get_output(context);
-        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let synapse_workspace_id_binding = args.synapse_workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:synapse/workspaceKey:WorkspaceKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: &active_binding,
+                    value: active_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyName".into(),
-                    value: &customer_managed_key_name_binding,
+                    value: customer_managed_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyVersionlessId".into(),
-                    value: &customer_managed_key_versionless_id_binding,
+                    value: customer_managed_key_versionless_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: &synapse_workspace_id_binding,
+                    value: synapse_workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceKeyResult {
-            active: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("active"),
-            ),
-            customer_managed_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKeyName"),
-            ),
-            customer_managed_key_versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKeyVersionlessId"),
-            ),
-            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synapseWorkspaceId"),
-            ),
+            active: o.get_field("active"),
+            customer_managed_key_name: o.get_field("customerManagedKeyName"),
+            customer_managed_key_versionless_id: o
+                .get_field("customerManagedKeyVersionlessId"),
+            synapse_workspace_id: o.get_field("synapseWorkspaceId"),
         }
     }
 }

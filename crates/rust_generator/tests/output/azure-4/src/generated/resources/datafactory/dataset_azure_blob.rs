@@ -146,141 +146,104 @@ pub mod dataset_azure_blob {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatasetAzureBlobArgs,
     ) -> DatasetAzureBlobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_properties_binding = args
             .additional_properties
             .get_output(context);
-        let additional_properties_binding = additional_properties_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dynamic_filename_enabled_binding_1 = args
+        let annotations_binding = args.annotations.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dynamic_filename_enabled_binding = args
             .dynamic_filename_enabled
             .get_output(context);
-        let dynamic_filename_enabled_binding = dynamic_filename_enabled_binding_1
-            .get_inner();
-        let dynamic_path_enabled_binding_1 = args
-            .dynamic_path_enabled
-            .get_output(context);
-        let dynamic_path_enabled_binding = dynamic_path_enabled_binding_1.get_inner();
-        let filename_binding_1 = args.filename.get_output(context);
-        let filename_binding = filename_binding_1.get_inner();
-        let folder_binding_1 = args.folder.get_output(context);
-        let folder_binding = folder_binding_1.get_inner();
-        let linked_service_name_binding_1 = args.linked_service_name.get_output(context);
-        let linked_service_name_binding = linked_service_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let schema_columns_binding_1 = args.schema_columns.get_output(context);
-        let schema_columns_binding = schema_columns_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let dynamic_path_enabled_binding = args.dynamic_path_enabled.get_output(context);
+        let filename_binding = args.filename.get_output(context);
+        let folder_binding = args.folder.get_output(context);
+        let linked_service_name_binding = args.linked_service_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let path_binding = args.path.get_output(context);
+        let schema_columns_binding = args.schema_columns.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/datasetAzureBlob:DatasetAzureBlob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: &additional_properties_binding,
+                    value: additional_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicFilenameEnabled".into(),
-                    value: &dynamic_filename_enabled_binding,
+                    value: dynamic_filename_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicPathEnabled".into(),
-                    value: &dynamic_path_enabled_binding,
+                    value: dynamic_path_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filename".into(),
-                    value: &filename_binding,
+                    value: filename_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: &folder_binding,
+                    value: folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedServiceName".into(),
-                    value: &linked_service_name_binding,
+                    value: linked_service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaColumns".into(),
-                    value: &schema_columns_binding,
+                    value: schema_columns_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatasetAzureBlobResult {
-            additional_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalProperties"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dynamic_filename_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamicFilenameEnabled"),
-            ),
-            dynamic_path_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamicPathEnabled"),
-            ),
-            filename: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filename"),
-            ),
-            folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folder"),
-            ),
-            linked_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedServiceName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            schema_columns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaColumns"),
-            ),
+            additional_properties: o.get_field("additionalProperties"),
+            annotations: o.get_field("annotations"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            dynamic_filename_enabled: o.get_field("dynamicFilenameEnabled"),
+            dynamic_path_enabled: o.get_field("dynamicPathEnabled"),
+            filename: o.get_field("filename"),
+            folder: o.get_field("folder"),
+            linked_service_name: o.get_field("linkedServiceName"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            path: o.get_field("path"),
+            schema_columns: o.get_field("schemaColumns"),
         }
     }
 }

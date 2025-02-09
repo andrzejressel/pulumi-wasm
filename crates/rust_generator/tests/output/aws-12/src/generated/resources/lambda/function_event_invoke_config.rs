@@ -187,73 +187,57 @@ pub mod function_event_invoke_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionEventInvokeConfigArgs,
     ) -> FunctionEventInvokeConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_config_binding_1 = args.destination_config.get_output(context);
-        let destination_config_binding = destination_config_binding_1.get_inner();
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let maximum_event_age_in_seconds_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_config_binding = args.destination_config.get_output(context);
+        let function_name_binding = args.function_name.get_output(context);
+        let maximum_event_age_in_seconds_binding = args
             .maximum_event_age_in_seconds
             .get_output(context);
-        let maximum_event_age_in_seconds_binding = maximum_event_age_in_seconds_binding_1
-            .get_inner();
-        let maximum_retry_attempts_binding_1 = args
+        let maximum_retry_attempts_binding = args
             .maximum_retry_attempts
             .get_output(context);
-        let maximum_retry_attempts_binding = maximum_retry_attempts_binding_1
-            .get_inner();
-        let qualifier_binding_1 = args.qualifier.get_output(context);
-        let qualifier_binding = qualifier_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let qualifier_binding = args.qualifier.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfig".into(),
-                    value: &destination_config_binding,
+                    value: destination_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumEventAgeInSeconds".into(),
-                    value: &maximum_event_age_in_seconds_binding,
+                    value: maximum_event_age_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumRetryAttempts".into(),
-                    value: &maximum_retry_attempts_binding,
+                    value: maximum_retry_attempts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: &qualifier_binding,
+                    value: qualifier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionEventInvokeConfigResult {
-            destination_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationConfig"),
-            ),
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            maximum_event_age_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumEventAgeInSeconds"),
-            ),
-            maximum_retry_attempts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumRetryAttempts"),
-            ),
-            qualifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifier"),
-            ),
+            destination_config: o.get_field("destinationConfig"),
+            function_name: o.get_field("functionName"),
+            maximum_event_age_in_seconds: o.get_field("maximumEventAgeInSeconds"),
+            maximum_retry_attempts: o.get_field("maximumRetryAttempts"),
+            qualifier: o.get_field("qualifier"),
         }
     }
 }

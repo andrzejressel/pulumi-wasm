@@ -138,72 +138,54 @@ pub mod workforce {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkforceArgs,
     ) -> WorkforceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cognito_config_binding_1 = args.cognito_config.get_output(context);
-        let cognito_config_binding = cognito_config_binding_1.get_inner();
-        let oidc_config_binding_1 = args.oidc_config.get_output(context);
-        let oidc_config_binding = oidc_config_binding_1.get_inner();
-        let source_ip_config_binding_1 = args.source_ip_config.get_output(context);
-        let source_ip_config_binding = source_ip_config_binding_1.get_inner();
-        let workforce_name_binding_1 = args.workforce_name.get_output(context);
-        let workforce_name_binding = workforce_name_binding_1.get_inner();
-        let workforce_vpc_config_binding_1 = args
-            .workforce_vpc_config
-            .get_output(context);
-        let workforce_vpc_config_binding = workforce_vpc_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cognito_config_binding = args.cognito_config.get_output(context);
+        let oidc_config_binding = args.oidc_config.get_output(context);
+        let source_ip_config_binding = args.source_ip_config.get_output(context);
+        let workforce_name_binding = args.workforce_name.get_output(context);
+        let workforce_vpc_config_binding = args.workforce_vpc_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/workforce:Workforce".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitoConfig".into(),
-                    value: &cognito_config_binding,
+                    value: cognito_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oidcConfig".into(),
-                    value: &oidc_config_binding,
+                    value: oidc_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIpConfig".into(),
-                    value: &source_ip_config_binding,
+                    value: source_ip_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workforceName".into(),
-                    value: &workforce_name_binding,
+                    value: workforce_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workforceVpcConfig".into(),
-                    value: &workforce_vpc_config_binding,
+                    value: workforce_vpc_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkforceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cognito_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cognitoConfig"),
-            ),
-            oidc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oidcConfig"),
-            ),
-            source_ip_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceIpConfig"),
-            ),
-            subdomain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdomain"),
-            ),
-            workforce_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workforceName"),
-            ),
-            workforce_vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workforceVpcConfig"),
-            ),
+            arn: o.get_field("arn"),
+            cognito_config: o.get_field("cognitoConfig"),
+            oidc_config: o.get_field("oidcConfig"),
+            source_ip_config: o.get_field("sourceIpConfig"),
+            subdomain: o.get_field("subdomain"),
+            workforce_name: o.get_field("workforceName"),
+            workforce_vpc_config: o.get_field("workforceVpcConfig"),
         }
     }
 }

@@ -175,105 +175,81 @@ pub mod database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_dialect_binding_1 = args.database_dialect.get_output(context);
-        let database_dialect_binding = database_dialect_binding_1.get_inner();
-        let ddls_binding_1 = args.ddls.get_output(context);
-        let ddls_binding = ddls_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let enable_drop_protection_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let database_dialect_binding = args.database_dialect.get_output(context);
+        let ddls_binding = args.ddls.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let enable_drop_protection_binding = args
             .enable_drop_protection
             .get_output(context);
-        let enable_drop_protection_binding = enable_drop_protection_binding_1
-            .get_inner();
-        let encryption_config_binding_1 = args.encryption_config.get_output(context);
-        let encryption_config_binding = encryption_config_binding_1.get_inner();
-        let instance_binding_1 = args.instance.get_output(context);
-        let instance_binding = instance_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let version_retention_period_binding_1 = args
+        let encryption_config_binding = args.encryption_config.get_output(context);
+        let instance_binding = args.instance.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let version_retention_period_binding = args
             .version_retention_period
             .get_output(context);
-        let version_retention_period_binding = version_retention_period_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:spanner/database:Database".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseDialect".into(),
-                    value: &database_dialect_binding,
+                    value: database_dialect_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ddls".into(),
-                    value: &ddls_binding,
+                    value: ddls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDropProtection".into(),
-                    value: &enable_drop_protection_binding,
+                    value: enable_drop_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfig".into(),
-                    value: &encryption_config_binding,
+                    value: encryption_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: &instance_binding,
+                    value: instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionRetentionPeriod".into(),
-                    value: &version_retention_period_binding,
+                    value: version_retention_period_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatabaseResult {
-            database_dialect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseDialect"),
-            ),
-            ddls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ddls")),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            enable_drop_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDropProtection"),
-            ),
-            encryption_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfig"),
-            ),
-            instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instance"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            version_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionRetentionPeriod"),
-            ),
+            database_dialect: o.get_field("databaseDialect"),
+            ddls: o.get_field("ddls"),
+            deletion_protection: o.get_field("deletionProtection"),
+            enable_drop_protection: o.get_field("enableDropProtection"),
+            encryption_config: o.get_field("encryptionConfig"),
+            instance: o.get_field("instance"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            state: o.get_field("state"),
+            version_retention_period: o.get_field("versionRetentionPeriod"),
         }
     }
 }

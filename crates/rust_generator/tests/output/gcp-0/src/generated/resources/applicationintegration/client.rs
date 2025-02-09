@@ -163,72 +163,56 @@ pub mod client {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClientArgs,
     ) -> ClientResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_kms_config_binding_1 = args.cloud_kms_config.get_output(context);
-        let cloud_kms_config_binding = cloud_kms_config_binding_1.get_inner();
-        let create_sample_integrations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloud_kms_config_binding = args.cloud_kms_config.get_output(context);
+        let create_sample_integrations_binding = args
             .create_sample_integrations
             .get_output(context);
-        let create_sample_integrations_binding = create_sample_integrations_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let run_as_service_account_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let run_as_service_account_binding = args
             .run_as_service_account
             .get_output(context);
-        let run_as_service_account_binding = run_as_service_account_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:applicationintegration/client:Client".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudKmsConfig".into(),
-                    value: &cloud_kms_config_binding,
+                    value: cloud_kms_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createSampleIntegrations".into(),
-                    value: &create_sample_integrations_binding,
+                    value: create_sample_integrations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runAsServiceAccount".into(),
-                    value: &run_as_service_account_binding,
+                    value: run_as_service_account_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClientResult {
-            cloud_kms_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudKmsConfig"),
-            ),
-            create_sample_integrations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createSampleIntegrations"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            run_as_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runAsServiceAccount"),
-            ),
+            cloud_kms_config: o.get_field("cloudKmsConfig"),
+            create_sample_integrations: o.get_field("createSampleIntegrations"),
+            location: o.get_field("location"),
+            project: o.get_field("project"),
+            run_as_service_account: o.get_field("runAsServiceAccount"),
         }
     }
 }

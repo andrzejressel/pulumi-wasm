@@ -28,38 +28,33 @@ pub mod get_templates {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTemplatesArgs,
     ) -> GetTemplatesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let templates_binding_1 = args.templates.get_output(context);
-        let templates_binding = templates_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let region_binding = args.region.get_output(context);
+        let templates_binding = args.templates.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:servicequotas/getTemplates:getTemplates".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templates".into(),
-                    value: &templates_binding,
+                    value: templates_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTemplatesResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templates"),
-            ),
+            id: o.get_field("id"),
+            region: o.get_field("region"),
+            templates: o.get_field("templates"),
         }
     }
 }

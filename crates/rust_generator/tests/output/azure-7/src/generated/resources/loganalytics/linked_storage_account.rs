@@ -88,59 +88,48 @@ pub mod linked_storage_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkedStorageAccountArgs,
     ) -> LinkedStorageAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_source_type_binding_1 = args.data_source_type.get_output(context);
-        let data_source_type_binding = data_source_type_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let storage_account_ids_binding_1 = args.storage_account_ids.get_output(context);
-        let storage_account_ids_binding = storage_account_ids_binding_1.get_inner();
-        let workspace_resource_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_source_type_binding = args.data_source_type.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let storage_account_ids_binding = args.storage_account_ids.get_output(context);
+        let workspace_resource_id_binding = args
             .workspace_resource_id
             .get_output(context);
-        let workspace_resource_id_binding = workspace_resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceType".into(),
-                    value: &data_source_type_binding,
+                    value: data_source_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountIds".into(),
-                    value: &storage_account_ids_binding,
+                    value: storage_account_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceResourceId".into(),
-                    value: &workspace_resource_id_binding,
+                    value: workspace_resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkedStorageAccountResult {
-            data_source_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceType"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            storage_account_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountIds"),
-            ),
-            workspace_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceResourceId"),
-            ),
+            data_source_type: o.get_field("dataSourceType"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            storage_account_ids: o.get_field("storageAccountIds"),
+            workspace_resource_id: o.get_field("workspaceResourceId"),
         }
     }
 }

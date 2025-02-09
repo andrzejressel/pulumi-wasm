@@ -234,187 +234,126 @@ pub mod backup_vault {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackupVaultArgs,
     ) -> BackupVaultResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_restriction_binding_1 = args.access_restriction.get_output(context);
-        let access_restriction_binding = access_restriction_binding_1.get_inner();
-        let allow_missing_binding_1 = args.allow_missing.get_output(context);
-        let allow_missing_binding = allow_missing_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let backup_minimum_enforced_retention_duration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_restriction_binding = args.access_restriction.get_output(context);
+        let allow_missing_binding = args.allow_missing.get_output(context);
+        let annotations_binding = args.annotations.get_output(context);
+        let backup_minimum_enforced_retention_duration_binding = args
             .backup_minimum_enforced_retention_duration
             .get_output(context);
-        let backup_minimum_enforced_retention_duration_binding = backup_minimum_enforced_retention_duration_binding_1
-            .get_inner();
-        let backup_vault_id_binding_1 = args.backup_vault_id.get_output(context);
-        let backup_vault_id_binding = backup_vault_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let effective_time_binding_1 = args.effective_time.get_output(context);
-        let effective_time_binding = effective_time_binding_1.get_inner();
-        let force_delete_binding_1 = args.force_delete.get_output(context);
-        let force_delete_binding = force_delete_binding_1.get_inner();
-        let force_update_binding_1 = args.force_update.get_output(context);
-        let force_update_binding = force_update_binding_1.get_inner();
-        let ignore_backup_plan_references_binding_1 = args
+        let backup_vault_id_binding = args.backup_vault_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let effective_time_binding = args.effective_time.get_output(context);
+        let force_delete_binding = args.force_delete.get_output(context);
+        let force_update_binding = args.force_update.get_output(context);
+        let ignore_backup_plan_references_binding = args
             .ignore_backup_plan_references
             .get_output(context);
-        let ignore_backup_plan_references_binding = ignore_backup_plan_references_binding_1
-            .get_inner();
-        let ignore_inactive_datasources_binding_1 = args
+        let ignore_inactive_datasources_binding = args
             .ignore_inactive_datasources
             .get_output(context);
-        let ignore_inactive_datasources_binding = ignore_inactive_datasources_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:backupdisasterrecovery/backupVault:BackupVault".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessRestriction".into(),
-                    value: &access_restriction_binding,
+                    value: access_restriction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowMissing".into(),
-                    value: &allow_missing_binding,
+                    value: allow_missing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupMinimumEnforcedRetentionDuration".into(),
-                    value: &backup_minimum_enforced_retention_duration_binding,
+                    value: backup_minimum_enforced_retention_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupVaultId".into(),
-                    value: &backup_vault_id_binding,
+                    value: backup_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "effectiveTime".into(),
-                    value: &effective_time_binding,
+                    value: effective_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: &force_delete_binding,
+                    value: force_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceUpdate".into(),
-                    value: &force_update_binding,
+                    value: force_update_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreBackupPlanReferences".into(),
-                    value: &ignore_backup_plan_references_binding,
+                    value: ignore_backup_plan_references_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreInactiveDatasources".into(),
-                    value: &ignore_inactive_datasources_binding,
+                    value: ignore_inactive_datasources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackupVaultResult {
-            access_restriction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessRestriction"),
-            ),
-            allow_missing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowMissing"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            backup_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupCount"),
-            ),
-            backup_minimum_enforced_retention_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupMinimumEnforcedRetentionDuration"),
-            ),
-            backup_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupVaultId"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletable"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            effective_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveTime"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            force_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDelete"),
-            ),
-            force_update: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceUpdate"),
-            ),
-            ignore_backup_plan_references: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreBackupPlanReferences"),
-            ),
-            ignore_inactive_datasources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreInactiveDatasources"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccount"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            total_stored_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalStoredBytes"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            access_restriction: o.get_field("accessRestriction"),
+            allow_missing: o.get_field("allowMissing"),
+            annotations: o.get_field("annotations"),
+            backup_count: o.get_field("backupCount"),
+            backup_minimum_enforced_retention_duration: o
+                .get_field("backupMinimumEnforcedRetentionDuration"),
+            backup_vault_id: o.get_field("backupVaultId"),
+            create_time: o.get_field("createTime"),
+            deletable: o.get_field("deletable"),
+            description: o.get_field("description"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            effective_time: o.get_field("effectiveTime"),
+            etag: o.get_field("etag"),
+            force_delete: o.get_field("forceDelete"),
+            force_update: o.get_field("forceUpdate"),
+            ignore_backup_plan_references: o.get_field("ignoreBackupPlanReferences"),
+            ignore_inactive_datasources: o.get_field("ignoreInactiveDatasources"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            service_account: o.get_field("serviceAccount"),
+            state: o.get_field("state"),
+            total_stored_bytes: o.get_field("totalStoredBytes"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

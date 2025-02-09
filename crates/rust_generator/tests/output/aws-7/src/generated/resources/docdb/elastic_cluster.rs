@@ -136,162 +136,117 @@ pub mod elastic_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ElasticClusterArgs,
     ) -> ElasticClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_user_name_binding_1 = args.admin_user_name.get_output(context);
-        let admin_user_name_binding = admin_user_name_binding_1.get_inner();
-        let admin_user_password_binding_1 = args.admin_user_password.get_output(context);
-        let admin_user_password_binding = admin_user_password_binding_1.get_inner();
-        let auth_type_binding_1 = args.auth_type.get_output(context);
-        let auth_type_binding = auth_type_binding_1.get_inner();
-        let backup_retention_period_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_user_name_binding = args.admin_user_name.get_output(context);
+        let admin_user_password_binding = args.admin_user_password.get_output(context);
+        let auth_type_binding = args.auth_type.get_output(context);
+        let backup_retention_period_binding = args
             .backup_retention_period
             .get_output(context);
-        let backup_retention_period_binding = backup_retention_period_binding_1
-            .get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let preferred_backup_window_binding_1 = args
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let preferred_backup_window_binding = args
             .preferred_backup_window
             .get_output(context);
-        let preferred_backup_window_binding = preferred_backup_window_binding_1
-            .get_inner();
-        let preferred_maintenance_window_binding_1 = args
+        let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
             .get_output(context);
-        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
-            .get_inner();
-        let shard_capacity_binding_1 = args.shard_capacity.get_output(context);
-        let shard_capacity_binding = shard_capacity_binding_1.get_inner();
-        let shard_count_binding_1 = args.shard_count.get_output(context);
-        let shard_count_binding = shard_count_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        let shard_capacity_binding = args.shard_capacity.get_output(context);
+        let shard_count_binding = args.shard_count.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:docdb/elasticCluster:ElasticCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminUserName".into(),
-                    value: &admin_user_name_binding,
+                    value: admin_user_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminUserPassword".into(),
-                    value: &admin_user_password_binding,
+                    value: admin_user_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authType".into(),
-                    value: &auth_type_binding,
+                    value: auth_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRetentionPeriod".into(),
-                    value: &backup_retention_period_binding,
+                    value: backup_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredBackupWindow".into(),
-                    value: &preferred_backup_window_binding,
+                    value: preferred_backup_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMaintenanceWindow".into(),
-                    value: &preferred_maintenance_window_binding,
+                    value: preferred_maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardCapacity".into(),
-                    value: &shard_capacity_binding,
+                    value: shard_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardCount".into(),
-                    value: &shard_count_binding,
+                    value: shard_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ElasticClusterResult {
-            admin_user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminUserName"),
-            ),
-            admin_user_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminUserPassword"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auth_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authType"),
-            ),
-            backup_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionPeriod"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            preferred_backup_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredBackupWindow"),
-            ),
-            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMaintenanceWindow"),
-            ),
-            shard_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardCapacity"),
-            ),
-            shard_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardCount"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
+            admin_user_name: o.get_field("adminUserName"),
+            admin_user_password: o.get_field("adminUserPassword"),
+            arn: o.get_field("arn"),
+            auth_type: o.get_field("authType"),
+            backup_retention_period: o.get_field("backupRetentionPeriod"),
+            endpoint: o.get_field("endpoint"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            name: o.get_field("name"),
+            preferred_backup_window: o.get_field("preferredBackupWindow"),
+            preferred_maintenance_window: o.get_field("preferredMaintenanceWindow"),
+            shard_capacity: o.get_field("shardCapacity"),
+            shard_count: o.get_field("shardCount"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
         }
     }
 }

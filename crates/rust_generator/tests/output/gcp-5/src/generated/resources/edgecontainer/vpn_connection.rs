@@ -194,125 +194,89 @@ pub mod vpn_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpnConnectionArgs,
     ) -> VpnConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let enable_high_availability_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_binding = args.cluster.get_output(context);
+        let enable_high_availability_binding = args
             .enable_high_availability
             .get_output(context);
-        let enable_high_availability_binding = enable_high_availability_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nat_gateway_ip_binding_1 = args.nat_gateway_ip.get_output(context);
-        let nat_gateway_ip_binding = nat_gateway_ip_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let router_binding_1 = args.router.get_output(context);
-        let router_binding = router_binding_1.get_inner();
-        let vpc_binding_1 = args.vpc.get_output(context);
-        let vpc_binding = vpc_binding_1.get_inner();
-        let vpc_project_binding_1 = args.vpc_project.get_output(context);
-        let vpc_project_binding = vpc_project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let nat_gateway_ip_binding = args.nat_gateway_ip.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let router_binding = args.router.get_output(context);
+        let vpc_binding = args.vpc.get_output(context);
+        let vpc_project_binding = args.vpc_project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:edgecontainer/vpnConnection:VpnConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHighAvailability".into(),
-                    value: &enable_high_availability_binding,
+                    value: enable_high_availability_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natGatewayIp".into(),
-                    value: &nat_gateway_ip_binding,
+                    value: nat_gateway_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: &router_binding,
+                    value: router_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: &vpc_binding,
+                    value: vpc_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcProject".into(),
-                    value: &vpc_project_binding,
+                    value: vpc_project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpnConnectionResult {
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("details"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_high_availability: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableHighAvailability"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nat_gateway_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natGatewayIp"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            router: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("router"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
-            vpc_project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcProject"),
-            ),
+            cluster: o.get_field("cluster"),
+            create_time: o.get_field("createTime"),
+            details: o.get_field("details"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_high_availability: o.get_field("enableHighAvailability"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            nat_gateway_ip: o.get_field("natGatewayIp"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            router: o.get_field("router"),
+            update_time: o.get_field("updateTime"),
+            vpc: o.get_field("vpc"),
+            vpc_project: o.get_field("vpcProject"),
         }
     }
 }

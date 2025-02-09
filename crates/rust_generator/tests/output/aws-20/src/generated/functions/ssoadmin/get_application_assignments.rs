@@ -36,42 +36,36 @@ pub mod get_application_assignments {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApplicationAssignmentsArgs,
     ) -> GetApplicationAssignmentsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding_1 = args.application_arn.get_output(context);
-        let application_arn_binding = application_arn_binding_1.get_inner();
-        let application_assignments_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_arn_binding = args.application_arn.get_output(context);
+        let application_assignments_binding = args
             .application_assignments
             .get_output(context);
-        let application_assignments_binding = application_assignments_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssoadmin/getApplicationAssignments:getApplicationAssignments"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: &application_arn_binding,
+                    value: application_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationAssignments".into(),
-                    value: &application_assignments_binding,
+                    value: application_assignments_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApplicationAssignmentsResult {
-            application_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationArn"),
-            ),
-            application_assignments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationAssignments"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            application_arn: o.get_field("applicationArn"),
+            application_assignments: o.get_field("applicationAssignments"),
+            id: o.get_field("id"),
         }
     }
 }

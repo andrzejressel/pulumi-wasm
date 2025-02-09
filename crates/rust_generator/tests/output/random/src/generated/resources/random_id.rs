@@ -92,56 +92,44 @@ pub mod random_id {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RandomIdArgs,
     ) -> RandomIdResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let byte_length_binding_1 = args.byte_length.get_output(context);
-        let byte_length_binding = byte_length_binding_1.get_inner();
-        let keepers_binding_1 = args.keepers.get_output(context);
-        let keepers_binding = keepers_binding_1.get_inner();
-        let prefix_binding_1 = args.prefix.get_output(context);
-        let prefix_binding = prefix_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let byte_length_binding = args.byte_length.get_output(context);
+        let keepers_binding = args.keepers.get_output(context);
+        let prefix_binding = args.prefix.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "random:index/randomId:RandomId".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byteLength".into(),
-                    value: &byte_length_binding,
+                    value: byte_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: &keepers_binding,
+                    value: keepers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: &prefix_binding,
+                    value: prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RandomIdResult {
-            b64_std: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("b64Std"),
-            ),
-            b64_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("b64Url"),
-            ),
-            byte_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("byteLength"),
-            ),
-            dec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dec")),
-            hex: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hex")),
-            keepers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepers"),
-            ),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
+            b64_std: o.get_field("b64Std"),
+            b64_url: o.get_field("b64Url"),
+            byte_length: o.get_field("byteLength"),
+            dec: o.get_field("dec"),
+            hex: o.get_field("hex"),
+            keepers: o.get_field("keepers"),
+            prefix: o.get_field("prefix"),
         }
     }
 }

@@ -343,227 +343,162 @@ pub mod crawler {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CrawlerArgs,
     ) -> CrawlerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_targets_binding_1 = args.catalog_targets.get_output(context);
-        let catalog_targets_binding = catalog_targets_binding_1.get_inner();
-        let classifiers_binding_1 = args.classifiers.get_output(context);
-        let classifiers_binding = classifiers_binding_1.get_inner();
-        let configuration_binding_1 = args.configuration.get_output(context);
-        let configuration_binding = configuration_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let delta_targets_binding_1 = args.delta_targets.get_output(context);
-        let delta_targets_binding = delta_targets_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dynamodb_targets_binding_1 = args.dynamodb_targets.get_output(context);
-        let dynamodb_targets_binding = dynamodb_targets_binding_1.get_inner();
-        let hudi_targets_binding_1 = args.hudi_targets.get_output(context);
-        let hudi_targets_binding = hudi_targets_binding_1.get_inner();
-        let iceberg_targets_binding_1 = args.iceberg_targets.get_output(context);
-        let iceberg_targets_binding = iceberg_targets_binding_1.get_inner();
-        let jdbc_targets_binding_1 = args.jdbc_targets.get_output(context);
-        let jdbc_targets_binding = jdbc_targets_binding_1.get_inner();
-        let lake_formation_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_targets_binding = args.catalog_targets.get_output(context);
+        let classifiers_binding = args.classifiers.get_output(context);
+        let configuration_binding = args.configuration.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let delta_targets_binding = args.delta_targets.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dynamodb_targets_binding = args.dynamodb_targets.get_output(context);
+        let hudi_targets_binding = args.hudi_targets.get_output(context);
+        let iceberg_targets_binding = args.iceberg_targets.get_output(context);
+        let jdbc_targets_binding = args.jdbc_targets.get_output(context);
+        let lake_formation_configuration_binding = args
             .lake_formation_configuration
             .get_output(context);
-        let lake_formation_configuration_binding = lake_formation_configuration_binding_1
-            .get_inner();
-        let lineage_configuration_binding_1 = args
+        let lineage_configuration_binding = args
             .lineage_configuration
             .get_output(context);
-        let lineage_configuration_binding = lineage_configuration_binding_1.get_inner();
-        let mongodb_targets_binding_1 = args.mongodb_targets.get_output(context);
-        let mongodb_targets_binding = mongodb_targets_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recrawl_policy_binding_1 = args.recrawl_policy.get_output(context);
-        let recrawl_policy_binding = recrawl_policy_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let s3_targets_binding_1 = args.s3_targets.get_output(context);
-        let s3_targets_binding = s3_targets_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let schema_change_policy_binding_1 = args
-            .schema_change_policy
-            .get_output(context);
-        let schema_change_policy_binding = schema_change_policy_binding_1.get_inner();
-        let security_configuration_binding_1 = args
+        let mongodb_targets_binding = args.mongodb_targets.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let recrawl_policy_binding = args.recrawl_policy.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let s3_targets_binding = args.s3_targets.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let schema_change_policy_binding = args.schema_change_policy.get_output(context);
+        let security_configuration_binding = args
             .security_configuration
             .get_output(context);
-        let security_configuration_binding = security_configuration_binding_1
-            .get_inner();
-        let table_prefix_binding_1 = args.table_prefix.get_output(context);
-        let table_prefix_binding = table_prefix_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let table_prefix_binding = args.table_prefix.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/crawler:Crawler".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogTargets".into(),
-                    value: &catalog_targets_binding,
+                    value: catalog_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "classifiers".into(),
-                    value: &classifiers_binding,
+                    value: classifiers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: &configuration_binding,
+                    value: configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deltaTargets".into(),
-                    value: &delta_targets_binding,
+                    value: delta_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamodbTargets".into(),
-                    value: &dynamodb_targets_binding,
+                    value: dynamodb_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hudiTargets".into(),
-                    value: &hudi_targets_binding,
+                    value: hudi_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icebergTargets".into(),
-                    value: &iceberg_targets_binding,
+                    value: iceberg_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jdbcTargets".into(),
-                    value: &jdbc_targets_binding,
+                    value: jdbc_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lakeFormationConfiguration".into(),
-                    value: &lake_formation_configuration_binding,
+                    value: lake_formation_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lineageConfiguration".into(),
-                    value: &lineage_configuration_binding,
+                    value: lineage_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mongodbTargets".into(),
-                    value: &mongodb_targets_binding,
+                    value: mongodb_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recrawlPolicy".into(),
-                    value: &recrawl_policy_binding,
+                    value: recrawl_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Targets".into(),
-                    value: &s3_targets_binding,
+                    value: s3_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaChangePolicy".into(),
-                    value: &schema_change_policy_binding,
+                    value: schema_change_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityConfiguration".into(),
-                    value: &security_configuration_binding,
+                    value: security_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tablePrefix".into(),
-                    value: &table_prefix_binding,
+                    value: table_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CrawlerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogTargets"),
-            ),
-            classifiers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("classifiers"),
-            ),
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            delta_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deltaTargets"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dynamodb_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamodbTargets"),
-            ),
-            hudi_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hudiTargets"),
-            ),
-            iceberg_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("icebergTargets"),
-            ),
-            jdbc_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jdbcTargets"),
-            ),
-            lake_formation_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lakeFormationConfiguration"),
-            ),
-            lineage_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lineageConfiguration"),
-            ),
-            mongodb_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mongodbTargets"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recrawl_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recrawlPolicy"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            s3_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Targets"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            schema_change_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaChangePolicy"),
-            ),
-            security_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityConfiguration"),
-            ),
-            table_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tablePrefix"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            catalog_targets: o.get_field("catalogTargets"),
+            classifiers: o.get_field("classifiers"),
+            configuration: o.get_field("configuration"),
+            database_name: o.get_field("databaseName"),
+            delta_targets: o.get_field("deltaTargets"),
+            description: o.get_field("description"),
+            dynamodb_targets: o.get_field("dynamodbTargets"),
+            hudi_targets: o.get_field("hudiTargets"),
+            iceberg_targets: o.get_field("icebergTargets"),
+            jdbc_targets: o.get_field("jdbcTargets"),
+            lake_formation_configuration: o.get_field("lakeFormationConfiguration"),
+            lineage_configuration: o.get_field("lineageConfiguration"),
+            mongodb_targets: o.get_field("mongodbTargets"),
+            name: o.get_field("name"),
+            recrawl_policy: o.get_field("recrawlPolicy"),
+            role: o.get_field("role"),
+            s3_targets: o.get_field("s3Targets"),
+            schedule: o.get_field("schedule"),
+            schema_change_policy: o.get_field("schemaChangePolicy"),
+            security_configuration: o.get_field("securityConfiguration"),
+            table_prefix: o.get_field("tablePrefix"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

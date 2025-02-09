@@ -30,52 +30,39 @@ pub mod get_custom_key_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCustomKeyStoreArgs,
     ) -> GetCustomKeyStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_key_store_id_binding_1 = args.custom_key_store_id.get_output(context);
-        let custom_key_store_id_binding = custom_key_store_id_binding_1.get_inner();
-        let custom_key_store_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_key_store_id_binding = args.custom_key_store_id.get_output(context);
+        let custom_key_store_name_binding = args
             .custom_key_store_name
             .get_output(context);
-        let custom_key_store_name_binding = custom_key_store_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kms/getCustomKeyStore:getCustomKeyStore".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customKeyStoreId".into(),
-                    value: &custom_key_store_id_binding,
+                    value: custom_key_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customKeyStoreName".into(),
-                    value: &custom_key_store_name_binding,
+                    value: custom_key_store_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCustomKeyStoreResult {
-            cloud_hsm_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudHsmClusterId"),
-            ),
-            connection_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionState"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            custom_key_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customKeyStoreId"),
-            ),
-            custom_key_store_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customKeyStoreName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            trust_anchor_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustAnchorCertificate"),
-            ),
+            cloud_hsm_cluster_id: o.get_field("cloudHsmClusterId"),
+            connection_state: o.get_field("connectionState"),
+            creation_date: o.get_field("creationDate"),
+            custom_key_store_id: o.get_field("customKeyStoreId"),
+            custom_key_store_name: o.get_field("customKeyStoreName"),
+            id: o.get_field("id"),
+            trust_anchor_certificate: o.get_field("trustAnchorCertificate"),
         }
     }
 }

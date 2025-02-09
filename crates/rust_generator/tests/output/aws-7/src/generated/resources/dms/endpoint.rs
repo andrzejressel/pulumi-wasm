@@ -223,260 +223,182 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
-        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let elasticsearch_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_arn_binding = args.certificate_arn.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let elasticsearch_settings_binding = args
             .elasticsearch_settings
             .get_output(context);
-        let elasticsearch_settings_binding = elasticsearch_settings_binding_1
-            .get_inner();
-        let endpoint_id_binding_1 = args.endpoint_id.get_output(context);
-        let endpoint_id_binding = endpoint_id_binding_1.get_inner();
-        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
-        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
-        let engine_name_binding_1 = args.engine_name.get_output(context);
-        let engine_name_binding = engine_name_binding_1.get_inner();
-        let extra_connection_attributes_binding_1 = args
+        let endpoint_id_binding = args.endpoint_id.get_output(context);
+        let endpoint_type_binding = args.endpoint_type.get_output(context);
+        let engine_name_binding = args.engine_name.get_output(context);
+        let extra_connection_attributes_binding = args
             .extra_connection_attributes
             .get_output(context);
-        let extra_connection_attributes_binding = extra_connection_attributes_binding_1
-            .get_inner();
-        let kafka_settings_binding_1 = args.kafka_settings.get_output(context);
-        let kafka_settings_binding = kafka_settings_binding_1.get_inner();
-        let kinesis_settings_binding_1 = args.kinesis_settings.get_output(context);
-        let kinesis_settings_binding = kinesis_settings_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let mongodb_settings_binding_1 = args.mongodb_settings.get_output(context);
-        let mongodb_settings_binding = mongodb_settings_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let pause_replication_tasks_binding_1 = args
+        let kafka_settings_binding = args.kafka_settings.get_output(context);
+        let kinesis_settings_binding = args.kinesis_settings.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let mongodb_settings_binding = args.mongodb_settings.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let pause_replication_tasks_binding = args
             .pause_replication_tasks
             .get_output(context);
-        let pause_replication_tasks_binding = pause_replication_tasks_binding_1
-            .get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let postgres_settings_binding_1 = args.postgres_settings.get_output(context);
-        let postgres_settings_binding = postgres_settings_binding_1.get_inner();
-        let redis_settings_binding_1 = args.redis_settings.get_output(context);
-        let redis_settings_binding = redis_settings_binding_1.get_inner();
-        let redshift_settings_binding_1 = args.redshift_settings.get_output(context);
-        let redshift_settings_binding = redshift_settings_binding_1.get_inner();
-        let s3_settings_binding_1 = args.s3_settings.get_output(context);
-        let s3_settings_binding = s3_settings_binding_1.get_inner();
-        let secrets_manager_access_role_arn_binding_1 = args
+        let port_binding = args.port.get_output(context);
+        let postgres_settings_binding = args.postgres_settings.get_output(context);
+        let redis_settings_binding = args.redis_settings.get_output(context);
+        let redshift_settings_binding = args.redshift_settings.get_output(context);
+        let s3_settings_binding = args.s3_settings.get_output(context);
+        let secrets_manager_access_role_arn_binding = args
             .secrets_manager_access_role_arn
             .get_output(context);
-        let secrets_manager_access_role_arn_binding = secrets_manager_access_role_arn_binding_1
-            .get_inner();
-        let secrets_manager_arn_binding_1 = args.secrets_manager_arn.get_output(context);
-        let secrets_manager_arn_binding = secrets_manager_arn_binding_1.get_inner();
-        let server_name_binding_1 = args.server_name.get_output(context);
-        let server_name_binding = server_name_binding_1.get_inner();
-        let service_access_role_binding_1 = args.service_access_role.get_output(context);
-        let service_access_role_binding = service_access_role_binding_1.get_inner();
-        let ssl_mode_binding_1 = args.ssl_mode.get_output(context);
-        let ssl_mode_binding = ssl_mode_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let secrets_manager_arn_binding = args.secrets_manager_arn.get_output(context);
+        let server_name_binding = args.server_name.get_output(context);
+        let service_access_role_binding = args.service_access_role.get_output(context);
+        let ssl_mode_binding = args.ssl_mode.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dms/endpoint:Endpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: &certificate_arn_binding,
+                    value: certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticsearchSettings".into(),
-                    value: &elasticsearch_settings_binding,
+                    value: elasticsearch_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointId".into(),
-                    value: &endpoint_id_binding,
+                    value: endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: &endpoint_type_binding,
+                    value: endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineName".into(),
-                    value: &engine_name_binding,
+                    value: engine_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extraConnectionAttributes".into(),
-                    value: &extra_connection_attributes_binding,
+                    value: extra_connection_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaSettings".into(),
-                    value: &kafka_settings_binding,
+                    value: kafka_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisSettings".into(),
-                    value: &kinesis_settings_binding,
+                    value: kinesis_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mongodbSettings".into(),
-                    value: &mongodb_settings_binding,
+                    value: mongodb_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pauseReplicationTasks".into(),
-                    value: &pause_replication_tasks_binding,
+                    value: pause_replication_tasks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postgresSettings".into(),
-                    value: &postgres_settings_binding,
+                    value: postgres_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisSettings".into(),
-                    value: &redis_settings_binding,
+                    value: redis_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redshiftSettings".into(),
-                    value: &redshift_settings_binding,
+                    value: redshift_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Settings".into(),
-                    value: &s3_settings_binding,
+                    value: s3_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretsManagerAccessRoleArn".into(),
-                    value: &secrets_manager_access_role_arn_binding,
+                    value: secrets_manager_access_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretsManagerArn".into(),
-                    value: &secrets_manager_arn_binding,
+                    value: secrets_manager_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: &server_name_binding,
+                    value: server_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccessRole".into(),
-                    value: &service_access_role_binding,
+                    value: service_access_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslMode".into(),
-                    value: &ssl_mode_binding,
+                    value: ssl_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointResult {
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            elasticsearch_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticsearchSettings"),
-            ),
-            endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointArn"),
-            ),
-            endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointId"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            engine_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineName"),
-            ),
-            extra_connection_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extraConnectionAttributes"),
-            ),
-            kafka_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaSettings"),
-            ),
-            kinesis_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kinesisSettings"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            mongodb_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mongodbSettings"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            pause_replication_tasks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pauseReplicationTasks"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            postgres_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postgresSettings"),
-            ),
-            redis_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisSettings"),
-            ),
-            redshift_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redshiftSettings"),
-            ),
-            s3_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Settings"),
-            ),
-            secrets_manager_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretsManagerAccessRoleArn"),
-            ),
-            secrets_manager_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretsManagerArn"),
-            ),
-            server_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverName"),
-            ),
-            service_access_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccessRole"),
-            ),
-            ssl_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslMode"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            certificate_arn: o.get_field("certificateArn"),
+            database_name: o.get_field("databaseName"),
+            elasticsearch_settings: o.get_field("elasticsearchSettings"),
+            endpoint_arn: o.get_field("endpointArn"),
+            endpoint_id: o.get_field("endpointId"),
+            endpoint_type: o.get_field("endpointType"),
+            engine_name: o.get_field("engineName"),
+            extra_connection_attributes: o.get_field("extraConnectionAttributes"),
+            kafka_settings: o.get_field("kafkaSettings"),
+            kinesis_settings: o.get_field("kinesisSettings"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            mongodb_settings: o.get_field("mongodbSettings"),
+            password: o.get_field("password"),
+            pause_replication_tasks: o.get_field("pauseReplicationTasks"),
+            port: o.get_field("port"),
+            postgres_settings: o.get_field("postgresSettings"),
+            redis_settings: o.get_field("redisSettings"),
+            redshift_settings: o.get_field("redshiftSettings"),
+            s3_settings: o.get_field("s3Settings"),
+            secrets_manager_access_role_arn: o.get_field("secretsManagerAccessRoleArn"),
+            secrets_manager_arn: o.get_field("secretsManagerArn"),
+            server_name: o.get_field("serverName"),
+            service_access_role: o.get_field("serviceAccessRole"),
+            ssl_mode: o.get_field("sslMode"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            username: o.get_field("username"),
         }
     }
 }

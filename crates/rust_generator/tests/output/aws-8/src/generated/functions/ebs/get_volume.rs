@@ -61,75 +61,51 @@ pub mod get_volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVolumeArgs,
     ) -> GetVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let most_recent_binding_1 = args.most_recent.get_output(context);
-        let most_recent_binding = most_recent_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let most_recent_binding = args.most_recent.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ebs/getVolume:getVolume".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: &most_recent_binding,
+                    value: most_recent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVolumeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            iops: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iops")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            most_recent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecent"),
-            ),
-            multi_attach_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAttachEnabled"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughput"),
-            ),
-            volume_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeId"),
-            ),
-            volume_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeType"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            encrypted: o.get_field("encrypted"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            iops: o.get_field("iops"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            most_recent: o.get_field("mostRecent"),
+            multi_attach_enabled: o.get_field("multiAttachEnabled"),
+            outpost_arn: o.get_field("outpostArn"),
+            size: o.get_field("size"),
+            snapshot_id: o.get_field("snapshotId"),
+            tags: o.get_field("tags"),
+            throughput: o.get_field("throughput"),
+            volume_id: o.get_field("volumeId"),
+            volume_type: o.get_field("volumeType"),
         }
     }
 }

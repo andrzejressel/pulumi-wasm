@@ -31,46 +31,36 @@ pub mod get_recommendations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRecommendationsArgs,
     ) -> GetRecommendationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_by_categories_binding_1 = args
-            .filter_by_categories
-            .get_output(context);
-        let filter_by_categories_binding = filter_by_categories_binding_1.get_inner();
-        let filter_by_resource_groups_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filter_by_categories_binding = args.filter_by_categories.get_output(context);
+        let filter_by_resource_groups_binding = args
             .filter_by_resource_groups
             .get_output(context);
-        let filter_by_resource_groups_binding = filter_by_resource_groups_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:advisor/getRecommendations:getRecommendations".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterByCategories".into(),
-                    value: &filter_by_categories_binding,
+                    value: filter_by_categories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterByResourceGroups".into(),
-                    value: &filter_by_resource_groups_binding,
+                    value: filter_by_resource_groups_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRecommendationsResult {
-            filter_by_categories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterByCategories"),
-            ),
-            filter_by_resource_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterByResourceGroups"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            recommendations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recommendations"),
-            ),
+            filter_by_categories: o.get_field("filterByCategories"),
+            filter_by_resource_groups: o.get_field("filterByResourceGroups"),
+            id: o.get_field("id"),
+            recommendations: o.get_field("recommendations"),
         }
     }
 }

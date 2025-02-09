@@ -73,77 +73,53 @@ pub mod get_multicast_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetMulticastDomainArgs,
     ) -> GetMulticastDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_multicast_domain_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_multicast_domain_id_binding = args
             .transit_gateway_multicast_domain_id
             .get_output(context);
-        let transit_gateway_multicast_domain_id_binding = transit_gateway_multicast_domain_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2transitgateway/getMulticastDomain:getMulticastDomain".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayMulticastDomainId".into(),
-                    value: &transit_gateway_multicast_domain_id_binding,
+                    value: transit_gateway_multicast_domain_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetMulticastDomainResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associations"),
-            ),
-            auto_accept_shared_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAcceptSharedAssociations"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            igmpv2_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("igmpv2Support"),
-            ),
-            members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("members"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sources"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            static_sources_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staticSourcesSupport"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAttachmentId"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
-            transit_gateway_multicast_domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayMulticastDomainId"),
-            ),
+            arn: o.get_field("arn"),
+            associations: o.get_field("associations"),
+            auto_accept_shared_associations: o.get_field("autoAcceptSharedAssociations"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            igmpv2_support: o.get_field("igmpv2Support"),
+            members: o.get_field("members"),
+            owner_id: o.get_field("ownerId"),
+            sources: o.get_field("sources"),
+            state: o.get_field("state"),
+            static_sources_support: o.get_field("staticSourcesSupport"),
+            tags: o.get_field("tags"),
+            transit_gateway_attachment_id: o.get_field("transitGatewayAttachmentId"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
+            transit_gateway_multicast_domain_id: o
+                .get_field("transitGatewayMulticastDomainId"),
         }
     }
 }

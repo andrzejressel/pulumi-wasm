@@ -13,23 +13,20 @@ pub mod get_functions {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(context: &pulumi_gestalt_rust::PulumiContext) -> GetFunctionsResult {
+    pub fn invoke(context: &pulumi_gestalt_rust::Context) -> GetFunctionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lambda/getFunctions:getFunctions".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFunctionsResult {
-            function_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionArns"),
-            ),
-            function_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionNames"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            function_arns: o.get_field("functionArns"),
+            function_names: o.get_field("functionNames"),
+            id: o.get_field("id"),
         }
     }
 }

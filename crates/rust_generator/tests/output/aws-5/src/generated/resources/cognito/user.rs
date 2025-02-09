@@ -163,141 +163,96 @@ pub mod user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding_1 = args.attributes.get_output(context);
-        let attributes_binding = attributes_binding_1.get_inner();
-        let client_metadata_binding_1 = args.client_metadata.get_output(context);
-        let client_metadata_binding = client_metadata_binding_1.get_inner();
-        let desired_delivery_mediums_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attributes_binding = args.attributes.get_output(context);
+        let client_metadata_binding = args.client_metadata.get_output(context);
+        let desired_delivery_mediums_binding = args
             .desired_delivery_mediums
             .get_output(context);
-        let desired_delivery_mediums_binding = desired_delivery_mediums_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let force_alias_creation_binding_1 = args
-            .force_alias_creation
-            .get_output(context);
-        let force_alias_creation_binding = force_alias_creation_binding_1.get_inner();
-        let message_action_binding_1 = args.message_action.get_output(context);
-        let message_action_binding = message_action_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let temporary_password_binding_1 = args.temporary_password.get_output(context);
-        let temporary_password_binding = temporary_password_binding_1.get_inner();
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let validation_data_binding_1 = args.validation_data.get_output(context);
-        let validation_data_binding = validation_data_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enabled_binding = args.enabled.get_output(context);
+        let force_alias_creation_binding = args.force_alias_creation.get_output(context);
+        let message_action_binding = args.message_action.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let temporary_password_binding = args.temporary_password.get_output(context);
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let validation_data_binding = args.validation_data.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/user:User".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: &attributes_binding,
+                    value: attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientMetadata".into(),
-                    value: &client_metadata_binding,
+                    value: client_metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredDeliveryMediums".into(),
-                    value: &desired_delivery_mediums_binding,
+                    value: desired_delivery_mediums_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceAliasCreation".into(),
-                    value: &force_alias_creation_binding,
+                    value: force_alias_creation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageAction".into(),
-                    value: &message_action_binding,
+                    value: message_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "temporaryPassword".into(),
-                    value: &temporary_password_binding,
+                    value: temporary_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationData".into(),
-                    value: &validation_data_binding,
+                    value: validation_data_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserResult {
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            client_metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientMetadata"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            desired_delivery_mediums: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredDeliveryMediums"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            force_alias_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceAliasCreation"),
-            ),
-            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedDate"),
-            ),
-            message_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageAction"),
-            ),
-            mfa_setting_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mfaSettingLists"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            preferred_mfa_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMfaSetting"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            sub: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sub")),
-            temporary_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("temporaryPassword"),
-            ),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
-            validation_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationData"),
-            ),
+            attributes: o.get_field("attributes"),
+            client_metadata: o.get_field("clientMetadata"),
+            creation_date: o.get_field("creationDate"),
+            desired_delivery_mediums: o.get_field("desiredDeliveryMediums"),
+            enabled: o.get_field("enabled"),
+            force_alias_creation: o.get_field("forceAliasCreation"),
+            last_modified_date: o.get_field("lastModifiedDate"),
+            message_action: o.get_field("messageAction"),
+            mfa_setting_lists: o.get_field("mfaSettingLists"),
+            password: o.get_field("password"),
+            preferred_mfa_setting: o.get_field("preferredMfaSetting"),
+            status: o.get_field("status"),
+            sub: o.get_field("sub"),
+            temporary_password: o.get_field("temporaryPassword"),
+            user_pool_id: o.get_field("userPoolId"),
+            username: o.get_field("username"),
+            validation_data: o.get_field("validationData"),
         }
     }
 }

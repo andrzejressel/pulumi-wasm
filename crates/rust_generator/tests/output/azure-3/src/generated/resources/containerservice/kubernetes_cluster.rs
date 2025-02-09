@@ -719,605 +719,409 @@ pub mod kubernetes_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KubernetesClusterArgs,
     ) -> KubernetesClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aci_connector_linux_binding_1 = args.aci_connector_linux.get_output(context);
-        let aci_connector_linux_binding = aci_connector_linux_binding_1.get_inner();
-        let api_server_access_profile_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aci_connector_linux_binding = args.aci_connector_linux.get_output(context);
+        let api_server_access_profile_binding = args
             .api_server_access_profile
             .get_output(context);
-        let api_server_access_profile_binding = api_server_access_profile_binding_1
-            .get_inner();
-        let auto_scaler_profile_binding_1 = args.auto_scaler_profile.get_output(context);
-        let auto_scaler_profile_binding = auto_scaler_profile_binding_1.get_inner();
-        let automatic_upgrade_channel_binding_1 = args
+        let auto_scaler_profile_binding = args.auto_scaler_profile.get_output(context);
+        let automatic_upgrade_channel_binding = args
             .automatic_upgrade_channel
             .get_output(context);
-        let automatic_upgrade_channel_binding = automatic_upgrade_channel_binding_1
-            .get_inner();
-        let azure_active_directory_role_based_access_control_binding_1 = args
+        let azure_active_directory_role_based_access_control_binding = args
             .azure_active_directory_role_based_access_control
             .get_output(context);
-        let azure_active_directory_role_based_access_control_binding = azure_active_directory_role_based_access_control_binding_1
-            .get_inner();
-        let azure_policy_enabled_binding_1 = args
-            .azure_policy_enabled
-            .get_output(context);
-        let azure_policy_enabled_binding = azure_policy_enabled_binding_1.get_inner();
-        let confidential_computing_binding_1 = args
+        let azure_policy_enabled_binding = args.azure_policy_enabled.get_output(context);
+        let confidential_computing_binding = args
             .confidential_computing
             .get_output(context);
-        let confidential_computing_binding = confidential_computing_binding_1
-            .get_inner();
-        let cost_analysis_enabled_binding_1 = args
+        let cost_analysis_enabled_binding = args
             .cost_analysis_enabled
             .get_output(context);
-        let cost_analysis_enabled_binding = cost_analysis_enabled_binding_1.get_inner();
-        let default_node_pool_binding_1 = args.default_node_pool.get_output(context);
-        let default_node_pool_binding = default_node_pool_binding_1.get_inner();
-        let disk_encryption_set_id_binding_1 = args
+        let default_node_pool_binding = args.default_node_pool.get_output(context);
+        let disk_encryption_set_id_binding = args
             .disk_encryption_set_id
             .get_output(context);
-        let disk_encryption_set_id_binding = disk_encryption_set_id_binding_1
-            .get_inner();
-        let dns_prefix_binding_1 = args.dns_prefix.get_output(context);
-        let dns_prefix_binding = dns_prefix_binding_1.get_inner();
-        let dns_prefix_private_cluster_binding_1 = args
+        let dns_prefix_binding = args.dns_prefix.get_output(context);
+        let dns_prefix_private_cluster_binding = args
             .dns_prefix_private_cluster
             .get_output(context);
-        let dns_prefix_private_cluster_binding = dns_prefix_private_cluster_binding_1
-            .get_inner();
-        let edge_zone_binding_1 = args.edge_zone.get_output(context);
-        let edge_zone_binding = edge_zone_binding_1.get_inner();
-        let http_application_routing_enabled_binding_1 = args
+        let edge_zone_binding = args.edge_zone.get_output(context);
+        let http_application_routing_enabled_binding = args
             .http_application_routing_enabled
             .get_output(context);
-        let http_application_routing_enabled_binding = http_application_routing_enabled_binding_1
-            .get_inner();
-        let http_proxy_config_binding_1 = args.http_proxy_config.get_output(context);
-        let http_proxy_config_binding = http_proxy_config_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let image_cleaner_enabled_binding_1 = args
+        let http_proxy_config_binding = args.http_proxy_config.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let image_cleaner_enabled_binding = args
             .image_cleaner_enabled
             .get_output(context);
-        let image_cleaner_enabled_binding = image_cleaner_enabled_binding_1.get_inner();
-        let image_cleaner_interval_hours_binding_1 = args
+        let image_cleaner_interval_hours_binding = args
             .image_cleaner_interval_hours
             .get_output(context);
-        let image_cleaner_interval_hours_binding = image_cleaner_interval_hours_binding_1
-            .get_inner();
-        let ingress_application_gateway_binding_1 = args
+        let ingress_application_gateway_binding = args
             .ingress_application_gateway
             .get_output(context);
-        let ingress_application_gateway_binding = ingress_application_gateway_binding_1
-            .get_inner();
-        let key_management_service_binding_1 = args
+        let key_management_service_binding = args
             .key_management_service
             .get_output(context);
-        let key_management_service_binding = key_management_service_binding_1
-            .get_inner();
-        let key_vault_secrets_provider_binding_1 = args
+        let key_vault_secrets_provider_binding = args
             .key_vault_secrets_provider
             .get_output(context);
-        let key_vault_secrets_provider_binding = key_vault_secrets_provider_binding_1
-            .get_inner();
-        let kubelet_identity_binding_1 = args.kubelet_identity.get_output(context);
-        let kubelet_identity_binding = kubelet_identity_binding_1.get_inner();
-        let kubernetes_version_binding_1 = args.kubernetes_version.get_output(context);
-        let kubernetes_version_binding = kubernetes_version_binding_1.get_inner();
-        let linux_profile_binding_1 = args.linux_profile.get_output(context);
-        let linux_profile_binding = linux_profile_binding_1.get_inner();
-        let local_account_disabled_binding_1 = args
+        let kubelet_identity_binding = args.kubelet_identity.get_output(context);
+        let kubernetes_version_binding = args.kubernetes_version.get_output(context);
+        let linux_profile_binding = args.linux_profile.get_output(context);
+        let local_account_disabled_binding = args
             .local_account_disabled
             .get_output(context);
-        let local_account_disabled_binding = local_account_disabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let maintenance_window_auto_upgrade_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let maintenance_window_auto_upgrade_binding = args
             .maintenance_window_auto_upgrade
             .get_output(context);
-        let maintenance_window_auto_upgrade_binding = maintenance_window_auto_upgrade_binding_1
-            .get_inner();
-        let maintenance_window_node_os_binding_1 = args
+        let maintenance_window_node_os_binding = args
             .maintenance_window_node_os
             .get_output(context);
-        let maintenance_window_node_os_binding = maintenance_window_node_os_binding_1
-            .get_inner();
-        let microsoft_defender_binding_1 = args.microsoft_defender.get_output(context);
-        let microsoft_defender_binding = microsoft_defender_binding_1.get_inner();
-        let monitor_metrics_binding_1 = args.monitor_metrics.get_output(context);
-        let monitor_metrics_binding = monitor_metrics_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_profile_binding_1 = args.network_profile.get_output(context);
-        let network_profile_binding = network_profile_binding_1.get_inner();
-        let node_os_upgrade_channel_binding_1 = args
+        let microsoft_defender_binding = args.microsoft_defender.get_output(context);
+        let monitor_metrics_binding = args.monitor_metrics.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_profile_binding = args.network_profile.get_output(context);
+        let node_os_upgrade_channel_binding = args
             .node_os_upgrade_channel
             .get_output(context);
-        let node_os_upgrade_channel_binding = node_os_upgrade_channel_binding_1
-            .get_inner();
-        let node_resource_group_binding_1 = args.node_resource_group.get_output(context);
-        let node_resource_group_binding = node_resource_group_binding_1.get_inner();
-        let oidc_issuer_enabled_binding_1 = args.oidc_issuer_enabled.get_output(context);
-        let oidc_issuer_enabled_binding = oidc_issuer_enabled_binding_1.get_inner();
-        let oms_agent_binding_1 = args.oms_agent.get_output(context);
-        let oms_agent_binding = oms_agent_binding_1.get_inner();
-        let open_service_mesh_enabled_binding_1 = args
+        let node_resource_group_binding = args.node_resource_group.get_output(context);
+        let oidc_issuer_enabled_binding = args.oidc_issuer_enabled.get_output(context);
+        let oms_agent_binding = args.oms_agent.get_output(context);
+        let open_service_mesh_enabled_binding = args
             .open_service_mesh_enabled
             .get_output(context);
-        let open_service_mesh_enabled_binding = open_service_mesh_enabled_binding_1
-            .get_inner();
-        let private_cluster_enabled_binding_1 = args
+        let private_cluster_enabled_binding = args
             .private_cluster_enabled
             .get_output(context);
-        let private_cluster_enabled_binding = private_cluster_enabled_binding_1
-            .get_inner();
-        let private_cluster_public_fqdn_enabled_binding_1 = args
+        let private_cluster_public_fqdn_enabled_binding = args
             .private_cluster_public_fqdn_enabled
             .get_output(context);
-        let private_cluster_public_fqdn_enabled_binding = private_cluster_public_fqdn_enabled_binding_1
-            .get_inner();
-        let private_dns_zone_id_binding_1 = args.private_dns_zone_id.get_output(context);
-        let private_dns_zone_id_binding = private_dns_zone_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let role_based_access_control_enabled_binding_1 = args
+        let private_dns_zone_id_binding = args.private_dns_zone_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let role_based_access_control_enabled_binding = args
             .role_based_access_control_enabled
             .get_output(context);
-        let role_based_access_control_enabled_binding = role_based_access_control_enabled_binding_1
-            .get_inner();
-        let run_command_enabled_binding_1 = args.run_command_enabled.get_output(context);
-        let run_command_enabled_binding = run_command_enabled_binding_1.get_inner();
-        let service_mesh_profile_binding_1 = args
-            .service_mesh_profile
-            .get_output(context);
-        let service_mesh_profile_binding = service_mesh_profile_binding_1.get_inner();
-        let service_principal_binding_1 = args.service_principal.get_output(context);
-        let service_principal_binding = service_principal_binding_1.get_inner();
-        let sku_tier_binding_1 = args.sku_tier.get_output(context);
-        let sku_tier_binding = sku_tier_binding_1.get_inner();
-        let storage_profile_binding_1 = args.storage_profile.get_output(context);
-        let storage_profile_binding = storage_profile_binding_1.get_inner();
-        let support_plan_binding_1 = args.support_plan.get_output(context);
-        let support_plan_binding = support_plan_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let web_app_routing_binding_1 = args.web_app_routing.get_output(context);
-        let web_app_routing_binding = web_app_routing_binding_1.get_inner();
-        let windows_profile_binding_1 = args.windows_profile.get_output(context);
-        let windows_profile_binding = windows_profile_binding_1.get_inner();
-        let workload_autoscaler_profile_binding_1 = args
+        let run_command_enabled_binding = args.run_command_enabled.get_output(context);
+        let service_mesh_profile_binding = args.service_mesh_profile.get_output(context);
+        let service_principal_binding = args.service_principal.get_output(context);
+        let sku_tier_binding = args.sku_tier.get_output(context);
+        let storage_profile_binding = args.storage_profile.get_output(context);
+        let support_plan_binding = args.support_plan.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let web_app_routing_binding = args.web_app_routing.get_output(context);
+        let windows_profile_binding = args.windows_profile.get_output(context);
+        let workload_autoscaler_profile_binding = args
             .workload_autoscaler_profile
             .get_output(context);
-        let workload_autoscaler_profile_binding = workload_autoscaler_profile_binding_1
-            .get_inner();
-        let workload_identity_enabled_binding_1 = args
+        let workload_identity_enabled_binding = args
             .workload_identity_enabled
             .get_output(context);
-        let workload_identity_enabled_binding = workload_identity_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/kubernetesCluster:KubernetesCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aciConnectorLinux".into(),
-                    value: &aci_connector_linux_binding,
+                    value: aci_connector_linux_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiServerAccessProfile".into(),
-                    value: &api_server_access_profile_binding,
+                    value: api_server_access_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalerProfile".into(),
-                    value: &auto_scaler_profile_binding,
+                    value: auto_scaler_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticUpgradeChannel".into(),
-                    value: &automatic_upgrade_channel_binding,
+                    value: automatic_upgrade_channel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureActiveDirectoryRoleBasedAccessControl".into(),
-                    value: &azure_active_directory_role_based_access_control_binding,
+                    value: azure_active_directory_role_based_access_control_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azurePolicyEnabled".into(),
-                    value: &azure_policy_enabled_binding,
+                    value: azure_policy_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confidentialComputing".into(),
-                    value: &confidential_computing_binding,
+                    value: confidential_computing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "costAnalysisEnabled".into(),
-                    value: &cost_analysis_enabled_binding,
+                    value: cost_analysis_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultNodePool".into(),
-                    value: &default_node_pool_binding,
+                    value: default_node_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryptionSetId".into(),
-                    value: &disk_encryption_set_id_binding,
+                    value: disk_encryption_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsPrefix".into(),
-                    value: &dns_prefix_binding,
+                    value: dns_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsPrefixPrivateCluster".into(),
-                    value: &dns_prefix_private_cluster_binding,
+                    value: dns_prefix_private_cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeZone".into(),
-                    value: &edge_zone_binding,
+                    value: edge_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpApplicationRoutingEnabled".into(),
-                    value: &http_application_routing_enabled_binding,
+                    value: http_application_routing_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpProxyConfig".into(),
-                    value: &http_proxy_config_binding,
+                    value: http_proxy_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageCleanerEnabled".into(),
-                    value: &image_cleaner_enabled_binding,
+                    value: image_cleaner_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageCleanerIntervalHours".into(),
-                    value: &image_cleaner_interval_hours_binding,
+                    value: image_cleaner_interval_hours_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressApplicationGateway".into(),
-                    value: &ingress_application_gateway_binding,
+                    value: ingress_application_gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyManagementService".into(),
-                    value: &key_management_service_binding,
+                    value: key_management_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultSecretsProvider".into(),
-                    value: &key_vault_secrets_provider_binding,
+                    value: key_vault_secrets_provider_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubeletIdentity".into(),
-                    value: &kubelet_identity_binding,
+                    value: kubelet_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesVersion".into(),
-                    value: &kubernetes_version_binding,
+                    value: kubernetes_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linuxProfile".into(),
-                    value: &linux_profile_binding,
+                    value: linux_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAccountDisabled".into(),
-                    value: &local_account_disabled_binding,
+                    value: local_account_disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindowAutoUpgrade".into(),
-                    value: &maintenance_window_auto_upgrade_binding,
+                    value: maintenance_window_auto_upgrade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindowNodeOs".into(),
-                    value: &maintenance_window_node_os_binding,
+                    value: maintenance_window_node_os_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "microsoftDefender".into(),
-                    value: &microsoft_defender_binding,
+                    value: microsoft_defender_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorMetrics".into(),
-                    value: &monitor_metrics_binding,
+                    value: monitor_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: &network_profile_binding,
+                    value: network_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeOsUpgradeChannel".into(),
-                    value: &node_os_upgrade_channel_binding,
+                    value: node_os_upgrade_channel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeResourceGroup".into(),
-                    value: &node_resource_group_binding,
+                    value: node_resource_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oidcIssuerEnabled".into(),
-                    value: &oidc_issuer_enabled_binding,
+                    value: oidc_issuer_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "omsAgent".into(),
-                    value: &oms_agent_binding,
+                    value: oms_agent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openServiceMeshEnabled".into(),
-                    value: &open_service_mesh_enabled_binding,
+                    value: open_service_mesh_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateClusterEnabled".into(),
-                    value: &private_cluster_enabled_binding,
+                    value: private_cluster_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateClusterPublicFqdnEnabled".into(),
-                    value: &private_cluster_public_fqdn_enabled_binding,
+                    value: private_cluster_public_fqdn_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsZoneId".into(),
-                    value: &private_dns_zone_id_binding,
+                    value: private_dns_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleBasedAccessControlEnabled".into(),
-                    value: &role_based_access_control_enabled_binding,
+                    value: role_based_access_control_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runCommandEnabled".into(),
-                    value: &run_command_enabled_binding,
+                    value: run_command_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceMeshProfile".into(),
-                    value: &service_mesh_profile_binding,
+                    value: service_mesh_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipal".into(),
-                    value: &service_principal_binding,
+                    value: service_principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuTier".into(),
-                    value: &sku_tier_binding,
+                    value: sku_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageProfile".into(),
-                    value: &storage_profile_binding,
+                    value: storage_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportPlan".into(),
-                    value: &support_plan_binding,
+                    value: support_plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webAppRouting".into(),
-                    value: &web_app_routing_binding,
+                    value: web_app_routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowsProfile".into(),
-                    value: &windows_profile_binding,
+                    value: windows_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadAutoscalerProfile".into(),
-                    value: &workload_autoscaler_profile_binding,
+                    value: workload_autoscaler_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadIdentityEnabled".into(),
-                    value: &workload_identity_enabled_binding,
+                    value: workload_identity_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KubernetesClusterResult {
-            aci_connector_linux: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aciConnectorLinux"),
-            ),
-            api_server_access_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiServerAccessProfile"),
-            ),
-            auto_scaler_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalerProfile"),
-            ),
-            automatic_upgrade_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticUpgradeChannel"),
-            ),
-            azure_active_directory_role_based_access_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureActiveDirectoryRoleBasedAccessControl"),
-            ),
-            azure_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azurePolicyEnabled"),
-            ),
-            confidential_computing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confidentialComputing"),
-            ),
-            cost_analysis_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("costAnalysisEnabled"),
-            ),
-            current_kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentKubernetesVersion"),
-            ),
-            default_node_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultNodePool"),
-            ),
-            disk_encryption_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptionSetId"),
-            ),
-            dns_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsPrefix"),
-            ),
-            dns_prefix_private_cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsPrefixPrivateCluster"),
-            ),
-            edge_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeZone"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            http_application_routing_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpApplicationRoutingEnabled"),
-            ),
-            http_application_routing_zone_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpApplicationRoutingZoneName"),
-            ),
-            http_proxy_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpProxyConfig"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            image_cleaner_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageCleanerEnabled"),
-            ),
-            image_cleaner_interval_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageCleanerIntervalHours"),
-            ),
-            ingress_application_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressApplicationGateway"),
-            ),
-            key_management_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyManagementService"),
-            ),
-            key_vault_secrets_provider: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultSecretsProvider"),
-            ),
-            kube_admin_config_raw: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeAdminConfigRaw"),
-            ),
-            kube_admin_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeAdminConfigs"),
-            ),
-            kube_config_raw: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeConfigRaw"),
-            ),
-            kube_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeConfigs"),
-            ),
-            kubelet_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeletIdentity"),
-            ),
-            kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesVersion"),
-            ),
-            linux_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linuxProfile"),
-            ),
-            local_account_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAccountDisabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            maintenance_window_auto_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindowAutoUpgrade"),
-            ),
-            maintenance_window_node_os: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindowNodeOs"),
-            ),
-            microsoft_defender: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("microsoftDefender"),
-            ),
-            monitor_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitorMetrics"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfile"),
-            ),
-            node_os_upgrade_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeOsUpgradeChannel"),
-            ),
-            node_resource_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeResourceGroup"),
-            ),
-            node_resource_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeResourceGroupId"),
-            ),
-            oidc_issuer_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oidcIssuerEnabled"),
-            ),
-            oidc_issuer_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oidcIssuerUrl"),
-            ),
-            oms_agent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("omsAgent"),
-            ),
-            open_service_mesh_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openServiceMeshEnabled"),
-            ),
-            portal_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portalFqdn"),
-            ),
-            private_cluster_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateClusterEnabled"),
-            ),
-            private_cluster_public_fqdn_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateClusterPublicFqdnEnabled"),
-            ),
-            private_dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsZoneId"),
-            ),
-            private_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateFqdn"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            role_based_access_control_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleBasedAccessControlEnabled"),
-            ),
-            run_command_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runCommandEnabled"),
-            ),
-            service_mesh_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceMeshProfile"),
-            ),
-            service_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipal"),
-            ),
-            sku_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuTier"),
-            ),
-            storage_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageProfile"),
-            ),
-            support_plan: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportPlan"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            web_app_routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webAppRouting"),
-            ),
-            windows_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowsProfile"),
-            ),
-            workload_autoscaler_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadAutoscalerProfile"),
-            ),
-            workload_identity_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadIdentityEnabled"),
-            ),
+            aci_connector_linux: o.get_field("aciConnectorLinux"),
+            api_server_access_profile: o.get_field("apiServerAccessProfile"),
+            auto_scaler_profile: o.get_field("autoScalerProfile"),
+            automatic_upgrade_channel: o.get_field("automaticUpgradeChannel"),
+            azure_active_directory_role_based_access_control: o
+                .get_field("azureActiveDirectoryRoleBasedAccessControl"),
+            azure_policy_enabled: o.get_field("azurePolicyEnabled"),
+            confidential_computing: o.get_field("confidentialComputing"),
+            cost_analysis_enabled: o.get_field("costAnalysisEnabled"),
+            current_kubernetes_version: o.get_field("currentKubernetesVersion"),
+            default_node_pool: o.get_field("defaultNodePool"),
+            disk_encryption_set_id: o.get_field("diskEncryptionSetId"),
+            dns_prefix: o.get_field("dnsPrefix"),
+            dns_prefix_private_cluster: o.get_field("dnsPrefixPrivateCluster"),
+            edge_zone: o.get_field("edgeZone"),
+            fqdn: o.get_field("fqdn"),
+            http_application_routing_enabled: o
+                .get_field("httpApplicationRoutingEnabled"),
+            http_application_routing_zone_name: o
+                .get_field("httpApplicationRoutingZoneName"),
+            http_proxy_config: o.get_field("httpProxyConfig"),
+            identity: o.get_field("identity"),
+            image_cleaner_enabled: o.get_field("imageCleanerEnabled"),
+            image_cleaner_interval_hours: o.get_field("imageCleanerIntervalHours"),
+            ingress_application_gateway: o.get_field("ingressApplicationGateway"),
+            key_management_service: o.get_field("keyManagementService"),
+            key_vault_secrets_provider: o.get_field("keyVaultSecretsProvider"),
+            kube_admin_config_raw: o.get_field("kubeAdminConfigRaw"),
+            kube_admin_configs: o.get_field("kubeAdminConfigs"),
+            kube_config_raw: o.get_field("kubeConfigRaw"),
+            kube_configs: o.get_field("kubeConfigs"),
+            kubelet_identity: o.get_field("kubeletIdentity"),
+            kubernetes_version: o.get_field("kubernetesVersion"),
+            linux_profile: o.get_field("linuxProfile"),
+            local_account_disabled: o.get_field("localAccountDisabled"),
+            location: o.get_field("location"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            maintenance_window_auto_upgrade: o.get_field("maintenanceWindowAutoUpgrade"),
+            maintenance_window_node_os: o.get_field("maintenanceWindowNodeOs"),
+            microsoft_defender: o.get_field("microsoftDefender"),
+            monitor_metrics: o.get_field("monitorMetrics"),
+            name: o.get_field("name"),
+            network_profile: o.get_field("networkProfile"),
+            node_os_upgrade_channel: o.get_field("nodeOsUpgradeChannel"),
+            node_resource_group: o.get_field("nodeResourceGroup"),
+            node_resource_group_id: o.get_field("nodeResourceGroupId"),
+            oidc_issuer_enabled: o.get_field("oidcIssuerEnabled"),
+            oidc_issuer_url: o.get_field("oidcIssuerUrl"),
+            oms_agent: o.get_field("omsAgent"),
+            open_service_mesh_enabled: o.get_field("openServiceMeshEnabled"),
+            portal_fqdn: o.get_field("portalFqdn"),
+            private_cluster_enabled: o.get_field("privateClusterEnabled"),
+            private_cluster_public_fqdn_enabled: o
+                .get_field("privateClusterPublicFqdnEnabled"),
+            private_dns_zone_id: o.get_field("privateDnsZoneId"),
+            private_fqdn: o.get_field("privateFqdn"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            role_based_access_control_enabled: o
+                .get_field("roleBasedAccessControlEnabled"),
+            run_command_enabled: o.get_field("runCommandEnabled"),
+            service_mesh_profile: o.get_field("serviceMeshProfile"),
+            service_principal: o.get_field("servicePrincipal"),
+            sku_tier: o.get_field("skuTier"),
+            storage_profile: o.get_field("storageProfile"),
+            support_plan: o.get_field("supportPlan"),
+            tags: o.get_field("tags"),
+            web_app_routing: o.get_field("webAppRouting"),
+            windows_profile: o.get_field("windowsProfile"),
+            workload_autoscaler_profile: o.get_field("workloadAutoscalerProfile"),
+            workload_identity_enabled: o.get_field("workloadIdentityEnabled"),
         }
     }
 }

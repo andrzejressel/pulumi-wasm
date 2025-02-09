@@ -40,49 +40,38 @@ pub mod get_serverless_security_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServerlessSecurityConfigArgs,
     ) -> GetServerlessSecurityConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let saml_options_binding_1 = args.saml_options.get_output(context);
-        let saml_options_binding = saml_options_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let id_binding = args.id.get_output(context);
+        let saml_options_binding = args.saml_options.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samlOptions".into(),
-                    value: &saml_options_binding,
+                    value: saml_options_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServerlessSecurityConfigResult {
-            config_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configVersion"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedDate"),
-            ),
-            saml_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samlOptions"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            config_version: o.get_field("configVersion"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            last_modified_date: o.get_field("lastModifiedDate"),
+            saml_options: o.get_field("samlOptions"),
+            type_: o.get_field("type"),
         }
     }
 }

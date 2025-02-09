@@ -64,83 +64,53 @@ pub mod get_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceArgs,
     ) -> GetServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:domainservices/getService:getService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceResult {
-            deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentId"),
-            ),
-            domain_configuration_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainConfigurationType"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            filtered_sync_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filteredSyncEnabled"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notifications"),
-            ),
-            replica_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaSets"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            secure_ldaps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secureLdaps"),
-            ),
-            securities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securities"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            sync_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncOwner"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            deployment_id: o.get_field("deploymentId"),
+            domain_configuration_type: o.get_field("domainConfigurationType"),
+            domain_name: o.get_field("domainName"),
+            filtered_sync_enabled: o.get_field("filteredSyncEnabled"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            notifications: o.get_field("notifications"),
+            replica_sets: o.get_field("replicaSets"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            resource_id: o.get_field("resourceId"),
+            secure_ldaps: o.get_field("secureLdaps"),
+            securities: o.get_field("securities"),
+            sku: o.get_field("sku"),
+            sync_owner: o.get_field("syncOwner"),
+            tags: o.get_field("tags"),
+            tenant_id: o.get_field("tenantId"),
+            version: o.get_field("version"),
         }
     }
 }

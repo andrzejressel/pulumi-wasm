@@ -107,75 +107,60 @@ pub mod iam_custom_role {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IAMCustomRoleArgs,
     ) -> IAMCustomRoleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let role_id_binding_1 = args.role_id.get_output(context);
-        let role_id_binding = role_id_binding_1.get_inner();
-        let stage_binding_1 = args.stage.get_output(context);
-        let stage_binding = stage_binding_1.get_inner();
-        let title_binding_1 = args.title.get_output(context);
-        let title_binding = title_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let role_id_binding = args.role_id.get_output(context);
+        let stage_binding = args.stage.get_output(context);
+        let title_binding = args.title.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:projects/iAMCustomRole:IAMCustomRole".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleId".into(),
-                    value: &role_id_binding,
+                    value: role_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stage".into(),
-                    value: &stage_binding,
+                    value: stage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: &title_binding,
+                    value: title_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IAMCustomRoleResult {
-            deleted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleted"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            role_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleId"),
-            ),
-            stage: pulumi_gestalt_rust::__private::into_domain(o.extract_field("stage")),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            deleted: o.get_field("deleted"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            permissions: o.get_field("permissions"),
+            project: o.get_field("project"),
+            role_id: o.get_field("roleId"),
+            stage: o.get_field("stage"),
+            title: o.get_field("title"),
         }
     }
 }

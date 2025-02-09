@@ -193,297 +193,210 @@ pub mod ganglia_layer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GangliaLayerArgs,
     ) -> GangliaLayerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_assign_elastic_ips_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_assign_elastic_ips_binding = args
             .auto_assign_elastic_ips
             .get_output(context);
-        let auto_assign_elastic_ips_binding = auto_assign_elastic_ips_binding_1
-            .get_inner();
-        let auto_assign_public_ips_binding_1 = args
+        let auto_assign_public_ips_binding = args
             .auto_assign_public_ips
             .get_output(context);
-        let auto_assign_public_ips_binding = auto_assign_public_ips_binding_1
-            .get_inner();
-        let auto_healing_binding_1 = args.auto_healing.get_output(context);
-        let auto_healing_binding = auto_healing_binding_1.get_inner();
-        let cloudwatch_configuration_binding_1 = args
+        let auto_healing_binding = args.auto_healing.get_output(context);
+        let cloudwatch_configuration_binding = args
             .cloudwatch_configuration
             .get_output(context);
-        let cloudwatch_configuration_binding = cloudwatch_configuration_binding_1
-            .get_inner();
-        let custom_configure_recipes_binding_1 = args
+        let custom_configure_recipes_binding = args
             .custom_configure_recipes
             .get_output(context);
-        let custom_configure_recipes_binding = custom_configure_recipes_binding_1
-            .get_inner();
-        let custom_deploy_recipes_binding_1 = args
+        let custom_deploy_recipes_binding = args
             .custom_deploy_recipes
             .get_output(context);
-        let custom_deploy_recipes_binding = custom_deploy_recipes_binding_1.get_inner();
-        let custom_instance_profile_arn_binding_1 = args
+        let custom_instance_profile_arn_binding = args
             .custom_instance_profile_arn
             .get_output(context);
-        let custom_instance_profile_arn_binding = custom_instance_profile_arn_binding_1
-            .get_inner();
-        let custom_json_binding_1 = args.custom_json.get_output(context);
-        let custom_json_binding = custom_json_binding_1.get_inner();
-        let custom_security_group_ids_binding_1 = args
+        let custom_json_binding = args.custom_json.get_output(context);
+        let custom_security_group_ids_binding = args
             .custom_security_group_ids
             .get_output(context);
-        let custom_security_group_ids_binding = custom_security_group_ids_binding_1
-            .get_inner();
-        let custom_setup_recipes_binding_1 = args
-            .custom_setup_recipes
-            .get_output(context);
-        let custom_setup_recipes_binding = custom_setup_recipes_binding_1.get_inner();
-        let custom_shutdown_recipes_binding_1 = args
+        let custom_setup_recipes_binding = args.custom_setup_recipes.get_output(context);
+        let custom_shutdown_recipes_binding = args
             .custom_shutdown_recipes
             .get_output(context);
-        let custom_shutdown_recipes_binding = custom_shutdown_recipes_binding_1
-            .get_inner();
-        let custom_undeploy_recipes_binding_1 = args
+        let custom_undeploy_recipes_binding = args
             .custom_undeploy_recipes
             .get_output(context);
-        let custom_undeploy_recipes_binding = custom_undeploy_recipes_binding_1
-            .get_inner();
-        let drain_elb_on_shutdown_binding_1 = args
+        let drain_elb_on_shutdown_binding = args
             .drain_elb_on_shutdown
             .get_output(context);
-        let drain_elb_on_shutdown_binding = drain_elb_on_shutdown_binding_1.get_inner();
-        let ebs_volumes_binding_1 = args.ebs_volumes.get_output(context);
-        let ebs_volumes_binding = ebs_volumes_binding_1.get_inner();
-        let elastic_load_balancer_binding_1 = args
+        let ebs_volumes_binding = args.ebs_volumes.get_output(context);
+        let elastic_load_balancer_binding = args
             .elastic_load_balancer
             .get_output(context);
-        let elastic_load_balancer_binding = elastic_load_balancer_binding_1.get_inner();
-        let install_updates_on_boot_binding_1 = args
+        let install_updates_on_boot_binding = args
             .install_updates_on_boot
             .get_output(context);
-        let install_updates_on_boot_binding = install_updates_on_boot_binding_1
-            .get_inner();
-        let instance_shutdown_timeout_binding_1 = args
+        let instance_shutdown_timeout_binding = args
             .instance_shutdown_timeout
             .get_output(context);
-        let instance_shutdown_timeout_binding = instance_shutdown_timeout_binding_1
-            .get_inner();
-        let load_based_auto_scaling_binding_1 = args
+        let load_based_auto_scaling_binding = args
             .load_based_auto_scaling
             .get_output(context);
-        let load_based_auto_scaling_binding = load_based_auto_scaling_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let stack_id_binding_1 = args.stack_id.get_output(context);
-        let stack_id_binding = stack_id_binding_1.get_inner();
-        let system_packages_binding_1 = args.system_packages.get_output(context);
-        let system_packages_binding = system_packages_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let url_binding_1 = args.url.get_output(context);
-        let url_binding = url_binding_1.get_inner();
-        let use_ebs_optimized_instances_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let stack_id_binding = args.stack_id.get_output(context);
+        let system_packages_binding = args.system_packages.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let url_binding = args.url.get_output(context);
+        let use_ebs_optimized_instances_binding = args
             .use_ebs_optimized_instances
             .get_output(context);
-        let use_ebs_optimized_instances_binding = use_ebs_optimized_instances_binding_1
-            .get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opsworks/gangliaLayer:GangliaLayer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAssignElasticIps".into(),
-                    value: &auto_assign_elastic_ips_binding,
+                    value: auto_assign_elastic_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAssignPublicIps".into(),
-                    value: &auto_assign_public_ips_binding,
+                    value: auto_assign_public_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoHealing".into(),
-                    value: &auto_healing_binding,
+                    value: auto_healing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchConfiguration".into(),
-                    value: &cloudwatch_configuration_binding,
+                    value: cloudwatch_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customConfigureRecipes".into(),
-                    value: &custom_configure_recipes_binding,
+                    value: custom_configure_recipes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDeployRecipes".into(),
-                    value: &custom_deploy_recipes_binding,
+                    value: custom_deploy_recipes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customInstanceProfileArn".into(),
-                    value: &custom_instance_profile_arn_binding,
+                    value: custom_instance_profile_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customJson".into(),
-                    value: &custom_json_binding,
+                    value: custom_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSecurityGroupIds".into(),
-                    value: &custom_security_group_ids_binding,
+                    value: custom_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSetupRecipes".into(),
-                    value: &custom_setup_recipes_binding,
+                    value: custom_setup_recipes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customShutdownRecipes".into(),
-                    value: &custom_shutdown_recipes_binding,
+                    value: custom_shutdown_recipes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customUndeployRecipes".into(),
-                    value: &custom_undeploy_recipes_binding,
+                    value: custom_undeploy_recipes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "drainElbOnShutdown".into(),
-                    value: &drain_elb_on_shutdown_binding,
+                    value: drain_elb_on_shutdown_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsVolumes".into(),
-                    value: &ebs_volumes_binding,
+                    value: ebs_volumes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticLoadBalancer".into(),
-                    value: &elastic_load_balancer_binding,
+                    value: elastic_load_balancer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "installUpdatesOnBoot".into(),
-                    value: &install_updates_on_boot_binding,
+                    value: install_updates_on_boot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceShutdownTimeout".into(),
-                    value: &instance_shutdown_timeout_binding,
+                    value: instance_shutdown_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBasedAutoScaling".into(),
-                    value: &load_based_auto_scaling_binding,
+                    value: load_based_auto_scaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: &stack_id_binding,
+                    value: stack_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemPackages".into(),
-                    value: &system_packages_binding,
+                    value: system_packages_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: &url_binding,
+                    value: url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useEbsOptimizedInstances".into(),
-                    value: &use_ebs_optimized_instances_binding,
+                    value: use_ebs_optimized_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GangliaLayerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_assign_elastic_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAssignElasticIps"),
-            ),
-            auto_assign_public_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAssignPublicIps"),
-            ),
-            auto_healing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoHealing"),
-            ),
-            cloudwatch_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchConfiguration"),
-            ),
-            custom_configure_recipes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customConfigureRecipes"),
-            ),
-            custom_deploy_recipes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDeployRecipes"),
-            ),
-            custom_instance_profile_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customInstanceProfileArn"),
-            ),
-            custom_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customJson"),
-            ),
-            custom_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customSecurityGroupIds"),
-            ),
-            custom_setup_recipes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customSetupRecipes"),
-            ),
-            custom_shutdown_recipes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customShutdownRecipes"),
-            ),
-            custom_undeploy_recipes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customUndeployRecipes"),
-            ),
-            drain_elb_on_shutdown: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("drainElbOnShutdown"),
-            ),
-            ebs_volumes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsVolumes"),
-            ),
-            elastic_load_balancer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticLoadBalancer"),
-            ),
-            install_updates_on_boot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("installUpdatesOnBoot"),
-            ),
-            instance_shutdown_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceShutdownTimeout"),
-            ),
-            load_based_auto_scaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBasedAutoScaling"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            stack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackId"),
-            ),
-            system_packages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("systemPackages"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
-            use_ebs_optimized_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useEbsOptimizedInstances"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            arn: o.get_field("arn"),
+            auto_assign_elastic_ips: o.get_field("autoAssignElasticIps"),
+            auto_assign_public_ips: o.get_field("autoAssignPublicIps"),
+            auto_healing: o.get_field("autoHealing"),
+            cloudwatch_configuration: o.get_field("cloudwatchConfiguration"),
+            custom_configure_recipes: o.get_field("customConfigureRecipes"),
+            custom_deploy_recipes: o.get_field("customDeployRecipes"),
+            custom_instance_profile_arn: o.get_field("customInstanceProfileArn"),
+            custom_json: o.get_field("customJson"),
+            custom_security_group_ids: o.get_field("customSecurityGroupIds"),
+            custom_setup_recipes: o.get_field("customSetupRecipes"),
+            custom_shutdown_recipes: o.get_field("customShutdownRecipes"),
+            custom_undeploy_recipes: o.get_field("customUndeployRecipes"),
+            drain_elb_on_shutdown: o.get_field("drainElbOnShutdown"),
+            ebs_volumes: o.get_field("ebsVolumes"),
+            elastic_load_balancer: o.get_field("elasticLoadBalancer"),
+            install_updates_on_boot: o.get_field("installUpdatesOnBoot"),
+            instance_shutdown_timeout: o.get_field("instanceShutdownTimeout"),
+            load_based_auto_scaling: o.get_field("loadBasedAutoScaling"),
+            name: o.get_field("name"),
+            password: o.get_field("password"),
+            stack_id: o.get_field("stackId"),
+            system_packages: o.get_field("systemPackages"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
+            use_ebs_optimized_instances: o.get_field("useEbsOptimizedInstances"),
+            username: o.get_field("username"),
         }
     }
 }

@@ -244,143 +244,103 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_configuration_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_configuration_type_binding = args
             .domain_configuration_type
             .get_output(context);
-        let domain_configuration_type_binding = domain_configuration_type_binding_1
-            .get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let filtered_sync_enabled_binding_1 = args
+        let domain_name_binding = args.domain_name.get_output(context);
+        let filtered_sync_enabled_binding = args
             .filtered_sync_enabled
             .get_output(context);
-        let filtered_sync_enabled_binding = filtered_sync_enabled_binding_1.get_inner();
-        let initial_replica_set_binding_1 = args.initial_replica_set.get_output(context);
-        let initial_replica_set_binding = initial_replica_set_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notifications_binding_1 = args.notifications.get_output(context);
-        let notifications_binding = notifications_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let secure_ldap_binding_1 = args.secure_ldap.get_output(context);
-        let secure_ldap_binding = secure_ldap_binding_1.get_inner();
-        let security_binding_1 = args.security.get_output(context);
-        let security_binding = security_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let initial_replica_set_binding = args.initial_replica_set.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notifications_binding = args.notifications.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let secure_ldap_binding = args.secure_ldap.get_output(context);
+        let security_binding = args.security.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:domainservices/service:Service".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainConfigurationType".into(),
-                    value: &domain_configuration_type_binding,
+                    value: domain_configuration_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filteredSyncEnabled".into(),
-                    value: &filtered_sync_enabled_binding,
+                    value: filtered_sync_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialReplicaSet".into(),
-                    value: &initial_replica_set_binding,
+                    value: initial_replica_set_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: &notifications_binding,
+                    value: notifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secureLdap".into(),
-                    value: &secure_ldap_binding,
+                    value: secure_ldap_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "security".into(),
-                    value: &security_binding,
+                    value: security_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceResult {
-            deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentId"),
-            ),
-            domain_configuration_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainConfigurationType"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            filtered_sync_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filteredSyncEnabled"),
-            ),
-            initial_replica_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialReplicaSet"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notifications"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            secure_ldap: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secureLdap"),
-            ),
-            security: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("security"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            sync_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncOwner"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            deployment_id: o.get_field("deploymentId"),
+            domain_configuration_type: o.get_field("domainConfigurationType"),
+            domain_name: o.get_field("domainName"),
+            filtered_sync_enabled: o.get_field("filteredSyncEnabled"),
+            initial_replica_set: o.get_field("initialReplicaSet"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            notifications: o.get_field("notifications"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            resource_id: o.get_field("resourceId"),
+            secure_ldap: o.get_field("secureLdap"),
+            security: o.get_field("security"),
+            sku: o.get_field("sku"),
+            sync_owner: o.get_field("syncOwner"),
+            tags: o.get_field("tags"),
+            tenant_id: o.get_field("tenantId"),
+            version: o.get_field("version"),
         }
     }
 }

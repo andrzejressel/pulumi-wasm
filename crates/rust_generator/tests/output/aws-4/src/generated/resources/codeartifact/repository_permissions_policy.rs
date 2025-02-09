@@ -94,70 +94,54 @@ pub mod repository_permissions_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryPermissionsPolicyArgs,
     ) -> RepositoryPermissionsPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let domain_owner_binding_1 = args.domain_owner.get_output(context);
-        let domain_owner_binding = domain_owner_binding_1.get_inner();
-        let policy_document_binding_1 = args.policy_document.get_output(context);
-        let policy_document_binding = policy_document_binding_1.get_inner();
-        let policy_revision_binding_1 = args.policy_revision.get_output(context);
-        let policy_revision_binding = policy_revision_binding_1.get_inner();
-        let repository_binding_1 = args.repository.get_output(context);
-        let repository_binding = repository_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_binding = args.domain.get_output(context);
+        let domain_owner_binding = args.domain_owner.get_output(context);
+        let policy_document_binding = args.policy_document.get_output(context);
+        let policy_revision_binding = args.policy_revision.get_output(context);
+        let repository_binding = args.repository.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainOwner".into(),
-                    value: &domain_owner_binding,
+                    value: domain_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: &policy_document_binding,
+                    value: policy_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyRevision".into(),
-                    value: &policy_revision_binding,
+                    value: policy_revision_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: &repository_binding,
+                    value: repository_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryPermissionsPolicyResult {
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            domain_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainOwner"),
-            ),
-            policy_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDocument"),
-            ),
-            policy_revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyRevision"),
-            ),
-            repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repository"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
+            domain: o.get_field("domain"),
+            domain_owner: o.get_field("domainOwner"),
+            policy_document: o.get_field("policyDocument"),
+            policy_revision: o.get_field("policyRevision"),
+            repository: o.get_field("repository"),
+            resource_arn: o.get_field("resourceArn"),
         }
     }
 }

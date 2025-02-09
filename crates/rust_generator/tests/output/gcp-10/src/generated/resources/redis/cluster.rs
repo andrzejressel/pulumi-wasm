@@ -569,189 +569,130 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_mode_binding_1 = args.authorization_mode.get_output(context);
-        let authorization_mode_binding = authorization_mode_binding_1.get_inner();
-        let cross_cluster_replication_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorization_mode_binding = args.authorization_mode.get_output(context);
+        let cross_cluster_replication_config_binding = args
             .cross_cluster_replication_config
             .get_output(context);
-        let cross_cluster_replication_config_binding = cross_cluster_replication_config_binding_1
-            .get_inner();
-        let deletion_protection_enabled_binding_1 = args
+        let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
             .get_output(context);
-        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
-            .get_inner();
-        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
-        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let persistence_config_binding_1 = args.persistence_config.get_output(context);
-        let persistence_config_binding = persistence_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let psc_configs_binding_1 = args.psc_configs.get_output(context);
-        let psc_configs_binding = psc_configs_binding_1.get_inner();
-        let redis_configs_binding_1 = args.redis_configs.get_output(context);
-        let redis_configs_binding = redis_configs_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let replica_count_binding_1 = args.replica_count.get_output(context);
-        let replica_count_binding = replica_count_binding_1.get_inner();
-        let shard_count_binding_1 = args.shard_count.get_output(context);
-        let shard_count_binding = shard_count_binding_1.get_inner();
-        let transit_encryption_mode_binding_1 = args
+        let maintenance_policy_binding = args.maintenance_policy.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_type_binding = args.node_type.get_output(context);
+        let persistence_config_binding = args.persistence_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let psc_configs_binding = args.psc_configs.get_output(context);
+        let redis_configs_binding = args.redis_configs.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let replica_count_binding = args.replica_count.get_output(context);
+        let shard_count_binding = args.shard_count.get_output(context);
+        let transit_encryption_mode_binding = args
             .transit_encryption_mode
             .get_output(context);
-        let transit_encryption_mode_binding = transit_encryption_mode_binding_1
-            .get_inner();
-        let zone_distribution_config_binding_1 = args
+        let zone_distribution_config_binding = args
             .zone_distribution_config
             .get_output(context);
-        let zone_distribution_config_binding = zone_distribution_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:redis/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationMode".into(),
-                    value: &authorization_mode_binding,
+                    value: authorization_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crossClusterReplicationConfig".into(),
-                    value: &cross_cluster_replication_config_binding,
+                    value: cross_cluster_replication_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtectionEnabled".into(),
-                    value: &deletion_protection_enabled_binding,
+                    value: deletion_protection_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: &maintenance_policy_binding,
+                    value: maintenance_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistenceConfig".into(),
-                    value: &persistence_config_binding,
+                    value: persistence_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscConfigs".into(),
-                    value: &psc_configs_binding,
+                    value: psc_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisConfigs".into(),
-                    value: &redis_configs_binding,
+                    value: redis_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaCount".into(),
-                    value: &replica_count_binding,
+                    value: replica_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardCount".into(),
-                    value: &shard_count_binding,
+                    value: shard_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitEncryptionMode".into(),
-                    value: &transit_encryption_mode_binding,
+                    value: transit_encryption_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneDistributionConfig".into(),
-                    value: &zone_distribution_config_binding,
+                    value: zone_distribution_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            authorization_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationMode"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            cross_cluster_replication_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("crossClusterReplicationConfig"),
-            ),
-            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtectionEnabled"),
-            ),
-            discovery_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("discoveryEndpoints"),
-            ),
-            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenancePolicy"),
-            ),
-            maintenance_schedules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceSchedules"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            persistence_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistenceConfig"),
-            ),
-            precise_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preciseSizeGb"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            psc_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscConfigs"),
-            ),
-            psc_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscConnections"),
-            ),
-            redis_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisConfigs"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            replica_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaCount"),
-            ),
-            shard_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardCount"),
-            ),
-            size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sizeGb"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateInfos"),
-            ),
-            transit_encryption_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitEncryptionMode"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            zone_distribution_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneDistributionConfig"),
-            ),
+            authorization_mode: o.get_field("authorizationMode"),
+            create_time: o.get_field("createTime"),
+            cross_cluster_replication_config: o
+                .get_field("crossClusterReplicationConfig"),
+            deletion_protection_enabled: o.get_field("deletionProtectionEnabled"),
+            discovery_endpoints: o.get_field("discoveryEndpoints"),
+            maintenance_policy: o.get_field("maintenancePolicy"),
+            maintenance_schedules: o.get_field("maintenanceSchedules"),
+            name: o.get_field("name"),
+            node_type: o.get_field("nodeType"),
+            persistence_config: o.get_field("persistenceConfig"),
+            precise_size_gb: o.get_field("preciseSizeGb"),
+            project: o.get_field("project"),
+            psc_configs: o.get_field("pscConfigs"),
+            psc_connections: o.get_field("pscConnections"),
+            redis_configs: o.get_field("redisConfigs"),
+            region: o.get_field("region"),
+            replica_count: o.get_field("replicaCount"),
+            shard_count: o.get_field("shardCount"),
+            size_gb: o.get_field("sizeGb"),
+            state: o.get_field("state"),
+            state_infos: o.get_field("stateInfos"),
+            transit_encryption_mode: o.get_field("transitEncryptionMode"),
+            uid: o.get_field("uid"),
+            zone_distribution_config: o.get_field("zoneDistributionConfig"),
         }
     }
 }

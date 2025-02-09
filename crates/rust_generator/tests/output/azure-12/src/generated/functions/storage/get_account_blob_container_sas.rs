@@ -71,128 +71,95 @@ pub mod get_account_blob_container_sas {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccountBlobContainerSasArgs,
     ) -> GetAccountBlobContainerSasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_control_binding_1 = args.cache_control.get_output(context);
-        let cache_control_binding = cache_control_binding_1.get_inner();
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let container_name_binding_1 = args.container_name.get_output(context);
-        let container_name_binding = container_name_binding_1.get_inner();
-        let content_disposition_binding_1 = args.content_disposition.get_output(context);
-        let content_disposition_binding = content_disposition_binding_1.get_inner();
-        let content_encoding_binding_1 = args.content_encoding.get_output(context);
-        let content_encoding_binding = content_encoding_binding_1.get_inner();
-        let content_language_binding_1 = args.content_language.get_output(context);
-        let content_language_binding = content_language_binding_1.get_inner();
-        let content_type_binding_1 = args.content_type.get_output(context);
-        let content_type_binding = content_type_binding_1.get_inner();
-        let expiry_binding_1 = args.expiry.get_output(context);
-        let expiry_binding = expiry_binding_1.get_inner();
-        let https_only_binding_1 = args.https_only.get_output(context);
-        let https_only_binding = https_only_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let start_binding_1 = args.start.get_output(context);
-        let start_binding = start_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cache_control_binding = args.cache_control.get_output(context);
+        let connection_string_binding = args.connection_string.get_output(context);
+        let container_name_binding = args.container_name.get_output(context);
+        let content_disposition_binding = args.content_disposition.get_output(context);
+        let content_encoding_binding = args.content_encoding.get_output(context);
+        let content_language_binding = args.content_language.get_output(context);
+        let content_type_binding = args.content_type.get_output(context);
+        let expiry_binding = args.expiry.get_output(context);
+        let https_only_binding = args.https_only.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let start_binding = args.start.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheControl".into(),
-                    value: &cache_control_binding,
+                    value: cache_control_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: &container_name_binding,
+                    value: container_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentDisposition".into(),
-                    value: &content_disposition_binding,
+                    value: content_disposition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentEncoding".into(),
-                    value: &content_encoding_binding,
+                    value: content_encoding_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentLanguage".into(),
-                    value: &content_language_binding,
+                    value: content_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: &content_type_binding,
+                    value: content_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiry".into(),
-                    value: &expiry_binding,
+                    value: expiry_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: &https_only_binding,
+                    value: https_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "start".into(),
-                    value: &start_binding,
+                    value: start_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccountBlobContainerSasResult {
-            cache_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheControl"),
-            ),
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerName"),
-            ),
-            content_disposition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentDisposition"),
-            ),
-            content_encoding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentEncoding"),
-            ),
-            content_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentLanguage"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            expiry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiry"),
-            ),
-            https_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsOnly"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            sas: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sas")),
-            start: pulumi_gestalt_rust::__private::into_domain(o.extract_field("start")),
+            cache_control: o.get_field("cacheControl"),
+            connection_string: o.get_field("connectionString"),
+            container_name: o.get_field("containerName"),
+            content_disposition: o.get_field("contentDisposition"),
+            content_encoding: o.get_field("contentEncoding"),
+            content_language: o.get_field("contentLanguage"),
+            content_type: o.get_field("contentType"),
+            expiry: o.get_field("expiry"),
+            https_only: o.get_field("httpsOnly"),
+            id: o.get_field("id"),
+            ip_address: o.get_field("ipAddress"),
+            permissions: o.get_field("permissions"),
+            sas: o.get_field("sas"),
+            start: o.get_field("start"),
         }
     }
 }

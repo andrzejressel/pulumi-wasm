@@ -57,79 +57,51 @@ pub mod get_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCertificateArgs,
     ) -> GetCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:keyvault/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCertificateResult {
-            certificate_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateData"),
-            ),
-            certificate_data_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateDataBase64"),
-            ),
-            certificate_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificatePolicies"),
-            ),
-            expires: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expires"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            not_before: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notBefore"),
-            ),
-            resource_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceManagerId"),
-            ),
-            resource_manager_versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceManagerVersionlessId"),
-            ),
-            secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprint"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionlessId"),
-            ),
-            versionless_secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionlessSecretId"),
-            ),
+            certificate_data: o.get_field("certificateData"),
+            certificate_data_base64: o.get_field("certificateDataBase64"),
+            certificate_policies: o.get_field("certificatePolicies"),
+            expires: o.get_field("expires"),
+            id: o.get_field("id"),
+            key_vault_id: o.get_field("keyVaultId"),
+            name: o.get_field("name"),
+            not_before: o.get_field("notBefore"),
+            resource_manager_id: o.get_field("resourceManagerId"),
+            resource_manager_versionless_id: o.get_field("resourceManagerVersionlessId"),
+            secret_id: o.get_field("secretId"),
+            tags: o.get_field("tags"),
+            thumbprint: o.get_field("thumbprint"),
+            version: o.get_field("version"),
+            versionless_id: o.get_field("versionlessId"),
+            versionless_secret_id: o.get_field("versionlessSecretId"),
         }
     }
 }

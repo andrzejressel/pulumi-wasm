@@ -37,51 +37,42 @@ pub mod get_snapshot_ids {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSnapshotIdsArgs,
     ) -> GetSnapshotIdsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let owners_binding_1 = args.owners.get_output(context);
-        let owners_binding = owners_binding_1.get_inner();
-        let restorable_by_user_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let owners_binding = args.owners.get_output(context);
+        let restorable_by_user_ids_binding = args
             .restorable_by_user_ids
             .get_output(context);
-        let restorable_by_user_ids_binding = restorable_by_user_ids_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ebs/getSnapshotIds:getSnapshotIds".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owners".into(),
-                    value: &owners_binding,
+                    value: owners_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restorableByUserIds".into(),
-                    value: &restorable_by_user_ids_binding,
+                    value: restorable_by_user_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSnapshotIdsResult {
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
-            owners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("owners"),
-            ),
-            restorable_by_user_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restorableByUserIds"),
-            ),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ids: o.get_field("ids"),
+            owners: o.get_field("owners"),
+            restorable_by_user_ids: o.get_field("restorableByUserIds"),
         }
     }
 }

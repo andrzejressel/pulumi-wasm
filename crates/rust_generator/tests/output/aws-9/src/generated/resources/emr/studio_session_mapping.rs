@@ -66,66 +66,52 @@ pub mod studio_session_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StudioSessionMappingArgs,
     ) -> StudioSessionMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_id_binding_1 = args.identity_id.get_output(context);
-        let identity_id_binding = identity_id_binding_1.get_inner();
-        let identity_name_binding_1 = args.identity_name.get_output(context);
-        let identity_name_binding = identity_name_binding_1.get_inner();
-        let identity_type_binding_1 = args.identity_type.get_output(context);
-        let identity_type_binding = identity_type_binding_1.get_inner();
-        let session_policy_arn_binding_1 = args.session_policy_arn.get_output(context);
-        let session_policy_arn_binding = session_policy_arn_binding_1.get_inner();
-        let studio_id_binding_1 = args.studio_id.get_output(context);
-        let studio_id_binding = studio_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let identity_id_binding = args.identity_id.get_output(context);
+        let identity_name_binding = args.identity_name.get_output(context);
+        let identity_type_binding = args.identity_type.get_output(context);
+        let session_policy_arn_binding = args.session_policy_arn.get_output(context);
+        let studio_id_binding = args.studio_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:emr/studioSessionMapping:StudioSessionMapping".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: &identity_id_binding,
+                    value: identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityName".into(),
-                    value: &identity_name_binding,
+                    value: identity_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityType".into(),
-                    value: &identity_type_binding,
+                    value: identity_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionPolicyArn".into(),
-                    value: &session_policy_arn_binding,
+                    value: session_policy_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "studioId".into(),
-                    value: &studio_id_binding,
+                    value: studio_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StudioSessionMappingResult {
-            identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityId"),
-            ),
-            identity_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityName"),
-            ),
-            identity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityType"),
-            ),
-            session_policy_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionPolicyArn"),
-            ),
-            studio_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("studioId"),
-            ),
+            identity_id: o.get_field("identityId"),
+            identity_name: o.get_field("identityName"),
+            identity_type: o.get_field("identityType"),
+            session_policy_arn: o.get_field("sessionPolicyArn"),
+            studio_id: o.get_field("studioId"),
         }
     }
 }

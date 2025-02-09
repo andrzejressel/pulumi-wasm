@@ -62,47 +62,41 @@ pub mod hsm_client_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HsmClientCertificateArgs,
     ) -> HsmClientCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hsm_client_certificate_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hsm_client_certificate_identifier_binding = args
             .hsm_client_certificate_identifier
             .get_output(context);
-        let hsm_client_certificate_identifier_binding = hsm_client_certificate_identifier_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/hsmClientCertificate:HsmClientCertificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmClientCertificateIdentifier".into(),
-                    value: &hsm_client_certificate_identifier_binding,
+                    value: hsm_client_certificate_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HsmClientCertificateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            hsm_client_certificate_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmClientCertificateIdentifier"),
-            ),
-            hsm_client_certificate_public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmClientCertificatePublicKey"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            hsm_client_certificate_identifier: o
+                .get_field("hsmClientCertificateIdentifier"),
+            hsm_client_certificate_public_key: o
+                .get_field("hsmClientCertificatePublicKey"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

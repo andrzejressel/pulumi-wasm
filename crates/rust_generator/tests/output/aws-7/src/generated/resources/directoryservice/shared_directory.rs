@@ -55,58 +55,47 @@ pub mod shared_directory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SharedDirectoryArgs,
     ) -> SharedDirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding_1 = args.directory_id.get_output(context);
-        let directory_id_binding = directory_id_binding_1.get_inner();
-        let method_binding_1 = args.method.get_output(context);
-        let method_binding = method_binding_1.get_inner();
-        let notes_binding_1 = args.notes.get_output(context);
-        let notes_binding = notes_binding_1.get_inner();
-        let target_binding_1 = args.target.get_output(context);
-        let target_binding = target_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let directory_id_binding = args.directory_id.get_output(context);
+        let method_binding = args.method.get_output(context);
+        let notes_binding = args.notes.get_output(context);
+        let target_binding = args.target.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:directoryservice/sharedDirectory:SharedDirectory".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: &directory_id_binding,
+                    value: directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: &method_binding,
+                    value: method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: &notes_binding,
+                    value: notes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: &target_binding,
+                    value: target_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SharedDirectoryResult {
-            directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryId"),
-            ),
-            method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("method"),
-            ),
-            notes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("notes")),
-            shared_directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedDirectoryId"),
-            ),
-            target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("target"),
-            ),
+            directory_id: o.get_field("directoryId"),
+            method: o.get_field("method"),
+            notes: o.get_field("notes"),
+            shared_directory_id: o.get_field("sharedDirectoryId"),
+            target: o.get_field("target"),
         }
     }
 }

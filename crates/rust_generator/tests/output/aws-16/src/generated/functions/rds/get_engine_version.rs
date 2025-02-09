@@ -108,191 +108,118 @@ pub mod get_engine_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEngineVersionArgs,
     ) -> GetEngineVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_only_binding_1 = args.default_only.get_output(context);
-        let default_only_binding = default_only_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let has_major_target_binding_1 = args.has_major_target.get_output(context);
-        let has_major_target_binding = has_major_target_binding_1.get_inner();
-        let has_minor_target_binding_1 = args.has_minor_target.get_output(context);
-        let has_minor_target_binding = has_minor_target_binding_1.get_inner();
-        let include_all_binding_1 = args.include_all.get_output(context);
-        let include_all_binding = include_all_binding_1.get_inner();
-        let latest_binding_1 = args.latest.get_output(context);
-        let latest_binding = latest_binding_1.get_inner();
-        let parameter_group_family_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_only_binding = args.default_only.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let has_major_target_binding = args.has_major_target.get_output(context);
+        let has_minor_target_binding = args.has_minor_target.get_output(context);
+        let include_all_binding = args.include_all.get_output(context);
+        let latest_binding = args.latest.get_output(context);
+        let parameter_group_family_binding = args
             .parameter_group_family
             .get_output(context);
-        let parameter_group_family_binding = parameter_group_family_binding_1
-            .get_inner();
-        let preferred_major_targets_binding_1 = args
+        let preferred_major_targets_binding = args
             .preferred_major_targets
             .get_output(context);
-        let preferred_major_targets_binding = preferred_major_targets_binding_1
-            .get_inner();
-        let preferred_upgrade_targets_binding_1 = args
+        let preferred_upgrade_targets_binding = args
             .preferred_upgrade_targets
             .get_output(context);
-        let preferred_upgrade_targets_binding = preferred_upgrade_targets_binding_1
-            .get_inner();
-        let preferred_versions_binding_1 = args.preferred_versions.get_output(context);
-        let preferred_versions_binding = preferred_versions_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let preferred_versions_binding = args.preferred_versions.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:rds/getEngineVersion:getEngineVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultOnly".into(),
-                    value: &default_only_binding,
+                    value: default_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hasMajorTarget".into(),
-                    value: &has_major_target_binding,
+                    value: has_major_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hasMinorTarget".into(),
-                    value: &has_minor_target_binding,
+                    value: has_minor_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeAll".into(),
-                    value: &include_all_binding,
+                    value: include_all_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latest".into(),
-                    value: &latest_binding,
+                    value: latest_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterGroupFamily".into(),
-                    value: &parameter_group_family_binding,
+                    value: parameter_group_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMajorTargets".into(),
-                    value: &preferred_major_targets_binding,
+                    value: preferred_major_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredUpgradeTargets".into(),
-                    value: &preferred_upgrade_targets_binding,
+                    value: preferred_upgrade_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredVersions".into(),
-                    value: &preferred_versions_binding,
+                    value: preferred_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEngineVersionResult {
-            default_character_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCharacterSet"),
-            ),
-            default_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultOnly"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineDescription"),
-            ),
-            exportable_log_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportableLogTypes"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            has_major_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasMajorTarget"),
-            ),
-            has_minor_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasMinorTarget"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeAll"),
-            ),
-            latest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latest"),
-            ),
-            parameter_group_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterGroupFamily"),
-            ),
-            preferred_major_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMajorTargets"),
-            ),
-            preferred_upgrade_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredUpgradeTargets"),
-            ),
-            preferred_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredVersions"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            supported_character_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedCharacterSets"),
-            ),
-            supported_feature_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedFeatureNames"),
-            ),
-            supported_modes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedModes"),
-            ),
-            supported_timezones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedTimezones"),
-            ),
-            supports_global_databases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsGlobalDatabases"),
-            ),
-            supports_limitless_database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsLimitlessDatabase"),
-            ),
-            supports_log_exports_to_cloudwatch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsLogExportsToCloudwatch"),
-            ),
-            supports_parallel_query: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsParallelQuery"),
-            ),
-            supports_read_replica: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsReadReplica"),
-            ),
-            valid_major_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validMajorTargets"),
-            ),
-            valid_minor_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validMinorTargets"),
-            ),
-            valid_upgrade_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validUpgradeTargets"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            version_actual: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionActual"),
-            ),
-            version_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionDescription"),
-            ),
+            default_character_set: o.get_field("defaultCharacterSet"),
+            default_only: o.get_field("defaultOnly"),
+            engine: o.get_field("engine"),
+            engine_description: o.get_field("engineDescription"),
+            exportable_log_types: o.get_field("exportableLogTypes"),
+            filters: o.get_field("filters"),
+            has_major_target: o.get_field("hasMajorTarget"),
+            has_minor_target: o.get_field("hasMinorTarget"),
+            id: o.get_field("id"),
+            include_all: o.get_field("includeAll"),
+            latest: o.get_field("latest"),
+            parameter_group_family: o.get_field("parameterGroupFamily"),
+            preferred_major_targets: o.get_field("preferredMajorTargets"),
+            preferred_upgrade_targets: o.get_field("preferredUpgradeTargets"),
+            preferred_versions: o.get_field("preferredVersions"),
+            status: o.get_field("status"),
+            supported_character_sets: o.get_field("supportedCharacterSets"),
+            supported_feature_names: o.get_field("supportedFeatureNames"),
+            supported_modes: o.get_field("supportedModes"),
+            supported_timezones: o.get_field("supportedTimezones"),
+            supports_global_databases: o.get_field("supportsGlobalDatabases"),
+            supports_limitless_database: o.get_field("supportsLimitlessDatabase"),
+            supports_log_exports_to_cloudwatch: o
+                .get_field("supportsLogExportsToCloudwatch"),
+            supports_parallel_query: o.get_field("supportsParallelQuery"),
+            supports_read_replica: o.get_field("supportsReadReplica"),
+            valid_major_targets: o.get_field("validMajorTargets"),
+            valid_minor_targets: o.get_field("validMinorTargets"),
+            valid_upgrade_targets: o.get_field("validUpgradeTargets"),
+            version: o.get_field("version"),
+            version_actual: o.get_field("versionActual"),
+            version_description: o.get_field("versionDescription"),
         }
     }
 }

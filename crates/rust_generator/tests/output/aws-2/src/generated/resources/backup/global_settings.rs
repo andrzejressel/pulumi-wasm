@@ -42,30 +42,28 @@ pub mod global_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GlobalSettingsArgs,
     ) -> GlobalSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let global_settings_binding_1 = args.global_settings.get_output(context);
-        let global_settings_binding = global_settings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let global_settings_binding = args.global_settings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:backup/globalSettings:GlobalSettings".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalSettings".into(),
-                    value: &global_settings_binding,
+                    value: global_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GlobalSettingsResult {
-            global_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalSettings"),
-            ),
+            global_settings: o.get_field("globalSettings"),
         }
     }
 }

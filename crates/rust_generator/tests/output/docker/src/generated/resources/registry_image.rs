@@ -68,60 +68,47 @@ pub mod registry_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegistryImageArgs,
     ) -> RegistryImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let insecure_skip_verify_binding_1 = args
-            .insecure_skip_verify
-            .get_output(context);
-        let insecure_skip_verify_binding = insecure_skip_verify_binding_1.get_inner();
-        let keep_remotely_binding_1 = args.keep_remotely.get_output(context);
-        let keep_remotely_binding = keep_remotely_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let triggers_binding_1 = args.triggers.get_output(context);
-        let triggers_binding = triggers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let insecure_skip_verify_binding = args.insecure_skip_verify.get_output(context);
+        let keep_remotely_binding = args.keep_remotely.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let triggers_binding = args.triggers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "docker:index/registryImage:RegistryImage".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insecureSkipVerify".into(),
-                    value: &insecure_skip_verify_binding,
+                    value: insecure_skip_verify_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepRemotely".into(),
-                    value: &keep_remotely_binding,
+                    value: keep_remotely_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: &triggers_binding,
+                    value: triggers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegistryImageResult {
-            insecure_skip_verify: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insecureSkipVerify"),
-            ),
-            keep_remotely: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepRemotely"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sha256_digest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sha256Digest"),
-            ),
-            triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggers"),
-            ),
+            insecure_skip_verify: o.get_field("insecureSkipVerify"),
+            keep_remotely: o.get_field("keepRemotely"),
+            name: o.get_field("name"),
+            sha256_digest: o.get_field("sha256Digest"),
+            triggers: o.get_field("triggers"),
         }
     }
 }

@@ -214,99 +214,78 @@ pub mod response_headers_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResponseHeadersPolicyArgs,
     ) -> ResponseHeadersPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let cors_config_binding_1 = args.cors_config.get_output(context);
-        let cors_config_binding = cors_config_binding_1.get_inner();
-        let custom_headers_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let comment_binding = args.comment.get_output(context);
+        let cors_config_binding = args.cors_config.get_output(context);
+        let custom_headers_config_binding = args
             .custom_headers_config
             .get_output(context);
-        let custom_headers_config_binding = custom_headers_config_binding_1.get_inner();
-        let etag_binding_1 = args.etag.get_output(context);
-        let etag_binding = etag_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let remove_headers_config_binding_1 = args
+        let etag_binding = args.etag.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let remove_headers_config_binding = args
             .remove_headers_config
             .get_output(context);
-        let remove_headers_config_binding = remove_headers_config_binding_1.get_inner();
-        let security_headers_config_binding_1 = args
+        let security_headers_config_binding = args
             .security_headers_config
             .get_output(context);
-        let security_headers_config_binding = security_headers_config_binding_1
-            .get_inner();
-        let server_timing_headers_config_binding_1 = args
+        let server_timing_headers_config_binding = args
             .server_timing_headers_config
             .get_output(context);
-        let server_timing_headers_config_binding = server_timing_headers_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsConfig".into(),
-                    value: &cors_config_binding,
+                    value: cors_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHeadersConfig".into(),
-                    value: &custom_headers_config_binding,
+                    value: custom_headers_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: &etag_binding,
+                    value: etag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeHeadersConfig".into(),
-                    value: &remove_headers_config_binding,
+                    value: remove_headers_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityHeadersConfig".into(),
-                    value: &security_headers_config_binding,
+                    value: security_headers_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverTimingHeadersConfig".into(),
-                    value: &server_timing_headers_config_binding,
+                    value: server_timing_headers_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResponseHeadersPolicyResult {
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            cors_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("corsConfig"),
-            ),
-            custom_headers_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customHeadersConfig"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            remove_headers_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("removeHeadersConfig"),
-            ),
-            security_headers_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityHeadersConfig"),
-            ),
-            server_timing_headers_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverTimingHeadersConfig"),
-            ),
+            comment: o.get_field("comment"),
+            cors_config: o.get_field("corsConfig"),
+            custom_headers_config: o.get_field("customHeadersConfig"),
+            etag: o.get_field("etag"),
+            name: o.get_field("name"),
+            remove_headers_config: o.get_field("removeHeadersConfig"),
+            security_headers_config: o.get_field("securityHeadersConfig"),
+            server_timing_headers_config: o.get_field("serverTimingHeadersConfig"),
         }
     }
 }

@@ -40,60 +40,50 @@ pub mod get_table_item {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTableItemArgs,
     ) -> GetTableItemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let expression_attribute_names_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let expression_attribute_names_binding = args
             .expression_attribute_names
             .get_output(context);
-        let expression_attribute_names_binding = expression_attribute_names_binding_1
-            .get_inner();
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let projection_expression_binding_1 = args
+        let key_binding = args.key.get_output(context);
+        let projection_expression_binding = args
             .projection_expression
             .get_output(context);
-        let projection_expression_binding = projection_expression_binding_1.get_inner();
-        let table_name_binding_1 = args.table_name.get_output(context);
-        let table_name_binding = table_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let table_name_binding = args.table_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:dynamodb/getTableItem:getTableItem".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressionAttributeNames".into(),
-                    value: &expression_attribute_names_binding,
+                    value: expression_attribute_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectionExpression".into(),
-                    value: &projection_expression_binding,
+                    value: projection_expression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: &table_name_binding,
+                    value: table_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTableItemResult {
-            expression_attribute_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressionAttributeNames"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            item: pulumi_gestalt_rust::__private::into_domain(o.extract_field("item")),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            projection_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectionExpression"),
-            ),
-            table_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableName"),
-            ),
+            expression_attribute_names: o.get_field("expressionAttributeNames"),
+            id: o.get_field("id"),
+            item: o.get_field("item"),
+            key: o.get_field("key"),
+            projection_expression: o.get_field("projectionExpression"),
+            table_name: o.get_field("tableName"),
         }
     }
 }

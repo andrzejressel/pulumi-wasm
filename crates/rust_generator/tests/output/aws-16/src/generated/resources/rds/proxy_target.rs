@@ -113,76 +113,56 @@ pub mod proxy_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProxyTargetArgs,
     ) -> ProxyTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_cluster_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let db_cluster_identifier_binding = args
             .db_cluster_identifier
             .get_output(context);
-        let db_cluster_identifier_binding = db_cluster_identifier_binding_1.get_inner();
-        let db_instance_identifier_binding_1 = args
+        let db_instance_identifier_binding = args
             .db_instance_identifier
             .get_output(context);
-        let db_instance_identifier_binding = db_instance_identifier_binding_1
-            .get_inner();
-        let db_proxy_name_binding_1 = args.db_proxy_name.get_output(context);
-        let db_proxy_name_binding = db_proxy_name_binding_1.get_inner();
-        let target_group_name_binding_1 = args.target_group_name.get_output(context);
-        let target_group_name_binding = target_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let db_proxy_name_binding = args.db_proxy_name.get_output(context);
+        let target_group_name_binding = args.target_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/proxyTarget:ProxyTarget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbClusterIdentifier".into(),
-                    value: &db_cluster_identifier_binding,
+                    value: db_cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceIdentifier".into(),
-                    value: &db_instance_identifier_binding,
+                    value: db_instance_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbProxyName".into(),
-                    value: &db_proxy_name_binding,
+                    value: db_proxy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupName".into(),
-                    value: &target_group_name_binding,
+                    value: target_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProxyTargetResult {
-            db_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbClusterIdentifier"),
-            ),
-            db_instance_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstanceIdentifier"),
-            ),
-            db_proxy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbProxyName"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            rds_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rdsResourceId"),
-            ),
-            target_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetArn"),
-            ),
-            target_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetGroupName"),
-            ),
-            tracked_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trackedClusterId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            db_cluster_identifier: o.get_field("dbClusterIdentifier"),
+            db_instance_identifier: o.get_field("dbInstanceIdentifier"),
+            db_proxy_name: o.get_field("dbProxyName"),
+            endpoint: o.get_field("endpoint"),
+            port: o.get_field("port"),
+            rds_resource_id: o.get_field("rdsResourceId"),
+            target_arn: o.get_field("targetArn"),
+            target_group_name: o.get_field("targetGroupName"),
+            tracked_cluster_id: o.get_field("trackedClusterId"),
+            type_: o.get_field("type"),
         }
     }
 }

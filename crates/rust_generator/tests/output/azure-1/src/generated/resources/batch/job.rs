@@ -110,76 +110,60 @@ pub mod job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_pool_id_binding_1 = args.batch_pool_id.get_output(context);
-        let batch_pool_id_binding = batch_pool_id_binding_1.get_inner();
-        let common_environment_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let batch_pool_id_binding = args.batch_pool_id.get_output(context);
+        let common_environment_properties_binding = args
             .common_environment_properties
             .get_output(context);
-        let common_environment_properties_binding = common_environment_properties_binding_1
-            .get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let task_retry_maximum_binding_1 = args.task_retry_maximum.get_output(context);
-        let task_retry_maximum_binding = task_retry_maximum_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let display_name_binding = args.display_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let task_retry_maximum_binding = args.task_retry_maximum.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:batch/job:Job".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchPoolId".into(),
-                    value: &batch_pool_id_binding,
+                    value: batch_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commonEnvironmentProperties".into(),
-                    value: &common_environment_properties_binding,
+                    value: common_environment_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskRetryMaximum".into(),
-                    value: &task_retry_maximum_binding,
+                    value: task_retry_maximum_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobResult {
-            batch_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchPoolId"),
-            ),
-            common_environment_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commonEnvironmentProperties"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            task_retry_maximum: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskRetryMaximum"),
-            ),
+            batch_pool_id: o.get_field("batchPoolId"),
+            common_environment_properties: o.get_field("commonEnvironmentProperties"),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            task_retry_maximum: o.get_field("taskRetryMaximum"),
         }
     }
 }

@@ -121,61 +121,49 @@ pub mod instance_automated_backups_replication {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceAutomatedBackupsReplicationArgs,
     ) -> InstanceAutomatedBackupsReplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let pre_signed_url_binding_1 = args.pre_signed_url.get_output(context);
-        let pre_signed_url_binding = pre_signed_url_binding_1.get_inner();
-        let retention_period_binding_1 = args.retention_period.get_output(context);
-        let retention_period_binding = retention_period_binding_1.get_inner();
-        let source_db_instance_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let pre_signed_url_binding = args.pre_signed_url.get_output(context);
+        let retention_period_binding = args.retention_period.get_output(context);
+        let source_db_instance_arn_binding = args
             .source_db_instance_arn
             .get_output(context);
-        let source_db_instance_arn_binding = source_db_instance_arn_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preSignedUrl".into(),
-                    value: &pre_signed_url_binding,
+                    value: pre_signed_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: &retention_period_binding,
+                    value: retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDbInstanceArn".into(),
-                    value: &source_db_instance_arn_binding,
+                    value: source_db_instance_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceAutomatedBackupsReplicationResult {
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            pre_signed_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preSignedUrl"),
-            ),
-            retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPeriod"),
-            ),
-            source_db_instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDbInstanceArn"),
-            ),
+            kms_key_id: o.get_field("kmsKeyId"),
+            pre_signed_url: o.get_field("preSignedUrl"),
+            retention_period: o.get_field("retentionPeriod"),
+            source_db_instance_arn: o.get_field("sourceDbInstanceArn"),
         }
     }
 }

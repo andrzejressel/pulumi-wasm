@@ -46,48 +46,40 @@ pub mod logging_options {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LoggingOptionsArgs,
     ) -> LoggingOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_log_level_binding_1 = args.default_log_level.get_output(context);
-        let default_log_level_binding = default_log_level_binding_1.get_inner();
-        let disable_all_logs_binding_1 = args.disable_all_logs.get_output(context);
-        let disable_all_logs_binding = disable_all_logs_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_log_level_binding = args.default_log_level.get_output(context);
+        let disable_all_logs_binding = args.disable_all_logs.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iot/loggingOptions:LoggingOptions".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLogLevel".into(),
-                    value: &default_log_level_binding,
+                    value: default_log_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableAllLogs".into(),
-                    value: &disable_all_logs_binding,
+                    value: disable_all_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LoggingOptionsResult {
-            default_log_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultLogLevel"),
-            ),
-            disable_all_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableAllLogs"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
+            default_log_level: o.get_field("defaultLogLevel"),
+            disable_all_logs: o.get_field("disableAllLogs"),
+            role_arn: o.get_field("roleArn"),
         }
     }
 }

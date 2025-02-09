@@ -81,49 +81,41 @@ pub mod service_perimeter_egress_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServicePerimeterEgressPolicyArgs,
     ) -> ServicePerimeterEgressPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let egress_from_binding_1 = args.egress_from.get_output(context);
-        let egress_from_binding = egress_from_binding_1.get_inner();
-        let egress_to_binding_1 = args.egress_to.get_output(context);
-        let egress_to_binding = egress_to_binding_1.get_inner();
-        let perimeter_binding_1 = args.perimeter.get_output(context);
-        let perimeter_binding = perimeter_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let egress_from_binding = args.egress_from.get_output(context);
+        let egress_to_binding = args.egress_to.get_output(context);
+        let perimeter_binding = args.perimeter.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterEgressPolicy:ServicePerimeterEgressPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "egressFrom".into(),
-                    value: &egress_from_binding,
+                    value: egress_from_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "egressTo".into(),
-                    value: &egress_to_binding,
+                    value: egress_to_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perimeter".into(),
-                    value: &perimeter_binding,
+                    value: perimeter_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServicePerimeterEgressPolicyResult {
-            egress_from: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("egressFrom"),
-            ),
-            egress_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("egressTo"),
-            ),
-            perimeter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perimeter"),
-            ),
+            egress_from: o.get_field("egressFrom"),
+            egress_to: o.get_field("egressTo"),
+            perimeter: o.get_field("perimeter"),
         }
     }
 }

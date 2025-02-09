@@ -48,58 +48,42 @@ pub mod get_identity_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetIdentityPoolArgs,
     ) -> GetIdentityPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_pool_name_binding_1 = args.identity_pool_name.get_output(context);
-        let identity_pool_name_binding = identity_pool_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let identity_pool_name_binding = args.identity_pool_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cognito/getIdentityPool:getIdentityPool".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityPoolName".into(),
-                    value: &identity_pool_name_binding,
+                    value: identity_pool_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetIdentityPoolResult {
-            allow_classic_flow: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowClassicFlow"),
-            ),
-            allow_unauthenticated_identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowUnauthenticatedIdentities"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cognito_identity_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cognitoIdentityProviders"),
-            ),
-            developer_provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("developerProviderName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identity_pool_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityPoolName"),
-            ),
-            openid_connect_provider_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openidConnectProviderArns"),
-            ),
-            saml_provider_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samlProviderArns"),
-            ),
-            supported_login_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedLoginProviders"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            allow_classic_flow: o.get_field("allowClassicFlow"),
+            allow_unauthenticated_identities: o
+                .get_field("allowUnauthenticatedIdentities"),
+            arn: o.get_field("arn"),
+            cognito_identity_providers: o.get_field("cognitoIdentityProviders"),
+            developer_provider_name: o.get_field("developerProviderName"),
+            id: o.get_field("id"),
+            identity_pool_name: o.get_field("identityPoolName"),
+            openid_connect_provider_arns: o.get_field("openidConnectProviderArns"),
+            saml_provider_arns: o.get_field("samlProviderArns"),
+            supported_login_providers: o.get_field("supportedLoginProviders"),
+            tags: o.get_field("tags"),
         }
     }
 }

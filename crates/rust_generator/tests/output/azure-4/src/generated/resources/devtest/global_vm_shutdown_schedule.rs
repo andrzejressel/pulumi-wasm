@@ -145,87 +145,69 @@ pub mod global_vm_shutdown_schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GlobalVMShutdownScheduleArgs,
     ) -> GlobalVMShutdownScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let daily_recurrence_time_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let daily_recurrence_time_binding = args
             .daily_recurrence_time
             .get_output(context);
-        let daily_recurrence_time_binding = daily_recurrence_time_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let notification_settings_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let notification_settings_binding = args
             .notification_settings
             .get_output(context);
-        let notification_settings_binding = notification_settings_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timezone_binding_1 = args.timezone.get_output(context);
-        let timezone_binding = timezone_binding_1.get_inner();
-        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
-        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timezone_binding = args.timezone.get_output(context);
+        let virtual_machine_id_binding = args.virtual_machine_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyRecurrenceTime".into(),
-                    value: &daily_recurrence_time_binding,
+                    value: daily_recurrence_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationSettings".into(),
-                    value: &notification_settings_binding,
+                    value: notification_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezone".into(),
-                    value: &timezone_binding,
+                    value: timezone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: &virtual_machine_id_binding,
+                    value: virtual_machine_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GlobalVMShutdownScheduleResult {
-            daily_recurrence_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyRecurrenceTime"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            notification_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationSettings"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezone"),
-            ),
-            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineId"),
-            ),
+            daily_recurrence_time: o.get_field("dailyRecurrenceTime"),
+            enabled: o.get_field("enabled"),
+            location: o.get_field("location"),
+            notification_settings: o.get_field("notificationSettings"),
+            tags: o.get_field("tags"),
+            timezone: o.get_field("timezone"),
+            virtual_machine_id: o.get_field("virtualMachineId"),
         }
     }
 }

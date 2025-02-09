@@ -123,113 +123,84 @@ pub mod file_upload {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FileUploadArgs,
     ) -> FileUploadResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding_1 = args.authentication_type.get_output(context);
-        let authentication_type_binding = authentication_type_binding_1.get_inner();
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let container_name_binding_1 = args.container_name.get_output(context);
-        let container_name_binding = container_name_binding_1.get_inner();
-        let default_ttl_binding_1 = args.default_ttl.get_output(context);
-        let default_ttl_binding = default_ttl_binding_1.get_inner();
-        let identity_id_binding_1 = args.identity_id.get_output(context);
-        let identity_id_binding = identity_id_binding_1.get_inner();
-        let iothub_id_binding_1 = args.iothub_id.get_output(context);
-        let iothub_id_binding = iothub_id_binding_1.get_inner();
-        let lock_duration_binding_1 = args.lock_duration.get_output(context);
-        let lock_duration_binding = lock_duration_binding_1.get_inner();
-        let max_delivery_count_binding_1 = args.max_delivery_count.get_output(context);
-        let max_delivery_count_binding = max_delivery_count_binding_1.get_inner();
-        let notifications_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_type_binding = args.authentication_type.get_output(context);
+        let connection_string_binding = args.connection_string.get_output(context);
+        let container_name_binding = args.container_name.get_output(context);
+        let default_ttl_binding = args.default_ttl.get_output(context);
+        let identity_id_binding = args.identity_id.get_output(context);
+        let iothub_id_binding = args.iothub_id.get_output(context);
+        let lock_duration_binding = args.lock_duration.get_output(context);
+        let max_delivery_count_binding = args.max_delivery_count.get_output(context);
+        let notifications_enabled_binding = args
             .notifications_enabled
             .get_output(context);
-        let notifications_enabled_binding = notifications_enabled_binding_1.get_inner();
-        let sas_ttl_binding_1 = args.sas_ttl.get_output(context);
-        let sas_ttl_binding = sas_ttl_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sas_ttl_binding = args.sas_ttl.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/fileUpload:FileUpload".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: &authentication_type_binding,
+                    value: authentication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: &container_name_binding,
+                    value: container_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtl".into(),
-                    value: &default_ttl_binding,
+                    value: default_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: &identity_id_binding,
+                    value: identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: &iothub_id_binding,
+                    value: iothub_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockDuration".into(),
-                    value: &lock_duration_binding,
+                    value: lock_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxDeliveryCount".into(),
-                    value: &max_delivery_count_binding,
+                    value: max_delivery_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationsEnabled".into(),
-                    value: &notifications_enabled_binding,
+                    value: notifications_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasTtl".into(),
-                    value: &sas_ttl_binding,
+                    value: sas_ttl_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FileUploadResult {
-            authentication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationType"),
-            ),
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerName"),
-            ),
-            default_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTtl"),
-            ),
-            identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityId"),
-            ),
-            iothub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iothubId"),
-            ),
-            lock_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockDuration"),
-            ),
-            max_delivery_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxDeliveryCount"),
-            ),
-            notifications_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationsEnabled"),
-            ),
-            sas_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sasTtl"),
-            ),
+            authentication_type: o.get_field("authenticationType"),
+            connection_string: o.get_field("connectionString"),
+            container_name: o.get_field("containerName"),
+            default_ttl: o.get_field("defaultTtl"),
+            identity_id: o.get_field("identityId"),
+            iothub_id: o.get_field("iothubId"),
+            lock_duration: o.get_field("lockDuration"),
+            max_delivery_count: o.get_field("maxDeliveryCount"),
+            notifications_enabled: o.get_field("notificationsEnabled"),
+            sas_ttl: o.get_field("sasTtl"),
         }
     }
 }

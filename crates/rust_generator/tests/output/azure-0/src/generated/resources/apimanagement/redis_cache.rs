@@ -97,73 +97,58 @@ pub mod redis_cache {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RedisCacheArgs,
     ) -> RedisCacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding_1 = args.api_management_id.get_output(context);
-        let api_management_id_binding = api_management_id_binding_1.get_inner();
-        let cache_location_binding_1 = args.cache_location.get_output(context);
-        let cache_location_binding = cache_location_binding_1.get_inner();
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let redis_cache_id_binding_1 = args.redis_cache_id.get_output(context);
-        let redis_cache_id_binding = redis_cache_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_id_binding = args.api_management_id.get_output(context);
+        let cache_location_binding = args.cache_location.get_output(context);
+        let connection_string_binding = args.connection_string.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let redis_cache_id_binding = args.redis_cache_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/redisCache:RedisCache".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: &api_management_id_binding,
+                    value: api_management_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheLocation".into(),
-                    value: &cache_location_binding,
+                    value: cache_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisCacheId".into(),
-                    value: &redis_cache_id_binding,
+                    value: redis_cache_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RedisCacheResult {
-            api_management_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementId"),
-            ),
-            cache_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheLocation"),
-            ),
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            redis_cache_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisCacheId"),
-            ),
+            api_management_id: o.get_field("apiManagementId"),
+            cache_location: o.get_field("cacheLocation"),
+            connection_string: o.get_field("connectionString"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            redis_cache_id: o.get_field("redisCacheId"),
         }
     }
 }

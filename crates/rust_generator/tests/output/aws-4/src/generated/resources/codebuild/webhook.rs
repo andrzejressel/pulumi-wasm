@@ -123,73 +123,55 @@ pub mod webhook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebhookArgs,
     ) -> WebhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let branch_filter_binding_1 = args.branch_filter.get_output(context);
-        let branch_filter_binding = branch_filter_binding_1.get_inner();
-        let build_type_binding_1 = args.build_type.get_output(context);
-        let build_type_binding = build_type_binding_1.get_inner();
-        let filter_groups_binding_1 = args.filter_groups.get_output(context);
-        let filter_groups_binding = filter_groups_binding_1.get_inner();
-        let project_name_binding_1 = args.project_name.get_output(context);
-        let project_name_binding = project_name_binding_1.get_inner();
-        let scope_configuration_binding_1 = args.scope_configuration.get_output(context);
-        let scope_configuration_binding = scope_configuration_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let branch_filter_binding = args.branch_filter.get_output(context);
+        let build_type_binding = args.build_type.get_output(context);
+        let filter_groups_binding = args.filter_groups.get_output(context);
+        let project_name_binding = args.project_name.get_output(context);
+        let scope_configuration_binding = args.scope_configuration.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codebuild/webhook:Webhook".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branchFilter".into(),
-                    value: &branch_filter_binding,
+                    value: branch_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildType".into(),
-                    value: &build_type_binding,
+                    value: build_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterGroups".into(),
-                    value: &filter_groups_binding,
+                    value: filter_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectName".into(),
-                    value: &project_name_binding,
+                    value: project_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeConfiguration".into(),
-                    value: &scope_configuration_binding,
+                    value: scope_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebhookResult {
-            branch_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("branchFilter"),
-            ),
-            build_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildType"),
-            ),
-            filter_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterGroups"),
-            ),
-            payload_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("payloadUrl"),
-            ),
-            project_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectName"),
-            ),
-            scope_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeConfiguration"),
-            ),
-            secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secret"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            branch_filter: o.get_field("branchFilter"),
+            build_type: o.get_field("buildType"),
+            filter_groups: o.get_field("filterGroups"),
+            payload_url: o.get_field("payloadUrl"),
+            project_name: o.get_field("projectName"),
+            scope_configuration: o.get_field("scopeConfiguration"),
+            secret: o.get_field("secret"),
+            url: o.get_field("url"),
         }
     }
 }

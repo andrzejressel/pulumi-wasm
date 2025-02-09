@@ -886,214 +886,154 @@ pub mod firehose_delivery_stream {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirehoseDeliveryStreamArgs,
     ) -> FirehoseDeliveryStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let destination_id_binding_1 = args.destination_id.get_output(context);
-        let destination_id_binding = destination_id_binding_1.get_inner();
-        let elasticsearch_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let destination_binding = args.destination.get_output(context);
+        let destination_id_binding = args.destination_id.get_output(context);
+        let elasticsearch_configuration_binding = args
             .elasticsearch_configuration
             .get_output(context);
-        let elasticsearch_configuration_binding = elasticsearch_configuration_binding_1
-            .get_inner();
-        let extended_s3_configuration_binding_1 = args
+        let extended_s3_configuration_binding = args
             .extended_s3_configuration
             .get_output(context);
-        let extended_s3_configuration_binding = extended_s3_configuration_binding_1
-            .get_inner();
-        let http_endpoint_configuration_binding_1 = args
+        let http_endpoint_configuration_binding = args
             .http_endpoint_configuration
             .get_output(context);
-        let http_endpoint_configuration_binding = http_endpoint_configuration_binding_1
-            .get_inner();
-        let iceberg_configuration_binding_1 = args
+        let iceberg_configuration_binding = args
             .iceberg_configuration
             .get_output(context);
-        let iceberg_configuration_binding = iceberg_configuration_binding_1.get_inner();
-        let kinesis_source_configuration_binding_1 = args
+        let kinesis_source_configuration_binding = args
             .kinesis_source_configuration
             .get_output(context);
-        let kinesis_source_configuration_binding = kinesis_source_configuration_binding_1
-            .get_inner();
-        let msk_source_configuration_binding_1 = args
+        let msk_source_configuration_binding = args
             .msk_source_configuration
             .get_output(context);
-        let msk_source_configuration_binding = msk_source_configuration_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let opensearch_configuration_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let opensearch_configuration_binding = args
             .opensearch_configuration
             .get_output(context);
-        let opensearch_configuration_binding = opensearch_configuration_binding_1
-            .get_inner();
-        let opensearchserverless_configuration_binding_1 = args
+        let opensearchserverless_configuration_binding = args
             .opensearchserverless_configuration
             .get_output(context);
-        let opensearchserverless_configuration_binding = opensearchserverless_configuration_binding_1
-            .get_inner();
-        let redshift_configuration_binding_1 = args
+        let redshift_configuration_binding = args
             .redshift_configuration
             .get_output(context);
-        let redshift_configuration_binding = redshift_configuration_binding_1
-            .get_inner();
-        let server_side_encryption_binding_1 = args
+        let server_side_encryption_binding = args
             .server_side_encryption
             .get_output(context);
-        let server_side_encryption_binding = server_side_encryption_binding_1
-            .get_inner();
-        let snowflake_configuration_binding_1 = args
+        let snowflake_configuration_binding = args
             .snowflake_configuration
             .get_output(context);
-        let snowflake_configuration_binding = snowflake_configuration_binding_1
-            .get_inner();
-        let splunk_configuration_binding_1 = args
-            .splunk_configuration
-            .get_output(context);
-        let splunk_configuration_binding = splunk_configuration_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let version_id_binding_1 = args.version_id.get_output(context);
-        let version_id_binding = version_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let splunk_configuration_binding = args.splunk_configuration.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let version_id_binding = args.version_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationId".into(),
-                    value: &destination_id_binding,
+                    value: destination_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticsearchConfiguration".into(),
-                    value: &elasticsearch_configuration_binding,
+                    value: elasticsearch_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extendedS3Configuration".into(),
-                    value: &extended_s3_configuration_binding,
+                    value: extended_s3_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpEndpointConfiguration".into(),
-                    value: &http_endpoint_configuration_binding,
+                    value: http_endpoint_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icebergConfiguration".into(),
-                    value: &iceberg_configuration_binding,
+                    value: iceberg_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisSourceConfiguration".into(),
-                    value: &kinesis_source_configuration_binding,
+                    value: kinesis_source_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mskSourceConfiguration".into(),
-                    value: &msk_source_configuration_binding,
+                    value: msk_source_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opensearchConfiguration".into(),
-                    value: &opensearch_configuration_binding,
+                    value: opensearch_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opensearchserverlessConfiguration".into(),
-                    value: &opensearchserverless_configuration_binding,
+                    value: opensearchserverless_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redshiftConfiguration".into(),
-                    value: &redshift_configuration_binding,
+                    value: redshift_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryption".into(),
-                    value: &server_side_encryption_binding,
+                    value: server_side_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snowflakeConfiguration".into(),
-                    value: &snowflake_configuration_binding,
+                    value: snowflake_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "splunkConfiguration".into(),
-                    value: &splunk_configuration_binding,
+                    value: splunk_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: &version_id_binding,
+                    value: version_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirehoseDeliveryStreamResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            destination_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationId"),
-            ),
-            elasticsearch_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticsearchConfiguration"),
-            ),
-            extended_s3_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extendedS3Configuration"),
-            ),
-            http_endpoint_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpEndpointConfiguration"),
-            ),
-            iceberg_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("icebergConfiguration"),
-            ),
-            kinesis_source_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kinesisSourceConfiguration"),
-            ),
-            msk_source_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mskSourceConfiguration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            opensearch_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("opensearchConfiguration"),
-            ),
-            opensearchserverless_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("opensearchserverlessConfiguration"),
-            ),
-            redshift_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redshiftConfiguration"),
-            ),
-            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryption"),
-            ),
-            snowflake_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snowflakeConfiguration"),
-            ),
-            splunk_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("splunkConfiguration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
+            arn: o.get_field("arn"),
+            destination: o.get_field("destination"),
+            destination_id: o.get_field("destinationId"),
+            elasticsearch_configuration: o.get_field("elasticsearchConfiguration"),
+            extended_s3_configuration: o.get_field("extendedS3Configuration"),
+            http_endpoint_configuration: o.get_field("httpEndpointConfiguration"),
+            iceberg_configuration: o.get_field("icebergConfiguration"),
+            kinesis_source_configuration: o.get_field("kinesisSourceConfiguration"),
+            msk_source_configuration: o.get_field("mskSourceConfiguration"),
+            name: o.get_field("name"),
+            opensearch_configuration: o.get_field("opensearchConfiguration"),
+            opensearchserverless_configuration: o
+                .get_field("opensearchserverlessConfiguration"),
+            redshift_configuration: o.get_field("redshiftConfiguration"),
+            server_side_encryption: o.get_field("serverSideEncryption"),
+            snowflake_configuration: o.get_field("snowflakeConfiguration"),
+            splunk_configuration: o.get_field("splunkConfiguration"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            version_id: o.get_field("versionId"),
         }
     }
 }

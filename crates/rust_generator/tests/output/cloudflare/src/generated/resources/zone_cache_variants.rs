@@ -101,107 +101,94 @@ pub mod zone_cache_variants {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZoneCacheVariantsArgs,
     ) -> ZoneCacheVariantsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let avifs_binding_1 = args.avifs.get_output(context);
-        let avifs_binding = avifs_binding_1.get_inner();
-        let bmps_binding_1 = args.bmps.get_output(context);
-        let bmps_binding = bmps_binding_1.get_inner();
-        let gifs_binding_1 = args.gifs.get_output(context);
-        let gifs_binding = gifs_binding_1.get_inner();
-        let jp2s_binding_1 = args.jp2s.get_output(context);
-        let jp2s_binding = jp2s_binding_1.get_inner();
-        let jpegs_binding_1 = args.jpegs.get_output(context);
-        let jpegs_binding = jpegs_binding_1.get_inner();
-        let jpg2s_binding_1 = args.jpg2s.get_output(context);
-        let jpg2s_binding = jpg2s_binding_1.get_inner();
-        let jpgs_binding_1 = args.jpgs.get_output(context);
-        let jpgs_binding = jpgs_binding_1.get_inner();
-        let pngs_binding_1 = args.pngs.get_output(context);
-        let pngs_binding = pngs_binding_1.get_inner();
-        let tiffs_binding_1 = args.tiffs.get_output(context);
-        let tiffs_binding = tiffs_binding_1.get_inner();
-        let tifs_binding_1 = args.tifs.get_output(context);
-        let tifs_binding = tifs_binding_1.get_inner();
-        let webps_binding_1 = args.webps.get_output(context);
-        let webps_binding = webps_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let avifs_binding = args.avifs.get_output(context);
+        let bmps_binding = args.bmps.get_output(context);
+        let gifs_binding = args.gifs.get_output(context);
+        let jp2s_binding = args.jp2s.get_output(context);
+        let jpegs_binding = args.jpegs.get_output(context);
+        let jpg2s_binding = args.jpg2s.get_output(context);
+        let jpgs_binding = args.jpgs.get_output(context);
+        let pngs_binding = args.pngs.get_output(context);
+        let tiffs_binding = args.tiffs.get_output(context);
+        let tifs_binding = args.tifs.get_output(context);
+        let webps_binding = args.webps.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zoneCacheVariants:ZoneCacheVariants".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "avifs".into(),
-                    value: &avifs_binding,
+                    value: avifs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bmps".into(),
-                    value: &bmps_binding,
+                    value: bmps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gifs".into(),
-                    value: &gifs_binding,
+                    value: gifs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jp2s".into(),
-                    value: &jp2s_binding,
+                    value: jp2s_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jpegs".into(),
-                    value: &jpegs_binding,
+                    value: jpegs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jpg2s".into(),
-                    value: &jpg2s_binding,
+                    value: jpg2s_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jpgs".into(),
-                    value: &jpgs_binding,
+                    value: jpgs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pngs".into(),
-                    value: &pngs_binding,
+                    value: pngs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tiffs".into(),
-                    value: &tiffs_binding,
+                    value: tiffs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tifs".into(),
-                    value: &tifs_binding,
+                    value: tifs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webps".into(),
-                    value: &webps_binding,
+                    value: webps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZoneCacheVariantsResult {
-            avifs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("avifs")),
-            bmps: pulumi_gestalt_rust::__private::into_domain(o.extract_field("bmps")),
-            gifs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("gifs")),
-            jp2s: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jp2s")),
-            jpegs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jpegs")),
-            jpg2s: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jpg2s")),
-            jpgs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jpgs")),
-            pngs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pngs")),
-            tiffs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tiffs")),
-            tifs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tifs")),
-            webps: pulumi_gestalt_rust::__private::into_domain(o.extract_field("webps")),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            avifs: o.get_field("avifs"),
+            bmps: o.get_field("bmps"),
+            gifs: o.get_field("gifs"),
+            jp2s: o.get_field("jp2s"),
+            jpegs: o.get_field("jpegs"),
+            jpg2s: o.get_field("jpg2s"),
+            jpgs: o.get_field("jpgs"),
+            pngs: o.get_field("pngs"),
+            tiffs: o.get_field("tiffs"),
+            tifs: o.get_field("tifs"),
+            webps: o.get_field("webps"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

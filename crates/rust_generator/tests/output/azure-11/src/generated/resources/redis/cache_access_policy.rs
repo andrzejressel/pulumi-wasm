@@ -71,46 +71,40 @@ pub mod cache_access_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CacheAccessPolicyArgs,
     ) -> CacheAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let redis_cache_id_binding_1 = args.redis_cache_id.get_output(context);
-        let redis_cache_id_binding = redis_cache_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let redis_cache_id_binding = args.redis_cache_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:redis/cacheAccessPolicy:CacheAccessPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisCacheId".into(),
-                    value: &redis_cache_id_binding,
+                    value: redis_cache_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CacheAccessPolicyResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            redis_cache_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisCacheId"),
-            ),
+            name: o.get_field("name"),
+            permissions: o.get_field("permissions"),
+            redis_cache_id: o.get_field("redisCacheId"),
         }
     }
 }

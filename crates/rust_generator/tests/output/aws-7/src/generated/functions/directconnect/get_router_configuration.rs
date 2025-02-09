@@ -48,53 +48,39 @@ pub mod get_router_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRouterConfigurationArgs,
     ) -> GetRouterConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let router_type_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let router_type_identifier_binding = args
             .router_type_identifier
             .get_output(context);
-        let router_type_identifier_binding = router_type_identifier_binding_1
-            .get_inner();
-        let virtual_interface_id_binding_1 = args
-            .virtual_interface_id
-            .get_output(context);
-        let virtual_interface_id_binding = virtual_interface_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let virtual_interface_id_binding = args.virtual_interface_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:directconnect/getRouterConfiguration:getRouterConfiguration"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routerTypeIdentifier".into(),
-                    value: &router_type_identifier_binding,
+                    value: router_type_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualInterfaceId".into(),
-                    value: &virtual_interface_id_binding,
+                    value: virtual_interface_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRouterConfigurationResult {
-            customer_router_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerRouterConfig"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            router_type_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routerTypeIdentifier"),
-            ),
-            routers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routers"),
-            ),
-            virtual_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualInterfaceId"),
-            ),
-            virtual_interface_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualInterfaceName"),
-            ),
+            customer_router_config: o.get_field("customerRouterConfig"),
+            id: o.get_field("id"),
+            router_type_identifier: o.get_field("routerTypeIdentifier"),
+            routers: o.get_field("routers"),
+            virtual_interface_id: o.get_field("virtualInterfaceId"),
+            virtual_interface_name: o.get_field("virtualInterfaceName"),
         }
     }
 }

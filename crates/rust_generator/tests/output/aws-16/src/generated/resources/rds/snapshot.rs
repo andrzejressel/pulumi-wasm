@@ -114,109 +114,68 @@ pub mod snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SnapshotArgs,
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_instance_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let db_instance_identifier_binding = args
             .db_instance_identifier
             .get_output(context);
-        let db_instance_identifier_binding = db_instance_identifier_binding_1
-            .get_inner();
-        let db_snapshot_identifier_binding_1 = args
+        let db_snapshot_identifier_binding = args
             .db_snapshot_identifier
             .get_output(context);
-        let db_snapshot_identifier_binding = db_snapshot_identifier_binding_1
-            .get_inner();
-        let shared_accounts_binding_1 = args.shared_accounts.get_output(context);
-        let shared_accounts_binding = shared_accounts_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let shared_accounts_binding = args.shared_accounts.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/snapshot:Snapshot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceIdentifier".into(),
-                    value: &db_instance_identifier_binding,
+                    value: db_instance_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbSnapshotIdentifier".into(),
-                    value: &db_snapshot_identifier_binding,
+                    value: db_snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccounts".into(),
-                    value: &shared_accounts_binding,
+                    value: shared_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SnapshotResult {
-            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedStorage"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            db_instance_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstanceIdentifier"),
-            ),
-            db_snapshot_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbSnapshotArn"),
-            ),
-            db_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbSnapshotIdentifier"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            iops: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iops")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            license_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseModel"),
-            ),
-            option_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optionGroupName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            shared_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedAccounts"),
-            ),
-            snapshot_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotType"),
-            ),
-            source_db_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDbSnapshotIdentifier"),
-            ),
-            source_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRegion"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            allocated_storage: o.get_field("allocatedStorage"),
+            availability_zone: o.get_field("availabilityZone"),
+            db_instance_identifier: o.get_field("dbInstanceIdentifier"),
+            db_snapshot_arn: o.get_field("dbSnapshotArn"),
+            db_snapshot_identifier: o.get_field("dbSnapshotIdentifier"),
+            encrypted: o.get_field("encrypted"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            iops: o.get_field("iops"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            license_model: o.get_field("licenseModel"),
+            option_group_name: o.get_field("optionGroupName"),
+            port: o.get_field("port"),
+            shared_accounts: o.get_field("sharedAccounts"),
+            snapshot_type: o.get_field("snapshotType"),
+            source_db_snapshot_identifier: o.get_field("sourceDbSnapshotIdentifier"),
+            source_region: o.get_field("sourceRegion"),
+            status: o.get_field("status"),
+            storage_type: o.get_field("storageType"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

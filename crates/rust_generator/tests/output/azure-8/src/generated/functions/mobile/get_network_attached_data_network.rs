@@ -53,73 +53,53 @@ pub mod get_network_attached_data_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetworkAttachedDataNetworkArgs,
     ) -> GetNetworkAttachedDataNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mobile_network_data_network_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mobile_network_data_network_name_binding = args
             .mobile_network_data_network_name
             .get_output(context);
-        let mobile_network_data_network_name_binding = mobile_network_data_network_name_binding_1
-            .get_inner();
-        let mobile_network_packet_core_data_plane_id_binding_1 = args
+        let mobile_network_packet_core_data_plane_id_binding = args
             .mobile_network_packet_core_data_plane_id
             .get_output(context);
-        let mobile_network_packet_core_data_plane_id_binding = mobile_network_packet_core_data_plane_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkDataNetworkName".into(),
-                    value: &mobile_network_data_network_name_binding,
+                    value: mobile_network_data_network_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkPacketCoreDataPlaneId".into(),
-                    value: &mobile_network_packet_core_data_plane_id_binding,
+                    value: mobile_network_packet_core_data_plane_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetworkAttachedDataNetworkResult {
-            dns_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsAddresses"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mobile_network_data_network_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobileNetworkDataNetworkName"),
-            ),
-            mobile_network_packet_core_data_plane_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobileNetworkPacketCoreDataPlaneId"),
-            ),
-            network_address_port_translations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkAddressPortTranslations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_equipment_address_pool_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userEquipmentAddressPoolPrefixes"),
-            ),
-            user_equipment_static_address_pool_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userEquipmentStaticAddressPoolPrefixes"),
-            ),
-            user_plane_access_ipv4_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Address"),
-            ),
-            user_plane_access_ipv4_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Gateway"),
-            ),
-            user_plane_access_ipv4_subnet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Subnet"),
-            ),
-            user_plane_access_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessName"),
-            ),
+            dns_addresses: o.get_field("dnsAddresses"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            mobile_network_data_network_name: o
+                .get_field("mobileNetworkDataNetworkName"),
+            mobile_network_packet_core_data_plane_id: o
+                .get_field("mobileNetworkPacketCoreDataPlaneId"),
+            network_address_port_translations: o
+                .get_field("networkAddressPortTranslations"),
+            tags: o.get_field("tags"),
+            user_equipment_address_pool_prefixes: o
+                .get_field("userEquipmentAddressPoolPrefixes"),
+            user_equipment_static_address_pool_prefixes: o
+                .get_field("userEquipmentStaticAddressPoolPrefixes"),
+            user_plane_access_ipv4_address: o.get_field("userPlaneAccessIpv4Address"),
+            user_plane_access_ipv4_gateway: o.get_field("userPlaneAccessIpv4Gateway"),
+            user_plane_access_ipv4_subnet: o.get_field("userPlaneAccessIpv4Subnet"),
+            user_plane_access_name: o.get_field("userPlaneAccessName"),
         }
     }
 }

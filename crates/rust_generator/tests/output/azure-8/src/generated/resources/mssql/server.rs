@@ -264,175 +264,129 @@ pub mod server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerArgs,
     ) -> ServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_login_binding_1 = args.administrator_login.get_output(context);
-        let administrator_login_binding = administrator_login_binding_1.get_inner();
-        let administrator_login_password_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administrator_login_binding = args.administrator_login.get_output(context);
+        let administrator_login_password_binding = args
             .administrator_login_password
             .get_output(context);
-        let administrator_login_password_binding = administrator_login_password_binding_1
-            .get_inner();
-        let azuread_administrator_binding_1 = args
+        let azuread_administrator_binding = args
             .azuread_administrator
             .get_output(context);
-        let azuread_administrator_binding = azuread_administrator_binding_1.get_inner();
-        let connection_policy_binding_1 = args.connection_policy.get_output(context);
-        let connection_policy_binding = connection_policy_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let minimum_tls_version_binding_1 = args.minimum_tls_version.get_output(context);
-        let minimum_tls_version_binding = minimum_tls_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let outbound_network_restriction_enabled_binding_1 = args
+        let connection_policy_binding = args.connection_policy.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let minimum_tls_version_binding = args.minimum_tls_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let outbound_network_restriction_enabled_binding = args
             .outbound_network_restriction_enabled
             .get_output(context);
-        let outbound_network_restriction_enabled_binding = outbound_network_restriction_enabled_binding_1
-            .get_inner();
-        let primary_user_assigned_identity_id_binding_1 = args
+        let primary_user_assigned_identity_id_binding = args
             .primary_user_assigned_identity_id
             .get_output(context);
-        let primary_user_assigned_identity_id_binding = primary_user_assigned_identity_id_binding_1
-            .get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transparent_data_encryption_key_vault_key_id_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transparent_data_encryption_key_vault_key_id_binding = args
             .transparent_data_encryption_key_vault_key_id
             .get_output(context);
-        let transparent_data_encryption_key_vault_key_id_binding = transparent_data_encryption_key_vault_key_id_binding_1
-            .get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/server:Server".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLogin".into(),
-                    value: &administrator_login_binding,
+                    value: administrator_login_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLoginPassword".into(),
-                    value: &administrator_login_password_binding,
+                    value: administrator_login_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureadAdministrator".into(),
-                    value: &azuread_administrator_binding,
+                    value: azuread_administrator_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionPolicy".into(),
-                    value: &connection_policy_binding,
+                    value: connection_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumTlsVersion".into(),
-                    value: &minimum_tls_version_binding,
+                    value: minimum_tls_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outboundNetworkRestrictionEnabled".into(),
-                    value: &outbound_network_restriction_enabled_binding,
+                    value: outbound_network_restriction_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryUserAssignedIdentityId".into(),
-                    value: &primary_user_assigned_identity_id_binding,
+                    value: primary_user_assigned_identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transparentDataEncryptionKeyVaultKeyId".into(),
-                    value: &transparent_data_encryption_key_vault_key_id_binding,
+                    value: transparent_data_encryption_key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerResult {
-            administrator_login: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLogin"),
-            ),
-            administrator_login_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLoginPassword"),
-            ),
-            azuread_administrator: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureadAdministrator"),
-            ),
-            connection_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionPolicy"),
-            ),
-            fully_qualified_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fullyQualifiedDomainName"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            minimum_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_network_restriction_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundNetworkRestrictionEnabled"),
-            ),
-            primary_user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryUserAssignedIdentityId"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            restorable_dropped_database_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restorableDroppedDatabaseIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            transparent_data_encryption_key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transparentDataEncryptionKeyVaultKeyId"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            administrator_login: o.get_field("administratorLogin"),
+            administrator_login_password: o.get_field("administratorLoginPassword"),
+            azuread_administrator: o.get_field("azureadAdministrator"),
+            connection_policy: o.get_field("connectionPolicy"),
+            fully_qualified_domain_name: o.get_field("fullyQualifiedDomainName"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            minimum_tls_version: o.get_field("minimumTlsVersion"),
+            name: o.get_field("name"),
+            outbound_network_restriction_enabled: o
+                .get_field("outboundNetworkRestrictionEnabled"),
+            primary_user_assigned_identity_id: o
+                .get_field("primaryUserAssignedIdentityId"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            restorable_dropped_database_ids: o.get_field("restorableDroppedDatabaseIds"),
+            tags: o.get_field("tags"),
+            transparent_data_encryption_key_vault_key_id: o
+                .get_field("transparentDataEncryptionKeyVaultKeyId"),
+            version: o.get_field("version"),
         }
     }
 }

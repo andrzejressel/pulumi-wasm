@@ -143,121 +143,89 @@ pub mod traffic_mirror_filter_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrafficMirrorFilterRuleArgs,
     ) -> TrafficMirrorFilterRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_cidr_block_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let destination_cidr_block_binding = args
             .destination_cidr_block
             .get_output(context);
-        let destination_cidr_block_binding = destination_cidr_block_binding_1
-            .get_inner();
-        let destination_port_range_binding_1 = args
+        let destination_port_range_binding = args
             .destination_port_range
             .get_output(context);
-        let destination_port_range_binding = destination_port_range_binding_1
-            .get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let rule_action_binding_1 = args.rule_action.get_output(context);
-        let rule_action_binding = rule_action_binding_1.get_inner();
-        let rule_number_binding_1 = args.rule_number.get_output(context);
-        let rule_number_binding = rule_number_binding_1.get_inner();
-        let source_cidr_block_binding_1 = args.source_cidr_block.get_output(context);
-        let source_cidr_block_binding = source_cidr_block_binding_1.get_inner();
-        let source_port_range_binding_1 = args.source_port_range.get_output(context);
-        let source_port_range_binding = source_port_range_binding_1.get_inner();
-        let traffic_direction_binding_1 = args.traffic_direction.get_output(context);
-        let traffic_direction_binding = traffic_direction_binding_1.get_inner();
-        let traffic_mirror_filter_id_binding_1 = args
+        let protocol_binding = args.protocol.get_output(context);
+        let rule_action_binding = args.rule_action.get_output(context);
+        let rule_number_binding = args.rule_number.get_output(context);
+        let source_cidr_block_binding = args.source_cidr_block.get_output(context);
+        let source_port_range_binding = args.source_port_range.get_output(context);
+        let traffic_direction_binding = args.traffic_direction.get_output(context);
+        let traffic_mirror_filter_id_binding = args
             .traffic_mirror_filter_id
             .get_output(context);
-        let traffic_mirror_filter_id_binding = traffic_mirror_filter_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: &destination_cidr_block_binding,
+                    value: destination_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPortRange".into(),
-                    value: &destination_port_range_binding,
+                    value: destination_port_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleAction".into(),
-                    value: &rule_action_binding,
+                    value: rule_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleNumber".into(),
-                    value: &rule_number_binding,
+                    value: rule_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceCidrBlock".into(),
-                    value: &source_cidr_block_binding,
+                    value: source_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortRange".into(),
-                    value: &source_port_range_binding,
+                    value: source_port_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficDirection".into(),
-                    value: &traffic_direction_binding,
+                    value: traffic_direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficMirrorFilterId".into(),
-                    value: &traffic_mirror_filter_id_binding,
+                    value: traffic_mirror_filter_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrafficMirrorFilterRuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationCidrBlock"),
-            ),
-            destination_port_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationPortRange"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            rule_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleAction"),
-            ),
-            rule_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleNumber"),
-            ),
-            source_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCidrBlock"),
-            ),
-            source_port_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourcePortRange"),
-            ),
-            traffic_direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficDirection"),
-            ),
-            traffic_mirror_filter_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficMirrorFilterId"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            destination_cidr_block: o.get_field("destinationCidrBlock"),
+            destination_port_range: o.get_field("destinationPortRange"),
+            protocol: o.get_field("protocol"),
+            rule_action: o.get_field("ruleAction"),
+            rule_number: o.get_field("ruleNumber"),
+            source_cidr_block: o.get_field("sourceCidrBlock"),
+            source_port_range: o.get_field("sourcePortRange"),
+            traffic_direction: o.get_field("trafficDirection"),
+            traffic_mirror_filter_id: o.get_field("trafficMirrorFilterId"),
         }
     }
 }

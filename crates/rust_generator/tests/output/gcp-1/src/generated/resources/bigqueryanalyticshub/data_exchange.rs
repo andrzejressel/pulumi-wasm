@@ -169,107 +169,80 @@ pub mod data_exchange {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataExchangeArgs,
     ) -> DataExchangeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_exchange_id_binding_1 = args.data_exchange_id.get_output(context);
-        let data_exchange_id_binding = data_exchange_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let documentation_binding_1 = args.documentation.get_output(context);
-        let documentation_binding = documentation_binding_1.get_inner();
-        let icon_binding_1 = args.icon.get_output(context);
-        let icon_binding = icon_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let primary_contact_binding_1 = args.primary_contact.get_output(context);
-        let primary_contact_binding = primary_contact_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let sharing_environment_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_exchange_id_binding = args.data_exchange_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let documentation_binding = args.documentation.get_output(context);
+        let icon_binding = args.icon.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let primary_contact_binding = args.primary_contact.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let sharing_environment_config_binding = args
             .sharing_environment_config
             .get_output(context);
-        let sharing_environment_config_binding = sharing_environment_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigqueryanalyticshub/dataExchange:DataExchange".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataExchangeId".into(),
-                    value: &data_exchange_id_binding,
+                    value: data_exchange_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentation".into(),
-                    value: &documentation_binding,
+                    value: documentation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icon".into(),
-                    value: &icon_binding,
+                    value: icon_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryContact".into(),
-                    value: &primary_contact_binding,
+                    value: primary_contact_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharingEnvironmentConfig".into(),
-                    value: &sharing_environment_config_binding,
+                    value: sharing_environment_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataExchangeResult {
-            data_exchange_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataExchangeId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            documentation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentation"),
-            ),
-            icon: pulumi_gestalt_rust::__private::into_domain(o.extract_field("icon")),
-            listing_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listingCount"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_contact: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryContact"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            sharing_environment_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharingEnvironmentConfig"),
-            ),
+            data_exchange_id: o.get_field("dataExchangeId"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            documentation: o.get_field("documentation"),
+            icon: o.get_field("icon"),
+            listing_count: o.get_field("listingCount"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            primary_contact: o.get_field("primaryContact"),
+            project: o.get_field("project"),
+            sharing_environment_config: o.get_field("sharingEnvironmentConfig"),
         }
     }
 }

@@ -75,68 +75,56 @@ pub mod origin_access_control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OriginAccessControlArgs,
     ) -> OriginAccessControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let origin_access_control_origin_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let origin_access_control_origin_type_binding = args
             .origin_access_control_origin_type
             .get_output(context);
-        let origin_access_control_origin_type_binding = origin_access_control_origin_type_binding_1
-            .get_inner();
-        let signing_behavior_binding_1 = args.signing_behavior.get_output(context);
-        let signing_behavior_binding = signing_behavior_binding_1.get_inner();
-        let signing_protocol_binding_1 = args.signing_protocol.get_output(context);
-        let signing_protocol_binding = signing_protocol_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let signing_behavior_binding = args.signing_behavior.get_output(context);
+        let signing_protocol_binding = args.signing_protocol.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/originAccessControl:OriginAccessControl".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originAccessControlOriginType".into(),
-                    value: &origin_access_control_origin_type_binding,
+                    value: origin_access_control_origin_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingBehavior".into(),
-                    value: &signing_behavior_binding,
+                    value: signing_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingProtocol".into(),
-                    value: &signing_protocol_binding,
+                    value: signing_protocol_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OriginAccessControlResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            origin_access_control_origin_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originAccessControlOriginType"),
-            ),
-            signing_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingBehavior"),
-            ),
-            signing_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingProtocol"),
-            ),
+            description: o.get_field("description"),
+            etag: o.get_field("etag"),
+            name: o.get_field("name"),
+            origin_access_control_origin_type: o
+                .get_field("originAccessControlOriginType"),
+            signing_behavior: o.get_field("signingBehavior"),
+            signing_protocol: o.get_field("signingProtocol"),
         }
     }
 }

@@ -226,85 +226,62 @@ pub mod developer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeveloperArgs,
     ) -> DeveloperResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding_1 = args.attributes.get_output(context);
-        let attributes_binding = attributes_binding_1.get_inner();
-        let email_binding_1 = args.email.get_output(context);
-        let email_binding = email_binding_1.get_inner();
-        let first_name_binding_1 = args.first_name.get_output(context);
-        let first_name_binding = first_name_binding_1.get_inner();
-        let last_name_binding_1 = args.last_name.get_output(context);
-        let last_name_binding = last_name_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attributes_binding = args.attributes.get_output(context);
+        let email_binding = args.email.get_output(context);
+        let first_name_binding = args.first_name.get_output(context);
+        let last_name_binding = args.last_name.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let user_name_binding = args.user_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/developer:Developer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: &attributes_binding,
+                    value: attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: &email_binding,
+                    value: email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstName".into(),
-                    value: &first_name_binding,
+                    value: first_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastName".into(),
-                    value: &last_name_binding,
+                    value: last_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeveloperResult {
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            first_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstName"),
-            ),
-            last_modified_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedAt"),
-            ),
-            last_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastName"),
-            ),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            organizatio_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizatioName"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            attributes: o.get_field("attributes"),
+            created_at: o.get_field("createdAt"),
+            email: o.get_field("email"),
+            first_name: o.get_field("firstName"),
+            last_modified_at: o.get_field("lastModifiedAt"),
+            last_name: o.get_field("lastName"),
+            org_id: o.get_field("orgId"),
+            organizatio_name: o.get_field("organizatioName"),
+            status: o.get_field("status"),
+            user_name: o.get_field("userName"),
         }
     }
 }

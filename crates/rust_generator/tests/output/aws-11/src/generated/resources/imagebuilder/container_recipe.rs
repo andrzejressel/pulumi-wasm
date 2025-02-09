@@ -170,166 +170,118 @@ pub mod container_recipe {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContainerRecipeArgs,
     ) -> ContainerRecipeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let components_binding_1 = args.components.get_output(context);
-        let components_binding = components_binding_1.get_inner();
-        let container_type_binding_1 = args.container_type.get_output(context);
-        let container_type_binding = container_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dockerfile_template_data_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let components_binding = args.components.get_output(context);
+        let container_type_binding = args.container_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dockerfile_template_data_binding = args
             .dockerfile_template_data
             .get_output(context);
-        let dockerfile_template_data_binding = dockerfile_template_data_binding_1
-            .get_inner();
-        let dockerfile_template_uri_binding_1 = args
+        let dockerfile_template_uri_binding = args
             .dockerfile_template_uri
             .get_output(context);
-        let dockerfile_template_uri_binding = dockerfile_template_uri_binding_1
-            .get_inner();
-        let instance_configuration_binding_1 = args
+        let instance_configuration_binding = args
             .instance_configuration
             .get_output(context);
-        let instance_configuration_binding = instance_configuration_binding_1
-            .get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_image_binding_1 = args.parent_image.get_output(context);
-        let parent_image_binding = parent_image_binding_1.get_inner();
-        let platform_override_binding_1 = args.platform_override.get_output(context);
-        let platform_override_binding = platform_override_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_repository_binding_1 = args.target_repository.get_output(context);
-        let target_repository_binding = target_repository_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let working_directory_binding_1 = args.working_directory.get_output(context);
-        let working_directory_binding = working_directory_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_image_binding = args.parent_image.get_output(context);
+        let platform_override_binding = args.platform_override.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_repository_binding = args.target_repository.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let working_directory_binding = args.working_directory.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:imagebuilder/containerRecipe:ContainerRecipe".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "components".into(),
-                    value: &components_binding,
+                    value: components_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerType".into(),
-                    value: &container_type_binding,
+                    value: container_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerfileTemplateData".into(),
-                    value: &dockerfile_template_data_binding,
+                    value: dockerfile_template_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerfileTemplateUri".into(),
-                    value: &dockerfile_template_uri_binding,
+                    value: dockerfile_template_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceConfiguration".into(),
-                    value: &instance_configuration_binding,
+                    value: instance_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentImage".into(),
-                    value: &parent_image_binding,
+                    value: parent_image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformOverride".into(),
-                    value: &platform_override_binding,
+                    value: platform_override_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRepository".into(),
-                    value: &target_repository_binding,
+                    value: target_repository_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workingDirectory".into(),
-                    value: &working_directory_binding,
+                    value: working_directory_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContainerRecipeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            components: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("components"),
-            ),
-            container_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerType"),
-            ),
-            date_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateCreated"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dockerfile_template_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerfileTemplateData"),
-            ),
-            dockerfile_template_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerfileTemplateUri"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            instance_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceConfiguration"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            parent_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentImage"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            platform_override: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformOverride"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRepository"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            working_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workingDirectory"),
-            ),
+            arn: o.get_field("arn"),
+            components: o.get_field("components"),
+            container_type: o.get_field("containerType"),
+            date_created: o.get_field("dateCreated"),
+            description: o.get_field("description"),
+            dockerfile_template_data: o.get_field("dockerfileTemplateData"),
+            dockerfile_template_uri: o.get_field("dockerfileTemplateUri"),
+            encrypted: o.get_field("encrypted"),
+            instance_configuration: o.get_field("instanceConfiguration"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            parent_image: o.get_field("parentImage"),
+            platform: o.get_field("platform"),
+            platform_override: o.get_field("platformOverride"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_repository: o.get_field("targetRepository"),
+            version: o.get_field("version"),
+            working_directory: o.get_field("workingDirectory"),
         }
     }
 }

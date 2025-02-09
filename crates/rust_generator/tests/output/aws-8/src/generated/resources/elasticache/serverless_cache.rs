@@ -140,170 +140,117 @@ pub mod serverless_cache {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerlessCacheArgs,
     ) -> ServerlessCacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_usage_limits_binding_1 = args.cache_usage_limits.get_output(context);
-        let cache_usage_limits_binding = cache_usage_limits_binding_1.get_inner();
-        let daily_snapshot_time_binding_1 = args.daily_snapshot_time.get_output(context);
-        let daily_snapshot_time_binding = daily_snapshot_time_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let major_engine_version_binding_1 = args
-            .major_engine_version
-            .get_output(context);
-        let major_engine_version_binding = major_engine_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let snapshot_arns_to_restores_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cache_usage_limits_binding = args.cache_usage_limits.get_output(context);
+        let daily_snapshot_time_binding = args.daily_snapshot_time.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let major_engine_version_binding = args.major_engine_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let snapshot_arns_to_restores_binding = args
             .snapshot_arns_to_restores
             .get_output(context);
-        let snapshot_arns_to_restores_binding = snapshot_arns_to_restores_binding_1
-            .get_inner();
-        let snapshot_retention_limit_binding_1 = args
+        let snapshot_retention_limit_binding = args
             .snapshot_retention_limit
             .get_output(context);
-        let snapshot_retention_limit_binding = snapshot_retention_limit_binding_1
-            .get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let user_group_id_binding_1 = args.user_group_id.get_output(context);
-        let user_group_id_binding = user_group_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let user_group_id_binding = args.user_group_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elasticache/serverlessCache:ServerlessCache".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheUsageLimits".into(),
-                    value: &cache_usage_limits_binding,
+                    value: cache_usage_limits_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailySnapshotTime".into(),
-                    value: &daily_snapshot_time_binding,
+                    value: daily_snapshot_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "majorEngineVersion".into(),
-                    value: &major_engine_version_binding,
+                    value: major_engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotArnsToRestores".into(),
-                    value: &snapshot_arns_to_restores_binding,
+                    value: snapshot_arns_to_restores_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotRetentionLimit".into(),
-                    value: &snapshot_retention_limit_binding,
+                    value: snapshot_retention_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userGroupId".into(),
-                    value: &user_group_id_binding,
+                    value: user_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerlessCacheResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cache_usage_limits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheUsageLimits"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            daily_snapshot_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailySnapshotTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            full_engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fullEngineVersion"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            major_engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("majorEngineVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            reader_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readerEndpoints"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            snapshot_arns_to_restores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotArnsToRestores"),
-            ),
-            snapshot_retention_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotRetentionLimit"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            user_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userGroupId"),
-            ),
+            arn: o.get_field("arn"),
+            cache_usage_limits: o.get_field("cacheUsageLimits"),
+            create_time: o.get_field("createTime"),
+            daily_snapshot_time: o.get_field("dailySnapshotTime"),
+            description: o.get_field("description"),
+            endpoints: o.get_field("endpoints"),
+            engine: o.get_field("engine"),
+            full_engine_version: o.get_field("fullEngineVersion"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            major_engine_version: o.get_field("majorEngineVersion"),
+            name: o.get_field("name"),
+            reader_endpoints: o.get_field("readerEndpoints"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            snapshot_arns_to_restores: o.get_field("snapshotArnsToRestores"),
+            snapshot_retention_limit: o.get_field("snapshotRetentionLimit"),
+            status: o.get_field("status"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            user_group_id: o.get_field("userGroupId"),
         }
     }
 }

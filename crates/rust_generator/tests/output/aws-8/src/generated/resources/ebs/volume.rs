@@ -111,127 +111,96 @@ pub mod volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VolumeArgs,
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let encrypted_binding_1 = args.encrypted.get_output(context);
-        let encrypted_binding = encrypted_binding_1.get_inner();
-        let final_snapshot_binding_1 = args.final_snapshot.get_output(context);
-        let final_snapshot_binding = final_snapshot_binding_1.get_inner();
-        let iops_binding_1 = args.iops.get_output(context);
-        let iops_binding = iops_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let multi_attach_enabled_binding_1 = args
-            .multi_attach_enabled
-            .get_output(context);
-        let multi_attach_enabled_binding = multi_attach_enabled_binding_1.get_inner();
-        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
-        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
-        let size_binding_1 = args.size.get_output(context);
-        let size_binding = size_binding_1.get_inner();
-        let snapshot_id_binding_1 = args.snapshot_id.get_output(context);
-        let snapshot_id_binding = snapshot_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let throughput_binding_1 = args.throughput.get_output(context);
-        let throughput_binding = throughput_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let encrypted_binding = args.encrypted.get_output(context);
+        let final_snapshot_binding = args.final_snapshot.get_output(context);
+        let iops_binding = args.iops.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let multi_attach_enabled_binding = args.multi_attach_enabled.get_output(context);
+        let outpost_arn_binding = args.outpost_arn.get_output(context);
+        let size_binding = args.size.get_output(context);
+        let snapshot_id_binding = args.snapshot_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let throughput_binding = args.throughput.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ebs/volume:Volume".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encrypted".into(),
-                    value: &encrypted_binding,
+                    value: encrypted_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalSnapshot".into(),
-                    value: &final_snapshot_binding,
+                    value: final_snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iops".into(),
-                    value: &iops_binding,
+                    value: iops_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiAttachEnabled".into(),
-                    value: &multi_attach_enabled_binding,
+                    value: multi_attach_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: &outpost_arn_binding,
+                    value: outpost_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: &size_binding,
+                    value: size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotId".into(),
-                    value: &snapshot_id_binding,
+                    value: snapshot_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughput".into(),
-                    value: &throughput_binding,
+                    value: throughput_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VolumeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            final_snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalSnapshot"),
-            ),
-            iops: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iops")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            multi_attach_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAttachEnabled"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughput"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            encrypted: o.get_field("encrypted"),
+            final_snapshot: o.get_field("finalSnapshot"),
+            iops: o.get_field("iops"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            multi_attach_enabled: o.get_field("multiAttachEnabled"),
+            outpost_arn: o.get_field("outpostArn"),
+            size: o.get_field("size"),
+            snapshot_id: o.get_field("snapshotId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            throughput: o.get_field("throughput"),
+            type_: o.get_field("type"),
         }
     }
 }

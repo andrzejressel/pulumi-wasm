@@ -128,104 +128,79 @@ pub mod sql_pool_workload_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SqlPoolWorkloadGroupArgs,
     ) -> SqlPoolWorkloadGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let importance_binding_1 = args.importance.get_output(context);
-        let importance_binding = importance_binding_1.get_inner();
-        let max_resource_percent_binding_1 = args
-            .max_resource_percent
-            .get_output(context);
-        let max_resource_percent_binding = max_resource_percent_binding_1.get_inner();
-        let max_resource_percent_per_request_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let importance_binding = args.importance.get_output(context);
+        let max_resource_percent_binding = args.max_resource_percent.get_output(context);
+        let max_resource_percent_per_request_binding = args
             .max_resource_percent_per_request
             .get_output(context);
-        let max_resource_percent_per_request_binding = max_resource_percent_per_request_binding_1
-            .get_inner();
-        let min_resource_percent_binding_1 = args
-            .min_resource_percent
-            .get_output(context);
-        let min_resource_percent_binding = min_resource_percent_binding_1.get_inner();
-        let min_resource_percent_per_request_binding_1 = args
+        let min_resource_percent_binding = args.min_resource_percent.get_output(context);
+        let min_resource_percent_per_request_binding = args
             .min_resource_percent_per_request
             .get_output(context);
-        let min_resource_percent_per_request_binding = min_resource_percent_per_request_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_execution_timeout_in_seconds_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let query_execution_timeout_in_seconds_binding = args
             .query_execution_timeout_in_seconds
             .get_output(context);
-        let query_execution_timeout_in_seconds_binding = query_execution_timeout_in_seconds_binding_1
-            .get_inner();
-        let sql_pool_id_binding_1 = args.sql_pool_id.get_output(context);
-        let sql_pool_id_binding = sql_pool_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sql_pool_id_binding = args.sql_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importance".into(),
-                    value: &importance_binding,
+                    value: importance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxResourcePercent".into(),
-                    value: &max_resource_percent_binding,
+                    value: max_resource_percent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxResourcePercentPerRequest".into(),
-                    value: &max_resource_percent_per_request_binding,
+                    value: max_resource_percent_per_request_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minResourcePercent".into(),
-                    value: &min_resource_percent_binding,
+                    value: min_resource_percent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minResourcePercentPerRequest".into(),
-                    value: &min_resource_percent_per_request_binding,
+                    value: min_resource_percent_per_request_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryExecutionTimeoutInSeconds".into(),
-                    value: &query_execution_timeout_in_seconds_binding,
+                    value: query_execution_timeout_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlPoolId".into(),
-                    value: &sql_pool_id_binding,
+                    value: sql_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SqlPoolWorkloadGroupResult {
-            importance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importance"),
-            ),
-            max_resource_percent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxResourcePercent"),
-            ),
-            max_resource_percent_per_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxResourcePercentPerRequest"),
-            ),
-            min_resource_percent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minResourcePercent"),
-            ),
-            min_resource_percent_per_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minResourcePercentPerRequest"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query_execution_timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryExecutionTimeoutInSeconds"),
-            ),
-            sql_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlPoolId"),
-            ),
+            importance: o.get_field("importance"),
+            max_resource_percent: o.get_field("maxResourcePercent"),
+            max_resource_percent_per_request: o
+                .get_field("maxResourcePercentPerRequest"),
+            min_resource_percent: o.get_field("minResourcePercent"),
+            min_resource_percent_per_request: o
+                .get_field("minResourcePercentPerRequest"),
+            name: o.get_field("name"),
+            query_execution_timeout_in_seconds: o
+                .get_field("queryExecutionTimeoutInSeconds"),
+            sql_pool_id: o.get_field("sqlPoolId"),
         }
     }
 }

@@ -301,186 +301,131 @@ pub mod db_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DbInstanceArgs,
     ) -> DbInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocated_storage_binding_1 = args.allocated_storage.get_output(context);
-        let allocated_storage_binding = allocated_storage_binding_1.get_inner();
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let db_instance_type_binding_1 = args.db_instance_type.get_output(context);
-        let db_instance_type_binding = db_instance_type_binding_1.get_inner();
-        let db_parameter_group_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allocated_storage_binding = args.allocated_storage.get_output(context);
+        let bucket_binding = args.bucket.get_output(context);
+        let db_instance_type_binding = args.db_instance_type.get_output(context);
+        let db_parameter_group_identifier_binding = args
             .db_parameter_group_identifier
             .get_output(context);
-        let db_parameter_group_identifier_binding = db_parameter_group_identifier_binding_1
-            .get_inner();
-        let db_storage_type_binding_1 = args.db_storage_type.get_output(context);
-        let db_storage_type_binding = db_storage_type_binding_1.get_inner();
-        let deployment_type_binding_1 = args.deployment_type.get_output(context);
-        let deployment_type_binding = deployment_type_binding_1.get_inner();
-        let log_delivery_configuration_binding_1 = args
+        let db_storage_type_binding = args.db_storage_type.get_output(context);
+        let deployment_type_binding = args.deployment_type.get_output(context);
+        let log_delivery_configuration_binding = args
             .log_delivery_configuration
             .get_output(context);
-        let log_delivery_configuration_binding = log_delivery_configuration_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let organization_binding_1 = args.organization.get_output(context);
-        let organization_binding = organization_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
-        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let organization_binding = args.organization.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let publicly_accessible_binding = args.publicly_accessible.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let vpc_subnet_ids_binding_1 = args.vpc_subnet_ids.get_output(context);
-        let vpc_subnet_ids_binding = vpc_subnet_ids_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:timestreaminfluxdb/dbInstance:DbInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocatedStorage".into(),
-                    value: &allocated_storage_binding,
+                    value: allocated_storage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceType".into(),
-                    value: &db_instance_type_binding,
+                    value: db_instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbParameterGroupIdentifier".into(),
-                    value: &db_parameter_group_identifier_binding,
+                    value: db_parameter_group_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbStorageType".into(),
-                    value: &db_storage_type_binding,
+                    value: db_storage_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentType".into(),
-                    value: &deployment_type_binding,
+                    value: deployment_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDeliveryConfiguration".into(),
-                    value: &log_delivery_configuration_binding,
+                    value: log_delivery_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: &organization_binding,
+                    value: organization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publiclyAccessible".into(),
-                    value: &publicly_accessible_binding,
+                    value: publicly_accessible_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSubnetIds".into(),
-                    value: &vpc_subnet_ids_binding,
+                    value: vpc_subnet_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DbInstanceResult {
-            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedStorage"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            db_instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstanceType"),
-            ),
-            db_parameter_group_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbParameterGroupIdentifier"),
-            ),
-            db_storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbStorageType"),
-            ),
-            deployment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentType"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            influx_auth_parameters_secret_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("influxAuthParametersSecretArn"),
-            ),
-            log_delivery_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDeliveryConfiguration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organization"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            secondary_availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAvailabilityZone"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
-            vpc_subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSubnetIds"),
-            ),
+            allocated_storage: o.get_field("allocatedStorage"),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            bucket: o.get_field("bucket"),
+            db_instance_type: o.get_field("dbInstanceType"),
+            db_parameter_group_identifier: o.get_field("dbParameterGroupIdentifier"),
+            db_storage_type: o.get_field("dbStorageType"),
+            deployment_type: o.get_field("deploymentType"),
+            endpoint: o.get_field("endpoint"),
+            influx_auth_parameters_secret_arn: o
+                .get_field("influxAuthParametersSecretArn"),
+            log_delivery_configuration: o.get_field("logDeliveryConfiguration"),
+            name: o.get_field("name"),
+            organization: o.get_field("organization"),
+            password: o.get_field("password"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            secondary_availability_zone: o.get_field("secondaryAvailabilityZone"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            username: o.get_field("username"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
+            vpc_subnet_ids: o.get_field("vpcSubnetIds"),
         }
     }
 }

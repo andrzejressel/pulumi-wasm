@@ -59,64 +59,52 @@ pub mod permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PermissionArgs,
     ) -> PermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_ssh_binding_1 = args.allow_ssh.get_output(context);
-        let allow_ssh_binding = allow_ssh_binding_1.get_inner();
-        let allow_sudo_binding_1 = args.allow_sudo.get_output(context);
-        let allow_sudo_binding = allow_sudo_binding_1.get_inner();
-        let level_binding_1 = args.level.get_output(context);
-        let level_binding = level_binding_1.get_inner();
-        let stack_id_binding_1 = args.stack_id.get_output(context);
-        let stack_id_binding = stack_id_binding_1.get_inner();
-        let user_arn_binding_1 = args.user_arn.get_output(context);
-        let user_arn_binding = user_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_ssh_binding = args.allow_ssh.get_output(context);
+        let allow_sudo_binding = args.allow_sudo.get_output(context);
+        let level_binding = args.level.get_output(context);
+        let stack_id_binding = args.stack_id.get_output(context);
+        let user_arn_binding = args.user_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opsworks/permission:Permission".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowSsh".into(),
-                    value: &allow_ssh_binding,
+                    value: allow_ssh_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowSudo".into(),
-                    value: &allow_sudo_binding,
+                    value: allow_sudo_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "level".into(),
-                    value: &level_binding,
+                    value: level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: &stack_id_binding,
+                    value: stack_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userArn".into(),
-                    value: &user_arn_binding,
+                    value: user_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PermissionResult {
-            allow_ssh: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowSsh"),
-            ),
-            allow_sudo: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowSudo"),
-            ),
-            level: pulumi_gestalt_rust::__private::into_domain(o.extract_field("level")),
-            stack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackId"),
-            ),
-            user_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userArn"),
-            ),
+            allow_ssh: o.get_field("allowSsh"),
+            allow_sudo: o.get_field("allowSudo"),
+            level: o.get_field("level"),
+            stack_id: o.get_field("stackId"),
+            user_arn: o.get_field("userArn"),
         }
     }
 }

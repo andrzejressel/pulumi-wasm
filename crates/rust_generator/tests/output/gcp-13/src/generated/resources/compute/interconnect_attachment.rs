@@ -381,205 +381,139 @@ pub mod interconnect_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InterconnectAttachmentArgs,
     ) -> InterconnectAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_enabled_binding_1 = args.admin_enabled.get_output(context);
-        let admin_enabled_binding = admin_enabled_binding_1.get_inner();
-        let bandwidth_binding_1 = args.bandwidth.get_output(context);
-        let bandwidth_binding = bandwidth_binding_1.get_inner();
-        let candidate_subnets_binding_1 = args.candidate_subnets.get_output(context);
-        let candidate_subnets_binding = candidate_subnets_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let edge_availability_domain_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_enabled_binding = args.admin_enabled.get_output(context);
+        let bandwidth_binding = args.bandwidth.get_output(context);
+        let candidate_subnets_binding = args.candidate_subnets.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let edge_availability_domain_binding = args
             .edge_availability_domain
             .get_output(context);
-        let edge_availability_domain_binding = edge_availability_domain_binding_1
-            .get_inner();
-        let encryption_binding_1 = args.encryption.get_output(context);
-        let encryption_binding = encryption_binding_1.get_inner();
-        let interconnect_binding_1 = args.interconnect.get_output(context);
-        let interconnect_binding = interconnect_binding_1.get_inner();
-        let ipsec_internal_addresses_binding_1 = args
+        let encryption_binding = args.encryption.get_output(context);
+        let interconnect_binding = args.interconnect.get_output(context);
+        let ipsec_internal_addresses_binding = args
             .ipsec_internal_addresses
             .get_output(context);
-        let ipsec_internal_addresses_binding = ipsec_internal_addresses_binding_1
-            .get_inner();
-        let mtu_binding_1 = args.mtu.get_output(context);
-        let mtu_binding = mtu_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let router_binding_1 = args.router.get_output(context);
-        let router_binding = router_binding_1.get_inner();
-        let stack_type_binding_1 = args.stack_type.get_output(context);
-        let stack_type_binding = stack_type_binding_1.get_inner();
-        let subnet_length_binding_1 = args.subnet_length.get_output(context);
-        let subnet_length_binding = subnet_length_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let vlan_tag8021q_binding_1 = args.vlan_tag8021q.get_output(context);
-        let vlan_tag8021q_binding = vlan_tag8021q_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let mtu_binding = args.mtu.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let router_binding = args.router.get_output(context);
+        let stack_type_binding = args.stack_type.get_output(context);
+        let subnet_length_binding = args.subnet_length.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let vlan_tag8021q_binding = args.vlan_tag8021q.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/interconnectAttachment:InterconnectAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminEnabled".into(),
-                    value: &admin_enabled_binding,
+                    value: admin_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidth".into(),
-                    value: &bandwidth_binding,
+                    value: bandwidth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "candidateSubnets".into(),
-                    value: &candidate_subnets_binding,
+                    value: candidate_subnets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeAvailabilityDomain".into(),
-                    value: &edge_availability_domain_binding,
+                    value: edge_availability_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: &encryption_binding,
+                    value: encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interconnect".into(),
-                    value: &interconnect_binding,
+                    value: interconnect_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipsecInternalAddresses".into(),
-                    value: &ipsec_internal_addresses_binding,
+                    value: ipsec_internal_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtu".into(),
-                    value: &mtu_binding,
+                    value: mtu_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: &router_binding,
+                    value: router_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackType".into(),
-                    value: &stack_type_binding,
+                    value: stack_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetLength".into(),
-                    value: &subnet_length_binding,
+                    value: subnet_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vlanTag8021q".into(),
-                    value: &vlan_tag8021q_binding,
+                    value: vlan_tag8021q_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InterconnectAttachmentResult {
-            admin_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminEnabled"),
-            ),
-            bandwidth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidth"),
-            ),
-            candidate_subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("candidateSubnets"),
-            ),
-            cloud_router_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudRouterIpAddress"),
-            ),
-            cloud_router_ipv6_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudRouterIpv6Address"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            customer_router_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerRouterIpAddress"),
-            ),
-            customer_router_ipv6_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerRouterIpv6Address"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            edge_availability_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeAvailabilityDomain"),
-            ),
-            encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryption"),
-            ),
-            google_reference_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("googleReferenceId"),
-            ),
-            interconnect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interconnect"),
-            ),
-            ipsec_internal_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipsecInternalAddresses"),
-            ),
-            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pairing_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pairingKey"),
-            ),
-            partner_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerAsn"),
-            ),
-            private_interconnect_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateInterconnectInfos"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            router: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("router"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            stack_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackType"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subnet_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetLength"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vlan_tag8021q: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vlanTag8021q"),
-            ),
+            admin_enabled: o.get_field("adminEnabled"),
+            bandwidth: o.get_field("bandwidth"),
+            candidate_subnets: o.get_field("candidateSubnets"),
+            cloud_router_ip_address: o.get_field("cloudRouterIpAddress"),
+            cloud_router_ipv6_address: o.get_field("cloudRouterIpv6Address"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            customer_router_ip_address: o.get_field("customerRouterIpAddress"),
+            customer_router_ipv6_address: o.get_field("customerRouterIpv6Address"),
+            description: o.get_field("description"),
+            edge_availability_domain: o.get_field("edgeAvailabilityDomain"),
+            encryption: o.get_field("encryption"),
+            google_reference_id: o.get_field("googleReferenceId"),
+            interconnect: o.get_field("interconnect"),
+            ipsec_internal_addresses: o.get_field("ipsecInternalAddresses"),
+            mtu: o.get_field("mtu"),
+            name: o.get_field("name"),
+            pairing_key: o.get_field("pairingKey"),
+            partner_asn: o.get_field("partnerAsn"),
+            private_interconnect_infos: o.get_field("privateInterconnectInfos"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            router: o.get_field("router"),
+            self_link: o.get_field("selfLink"),
+            stack_type: o.get_field("stackType"),
+            state: o.get_field("state"),
+            subnet_length: o.get_field("subnetLength"),
+            type_: o.get_field("type"),
+            vlan_tag8021q: o.get_field("vlanTag8021q"),
         }
     }
 }

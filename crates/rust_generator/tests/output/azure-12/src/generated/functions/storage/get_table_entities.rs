@@ -31,48 +31,40 @@ pub mod get_table_entities {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTableEntitiesArgs,
     ) -> GetTableEntitiesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let selects_binding_1 = args.selects.get_output(context);
-        let selects_binding = selects_binding_1.get_inner();
-        let storage_table_id_binding_1 = args.storage_table_id.get_output(context);
-        let storage_table_id_binding = storage_table_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filter_binding = args.filter.get_output(context);
+        let selects_binding = args.selects.get_output(context);
+        let storage_table_id_binding = args.storage_table_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:storage/getTableEntities:getTableEntities".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selects".into(),
-                    value: &selects_binding,
+                    value: selects_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageTableId".into(),
-                    value: &storage_table_id_binding,
+                    value: storage_table_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTableEntitiesResult {
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            items: pulumi_gestalt_rust::__private::into_domain(o.extract_field("items")),
-            selects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selects"),
-            ),
-            storage_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageTableId"),
-            ),
+            filter: o.get_field("filter"),
+            id: o.get_field("id"),
+            items: o.get_field("items"),
+            selects: o.get_field("selects"),
+            storage_table_id: o.get_field("storageTableId"),
         }
     }
 }

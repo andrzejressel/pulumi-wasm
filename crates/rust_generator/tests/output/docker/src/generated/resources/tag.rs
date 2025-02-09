@@ -26,42 +26,35 @@ pub mod tag {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TagArgs,
     ) -> TagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let source_image_binding_1 = args.source_image.get_output(context);
-        let source_image_binding = source_image_binding_1.get_inner();
-        let target_image_binding_1 = args.target_image.get_output(context);
-        let target_image_binding = target_image_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let source_image_binding = args.source_image.get_output(context);
+        let target_image_binding = args.target_image.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "docker:index/tag:Tag".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImage".into(),
-                    value: &source_image_binding,
+                    value: source_image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetImage".into(),
-                    value: &target_image_binding,
+                    value: target_image_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TagResult {
-            source_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceImage"),
-            ),
-            source_image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceImageId"),
-            ),
-            target_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetImage"),
-            ),
+            source_image: o.get_field("sourceImage"),
+            source_image_id: o.get_field("sourceImageId"),
+            target_image: o.get_field("targetImage"),
         }
     }
 }

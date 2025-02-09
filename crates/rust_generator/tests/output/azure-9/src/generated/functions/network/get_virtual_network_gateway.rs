@@ -66,73 +66,49 @@ pub mod get_virtual_network_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVirtualNetworkGatewayArgs,
     ) -> GetVirtualNetworkGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVirtualNetworkGatewayResult {
-            active_active: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeActive"),
-            ),
-            bgp_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpSettings"),
-            ),
-            custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customRoutes"),
-            ),
-            default_local_network_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultLocalNetworkGatewayId"),
-            ),
-            enable_bgp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBgp"),
-            ),
-            generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("generation"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfigurations"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddressEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vpn_client_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnClientConfigurations"),
-            ),
-            vpn_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnType"),
-            ),
+            active_active: o.get_field("activeActive"),
+            bgp_settings: o.get_field("bgpSettings"),
+            custom_routes: o.get_field("customRoutes"),
+            default_local_network_gateway_id: o
+                .get_field("defaultLocalNetworkGatewayId"),
+            enable_bgp: o.get_field("enableBgp"),
+            generation: o.get_field("generation"),
+            id: o.get_field("id"),
+            ip_configurations: o.get_field("ipConfigurations"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            private_ip_address_enabled: o.get_field("privateIpAddressEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
+            vpn_client_configurations: o.get_field("vpnClientConfigurations"),
+            vpn_type: o.get_field("vpnType"),
         }
     }
 }

@@ -82,63 +82,50 @@ pub mod organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationArgs,
     ) -> OrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let iotcentral_application_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let iotcentral_application_id_binding = args
             .iotcentral_application_id
             .get_output(context);
-        let iotcentral_application_id_binding = iotcentral_application_id_binding_1
-            .get_inner();
-        let organization_id_binding_1 = args.organization_id.get_output(context);
-        let organization_id_binding = organization_id_binding_1.get_inner();
-        let parent_organization_id_binding_1 = args
+        let organization_id_binding = args.organization_id.get_output(context);
+        let parent_organization_id_binding = args
             .parent_organization_id
             .get_output(context);
-        let parent_organization_id_binding = parent_organization_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iotcentral/organization:Organization".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotcentralApplicationId".into(),
-                    value: &iotcentral_application_id_binding,
+                    value: iotcentral_application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationId".into(),
-                    value: &organization_id_binding,
+                    value: organization_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentOrganizationId".into(),
-                    value: &parent_organization_id_binding,
+                    value: parent_organization_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            iotcentral_application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iotcentralApplicationId"),
-            ),
-            organization_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationId"),
-            ),
-            parent_organization_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentOrganizationId"),
-            ),
+            display_name: o.get_field("displayName"),
+            iotcentral_application_id: o.get_field("iotcentralApplicationId"),
+            organization_id: o.get_field("organizationId"),
+            parent_organization_id: o.get_field("parentOrganizationId"),
         }
     }
 }

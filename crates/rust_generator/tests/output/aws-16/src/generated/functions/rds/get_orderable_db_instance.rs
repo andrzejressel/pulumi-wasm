@@ -145,292 +145,196 @@ pub mod get_orderable_db_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOrderableDbInstanceArgs,
     ) -> GetOrderableDbInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_group_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zone_group_binding = args
             .availability_zone_group
             .get_output(context);
-        let availability_zone_group_binding = availability_zone_group_binding_1
-            .get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_latest_version_binding_1 = args
+        let engine_binding = args.engine.get_output(context);
+        let engine_latest_version_binding = args
             .engine_latest_version
             .get_output(context);
-        let engine_latest_version_binding = engine_latest_version_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let instance_class_binding_1 = args.instance_class.get_output(context);
-        let instance_class_binding = instance_class_binding_1.get_inner();
-        let license_model_binding_1 = args.license_model.get_output(context);
-        let license_model_binding = license_model_binding_1.get_inner();
-        let preferred_engine_versions_binding_1 = args
+        let engine_version_binding = args.engine_version.get_output(context);
+        let instance_class_binding = args.instance_class.get_output(context);
+        let license_model_binding = args.license_model.get_output(context);
+        let preferred_engine_versions_binding = args
             .preferred_engine_versions
             .get_output(context);
-        let preferred_engine_versions_binding = preferred_engine_versions_binding_1
-            .get_inner();
-        let preferred_instance_classes_binding_1 = args
+        let preferred_instance_classes_binding = args
             .preferred_instance_classes
             .get_output(context);
-        let preferred_instance_classes_binding = preferred_instance_classes_binding_1
-            .get_inner();
-        let read_replica_capable_binding_1 = args
-            .read_replica_capable
-            .get_output(context);
-        let read_replica_capable_binding = read_replica_capable_binding_1.get_inner();
-        let storage_type_binding_1 = args.storage_type.get_output(context);
-        let storage_type_binding = storage_type_binding_1.get_inner();
-        let supported_engine_modes_binding_1 = args
+        let read_replica_capable_binding = args.read_replica_capable.get_output(context);
+        let storage_type_binding = args.storage_type.get_output(context);
+        let supported_engine_modes_binding = args
             .supported_engine_modes
             .get_output(context);
-        let supported_engine_modes_binding = supported_engine_modes_binding_1
-            .get_inner();
-        let supported_network_types_binding_1 = args
+        let supported_network_types_binding = args
             .supported_network_types
             .get_output(context);
-        let supported_network_types_binding = supported_network_types_binding_1
-            .get_inner();
-        let supports_clusters_binding_1 = args.supports_clusters.get_output(context);
-        let supports_clusters_binding = supports_clusters_binding_1.get_inner();
-        let supports_enhanced_monitoring_binding_1 = args
+        let supports_clusters_binding = args.supports_clusters.get_output(context);
+        let supports_enhanced_monitoring_binding = args
             .supports_enhanced_monitoring
             .get_output(context);
-        let supports_enhanced_monitoring_binding = supports_enhanced_monitoring_binding_1
-            .get_inner();
-        let supports_global_databases_binding_1 = args
+        let supports_global_databases_binding = args
             .supports_global_databases
             .get_output(context);
-        let supports_global_databases_binding = supports_global_databases_binding_1
-            .get_inner();
-        let supports_iam_database_authentication_binding_1 = args
+        let supports_iam_database_authentication_binding = args
             .supports_iam_database_authentication
             .get_output(context);
-        let supports_iam_database_authentication_binding = supports_iam_database_authentication_binding_1
-            .get_inner();
-        let supports_iops_binding_1 = args.supports_iops.get_output(context);
-        let supports_iops_binding = supports_iops_binding_1.get_inner();
-        let supports_kerberos_authentication_binding_1 = args
+        let supports_iops_binding = args.supports_iops.get_output(context);
+        let supports_kerberos_authentication_binding = args
             .supports_kerberos_authentication
             .get_output(context);
-        let supports_kerberos_authentication_binding = supports_kerberos_authentication_binding_1
-            .get_inner();
-        let supports_multi_az_binding_1 = args.supports_multi_az.get_output(context);
-        let supports_multi_az_binding = supports_multi_az_binding_1.get_inner();
-        let supports_performance_insights_binding_1 = args
+        let supports_multi_az_binding = args.supports_multi_az.get_output(context);
+        let supports_performance_insights_binding = args
             .supports_performance_insights
             .get_output(context);
-        let supports_performance_insights_binding = supports_performance_insights_binding_1
-            .get_inner();
-        let supports_storage_autoscaling_binding_1 = args
+        let supports_storage_autoscaling_binding = args
             .supports_storage_autoscaling
             .get_output(context);
-        let supports_storage_autoscaling_binding = supports_storage_autoscaling_binding_1
-            .get_inner();
-        let supports_storage_encryption_binding_1 = args
+        let supports_storage_encryption_binding = args
             .supports_storage_encryption
             .get_output(context);
-        let supports_storage_encryption_binding = supports_storage_encryption_binding_1
-            .get_inner();
-        let vpc_binding_1 = args.vpc.get_output(context);
-        let vpc_binding = vpc_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let vpc_binding = args.vpc.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:rds/getOrderableDbInstance:getOrderableDbInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneGroup".into(),
-                    value: &availability_zone_group_binding,
+                    value: availability_zone_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineLatestVersion".into(),
-                    value: &engine_latest_version_binding,
+                    value: engine_latest_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceClass".into(),
-                    value: &instance_class_binding,
+                    value: instance_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseModel".into(),
-                    value: &license_model_binding,
+                    value: license_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredEngineVersions".into(),
-                    value: &preferred_engine_versions_binding,
+                    value: preferred_engine_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredInstanceClasses".into(),
-                    value: &preferred_instance_classes_binding,
+                    value: preferred_instance_classes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readReplicaCapable".into(),
-                    value: &read_replica_capable_binding,
+                    value: read_replica_capable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: &storage_type_binding,
+                    value: storage_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedEngineModes".into(),
-                    value: &supported_engine_modes_binding,
+                    value: supported_engine_modes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedNetworkTypes".into(),
-                    value: &supported_network_types_binding,
+                    value: supported_network_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsClusters".into(),
-                    value: &supports_clusters_binding,
+                    value: supports_clusters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsEnhancedMonitoring".into(),
-                    value: &supports_enhanced_monitoring_binding,
+                    value: supports_enhanced_monitoring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsGlobalDatabases".into(),
-                    value: &supports_global_databases_binding,
+                    value: supports_global_databases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsIamDatabaseAuthentication".into(),
-                    value: &supports_iam_database_authentication_binding,
+                    value: supports_iam_database_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsIops".into(),
-                    value: &supports_iops_binding,
+                    value: supports_iops_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsKerberosAuthentication".into(),
-                    value: &supports_kerberos_authentication_binding,
+                    value: supports_kerberos_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsMultiAz".into(),
-                    value: &supports_multi_az_binding,
+                    value: supports_multi_az_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsPerformanceInsights".into(),
-                    value: &supports_performance_insights_binding,
+                    value: supports_performance_insights_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsStorageAutoscaling".into(),
-                    value: &supports_storage_autoscaling_binding,
+                    value: supports_storage_autoscaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportsStorageEncryption".into(),
-                    value: &supports_storage_encryption_binding,
+                    value: supports_storage_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: &vpc_binding,
+                    value: vpc_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOrderableDbInstanceResult {
-            availability_zone_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneGroup"),
-            ),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_latest_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineLatestVersion"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceClass"),
-            ),
-            license_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseModel"),
-            ),
-            max_iops_per_db_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxIopsPerDbInstance"),
-            ),
-            max_iops_per_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxIopsPerGib"),
-            ),
-            max_storage_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxStorageSize"),
-            ),
-            min_iops_per_db_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minIopsPerDbInstance"),
-            ),
-            min_iops_per_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minIopsPerGib"),
-            ),
-            min_storage_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minStorageSize"),
-            ),
-            multi_az_capable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAzCapable"),
-            ),
-            outpost_capable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostCapable"),
-            ),
-            preferred_engine_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredEngineVersions"),
-            ),
-            preferred_instance_classes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredInstanceClasses"),
-            ),
-            read_replica_capable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readReplicaCapable"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            supported_engine_modes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedEngineModes"),
-            ),
-            supported_network_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedNetworkTypes"),
-            ),
-            supports_clusters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsClusters"),
-            ),
-            supports_enhanced_monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsEnhancedMonitoring"),
-            ),
-            supports_global_databases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsGlobalDatabases"),
-            ),
-            supports_iam_database_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsIamDatabaseAuthentication"),
-            ),
-            supports_iops: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsIops"),
-            ),
-            supports_kerberos_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsKerberosAuthentication"),
-            ),
-            supports_multi_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsMultiAz"),
-            ),
-            supports_performance_insights: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsPerformanceInsights"),
-            ),
-            supports_storage_autoscaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsStorageAutoscaling"),
-            ),
-            supports_storage_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsStorageEncryption"),
-            ),
-            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
+            availability_zone_group: o.get_field("availabilityZoneGroup"),
+            availability_zones: o.get_field("availabilityZones"),
+            engine: o.get_field("engine"),
+            engine_latest_version: o.get_field("engineLatestVersion"),
+            engine_version: o.get_field("engineVersion"),
+            id: o.get_field("id"),
+            instance_class: o.get_field("instanceClass"),
+            license_model: o.get_field("licenseModel"),
+            max_iops_per_db_instance: o.get_field("maxIopsPerDbInstance"),
+            max_iops_per_gib: o.get_field("maxIopsPerGib"),
+            max_storage_size: o.get_field("maxStorageSize"),
+            min_iops_per_db_instance: o.get_field("minIopsPerDbInstance"),
+            min_iops_per_gib: o.get_field("minIopsPerGib"),
+            min_storage_size: o.get_field("minStorageSize"),
+            multi_az_capable: o.get_field("multiAzCapable"),
+            outpost_capable: o.get_field("outpostCapable"),
+            preferred_engine_versions: o.get_field("preferredEngineVersions"),
+            preferred_instance_classes: o.get_field("preferredInstanceClasses"),
+            read_replica_capable: o.get_field("readReplicaCapable"),
+            storage_type: o.get_field("storageType"),
+            supported_engine_modes: o.get_field("supportedEngineModes"),
+            supported_network_types: o.get_field("supportedNetworkTypes"),
+            supports_clusters: o.get_field("supportsClusters"),
+            supports_enhanced_monitoring: o.get_field("supportsEnhancedMonitoring"),
+            supports_global_databases: o.get_field("supportsGlobalDatabases"),
+            supports_iam_database_authentication: o
+                .get_field("supportsIamDatabaseAuthentication"),
+            supports_iops: o.get_field("supportsIops"),
+            supports_kerberos_authentication: o
+                .get_field("supportsKerberosAuthentication"),
+            supports_multi_az: o.get_field("supportsMultiAz"),
+            supports_performance_insights: o.get_field("supportsPerformanceInsights"),
+            supports_storage_autoscaling: o.get_field("supportsStorageAutoscaling"),
+            supports_storage_encryption: o.get_field("supportsStorageEncryption"),
+            vpc: o.get_field("vpc"),
         }
     }
 }

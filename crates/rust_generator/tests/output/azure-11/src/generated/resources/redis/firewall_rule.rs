@@ -89,64 +89,52 @@ pub mod firewall_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirewallRuleArgs,
     ) -> FirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let end_ip_binding_1 = args.end_ip.get_output(context);
-        let end_ip_binding = end_ip_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let redis_cache_name_binding_1 = args.redis_cache_name.get_output(context);
-        let redis_cache_name_binding = redis_cache_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let start_ip_binding_1 = args.start_ip.get_output(context);
-        let start_ip_binding = start_ip_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let end_ip_binding = args.end_ip.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let redis_cache_name_binding = args.redis_cache_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let start_ip_binding = args.start_ip.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:redis/firewallRule:FirewallRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endIp".into(),
-                    value: &end_ip_binding,
+                    value: end_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisCacheName".into(),
-                    value: &redis_cache_name_binding,
+                    value: redis_cache_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startIp".into(),
-                    value: &start_ip_binding,
+                    value: start_ip_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirewallRuleResult {
-            end_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endIp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            redis_cache_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisCacheName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            start_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startIp"),
-            ),
+            end_ip: o.get_field("endIp"),
+            name: o.get_field("name"),
+            redis_cache_name: o.get_field("redisCacheName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            start_ip: o.get_field("startIp"),
         }
     }
 }

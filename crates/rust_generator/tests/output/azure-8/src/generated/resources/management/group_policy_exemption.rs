@@ -107,105 +107,78 @@ pub mod group_policy_exemption {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupPolicyExemptionArgs,
     ) -> GroupPolicyExemptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let exemption_category_binding_1 = args.exemption_category.get_output(context);
-        let exemption_category_binding = exemption_category_binding_1.get_inner();
-        let expires_on_binding_1 = args.expires_on.get_output(context);
-        let expires_on_binding = expires_on_binding_1.get_inner();
-        let management_group_id_binding_1 = args.management_group_id.get_output(context);
-        let management_group_id_binding = management_group_id_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let policy_assignment_id_binding_1 = args
-            .policy_assignment_id
-            .get_output(context);
-        let policy_assignment_id_binding = policy_assignment_id_binding_1.get_inner();
-        let policy_definition_reference_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let exemption_category_binding = args.exemption_category.get_output(context);
+        let expires_on_binding = args.expires_on.get_output(context);
+        let management_group_id_binding = args.management_group_id.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let policy_assignment_id_binding = args.policy_assignment_id.get_output(context);
+        let policy_definition_reference_ids_binding = args
             .policy_definition_reference_ids
             .get_output(context);
-        let policy_definition_reference_ids_binding = policy_definition_reference_ids_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:management/groupPolicyExemption:GroupPolicyExemption".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exemptionCategory".into(),
-                    value: &exemption_category_binding,
+                    value: exemption_category_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiresOn".into(),
-                    value: &expires_on_binding,
+                    value: expires_on_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementGroupId".into(),
-                    value: &management_group_id_binding,
+                    value: management_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyAssignmentId".into(),
-                    value: &policy_assignment_id_binding,
+                    value: policy_assignment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDefinitionReferenceIds".into(),
-                    value: &policy_definition_reference_ids_binding,
+                    value: policy_definition_reference_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupPolicyExemptionResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            exemption_category: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exemptionCategory"),
-            ),
-            expires_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresOn"),
-            ),
-            management_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementGroupId"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_assignment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyAssignmentId"),
-            ),
-            policy_definition_reference_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDefinitionReferenceIds"),
-            ),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            exemption_category: o.get_field("exemptionCategory"),
+            expires_on: o.get_field("expiresOn"),
+            management_group_id: o.get_field("managementGroupId"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            policy_assignment_id: o.get_field("policyAssignmentId"),
+            policy_definition_reference_ids: o.get_field("policyDefinitionReferenceIds"),
         }
     }
 }

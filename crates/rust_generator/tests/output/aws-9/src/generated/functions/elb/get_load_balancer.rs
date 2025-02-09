@@ -48,86 +48,51 @@ pub mod get_load_balancer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLoadBalancerArgs,
     ) -> GetLoadBalancerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:elb/getLoadBalancer:getLoadBalancer".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLoadBalancerResult {
-            access_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessLogs"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            connection_draining: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionDraining"),
-            ),
-            connection_draining_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionDrainingTimeout"),
-            ),
-            cross_zone_load_balancing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("crossZoneLoadBalancing"),
-            ),
-            desync_mitigation_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desyncMitigationMode"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheck"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            idle_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeout"),
-            ),
-            instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instances"),
-            ),
-            internal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internal"),
-            ),
-            listeners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listeners"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            source_security_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSecurityGroup"),
-            ),
-            source_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSecurityGroupId"),
-            ),
-            subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnets"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            access_logs: o.get_field("accessLogs"),
+            arn: o.get_field("arn"),
+            availability_zones: o.get_field("availabilityZones"),
+            connection_draining: o.get_field("connectionDraining"),
+            connection_draining_timeout: o.get_field("connectionDrainingTimeout"),
+            cross_zone_load_balancing: o.get_field("crossZoneLoadBalancing"),
+            desync_mitigation_mode: o.get_field("desyncMitigationMode"),
+            dns_name: o.get_field("dnsName"),
+            health_check: o.get_field("healthCheck"),
+            id: o.get_field("id"),
+            idle_timeout: o.get_field("idleTimeout"),
+            instances: o.get_field("instances"),
+            internal: o.get_field("internal"),
+            listeners: o.get_field("listeners"),
+            name: o.get_field("name"),
+            security_groups: o.get_field("securityGroups"),
+            source_security_group: o.get_field("sourceSecurityGroup"),
+            source_security_group_id: o.get_field("sourceSecurityGroupId"),
+            subnets: o.get_field("subnets"),
+            tags: o.get_field("tags"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

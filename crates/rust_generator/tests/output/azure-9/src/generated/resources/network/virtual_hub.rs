@@ -126,120 +126,90 @@ pub mod virtual_hub {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualHubArgs,
     ) -> VirtualHubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_prefix_binding_1 = args.address_prefix.get_output(context);
-        let address_prefix_binding = address_prefix_binding_1.get_inner();
-        let hub_routing_preference_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_prefix_binding = args.address_prefix.get_output(context);
+        let hub_routing_preference_binding = args
             .hub_routing_preference
             .get_output(context);
-        let hub_routing_preference_binding = hub_routing_preference_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let routes_binding_1 = args.routes.get_output(context);
-        let routes_binding = routes_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_router_auto_scale_min_capacity_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let routes_binding = args.routes.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let virtual_router_auto_scale_min_capacity_binding = args
             .virtual_router_auto_scale_min_capacity
             .get_output(context);
-        let virtual_router_auto_scale_min_capacity_binding = virtual_router_auto_scale_min_capacity_binding_1
-            .get_inner();
-        let virtual_wan_id_binding_1 = args.virtual_wan_id.get_output(context);
-        let virtual_wan_id_binding = virtual_wan_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let virtual_wan_id_binding = args.virtual_wan_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/virtualHub:VirtualHub".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefix".into(),
-                    value: &address_prefix_binding,
+                    value: address_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubRoutingPreference".into(),
-                    value: &hub_routing_preference_binding,
+                    value: hub_routing_preference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: &routes_binding,
+                    value: routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualRouterAutoScaleMinCapacity".into(),
-                    value: &virtual_router_auto_scale_min_capacity_binding,
+                    value: virtual_router_auto_scale_min_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualWanId".into(),
-                    value: &virtual_wan_id_binding,
+                    value: virtual_wan_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualHubResult {
-            address_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressPrefix"),
-            ),
-            default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRouteTableId"),
-            ),
-            hub_routing_preference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hubRoutingPreference"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routes"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_router_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualRouterAsn"),
-            ),
-            virtual_router_auto_scale_min_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualRouterAutoScaleMinCapacity"),
-            ),
-            virtual_router_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualRouterIps"),
-            ),
-            virtual_wan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualWanId"),
-            ),
+            address_prefix: o.get_field("addressPrefix"),
+            default_route_table_id: o.get_field("defaultRouteTableId"),
+            hub_routing_preference: o.get_field("hubRoutingPreference"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            routes: o.get_field("routes"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            virtual_router_asn: o.get_field("virtualRouterAsn"),
+            virtual_router_auto_scale_min_capacity: o
+                .get_field("virtualRouterAutoScaleMinCapacity"),
+            virtual_router_ips: o.get_field("virtualRouterIps"),
+            virtual_wan_id: o.get_field("virtualWanId"),
         }
     }
 }

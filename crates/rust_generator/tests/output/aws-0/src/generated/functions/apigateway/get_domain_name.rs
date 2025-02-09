@@ -60,82 +60,52 @@ pub mod get_domain_name {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDomainNameArgs,
     ) -> GetDomainNameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let domain_name_id_binding_1 = args.domain_name_id.get_output(context);
-        let domain_name_id_binding = domain_name_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let domain_name_id_binding = args.domain_name_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:apigateway/getDomainName:getDomainName".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameId".into(),
-                    value: &domain_name_id_binding,
+                    value: domain_name_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDomainNameResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            certificate_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateName"),
-            ),
-            certificate_upload_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateUploadDate"),
-            ),
-            cloudfront_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudfrontDomainName"),
-            ),
-            cloudfront_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudfrontZoneId"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_name_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNameId"),
-            ),
-            endpoint_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointConfigurations"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            regional_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalCertificateArn"),
-            ),
-            regional_certificate_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalCertificateName"),
-            ),
-            regional_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalDomainName"),
-            ),
-            regional_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionalZoneId"),
-            ),
-            security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPolicy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            certificate_arn: o.get_field("certificateArn"),
+            certificate_name: o.get_field("certificateName"),
+            certificate_upload_date: o.get_field("certificateUploadDate"),
+            cloudfront_domain_name: o.get_field("cloudfrontDomainName"),
+            cloudfront_zone_id: o.get_field("cloudfrontZoneId"),
+            domain_name: o.get_field("domainName"),
+            domain_name_id: o.get_field("domainNameId"),
+            endpoint_configurations: o.get_field("endpointConfigurations"),
+            id: o.get_field("id"),
+            policy: o.get_field("policy"),
+            regional_certificate_arn: o.get_field("regionalCertificateArn"),
+            regional_certificate_name: o.get_field("regionalCertificateName"),
+            regional_domain_name: o.get_field("regionalDomainName"),
+            regional_zone_id: o.get_field("regionalZoneId"),
+            security_policy: o.get_field("securityPolicy"),
+            tags: o.get_field("tags"),
         }
     }
 }

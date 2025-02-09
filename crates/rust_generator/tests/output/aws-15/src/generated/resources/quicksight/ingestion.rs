@@ -70,61 +70,48 @@ pub mod ingestion {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IngestionArgs,
     ) -> IngestionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let data_set_id_binding_1 = args.data_set_id.get_output(context);
-        let data_set_id_binding = data_set_id_binding_1.get_inner();
-        let ingestion_id_binding_1 = args.ingestion_id.get_output(context);
-        let ingestion_id_binding = ingestion_id_binding_1.get_inner();
-        let ingestion_type_binding_1 = args.ingestion_type.get_output(context);
-        let ingestion_type_binding = ingestion_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let data_set_id_binding = args.data_set_id.get_output(context);
+        let ingestion_id_binding = args.ingestion_id.get_output(context);
+        let ingestion_type_binding = args.ingestion_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/ingestion:Ingestion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSetId".into(),
-                    value: &data_set_id_binding,
+                    value: data_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionId".into(),
-                    value: &ingestion_id_binding,
+                    value: ingestion_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionType".into(),
-                    value: &ingestion_type_binding,
+                    value: ingestion_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IngestionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            data_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSetId"),
-            ),
-            ingestion_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingestionId"),
-            ),
-            ingestion_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingestionStatus"),
-            ),
-            ingestion_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingestionType"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            data_set_id: o.get_field("dataSetId"),
+            ingestion_id: o.get_field("ingestionId"),
+            ingestion_status: o.get_field("ingestionStatus"),
+            ingestion_type: o.get_field("ingestionType"),
         }
     }
 }

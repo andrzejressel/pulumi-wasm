@@ -96,83 +96,65 @@ pub mod data_source_windows_performance_counter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataSourceWindowsPerformanceCounterArgs,
     ) -> DataSourceWindowsPerformanceCounterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let counter_name_binding_1 = args.counter_name.get_output(context);
-        let counter_name_binding = counter_name_binding_1.get_inner();
-        let instance_name_binding_1 = args.instance_name.get_output(context);
-        let instance_name_binding = instance_name_binding_1.get_inner();
-        let interval_seconds_binding_1 = args.interval_seconds.get_output(context);
-        let interval_seconds_binding = interval_seconds_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let object_name_binding_1 = args.object_name.get_output(context);
-        let object_name_binding = object_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let workspace_name_binding_1 = args.workspace_name.get_output(context);
-        let workspace_name_binding = workspace_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let counter_name_binding = args.counter_name.get_output(context);
+        let instance_name_binding = args.instance_name.get_output(context);
+        let interval_seconds_binding = args.interval_seconds.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let object_name_binding = args.object_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let workspace_name_binding = args.workspace_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "counterName".into(),
-                    value: &counter_name_binding,
+                    value: counter_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: &instance_name_binding,
+                    value: instance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intervalSeconds".into(),
-                    value: &interval_seconds_binding,
+                    value: interval_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectName".into(),
-                    value: &object_name_binding,
+                    value: object_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceName".into(),
-                    value: &workspace_name_binding,
+                    value: workspace_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataSourceWindowsPerformanceCounterResult {
-            counter_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("counterName"),
-            ),
-            instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceName"),
-            ),
-            interval_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("intervalSeconds"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            object_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            workspace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceName"),
-            ),
+            counter_name: o.get_field("counterName"),
+            instance_name: o.get_field("instanceName"),
+            interval_seconds: o.get_field("intervalSeconds"),
+            name: o.get_field("name"),
+            object_name: o.get_field("objectName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            workspace_name: o.get_field("workspaceName"),
         }
     }
 }

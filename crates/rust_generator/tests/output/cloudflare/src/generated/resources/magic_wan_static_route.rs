@@ -86,93 +86,70 @@ pub mod magic_wan_static_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MagicWanStaticRouteArgs,
     ) -> MagicWanStaticRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let colo_names_binding_1 = args.colo_names.get_output(context);
-        let colo_names_binding = colo_names_binding_1.get_inner();
-        let colo_regions_binding_1 = args.colo_regions.get_output(context);
-        let colo_regions_binding = colo_regions_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let nexthop_binding_1 = args.nexthop.get_output(context);
-        let nexthop_binding = nexthop_binding_1.get_inner();
-        let prefix_binding_1 = args.prefix.get_output(context);
-        let prefix_binding = prefix_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let weight_binding_1 = args.weight.get_output(context);
-        let weight_binding = weight_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let colo_names_binding = args.colo_names.get_output(context);
+        let colo_regions_binding = args.colo_regions.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let nexthop_binding = args.nexthop.get_output(context);
+        let prefix_binding = args.prefix.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let weight_binding = args.weight.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/magicWanStaticRoute:MagicWanStaticRoute".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coloNames".into(),
-                    value: &colo_names_binding,
+                    value: colo_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coloRegions".into(),
-                    value: &colo_regions_binding,
+                    value: colo_regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nexthop".into(),
-                    value: &nexthop_binding,
+                    value: nexthop_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: &prefix_binding,
+                    value: prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weight".into(),
-                    value: &weight_binding,
+                    value: weight_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MagicWanStaticRouteResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            colo_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coloNames"),
-            ),
-            colo_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coloRegions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            nexthop: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nexthop"),
-            ),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            weight: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weight"),
-            ),
+            account_id: o.get_field("accountId"),
+            colo_names: o.get_field("coloNames"),
+            colo_regions: o.get_field("coloRegions"),
+            description: o.get_field("description"),
+            nexthop: o.get_field("nexthop"),
+            prefix: o.get_field("prefix"),
+            priority: o.get_field("priority"),
+            weight: o.get_field("weight"),
         }
     }
 }

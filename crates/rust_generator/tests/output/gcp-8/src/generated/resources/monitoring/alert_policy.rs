@@ -265,117 +265,86 @@ pub mod alert_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AlertPolicyArgs,
     ) -> AlertPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alert_strategy_binding_1 = args.alert_strategy.get_output(context);
-        let alert_strategy_binding = alert_strategy_binding_1.get_inner();
-        let combiner_binding_1 = args.combiner.get_output(context);
-        let combiner_binding = combiner_binding_1.get_inner();
-        let conditions_binding_1 = args.conditions.get_output(context);
-        let conditions_binding = conditions_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let documentation_binding_1 = args.documentation.get_output(context);
-        let documentation_binding = documentation_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let notification_channels_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alert_strategy_binding = args.alert_strategy.get_output(context);
+        let combiner_binding = args.combiner.get_output(context);
+        let conditions_binding = args.conditions.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let documentation_binding = args.documentation.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let notification_channels_binding = args
             .notification_channels
             .get_output(context);
-        let notification_channels_binding = notification_channels_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let severity_binding_1 = args.severity.get_output(context);
-        let severity_binding = severity_binding_1.get_inner();
-        let user_labels_binding_1 = args.user_labels.get_output(context);
-        let user_labels_binding = user_labels_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let severity_binding = args.severity.get_output(context);
+        let user_labels_binding = args.user_labels.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:monitoring/alertPolicy:AlertPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertStrategy".into(),
-                    value: &alert_strategy_binding,
+                    value: alert_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "combiner".into(),
-                    value: &combiner_binding,
+                    value: combiner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditions".into(),
-                    value: &conditions_binding,
+                    value: conditions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentation".into(),
-                    value: &documentation_binding,
+                    value: documentation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationChannels".into(),
-                    value: &notification_channels_binding,
+                    value: notification_channels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: &severity_binding,
+                    value: severity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userLabels".into(),
-                    value: &user_labels_binding,
+                    value: user_labels_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AlertPolicyResult {
-            alert_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alertStrategy"),
-            ),
-            combiner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("combiner"),
-            ),
-            conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditions"),
-            ),
-            creation_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationRecords"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            documentation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentation"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_channels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationChannels"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            severity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("severity"),
-            ),
-            user_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userLabels"),
-            ),
+            alert_strategy: o.get_field("alertStrategy"),
+            combiner: o.get_field("combiner"),
+            conditions: o.get_field("conditions"),
+            creation_records: o.get_field("creationRecords"),
+            display_name: o.get_field("displayName"),
+            documentation: o.get_field("documentation"),
+            enabled: o.get_field("enabled"),
+            name: o.get_field("name"),
+            notification_channels: o.get_field("notificationChannels"),
+            project: o.get_field("project"),
+            severity: o.get_field("severity"),
+            user_labels: o.get_field("userLabels"),
         }
     }
 }

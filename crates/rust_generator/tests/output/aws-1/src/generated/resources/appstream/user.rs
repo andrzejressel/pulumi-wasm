@@ -79,82 +79,62 @@ pub mod user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding_1 = args.authentication_type.get_output(context);
-        let authentication_type_binding = authentication_type_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let first_name_binding_1 = args.first_name.get_output(context);
-        let first_name_binding = first_name_binding_1.get_inner();
-        let last_name_binding_1 = args.last_name.get_output(context);
-        let last_name_binding = last_name_binding_1.get_inner();
-        let send_email_notification_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_type_binding = args.authentication_type.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let first_name_binding = args.first_name.get_output(context);
+        let last_name_binding = args.last_name.get_output(context);
+        let send_email_notification_binding = args
             .send_email_notification
             .get_output(context);
-        let send_email_notification_binding = send_email_notification_binding_1
-            .get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let user_name_binding = args.user_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appstream/user:User".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: &authentication_type_binding,
+                    value: authentication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstName".into(),
-                    value: &first_name_binding,
+                    value: first_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastName".into(),
-                    value: &last_name_binding,
+                    value: last_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendEmailNotification".into(),
-                    value: &send_email_notification_binding,
+                    value: send_email_notification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationType"),
-            ),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            first_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstName"),
-            ),
-            last_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastName"),
-            ),
-            send_email_notification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendEmailNotification"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            arn: o.get_field("arn"),
+            authentication_type: o.get_field("authenticationType"),
+            created_time: o.get_field("createdTime"),
+            enabled: o.get_field("enabled"),
+            first_name: o.get_field("firstName"),
+            last_name: o.get_field("lastName"),
+            send_email_notification: o.get_field("sendEmailNotification"),
+            user_name: o.get_field("userName"),
         }
     }
 }

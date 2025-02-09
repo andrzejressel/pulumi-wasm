@@ -152,73 +152,58 @@ pub mod custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomDomainArgs,
     ) -> CustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding_1 = args.api_management_id.get_output(context);
-        let api_management_id_binding = api_management_id_binding_1.get_inner();
-        let developer_portals_binding_1 = args.developer_portals.get_output(context);
-        let developer_portals_binding = developer_portals_binding_1.get_inner();
-        let gateways_binding_1 = args.gateways.get_output(context);
-        let gateways_binding = gateways_binding_1.get_inner();
-        let managements_binding_1 = args.managements.get_output(context);
-        let managements_binding = managements_binding_1.get_inner();
-        let portals_binding_1 = args.portals.get_output(context);
-        let portals_binding = portals_binding_1.get_inner();
-        let scms_binding_1 = args.scms.get_output(context);
-        let scms_binding = scms_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_id_binding = args.api_management_id.get_output(context);
+        let developer_portals_binding = args.developer_portals.get_output(context);
+        let gateways_binding = args.gateways.get_output(context);
+        let managements_binding = args.managements.get_output(context);
+        let portals_binding = args.portals.get_output(context);
+        let scms_binding = args.scms.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/customDomain:CustomDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: &api_management_id_binding,
+                    value: api_management_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerPortals".into(),
-                    value: &developer_portals_binding,
+                    value: developer_portals_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gateways".into(),
-                    value: &gateways_binding,
+                    value: gateways_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managements".into(),
-                    value: &managements_binding,
+                    value: managements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portals".into(),
-                    value: &portals_binding,
+                    value: portals_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scms".into(),
-                    value: &scms_binding,
+                    value: scms_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomDomainResult {
-            api_management_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementId"),
-            ),
-            developer_portals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("developerPortals"),
-            ),
-            gateways: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gateways"),
-            ),
-            managements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managements"),
-            ),
-            portals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portals"),
-            ),
-            scms: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scms")),
+            api_management_id: o.get_field("apiManagementId"),
+            developer_portals: o.get_field("developerPortals"),
+            gateways: o.get_field("gateways"),
+            managements: o.get_field("managements"),
+            portals: o.get_field("portals"),
+            scms: o.get_field("scms"),
         }
     }
 }

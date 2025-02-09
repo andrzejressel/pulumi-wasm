@@ -71,68 +71,55 @@ pub mod studio_lifecycle_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StudioLifecycleConfigArgs,
     ) -> StudioLifecycleConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let studio_lifecycle_config_app_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let studio_lifecycle_config_app_type_binding = args
             .studio_lifecycle_config_app_type
             .get_output(context);
-        let studio_lifecycle_config_app_type_binding = studio_lifecycle_config_app_type_binding_1
-            .get_inner();
-        let studio_lifecycle_config_content_binding_1 = args
+        let studio_lifecycle_config_content_binding = args
             .studio_lifecycle_config_content
             .get_output(context);
-        let studio_lifecycle_config_content_binding = studio_lifecycle_config_content_binding_1
-            .get_inner();
-        let studio_lifecycle_config_name_binding_1 = args
+        let studio_lifecycle_config_name_binding = args
             .studio_lifecycle_config_name
             .get_output(context);
-        let studio_lifecycle_config_name_binding = studio_lifecycle_config_name_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "studioLifecycleConfigAppType".into(),
-                    value: &studio_lifecycle_config_app_type_binding,
+                    value: studio_lifecycle_config_app_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "studioLifecycleConfigContent".into(),
-                    value: &studio_lifecycle_config_content_binding,
+                    value: studio_lifecycle_config_content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "studioLifecycleConfigName".into(),
-                    value: &studio_lifecycle_config_name_binding,
+                    value: studio_lifecycle_config_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StudioLifecycleConfigResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            studio_lifecycle_config_app_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("studioLifecycleConfigAppType"),
-            ),
-            studio_lifecycle_config_content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("studioLifecycleConfigContent"),
-            ),
-            studio_lifecycle_config_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("studioLifecycleConfigName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            studio_lifecycle_config_app_type: o
+                .get_field("studioLifecycleConfigAppType"),
+            studio_lifecycle_config_content: o.get_field("studioLifecycleConfigContent"),
+            studio_lifecycle_config_name: o.get_field("studioLifecycleConfigName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

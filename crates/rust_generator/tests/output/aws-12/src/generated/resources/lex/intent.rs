@@ -233,145 +233,101 @@ pub mod intent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntentArgs,
     ) -> IntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let conclusion_statement_binding_1 = args
-            .conclusion_statement
-            .get_output(context);
-        let conclusion_statement_binding = conclusion_statement_binding_1.get_inner();
-        let confirmation_prompt_binding_1 = args.confirmation_prompt.get_output(context);
-        let confirmation_prompt_binding = confirmation_prompt_binding_1.get_inner();
-        let create_version_binding_1 = args.create_version.get_output(context);
-        let create_version_binding = create_version_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dialog_code_hook_binding_1 = args.dialog_code_hook.get_output(context);
-        let dialog_code_hook_binding = dialog_code_hook_binding_1.get_inner();
-        let follow_up_prompt_binding_1 = args.follow_up_prompt.get_output(context);
-        let follow_up_prompt_binding = follow_up_prompt_binding_1.get_inner();
-        let fulfillment_activity_binding_1 = args
-            .fulfillment_activity
-            .get_output(context);
-        let fulfillment_activity_binding = fulfillment_activity_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_intent_signature_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let conclusion_statement_binding = args.conclusion_statement.get_output(context);
+        let confirmation_prompt_binding = args.confirmation_prompt.get_output(context);
+        let create_version_binding = args.create_version.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dialog_code_hook_binding = args.dialog_code_hook.get_output(context);
+        let follow_up_prompt_binding = args.follow_up_prompt.get_output(context);
+        let fulfillment_activity_binding = args.fulfillment_activity.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_intent_signature_binding = args
             .parent_intent_signature
             .get_output(context);
-        let parent_intent_signature_binding = parent_intent_signature_binding_1
-            .get_inner();
-        let rejection_statement_binding_1 = args.rejection_statement.get_output(context);
-        let rejection_statement_binding = rejection_statement_binding_1.get_inner();
-        let sample_utterances_binding_1 = args.sample_utterances.get_output(context);
-        let sample_utterances_binding = sample_utterances_binding_1.get_inner();
-        let slots_binding_1 = args.slots.get_output(context);
-        let slots_binding = slots_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let rejection_statement_binding = args.rejection_statement.get_output(context);
+        let sample_utterances_binding = args.sample_utterances.get_output(context);
+        let slots_binding = args.slots.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/intent:Intent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conclusionStatement".into(),
-                    value: &conclusion_statement_binding,
+                    value: conclusion_statement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confirmationPrompt".into(),
-                    value: &confirmation_prompt_binding,
+                    value: confirmation_prompt_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createVersion".into(),
-                    value: &create_version_binding,
+                    value: create_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dialogCodeHook".into(),
-                    value: &dialog_code_hook_binding,
+                    value: dialog_code_hook_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "followUpPrompt".into(),
-                    value: &follow_up_prompt_binding,
+                    value: follow_up_prompt_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fulfillmentActivity".into(),
-                    value: &fulfillment_activity_binding,
+                    value: fulfillment_activity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentIntentSignature".into(),
-                    value: &parent_intent_signature_binding,
+                    value: parent_intent_signature_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rejectionStatement".into(),
-                    value: &rejection_statement_binding,
+                    value: rejection_statement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sampleUtterances".into(),
-                    value: &sample_utterances_binding,
+                    value: sample_utterances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slots".into(),
-                    value: &slots_binding,
+                    value: slots_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            checksum: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksum"),
-            ),
-            conclusion_statement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conclusionStatement"),
-            ),
-            confirmation_prompt: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confirmationPrompt"),
-            ),
-            create_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createVersion"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dialog_code_hook: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dialogCodeHook"),
-            ),
-            follow_up_prompt: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("followUpPrompt"),
-            ),
-            fulfillment_activity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fulfillmentActivity"),
-            ),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_intent_signature: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentIntentSignature"),
-            ),
-            rejection_statement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rejectionStatement"),
-            ),
-            sample_utterances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sampleUtterances"),
-            ),
-            slots: pulumi_gestalt_rust::__private::into_domain(o.extract_field("slots")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arn: o.get_field("arn"),
+            checksum: o.get_field("checksum"),
+            conclusion_statement: o.get_field("conclusionStatement"),
+            confirmation_prompt: o.get_field("confirmationPrompt"),
+            create_version: o.get_field("createVersion"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            dialog_code_hook: o.get_field("dialogCodeHook"),
+            follow_up_prompt: o.get_field("followUpPrompt"),
+            fulfillment_activity: o.get_field("fulfillmentActivity"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            name: o.get_field("name"),
+            parent_intent_signature: o.get_field("parentIntentSignature"),
+            rejection_statement: o.get_field("rejectionStatement"),
+            sample_utterances: o.get_field("sampleUtterances"),
+            slots: o.get_field("slots"),
+            version: o.get_field("version"),
         }
     }
 }

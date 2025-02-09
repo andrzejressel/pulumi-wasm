@@ -39,59 +39,48 @@ pub mod get_voices {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVoicesArgs,
     ) -> GetVoicesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let include_additional_language_codes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let engine_binding = args.engine.get_output(context);
+        let include_additional_language_codes_binding = args
             .include_additional_language_codes
             .get_output(context);
-        let include_additional_language_codes_binding = include_additional_language_codes_binding_1
-            .get_inner();
-        let language_code_binding_1 = args.language_code.get_output(context);
-        let language_code_binding = language_code_binding_1.get_inner();
-        let voices_binding_1 = args.voices.get_output(context);
-        let voices_binding = voices_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let language_code_binding = args.language_code.get_output(context);
+        let voices_binding = args.voices.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:polly/getVoices:getVoices".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeAdditionalLanguageCodes".into(),
-                    value: &include_additional_language_codes_binding,
+                    value: include_additional_language_codes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: &language_code_binding,
+                    value: language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voices".into(),
-                    value: &voices_binding,
+                    value: voices_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVoicesResult {
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_additional_language_codes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeAdditionalLanguageCodes"),
-            ),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            voices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voices"),
-            ),
+            engine: o.get_field("engine"),
+            id: o.get_field("id"),
+            include_additional_language_codes: o
+                .get_field("includeAdditionalLanguageCodes"),
+            language_code: o.get_field("languageCode"),
+            voices: o.get_field("voices"),
         }
     }
 }

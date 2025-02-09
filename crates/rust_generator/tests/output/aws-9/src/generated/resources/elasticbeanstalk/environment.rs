@@ -229,164 +229,113 @@ pub mod environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_binding_1 = args.application.get_output(context);
-        let application_binding = application_binding_1.get_inner();
-        let cname_prefix_binding_1 = args.cname_prefix.get_output(context);
-        let cname_prefix_binding = cname_prefix_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let platform_arn_binding_1 = args.platform_arn.get_output(context);
-        let platform_arn_binding = platform_arn_binding_1.get_inner();
-        let poll_interval_binding_1 = args.poll_interval.get_output(context);
-        let poll_interval_binding = poll_interval_binding_1.get_inner();
-        let settings_binding_1 = args.settings.get_output(context);
-        let settings_binding = settings_binding_1.get_inner();
-        let solution_stack_name_binding_1 = args.solution_stack_name.get_output(context);
-        let solution_stack_name_binding = solution_stack_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let template_name_binding_1 = args.template_name.get_output(context);
-        let template_name_binding = template_name_binding_1.get_inner();
-        let tier_binding_1 = args.tier.get_output(context);
-        let tier_binding = tier_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let wait_for_ready_timeout_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_binding = args.application.get_output(context);
+        let cname_prefix_binding = args.cname_prefix.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let platform_arn_binding = args.platform_arn.get_output(context);
+        let poll_interval_binding = args.poll_interval.get_output(context);
+        let settings_binding = args.settings.get_output(context);
+        let solution_stack_name_binding = args.solution_stack_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let template_name_binding = args.template_name.get_output(context);
+        let tier_binding = args.tier.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let wait_for_ready_timeout_binding = args
             .wait_for_ready_timeout
             .get_output(context);
-        let wait_for_ready_timeout_binding = wait_for_ready_timeout_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elasticbeanstalk/environment:Environment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "application".into(),
-                    value: &application_binding,
+                    value: application_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cnamePrefix".into(),
-                    value: &cname_prefix_binding,
+                    value: cname_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformArn".into(),
-                    value: &platform_arn_binding,
+                    value: platform_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pollInterval".into(),
-                    value: &poll_interval_binding,
+                    value: poll_interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: &settings_binding,
+                    value: settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "solutionStackName".into(),
-                    value: &solution_stack_name_binding,
+                    value: solution_stack_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateName".into(),
-                    value: &template_name_binding,
+                    value: template_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: &tier_binding,
+                    value: tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForReadyTimeout".into(),
-                    value: &wait_for_ready_timeout_binding,
+                    value: wait_for_ready_timeout_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentResult {
-            all_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allSettings"),
-            ),
-            application: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("application"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            autoscaling_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingGroups"),
-            ),
-            cname: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cname")),
-            cname_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cnamePrefix"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            endpoint_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointUrl"),
-            ),
-            instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instances"),
-            ),
-            launch_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchConfigurations"),
-            ),
-            load_balancers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancers"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            platform_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformArn"),
-            ),
-            poll_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pollInterval"),
-            ),
-            queues: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queues"),
-            ),
-            settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settings"),
-            ),
-            solution_stack_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("solutionStackName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            template_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateName"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
-            triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggers"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            wait_for_ready_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForReadyTimeout"),
-            ),
+            all_settings: o.get_field("allSettings"),
+            application: o.get_field("application"),
+            arn: o.get_field("arn"),
+            autoscaling_groups: o.get_field("autoscalingGroups"),
+            cname: o.get_field("cname"),
+            cname_prefix: o.get_field("cnamePrefix"),
+            description: o.get_field("description"),
+            endpoint_url: o.get_field("endpointUrl"),
+            instances: o.get_field("instances"),
+            launch_configurations: o.get_field("launchConfigurations"),
+            load_balancers: o.get_field("loadBalancers"),
+            name: o.get_field("name"),
+            platform_arn: o.get_field("platformArn"),
+            poll_interval: o.get_field("pollInterval"),
+            queues: o.get_field("queues"),
+            settings: o.get_field("settings"),
+            solution_stack_name: o.get_field("solutionStackName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            template_name: o.get_field("templateName"),
+            tier: o.get_field("tier"),
+            triggers: o.get_field("triggers"),
+            version: o.get_field("version"),
+            wait_for_ready_timeout: o.get_field("waitForReadyTimeout"),
         }
     }
 }

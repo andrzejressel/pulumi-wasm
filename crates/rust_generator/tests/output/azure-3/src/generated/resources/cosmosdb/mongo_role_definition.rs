@@ -113,62 +113,48 @@ pub mod mongo_role_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MongoRoleDefinitionArgs,
     ) -> MongoRoleDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cosmos_mongo_database_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cosmos_mongo_database_id_binding = args
             .cosmos_mongo_database_id
             .get_output(context);
-        let cosmos_mongo_database_id_binding = cosmos_mongo_database_id_binding_1
-            .get_inner();
-        let inherited_role_names_binding_1 = args
-            .inherited_role_names
-            .get_output(context);
-        let inherited_role_names_binding = inherited_role_names_binding_1.get_inner();
-        let privileges_binding_1 = args.privileges.get_output(context);
-        let privileges_binding = privileges_binding_1.get_inner();
-        let role_name_binding_1 = args.role_name.get_output(context);
-        let role_name_binding = role_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let inherited_role_names_binding = args.inherited_role_names.get_output(context);
+        let privileges_binding = args.privileges.get_output(context);
+        let role_name_binding = args.role_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosMongoDatabaseId".into(),
-                    value: &cosmos_mongo_database_id_binding,
+                    value: cosmos_mongo_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inheritedRoleNames".into(),
-                    value: &inherited_role_names_binding,
+                    value: inherited_role_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privileges".into(),
-                    value: &privileges_binding,
+                    value: privileges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: &role_name_binding,
+                    value: role_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MongoRoleDefinitionResult {
-            cosmos_mongo_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosMongoDatabaseId"),
-            ),
-            inherited_role_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inheritedRoleNames"),
-            ),
-            privileges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privileges"),
-            ),
-            role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleName"),
-            ),
+            cosmos_mongo_database_id: o.get_field("cosmosMongoDatabaseId"),
+            inherited_role_names: o.get_field("inheritedRoleNames"),
+            privileges: o.get_field("privileges"),
+            role_name: o.get_field("roleName"),
         }
     }
 }

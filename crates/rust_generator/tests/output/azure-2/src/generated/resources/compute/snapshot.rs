@@ -143,151 +143,111 @@ pub mod snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SnapshotArgs,
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let create_option_binding_1 = args.create_option.get_output(context);
-        let create_option_binding = create_option_binding_1.get_inner();
-        let disk_access_id_binding_1 = args.disk_access_id.get_output(context);
-        let disk_access_id_binding = disk_access_id_binding_1.get_inner();
-        let disk_size_gb_binding_1 = args.disk_size_gb.get_output(context);
-        let disk_size_gb_binding = disk_size_gb_binding_1.get_inner();
-        let encryption_settings_binding_1 = args.encryption_settings.get_output(context);
-        let encryption_settings_binding = encryption_settings_binding_1.get_inner();
-        let incremental_enabled_binding_1 = args.incremental_enabled.get_output(context);
-        let incremental_enabled_binding = incremental_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_access_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let create_option_binding = args.create_option.get_output(context);
+        let disk_access_id_binding = args.disk_access_id.get_output(context);
+        let disk_size_gb_binding = args.disk_size_gb.get_output(context);
+        let encryption_settings_binding = args.encryption_settings.get_output(context);
+        let incremental_enabled_binding = args.incremental_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_access_policy_binding = args
             .network_access_policy
             .get_output(context);
-        let network_access_policy_binding = network_access_policy_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
-        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
-        let source_uri_binding_1 = args.source_uri.get_output(context);
-        let source_uri_binding = source_uri_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let source_resource_id_binding = args.source_resource_id.get_output(context);
+        let source_uri_binding = args.source_uri.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/snapshot:Snapshot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createOption".into(),
-                    value: &create_option_binding,
+                    value: create_option_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskAccessId".into(),
-                    value: &disk_access_id_binding,
+                    value: disk_access_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSizeGb".into(),
-                    value: &disk_size_gb_binding,
+                    value: disk_size_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionSettings".into(),
-                    value: &encryption_settings_binding,
+                    value: encryption_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "incrementalEnabled".into(),
-                    value: &incremental_enabled_binding,
+                    value: incremental_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAccessPolicy".into(),
-                    value: &network_access_policy_binding,
+                    value: network_access_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceResourceId".into(),
-                    value: &source_resource_id_binding,
+                    value: source_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceUri".into(),
-                    value: &source_uri_binding,
+                    value: source_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SnapshotResult {
-            create_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createOption"),
-            ),
-            disk_access_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskAccessId"),
-            ),
-            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSizeGb"),
-            ),
-            encryption_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionSettings"),
-            ),
-            incremental_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("incrementalEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_access_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkAccessPolicy"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceResourceId"),
-            ),
-            source_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceUri"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            trusted_launch_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedLaunchEnabled"),
-            ),
+            create_option: o.get_field("createOption"),
+            disk_access_id: o.get_field("diskAccessId"),
+            disk_size_gb: o.get_field("diskSizeGb"),
+            encryption_settings: o.get_field("encryptionSettings"),
+            incremental_enabled: o.get_field("incrementalEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_access_policy: o.get_field("networkAccessPolicy"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            source_resource_id: o.get_field("sourceResourceId"),
+            source_uri: o.get_field("sourceUri"),
+            storage_account_id: o.get_field("storageAccountId"),
+            tags: o.get_field("tags"),
+            trusted_launch_enabled: o.get_field("trustedLaunchEnabled"),
         }
     }
 }

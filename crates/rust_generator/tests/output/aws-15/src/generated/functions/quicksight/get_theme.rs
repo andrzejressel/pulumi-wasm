@@ -56,71 +56,49 @@ pub mod get_theme {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetThemeArgs,
     ) -> GetThemeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let theme_id_binding_1 = args.theme_id.get_output(context);
-        let theme_id_binding = theme_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let theme_id_binding = args.theme_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:quicksight/getTheme:getTheme".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "themeId".into(),
-                    value: &theme_id_binding,
+                    value: theme_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetThemeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            base_theme_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseThemeId"),
-            ),
-            configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurations"),
-            ),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            theme_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("themeId"),
-            ),
-            version_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionDescription"),
-            ),
-            version_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionNumber"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            base_theme_id: o.get_field("baseThemeId"),
+            configurations: o.get_field("configurations"),
+            created_time: o.get_field("createdTime"),
+            id: o.get_field("id"),
+            last_updated_time: o.get_field("lastUpdatedTime"),
+            name: o.get_field("name"),
+            permissions: o.get_field("permissions"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            theme_id: o.get_field("themeId"),
+            version_description: o.get_field("versionDescription"),
+            version_number: o.get_field("versionNumber"),
         }
     }
 }

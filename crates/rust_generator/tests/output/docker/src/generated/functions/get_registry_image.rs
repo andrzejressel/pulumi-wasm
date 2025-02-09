@@ -27,41 +27,34 @@ pub mod get_registry_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRegistryImageArgs,
     ) -> GetRegistryImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let insecure_skip_verify_binding_1 = args
-            .insecure_skip_verify
-            .get_output(context);
-        let insecure_skip_verify_binding = insecure_skip_verify_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let insecure_skip_verify_binding = args.insecure_skip_verify.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "docker:index/getRegistryImage:getRegistryImage".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insecureSkipVerify".into(),
-                    value: &insecure_skip_verify_binding,
+                    value: insecure_skip_verify_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRegistryImageResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            insecure_skip_verify: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insecureSkipVerify"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sha256_digest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sha256Digest"),
-            ),
+            id: o.get_field("id"),
+            insecure_skip_verify: o.get_field("insecureSkipVerify"),
+            name: o.get_field("name"),
+            sha256_digest: o.get_field("sha256Digest"),
         }
     }
 }

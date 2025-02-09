@@ -128,147 +128,76 @@ pub mod get_linux_function_app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLinuxFunctionAppArgs,
     ) -> GetLinuxFunctionAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLinuxFunctionAppResult {
-            app_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appSettings"),
-            ),
-            auth_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authSettings"),
-            ),
-            auth_settings_v2s: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authSettingsV2s"),
-            ),
-            availability: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availability"),
-            ),
-            backups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backups"),
-            ),
-            builtin_logging_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("builtinLoggingEnabled"),
-            ),
-            client_certificate_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateEnabled"),
-            ),
-            client_certificate_exclusion_paths: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateExclusionPaths"),
-            ),
-            client_certificate_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateMode"),
-            ),
-            connection_strings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionStrings"),
-            ),
-            content_share_force_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentShareForceDisabled"),
-            ),
-            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomainVerificationId"),
-            ),
-            daily_memory_time_quota: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyMemoryTimeQuota"),
-            ),
-            default_hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultHostname"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            ftp_publish_basic_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ftpPublishBasicAuthenticationEnabled"),
-            ),
-            functions_extension_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionsExtensionVersion"),
-            ),
-            hosting_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostingEnvironmentId"),
-            ),
-            https_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsOnly"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundIpAddressLists"),
-            ),
-            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundIpAddresses"),
-            ),
-            possible_outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("possibleOutboundIpAddressLists"),
-            ),
-            possible_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("possibleOutboundIpAddresses"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_plan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePlanId"),
-            ),
-            site_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteConfigs"),
-            ),
-            site_credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteCredentials"),
-            ),
-            sticky_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stickySettings"),
-            ),
-            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountAccessKey"),
-            ),
-            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountName"),
-            ),
-            storage_key_vault_secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageKeyVaultSecretId"),
-            ),
-            storage_uses_managed_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageUsesManagedIdentity"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            usage: pulumi_gestalt_rust::__private::into_domain(o.extract_field("usage")),
-            virtual_network_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkSubnetId"),
-            ),
-            webdeploy_publish_basic_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webdeployPublishBasicAuthenticationEnabled"),
-            ),
+            app_settings: o.get_field("appSettings"),
+            auth_settings: o.get_field("authSettings"),
+            auth_settings_v2s: o.get_field("authSettingsV2s"),
+            availability: o.get_field("availability"),
+            backups: o.get_field("backups"),
+            builtin_logging_enabled: o.get_field("builtinLoggingEnabled"),
+            client_certificate_enabled: o.get_field("clientCertificateEnabled"),
+            client_certificate_exclusion_paths: o
+                .get_field("clientCertificateExclusionPaths"),
+            client_certificate_mode: o.get_field("clientCertificateMode"),
+            connection_strings: o.get_field("connectionStrings"),
+            content_share_force_disabled: o.get_field("contentShareForceDisabled"),
+            custom_domain_verification_id: o.get_field("customDomainVerificationId"),
+            daily_memory_time_quota: o.get_field("dailyMemoryTimeQuota"),
+            default_hostname: o.get_field("defaultHostname"),
+            enabled: o.get_field("enabled"),
+            ftp_publish_basic_authentication_enabled: o
+                .get_field("ftpPublishBasicAuthenticationEnabled"),
+            functions_extension_version: o.get_field("functionsExtensionVersion"),
+            hosting_environment_id: o.get_field("hostingEnvironmentId"),
+            https_only: o.get_field("httpsOnly"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            outbound_ip_address_lists: o.get_field("outboundIpAddressLists"),
+            outbound_ip_addresses: o.get_field("outboundIpAddresses"),
+            possible_outbound_ip_address_lists: o
+                .get_field("possibleOutboundIpAddressLists"),
+            possible_outbound_ip_addresses: o.get_field("possibleOutboundIpAddresses"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_plan_id: o.get_field("servicePlanId"),
+            site_configs: o.get_field("siteConfigs"),
+            site_credentials: o.get_field("siteCredentials"),
+            sticky_settings: o.get_field("stickySettings"),
+            storage_account_access_key: o.get_field("storageAccountAccessKey"),
+            storage_account_name: o.get_field("storageAccountName"),
+            storage_key_vault_secret_id: o.get_field("storageKeyVaultSecretId"),
+            storage_uses_managed_identity: o.get_field("storageUsesManagedIdentity"),
+            tags: o.get_field("tags"),
+            usage: o.get_field("usage"),
+            virtual_network_subnet_id: o.get_field("virtualNetworkSubnetId"),
+            webdeploy_publish_basic_authentication_enabled: o
+                .get_field("webdeployPublishBasicAuthenticationEnabled"),
         }
     }
 }

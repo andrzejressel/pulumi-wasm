@@ -100,93 +100,70 @@ pub mod channel_slack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ChannelSlackArgs,
     ) -> ChannelSlackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding_1 = args.bot_name.get_output(context);
-        let bot_name_binding = bot_name_binding_1.get_inner();
-        let client_id_binding_1 = args.client_id.get_output(context);
-        let client_id_binding = client_id_binding_1.get_inner();
-        let client_secret_binding_1 = args.client_secret.get_output(context);
-        let client_secret_binding = client_secret_binding_1.get_inner();
-        let landing_page_url_binding_1 = args.landing_page_url.get_output(context);
-        let landing_page_url_binding = landing_page_url_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let signing_secret_binding_1 = args.signing_secret.get_output(context);
-        let signing_secret_binding = signing_secret_binding_1.get_inner();
-        let verification_token_binding_1 = args.verification_token.get_output(context);
-        let verification_token_binding = verification_token_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_name_binding = args.bot_name.get_output(context);
+        let client_id_binding = args.client_id.get_output(context);
+        let client_secret_binding = args.client_secret.get_output(context);
+        let landing_page_url_binding = args.landing_page_url.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let signing_secret_binding = args.signing_secret.get_output(context);
+        let verification_token_binding = args.verification_token.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:bot/channelSlack:ChannelSlack".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: &bot_name_binding,
+                    value: bot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: &client_id_binding,
+                    value: client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSecret".into(),
-                    value: &client_secret_binding,
+                    value: client_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "landingPageUrl".into(),
-                    value: &landing_page_url_binding,
+                    value: landing_page_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingSecret".into(),
-                    value: &signing_secret_binding,
+                    value: signing_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationToken".into(),
-                    value: &verification_token_binding,
+                    value: verification_token_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ChannelSlackResult {
-            bot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botName"),
-            ),
-            client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientId"),
-            ),
-            client_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSecret"),
-            ),
-            landing_page_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("landingPageUrl"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            signing_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingSecret"),
-            ),
-            verification_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verificationToken"),
-            ),
+            bot_name: o.get_field("botName"),
+            client_id: o.get_field("clientId"),
+            client_secret: o.get_field("clientSecret"),
+            landing_page_url: o.get_field("landingPageUrl"),
+            location: o.get_field("location"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            signing_secret: o.get_field("signingSecret"),
+            verification_token: o.get_field("verificationToken"),
         }
     }
 }

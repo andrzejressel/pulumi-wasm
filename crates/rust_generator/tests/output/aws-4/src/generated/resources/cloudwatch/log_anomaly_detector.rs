@@ -94,100 +94,74 @@ pub mod log_anomaly_detector {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LogAnomalyDetectorArgs,
     ) -> LogAnomalyDetectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let anomaly_visibility_time_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let anomaly_visibility_time_binding = args
             .anomaly_visibility_time
             .get_output(context);
-        let anomaly_visibility_time_binding = anomaly_visibility_time_binding_1
-            .get_inner();
-        let detector_name_binding_1 = args.detector_name.get_output(context);
-        let detector_name_binding = detector_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let evaluation_frequency_binding_1 = args
-            .evaluation_frequency
-            .get_output(context);
-        let evaluation_frequency_binding = evaluation_frequency_binding_1.get_inner();
-        let filter_pattern_binding_1 = args.filter_pattern.get_output(context);
-        let filter_pattern_binding = filter_pattern_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let log_group_arn_lists_binding_1 = args.log_group_arn_lists.get_output(context);
-        let log_group_arn_lists_binding = log_group_arn_lists_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let detector_name_binding = args.detector_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let evaluation_frequency_binding = args.evaluation_frequency.get_output(context);
+        let filter_pattern_binding = args.filter_pattern.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let log_group_arn_lists_binding = args.log_group_arn_lists.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "anomalyVisibilityTime".into(),
-                    value: &anomaly_visibility_time_binding,
+                    value: anomaly_visibility_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorName".into(),
-                    value: &detector_name_binding,
+                    value: detector_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluationFrequency".into(),
-                    value: &evaluation_frequency_binding,
+                    value: evaluation_frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterPattern".into(),
-                    value: &filter_pattern_binding,
+                    value: filter_pattern_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupArnLists".into(),
-                    value: &log_group_arn_lists_binding,
+                    value: log_group_arn_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LogAnomalyDetectorResult {
-            anomaly_visibility_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("anomalyVisibilityTime"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            detector_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectorName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            evaluation_frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evaluationFrequency"),
-            ),
-            filter_pattern: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterPattern"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            log_group_arn_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logGroupArnLists"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            anomaly_visibility_time: o.get_field("anomalyVisibilityTime"),
+            arn: o.get_field("arn"),
+            detector_name: o.get_field("detectorName"),
+            enabled: o.get_field("enabled"),
+            evaluation_frequency: o.get_field("evaluationFrequency"),
+            filter_pattern: o.get_field("filterPattern"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            log_group_arn_lists: o.get_field("logGroupArnLists"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

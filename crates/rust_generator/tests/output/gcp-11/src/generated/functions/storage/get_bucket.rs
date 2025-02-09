@@ -77,108 +77,59 @@ pub mod get_bucket {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBucketArgs,
     ) -> GetBucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:storage/getBucket:getBucket".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBucketResult {
-            autoclasses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoclasses"),
-            ),
-            cors: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cors")),
-            custom_placement_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customPlacementConfigs"),
-            ),
-            default_event_based_hold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultEventBasedHold"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_object_retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableObjectRetention"),
-            ),
-            encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptions"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            hierarchical_namespaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hierarchicalNamespaces"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            lifecycle_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleRules"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            loggings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            project_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectNumber"),
-            ),
-            public_access_prevention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicAccessPrevention"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            requester_pays: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requesterPays"),
-            ),
-            retention_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPolicies"),
-            ),
-            rpo: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rpo")),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            soft_delete_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softDeletePolicies"),
-            ),
-            storage_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageClass"),
-            ),
-            uniform_bucket_level_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniformBucketLevelAccess"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
-            versionings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionings"),
-            ),
-            websites: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websites"),
-            ),
+            autoclasses: o.get_field("autoclasses"),
+            cors: o.get_field("cors"),
+            custom_placement_configs: o.get_field("customPlacementConfigs"),
+            default_event_based_hold: o.get_field("defaultEventBasedHold"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_object_retention: o.get_field("enableObjectRetention"),
+            encryptions: o.get_field("encryptions"),
+            force_destroy: o.get_field("forceDestroy"),
+            hierarchical_namespaces: o.get_field("hierarchicalNamespaces"),
+            id: o.get_field("id"),
+            labels: o.get_field("labels"),
+            lifecycle_rules: o.get_field("lifecycleRules"),
+            location: o.get_field("location"),
+            loggings: o.get_field("loggings"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            project_number: o.get_field("projectNumber"),
+            public_access_prevention: o.get_field("publicAccessPrevention"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            requester_pays: o.get_field("requesterPays"),
+            retention_policies: o.get_field("retentionPolicies"),
+            rpo: o.get_field("rpo"),
+            self_link: o.get_field("selfLink"),
+            soft_delete_policies: o.get_field("softDeletePolicies"),
+            storage_class: o.get_field("storageClass"),
+            uniform_bucket_level_access: o.get_field("uniformBucketLevelAccess"),
+            url: o.get_field("url"),
+            versionings: o.get_field("versionings"),
+            websites: o.get_field("websites"),
         }
     }
 }

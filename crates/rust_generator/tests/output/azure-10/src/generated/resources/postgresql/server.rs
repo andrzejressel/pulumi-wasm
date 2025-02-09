@@ -204,235 +204,171 @@ pub mod server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerArgs,
     ) -> ServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_login_binding_1 = args.administrator_login.get_output(context);
-        let administrator_login_binding = administrator_login_binding_1.get_inner();
-        let administrator_login_password_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administrator_login_binding = args.administrator_login.get_output(context);
+        let administrator_login_password_binding = args
             .administrator_login_password
             .get_output(context);
-        let administrator_login_password_binding = administrator_login_password_binding_1
-            .get_inner();
-        let auto_grow_enabled_binding_1 = args.auto_grow_enabled.get_output(context);
-        let auto_grow_enabled_binding = auto_grow_enabled_binding_1.get_inner();
-        let backup_retention_days_binding_1 = args
+        let auto_grow_enabled_binding = args.auto_grow_enabled.get_output(context);
+        let backup_retention_days_binding = args
             .backup_retention_days
             .get_output(context);
-        let backup_retention_days_binding = backup_retention_days_binding_1.get_inner();
-        let create_mode_binding_1 = args.create_mode.get_output(context);
-        let create_mode_binding = create_mode_binding_1.get_inner();
-        let creation_source_server_id_binding_1 = args
+        let create_mode_binding = args.create_mode.get_output(context);
+        let creation_source_server_id_binding = args
             .creation_source_server_id
             .get_output(context);
-        let creation_source_server_id_binding = creation_source_server_id_binding_1
-            .get_inner();
-        let geo_redundant_backup_enabled_binding_1 = args
+        let geo_redundant_backup_enabled_binding = args
             .geo_redundant_backup_enabled
             .get_output(context);
-        let geo_redundant_backup_enabled_binding = geo_redundant_backup_enabled_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let infrastructure_encryption_enabled_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let infrastructure_encryption_enabled_binding = args
             .infrastructure_encryption_enabled
             .get_output(context);
-        let infrastructure_encryption_enabled_binding = infrastructure_encryption_enabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let restore_point_in_time_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let restore_point_in_time_binding = args
             .restore_point_in_time
             .get_output(context);
-        let restore_point_in_time_binding = restore_point_in_time_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let ssl_enforcement_enabled_binding_1 = args
+        let sku_name_binding = args.sku_name.get_output(context);
+        let ssl_enforcement_enabled_binding = args
             .ssl_enforcement_enabled
             .get_output(context);
-        let ssl_enforcement_enabled_binding = ssl_enforcement_enabled_binding_1
-            .get_inner();
-        let ssl_minimal_tls_version_enforced_binding_1 = args
+        let ssl_minimal_tls_version_enforced_binding = args
             .ssl_minimal_tls_version_enforced
             .get_output(context);
-        let ssl_minimal_tls_version_enforced_binding = ssl_minimal_tls_version_enforced_binding_1
-            .get_inner();
-        let storage_mb_binding_1 = args.storage_mb.get_output(context);
-        let storage_mb_binding = storage_mb_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let threat_detection_policy_binding_1 = args
+        let storage_mb_binding = args.storage_mb.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let threat_detection_policy_binding = args
             .threat_detection_policy
             .get_output(context);
-        let threat_detection_policy_binding = threat_detection_policy_binding_1
-            .get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:postgresql/server:Server".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLogin".into(),
-                    value: &administrator_login_binding,
+                    value: administrator_login_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLoginPassword".into(),
-                    value: &administrator_login_password_binding,
+                    value: administrator_login_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoGrowEnabled".into(),
-                    value: &auto_grow_enabled_binding,
+                    value: auto_grow_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRetentionDays".into(),
-                    value: &backup_retention_days_binding,
+                    value: backup_retention_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createMode".into(),
-                    value: &create_mode_binding,
+                    value: create_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creationSourceServerId".into(),
-                    value: &creation_source_server_id_binding,
+                    value: creation_source_server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoRedundantBackupEnabled".into(),
-                    value: &geo_redundant_backup_enabled_binding,
+                    value: geo_redundant_backup_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureEncryptionEnabled".into(),
-                    value: &infrastructure_encryption_enabled_binding,
+                    value: infrastructure_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restorePointInTime".into(),
-                    value: &restore_point_in_time_binding,
+                    value: restore_point_in_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslEnforcementEnabled".into(),
-                    value: &ssl_enforcement_enabled_binding,
+                    value: ssl_enforcement_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslMinimalTlsVersionEnforced".into(),
-                    value: &ssl_minimal_tls_version_enforced_binding,
+                    value: ssl_minimal_tls_version_enforced_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageMb".into(),
-                    value: &storage_mb_binding,
+                    value: storage_mb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatDetectionPolicy".into(),
-                    value: &threat_detection_policy_binding,
+                    value: threat_detection_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerResult {
-            administrator_login: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLogin"),
-            ),
-            administrator_login_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLoginPassword"),
-            ),
-            auto_grow_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoGrowEnabled"),
-            ),
-            backup_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionDays"),
-            ),
-            create_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createMode"),
-            ),
-            creation_source_server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationSourceServerId"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            geo_redundant_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoRedundantBackupEnabled"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            infrastructure_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureEncryptionEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            restore_point_in_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restorePointInTime"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            ssl_enforcement_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslEnforcementEnabled"),
-            ),
-            ssl_minimal_tls_version_enforced: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslMinimalTlsVersionEnforced"),
-            ),
-            storage_mb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageMb"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            threat_detection_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatDetectionPolicy"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            administrator_login: o.get_field("administratorLogin"),
+            administrator_login_password: o.get_field("administratorLoginPassword"),
+            auto_grow_enabled: o.get_field("autoGrowEnabled"),
+            backup_retention_days: o.get_field("backupRetentionDays"),
+            create_mode: o.get_field("createMode"),
+            creation_source_server_id: o.get_field("creationSourceServerId"),
+            fqdn: o.get_field("fqdn"),
+            geo_redundant_backup_enabled: o.get_field("geoRedundantBackupEnabled"),
+            identity: o.get_field("identity"),
+            infrastructure_encryption_enabled: o
+                .get_field("infrastructureEncryptionEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            restore_point_in_time: o.get_field("restorePointInTime"),
+            sku_name: o.get_field("skuName"),
+            ssl_enforcement_enabled: o.get_field("sslEnforcementEnabled"),
+            ssl_minimal_tls_version_enforced: o
+                .get_field("sslMinimalTlsVersionEnforced"),
+            storage_mb: o.get_field("storageMb"),
+            tags: o.get_field("tags"),
+            threat_detection_policy: o.get_field("threatDetectionPolicy"),
+            version: o.get_field("version"),
         }
     }
 }

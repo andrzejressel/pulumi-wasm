@@ -18,30 +18,23 @@ pub mod get_authorization_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
     ) -> GetAuthorizationTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecrpublic/getAuthorizationToken:getAuthorizationToken".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAuthorizationTokenResult {
-            authorization_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationToken"),
-            ),
-            expires_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresAt"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            authorization_token: o.get_field("authorizationToken"),
+            expires_at: o.get_field("expiresAt"),
+            id: o.get_field("id"),
+            password: o.get_field("password"),
+            user_name: o.get_field("userName"),
         }
     }
 }

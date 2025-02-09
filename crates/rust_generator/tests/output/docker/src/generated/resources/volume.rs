@@ -90,58 +90,47 @@ pub mod volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VolumeArgs,
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let driver_binding_1 = args.driver.get_output(context);
-        let driver_binding = driver_binding_1.get_inner();
-        let driver_opts_binding_1 = args.driver_opts.get_output(context);
-        let driver_opts_binding = driver_opts_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let driver_binding = args.driver.get_output(context);
+        let driver_opts_binding = args.driver_opts.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "docker:index/volume:Volume".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "driver".into(),
-                    value: &driver_binding,
+                    value: driver_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "driverOpts".into(),
-                    value: &driver_opts_binding,
+                    value: driver_opts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VolumeResult {
-            driver: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("driver"),
-            ),
-            driver_opts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("driverOpts"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            mountpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountpoint"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            driver: o.get_field("driver"),
+            driver_opts: o.get_field("driverOpts"),
+            labels: o.get_field("labels"),
+            mountpoint: o.get_field("mountpoint"),
+            name: o.get_field("name"),
         }
     }
 }

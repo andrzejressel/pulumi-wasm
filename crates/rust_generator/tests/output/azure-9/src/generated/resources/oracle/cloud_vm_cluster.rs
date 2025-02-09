@@ -178,299 +178,208 @@ pub mod cloud_vm_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CloudVmClusterArgs,
     ) -> CloudVmClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_subnet_cidr_binding_1 = args.backup_subnet_cidr.get_output(context);
-        let backup_subnet_cidr_binding = backup_subnet_cidr_binding_1.get_inner();
-        let cloud_exadata_infrastructure_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_subnet_cidr_binding = args.backup_subnet_cidr.get_output(context);
+        let cloud_exadata_infrastructure_id_binding = args
             .cloud_exadata_infrastructure_id
             .get_output(context);
-        let cloud_exadata_infrastructure_id_binding = cloud_exadata_infrastructure_id_binding_1
-            .get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let cpu_core_count_binding_1 = args.cpu_core_count.get_output(context);
-        let cpu_core_count_binding = cpu_core_count_binding_1.get_inner();
-        let data_collection_options_binding_1 = args
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let cpu_core_count_binding = args.cpu_core_count.get_output(context);
+        let data_collection_options_binding = args
             .data_collection_options
             .get_output(context);
-        let data_collection_options_binding = data_collection_options_binding_1
-            .get_inner();
-        let data_storage_percentage_binding_1 = args
+        let data_storage_percentage_binding = args
             .data_storage_percentage
             .get_output(context);
-        let data_storage_percentage_binding = data_storage_percentage_binding_1
-            .get_inner();
-        let data_storage_size_in_tbs_binding_1 = args
+        let data_storage_size_in_tbs_binding = args
             .data_storage_size_in_tbs
             .get_output(context);
-        let data_storage_size_in_tbs_binding = data_storage_size_in_tbs_binding_1
-            .get_inner();
-        let db_node_storage_size_in_gbs_binding_1 = args
+        let db_node_storage_size_in_gbs_binding = args
             .db_node_storage_size_in_gbs
             .get_output(context);
-        let db_node_storage_size_in_gbs_binding = db_node_storage_size_in_gbs_binding_1
-            .get_inner();
-        let db_servers_binding_1 = args.db_servers.get_output(context);
-        let db_servers_binding = db_servers_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let gi_version_binding_1 = args.gi_version.get_output(context);
-        let gi_version_binding = gi_version_binding_1.get_inner();
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let license_model_binding_1 = args.license_model.get_output(context);
-        let license_model_binding = license_model_binding_1.get_inner();
-        let local_backup_enabled_binding_1 = args
-            .local_backup_enabled
-            .get_output(context);
-        let local_backup_enabled_binding = local_backup_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let memory_size_in_gbs_binding_1 = args.memory_size_in_gbs.get_output(context);
-        let memory_size_in_gbs_binding = memory_size_in_gbs_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let scan_listener_port_tcp_binding_1 = args
+        let db_servers_binding = args.db_servers.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let domain_binding = args.domain.get_output(context);
+        let gi_version_binding = args.gi_version.get_output(context);
+        let hostname_binding = args.hostname.get_output(context);
+        let license_model_binding = args.license_model.get_output(context);
+        let local_backup_enabled_binding = args.local_backup_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let memory_size_in_gbs_binding = args.memory_size_in_gbs.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let scan_listener_port_tcp_binding = args
             .scan_listener_port_tcp
             .get_output(context);
-        let scan_listener_port_tcp_binding = scan_listener_port_tcp_binding_1
-            .get_inner();
-        let scan_listener_port_tcp_ssl_binding_1 = args
+        let scan_listener_port_tcp_ssl_binding = args
             .scan_listener_port_tcp_ssl
             .get_output(context);
-        let scan_listener_port_tcp_ssl_binding = scan_listener_port_tcp_ssl_binding_1
-            .get_inner();
-        let sparse_diskgroup_enabled_binding_1 = args
+        let sparse_diskgroup_enabled_binding = args
             .sparse_diskgroup_enabled
             .get_output(context);
-        let sparse_diskgroup_enabled_binding = sparse_diskgroup_enabled_binding_1
-            .get_inner();
-        let ssh_public_keys_binding_1 = args.ssh_public_keys.get_output(context);
-        let ssh_public_keys_binding = ssh_public_keys_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let time_zone_binding_1 = args.time_zone.get_output(context);
-        let time_zone_binding = time_zone_binding_1.get_inner();
-        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
-        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ssh_public_keys_binding = args.ssh_public_keys.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let time_zone_binding = args.time_zone.get_output(context);
+        let virtual_network_id_binding = args.virtual_network_id.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:oracle/cloudVmCluster:CloudVmCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupSubnetCidr".into(),
-                    value: &backup_subnet_cidr_binding,
+                    value: backup_subnet_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudExadataInfrastructureId".into(),
-                    value: &cloud_exadata_infrastructure_id_binding,
+                    value: cloud_exadata_infrastructure_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuCoreCount".into(),
-                    value: &cpu_core_count_binding,
+                    value: cpu_core_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCollectionOptions".into(),
-                    value: &data_collection_options_binding,
+                    value: data_collection_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStoragePercentage".into(),
-                    value: &data_storage_percentage_binding,
+                    value: data_storage_percentage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStorageSizeInTbs".into(),
-                    value: &data_storage_size_in_tbs_binding,
+                    value: data_storage_size_in_tbs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbNodeStorageSizeInGbs".into(),
-                    value: &db_node_storage_size_in_gbs_binding,
+                    value: db_node_storage_size_in_gbs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbServers".into(),
-                    value: &db_servers_binding,
+                    value: db_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "giVersion".into(),
-                    value: &gi_version_binding,
+                    value: gi_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseModel".into(),
-                    value: &license_model_binding,
+                    value: license_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localBackupEnabled".into(),
-                    value: &local_backup_enabled_binding,
+                    value: local_backup_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memorySizeInGbs".into(),
-                    value: &memory_size_in_gbs_binding,
+                    value: memory_size_in_gbs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanListenerPortTcp".into(),
-                    value: &scan_listener_port_tcp_binding,
+                    value: scan_listener_port_tcp_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanListenerPortTcpSsl".into(),
-                    value: &scan_listener_port_tcp_ssl_binding,
+                    value: scan_listener_port_tcp_ssl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparseDiskgroupEnabled".into(),
-                    value: &sparse_diskgroup_enabled_binding,
+                    value: sparse_diskgroup_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshPublicKeys".into(),
-                    value: &ssh_public_keys_binding,
+                    value: ssh_public_keys_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: &time_zone_binding,
+                    value: time_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: &virtual_network_id_binding,
+                    value: virtual_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CloudVmClusterResult {
-            backup_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupSubnetCidr"),
-            ),
-            cloud_exadata_infrastructure_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudExadataInfrastructureId"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            cpu_core_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuCoreCount"),
-            ),
-            data_collection_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCollectionOptions"),
-            ),
-            data_storage_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataStoragePercentage"),
-            ),
-            data_storage_size_in_tbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataStorageSizeInTbs"),
-            ),
-            db_node_storage_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbNodeStorageSizeInGbs"),
-            ),
-            db_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbServers"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            gi_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("giVersion"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            hostname_actual: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostnameActual"),
-            ),
-            license_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseModel"),
-            ),
-            local_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localBackupEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            memory_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memorySizeInGbs"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            ocid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ocid")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            scan_listener_port_tcp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scanListenerPortTcp"),
-            ),
-            scan_listener_port_tcp_ssl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scanListenerPortTcpSsl"),
-            ),
-            sparse_diskgroup_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparseDiskgroupEnabled"),
-            ),
-            ssh_public_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshPublicKeys"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            time_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeZone"),
-            ),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            backup_subnet_cidr: o.get_field("backupSubnetCidr"),
+            cloud_exadata_infrastructure_id: o.get_field("cloudExadataInfrastructureId"),
+            cluster_name: o.get_field("clusterName"),
+            cpu_core_count: o.get_field("cpuCoreCount"),
+            data_collection_options: o.get_field("dataCollectionOptions"),
+            data_storage_percentage: o.get_field("dataStoragePercentage"),
+            data_storage_size_in_tbs: o.get_field("dataStorageSizeInTbs"),
+            db_node_storage_size_in_gbs: o.get_field("dbNodeStorageSizeInGbs"),
+            db_servers: o.get_field("dbServers"),
+            display_name: o.get_field("displayName"),
+            domain: o.get_field("domain"),
+            gi_version: o.get_field("giVersion"),
+            hostname: o.get_field("hostname"),
+            hostname_actual: o.get_field("hostnameActual"),
+            license_model: o.get_field("licenseModel"),
+            local_backup_enabled: o.get_field("localBackupEnabled"),
+            location: o.get_field("location"),
+            memory_size_in_gbs: o.get_field("memorySizeInGbs"),
+            name: o.get_field("name"),
+            ocid: o.get_field("ocid"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            scan_listener_port_tcp: o.get_field("scanListenerPortTcp"),
+            scan_listener_port_tcp_ssl: o.get_field("scanListenerPortTcpSsl"),
+            sparse_diskgroup_enabled: o.get_field("sparseDiskgroupEnabled"),
+            ssh_public_keys: o.get_field("sshPublicKeys"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            time_zone: o.get_field("timeZone"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

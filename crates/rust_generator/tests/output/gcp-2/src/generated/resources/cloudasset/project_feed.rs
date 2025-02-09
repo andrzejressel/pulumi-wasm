@@ -162,94 +162,71 @@ pub mod project_feed {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProjectFeedArgs,
     ) -> ProjectFeedResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_names_binding_1 = args.asset_names.get_output(context);
-        let asset_names_binding = asset_names_binding_1.get_inner();
-        let asset_types_binding_1 = args.asset_types.get_output(context);
-        let asset_types_binding = asset_types_binding_1.get_inner();
-        let billing_project_binding_1 = args.billing_project.get_output(context);
-        let billing_project_binding = billing_project_binding_1.get_inner();
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let content_type_binding_1 = args.content_type.get_output(context);
-        let content_type_binding = content_type_binding_1.get_inner();
-        let feed_id_binding_1 = args.feed_id.get_output(context);
-        let feed_id_binding = feed_id_binding_1.get_inner();
-        let feed_output_config_binding_1 = args.feed_output_config.get_output(context);
-        let feed_output_config_binding = feed_output_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let asset_names_binding = args.asset_names.get_output(context);
+        let asset_types_binding = args.asset_types.get_output(context);
+        let billing_project_binding = args.billing_project.get_output(context);
+        let condition_binding = args.condition.get_output(context);
+        let content_type_binding = args.content_type.get_output(context);
+        let feed_id_binding = args.feed_id.get_output(context);
+        let feed_output_config_binding = args.feed_output_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudasset/projectFeed:ProjectFeed".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetNames".into(),
-                    value: &asset_names_binding,
+                    value: asset_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetTypes".into(),
-                    value: &asset_types_binding,
+                    value: asset_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingProject".into(),
-                    value: &billing_project_binding,
+                    value: billing_project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: &content_type_binding,
+                    value: content_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feedId".into(),
-                    value: &feed_id_binding,
+                    value: feed_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feedOutputConfig".into(),
-                    value: &feed_output_config_binding,
+                    value: feed_output_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProjectFeedResult {
-            asset_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assetNames"),
-            ),
-            asset_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assetTypes"),
-            ),
-            billing_project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingProject"),
-            ),
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            feed_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("feedId"),
-            ),
-            feed_output_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("feedOutputConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            asset_names: o.get_field("assetNames"),
+            asset_types: o.get_field("assetTypes"),
+            billing_project: o.get_field("billingProject"),
+            condition: o.get_field("condition"),
+            content_type: o.get_field("contentType"),
+            feed_id: o.get_field("feedId"),
+            feed_output_config: o.get_field("feedOutputConfig"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
         }
     }
 }

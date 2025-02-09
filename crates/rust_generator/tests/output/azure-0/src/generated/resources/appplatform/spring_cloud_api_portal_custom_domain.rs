@@ -88,50 +88,43 @@ pub mod spring_cloud_api_portal_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudApiPortalCustomDomainArgs,
     ) -> SpringCloudApiPortalCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_api_portal_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_api_portal_id_binding = args
             .spring_cloud_api_portal_id
             .get_output(context);
-        let spring_cloud_api_portal_id_binding = spring_cloud_api_portal_id_binding_1
-            .get_inner();
-        let thumbprint_binding_1 = args.thumbprint.get_output(context);
-        let thumbprint_binding = thumbprint_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let thumbprint_binding = args.thumbprint.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudApiPortalId".into(),
-                    value: &spring_cloud_api_portal_id_binding,
+                    value: spring_cloud_api_portal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbprint".into(),
-                    value: &thumbprint_binding,
+                    value: thumbprint_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudApiPortalCustomDomainResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_api_portal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudApiPortalId"),
-            ),
-            thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprint"),
-            ),
+            name: o.get_field("name"),
+            spring_cloud_api_portal_id: o.get_field("springCloudApiPortalId"),
+            thumbprint: o.get_field("thumbprint"),
         }
     }
 }

@@ -111,124 +111,68 @@ pub mod get_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDomainArgs,
     ) -> GetDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let off_peak_window_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let off_peak_window_options_binding = args
             .off_peak_window_options
             .get_output(context);
-        let off_peak_window_options_binding = off_peak_window_options_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:opensearch/getDomain:getDomain".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offPeakWindowOptions".into(),
-                    value: &off_peak_window_options_binding,
+                    value: off_peak_window_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDomainResult {
-            access_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessPolicies"),
-            ),
-            advanced_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedOptions"),
-            ),
-            advanced_security_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedSecurityOptions"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_tune_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoTuneOptions"),
-            ),
-            cluster_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterConfigs"),
-            ),
-            cognito_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cognitoOptions"),
-            ),
-            created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("created"),
-            ),
-            dashboard_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dashboardEndpoint"),
-            ),
-            dashboard_endpoint_v2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dashboardEndpointV2"),
-            ),
-            deleted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleted"),
-            ),
-            domain_endpoint_v2_hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainEndpointV2HostedZoneId"),
-            ),
-            domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainId"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            ebs_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptions"),
-            ),
-            encryption_at_rests: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionAtRests"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            endpoint_v2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointV2"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressType"),
-            ),
-            kibana_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kibanaEndpoint"),
-            ),
-            log_publishing_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logPublishingOptions"),
-            ),
-            node_to_node_encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeToNodeEncryptions"),
-            ),
-            off_peak_window_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("offPeakWindowOptions"),
-            ),
-            processing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("processing"),
-            ),
-            snapshot_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotOptions"),
-            ),
-            software_update_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softwareUpdateOptions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcOptions"),
-            ),
+            access_policies: o.get_field("accessPolicies"),
+            advanced_options: o.get_field("advancedOptions"),
+            advanced_security_options: o.get_field("advancedSecurityOptions"),
+            arn: o.get_field("arn"),
+            auto_tune_options: o.get_field("autoTuneOptions"),
+            cluster_configs: o.get_field("clusterConfigs"),
+            cognito_options: o.get_field("cognitoOptions"),
+            created: o.get_field("created"),
+            dashboard_endpoint: o.get_field("dashboardEndpoint"),
+            dashboard_endpoint_v2: o.get_field("dashboardEndpointV2"),
+            deleted: o.get_field("deleted"),
+            domain_endpoint_v2_hosted_zone_id: o
+                .get_field("domainEndpointV2HostedZoneId"),
+            domain_id: o.get_field("domainId"),
+            domain_name: o.get_field("domainName"),
+            ebs_options: o.get_field("ebsOptions"),
+            encryption_at_rests: o.get_field("encryptionAtRests"),
+            endpoint: o.get_field("endpoint"),
+            endpoint_v2: o.get_field("endpointV2"),
+            engine_version: o.get_field("engineVersion"),
+            id: o.get_field("id"),
+            ip_address_type: o.get_field("ipAddressType"),
+            kibana_endpoint: o.get_field("kibanaEndpoint"),
+            log_publishing_options: o.get_field("logPublishingOptions"),
+            node_to_node_encryptions: o.get_field("nodeToNodeEncryptions"),
+            off_peak_window_options: o.get_field("offPeakWindowOptions"),
+            processing: o.get_field("processing"),
+            snapshot_options: o.get_field("snapshotOptions"),
+            software_update_options: o.get_field("softwareUpdateOptions"),
+            tags: o.get_field("tags"),
+            vpc_options: o.get_field("vpcOptions"),
         }
     }
 }

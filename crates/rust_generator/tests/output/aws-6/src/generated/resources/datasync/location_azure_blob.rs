@@ -104,96 +104,73 @@ pub mod location_azure_blob {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocationAzureBlobArgs,
     ) -> LocationAzureBlobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding_1 = args.access_tier.get_output(context);
-        let access_tier_binding = access_tier_binding_1.get_inner();
-        let agent_arns_binding_1 = args.agent_arns.get_output(context);
-        let agent_arns_binding = agent_arns_binding_1.get_inner();
-        let authentication_type_binding_1 = args.authentication_type.get_output(context);
-        let authentication_type_binding = authentication_type_binding_1.get_inner();
-        let blob_type_binding_1 = args.blob_type.get_output(context);
-        let blob_type_binding = blob_type_binding_1.get_inner();
-        let container_url_binding_1 = args.container_url.get_output(context);
-        let container_url_binding = container_url_binding_1.get_inner();
-        let sas_configuration_binding_1 = args.sas_configuration.get_output(context);
-        let sas_configuration_binding = sas_configuration_binding_1.get_inner();
-        let subdirectory_binding_1 = args.subdirectory.get_output(context);
-        let subdirectory_binding = subdirectory_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_tier_binding = args.access_tier.get_output(context);
+        let agent_arns_binding = args.agent_arns.get_output(context);
+        let authentication_type_binding = args.authentication_type.get_output(context);
+        let blob_type_binding = args.blob_type.get_output(context);
+        let container_url_binding = args.container_url.get_output(context);
+        let sas_configuration_binding = args.sas_configuration.get_output(context);
+        let subdirectory_binding = args.subdirectory.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/locationAzureBlob:LocationAzureBlob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessTier".into(),
-                    value: &access_tier_binding,
+                    value: access_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentArns".into(),
-                    value: &agent_arns_binding,
+                    value: agent_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: &authentication_type_binding,
+                    value: authentication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobType".into(),
-                    value: &blob_type_binding,
+                    value: blob_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerUrl".into(),
-                    value: &container_url_binding,
+                    value: container_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasConfiguration".into(),
-                    value: &sas_configuration_binding,
+                    value: sas_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: &subdirectory_binding,
+                    value: subdirectory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocationAzureBlobResult {
-            access_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessTier"),
-            ),
-            agent_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentArns"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationType"),
-            ),
-            blob_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blobType"),
-            ),
-            container_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerUrl"),
-            ),
-            sas_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sasConfiguration"),
-            ),
-            subdirectory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdirectory"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            access_tier: o.get_field("accessTier"),
+            agent_arns: o.get_field("agentArns"),
+            arn: o.get_field("arn"),
+            authentication_type: o.get_field("authenticationType"),
+            blob_type: o.get_field("blobType"),
+            container_url: o.get_field("containerUrl"),
+            sas_configuration: o.get_field("sasConfiguration"),
+            subdirectory: o.get_field("subdirectory"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uri: o.get_field("uri"),
         }
     }
 }

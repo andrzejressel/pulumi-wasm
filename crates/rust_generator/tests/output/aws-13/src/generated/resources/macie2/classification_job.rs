@@ -131,134 +131,95 @@ pub mod classification_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClassificationJobArgs,
     ) -> ClassificationJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_data_identifier_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_data_identifier_ids_binding = args
             .custom_data_identifier_ids
             .get_output(context);
-        let custom_data_identifier_ids_binding = custom_data_identifier_ids_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let initial_run_binding_1 = args.initial_run.get_output(context);
-        let initial_run_binding = initial_run_binding_1.get_inner();
-        let job_status_binding_1 = args.job_status.get_output(context);
-        let job_status_binding = job_status_binding_1.get_inner();
-        let job_type_binding_1 = args.job_type.get_output(context);
-        let job_type_binding = job_type_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let s3_job_definition_binding_1 = args.s3_job_definition.get_output(context);
-        let s3_job_definition_binding = s3_job_definition_binding_1.get_inner();
-        let sampling_percentage_binding_1 = args.sampling_percentage.get_output(context);
-        let sampling_percentage_binding = sampling_percentage_binding_1.get_inner();
-        let schedule_frequency_binding_1 = args.schedule_frequency.get_output(context);
-        let schedule_frequency_binding = schedule_frequency_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let initial_run_binding = args.initial_run.get_output(context);
+        let job_status_binding = args.job_status.get_output(context);
+        let job_type_binding = args.job_type.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let s3_job_definition_binding = args.s3_job_definition.get_output(context);
+        let sampling_percentage_binding = args.sampling_percentage.get_output(context);
+        let schedule_frequency_binding = args.schedule_frequency.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:macie2/classificationJob:ClassificationJob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDataIdentifierIds".into(),
-                    value: &custom_data_identifier_ids_binding,
+                    value: custom_data_identifier_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialRun".into(),
-                    value: &initial_run_binding,
+                    value: initial_run_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobStatus".into(),
-                    value: &job_status_binding,
+                    value: job_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobType".into(),
-                    value: &job_type_binding,
+                    value: job_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3JobDefinition".into(),
-                    value: &s3_job_definition_binding,
+                    value: s3_job_definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingPercentage".into(),
-                    value: &sampling_percentage_binding,
+                    value: sampling_percentage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleFrequency".into(),
-                    value: &schedule_frequency_binding,
+                    value: schedule_frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClassificationJobResult {
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            custom_data_identifier_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDataIdentifierIds"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            initial_run: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialRun"),
-            ),
-            job_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobArn"),
-            ),
-            job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobId"),
-            ),
-            job_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobStatus"),
-            ),
-            job_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobType"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            s3_job_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3JobDefinition"),
-            ),
-            sampling_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samplingPercentage"),
-            ),
-            schedule_frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleFrequency"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_paused_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPausedDetails"),
-            ),
+            created_at: o.get_field("createdAt"),
+            custom_data_identifier_ids: o.get_field("customDataIdentifierIds"),
+            description: o.get_field("description"),
+            initial_run: o.get_field("initialRun"),
+            job_arn: o.get_field("jobArn"),
+            job_id: o.get_field("jobId"),
+            job_status: o.get_field("jobStatus"),
+            job_type: o.get_field("jobType"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            s3_job_definition: o.get_field("s3JobDefinition"),
+            sampling_percentage: o.get_field("samplingPercentage"),
+            schedule_frequency: o.get_field("scheduleFrequency"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_paused_details: o.get_field("userPausedDetails"),
         }
     }
 }

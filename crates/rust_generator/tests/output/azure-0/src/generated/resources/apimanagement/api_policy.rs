@@ -76,66 +76,52 @@ pub mod api_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiPolicyArgs,
     ) -> ApiPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let api_name_binding_1 = args.api_name.get_output(context);
-        let api_name_binding = api_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let xml_content_binding_1 = args.xml_content.get_output(context);
-        let xml_content_binding = xml_content_binding_1.get_inner();
-        let xml_link_binding_1 = args.xml_link.get_output(context);
-        let xml_link_binding = xml_link_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let api_name_binding = args.api_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let xml_content_binding = args.xml_content.get_output(context);
+        let xml_link_binding = args.xml_link.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/apiPolicy:ApiPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiName".into(),
-                    value: &api_name_binding,
+                    value: api_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xmlContent".into(),
-                    value: &xml_content_binding,
+                    value: xml_content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xmlLink".into(),
-                    value: &xml_link_binding,
+                    value: xml_link_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiPolicyResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            api_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            xml_content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("xmlContent"),
-            ),
-            xml_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("xmlLink"),
-            ),
+            api_management_name: o.get_field("apiManagementName"),
+            api_name: o.get_field("apiName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            xml_content: o.get_field("xmlContent"),
+            xml_link: o.get_field("xmlLink"),
         }
     }
 }

@@ -72,95 +72,63 @@ pub mod get_catalog_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCatalogTableArgs,
     ) -> GetCatalogTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_as_of_time_binding_1 = args.query_as_of_time.get_output(context);
-        let query_as_of_time_binding = query_as_of_time_binding_1.get_inner();
-        let transaction_id_binding_1 = args.transaction_id.get_output(context);
-        let transaction_id_binding = transaction_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let query_as_of_time_binding = args.query_as_of_time.get_output(context);
+        let transaction_id_binding = args.transaction_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:glue/getCatalogTable:getCatalogTable".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryAsOfTime".into(),
-                    value: &query_as_of_time_binding,
+                    value: query_as_of_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transactionId".into(),
-                    value: &transaction_id_binding,
+                    value: transaction_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCatalogTableResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            partition_indices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionIndices"),
-            ),
-            partition_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKeys"),
-            ),
-            query_as_of_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryAsOfTime"),
-            ),
-            retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retention"),
-            ),
-            storage_descriptors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageDescriptors"),
-            ),
-            table_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableType"),
-            ),
-            target_tables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetTables"),
-            ),
-            transaction_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transactionId"),
-            ),
-            view_expanded_text: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("viewExpandedText"),
-            ),
-            view_original_text: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("viewOriginalText"),
-            ),
+            arn: o.get_field("arn"),
+            catalog_id: o.get_field("catalogId"),
+            database_name: o.get_field("databaseName"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            parameters: o.get_field("parameters"),
+            partition_indices: o.get_field("partitionIndices"),
+            partition_keys: o.get_field("partitionKeys"),
+            query_as_of_time: o.get_field("queryAsOfTime"),
+            retention: o.get_field("retention"),
+            storage_descriptors: o.get_field("storageDescriptors"),
+            table_type: o.get_field("tableType"),
+            target_tables: o.get_field("targetTables"),
+            transaction_id: o.get_field("transactionId"),
+            view_expanded_text: o.get_field("viewExpandedText"),
+            view_original_text: o.get_field("viewOriginalText"),
         }
     }
 }

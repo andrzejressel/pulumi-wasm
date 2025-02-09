@@ -227,49 +227,41 @@ pub mod consent_store_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConsentStoreIamPolicyArgs,
     ) -> ConsentStoreIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let consent_store_id_binding_1 = args.consent_store_id.get_output(context);
-        let consent_store_id_binding = consent_store_id_binding_1.get_inner();
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let policy_data_binding_1 = args.policy_data.get_output(context);
-        let policy_data_binding = policy_data_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let consent_store_id_binding = args.consent_store_id.get_output(context);
+        let dataset_binding = args.dataset.get_output(context);
+        let policy_data_binding = args.policy_data.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:healthcare/consentStoreIamPolicy:ConsentStoreIamPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consentStoreId".into(),
-                    value: &consent_store_id_binding,
+                    value: consent_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: &policy_data_binding,
+                    value: policy_data_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConsentStoreIamPolicyResult {
-            consent_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consentStoreId"),
-            ),
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
+            consent_store_id: o.get_field("consentStoreId"),
+            dataset: o.get_field("dataset"),
+            etag: o.get_field("etag"),
+            policy_data: o.get_field("policyData"),
         }
     }
 }

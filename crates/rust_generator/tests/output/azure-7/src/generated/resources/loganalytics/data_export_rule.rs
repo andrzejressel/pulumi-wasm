@@ -103,81 +103,63 @@ pub mod data_export_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataExportRuleArgs,
     ) -> DataExportRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_resource_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_resource_id_binding = args
             .destination_resource_id
             .get_output(context);
-        let destination_resource_id_binding = destination_resource_id_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let table_names_binding_1 = args.table_names.get_output(context);
-        let table_names_binding = table_names_binding_1.get_inner();
-        let workspace_resource_id_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let table_names_binding = args.table_names.get_output(context);
+        let workspace_resource_id_binding = args
             .workspace_resource_id
             .get_output(context);
-        let workspace_resource_id_binding = workspace_resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/dataExportRule:DataExportRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationResourceId".into(),
-                    value: &destination_resource_id_binding,
+                    value: destination_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableNames".into(),
-                    value: &table_names_binding,
+                    value: table_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceResourceId".into(),
-                    value: &workspace_resource_id_binding,
+                    value: workspace_resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataExportRuleResult {
-            destination_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationResourceId"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            export_rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportRuleId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            table_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableNames"),
-            ),
-            workspace_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceResourceId"),
-            ),
+            destination_resource_id: o.get_field("destinationResourceId"),
+            enabled: o.get_field("enabled"),
+            export_rule_id: o.get_field("exportRuleId"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            table_names: o.get_field("tableNames"),
+            workspace_resource_id: o.get_field("workspaceResourceId"),
         }
     }
 }

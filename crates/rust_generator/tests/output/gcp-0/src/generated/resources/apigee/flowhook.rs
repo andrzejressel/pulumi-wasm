@@ -70,75 +70,58 @@ pub mod flowhook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FlowhookArgs,
     ) -> FlowhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let continue_on_error_binding_1 = args.continue_on_error.get_output(context);
-        let continue_on_error_binding = continue_on_error_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let environment_binding_1 = args.environment.get_output(context);
-        let environment_binding = environment_binding_1.get_inner();
-        let flow_hook_point_binding_1 = args.flow_hook_point.get_output(context);
-        let flow_hook_point_binding = flow_hook_point_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let sharedflow_binding_1 = args.sharedflow.get_output(context);
-        let sharedflow_binding = sharedflow_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let continue_on_error_binding = args.continue_on_error.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let environment_binding = args.environment.get_output(context);
+        let flow_hook_point_binding = args.flow_hook_point.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let sharedflow_binding = args.sharedflow.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/flowhook:Flowhook".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "continueOnError".into(),
-                    value: &continue_on_error_binding,
+                    value: continue_on_error_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: &environment_binding,
+                    value: environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flowHookPoint".into(),
-                    value: &flow_hook_point_binding,
+                    value: flow_hook_point_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedflow".into(),
-                    value: &sharedflow_binding,
+                    value: sharedflow_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FlowhookResult {
-            continue_on_error: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("continueOnError"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            flow_hook_point: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("flowHookPoint"),
-            ),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            sharedflow: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedflow"),
-            ),
+            continue_on_error: o.get_field("continueOnError"),
+            description: o.get_field("description"),
+            environment: o.get_field("environment"),
+            flow_hook_point: o.get_field("flowHookPoint"),
+            org_id: o.get_field("orgId"),
+            sharedflow: o.get_field("sharedflow"),
         }
     }
 }

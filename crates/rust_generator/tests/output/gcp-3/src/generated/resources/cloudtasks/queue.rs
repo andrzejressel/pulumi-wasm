@@ -275,97 +275,74 @@ pub mod queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: QueueArgs,
     ) -> QueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_routing_override_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_engine_routing_override_binding = args
             .app_engine_routing_override
             .get_output(context);
-        let app_engine_routing_override_binding = app_engine_routing_override_binding_1
-            .get_inner();
-        let http_target_binding_1 = args.http_target.get_output(context);
-        let http_target_binding = http_target_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let rate_limits_binding_1 = args.rate_limits.get_output(context);
-        let rate_limits_binding = rate_limits_binding_1.get_inner();
-        let retry_config_binding_1 = args.retry_config.get_output(context);
-        let retry_config_binding = retry_config_binding_1.get_inner();
-        let stackdriver_logging_config_binding_1 = args
+        let http_target_binding = args.http_target.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let rate_limits_binding = args.rate_limits.get_output(context);
+        let retry_config_binding = args.retry_config.get_output(context);
+        let stackdriver_logging_config_binding = args
             .stackdriver_logging_config
             .get_output(context);
-        let stackdriver_logging_config_binding = stackdriver_logging_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudtasks/queue:Queue".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngineRoutingOverride".into(),
-                    value: &app_engine_routing_override_binding,
+                    value: app_engine_routing_override_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpTarget".into(),
-                    value: &http_target_binding,
+                    value: http_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rateLimits".into(),
-                    value: &rate_limits_binding,
+                    value: rate_limits_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryConfig".into(),
-                    value: &retry_config_binding,
+                    value: retry_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackdriverLoggingConfig".into(),
-                    value: &stackdriver_logging_config_binding,
+                    value: stackdriver_logging_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         QueueResult {
-            app_engine_routing_override: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appEngineRoutingOverride"),
-            ),
-            http_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpTarget"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            rate_limits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rateLimits"),
-            ),
-            retry_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryConfig"),
-            ),
-            stackdriver_logging_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackdriverLoggingConfig"),
-            ),
+            app_engine_routing_override: o.get_field("appEngineRoutingOverride"),
+            http_target: o.get_field("httpTarget"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            rate_limits: o.get_field("rateLimits"),
+            retry_config: o.get_field("retryConfig"),
+            stackdriver_logging_config: o.get_field("stackdriverLoggingConfig"),
         }
     }
 }

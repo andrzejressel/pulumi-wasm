@@ -163,219 +163,156 @@ pub mod nfs_file_share {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NfsFileShareArgs,
     ) -> NfsFileShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_destination_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audit_destination_arn_binding = args
             .audit_destination_arn
             .get_output(context);
-        let audit_destination_arn_binding = audit_destination_arn_binding_1.get_inner();
-        let bucket_region_binding_1 = args.bucket_region.get_output(context);
-        let bucket_region_binding = bucket_region_binding_1.get_inner();
-        let cache_attributes_binding_1 = args.cache_attributes.get_output(context);
-        let cache_attributes_binding = cache_attributes_binding_1.get_inner();
-        let client_lists_binding_1 = args.client_lists.get_output(context);
-        let client_lists_binding = client_lists_binding_1.get_inner();
-        let default_storage_class_binding_1 = args
+        let bucket_region_binding = args.bucket_region.get_output(context);
+        let cache_attributes_binding = args.cache_attributes.get_output(context);
+        let client_lists_binding = args.client_lists.get_output(context);
+        let default_storage_class_binding = args
             .default_storage_class
             .get_output(context);
-        let default_storage_class_binding = default_storage_class_binding_1.get_inner();
-        let file_share_name_binding_1 = args.file_share_name.get_output(context);
-        let file_share_name_binding = file_share_name_binding_1.get_inner();
-        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
-        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
-        let guess_mime_type_enabled_binding_1 = args
+        let file_share_name_binding = args.file_share_name.get_output(context);
+        let gateway_arn_binding = args.gateway_arn.get_output(context);
+        let guess_mime_type_enabled_binding = args
             .guess_mime_type_enabled
             .get_output(context);
-        let guess_mime_type_enabled_binding = guess_mime_type_enabled_binding_1
-            .get_inner();
-        let kms_encrypted_binding_1 = args.kms_encrypted.get_output(context);
-        let kms_encrypted_binding = kms_encrypted_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let location_arn_binding_1 = args.location_arn.get_output(context);
-        let location_arn_binding = location_arn_binding_1.get_inner();
-        let nfs_file_share_defaults_binding_1 = args
+        let kms_encrypted_binding = args.kms_encrypted.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let location_arn_binding = args.location_arn.get_output(context);
+        let nfs_file_share_defaults_binding = args
             .nfs_file_share_defaults
             .get_output(context);
-        let nfs_file_share_defaults_binding = nfs_file_share_defaults_binding_1
-            .get_inner();
-        let notification_policy_binding_1 = args.notification_policy.get_output(context);
-        let notification_policy_binding = notification_policy_binding_1.get_inner();
-        let object_acl_binding_1 = args.object_acl.get_output(context);
-        let object_acl_binding = object_acl_binding_1.get_inner();
-        let read_only_binding_1 = args.read_only.get_output(context);
-        let read_only_binding = read_only_binding_1.get_inner();
-        let requester_pays_binding_1 = args.requester_pays.get_output(context);
-        let requester_pays_binding = requester_pays_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let squash_binding_1 = args.squash.get_output(context);
-        let squash_binding = squash_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_endpoint_dns_name_binding_1 = args
+        let notification_policy_binding = args.notification_policy.get_output(context);
+        let object_acl_binding = args.object_acl.get_output(context);
+        let read_only_binding = args.read_only.get_output(context);
+        let requester_pays_binding = args.requester_pays.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let squash_binding = args.squash.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_endpoint_dns_name_binding = args
             .vpc_endpoint_dns_name
             .get_output(context);
-        let vpc_endpoint_dns_name_binding = vpc_endpoint_dns_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:storagegateway/nfsFileShare:NfsFileShare".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditDestinationArn".into(),
-                    value: &audit_destination_arn_binding,
+                    value: audit_destination_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketRegion".into(),
-                    value: &bucket_region_binding,
+                    value: bucket_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheAttributes".into(),
-                    value: &cache_attributes_binding,
+                    value: cache_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientLists".into(),
-                    value: &client_lists_binding,
+                    value: client_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultStorageClass".into(),
-                    value: &default_storage_class_binding,
+                    value: default_storage_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileShareName".into(),
-                    value: &file_share_name_binding,
+                    value: file_share_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: &gateway_arn_binding,
+                    value: gateway_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guessMimeTypeEnabled".into(),
-                    value: &guess_mime_type_enabled_binding,
+                    value: guess_mime_type_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsEncrypted".into(),
-                    value: &kms_encrypted_binding,
+                    value: kms_encrypted_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationArn".into(),
-                    value: &location_arn_binding,
+                    value: location_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nfsFileShareDefaults".into(),
-                    value: &nfs_file_share_defaults_binding,
+                    value: nfs_file_share_defaults_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationPolicy".into(),
-                    value: &notification_policy_binding,
+                    value: notification_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectAcl".into(),
-                    value: &object_acl_binding,
+                    value: object_acl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readOnly".into(),
-                    value: &read_only_binding,
+                    value: read_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requesterPays".into(),
-                    value: &requester_pays_binding,
+                    value: requester_pays_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "squash".into(),
-                    value: &squash_binding,
+                    value: squash_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointDnsName".into(),
-                    value: &vpc_endpoint_dns_name_binding,
+                    value: vpc_endpoint_dns_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NfsFileShareResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            audit_destination_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditDestinationArn"),
-            ),
-            bucket_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketRegion"),
-            ),
-            cache_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheAttributes"),
-            ),
-            client_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientLists"),
-            ),
-            default_storage_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultStorageClass"),
-            ),
-            file_share_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileShareName"),
-            ),
-            fileshare_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileshareId"),
-            ),
-            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayArn"),
-            ),
-            guess_mime_type_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guessMimeTypeEnabled"),
-            ),
-            kms_encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsEncrypted"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            location_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationArn"),
-            ),
-            nfs_file_share_defaults: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nfsFileShareDefaults"),
-            ),
-            notification_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationPolicy"),
-            ),
-            object_acl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectAcl"),
-            ),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            read_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readOnly"),
-            ),
-            requester_pays: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requesterPays"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            squash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("squash"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_endpoint_dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointDnsName"),
-            ),
+            arn: o.get_field("arn"),
+            audit_destination_arn: o.get_field("auditDestinationArn"),
+            bucket_region: o.get_field("bucketRegion"),
+            cache_attributes: o.get_field("cacheAttributes"),
+            client_lists: o.get_field("clientLists"),
+            default_storage_class: o.get_field("defaultStorageClass"),
+            file_share_name: o.get_field("fileShareName"),
+            fileshare_id: o.get_field("fileshareId"),
+            gateway_arn: o.get_field("gatewayArn"),
+            guess_mime_type_enabled: o.get_field("guessMimeTypeEnabled"),
+            kms_encrypted: o.get_field("kmsEncrypted"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            location_arn: o.get_field("locationArn"),
+            nfs_file_share_defaults: o.get_field("nfsFileShareDefaults"),
+            notification_policy: o.get_field("notificationPolicy"),
+            object_acl: o.get_field("objectAcl"),
+            path: o.get_field("path"),
+            read_only: o.get_field("readOnly"),
+            requester_pays: o.get_field("requesterPays"),
+            role_arn: o.get_field("roleArn"),
+            squash: o.get_field("squash"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_endpoint_dns_name: o.get_field("vpcEndpointDnsName"),
         }
     }
 }

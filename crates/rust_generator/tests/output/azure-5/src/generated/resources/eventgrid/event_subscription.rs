@@ -237,235 +237,166 @@ pub mod event_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventSubscriptionArgs,
     ) -> EventSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_filter_binding_1 = args.advanced_filter.get_output(context);
-        let advanced_filter_binding = advanced_filter_binding_1.get_inner();
-        let advanced_filtering_on_arrays_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let advanced_filter_binding = args.advanced_filter.get_output(context);
+        let advanced_filtering_on_arrays_enabled_binding = args
             .advanced_filtering_on_arrays_enabled
             .get_output(context);
-        let advanced_filtering_on_arrays_enabled_binding = advanced_filtering_on_arrays_enabled_binding_1
-            .get_inner();
-        let azure_function_endpoint_binding_1 = args
+        let azure_function_endpoint_binding = args
             .azure_function_endpoint
             .get_output(context);
-        let azure_function_endpoint_binding = azure_function_endpoint_binding_1
-            .get_inner();
-        let dead_letter_identity_binding_1 = args
-            .dead_letter_identity
-            .get_output(context);
-        let dead_letter_identity_binding = dead_letter_identity_binding_1.get_inner();
-        let delivery_identity_binding_1 = args.delivery_identity.get_output(context);
-        let delivery_identity_binding = delivery_identity_binding_1.get_inner();
-        let delivery_properties_binding_1 = args.delivery_properties.get_output(context);
-        let delivery_properties_binding = delivery_properties_binding_1.get_inner();
-        let event_delivery_schema_binding_1 = args
+        let dead_letter_identity_binding = args.dead_letter_identity.get_output(context);
+        let delivery_identity_binding = args.delivery_identity.get_output(context);
+        let delivery_properties_binding = args.delivery_properties.get_output(context);
+        let event_delivery_schema_binding = args
             .event_delivery_schema
             .get_output(context);
-        let event_delivery_schema_binding = event_delivery_schema_binding_1.get_inner();
-        let eventhub_endpoint_id_binding_1 = args
-            .eventhub_endpoint_id
-            .get_output(context);
-        let eventhub_endpoint_id_binding = eventhub_endpoint_id_binding_1.get_inner();
-        let expiration_time_utc_binding_1 = args.expiration_time_utc.get_output(context);
-        let expiration_time_utc_binding = expiration_time_utc_binding_1.get_inner();
-        let hybrid_connection_endpoint_id_binding_1 = args
+        let eventhub_endpoint_id_binding = args.eventhub_endpoint_id.get_output(context);
+        let expiration_time_utc_binding = args.expiration_time_utc.get_output(context);
+        let hybrid_connection_endpoint_id_binding = args
             .hybrid_connection_endpoint_id
             .get_output(context);
-        let hybrid_connection_endpoint_id_binding = hybrid_connection_endpoint_id_binding_1
-            .get_inner();
-        let included_event_types_binding_1 = args
-            .included_event_types
-            .get_output(context);
-        let included_event_types_binding = included_event_types_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let retry_policy_binding_1 = args.retry_policy.get_output(context);
-        let retry_policy_binding = retry_policy_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let service_bus_queue_endpoint_id_binding_1 = args
+        let included_event_types_binding = args.included_event_types.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let retry_policy_binding = args.retry_policy.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let service_bus_queue_endpoint_id_binding = args
             .service_bus_queue_endpoint_id
             .get_output(context);
-        let service_bus_queue_endpoint_id_binding = service_bus_queue_endpoint_id_binding_1
-            .get_inner();
-        let service_bus_topic_endpoint_id_binding_1 = args
+        let service_bus_topic_endpoint_id_binding = args
             .service_bus_topic_endpoint_id
             .get_output(context);
-        let service_bus_topic_endpoint_id_binding = service_bus_topic_endpoint_id_binding_1
-            .get_inner();
-        let storage_blob_dead_letter_destination_binding_1 = args
+        let storage_blob_dead_letter_destination_binding = args
             .storage_blob_dead_letter_destination
             .get_output(context);
-        let storage_blob_dead_letter_destination_binding = storage_blob_dead_letter_destination_binding_1
-            .get_inner();
-        let storage_queue_endpoint_binding_1 = args
+        let storage_queue_endpoint_binding = args
             .storage_queue_endpoint
             .get_output(context);
-        let storage_queue_endpoint_binding = storage_queue_endpoint_binding_1
-            .get_inner();
-        let subject_filter_binding_1 = args.subject_filter.get_output(context);
-        let subject_filter_binding = subject_filter_binding_1.get_inner();
-        let webhook_endpoint_binding_1 = args.webhook_endpoint.get_output(context);
-        let webhook_endpoint_binding = webhook_endpoint_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subject_filter_binding = args.subject_filter.get_output(context);
+        let webhook_endpoint_binding = args.webhook_endpoint.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:eventgrid/eventSubscription:EventSubscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedFilter".into(),
-                    value: &advanced_filter_binding,
+                    value: advanced_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedFilteringOnArraysEnabled".into(),
-                    value: &advanced_filtering_on_arrays_enabled_binding,
+                    value: advanced_filtering_on_arrays_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureFunctionEndpoint".into(),
-                    value: &azure_function_endpoint_binding,
+                    value: azure_function_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterIdentity".into(),
-                    value: &dead_letter_identity_binding,
+                    value: dead_letter_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryIdentity".into(),
-                    value: &delivery_identity_binding,
+                    value: delivery_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryProperties".into(),
-                    value: &delivery_properties_binding,
+                    value: delivery_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventDeliverySchema".into(),
-                    value: &event_delivery_schema_binding,
+                    value: event_delivery_schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubEndpointId".into(),
-                    value: &eventhub_endpoint_id_binding,
+                    value: eventhub_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationTimeUtc".into(),
-                    value: &expiration_time_utc_binding,
+                    value: expiration_time_utc_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hybridConnectionEndpointId".into(),
-                    value: &hybrid_connection_endpoint_id_binding,
+                    value: hybrid_connection_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includedEventTypes".into(),
-                    value: &included_event_types_binding,
+                    value: included_event_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryPolicy".into(),
-                    value: &retry_policy_binding,
+                    value: retry_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceBusQueueEndpointId".into(),
-                    value: &service_bus_queue_endpoint_id_binding,
+                    value: service_bus_queue_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceBusTopicEndpointId".into(),
-                    value: &service_bus_topic_endpoint_id_binding,
+                    value: service_bus_topic_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageBlobDeadLetterDestination".into(),
-                    value: &storage_blob_dead_letter_destination_binding,
+                    value: storage_blob_dead_letter_destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageQueueEndpoint".into(),
-                    value: &storage_queue_endpoint_binding,
+                    value: storage_queue_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subjectFilter".into(),
-                    value: &subject_filter_binding,
+                    value: subject_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhookEndpoint".into(),
-                    value: &webhook_endpoint_binding,
+                    value: webhook_endpoint_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventSubscriptionResult {
-            advanced_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedFilter"),
-            ),
-            advanced_filtering_on_arrays_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedFilteringOnArraysEnabled"),
-            ),
-            azure_function_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureFunctionEndpoint"),
-            ),
-            dead_letter_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetterIdentity"),
-            ),
-            delivery_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryIdentity"),
-            ),
-            delivery_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryProperties"),
-            ),
-            event_delivery_schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventDeliverySchema"),
-            ),
-            eventhub_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubEndpointId"),
-            ),
-            expiration_time_utc: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationTimeUtc"),
-            ),
-            hybrid_connection_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hybridConnectionEndpointId"),
-            ),
-            included_event_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includedEventTypes"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            retry_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryPolicy"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            service_bus_queue_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceBusQueueEndpointId"),
-            ),
-            service_bus_topic_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceBusTopicEndpointId"),
-            ),
-            storage_blob_dead_letter_destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageBlobDeadLetterDestination"),
-            ),
-            storage_queue_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageQueueEndpoint"),
-            ),
-            subject_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subjectFilter"),
-            ),
-            webhook_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webhookEndpoint"),
-            ),
+            advanced_filter: o.get_field("advancedFilter"),
+            advanced_filtering_on_arrays_enabled: o
+                .get_field("advancedFilteringOnArraysEnabled"),
+            azure_function_endpoint: o.get_field("azureFunctionEndpoint"),
+            dead_letter_identity: o.get_field("deadLetterIdentity"),
+            delivery_identity: o.get_field("deliveryIdentity"),
+            delivery_properties: o.get_field("deliveryProperties"),
+            event_delivery_schema: o.get_field("eventDeliverySchema"),
+            eventhub_endpoint_id: o.get_field("eventhubEndpointId"),
+            expiration_time_utc: o.get_field("expirationTimeUtc"),
+            hybrid_connection_endpoint_id: o.get_field("hybridConnectionEndpointId"),
+            included_event_types: o.get_field("includedEventTypes"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            retry_policy: o.get_field("retryPolicy"),
+            scope: o.get_field("scope"),
+            service_bus_queue_endpoint_id: o.get_field("serviceBusQueueEndpointId"),
+            service_bus_topic_endpoint_id: o.get_field("serviceBusTopicEndpointId"),
+            storage_blob_dead_letter_destination: o
+                .get_field("storageBlobDeadLetterDestination"),
+            storage_queue_endpoint: o.get_field("storageQueueEndpoint"),
+            subject_filter: o.get_field("subjectFilter"),
+            webhook_endpoint: o.get_field("webhookEndpoint"),
         }
     }
 }

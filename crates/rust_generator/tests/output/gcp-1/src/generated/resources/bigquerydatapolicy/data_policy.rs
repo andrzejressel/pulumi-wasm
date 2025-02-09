@@ -199,76 +199,59 @@ pub mod data_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataPolicyArgs,
     ) -> DataPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_masking_policy_binding_1 = args.data_masking_policy.get_output(context);
-        let data_masking_policy_binding = data_masking_policy_binding_1.get_inner();
-        let data_policy_id_binding_1 = args.data_policy_id.get_output(context);
-        let data_policy_id_binding = data_policy_id_binding_1.get_inner();
-        let data_policy_type_binding_1 = args.data_policy_type.get_output(context);
-        let data_policy_type_binding = data_policy_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let policy_tag_binding_1 = args.policy_tag.get_output(context);
-        let policy_tag_binding = policy_tag_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_masking_policy_binding = args.data_masking_policy.get_output(context);
+        let data_policy_id_binding = args.data_policy_id.get_output(context);
+        let data_policy_type_binding = args.data_policy_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let policy_tag_binding = args.policy_tag.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquerydatapolicy/dataPolicy:DataPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataMaskingPolicy".into(),
-                    value: &data_masking_policy_binding,
+                    value: data_masking_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPolicyId".into(),
-                    value: &data_policy_id_binding,
+                    value: data_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPolicyType".into(),
-                    value: &data_policy_type_binding,
+                    value: data_policy_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyTag".into(),
-                    value: &policy_tag_binding,
+                    value: policy_tag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataPolicyResult {
-            data_masking_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataMaskingPolicy"),
-            ),
-            data_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataPolicyId"),
-            ),
-            data_policy_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataPolicyType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyTag"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            data_masking_policy: o.get_field("dataMaskingPolicy"),
+            data_policy_id: o.get_field("dataPolicyId"),
+            data_policy_type: o.get_field("dataPolicyType"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            policy_tag: o.get_field("policyTag"),
+            project: o.get_field("project"),
         }
     }
 }

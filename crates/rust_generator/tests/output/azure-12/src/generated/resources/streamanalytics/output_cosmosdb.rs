@@ -120,90 +120,68 @@ pub mod output_cosmosdb {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OutputCosmosdbArgs,
     ) -> OutputCosmosdbResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_name_binding_1 = args.container_name.get_output(context);
-        let container_name_binding = container_name_binding_1.get_inner();
-        let cosmosdb_account_key_binding_1 = args
-            .cosmosdb_account_key
-            .get_output(context);
-        let cosmosdb_account_key_binding = cosmosdb_account_key_binding_1.get_inner();
-        let cosmosdb_sql_database_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_name_binding = args.container_name.get_output(context);
+        let cosmosdb_account_key_binding = args.cosmosdb_account_key.get_output(context);
+        let cosmosdb_sql_database_id_binding = args
             .cosmosdb_sql_database_id
             .get_output(context);
-        let cosmosdb_sql_database_id_binding = cosmosdb_sql_database_id_binding_1
-            .get_inner();
-        let document_id_binding_1 = args.document_id.get_output(context);
-        let document_id_binding = document_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partition_key_binding_1 = args.partition_key.get_output(context);
-        let partition_key_binding = partition_key_binding_1.get_inner();
-        let stream_analytics_job_id_binding_1 = args
+        let document_id_binding = args.document_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let partition_key_binding = args.partition_key.get_output(context);
+        let stream_analytics_job_id_binding = args
             .stream_analytics_job_id
             .get_output(context);
-        let stream_analytics_job_id_binding = stream_analytics_job_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputCosmosdb:OutputCosmosdb".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: &container_name_binding,
+                    value: container_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbAccountKey".into(),
-                    value: &cosmosdb_account_key_binding,
+                    value: cosmosdb_account_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbSqlDatabaseId".into(),
-                    value: &cosmosdb_sql_database_id_binding,
+                    value: cosmosdb_sql_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentId".into(),
-                    value: &document_id_binding,
+                    value: document_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKey".into(),
-                    value: &partition_key_binding,
+                    value: partition_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobId".into(),
-                    value: &stream_analytics_job_id_binding,
+                    value: stream_analytics_job_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OutputCosmosdbResult {
-            container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerName"),
-            ),
-            cosmosdb_account_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbAccountKey"),
-            ),
-            cosmosdb_sql_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbSqlDatabaseId"),
-            ),
-            document_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partition_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKey"),
-            ),
-            stream_analytics_job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobId"),
-            ),
+            container_name: o.get_field("containerName"),
+            cosmosdb_account_key: o.get_field("cosmosdbAccountKey"),
+            cosmosdb_sql_database_id: o.get_field("cosmosdbSqlDatabaseId"),
+            document_id: o.get_field("documentId"),
+            name: o.get_field("name"),
+            partition_key: o.get_field("partitionKey"),
+            stream_analytics_job_id: o.get_field("streamAnalyticsJobId"),
         }
     }
 }

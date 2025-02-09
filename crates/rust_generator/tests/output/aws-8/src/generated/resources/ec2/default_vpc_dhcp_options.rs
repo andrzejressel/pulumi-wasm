@@ -71,59 +71,43 @@ pub mod default_vpc_dhcp_options {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DefaultVpcDhcpOptionsArgs,
     ) -> DefaultVpcDhcpOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let owner_id_binding_1 = args.owner_id.get_output(context);
-        let owner_id_binding = owner_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let owner_id_binding = args.owner_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerId".into(),
-                    value: &owner_id_binding,
+                    value: owner_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DefaultVpcDhcpOptionsResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNameServers"),
-            ),
-            ipv6_address_preferred_lease_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AddressPreferredLeaseTime"),
-            ),
-            netbios_name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netbiosNameServers"),
-            ),
-            netbios_node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netbiosNodeType"),
-            ),
-            ntp_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ntpServers"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            domain_name: o.get_field("domainName"),
+            domain_name_servers: o.get_field("domainNameServers"),
+            ipv6_address_preferred_lease_time: o
+                .get_field("ipv6AddressPreferredLeaseTime"),
+            netbios_name_servers: o.get_field("netbiosNameServers"),
+            netbios_node_type: o.get_field("netbiosNodeType"),
+            ntp_servers: o.get_field("ntpServers"),
+            owner_id: o.get_field("ownerId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

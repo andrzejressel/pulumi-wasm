@@ -100,98 +100,74 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_config_enabled_binding_1 = args.auto_config_enabled.get_output(context);
-        let auto_config_enabled_binding = auto_config_enabled_binding_1.get_inner();
-        let auto_create_binding_1 = args.auto_create.get_output(context);
-        let auto_create_binding = auto_create_binding_1.get_inner();
-        let cwe_monitor_enabled_binding_1 = args.cwe_monitor_enabled.get_output(context);
-        let cwe_monitor_enabled_binding = cwe_monitor_enabled_binding_1.get_inner();
-        let grouping_type_binding_1 = args.grouping_type.get_output(context);
-        let grouping_type_binding = grouping_type_binding_1.get_inner();
-        let ops_center_enabled_binding_1 = args.ops_center_enabled.get_output(context);
-        let ops_center_enabled_binding = ops_center_enabled_binding_1.get_inner();
-        let ops_item_sns_topic_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_config_enabled_binding = args.auto_config_enabled.get_output(context);
+        let auto_create_binding = args.auto_create.get_output(context);
+        let cwe_monitor_enabled_binding = args.cwe_monitor_enabled.get_output(context);
+        let grouping_type_binding = args.grouping_type.get_output(context);
+        let ops_center_enabled_binding = args.ops_center_enabled.get_output(context);
+        let ops_item_sns_topic_arn_binding = args
             .ops_item_sns_topic_arn
             .get_output(context);
-        let ops_item_sns_topic_arn_binding = ops_item_sns_topic_arn_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:applicationinsights/application:Application".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoConfigEnabled".into(),
-                    value: &auto_config_enabled_binding,
+                    value: auto_config_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoCreate".into(),
-                    value: &auto_create_binding,
+                    value: auto_create_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cweMonitorEnabled".into(),
-                    value: &cwe_monitor_enabled_binding,
+                    value: cwe_monitor_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupingType".into(),
-                    value: &grouping_type_binding,
+                    value: grouping_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opsCenterEnabled".into(),
-                    value: &ops_center_enabled_binding,
+                    value: ops_center_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opsItemSnsTopicArn".into(),
-                    value: &ops_item_sns_topic_arn_binding,
+                    value: ops_item_sns_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_config_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoConfigEnabled"),
-            ),
-            auto_create: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoCreate"),
-            ),
-            cwe_monitor_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cweMonitorEnabled"),
-            ),
-            grouping_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupingType"),
-            ),
-            ops_center_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("opsCenterEnabled"),
-            ),
-            ops_item_sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("opsItemSnsTopicArn"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            auto_config_enabled: o.get_field("autoConfigEnabled"),
+            auto_create: o.get_field("autoCreate"),
+            cwe_monitor_enabled: o.get_field("cweMonitorEnabled"),
+            grouping_type: o.get_field("groupingType"),
+            ops_center_enabled: o.get_field("opsCenterEnabled"),
+            ops_item_sns_topic_arn: o.get_field("opsItemSnsTopicArn"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

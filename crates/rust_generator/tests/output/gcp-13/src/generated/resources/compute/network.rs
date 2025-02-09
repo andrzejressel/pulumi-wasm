@@ -322,172 +322,124 @@ pub mod network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkArgs,
     ) -> NetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_create_subnetworks_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_create_subnetworks_binding = args
             .auto_create_subnetworks
             .get_output(context);
-        let auto_create_subnetworks_binding = auto_create_subnetworks_binding_1
-            .get_inner();
-        let bgp_always_compare_med_binding_1 = args
+        let bgp_always_compare_med_binding = args
             .bgp_always_compare_med
             .get_output(context);
-        let bgp_always_compare_med_binding = bgp_always_compare_med_binding_1
-            .get_inner();
-        let bgp_best_path_selection_mode_binding_1 = args
+        let bgp_best_path_selection_mode_binding = args
             .bgp_best_path_selection_mode
             .get_output(context);
-        let bgp_best_path_selection_mode_binding = bgp_best_path_selection_mode_binding_1
-            .get_inner();
-        let bgp_inter_region_cost_binding_1 = args
+        let bgp_inter_region_cost_binding = args
             .bgp_inter_region_cost
             .get_output(context);
-        let bgp_inter_region_cost_binding = bgp_inter_region_cost_binding_1.get_inner();
-        let delete_default_routes_on_create_binding_1 = args
+        let delete_default_routes_on_create_binding = args
             .delete_default_routes_on_create
             .get_output(context);
-        let delete_default_routes_on_create_binding = delete_default_routes_on_create_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enable_ula_internal_ipv6_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let enable_ula_internal_ipv6_binding = args
             .enable_ula_internal_ipv6
             .get_output(context);
-        let enable_ula_internal_ipv6_binding = enable_ula_internal_ipv6_binding_1
-            .get_inner();
-        let internal_ipv6_range_binding_1 = args.internal_ipv6_range.get_output(context);
-        let internal_ipv6_range_binding = internal_ipv6_range_binding_1.get_inner();
-        let mtu_binding_1 = args.mtu.get_output(context);
-        let mtu_binding = mtu_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_firewall_policy_enforcement_order_binding_1 = args
+        let internal_ipv6_range_binding = args.internal_ipv6_range.get_output(context);
+        let mtu_binding = args.mtu.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_firewall_policy_enforcement_order_binding = args
             .network_firewall_policy_enforcement_order
             .get_output(context);
-        let network_firewall_policy_enforcement_order_binding = network_firewall_policy_enforcement_order_binding_1
-            .get_inner();
-        let network_profile_binding_1 = args.network_profile.get_output(context);
-        let network_profile_binding = network_profile_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let routing_mode_binding_1 = args.routing_mode.get_output(context);
-        let routing_mode_binding = routing_mode_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let network_profile_binding = args.network_profile.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let routing_mode_binding = args.routing_mode.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/network:Network".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoCreateSubnetworks".into(),
-                    value: &auto_create_subnetworks_binding,
+                    value: auto_create_subnetworks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAlwaysCompareMed".into(),
-                    value: &bgp_always_compare_med_binding,
+                    value: bgp_always_compare_med_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpBestPathSelectionMode".into(),
-                    value: &bgp_best_path_selection_mode_binding,
+                    value: bgp_best_path_selection_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpInterRegionCost".into(),
-                    value: &bgp_inter_region_cost_binding,
+                    value: bgp_inter_region_cost_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteDefaultRoutesOnCreate".into(),
-                    value: &delete_default_routes_on_create_binding,
+                    value: delete_default_routes_on_create_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableUlaInternalIpv6".into(),
-                    value: &enable_ula_internal_ipv6_binding,
+                    value: enable_ula_internal_ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internalIpv6Range".into(),
-                    value: &internal_ipv6_range_binding,
+                    value: internal_ipv6_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtu".into(),
-                    value: &mtu_binding,
+                    value: mtu_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkFirewallPolicyEnforcementOrder".into(),
-                    value: &network_firewall_policy_enforcement_order_binding,
+                    value: network_firewall_policy_enforcement_order_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: &network_profile_binding,
+                    value: network_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingMode".into(),
-                    value: &routing_mode_binding,
+                    value: routing_mode_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkResult {
-            auto_create_subnetworks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoCreateSubnetworks"),
-            ),
-            bgp_always_compare_med: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpAlwaysCompareMed"),
-            ),
-            bgp_best_path_selection_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpBestPathSelectionMode"),
-            ),
-            bgp_inter_region_cost: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpInterRegionCost"),
-            ),
-            delete_default_routes_on_create: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteDefaultRoutesOnCreate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enable_ula_internal_ipv6: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableUlaInternalIpv6"),
-            ),
-            gateway_ipv4: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayIpv4"),
-            ),
-            internal_ipv6_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalIpv6Range"),
-            ),
-            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_firewall_policy_enforcement_order: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkFirewallPolicyEnforcementOrder"),
-            ),
-            network_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfile"),
-            ),
-            numeric_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numericId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            routing_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingMode"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
+            auto_create_subnetworks: o.get_field("autoCreateSubnetworks"),
+            bgp_always_compare_med: o.get_field("bgpAlwaysCompareMed"),
+            bgp_best_path_selection_mode: o.get_field("bgpBestPathSelectionMode"),
+            bgp_inter_region_cost: o.get_field("bgpInterRegionCost"),
+            delete_default_routes_on_create: o.get_field("deleteDefaultRoutesOnCreate"),
+            description: o.get_field("description"),
+            enable_ula_internal_ipv6: o.get_field("enableUlaInternalIpv6"),
+            gateway_ipv4: o.get_field("gatewayIpv4"),
+            internal_ipv6_range: o.get_field("internalIpv6Range"),
+            mtu: o.get_field("mtu"),
+            name: o.get_field("name"),
+            network_firewall_policy_enforcement_order: o
+                .get_field("networkFirewallPolicyEnforcementOrder"),
+            network_profile: o.get_field("networkProfile"),
+            numeric_id: o.get_field("numericId"),
+            project: o.get_field("project"),
+            routing_mode: o.get_field("routingMode"),
+            self_link: o.get_field("selfLink"),
         }
     }
 }

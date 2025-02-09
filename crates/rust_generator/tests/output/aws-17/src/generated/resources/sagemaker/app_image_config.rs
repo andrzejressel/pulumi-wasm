@@ -106,79 +106,62 @@ pub mod app_image_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppImageConfigArgs,
     ) -> AppImageConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_image_config_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_image_config_name_binding = args
             .app_image_config_name
             .get_output(context);
-        let app_image_config_name_binding = app_image_config_name_binding_1.get_inner();
-        let code_editor_app_image_config_binding_1 = args
+        let code_editor_app_image_config_binding = args
             .code_editor_app_image_config
             .get_output(context);
-        let code_editor_app_image_config_binding = code_editor_app_image_config_binding_1
-            .get_inner();
-        let jupyter_lab_image_config_binding_1 = args
+        let jupyter_lab_image_config_binding = args
             .jupyter_lab_image_config
             .get_output(context);
-        let jupyter_lab_image_config_binding = jupyter_lab_image_config_binding_1
-            .get_inner();
-        let kernel_gateway_image_config_binding_1 = args
+        let kernel_gateway_image_config_binding = args
             .kernel_gateway_image_config
             .get_output(context);
-        let kernel_gateway_image_config_binding = kernel_gateway_image_config_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/appImageConfig:AppImageConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appImageConfigName".into(),
-                    value: &app_image_config_name_binding,
+                    value: app_image_config_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "codeEditorAppImageConfig".into(),
-                    value: &code_editor_app_image_config_binding,
+                    value: code_editor_app_image_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jupyterLabImageConfig".into(),
-                    value: &jupyter_lab_image_config_binding,
+                    value: jupyter_lab_image_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kernelGatewayImageConfig".into(),
-                    value: &kernel_gateway_image_config_binding,
+                    value: kernel_gateway_image_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppImageConfigResult {
-            app_image_config_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appImageConfigName"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            code_editor_app_image_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeEditorAppImageConfig"),
-            ),
-            jupyter_lab_image_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jupyterLabImageConfig"),
-            ),
-            kernel_gateway_image_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kernelGatewayImageConfig"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            app_image_config_name: o.get_field("appImageConfigName"),
+            arn: o.get_field("arn"),
+            code_editor_app_image_config: o.get_field("codeEditorAppImageConfig"),
+            jupyter_lab_image_config: o.get_field("jupyterLabImageConfig"),
+            kernel_gateway_image_config: o.get_field("kernelGatewayImageConfig"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

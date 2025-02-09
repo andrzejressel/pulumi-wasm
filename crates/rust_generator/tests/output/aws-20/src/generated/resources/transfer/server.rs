@@ -377,242 +377,169 @@ pub mod server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerArgs,
     ) -> ServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding_1 = args.certificate.get_output(context);
-        let certificate_binding = certificate_binding_1.get_inner();
-        let directory_id_binding_1 = args.directory_id.get_output(context);
-        let directory_id_binding = directory_id_binding_1.get_inner();
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let endpoint_details_binding_1 = args.endpoint_details.get_output(context);
-        let endpoint_details_binding = endpoint_details_binding_1.get_inner();
-        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
-        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let function_binding_1 = args.function.get_output(context);
-        let function_binding = function_binding_1.get_inner();
-        let host_key_binding_1 = args.host_key.get_output(context);
-        let host_key_binding = host_key_binding_1.get_inner();
-        let identity_provider_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_binding = args.certificate.get_output(context);
+        let directory_id_binding = args.directory_id.get_output(context);
+        let domain_binding = args.domain.get_output(context);
+        let endpoint_details_binding = args.endpoint_details.get_output(context);
+        let endpoint_type_binding = args.endpoint_type.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let function_binding = args.function.get_output(context);
+        let host_key_binding = args.host_key.get_output(context);
+        let identity_provider_type_binding = args
             .identity_provider_type
             .get_output(context);
-        let identity_provider_type_binding = identity_provider_type_binding_1
-            .get_inner();
-        let invocation_role_binding_1 = args.invocation_role.get_output(context);
-        let invocation_role_binding = invocation_role_binding_1.get_inner();
-        let logging_role_binding_1 = args.logging_role.get_output(context);
-        let logging_role_binding = logging_role_binding_1.get_inner();
-        let post_authentication_login_banner_binding_1 = args
+        let invocation_role_binding = args.invocation_role.get_output(context);
+        let logging_role_binding = args.logging_role.get_output(context);
+        let post_authentication_login_banner_binding = args
             .post_authentication_login_banner
             .get_output(context);
-        let post_authentication_login_banner_binding = post_authentication_login_banner_binding_1
-            .get_inner();
-        let pre_authentication_login_banner_binding_1 = args
+        let pre_authentication_login_banner_binding = args
             .pre_authentication_login_banner
             .get_output(context);
-        let pre_authentication_login_banner_binding = pre_authentication_login_banner_binding_1
-            .get_inner();
-        let protocol_details_binding_1 = args.protocol_details.get_output(context);
-        let protocol_details_binding = protocol_details_binding_1.get_inner();
-        let protocols_binding_1 = args.protocols.get_output(context);
-        let protocols_binding = protocols_binding_1.get_inner();
-        let s3_storage_options_binding_1 = args.s3_storage_options.get_output(context);
-        let s3_storage_options_binding = s3_storage_options_binding_1.get_inner();
-        let security_policy_name_binding_1 = args
-            .security_policy_name
-            .get_output(context);
-        let security_policy_name_binding = security_policy_name_binding_1.get_inner();
-        let sftp_authentication_methods_binding_1 = args
+        let protocol_details_binding = args.protocol_details.get_output(context);
+        let protocols_binding = args.protocols.get_output(context);
+        let s3_storage_options_binding = args.s3_storage_options.get_output(context);
+        let security_policy_name_binding = args.security_policy_name.get_output(context);
+        let sftp_authentication_methods_binding = args
             .sftp_authentication_methods
             .get_output(context);
-        let sftp_authentication_methods_binding = sftp_authentication_methods_binding_1
-            .get_inner();
-        let structured_log_destinations_binding_1 = args
+        let structured_log_destinations_binding = args
             .structured_log_destinations
             .get_output(context);
-        let structured_log_destinations_binding = structured_log_destinations_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let url_binding_1 = args.url.get_output(context);
-        let url_binding = url_binding_1.get_inner();
-        let workflow_details_binding_1 = args.workflow_details.get_output(context);
-        let workflow_details_binding = workflow_details_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let url_binding = args.url.get_output(context);
+        let workflow_details_binding = args.workflow_details.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:transfer/server:Server".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: &certificate_binding,
+                    value: certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: &directory_id_binding,
+                    value: directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointDetails".into(),
-                    value: &endpoint_details_binding,
+                    value: endpoint_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: &endpoint_type_binding,
+                    value: endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "function".into(),
-                    value: &function_binding,
+                    value: function_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostKey".into(),
-                    value: &host_key_binding,
+                    value: host_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityProviderType".into(),
-                    value: &identity_provider_type_binding,
+                    value: identity_provider_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invocationRole".into(),
-                    value: &invocation_role_binding,
+                    value: invocation_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingRole".into(),
-                    value: &logging_role_binding,
+                    value: logging_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postAuthenticationLoginBanner".into(),
-                    value: &post_authentication_login_banner_binding,
+                    value: post_authentication_login_banner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preAuthenticationLoginBanner".into(),
-                    value: &pre_authentication_login_banner_binding,
+                    value: pre_authentication_login_banner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolDetails".into(),
-                    value: &protocol_details_binding,
+                    value: protocol_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocols".into(),
-                    value: &protocols_binding,
+                    value: protocols_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3StorageOptions".into(),
-                    value: &s3_storage_options_binding,
+                    value: s3_storage_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicyName".into(),
-                    value: &security_policy_name_binding,
+                    value: security_policy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sftpAuthenticationMethods".into(),
-                    value: &sftp_authentication_methods_binding,
+                    value: sftp_authentication_methods_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "structuredLogDestinations".into(),
-                    value: &structured_log_destinations_binding,
+                    value: structured_log_destinations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: &url_binding,
+                    value: url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowDetails".into(),
-                    value: &workflow_details_binding,
+                    value: workflow_details_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryId"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            endpoint_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointDetails"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            function: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("function"),
-            ),
-            host_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostKey"),
-            ),
-            host_key_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostKeyFingerprint"),
-            ),
-            identity_provider_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityProviderType"),
-            ),
-            invocation_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invocationRole"),
-            ),
-            logging_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingRole"),
-            ),
-            post_authentication_login_banner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postAuthenticationLoginBanner"),
-            ),
-            pre_authentication_login_banner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preAuthenticationLoginBanner"),
-            ),
-            protocol_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolDetails"),
-            ),
-            protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocols"),
-            ),
-            s3_storage_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3StorageOptions"),
-            ),
-            security_policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPolicyName"),
-            ),
-            sftp_authentication_methods: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sftpAuthenticationMethods"),
-            ),
-            structured_log_destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("structuredLogDestinations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
-            workflow_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workflowDetails"),
-            ),
+            arn: o.get_field("arn"),
+            certificate: o.get_field("certificate"),
+            directory_id: o.get_field("directoryId"),
+            domain: o.get_field("domain"),
+            endpoint: o.get_field("endpoint"),
+            endpoint_details: o.get_field("endpointDetails"),
+            endpoint_type: o.get_field("endpointType"),
+            force_destroy: o.get_field("forceDestroy"),
+            function: o.get_field("function"),
+            host_key: o.get_field("hostKey"),
+            host_key_fingerprint: o.get_field("hostKeyFingerprint"),
+            identity_provider_type: o.get_field("identityProviderType"),
+            invocation_role: o.get_field("invocationRole"),
+            logging_role: o.get_field("loggingRole"),
+            post_authentication_login_banner: o
+                .get_field("postAuthenticationLoginBanner"),
+            pre_authentication_login_banner: o.get_field("preAuthenticationLoginBanner"),
+            protocol_details: o.get_field("protocolDetails"),
+            protocols: o.get_field("protocols"),
+            s3_storage_options: o.get_field("s3StorageOptions"),
+            security_policy_name: o.get_field("securityPolicyName"),
+            sftp_authentication_methods: o.get_field("sftpAuthenticationMethods"),
+            structured_log_destinations: o.get_field("structuredLogDestinations"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
+            workflow_details: o.get_field("workflowDetails"),
         }
     }
 }

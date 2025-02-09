@@ -93,55 +93,46 @@ pub mod table_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TablePolicyArgs,
     ) -> TablePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let resource_policy_binding_1 = args.resource_policy.get_output(context);
-        let resource_policy_binding = resource_policy_binding_1.get_inner();
-        let table_bucket_arn_binding_1 = args.table_bucket_arn.get_output(context);
-        let table_bucket_arn_binding = table_bucket_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let resource_policy_binding = args.resource_policy.get_output(context);
+        let table_bucket_arn_binding = args.table_bucket_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3tables/tablePolicy:TablePolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourcePolicy".into(),
-                    value: &resource_policy_binding,
+                    value: resource_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableBucketArn".into(),
-                    value: &table_bucket_arn_binding,
+                    value: table_bucket_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TablePolicyResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
-            resource_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourcePolicy"),
-            ),
-            table_bucket_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableBucketArn"),
-            ),
+            name: o.get_field("name"),
+            namespace: o.get_field("namespace"),
+            resource_policy: o.get_field("resourcePolicy"),
+            table_bucket_arn: o.get_field("tableBucketArn"),
         }
     }
 }

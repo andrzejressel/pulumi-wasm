@@ -71,37 +71,34 @@ pub mod ip_group_cidr {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IPGroupCIDRArgs,
     ) -> IPGroupCIDRResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_binding_1 = args.cidr.get_output(context);
-        let cidr_binding = cidr_binding_1.get_inner();
-        let ip_group_id_binding_1 = args.ip_group_id.get_output(context);
-        let ip_group_id_binding = ip_group_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_binding = args.cidr.get_output(context);
+        let ip_group_id_binding = args.ip_group_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/iPGroupCIDR:IPGroupCIDR".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: &cidr_binding,
+                    value: cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipGroupId".into(),
-                    value: &ip_group_id_binding,
+                    value: ip_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IPGroupCIDRResult {
-            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
-            ip_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipGroupId"),
-            ),
+            cidr: o.get_field("cidr"),
+            ip_group_id: o.get_field("ipGroupId"),
         }
     }
 }

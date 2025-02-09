@@ -299,255 +299,185 @@ pub mod virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualMachineArgs,
     ) -> VirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_capabilities_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_capabilities_binding = args
             .additional_capabilities
             .get_output(context);
-        let additional_capabilities_binding = additional_capabilities_binding_1
-            .get_inner();
-        let availability_set_id_binding_1 = args.availability_set_id.get_output(context);
-        let availability_set_id_binding = availability_set_id_binding_1.get_inner();
-        let boot_diagnostics_binding_1 = args.boot_diagnostics.get_output(context);
-        let boot_diagnostics_binding = boot_diagnostics_binding_1.get_inner();
-        let delete_data_disks_on_termination_binding_1 = args
+        let availability_set_id_binding = args.availability_set_id.get_output(context);
+        let boot_diagnostics_binding = args.boot_diagnostics.get_output(context);
+        let delete_data_disks_on_termination_binding = args
             .delete_data_disks_on_termination
             .get_output(context);
-        let delete_data_disks_on_termination_binding = delete_data_disks_on_termination_binding_1
-            .get_inner();
-        let delete_os_disk_on_termination_binding_1 = args
+        let delete_os_disk_on_termination_binding = args
             .delete_os_disk_on_termination
             .get_output(context);
-        let delete_os_disk_on_termination_binding = delete_os_disk_on_termination_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let license_type_binding_1 = args.license_type.get_output(context);
-        let license_type_binding = license_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_interface_ids_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let license_type_binding = args.license_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_interface_ids_binding = args
             .network_interface_ids
             .get_output(context);
-        let network_interface_ids_binding = network_interface_ids_binding_1.get_inner();
-        let os_profile_binding_1 = args.os_profile.get_output(context);
-        let os_profile_binding = os_profile_binding_1.get_inner();
-        let os_profile_linux_config_binding_1 = args
+        let os_profile_binding = args.os_profile.get_output(context);
+        let os_profile_linux_config_binding = args
             .os_profile_linux_config
             .get_output(context);
-        let os_profile_linux_config_binding = os_profile_linux_config_binding_1
-            .get_inner();
-        let os_profile_secrets_binding_1 = args.os_profile_secrets.get_output(context);
-        let os_profile_secrets_binding = os_profile_secrets_binding_1.get_inner();
-        let os_profile_windows_config_binding_1 = args
+        let os_profile_secrets_binding = args.os_profile_secrets.get_output(context);
+        let os_profile_windows_config_binding = args
             .os_profile_windows_config
             .get_output(context);
-        let os_profile_windows_config_binding = os_profile_windows_config_binding_1
-            .get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let primary_network_interface_id_binding_1 = args
+        let plan_binding = args.plan.get_output(context);
+        let primary_network_interface_id_binding = args
             .primary_network_interface_id
             .get_output(context);
-        let primary_network_interface_id_binding = primary_network_interface_id_binding_1
-            .get_inner();
-        let proximity_placement_group_id_binding_1 = args
+        let proximity_placement_group_id_binding = args
             .proximity_placement_group_id
             .get_output(context);
-        let proximity_placement_group_id_binding = proximity_placement_group_id_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let storage_data_disks_binding_1 = args.storage_data_disks.get_output(context);
-        let storage_data_disks_binding = storage_data_disks_binding_1.get_inner();
-        let storage_image_reference_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let storage_data_disks_binding = args.storage_data_disks.get_output(context);
+        let storage_image_reference_binding = args
             .storage_image_reference
             .get_output(context);
-        let storage_image_reference_binding = storage_image_reference_binding_1
-            .get_inner();
-        let storage_os_disk_binding_1 = args.storage_os_disk.get_output(context);
-        let storage_os_disk_binding = storage_os_disk_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vm_size_binding_1 = args.vm_size.get_output(context);
-        let vm_size_binding = vm_size_binding_1.get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_os_disk_binding = args.storage_os_disk.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vm_size_binding = args.vm_size.get_output(context);
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/virtualMachine:VirtualMachine".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalCapabilities".into(),
-                    value: &additional_capabilities_binding,
+                    value: additional_capabilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilitySetId".into(),
-                    value: &availability_set_id_binding,
+                    value: availability_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootDiagnostics".into(),
-                    value: &boot_diagnostics_binding,
+                    value: boot_diagnostics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteDataDisksOnTermination".into(),
-                    value: &delete_data_disks_on_termination_binding,
+                    value: delete_data_disks_on_termination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteOsDiskOnTermination".into(),
-                    value: &delete_os_disk_on_termination_binding,
+                    value: delete_os_disk_on_termination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: &license_type_binding,
+                    value: license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceIds".into(),
-                    value: &network_interface_ids_binding,
+                    value: network_interface_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osProfile".into(),
-                    value: &os_profile_binding,
+                    value: os_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osProfileLinuxConfig".into(),
-                    value: &os_profile_linux_config_binding,
+                    value: os_profile_linux_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osProfileSecrets".into(),
-                    value: &os_profile_secrets_binding,
+                    value: os_profile_secrets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osProfileWindowsConfig".into(),
-                    value: &os_profile_windows_config_binding,
+                    value: os_profile_windows_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryNetworkInterfaceId".into(),
-                    value: &primary_network_interface_id_binding,
+                    value: primary_network_interface_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proximityPlacementGroupId".into(),
-                    value: &proximity_placement_group_id_binding,
+                    value: proximity_placement_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageDataDisks".into(),
-                    value: &storage_data_disks_binding,
+                    value: storage_data_disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageImageReference".into(),
-                    value: &storage_image_reference_binding,
+                    value: storage_image_reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageOsDisk".into(),
-                    value: &storage_os_disk_binding,
+                    value: storage_os_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmSize".into(),
-                    value: &vm_size_binding,
+                    value: vm_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualMachineResult {
-            additional_capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalCapabilities"),
-            ),
-            availability_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilitySetId"),
-            ),
-            boot_diagnostics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootDiagnostics"),
-            ),
-            delete_data_disks_on_termination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteDataDisksOnTermination"),
-            ),
-            delete_os_disk_on_termination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteOsDiskOnTermination"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_interface_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceIds"),
-            ),
-            os_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfile"),
-            ),
-            os_profile_linux_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfileLinuxConfig"),
-            ),
-            os_profile_secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfileSecrets"),
-            ),
-            os_profile_windows_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfileWindowsConfig"),
-            ),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            primary_network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryNetworkInterfaceId"),
-            ),
-            proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proximityPlacementGroupId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            storage_data_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageDataDisks"),
-            ),
-            storage_image_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageImageReference"),
-            ),
-            storage_os_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageOsDisk"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vm_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmSize"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            additional_capabilities: o.get_field("additionalCapabilities"),
+            availability_set_id: o.get_field("availabilitySetId"),
+            boot_diagnostics: o.get_field("bootDiagnostics"),
+            delete_data_disks_on_termination: o
+                .get_field("deleteDataDisksOnTermination"),
+            delete_os_disk_on_termination: o.get_field("deleteOsDiskOnTermination"),
+            identity: o.get_field("identity"),
+            license_type: o.get_field("licenseType"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_interface_ids: o.get_field("networkInterfaceIds"),
+            os_profile: o.get_field("osProfile"),
+            os_profile_linux_config: o.get_field("osProfileLinuxConfig"),
+            os_profile_secrets: o.get_field("osProfileSecrets"),
+            os_profile_windows_config: o.get_field("osProfileWindowsConfig"),
+            plan: o.get_field("plan"),
+            primary_network_interface_id: o.get_field("primaryNetworkInterfaceId"),
+            proximity_placement_group_id: o.get_field("proximityPlacementGroupId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            storage_data_disks: o.get_field("storageDataDisks"),
+            storage_image_reference: o.get_field("storageImageReference"),
+            storage_os_disk: o.get_field("storageOsDisk"),
+            tags: o.get_field("tags"),
+            vm_size: o.get_field("vmSize"),
+            zones: o.get_field("zones"),
         }
     }
 }

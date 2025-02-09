@@ -82,51 +82,41 @@ pub mod vault_notifications {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VaultNotificationsArgs,
     ) -> VaultNotificationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_vault_events_binding_1 = args.backup_vault_events.get_output(context);
-        let backup_vault_events_binding = backup_vault_events_binding_1.get_inner();
-        let backup_vault_name_binding_1 = args.backup_vault_name.get_output(context);
-        let backup_vault_name_binding = backup_vault_name_binding_1.get_inner();
-        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
-        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_vault_events_binding = args.backup_vault_events.get_output(context);
+        let backup_vault_name_binding = args.backup_vault_name.get_output(context);
+        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:backup/vaultNotifications:VaultNotifications".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupVaultEvents".into(),
-                    value: &backup_vault_events_binding,
+                    value: backup_vault_events_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupVaultName".into(),
-                    value: &backup_vault_name_binding,
+                    value: backup_vault_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArn".into(),
-                    value: &sns_topic_arn_binding,
+                    value: sns_topic_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VaultNotificationsResult {
-            backup_vault_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupVaultArn"),
-            ),
-            backup_vault_events: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupVaultEvents"),
-            ),
-            backup_vault_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupVaultName"),
-            ),
-            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsTopicArn"),
-            ),
+            backup_vault_arn: o.get_field("backupVaultArn"),
+            backup_vault_events: o.get_field("backupVaultEvents"),
+            backup_vault_name: o.get_field("backupVaultName"),
+            sns_topic_arn: o.get_field("snsTopicArn"),
         }
     }
 }

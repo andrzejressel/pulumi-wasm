@@ -344,171 +344,124 @@ pub mod data_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataSetArgs,
     ) -> DataSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let column_groups_binding_1 = args.column_groups.get_output(context);
-        let column_groups_binding = column_groups_binding_1.get_inner();
-        let column_level_permission_rules_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let column_groups_binding = args.column_groups.get_output(context);
+        let column_level_permission_rules_binding = args
             .column_level_permission_rules
             .get_output(context);
-        let column_level_permission_rules_binding = column_level_permission_rules_binding_1
-            .get_inner();
-        let data_set_id_binding_1 = args.data_set_id.get_output(context);
-        let data_set_id_binding = data_set_id_binding_1.get_inner();
-        let data_set_usage_configuration_binding_1 = args
+        let data_set_id_binding = args.data_set_id.get_output(context);
+        let data_set_usage_configuration_binding = args
             .data_set_usage_configuration
             .get_output(context);
-        let data_set_usage_configuration_binding = data_set_usage_configuration_binding_1
-            .get_inner();
-        let field_folders_binding_1 = args.field_folders.get_output(context);
-        let field_folders_binding = field_folders_binding_1.get_inner();
-        let import_mode_binding_1 = args.import_mode.get_output(context);
-        let import_mode_binding = import_mode_binding_1.get_inner();
-        let logical_table_maps_binding_1 = args.logical_table_maps.get_output(context);
-        let logical_table_maps_binding = logical_table_maps_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let physical_table_maps_binding_1 = args.physical_table_maps.get_output(context);
-        let physical_table_maps_binding = physical_table_maps_binding_1.get_inner();
-        let refresh_properties_binding_1 = args.refresh_properties.get_output(context);
-        let refresh_properties_binding = refresh_properties_binding_1.get_inner();
-        let row_level_permission_data_set_binding_1 = args
+        let field_folders_binding = args.field_folders.get_output(context);
+        let import_mode_binding = args.import_mode.get_output(context);
+        let logical_table_maps_binding = args.logical_table_maps.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let physical_table_maps_binding = args.physical_table_maps.get_output(context);
+        let refresh_properties_binding = args.refresh_properties.get_output(context);
+        let row_level_permission_data_set_binding = args
             .row_level_permission_data_set
             .get_output(context);
-        let row_level_permission_data_set_binding = row_level_permission_data_set_binding_1
-            .get_inner();
-        let row_level_permission_tag_configuration_binding_1 = args
+        let row_level_permission_tag_configuration_binding = args
             .row_level_permission_tag_configuration
             .get_output(context);
-        let row_level_permission_tag_configuration_binding = row_level_permission_tag_configuration_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/dataSet:DataSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnGroups".into(),
-                    value: &column_groups_binding,
+                    value: column_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnLevelPermissionRules".into(),
-                    value: &column_level_permission_rules_binding,
+                    value: column_level_permission_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSetId".into(),
-                    value: &data_set_id_binding,
+                    value: data_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSetUsageConfiguration".into(),
-                    value: &data_set_usage_configuration_binding,
+                    value: data_set_usage_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fieldFolders".into(),
-                    value: &field_folders_binding,
+                    value: field_folders_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importMode".into(),
-                    value: &import_mode_binding,
+                    value: import_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicalTableMaps".into(),
-                    value: &logical_table_maps_binding,
+                    value: logical_table_maps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "physicalTableMaps".into(),
-                    value: &physical_table_maps_binding,
+                    value: physical_table_maps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshProperties".into(),
-                    value: &refresh_properties_binding,
+                    value: refresh_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowLevelPermissionDataSet".into(),
-                    value: &row_level_permission_data_set_binding,
+                    value: row_level_permission_data_set_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowLevelPermissionTagConfiguration".into(),
-                    value: &row_level_permission_tag_configuration_binding,
+                    value: row_level_permission_tag_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            column_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("columnGroups"),
-            ),
-            column_level_permission_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("columnLevelPermissionRules"),
-            ),
-            data_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSetId"),
-            ),
-            data_set_usage_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSetUsageConfiguration"),
-            ),
-            field_folders: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fieldFolders"),
-            ),
-            import_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importMode"),
-            ),
-            logical_table_maps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicalTableMaps"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_columns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputColumns"),
-            ),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            physical_table_maps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("physicalTableMaps"),
-            ),
-            refresh_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("refreshProperties"),
-            ),
-            row_level_permission_data_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowLevelPermissionDataSet"),
-            ),
-            row_level_permission_tag_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowLevelPermissionTagConfiguration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            column_groups: o.get_field("columnGroups"),
+            column_level_permission_rules: o.get_field("columnLevelPermissionRules"),
+            data_set_id: o.get_field("dataSetId"),
+            data_set_usage_configuration: o.get_field("dataSetUsageConfiguration"),
+            field_folders: o.get_field("fieldFolders"),
+            import_mode: o.get_field("importMode"),
+            logical_table_maps: o.get_field("logicalTableMaps"),
+            name: o.get_field("name"),
+            output_columns: o.get_field("outputColumns"),
+            permissions: o.get_field("permissions"),
+            physical_table_maps: o.get_field("physicalTableMaps"),
+            refresh_properties: o.get_field("refreshProperties"),
+            row_level_permission_data_set: o.get_field("rowLevelPermissionDataSet"),
+            row_level_permission_tag_configuration: o
+                .get_field("rowLevelPermissionTagConfiguration"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

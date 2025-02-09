@@ -262,124 +262,91 @@ pub mod metric_stream {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MetricStreamArgs,
     ) -> MetricStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exclude_filters_binding_1 = args.exclude_filters.get_output(context);
-        let exclude_filters_binding = exclude_filters_binding_1.get_inner();
-        let firehose_arn_binding_1 = args.firehose_arn.get_output(context);
-        let firehose_arn_binding = firehose_arn_binding_1.get_inner();
-        let include_filters_binding_1 = args.include_filters.get_output(context);
-        let include_filters_binding = include_filters_binding_1.get_inner();
-        let include_linked_accounts_metrics_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let exclude_filters_binding = args.exclude_filters.get_output(context);
+        let firehose_arn_binding = args.firehose_arn.get_output(context);
+        let include_filters_binding = args.include_filters.get_output(context);
+        let include_linked_accounts_metrics_binding = args
             .include_linked_accounts_metrics
             .get_output(context);
-        let include_linked_accounts_metrics_binding = include_linked_accounts_metrics_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let output_format_binding_1 = args.output_format.get_output(context);
-        let output_format_binding = output_format_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let statistics_configurations_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let output_format_binding = args.output_format.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let statistics_configurations_binding = args
             .statistics_configurations
             .get_output(context);
-        let statistics_configurations_binding = statistics_configurations_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/metricStream:MetricStream".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeFilters".into(),
-                    value: &exclude_filters_binding,
+                    value: exclude_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoseArn".into(),
-                    value: &firehose_arn_binding,
+                    value: firehose_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeFilters".into(),
-                    value: &include_filters_binding,
+                    value: include_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeLinkedAccountsMetrics".into(),
-                    value: &include_linked_accounts_metrics_binding,
+                    value: include_linked_accounts_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputFormat".into(),
-                    value: &output_format_binding,
+                    value: output_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statisticsConfigurations".into(),
-                    value: &statistics_configurations_binding,
+                    value: statistics_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MetricStreamResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            exclude_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeFilters"),
-            ),
-            firehose_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firehoseArn"),
-            ),
-            include_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeFilters"),
-            ),
-            include_linked_accounts_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeLinkedAccountsMetrics"),
-            ),
-            last_update_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdateDate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            output_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputFormat"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            statistics_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statisticsConfigurations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            creation_date: o.get_field("creationDate"),
+            exclude_filters: o.get_field("excludeFilters"),
+            firehose_arn: o.get_field("firehoseArn"),
+            include_filters: o.get_field("includeFilters"),
+            include_linked_accounts_metrics: o.get_field("includeLinkedAccountsMetrics"),
+            last_update_date: o.get_field("lastUpdateDate"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            output_format: o.get_field("outputFormat"),
+            role_arn: o.get_field("roleArn"),
+            state: o.get_field("state"),
+            statistics_configurations: o.get_field("statisticsConfigurations"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

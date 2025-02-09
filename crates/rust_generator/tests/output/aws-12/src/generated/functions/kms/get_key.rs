@@ -71,96 +71,53 @@ pub mod get_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKeyArgs,
     ) -> GetKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grant_tokens_binding_1 = args.grant_tokens.get_output(context);
-        let grant_tokens_binding = grant_tokens_binding_1.get_inner();
-        let key_id_binding_1 = args.key_id.get_output(context);
-        let key_id_binding = key_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let grant_tokens_binding = args.grant_tokens.get_output(context);
+        let key_id_binding = args.key_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kms/getKey:getKey".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantTokens".into(),
-                    value: &grant_tokens_binding,
+                    value: grant_tokens_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: &key_id_binding,
+                    value: key_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKeyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            cloud_hsm_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudHsmClusterId"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            custom_key_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customKeyStoreId"),
-            ),
-            customer_master_key_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerMasterKeySpec"),
-            ),
-            deletion_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            expiration_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationModel"),
-            ),
-            grant_tokens: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantTokens"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyId"),
-            ),
-            key_manager: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyManager"),
-            ),
-            key_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySpec"),
-            ),
-            key_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyState"),
-            ),
-            key_usage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyUsage"),
-            ),
-            multi_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegion"),
-            ),
-            multi_region_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegionConfigurations"),
-            ),
-            origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("origin"),
-            ),
-            pending_deletion_window_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pendingDeletionWindowInDays"),
-            ),
-            valid_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validTo"),
-            ),
-            xks_key_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("xksKeyConfigurations"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            cloud_hsm_cluster_id: o.get_field("cloudHsmClusterId"),
+            creation_date: o.get_field("creationDate"),
+            custom_key_store_id: o.get_field("customKeyStoreId"),
+            customer_master_key_spec: o.get_field("customerMasterKeySpec"),
+            deletion_date: o.get_field("deletionDate"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            expiration_model: o.get_field("expirationModel"),
+            grant_tokens: o.get_field("grantTokens"),
+            id: o.get_field("id"),
+            key_id: o.get_field("keyId"),
+            key_manager: o.get_field("keyManager"),
+            key_spec: o.get_field("keySpec"),
+            key_state: o.get_field("keyState"),
+            key_usage: o.get_field("keyUsage"),
+            multi_region: o.get_field("multiRegion"),
+            multi_region_configurations: o.get_field("multiRegionConfigurations"),
+            origin: o.get_field("origin"),
+            pending_deletion_window_in_days: o.get_field("pendingDeletionWindowInDays"),
+            valid_to: o.get_field("validTo"),
+            xks_key_configurations: o.get_field("xksKeyConfigurations"),
         }
     }
 }

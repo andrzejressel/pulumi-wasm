@@ -132,107 +132,79 @@ pub mod data_repository_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataRepositoryAssociationArgs,
     ) -> DataRepositoryAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_import_meta_data_on_create_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let batch_import_meta_data_on_create_binding = args
             .batch_import_meta_data_on_create
             .get_output(context);
-        let batch_import_meta_data_on_create_binding = batch_import_meta_data_on_create_binding_1
-            .get_inner();
-        let data_repository_path_binding_1 = args
-            .data_repository_path
-            .get_output(context);
-        let data_repository_path_binding = data_repository_path_binding_1.get_inner();
-        let delete_data_in_filesystem_binding_1 = args
+        let data_repository_path_binding = args.data_repository_path.get_output(context);
+        let delete_data_in_filesystem_binding = args
             .delete_data_in_filesystem
             .get_output(context);
-        let delete_data_in_filesystem_binding = delete_data_in_filesystem_binding_1
-            .get_inner();
-        let file_system_id_binding_1 = args.file_system_id.get_output(context);
-        let file_system_id_binding = file_system_id_binding_1.get_inner();
-        let file_system_path_binding_1 = args.file_system_path.get_output(context);
-        let file_system_path_binding = file_system_path_binding_1.get_inner();
-        let imported_file_chunk_size_binding_1 = args
+        let file_system_id_binding = args.file_system_id.get_output(context);
+        let file_system_path_binding = args.file_system_path.get_output(context);
+        let imported_file_chunk_size_binding = args
             .imported_file_chunk_size
             .get_output(context);
-        let imported_file_chunk_size_binding = imported_file_chunk_size_binding_1
-            .get_inner();
-        let s3_binding_1 = args.s3.get_output(context);
-        let s3_binding = s3_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let s3_binding = args.s3.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchImportMetaDataOnCreate".into(),
-                    value: &batch_import_meta_data_on_create_binding,
+                    value: batch_import_meta_data_on_create_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRepositoryPath".into(),
-                    value: &data_repository_path_binding,
+                    value: data_repository_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteDataInFilesystem".into(),
-                    value: &delete_data_in_filesystem_binding,
+                    value: delete_data_in_filesystem_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: &file_system_id_binding,
+                    value: file_system_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemPath".into(),
-                    value: &file_system_path_binding,
+                    value: file_system_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importedFileChunkSize".into(),
-                    value: &imported_file_chunk_size_binding,
+                    value: imported_file_chunk_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3".into(),
-                    value: &s3_binding,
+                    value: s3_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataRepositoryAssociationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationId"),
-            ),
-            batch_import_meta_data_on_create: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchImportMetaDataOnCreate"),
-            ),
-            data_repository_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataRepositoryPath"),
-            ),
-            delete_data_in_filesystem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteDataInFilesystem"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            file_system_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemPath"),
-            ),
-            imported_file_chunk_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importedFileChunkSize"),
-            ),
-            s3: pulumi_gestalt_rust::__private::into_domain(o.extract_field("s3")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            association_id: o.get_field("associationId"),
+            batch_import_meta_data_on_create: o.get_field("batchImportMetaDataOnCreate"),
+            data_repository_path: o.get_field("dataRepositoryPath"),
+            delete_data_in_filesystem: o.get_field("deleteDataInFilesystem"),
+            file_system_id: o.get_field("fileSystemId"),
+            file_system_path: o.get_field("fileSystemPath"),
+            imported_file_chunk_size: o.get_field("importedFileChunkSize"),
+            s3: o.get_field("s3"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

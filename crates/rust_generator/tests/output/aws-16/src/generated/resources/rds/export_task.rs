@@ -208,120 +208,80 @@ pub mod export_task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExportTaskArgs,
     ) -> ExportTaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let export_onlies_binding_1 = args.export_onlies.get_output(context);
-        let export_onlies_binding = export_onlies_binding_1.get_inner();
-        let export_task_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let export_onlies_binding = args.export_onlies.get_output(context);
+        let export_task_identifier_binding = args
             .export_task_identifier
             .get_output(context);
-        let export_task_identifier_binding = export_task_identifier_binding_1
-            .get_inner();
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let s3_bucket_name_binding_1 = args.s3_bucket_name.get_output(context);
-        let s3_bucket_name_binding = s3_bucket_name_binding_1.get_inner();
-        let s3_prefix_binding_1 = args.s3_prefix.get_output(context);
-        let s3_prefix_binding = s3_prefix_binding_1.get_inner();
-        let source_arn_binding_1 = args.source_arn.get_output(context);
-        let source_arn_binding = source_arn_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let s3_bucket_name_binding = args.s3_bucket_name.get_output(context);
+        let s3_prefix_binding = args.s3_prefix.get_output(context);
+        let source_arn_binding = args.source_arn.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/exportTask:ExportTask".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportOnlies".into(),
-                    value: &export_onlies_binding,
+                    value: export_onlies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportTaskIdentifier".into(),
-                    value: &export_task_identifier_binding,
+                    value: export_task_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketName".into(),
-                    value: &s3_bucket_name_binding,
+                    value: s3_bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Prefix".into(),
-                    value: &s3_prefix_binding,
+                    value: s3_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArn".into(),
-                    value: &source_arn_binding,
+                    value: source_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExportTaskResult {
-            export_onlies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportOnlies"),
-            ),
-            export_task_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportTaskIdentifier"),
-            ),
-            failure_cause: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureCause"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            percent_progress: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("percentProgress"),
-            ),
-            s3_bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3BucketName"),
-            ),
-            s3_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Prefix"),
-            ),
-            snapshot_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotTime"),
-            ),
-            source_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArn"),
-            ),
-            source_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceType"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            task_end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskEndTime"),
-            ),
-            task_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskStartTime"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            warning_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warningMessage"),
-            ),
+            export_onlies: o.get_field("exportOnlies"),
+            export_task_identifier: o.get_field("exportTaskIdentifier"),
+            failure_cause: o.get_field("failureCause"),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            percent_progress: o.get_field("percentProgress"),
+            s3_bucket_name: o.get_field("s3BucketName"),
+            s3_prefix: o.get_field("s3Prefix"),
+            snapshot_time: o.get_field("snapshotTime"),
+            source_arn: o.get_field("sourceArn"),
+            source_type: o.get_field("sourceType"),
+            status: o.get_field("status"),
+            task_end_time: o.get_field("taskEndTime"),
+            task_start_time: o.get_field("taskStartTime"),
+            timeouts: o.get_field("timeouts"),
+            warning_message: o.get_field("warningMessage"),
         }
     }
 }

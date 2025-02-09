@@ -80,56 +80,47 @@ pub mod flexible_server_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FlexibleServerDatabaseArgs,
     ) -> FlexibleServerDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let charset_binding_1 = args.charset.get_output(context);
-        let charset_binding = charset_binding_1.get_inner();
-        let collation_binding_1 = args.collation.get_output(context);
-        let collation_binding = collation_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let charset_binding = args.charset.get_output(context);
+        let collation_binding = args.collation.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let server_id_binding = args.server_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "charset".into(),
-                    value: &charset_binding,
+                    value: charset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collation".into(),
-                    value: &collation_binding,
+                    value: collation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FlexibleServerDatabaseResult {
-            charset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("charset"),
-            ),
-            collation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collation"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
+            charset: o.get_field("charset"),
+            collation: o.get_field("collation"),
+            name: o.get_field("name"),
+            server_id: o.get_field("serverId"),
         }
     }
 }

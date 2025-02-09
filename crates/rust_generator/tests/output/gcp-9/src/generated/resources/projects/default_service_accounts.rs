@@ -92,51 +92,41 @@ pub mod default_service_accounts {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DefaultServiceAccountsArgs,
     ) -> DefaultServiceAccountsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let restore_policy_binding_1 = args.restore_policy.get_output(context);
-        let restore_policy_binding = restore_policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let restore_policy_binding = args.restore_policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:projects/defaultServiceAccounts:DefaultServiceAccounts".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restorePolicy".into(),
-                    value: &restore_policy_binding,
+                    value: restore_policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DefaultServiceAccountsResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            restore_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restorePolicy"),
-            ),
-            service_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccounts"),
-            ),
+            action: o.get_field("action"),
+            project: o.get_field("project"),
+            restore_policy: o.get_field("restorePolicy"),
+            service_accounts: o.get_field("serviceAccounts"),
         }
     }
 }

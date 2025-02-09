@@ -35,61 +35,48 @@ pub mod get_models {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetModelsArgs,
     ) -> GetModelsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let by_customization_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let by_customization_type_binding = args
             .by_customization_type
             .get_output(context);
-        let by_customization_type_binding = by_customization_type_binding_1.get_inner();
-        let by_inference_type_binding_1 = args.by_inference_type.get_output(context);
-        let by_inference_type_binding = by_inference_type_binding_1.get_inner();
-        let by_output_modality_binding_1 = args.by_output_modality.get_output(context);
-        let by_output_modality_binding = by_output_modality_binding_1.get_inner();
-        let by_provider_binding_1 = args.by_provider.get_output(context);
-        let by_provider_binding = by_provider_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let by_inference_type_binding = args.by_inference_type.get_output(context);
+        let by_output_modality_binding = args.by_output_modality.get_output(context);
+        let by_provider_binding = args.by_provider.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:bedrockfoundation/getModels:getModels".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byCustomizationType".into(),
-                    value: &by_customization_type_binding,
+                    value: by_customization_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byInferenceType".into(),
-                    value: &by_inference_type_binding,
+                    value: by_inference_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byOutputModality".into(),
-                    value: &by_output_modality_binding,
+                    value: by_output_modality_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byProvider".into(),
-                    value: &by_provider_binding,
+                    value: by_provider_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetModelsResult {
-            by_customization_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("byCustomizationType"),
-            ),
-            by_inference_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("byInferenceType"),
-            ),
-            by_output_modality: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("byOutputModality"),
-            ),
-            by_provider: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("byProvider"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            model_summaries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelSummaries"),
-            ),
+            by_customization_type: o.get_field("byCustomizationType"),
+            by_inference_type: o.get_field("byInferenceType"),
+            by_output_modality: o.get_field("byOutputModality"),
+            by_provider: o.get_field("byProvider"),
+            id: o.get_field("id"),
+            model_summaries: o.get_field("modelSummaries"),
         }
     }
 }

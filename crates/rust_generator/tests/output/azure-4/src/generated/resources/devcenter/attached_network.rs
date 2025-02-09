@@ -92,48 +92,42 @@ pub mod attached_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AttachedNetworkArgs,
     ) -> AttachedNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dev_center_id_binding_1 = args.dev_center_id.get_output(context);
-        let dev_center_id_binding = dev_center_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_connection_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dev_center_id_binding = args.dev_center_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_connection_id_binding = args
             .network_connection_id
             .get_output(context);
-        let network_connection_id_binding = network_connection_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:devcenter/attachedNetwork:AttachedNetwork".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterId".into(),
-                    value: &dev_center_id_binding,
+                    value: dev_center_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConnectionId".into(),
-                    value: &network_connection_id_binding,
+                    value: network_connection_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AttachedNetworkResult {
-            dev_center_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("devCenterId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConnectionId"),
-            ),
+            dev_center_id: o.get_field("devCenterId"),
+            name: o.get_field("name"),
+            network_connection_id: o.get_field("networkConnectionId"),
         }
     }
 }

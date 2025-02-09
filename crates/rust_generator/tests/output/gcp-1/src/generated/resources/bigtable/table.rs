@@ -148,97 +148,74 @@ pub mod table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automated_backup_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automated_backup_policy_binding = args
             .automated_backup_policy
             .get_output(context);
-        let automated_backup_policy_binding = automated_backup_policy_binding_1
-            .get_inner();
-        let change_stream_retention_binding_1 = args
+        let change_stream_retention_binding = args
             .change_stream_retention
             .get_output(context);
-        let change_stream_retention_binding = change_stream_retention_binding_1
-            .get_inner();
-        let column_families_binding_1 = args.column_families.get_output(context);
-        let column_families_binding = column_families_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let instance_name_binding_1 = args.instance_name.get_output(context);
-        let instance_name_binding = instance_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let split_keys_binding_1 = args.split_keys.get_output(context);
-        let split_keys_binding = split_keys_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let column_families_binding = args.column_families.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let instance_name_binding = args.instance_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let split_keys_binding = args.split_keys.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigtable/table:Table".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automatedBackupPolicy".into(),
-                    value: &automated_backup_policy_binding,
+                    value: automated_backup_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "changeStreamRetention".into(),
-                    value: &change_stream_retention_binding,
+                    value: change_stream_retention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnFamilies".into(),
-                    value: &column_families_binding,
+                    value: column_families_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: &instance_name_binding,
+                    value: instance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "splitKeys".into(),
-                    value: &split_keys_binding,
+                    value: split_keys_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TableResult {
-            automated_backup_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automatedBackupPolicy"),
-            ),
-            change_stream_retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("changeStreamRetention"),
-            ),
-            column_families: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("columnFamilies"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            split_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("splitKeys"),
-            ),
+            automated_backup_policy: o.get_field("automatedBackupPolicy"),
+            change_stream_retention: o.get_field("changeStreamRetention"),
+            column_families: o.get_field("columnFamilies"),
+            deletion_protection: o.get_field("deletionProtection"),
+            instance_name: o.get_field("instanceName"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            split_keys: o.get_field("splitKeys"),
         }
     }
 }

@@ -92,69 +92,58 @@ pub mod share {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ShareArgs,
     ) -> ShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kind_binding_1 = args.kind.get_output(context);
-        let kind_binding = kind_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let snapshot_schedule_binding_1 = args.snapshot_schedule.get_output(context);
-        let snapshot_schedule_binding = snapshot_schedule_binding_1.get_inner();
-        let terms_binding_1 = args.terms.get_output(context);
-        let terms_binding = terms_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let kind_binding = args.kind.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let snapshot_schedule_binding = args.snapshot_schedule.get_output(context);
+        let terms_binding = args.terms.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datashare/share:Share".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: &kind_binding,
+                    value: kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotSchedule".into(),
-                    value: &snapshot_schedule_binding,
+                    value: snapshot_schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terms".into(),
-                    value: &terms_binding,
+                    value: terms_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ShareResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            snapshot_schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotSchedule"),
-            ),
-            terms: pulumi_gestalt_rust::__private::into_domain(o.extract_field("terms")),
+            account_id: o.get_field("accountId"),
+            description: o.get_field("description"),
+            kind: o.get_field("kind"),
+            name: o.get_field("name"),
+            snapshot_schedule: o.get_field("snapshotSchedule"),
+            terms: o.get_field("terms"),
         }
     }
 }

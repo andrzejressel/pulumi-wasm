@@ -264,196 +264,133 @@ pub mod workload {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkloadArgs,
     ) -> WorkloadResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_account_binding_1 = args.billing_account.get_output(context);
-        let billing_account_binding = billing_account_binding_1.get_inner();
-        let compliance_regime_binding_1 = args.compliance_regime.get_output(context);
-        let compliance_regime_binding = compliance_regime_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_sovereign_controls_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let billing_account_binding = args.billing_account.get_output(context);
+        let compliance_regime_binding = args.compliance_regime.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_sovereign_controls_binding = args
             .enable_sovereign_controls
             .get_output(context);
-        let enable_sovereign_controls_binding = enable_sovereign_controls_binding_1
-            .get_inner();
-        let kms_settings_binding_1 = args.kms_settings.get_output(context);
-        let kms_settings_binding = kms_settings_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let organization_binding_1 = args.organization.get_output(context);
-        let organization_binding = organization_binding_1.get_inner();
-        let partner_binding_1 = args.partner.get_output(context);
-        let partner_binding = partner_binding_1.get_inner();
-        let partner_permissions_binding_1 = args.partner_permissions.get_output(context);
-        let partner_permissions_binding = partner_permissions_binding_1.get_inner();
-        let partner_services_billing_account_binding_1 = args
+        let kms_settings_binding = args.kms_settings.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let organization_binding = args.organization.get_output(context);
+        let partner_binding = args.partner.get_output(context);
+        let partner_permissions_binding = args.partner_permissions.get_output(context);
+        let partner_services_billing_account_binding = args
             .partner_services_billing_account
             .get_output(context);
-        let partner_services_billing_account_binding = partner_services_billing_account_binding_1
-            .get_inner();
-        let provisioned_resources_parent_binding_1 = args
+        let provisioned_resources_parent_binding = args
             .provisioned_resources_parent
             .get_output(context);
-        let provisioned_resources_parent_binding = provisioned_resources_parent_binding_1
-            .get_inner();
-        let resource_settings_binding_1 = args.resource_settings.get_output(context);
-        let resource_settings_binding = resource_settings_binding_1.get_inner();
-        let violation_notifications_enabled_binding_1 = args
+        let resource_settings_binding = args.resource_settings.get_output(context);
+        let violation_notifications_enabled_binding = args
             .violation_notifications_enabled
             .get_output(context);
-        let violation_notifications_enabled_binding = violation_notifications_enabled_binding_1
-            .get_inner();
-        let workload_options_binding_1 = args.workload_options.get_output(context);
-        let workload_options_binding = workload_options_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let workload_options_binding = args.workload_options.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:assuredworkloads/workload:Workload".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccount".into(),
-                    value: &billing_account_binding,
+                    value: billing_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "complianceRegime".into(),
-                    value: &compliance_regime_binding,
+                    value: compliance_regime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSovereignControls".into(),
-                    value: &enable_sovereign_controls_binding,
+                    value: enable_sovereign_controls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsSettings".into(),
-                    value: &kms_settings_binding,
+                    value: kms_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: &organization_binding,
+                    value: organization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partner".into(),
-                    value: &partner_binding,
+                    value: partner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerPermissions".into(),
-                    value: &partner_permissions_binding,
+                    value: partner_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerServicesBillingAccount".into(),
-                    value: &partner_services_billing_account_binding,
+                    value: partner_services_billing_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedResourcesParent".into(),
-                    value: &provisioned_resources_parent_binding,
+                    value: provisioned_resources_parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSettings".into(),
-                    value: &resource_settings_binding,
+                    value: resource_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "violationNotificationsEnabled".into(),
-                    value: &violation_notifications_enabled_binding,
+                    value: violation_notifications_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadOptions".into(),
-                    value: &workload_options_binding,
+                    value: workload_options_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkloadResult {
-            billing_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccount"),
-            ),
-            compliance_regime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("complianceRegime"),
-            ),
-            compliance_statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("complianceStatuses"),
-            ),
-            compliant_but_disallowed_services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compliantButDisallowedServices"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            ekm_provisioning_responses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ekmProvisioningResponses"),
-            ),
-            enable_sovereign_controls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSovereignControls"),
-            ),
-            kaj_enrollment_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kajEnrollmentState"),
-            ),
-            kms_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsSettings"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organization"),
-            ),
-            partner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partner"),
-            ),
-            partner_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerPermissions"),
-            ),
-            partner_services_billing_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerServicesBillingAccount"),
-            ),
-            provisioned_resources_parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedResourcesParent"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            resource_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceSettings"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            saa_enrollment_responses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("saaEnrollmentResponses"),
-            ),
-            violation_notifications_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("violationNotificationsEnabled"),
-            ),
-            workload_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadOptions"),
-            ),
+            billing_account: o.get_field("billingAccount"),
+            compliance_regime: o.get_field("complianceRegime"),
+            compliance_statuses: o.get_field("complianceStatuses"),
+            compliant_but_disallowed_services: o
+                .get_field("compliantButDisallowedServices"),
+            create_time: o.get_field("createTime"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            ekm_provisioning_responses: o.get_field("ekmProvisioningResponses"),
+            enable_sovereign_controls: o.get_field("enableSovereignControls"),
+            kaj_enrollment_state: o.get_field("kajEnrollmentState"),
+            kms_settings: o.get_field("kmsSettings"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            organization: o.get_field("organization"),
+            partner: o.get_field("partner"),
+            partner_permissions: o.get_field("partnerPermissions"),
+            partner_services_billing_account: o
+                .get_field("partnerServicesBillingAccount"),
+            provisioned_resources_parent: o.get_field("provisionedResourcesParent"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            resource_settings: o.get_field("resourceSettings"),
+            resources: o.get_field("resources"),
+            saa_enrollment_responses: o.get_field("saaEnrollmentResponses"),
+            violation_notifications_enabled: o
+                .get_field("violationNotificationsEnabled"),
+            workload_options: o.get_field("workloadOptions"),
         }
     }
 }

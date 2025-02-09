@@ -36,49 +36,38 @@ pub mod get_kms_crypto_key_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKmsCryptoKeyVersionArgs,
     ) -> GetKmsCryptoKeyVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_key_binding_1 = args.crypto_key.get_output(context);
-        let crypto_key_binding = crypto_key_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let crypto_key_binding = args.crypto_key.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:kms/getKMSCryptoKeyVersion:getKMSCryptoKeyVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKey".into(),
-                    value: &crypto_key_binding,
+                    value: crypto_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKmsCryptoKeyVersionResult {
-            algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("algorithm"),
-            ),
-            crypto_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cryptoKey"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protection_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionLevel"),
-            ),
-            public_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeys"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            algorithm: o.get_field("algorithm"),
+            crypto_key: o.get_field("cryptoKey"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            protection_level: o.get_field("protectionLevel"),
+            public_keys: o.get_field("publicKeys"),
+            state: o.get_field("state"),
+            version: o.get_field("version"),
         }
     }
 }

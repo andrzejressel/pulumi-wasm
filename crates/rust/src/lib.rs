@@ -1,22 +1,28 @@
 mod output;
-pub use output::Output;
 pub use output::ToOutput;
 
 #[doc(hidden)]
 #[path = "private/mod.rs"]
 pub mod __private;
-mod context;
 mod input_or_output;
 mod oneof;
-pub use input_or_output::InputOrOutput;
 
-pub use context::PulumiContext;
+pub use input_or_output::InputOrOutput;
 
 pub use oneof::OneOf2;
 pub use oneof::OneOf3;
 pub use oneof::OneOf4;
+pub use pulumi_gestalt_rust_adapter::GestaltCompositeOutput;
+pub use pulumi_gestalt_rust_adapter::GestaltContext;
+pub use pulumi_gestalt_rust_adapter::GestaltOutput;
+pub use pulumi_gestalt_rust_adapter::InvokeResourceRequest;
+pub use pulumi_gestalt_rust_adapter::RegisterResourceRequest;
+pub use pulumi_gestalt_rust_adapter::ResourceRequestObjectField;
 
-/// Add given [Output] to [Stack Output](https://www.pulumi.com/tutorials/building-with-pulumi/stack-outputs/)
+pub type Context = pulumi_gestalt_rust_adapter_wasm::WasmContext;
+pub type Output<T> = pulumi_gestalt_rust_adapter_wasm::WasmOutput<T>;
+
+/// Add the given [Output] to [Stack Output](https://www.pulumi.com/tutorials/building-with-pulumi/stack-outputs/)
 pub fn add_export<T>(name: &str, output: &Output<T>) {
     output.add_to_export(name);
 }
@@ -51,19 +57,23 @@ macro_rules! include_provider {
 ///
 /// pulumi_main!();
 ///
-/// fn pulumi_main(context: &PulumiContext) -> Result<()> {
+/// fn pulumi_main(context: &Context) -> Result<()> {
 ///    Ok(())
 /// }
 /// ```
 #[macro_export]
+// #[cfg(target_arch = "wasm32")]
 macro_rules! pulumi_main {
     () => {
         #[export_name = "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV#main"]
         unsafe extern "C" fn __exported(arg: i32) {
             let mapped = arg as u8;
 
-            pulumi_gestalt_rust::__private::runner::run(mapped, |engine| pulumi_main(&engine))
-                .unwrap();
+            pulumi_gestalt_rust::__private::pulumi_gestalt_rust_adapter_wasm::runner::run(
+                mapped,
+                |engine| pulumi_main(&engine),
+            )
+            .unwrap();
         }
     };
 }

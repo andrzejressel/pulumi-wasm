@@ -74,67 +74,53 @@ pub mod usage_limit {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UsageLimitArgs,
     ) -> UsageLimitResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amount_binding_1 = args.amount.get_output(context);
-        let amount_binding = amount_binding_1.get_inner();
-        let breach_action_binding_1 = args.breach_action.get_output(context);
-        let breach_action_binding = breach_action_binding_1.get_inner();
-        let period_binding_1 = args.period.get_output(context);
-        let period_binding = period_binding_1.get_inner();
-        let resource_arn_binding_1 = args.resource_arn.get_output(context);
-        let resource_arn_binding = resource_arn_binding_1.get_inner();
-        let usage_type_binding_1 = args.usage_type.get_output(context);
-        let usage_type_binding = usage_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let amount_binding = args.amount.get_output(context);
+        let breach_action_binding = args.breach_action.get_output(context);
+        let period_binding = args.period.get_output(context);
+        let resource_arn_binding = args.resource_arn.get_output(context);
+        let usage_type_binding = args.usage_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshiftserverless/usageLimit:UsageLimit".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amount".into(),
-                    value: &amount_binding,
+                    value: amount_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "breachAction".into(),
-                    value: &breach_action_binding,
+                    value: breach_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "period".into(),
-                    value: &period_binding,
+                    value: period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: &resource_arn_binding,
+                    value: resource_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usageType".into(),
-                    value: &usage_type_binding,
+                    value: usage_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UsageLimitResult {
-            amount: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amount"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            breach_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("breachAction"),
-            ),
-            period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("period"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
-            usage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usageType"),
-            ),
+            amount: o.get_field("amount"),
+            arn: o.get_field("arn"),
+            breach_action: o.get_field("breachAction"),
+            period: o.get_field("period"),
+            resource_arn: o.get_field("resourceArn"),
+            usage_type: o.get_field("usageType"),
         }
     }
 }

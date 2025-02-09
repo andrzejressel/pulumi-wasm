@@ -152,121 +152,92 @@ pub mod authorizer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthorizerArgs,
     ) -> AuthorizerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let authorizer_credentials_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_id_binding = args.api_id.get_output(context);
+        let authorizer_credentials_arn_binding = args
             .authorizer_credentials_arn
             .get_output(context);
-        let authorizer_credentials_arn_binding = authorizer_credentials_arn_binding_1
-            .get_inner();
-        let authorizer_payload_format_version_binding_1 = args
+        let authorizer_payload_format_version_binding = args
             .authorizer_payload_format_version
             .get_output(context);
-        let authorizer_payload_format_version_binding = authorizer_payload_format_version_binding_1
-            .get_inner();
-        let authorizer_result_ttl_in_seconds_binding_1 = args
+        let authorizer_result_ttl_in_seconds_binding = args
             .authorizer_result_ttl_in_seconds
             .get_output(context);
-        let authorizer_result_ttl_in_seconds_binding = authorizer_result_ttl_in_seconds_binding_1
-            .get_inner();
-        let authorizer_type_binding_1 = args.authorizer_type.get_output(context);
-        let authorizer_type_binding = authorizer_type_binding_1.get_inner();
-        let authorizer_uri_binding_1 = args.authorizer_uri.get_output(context);
-        let authorizer_uri_binding = authorizer_uri_binding_1.get_inner();
-        let enable_simple_responses_binding_1 = args
+        let authorizer_type_binding = args.authorizer_type.get_output(context);
+        let authorizer_uri_binding = args.authorizer_uri.get_output(context);
+        let enable_simple_responses_binding = args
             .enable_simple_responses
             .get_output(context);
-        let enable_simple_responses_binding = enable_simple_responses_binding_1
-            .get_inner();
-        let identity_sources_binding_1 = args.identity_sources.get_output(context);
-        let identity_sources_binding = identity_sources_binding_1.get_inner();
-        let jwt_configuration_binding_1 = args.jwt_configuration.get_output(context);
-        let jwt_configuration_binding = jwt_configuration_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let identity_sources_binding = args.identity_sources.get_output(context);
+        let jwt_configuration_binding = args.jwt_configuration.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigatewayv2/authorizer:Authorizer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerCredentialsArn".into(),
-                    value: &authorizer_credentials_arn_binding,
+                    value: authorizer_credentials_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerPayloadFormatVersion".into(),
-                    value: &authorizer_payload_format_version_binding,
+                    value: authorizer_payload_format_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerResultTtlInSeconds".into(),
-                    value: &authorizer_result_ttl_in_seconds_binding,
+                    value: authorizer_result_ttl_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerType".into(),
-                    value: &authorizer_type_binding,
+                    value: authorizer_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerUri".into(),
-                    value: &authorizer_uri_binding,
+                    value: authorizer_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSimpleResponses".into(),
-                    value: &enable_simple_responses_binding,
+                    value: enable_simple_responses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identitySources".into(),
-                    value: &identity_sources_binding,
+                    value: identity_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jwtConfiguration".into(),
-                    value: &jwt_configuration_binding,
+                    value: jwt_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthorizerResult {
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            authorizer_credentials_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerCredentialsArn"),
-            ),
-            authorizer_payload_format_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerPayloadFormatVersion"),
-            ),
-            authorizer_result_ttl_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerResultTtlInSeconds"),
-            ),
-            authorizer_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerType"),
-            ),
-            authorizer_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerUri"),
-            ),
-            enable_simple_responses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSimpleResponses"),
-            ),
-            identity_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identitySources"),
-            ),
-            jwt_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jwtConfiguration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            api_id: o.get_field("apiId"),
+            authorizer_credentials_arn: o.get_field("authorizerCredentialsArn"),
+            authorizer_payload_format_version: o
+                .get_field("authorizerPayloadFormatVersion"),
+            authorizer_result_ttl_in_seconds: o
+                .get_field("authorizerResultTtlInSeconds"),
+            authorizer_type: o.get_field("authorizerType"),
+            authorizer_uri: o.get_field("authorizerUri"),
+            enable_simple_responses: o.get_field("enableSimpleResponses"),
+            identity_sources: o.get_field("identitySources"),
+            jwt_configuration: o.get_field("jwtConfiguration"),
+            name: o.get_field("name"),
         }
     }
 }

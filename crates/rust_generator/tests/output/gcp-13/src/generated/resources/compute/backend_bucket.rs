@@ -255,111 +255,80 @@ pub mod backend_bucket {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackendBucketArgs,
     ) -> BackendBucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding_1 = args.bucket_name.get_output(context);
-        let bucket_name_binding = bucket_name_binding_1.get_inner();
-        let cdn_policy_binding_1 = args.cdn_policy.get_output(context);
-        let cdn_policy_binding = cdn_policy_binding_1.get_inner();
-        let compression_mode_binding_1 = args.compression_mode.get_output(context);
-        let compression_mode_binding = compression_mode_binding_1.get_inner();
-        let custom_response_headers_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_name_binding = args.bucket_name.get_output(context);
+        let cdn_policy_binding = args.cdn_policy.get_output(context);
+        let compression_mode_binding = args.compression_mode.get_output(context);
+        let custom_response_headers_binding = args
             .custom_response_headers
             .get_output(context);
-        let custom_response_headers_binding = custom_response_headers_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let edge_security_policy_binding_1 = args
-            .edge_security_policy
-            .get_output(context);
-        let edge_security_policy_binding = edge_security_policy_binding_1.get_inner();
-        let enable_cdn_binding_1 = args.enable_cdn.get_output(context);
-        let enable_cdn_binding = enable_cdn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let edge_security_policy_binding = args.edge_security_policy.get_output(context);
+        let enable_cdn_binding = args.enable_cdn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/backendBucket:BackendBucket".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: &bucket_name_binding,
+                    value: bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnPolicy".into(),
-                    value: &cdn_policy_binding,
+                    value: cdn_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compressionMode".into(),
-                    value: &compression_mode_binding,
+                    value: compression_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customResponseHeaders".into(),
-                    value: &custom_response_headers_binding,
+                    value: custom_response_headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeSecurityPolicy".into(),
-                    value: &edge_security_policy_binding,
+                    value: edge_security_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCdn".into(),
-                    value: &enable_cdn_binding,
+                    value: enable_cdn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackendBucketResult {
-            bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketName"),
-            ),
-            cdn_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnPolicy"),
-            ),
-            compression_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compressionMode"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            custom_response_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customResponseHeaders"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            edge_security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeSecurityPolicy"),
-            ),
-            enable_cdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableCdn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
+            bucket_name: o.get_field("bucketName"),
+            cdn_policy: o.get_field("cdnPolicy"),
+            compression_mode: o.get_field("compressionMode"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            custom_response_headers: o.get_field("customResponseHeaders"),
+            description: o.get_field("description"),
+            edge_security_policy: o.get_field("edgeSecurityPolicy"),
+            enable_cdn: o.get_field("enableCdn"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
         }
     }
 }

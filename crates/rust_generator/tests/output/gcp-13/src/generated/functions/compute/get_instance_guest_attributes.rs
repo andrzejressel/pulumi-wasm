@@ -52,77 +52,60 @@ pub mod get_instance_guest_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceGuestAttributesArgs,
     ) -> GetInstanceGuestAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let query_path_binding_1 = args.query_path.get_output(context);
-        let query_path_binding = query_path_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let variable_key_binding_1 = args.variable_key.get_output(context);
-        let variable_key_binding = variable_key_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let query_path_binding = args.query_path.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let variable_key_binding = args.variable_key.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getInstanceGuestAttributes:getInstanceGuestAttributes"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryPath".into(),
-                    value: &query_path_binding,
+                    value: query_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "variableKey".into(),
-                    value: &variable_key_binding,
+                    value: variable_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceGuestAttributesResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            query_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryPath"),
-            ),
-            query_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryValues"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            variable_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("variableKey"),
-            ),
-            variable_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("variableValue"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            query_path: o.get_field("queryPath"),
+            query_values: o.get_field("queryValues"),
+            region: o.get_field("region"),
+            variable_key: o.get_field("variableKey"),
+            variable_value: o.get_field("variableValue"),
+            zone: o.get_field("zone"),
         }
     }
 }

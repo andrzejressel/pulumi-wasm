@@ -167,183 +167,133 @@ pub mod notebook_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NotebookInstanceArgs,
     ) -> NotebookInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_types_binding_1 = args.accelerator_types.get_output(context);
-        let accelerator_types_binding = accelerator_types_binding_1.get_inner();
-        let additional_code_repositories_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accelerator_types_binding = args.accelerator_types.get_output(context);
+        let additional_code_repositories_binding = args
             .additional_code_repositories
             .get_output(context);
-        let additional_code_repositories_binding = additional_code_repositories_binding_1
-            .get_inner();
-        let default_code_repository_binding_1 = args
+        let default_code_repository_binding = args
             .default_code_repository
             .get_output(context);
-        let default_code_repository_binding = default_code_repository_binding_1
-            .get_inner();
-        let direct_internet_access_binding_1 = args
+        let direct_internet_access_binding = args
             .direct_internet_access
             .get_output(context);
-        let direct_internet_access_binding = direct_internet_access_binding_1
-            .get_inner();
-        let instance_metadata_service_configuration_binding_1 = args
+        let instance_metadata_service_configuration_binding = args
             .instance_metadata_service_configuration
             .get_output(context);
-        let instance_metadata_service_configuration_binding = instance_metadata_service_configuration_binding_1
-            .get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let lifecycle_config_name_binding_1 = args
+        let instance_type_binding = args.instance_type.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let lifecycle_config_name_binding = args
             .lifecycle_config_name
             .get_output(context);
-        let lifecycle_config_name_binding = lifecycle_config_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let platform_identifier_binding_1 = args.platform_identifier.get_output(context);
-        let platform_identifier_binding = platform_identifier_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let root_access_binding_1 = args.root_access.get_output(context);
-        let root_access_binding = root_access_binding_1.get_inner();
-        let security_groups_binding_1 = args.security_groups.get_output(context);
-        let security_groups_binding = security_groups_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let volume_size_binding_1 = args.volume_size.get_output(context);
-        let volume_size_binding = volume_size_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let platform_identifier_binding = args.platform_identifier.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let root_access_binding = args.root_access.get_output(context);
+        let security_groups_binding = args.security_groups.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let volume_size_binding = args.volume_size.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/notebookInstance:NotebookInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorTypes".into(),
-                    value: &accelerator_types_binding,
+                    value: accelerator_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalCodeRepositories".into(),
-                    value: &additional_code_repositories_binding,
+                    value: additional_code_repositories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCodeRepository".into(),
-                    value: &default_code_repository_binding,
+                    value: default_code_repository_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directInternetAccess".into(),
-                    value: &direct_internet_access_binding,
+                    value: direct_internet_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMetadataServiceConfiguration".into(),
-                    value: &instance_metadata_service_configuration_binding,
+                    value: instance_metadata_service_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecycleConfigName".into(),
-                    value: &lifecycle_config_name_binding,
+                    value: lifecycle_config_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformIdentifier".into(),
-                    value: &platform_identifier_binding,
+                    value: platform_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootAccess".into(),
-                    value: &root_access_binding,
+                    value: root_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: &security_groups_binding,
+                    value: security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeSize".into(),
-                    value: &volume_size_binding,
+                    value: volume_size_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NotebookInstanceResult {
-            accelerator_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratorTypes"),
-            ),
-            additional_code_repositories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalCodeRepositories"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            default_code_repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCodeRepository"),
-            ),
-            direct_internet_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directInternetAccess"),
-            ),
-            instance_metadata_service_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceMetadataServiceConfiguration"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            lifecycle_config_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleConfigName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            platform_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformIdentifier"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            root_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootAccess"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
-            volume_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeSize"),
-            ),
+            accelerator_types: o.get_field("acceleratorTypes"),
+            additional_code_repositories: o.get_field("additionalCodeRepositories"),
+            arn: o.get_field("arn"),
+            default_code_repository: o.get_field("defaultCodeRepository"),
+            direct_internet_access: o.get_field("directInternetAccess"),
+            instance_metadata_service_configuration: o
+                .get_field("instanceMetadataServiceConfiguration"),
+            instance_type: o.get_field("instanceType"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            lifecycle_config_name: o.get_field("lifecycleConfigName"),
+            name: o.get_field("name"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            platform_identifier: o.get_field("platformIdentifier"),
+            role_arn: o.get_field("roleArn"),
+            root_access: o.get_field("rootAccess"),
+            security_groups: o.get_field("securityGroups"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
+            volume_size: o.get_field("volumeSize"),
         }
     }
 }

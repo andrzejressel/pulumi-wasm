@@ -444,214 +444,145 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_settings_binding_1 = args.admin_settings.get_output(context);
-        let admin_settings_binding = admin_settings_binding_1.get_inner();
-        let consumer_network_binding_1 = args.consumer_network.get_output(context);
-        let consumer_network_binding = consumer_network_binding_1.get_inner();
-        let custom_domain_binding_1 = args.custom_domain.get_output(context);
-        let custom_domain_binding = custom_domain_binding_1.get_inner();
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let deny_maintenance_period_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_settings_binding = args.admin_settings.get_output(context);
+        let consumer_network_binding = args.consumer_network.get_output(context);
+        let custom_domain_binding = args.custom_domain.get_output(context);
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let deny_maintenance_period_binding = args
             .deny_maintenance_period
             .get_output(context);
-        let deny_maintenance_period_binding = deny_maintenance_period_binding_1
-            .get_inner();
-        let encryption_config_binding_1 = args.encryption_config.get_output(context);
-        let encryption_config_binding = encryption_config_binding_1.get_inner();
-        let fips_enabled_binding_1 = args.fips_enabled.get_output(context);
-        let fips_enabled_binding = fips_enabled_binding_1.get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let oauth_config_binding_1 = args.oauth_config.get_output(context);
-        let oauth_config_binding = oauth_config_binding_1.get_inner();
-        let platform_edition_binding_1 = args.platform_edition.get_output(context);
-        let platform_edition_binding = platform_edition_binding_1.get_inner();
-        let private_ip_enabled_binding_1 = args.private_ip_enabled.get_output(context);
-        let private_ip_enabled_binding = private_ip_enabled_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let psc_config_binding_1 = args.psc_config.get_output(context);
-        let psc_config_binding = psc_config_binding_1.get_inner();
-        let psc_enabled_binding_1 = args.psc_enabled.get_output(context);
-        let psc_enabled_binding = psc_enabled_binding_1.get_inner();
-        let public_ip_enabled_binding_1 = args.public_ip_enabled.get_output(context);
-        let public_ip_enabled_binding = public_ip_enabled_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let reserved_range_binding_1 = args.reserved_range.get_output(context);
-        let reserved_range_binding = reserved_range_binding_1.get_inner();
-        let user_metadata_binding_1 = args.user_metadata.get_output(context);
-        let user_metadata_binding = user_metadata_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let encryption_config_binding = args.encryption_config.get_output(context);
+        let fips_enabled_binding = args.fips_enabled.get_output(context);
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let oauth_config_binding = args.oauth_config.get_output(context);
+        let platform_edition_binding = args.platform_edition.get_output(context);
+        let private_ip_enabled_binding = args.private_ip_enabled.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let psc_config_binding = args.psc_config.get_output(context);
+        let psc_enabled_binding = args.psc_enabled.get_output(context);
+        let public_ip_enabled_binding = args.public_ip_enabled.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let reserved_range_binding = args.reserved_range.get_output(context);
+        let user_metadata_binding = args.user_metadata.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:looker/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminSettings".into(),
-                    value: &admin_settings_binding,
+                    value: admin_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerNetwork".into(),
-                    value: &consumer_network_binding,
+                    value: consumer_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDomain".into(),
-                    value: &custom_domain_binding,
+                    value: custom_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "denyMaintenancePeriod".into(),
-                    value: &deny_maintenance_period_binding,
+                    value: deny_maintenance_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfig".into(),
-                    value: &encryption_config_binding,
+                    value: encryption_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fipsEnabled".into(),
-                    value: &fips_enabled_binding,
+                    value: fips_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oauthConfig".into(),
-                    value: &oauth_config_binding,
+                    value: oauth_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformEdition".into(),
-                    value: &platform_edition_binding,
+                    value: platform_edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpEnabled".into(),
-                    value: &private_ip_enabled_binding,
+                    value: private_ip_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscConfig".into(),
-                    value: &psc_config_binding,
+                    value: psc_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscEnabled".into(),
-                    value: &psc_enabled_binding,
+                    value: psc_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpEnabled".into(),
-                    value: &public_ip_enabled_binding,
+                    value: public_ip_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedRange".into(),
-                    value: &reserved_range_binding,
+                    value: reserved_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userMetadata".into(),
-                    value: &user_metadata_binding,
+                    value: user_metadata_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            admin_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminSettings"),
-            ),
-            consumer_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumerNetwork"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            custom_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomain"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            deny_maintenance_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("denyMaintenancePeriod"),
-            ),
-            egress_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("egressPublicIp"),
-            ),
-            encryption_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfig"),
-            ),
-            fips_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fipsEnabled"),
-            ),
-            ingress_private_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressPrivateIp"),
-            ),
-            ingress_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressPublicIp"),
-            ),
-            looker_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lookerUri"),
-            ),
-            looker_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lookerVersion"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            oauth_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oauthConfig"),
-            ),
-            platform_edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformEdition"),
-            ),
-            private_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpEnabled"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            psc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscConfig"),
-            ),
-            psc_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscEnabled"),
-            ),
-            public_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpEnabled"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            reserved_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedRange"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            user_metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userMetadata"),
-            ),
+            admin_settings: o.get_field("adminSettings"),
+            consumer_network: o.get_field("consumerNetwork"),
+            create_time: o.get_field("createTime"),
+            custom_domain: o.get_field("customDomain"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            deny_maintenance_period: o.get_field("denyMaintenancePeriod"),
+            egress_public_ip: o.get_field("egressPublicIp"),
+            encryption_config: o.get_field("encryptionConfig"),
+            fips_enabled: o.get_field("fipsEnabled"),
+            ingress_private_ip: o.get_field("ingressPrivateIp"),
+            ingress_public_ip: o.get_field("ingressPublicIp"),
+            looker_uri: o.get_field("lookerUri"),
+            looker_version: o.get_field("lookerVersion"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            name: o.get_field("name"),
+            oauth_config: o.get_field("oauthConfig"),
+            platform_edition: o.get_field("platformEdition"),
+            private_ip_enabled: o.get_field("privateIpEnabled"),
+            project: o.get_field("project"),
+            psc_config: o.get_field("pscConfig"),
+            psc_enabled: o.get_field("pscEnabled"),
+            public_ip_enabled: o.get_field("publicIpEnabled"),
+            region: o.get_field("region"),
+            reserved_range: o.get_field("reservedRange"),
+            update_time: o.get_field("updateTime"),
+            user_metadata: o.get_field("userMetadata"),
         }
     }
 }

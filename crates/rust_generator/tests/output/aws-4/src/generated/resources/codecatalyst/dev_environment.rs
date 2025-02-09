@@ -103,92 +103,72 @@ pub mod dev_environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DevEnvironmentArgs,
     ) -> DevEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let ides_binding_1 = args.ides.get_output(context);
-        let ides_binding = ides_binding_1.get_inner();
-        let inactivity_timeout_minutes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let ides_binding = args.ides.get_output(context);
+        let inactivity_timeout_minutes_binding = args
             .inactivity_timeout_minutes
             .get_output(context);
-        let inactivity_timeout_minutes_binding = inactivity_timeout_minutes_binding_1
-            .get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let persistent_storage_binding_1 = args.persistent_storage.get_output(context);
-        let persistent_storage_binding = persistent_storage_binding_1.get_inner();
-        let project_name_binding_1 = args.project_name.get_output(context);
-        let project_name_binding = project_name_binding_1.get_inner();
-        let repositories_binding_1 = args.repositories.get_output(context);
-        let repositories_binding = repositories_binding_1.get_inner();
-        let space_name_binding_1 = args.space_name.get_output(context);
-        let space_name_binding = space_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let instance_type_binding = args.instance_type.get_output(context);
+        let persistent_storage_binding = args.persistent_storage.get_output(context);
+        let project_name_binding = args.project_name.get_output(context);
+        let repositories_binding = args.repositories.get_output(context);
+        let space_name_binding = args.space_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codecatalyst/devEnvironment:DevEnvironment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ides".into(),
-                    value: &ides_binding,
+                    value: ides_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inactivityTimeoutMinutes".into(),
-                    value: &inactivity_timeout_minutes_binding,
+                    value: inactivity_timeout_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistentStorage".into(),
-                    value: &persistent_storage_binding,
+                    value: persistent_storage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectName".into(),
-                    value: &project_name_binding,
+                    value: project_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositories".into(),
-                    value: &repositories_binding,
+                    value: repositories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceName".into(),
-                    value: &space_name_binding,
+                    value: space_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DevEnvironmentResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            ides: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ides")),
-            inactivity_timeout_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inactivityTimeoutMinutes"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            persistent_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistentStorage"),
-            ),
-            project_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectName"),
-            ),
-            repositories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositories"),
-            ),
-            space_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spaceName"),
-            ),
+            alias: o.get_field("alias"),
+            ides: o.get_field("ides"),
+            inactivity_timeout_minutes: o.get_field("inactivityTimeoutMinutes"),
+            instance_type: o.get_field("instanceType"),
+            persistent_storage: o.get_field("persistentStorage"),
+            project_name: o.get_field("projectName"),
+            repositories: o.get_field("repositories"),
+            space_name: o.get_field("spaceName"),
         }
     }
 }

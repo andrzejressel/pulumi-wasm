@@ -174,177 +174,130 @@ pub mod managed_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedClusterArgs,
     ) -> ManagedClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding_1 = args.authentication.get_output(context);
-        let authentication_binding = authentication_binding_1.get_inner();
-        let backup_service_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_binding = args.authentication.get_output(context);
+        let backup_service_enabled_binding = args
             .backup_service_enabled
             .get_output(context);
-        let backup_service_enabled_binding = backup_service_enabled_binding_1
-            .get_inner();
-        let client_connection_port_binding_1 = args
+        let client_connection_port_binding = args
             .client_connection_port
             .get_output(context);
-        let client_connection_port_binding = client_connection_port_binding_1
-            .get_inner();
-        let custom_fabric_settings_binding_1 = args
+        let custom_fabric_settings_binding = args
             .custom_fabric_settings
             .get_output(context);
-        let custom_fabric_settings_binding = custom_fabric_settings_binding_1
-            .get_inner();
-        let dns_name_binding_1 = args.dns_name.get_output(context);
-        let dns_name_binding = dns_name_binding_1.get_inner();
-        let dns_service_enabled_binding_1 = args.dns_service_enabled.get_output(context);
-        let dns_service_enabled_binding = dns_service_enabled_binding_1.get_inner();
-        let http_gateway_port_binding_1 = args.http_gateway_port.get_output(context);
-        let http_gateway_port_binding = http_gateway_port_binding_1.get_inner();
-        let lb_rules_binding_1 = args.lb_rules.get_output(context);
-        let lb_rules_binding = lb_rules_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_types_binding_1 = args.node_types.get_output(context);
-        let node_types_binding = node_types_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let upgrade_wave_binding_1 = args.upgrade_wave.get_output(context);
-        let upgrade_wave_binding = upgrade_wave_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let dns_name_binding = args.dns_name.get_output(context);
+        let dns_service_enabled_binding = args.dns_service_enabled.get_output(context);
+        let http_gateway_port_binding = args.http_gateway_port.get_output(context);
+        let lb_rules_binding = args.lb_rules.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_types_binding = args.node_types.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let upgrade_wave_binding = args.upgrade_wave.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:servicefabric/managedCluster:ManagedCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: &authentication_binding,
+                    value: authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupServiceEnabled".into(),
-                    value: &backup_service_enabled_binding,
+                    value: backup_service_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientConnectionPort".into(),
-                    value: &client_connection_port_binding,
+                    value: client_connection_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customFabricSettings".into(),
-                    value: &custom_fabric_settings_binding,
+                    value: custom_fabric_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsName".into(),
-                    value: &dns_name_binding,
+                    value: dns_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsServiceEnabled".into(),
-                    value: &dns_service_enabled_binding,
+                    value: dns_service_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpGatewayPort".into(),
-                    value: &http_gateway_port_binding,
+                    value: http_gateway_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbRules".into(),
-                    value: &lb_rules_binding,
+                    value: lb_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeTypes".into(),
-                    value: &node_types_binding,
+                    value: node_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradeWave".into(),
-                    value: &upgrade_wave_binding,
+                    value: upgrade_wave_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedClusterResult {
-            authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authentication"),
-            ),
-            backup_service_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupServiceEnabled"),
-            ),
-            client_connection_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientConnectionPort"),
-            ),
-            custom_fabric_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customFabricSettings"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            dns_service_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsServiceEnabled"),
-            ),
-            http_gateway_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpGatewayPort"),
-            ),
-            lb_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lbRules"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeTypes"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            upgrade_wave: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradeWave"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            authentication: o.get_field("authentication"),
+            backup_service_enabled: o.get_field("backupServiceEnabled"),
+            client_connection_port: o.get_field("clientConnectionPort"),
+            custom_fabric_settings: o.get_field("customFabricSettings"),
+            dns_name: o.get_field("dnsName"),
+            dns_service_enabled: o.get_field("dnsServiceEnabled"),
+            http_gateway_port: o.get_field("httpGatewayPort"),
+            lb_rules: o.get_field("lbRules"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            node_types: o.get_field("nodeTypes"),
+            password: o.get_field("password"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            upgrade_wave: o.get_field("upgradeWave"),
+            username: o.get_field("username"),
         }
     }
 }

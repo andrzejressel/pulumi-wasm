@@ -233,352 +233,247 @@ pub mod access_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessApplicationArgs,
     ) -> AccessApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let allow_authenticate_via_warp_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let allow_authenticate_via_warp_binding = args
             .allow_authenticate_via_warp
             .get_output(context);
-        let allow_authenticate_via_warp_binding = allow_authenticate_via_warp_binding_1
-            .get_inner();
-        let allowed_idps_binding_1 = args.allowed_idps.get_output(context);
-        let allowed_idps_binding = allowed_idps_binding_1.get_inner();
-        let app_launcher_logo_url_binding_1 = args
+        let allowed_idps_binding = args.allowed_idps.get_output(context);
+        let app_launcher_logo_url_binding = args
             .app_launcher_logo_url
             .get_output(context);
-        let app_launcher_logo_url_binding = app_launcher_logo_url_binding_1.get_inner();
-        let app_launcher_visible_binding_1 = args
-            .app_launcher_visible
-            .get_output(context);
-        let app_launcher_visible_binding = app_launcher_visible_binding_1.get_inner();
-        let auto_redirect_to_identity_binding_1 = args
+        let app_launcher_visible_binding = args.app_launcher_visible.get_output(context);
+        let auto_redirect_to_identity_binding = args
             .auto_redirect_to_identity
             .get_output(context);
-        let auto_redirect_to_identity_binding = auto_redirect_to_identity_binding_1
-            .get_inner();
-        let bg_color_binding_1 = args.bg_color.get_output(context);
-        let bg_color_binding = bg_color_binding_1.get_inner();
-        let cors_headers_binding_1 = args.cors_headers.get_output(context);
-        let cors_headers_binding = cors_headers_binding_1.get_inner();
-        let custom_deny_message_binding_1 = args.custom_deny_message.get_output(context);
-        let custom_deny_message_binding = custom_deny_message_binding_1.get_inner();
-        let custom_deny_url_binding_1 = args.custom_deny_url.get_output(context);
-        let custom_deny_url_binding = custom_deny_url_binding_1.get_inner();
-        let custom_non_identity_deny_url_binding_1 = args
+        let bg_color_binding = args.bg_color.get_output(context);
+        let cors_headers_binding = args.cors_headers.get_output(context);
+        let custom_deny_message_binding = args.custom_deny_message.get_output(context);
+        let custom_deny_url_binding = args.custom_deny_url.get_output(context);
+        let custom_non_identity_deny_url_binding = args
             .custom_non_identity_deny_url
             .get_output(context);
-        let custom_non_identity_deny_url_binding = custom_non_identity_deny_url_binding_1
-            .get_inner();
-        let custom_pages_binding_1 = args.custom_pages.get_output(context);
-        let custom_pages_binding = custom_pages_binding_1.get_inner();
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let enable_binding_cookie_binding_1 = args
+        let custom_pages_binding = args.custom_pages.get_output(context);
+        let domain_binding = args.domain.get_output(context);
+        let enable_binding_cookie_binding = args
             .enable_binding_cookie
             .get_output(context);
-        let enable_binding_cookie_binding = enable_binding_cookie_binding_1.get_inner();
-        let footer_links_binding_1 = args.footer_links.get_output(context);
-        let footer_links_binding = footer_links_binding_1.get_inner();
-        let header_bg_color_binding_1 = args.header_bg_color.get_output(context);
-        let header_bg_color_binding = header_bg_color_binding_1.get_inner();
-        let http_only_cookie_attribute_binding_1 = args
+        let footer_links_binding = args.footer_links.get_output(context);
+        let header_bg_color_binding = args.header_bg_color.get_output(context);
+        let http_only_cookie_attribute_binding = args
             .http_only_cookie_attribute
             .get_output(context);
-        let http_only_cookie_attribute_binding = http_only_cookie_attribute_binding_1
-            .get_inner();
-        let landing_page_design_binding_1 = args.landing_page_design.get_output(context);
-        let landing_page_design_binding = landing_page_design_binding_1.get_inner();
-        let logo_url_binding_1 = args.logo_url.get_output(context);
-        let logo_url_binding = logo_url_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let options_preflight_bypass_binding_1 = args
+        let landing_page_design_binding = args.landing_page_design.get_output(context);
+        let logo_url_binding = args.logo_url.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let options_preflight_bypass_binding = args
             .options_preflight_bypass
             .get_output(context);
-        let options_preflight_bypass_binding = options_preflight_bypass_binding_1
-            .get_inner();
-        let policies_binding_1 = args.policies.get_output(context);
-        let policies_binding = policies_binding_1.get_inner();
-        let saas_app_binding_1 = args.saas_app.get_output(context);
-        let saas_app_binding = saas_app_binding_1.get_inner();
-        let same_site_cookie_attribute_binding_1 = args
+        let policies_binding = args.policies.get_output(context);
+        let saas_app_binding = args.saas_app.get_output(context);
+        let same_site_cookie_attribute_binding = args
             .same_site_cookie_attribute
             .get_output(context);
-        let same_site_cookie_attribute_binding = same_site_cookie_attribute_binding_1
-            .get_inner();
-        let scim_config_binding_1 = args.scim_config.get_output(context);
-        let scim_config_binding = scim_config_binding_1.get_inner();
-        let self_hosted_domains_binding_1 = args.self_hosted_domains.get_output(context);
-        let self_hosted_domains_binding = self_hosted_domains_binding_1.get_inner();
-        let service_auth401_redirect_binding_1 = args
+        let scim_config_binding = args.scim_config.get_output(context);
+        let self_hosted_domains_binding = args.self_hosted_domains.get_output(context);
+        let service_auth401_redirect_binding = args
             .service_auth401_redirect
             .get_output(context);
-        let service_auth401_redirect_binding = service_auth401_redirect_binding_1
-            .get_inner();
-        let session_duration_binding_1 = args.session_duration.get_output(context);
-        let session_duration_binding = session_duration_binding_1.get_inner();
-        let skip_app_launcher_login_page_binding_1 = args
+        let session_duration_binding = args.session_duration.get_output(context);
+        let skip_app_launcher_login_page_binding = args
             .skip_app_launcher_login_page
             .get_output(context);
-        let skip_app_launcher_login_page_binding = skip_app_launcher_login_page_binding_1
-            .get_inner();
-        let skip_interstitial_binding_1 = args.skip_interstitial.get_output(context);
-        let skip_interstitial_binding = skip_interstitial_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_criterias_binding_1 = args.target_criterias.get_output(context);
-        let target_criterias_binding = target_criterias_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let skip_interstitial_binding = args.skip_interstitial.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_criterias_binding = args.target_criterias.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/accessApplication:AccessApplication".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowAuthenticateViaWarp".into(),
-                    value: &allow_authenticate_via_warp_binding,
+                    value: allow_authenticate_via_warp_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedIdps".into(),
-                    value: &allowed_idps_binding,
+                    value: allowed_idps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appLauncherLogoUrl".into(),
-                    value: &app_launcher_logo_url_binding,
+                    value: app_launcher_logo_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appLauncherVisible".into(),
-                    value: &app_launcher_visible_binding,
+                    value: app_launcher_visible_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRedirectToIdentity".into(),
-                    value: &auto_redirect_to_identity_binding,
+                    value: auto_redirect_to_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgColor".into(),
-                    value: &bg_color_binding,
+                    value: bg_color_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsHeaders".into(),
-                    value: &cors_headers_binding,
+                    value: cors_headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDenyMessage".into(),
-                    value: &custom_deny_message_binding,
+                    value: custom_deny_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDenyUrl".into(),
-                    value: &custom_deny_url_binding,
+                    value: custom_deny_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customNonIdentityDenyUrl".into(),
-                    value: &custom_non_identity_deny_url_binding,
+                    value: custom_non_identity_deny_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPages".into(),
-                    value: &custom_pages_binding,
+                    value: custom_pages_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBindingCookie".into(),
-                    value: &enable_binding_cookie_binding,
+                    value: enable_binding_cookie_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "footerLinks".into(),
-                    value: &footer_links_binding,
+                    value: footer_links_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headerBgColor".into(),
-                    value: &header_bg_color_binding,
+                    value: header_bg_color_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpOnlyCookieAttribute".into(),
-                    value: &http_only_cookie_attribute_binding,
+                    value: http_only_cookie_attribute_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "landingPageDesign".into(),
-                    value: &landing_page_design_binding,
+                    value: landing_page_design_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logoUrl".into(),
-                    value: &logo_url_binding,
+                    value: logo_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optionsPreflightBypass".into(),
-                    value: &options_preflight_bypass_binding,
+                    value: options_preflight_bypass_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policies".into(),
-                    value: &policies_binding,
+                    value: policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "saasApp".into(),
-                    value: &saas_app_binding,
+                    value: saas_app_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sameSiteCookieAttribute".into(),
-                    value: &same_site_cookie_attribute_binding,
+                    value: same_site_cookie_attribute_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scimConfig".into(),
-                    value: &scim_config_binding,
+                    value: scim_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfHostedDomains".into(),
-                    value: &self_hosted_domains_binding,
+                    value: self_hosted_domains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAuth401Redirect".into(),
-                    value: &service_auth401_redirect_binding,
+                    value: service_auth401_redirect_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: &session_duration_binding,
+                    value: session_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipAppLauncherLoginPage".into(),
-                    value: &skip_app_launcher_login_page_binding,
+                    value: skip_app_launcher_login_page_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipInterstitial".into(),
-                    value: &skip_interstitial_binding,
+                    value: skip_interstitial_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCriterias".into(),
-                    value: &target_criterias_binding,
+                    value: target_criterias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessApplicationResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            allow_authenticate_via_warp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowAuthenticateViaWarp"),
-            ),
-            allowed_idps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedIdps"),
-            ),
-            app_launcher_logo_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appLauncherLogoUrl"),
-            ),
-            app_launcher_visible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appLauncherVisible"),
-            ),
-            aud: pulumi_gestalt_rust::__private::into_domain(o.extract_field("aud")),
-            auto_redirect_to_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRedirectToIdentity"),
-            ),
-            bg_color: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgColor"),
-            ),
-            cors_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("corsHeaders"),
-            ),
-            custom_deny_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDenyMessage"),
-            ),
-            custom_deny_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDenyUrl"),
-            ),
-            custom_non_identity_deny_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customNonIdentityDenyUrl"),
-            ),
-            custom_pages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customPages"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            enable_binding_cookie: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBindingCookie"),
-            ),
-            footer_links: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("footerLinks"),
-            ),
-            header_bg_color: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("headerBgColor"),
-            ),
-            http_only_cookie_attribute: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpOnlyCookieAttribute"),
-            ),
-            landing_page_design: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("landingPageDesign"),
-            ),
-            logo_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logoUrl"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            options_preflight_bypass: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optionsPreflightBypass"),
-            ),
-            policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policies"),
-            ),
-            saas_app: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("saasApp"),
-            ),
-            same_site_cookie_attribute: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sameSiteCookieAttribute"),
-            ),
-            scim_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scimConfig"),
-            ),
-            self_hosted_domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfHostedDomains"),
-            ),
-            service_auth401_redirect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAuth401Redirect"),
-            ),
-            session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionDuration"),
-            ),
-            skip_app_launcher_login_page: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipAppLauncherLoginPage"),
-            ),
-            skip_interstitial: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipInterstitial"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_criterias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetCriterias"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            account_id: o.get_field("accountId"),
+            allow_authenticate_via_warp: o.get_field("allowAuthenticateViaWarp"),
+            allowed_idps: o.get_field("allowedIdps"),
+            app_launcher_logo_url: o.get_field("appLauncherLogoUrl"),
+            app_launcher_visible: o.get_field("appLauncherVisible"),
+            aud: o.get_field("aud"),
+            auto_redirect_to_identity: o.get_field("autoRedirectToIdentity"),
+            bg_color: o.get_field("bgColor"),
+            cors_headers: o.get_field("corsHeaders"),
+            custom_deny_message: o.get_field("customDenyMessage"),
+            custom_deny_url: o.get_field("customDenyUrl"),
+            custom_non_identity_deny_url: o.get_field("customNonIdentityDenyUrl"),
+            custom_pages: o.get_field("customPages"),
+            domain: o.get_field("domain"),
+            enable_binding_cookie: o.get_field("enableBindingCookie"),
+            footer_links: o.get_field("footerLinks"),
+            header_bg_color: o.get_field("headerBgColor"),
+            http_only_cookie_attribute: o.get_field("httpOnlyCookieAttribute"),
+            landing_page_design: o.get_field("landingPageDesign"),
+            logo_url: o.get_field("logoUrl"),
+            name: o.get_field("name"),
+            options_preflight_bypass: o.get_field("optionsPreflightBypass"),
+            policies: o.get_field("policies"),
+            saas_app: o.get_field("saasApp"),
+            same_site_cookie_attribute: o.get_field("sameSiteCookieAttribute"),
+            scim_config: o.get_field("scimConfig"),
+            self_hosted_domains: o.get_field("selfHostedDomains"),
+            service_auth401_redirect: o.get_field("serviceAuth401Redirect"),
+            session_duration: o.get_field("sessionDuration"),
+            skip_app_launcher_login_page: o.get_field("skipAppLauncherLoginPage"),
+            skip_interstitial: o.get_field("skipInterstitial"),
+            tags: o.get_field("tags"),
+            target_criterias: o.get_field("targetCriterias"),
+            type_: o.get_field("type"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

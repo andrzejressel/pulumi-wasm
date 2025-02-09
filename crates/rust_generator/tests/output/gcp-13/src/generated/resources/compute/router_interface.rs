@@ -143,121 +143,90 @@ pub mod router_interface {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouterInterfaceArgs,
     ) -> RouterInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let interconnect_attachment_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let interconnect_attachment_binding = args
             .interconnect_attachment
             .get_output(context);
-        let interconnect_attachment_binding = interconnect_attachment_binding_1
-            .get_inner();
-        let ip_range_binding_1 = args.ip_range.get_output(context);
-        let ip_range_binding = ip_range_binding_1.get_inner();
-        let ip_version_binding_1 = args.ip_version.get_output(context);
-        let ip_version_binding = ip_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_ip_address_binding_1 = args.private_ip_address.get_output(context);
-        let private_ip_address_binding = private_ip_address_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let redundant_interface_binding_1 = args.redundant_interface.get_output(context);
-        let redundant_interface_binding = redundant_interface_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let router_binding_1 = args.router.get_output(context);
-        let router_binding = router_binding_1.get_inner();
-        let subnetwork_binding_1 = args.subnetwork.get_output(context);
-        let subnetwork_binding = subnetwork_binding_1.get_inner();
-        let vpn_tunnel_binding_1 = args.vpn_tunnel.get_output(context);
-        let vpn_tunnel_binding = vpn_tunnel_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ip_range_binding = args.ip_range.get_output(context);
+        let ip_version_binding = args.ip_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let private_ip_address_binding = args.private_ip_address.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let redundant_interface_binding = args.redundant_interface.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let router_binding = args.router.get_output(context);
+        let subnetwork_binding = args.subnetwork.get_output(context);
+        let vpn_tunnel_binding = args.vpn_tunnel.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/routerInterface:RouterInterface".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interconnectAttachment".into(),
-                    value: &interconnect_attachment_binding,
+                    value: interconnect_attachment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRange".into(),
-                    value: &ip_range_binding,
+                    value: ip_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipVersion".into(),
-                    value: &ip_version_binding,
+                    value: ip_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAddress".into(),
-                    value: &private_ip_address_binding,
+                    value: private_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redundantInterface".into(),
-                    value: &redundant_interface_binding,
+                    value: redundant_interface_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: &router_binding,
+                    value: router_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: &subnetwork_binding,
+                    value: subnetwork_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnTunnel".into(),
-                    value: &vpn_tunnel_binding,
+                    value: vpn_tunnel_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouterInterfaceResult {
-            interconnect_attachment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interconnectAttachment"),
-            ),
-            ip_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipRange"),
-            ),
-            ip_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            redundant_interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redundantInterface"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            router: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("router"),
-            ),
-            subnetwork: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetwork"),
-            ),
-            vpn_tunnel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnTunnel"),
-            ),
+            interconnect_attachment: o.get_field("interconnectAttachment"),
+            ip_range: o.get_field("ipRange"),
+            ip_version: o.get_field("ipVersion"),
+            name: o.get_field("name"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            project: o.get_field("project"),
+            redundant_interface: o.get_field("redundantInterface"),
+            region: o.get_field("region"),
+            router: o.get_field("router"),
+            subnetwork: o.get_field("subnetwork"),
+            vpn_tunnel: o.get_field("vpnTunnel"),
         }
     }
 }

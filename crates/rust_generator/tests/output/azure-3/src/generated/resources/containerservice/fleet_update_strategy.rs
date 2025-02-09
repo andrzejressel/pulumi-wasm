@@ -82,50 +82,43 @@ pub mod fleet_update_strategy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FleetUpdateStrategyArgs,
     ) -> FleetUpdateStrategyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kubernetes_fleet_manager_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let kubernetes_fleet_manager_id_binding = args
             .kubernetes_fleet_manager_id
             .get_output(context);
-        let kubernetes_fleet_manager_id_binding = kubernetes_fleet_manager_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let stages_binding_1 = args.stages.get_output(context);
-        let stages_binding = stages_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let stages_binding = args.stages.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesFleetManagerId".into(),
-                    value: &kubernetes_fleet_manager_id_binding,
+                    value: kubernetes_fleet_manager_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stages".into(),
-                    value: &stages_binding,
+                    value: stages_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FleetUpdateStrategyResult {
-            kubernetes_fleet_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesFleetManagerId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            stages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stages"),
-            ),
+            kubernetes_fleet_manager_id: o.get_field("kubernetesFleetManagerId"),
+            name: o.get_field("name"),
+            stages: o.get_field("stages"),
         }
     }
 }

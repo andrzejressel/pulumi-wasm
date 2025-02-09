@@ -157,193 +157,133 @@ pub mod v_2_models_intent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: V2modelsIntentArgs,
     ) -> V2modelsIntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_id_binding_1 = args.bot_id.get_output(context);
-        let bot_id_binding = bot_id_binding_1.get_inner();
-        let bot_version_binding_1 = args.bot_version.get_output(context);
-        let bot_version_binding = bot_version_binding_1.get_inner();
-        let closing_setting_binding_1 = args.closing_setting.get_output(context);
-        let closing_setting_binding = closing_setting_binding_1.get_inner();
-        let confirmation_setting_binding_1 = args
-            .confirmation_setting
-            .get_output(context);
-        let confirmation_setting_binding = confirmation_setting_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dialog_code_hook_binding_1 = args.dialog_code_hook.get_output(context);
-        let dialog_code_hook_binding = dialog_code_hook_binding_1.get_inner();
-        let fulfillment_code_hook_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_id_binding = args.bot_id.get_output(context);
+        let bot_version_binding = args.bot_version.get_output(context);
+        let closing_setting_binding = args.closing_setting.get_output(context);
+        let confirmation_setting_binding = args.confirmation_setting.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dialog_code_hook_binding = args.dialog_code_hook.get_output(context);
+        let fulfillment_code_hook_binding = args
             .fulfillment_code_hook
             .get_output(context);
-        let fulfillment_code_hook_binding = fulfillment_code_hook_binding_1.get_inner();
-        let initial_response_setting_binding_1 = args
+        let initial_response_setting_binding = args
             .initial_response_setting
             .get_output(context);
-        let initial_response_setting_binding = initial_response_setting_binding_1
-            .get_inner();
-        let input_contexts_binding_1 = args.input_contexts.get_output(context);
-        let input_contexts_binding = input_contexts_binding_1.get_inner();
-        let kendra_configuration_binding_1 = args
-            .kendra_configuration
-            .get_output(context);
-        let kendra_configuration_binding = kendra_configuration_binding_1.get_inner();
-        let locale_id_binding_1 = args.locale_id.get_output(context);
-        let locale_id_binding = locale_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let output_contexts_binding_1 = args.output_contexts.get_output(context);
-        let output_contexts_binding = output_contexts_binding_1.get_inner();
-        let parent_intent_signature_binding_1 = args
+        let input_contexts_binding = args.input_contexts.get_output(context);
+        let kendra_configuration_binding = args.kendra_configuration.get_output(context);
+        let locale_id_binding = args.locale_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let output_contexts_binding = args.output_contexts.get_output(context);
+        let parent_intent_signature_binding = args
             .parent_intent_signature
             .get_output(context);
-        let parent_intent_signature_binding = parent_intent_signature_binding_1
-            .get_inner();
-        let sample_utterances_binding_1 = args.sample_utterances.get_output(context);
-        let sample_utterances_binding = sample_utterances_binding_1.get_inner();
-        let slot_priorities_binding_1 = args.slot_priorities.get_output(context);
-        let slot_priorities_binding = slot_priorities_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sample_utterances_binding = args.sample_utterances.get_output(context);
+        let slot_priorities_binding = args.slot_priorities.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/v2modelsIntent:V2modelsIntent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: &bot_id_binding,
+                    value: bot_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: &bot_version_binding,
+                    value: bot_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "closingSetting".into(),
-                    value: &closing_setting_binding,
+                    value: closing_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confirmationSetting".into(),
-                    value: &confirmation_setting_binding,
+                    value: confirmation_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dialogCodeHook".into(),
-                    value: &dialog_code_hook_binding,
+                    value: dialog_code_hook_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fulfillmentCodeHook".into(),
-                    value: &fulfillment_code_hook_binding,
+                    value: fulfillment_code_hook_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialResponseSetting".into(),
-                    value: &initial_response_setting_binding,
+                    value: initial_response_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputContexts".into(),
-                    value: &input_contexts_binding,
+                    value: input_contexts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kendraConfiguration".into(),
-                    value: &kendra_configuration_binding,
+                    value: kendra_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeId".into(),
-                    value: &locale_id_binding,
+                    value: locale_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputContexts".into(),
-                    value: &output_contexts_binding,
+                    value: output_contexts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentIntentSignature".into(),
-                    value: &parent_intent_signature_binding,
+                    value: parent_intent_signature_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sampleUtterances".into(),
-                    value: &sample_utterances_binding,
+                    value: sample_utterances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotPriorities".into(),
-                    value: &slot_priorities_binding,
+                    value: slot_priorities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         V2modelsIntentResult {
-            bot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botId"),
-            ),
-            bot_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botVersion"),
-            ),
-            closing_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("closingSetting"),
-            ),
-            confirmation_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confirmationSetting"),
-            ),
-            creation_date_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDateTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dialog_code_hook: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dialogCodeHook"),
-            ),
-            fulfillment_code_hook: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fulfillmentCodeHook"),
-            ),
-            initial_response_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialResponseSetting"),
-            ),
-            input_contexts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputContexts"),
-            ),
-            intent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("intentId"),
-            ),
-            kendra_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kendraConfiguration"),
-            ),
-            last_updated_date_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDateTime"),
-            ),
-            locale_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localeId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_contexts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputContexts"),
-            ),
-            parent_intent_signature: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentIntentSignature"),
-            ),
-            sample_utterances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sampleUtterances"),
-            ),
-            slot_priorities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotPriorities"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            bot_id: o.get_field("botId"),
+            bot_version: o.get_field("botVersion"),
+            closing_setting: o.get_field("closingSetting"),
+            confirmation_setting: o.get_field("confirmationSetting"),
+            creation_date_time: o.get_field("creationDateTime"),
+            description: o.get_field("description"),
+            dialog_code_hook: o.get_field("dialogCodeHook"),
+            fulfillment_code_hook: o.get_field("fulfillmentCodeHook"),
+            initial_response_setting: o.get_field("initialResponseSetting"),
+            input_contexts: o.get_field("inputContexts"),
+            intent_id: o.get_field("intentId"),
+            kendra_configuration: o.get_field("kendraConfiguration"),
+            last_updated_date_time: o.get_field("lastUpdatedDateTime"),
+            locale_id: o.get_field("localeId"),
+            name: o.get_field("name"),
+            output_contexts: o.get_field("outputContexts"),
+            parent_intent_signature: o.get_field("parentIntentSignature"),
+            sample_utterances: o.get_field("sampleUtterances"),
+            slot_priorities: o.get_field("slotPriorities"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

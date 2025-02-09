@@ -130,89 +130,67 @@ pub mod connector {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectorArgs,
     ) -> ConnectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_role_binding_1 = args.access_role.get_output(context);
-        let access_role_binding = access_role_binding_1.get_inner();
-        let as2_config_binding_1 = args.as2_config.get_output(context);
-        let as2_config_binding = as2_config_binding_1.get_inner();
-        let logging_role_binding_1 = args.logging_role.get_output(context);
-        let logging_role_binding = logging_role_binding_1.get_inner();
-        let security_policy_name_binding_1 = args
-            .security_policy_name
-            .get_output(context);
-        let security_policy_name_binding = security_policy_name_binding_1.get_inner();
-        let sftp_config_binding_1 = args.sftp_config.get_output(context);
-        let sftp_config_binding = sftp_config_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let url_binding_1 = args.url.get_output(context);
-        let url_binding = url_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_role_binding = args.access_role.get_output(context);
+        let as2_config_binding = args.as2_config.get_output(context);
+        let logging_role_binding = args.logging_role.get_output(context);
+        let security_policy_name_binding = args.security_policy_name.get_output(context);
+        let sftp_config_binding = args.sftp_config.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let url_binding = args.url.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:transfer/connector:Connector".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessRole".into(),
-                    value: &access_role_binding,
+                    value: access_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "as2Config".into(),
-                    value: &as2_config_binding,
+                    value: as2_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingRole".into(),
-                    value: &logging_role_binding,
+                    value: logging_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicyName".into(),
-                    value: &security_policy_name_binding,
+                    value: security_policy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sftpConfig".into(),
-                    value: &sftp_config_binding,
+                    value: sftp_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: &url_binding,
+                    value: url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectorResult {
-            access_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessRole"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            as2_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("as2Config"),
-            ),
-            connector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectorId"),
-            ),
-            logging_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingRole"),
-            ),
-            security_policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPolicyName"),
-            ),
-            sftp_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sftpConfig"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            access_role: o.get_field("accessRole"),
+            arn: o.get_field("arn"),
+            as2_config: o.get_field("as2Config"),
+            connector_id: o.get_field("connectorId"),
+            logging_role: o.get_field("loggingRole"),
+            security_policy_name: o.get_field("securityPolicyName"),
+            sftp_config: o.get_field("sftpConfig"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
         }
     }
 }

@@ -276,140 +276,95 @@ pub mod snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SnapshotArgs,
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let chain_name_binding_1 = args.chain_name.get_output(context);
-        let chain_name_binding = chain_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let snapshot_encryption_key_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let chain_name_binding = args.chain_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let snapshot_encryption_key_binding = args
             .snapshot_encryption_key
             .get_output(context);
-        let snapshot_encryption_key_binding = snapshot_encryption_key_binding_1
-            .get_inner();
-        let source_disk_binding_1 = args.source_disk.get_output(context);
-        let source_disk_binding = source_disk_binding_1.get_inner();
-        let source_disk_encryption_key_binding_1 = args
+        let source_disk_binding = args.source_disk.get_output(context);
+        let source_disk_encryption_key_binding = args
             .source_disk_encryption_key
             .get_output(context);
-        let source_disk_encryption_key_binding = source_disk_encryption_key_binding_1
-            .get_inner();
-        let storage_locations_binding_1 = args.storage_locations.get_output(context);
-        let storage_locations_binding = storage_locations_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_locations_binding = args.storage_locations.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/snapshot:Snapshot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "chainName".into(),
-                    value: &chain_name_binding,
+                    value: chain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotEncryptionKey".into(),
-                    value: &snapshot_encryption_key_binding,
+                    value: snapshot_encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDisk".into(),
-                    value: &source_disk_binding,
+                    value: source_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDiskEncryptionKey".into(),
-                    value: &source_disk_encryption_key_binding,
+                    value: source_disk_encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageLocations".into(),
-                    value: &storage_locations_binding,
+                    value: storage_locations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SnapshotResult {
-            chain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("chainName"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSizeGb"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            licenses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenses"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            snapshot_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotEncryptionKey"),
-            ),
-            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotId"),
-            ),
-            source_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDisk"),
-            ),
-            source_disk_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDiskEncryptionKey"),
-            ),
-            storage_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageBytes"),
-            ),
-            storage_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageLocations"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            chain_name: o.get_field("chainName"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            disk_size_gb: o.get_field("diskSizeGb"),
+            effective_labels: o.get_field("effectiveLabels"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            licenses: o.get_field("licenses"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            self_link: o.get_field("selfLink"),
+            snapshot_encryption_key: o.get_field("snapshotEncryptionKey"),
+            snapshot_id: o.get_field("snapshotId"),
+            source_disk: o.get_field("sourceDisk"),
+            source_disk_encryption_key: o.get_field("sourceDiskEncryptionKey"),
+            storage_bytes: o.get_field("storageBytes"),
+            storage_locations: o.get_field("storageLocations"),
+            zone: o.get_field("zone"),
         }
     }
 }

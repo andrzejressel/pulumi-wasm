@@ -96,79 +96,60 @@ pub mod address_map {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AddressMapArgs,
     ) -> AddressMapResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let default_sni_binding_1 = args.default_sni.get_output(context);
-        let default_sni_binding = default_sni_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let ips_binding_1 = args.ips.get_output(context);
-        let ips_binding = ips_binding_1.get_inner();
-        let memberships_binding_1 = args.memberships.get_output(context);
-        let memberships_binding = memberships_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let default_sni_binding = args.default_sni.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let ips_binding = args.ips.get_output(context);
+        let memberships_binding = args.memberships.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/addressMap:AddressMap".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSni".into(),
-                    value: &default_sni_binding,
+                    value: default_sni_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ips".into(),
-                    value: &ips_binding,
+                    value: ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberships".into(),
-                    value: &memberships_binding,
+                    value: memberships_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AddressMapResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            can_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("canDelete"),
-            ),
-            can_modify_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("canModifyIps"),
-            ),
-            default_sni: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSni"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            ips: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ips")),
-            memberships: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberships"),
-            ),
+            account_id: o.get_field("accountId"),
+            can_delete: o.get_field("canDelete"),
+            can_modify_ips: o.get_field("canModifyIps"),
+            default_sni: o.get_field("defaultSni"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            ips: o.get_field("ips"),
+            memberships: o.get_field("memberships"),
         }
     }
 }

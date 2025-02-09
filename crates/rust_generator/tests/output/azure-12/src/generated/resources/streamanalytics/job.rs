@@ -179,199 +179,143 @@ pub mod job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compatibility_level_binding_1 = args.compatibility_level.get_output(context);
-        let compatibility_level_binding = compatibility_level_binding_1.get_inner();
-        let content_storage_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let compatibility_level_binding = args.compatibility_level.get_output(context);
+        let content_storage_policy_binding = args
             .content_storage_policy
             .get_output(context);
-        let content_storage_policy_binding = content_storage_policy_binding_1
-            .get_inner();
-        let data_locale_binding_1 = args.data_locale.get_output(context);
-        let data_locale_binding = data_locale_binding_1.get_inner();
-        let events_late_arrival_max_delay_in_seconds_binding_1 = args
+        let data_locale_binding = args.data_locale.get_output(context);
+        let events_late_arrival_max_delay_in_seconds_binding = args
             .events_late_arrival_max_delay_in_seconds
             .get_output(context);
-        let events_late_arrival_max_delay_in_seconds_binding = events_late_arrival_max_delay_in_seconds_binding_1
-            .get_inner();
-        let events_out_of_order_max_delay_in_seconds_binding_1 = args
+        let events_out_of_order_max_delay_in_seconds_binding = args
             .events_out_of_order_max_delay_in_seconds
             .get_output(context);
-        let events_out_of_order_max_delay_in_seconds_binding = events_out_of_order_max_delay_in_seconds_binding_1
-            .get_inner();
-        let events_out_of_order_policy_binding_1 = args
+        let events_out_of_order_policy_binding = args
             .events_out_of_order_policy
             .get_output(context);
-        let events_out_of_order_policy_binding = events_out_of_order_policy_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let job_storage_accounts_binding_1 = args
-            .job_storage_accounts
-            .get_output(context);
-        let job_storage_accounts_binding = job_storage_accounts_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let output_error_policy_binding_1 = args.output_error_policy.get_output(context);
-        let output_error_policy_binding = output_error_policy_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let stream_analytics_cluster_id_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let job_storage_accounts_binding = args.job_storage_accounts.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let output_error_policy_binding = args.output_error_policy.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let stream_analytics_cluster_id_binding = args
             .stream_analytics_cluster_id
             .get_output(context);
-        let stream_analytics_cluster_id_binding = stream_analytics_cluster_id_binding_1
-            .get_inner();
-        let streaming_units_binding_1 = args.streaming_units.get_output(context);
-        let streaming_units_binding = streaming_units_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transformation_query_binding_1 = args
-            .transformation_query
-            .get_output(context);
-        let transformation_query_binding = transformation_query_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let streaming_units_binding = args.streaming_units.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transformation_query_binding = args.transformation_query.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/job:Job".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibilityLevel".into(),
-                    value: &compatibility_level_binding,
+                    value: compatibility_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentStoragePolicy".into(),
-                    value: &content_storage_policy_binding,
+                    value: content_storage_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataLocale".into(),
-                    value: &data_locale_binding,
+                    value: data_locale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventsLateArrivalMaxDelayInSeconds".into(),
-                    value: &events_late_arrival_max_delay_in_seconds_binding,
+                    value: events_late_arrival_max_delay_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventsOutOfOrderMaxDelayInSeconds".into(),
-                    value: &events_out_of_order_max_delay_in_seconds_binding,
+                    value: events_out_of_order_max_delay_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventsOutOfOrderPolicy".into(),
-                    value: &events_out_of_order_policy_binding,
+                    value: events_out_of_order_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobStorageAccounts".into(),
-                    value: &job_storage_accounts_binding,
+                    value: job_storage_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputErrorPolicy".into(),
-                    value: &output_error_policy_binding,
+                    value: output_error_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsClusterId".into(),
-                    value: &stream_analytics_cluster_id_binding,
+                    value: stream_analytics_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingUnits".into(),
-                    value: &streaming_units_binding,
+                    value: streaming_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transformationQuery".into(),
-                    value: &transformation_query_binding,
+                    value: transformation_query_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobResult {
-            compatibility_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibilityLevel"),
-            ),
-            content_storage_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentStoragePolicy"),
-            ),
-            data_locale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataLocale"),
-            ),
-            events_late_arrival_max_delay_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventsLateArrivalMaxDelayInSeconds"),
-            ),
-            events_out_of_order_max_delay_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventsOutOfOrderMaxDelayInSeconds"),
-            ),
-            events_out_of_order_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventsOutOfOrderPolicy"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobId"),
-            ),
-            job_storage_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobStorageAccounts"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_error_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputErrorPolicy"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            stream_analytics_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsClusterId"),
-            ),
-            streaming_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamingUnits"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            transformation_query: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transformationQuery"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            compatibility_level: o.get_field("compatibilityLevel"),
+            content_storage_policy: o.get_field("contentStoragePolicy"),
+            data_locale: o.get_field("dataLocale"),
+            events_late_arrival_max_delay_in_seconds: o
+                .get_field("eventsLateArrivalMaxDelayInSeconds"),
+            events_out_of_order_max_delay_in_seconds: o
+                .get_field("eventsOutOfOrderMaxDelayInSeconds"),
+            events_out_of_order_policy: o.get_field("eventsOutOfOrderPolicy"),
+            identity: o.get_field("identity"),
+            job_id: o.get_field("jobId"),
+            job_storage_accounts: o.get_field("jobStorageAccounts"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            output_error_policy: o.get_field("outputErrorPolicy"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            stream_analytics_cluster_id: o.get_field("streamAnalyticsClusterId"),
+            streaming_units: o.get_field("streamingUnits"),
+            tags: o.get_field("tags"),
+            transformation_query: o.get_field("transformationQuery"),
+            type_: o.get_field("type"),
         }
     }
 }

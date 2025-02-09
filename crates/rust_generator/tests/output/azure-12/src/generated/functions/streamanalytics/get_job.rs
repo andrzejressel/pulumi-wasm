@@ -55,81 +55,50 @@ pub mod get_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetJobArgs,
     ) -> GetJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:streamanalytics/getJob:getJob".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetJobResult {
-            compatibility_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibilityLevel"),
-            ),
-            data_locale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataLocale"),
-            ),
-            events_late_arrival_max_delay_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventsLateArrivalMaxDelayInSeconds"),
-            ),
-            events_out_of_order_max_delay_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventsOutOfOrderMaxDelayInSeconds"),
-            ),
-            events_out_of_order_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventsOutOfOrderPolicy"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobId"),
-            ),
-            last_output_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastOutputTime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_error_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputErrorPolicy"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            start_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startMode"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            streaming_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamingUnits"),
-            ),
-            transformation_query: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transformationQuery"),
-            ),
+            compatibility_level: o.get_field("compatibilityLevel"),
+            data_locale: o.get_field("dataLocale"),
+            events_late_arrival_max_delay_in_seconds: o
+                .get_field("eventsLateArrivalMaxDelayInSeconds"),
+            events_out_of_order_max_delay_in_seconds: o
+                .get_field("eventsOutOfOrderMaxDelayInSeconds"),
+            events_out_of_order_policy: o.get_field("eventsOutOfOrderPolicy"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            job_id: o.get_field("jobId"),
+            last_output_time: o.get_field("lastOutputTime"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            output_error_policy: o.get_field("outputErrorPolicy"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            start_mode: o.get_field("startMode"),
+            start_time: o.get_field("startTime"),
+            streaming_units: o.get_field("streamingUnits"),
+            transformation_query: o.get_field("transformationQuery"),
         }
     }
 }

@@ -123,99 +123,76 @@ pub mod endpoint_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointConfigurationArgs,
     ) -> EndpointConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let async_inference_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let async_inference_config_binding = args
             .async_inference_config
             .get_output(context);
-        let async_inference_config_binding = async_inference_config_binding_1
-            .get_inner();
-        let data_capture_config_binding_1 = args.data_capture_config.get_output(context);
-        let data_capture_config_binding = data_capture_config_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let production_variants_binding_1 = args.production_variants.get_output(context);
-        let production_variants_binding = production_variants_binding_1.get_inner();
-        let shadow_production_variants_binding_1 = args
+        let data_capture_config_binding = args.data_capture_config.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let production_variants_binding = args.production_variants.get_output(context);
+        let shadow_production_variants_binding = args
             .shadow_production_variants
             .get_output(context);
-        let shadow_production_variants_binding = shadow_production_variants_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/endpointConfiguration:EndpointConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "asyncInferenceConfig".into(),
-                    value: &async_inference_config_binding,
+                    value: async_inference_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCaptureConfig".into(),
-                    value: &data_capture_config_binding,
+                    value: data_capture_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productionVariants".into(),
-                    value: &production_variants_binding,
+                    value: production_variants_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shadowProductionVariants".into(),
-                    value: &shadow_production_variants_binding,
+                    value: shadow_production_variants_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            async_inference_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("asyncInferenceConfig"),
-            ),
-            data_capture_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCaptureConfig"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            production_variants: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productionVariants"),
-            ),
-            shadow_production_variants: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shadowProductionVariants"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            async_inference_config: o.get_field("asyncInferenceConfig"),
+            data_capture_config: o.get_field("dataCaptureConfig"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            production_variants: o.get_field("productionVariants"),
+            shadow_production_variants: o.get_field("shadowProductionVariants"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

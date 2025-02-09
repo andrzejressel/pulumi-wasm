@@ -120,118 +120,87 @@ pub mod project_sink {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProjectSinkArgs,
     ) -> ProjectSinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigquery_options_binding_1 = args.bigquery_options.get_output(context);
-        let bigquery_options_binding = bigquery_options_binding_1.get_inner();
-        let custom_writer_identity_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bigquery_options_binding = args.bigquery_options.get_output(context);
+        let custom_writer_identity_binding = args
             .custom_writer_identity
             .get_output(context);
-        let custom_writer_identity_binding = custom_writer_identity_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let exclusions_binding_1 = args.exclusions.get_output(context);
-        let exclusions_binding = exclusions_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let unique_writer_identity_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let destination_binding = args.destination.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let exclusions_binding = args.exclusions.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let unique_writer_identity_binding = args
             .unique_writer_identity
             .get_output(context);
-        let unique_writer_identity_binding = unique_writer_identity_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:logging/projectSink:ProjectSink".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigqueryOptions".into(),
-                    value: &bigquery_options_binding,
+                    value: bigquery_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customWriterIdentity".into(),
-                    value: &custom_writer_identity_binding,
+                    value: custom_writer_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exclusions".into(),
-                    value: &exclusions_binding,
+                    value: exclusions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uniqueWriterIdentity".into(),
-                    value: &unique_writer_identity_binding,
+                    value: unique_writer_identity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProjectSinkResult {
-            bigquery_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryOptions"),
-            ),
-            custom_writer_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customWriterIdentity"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            exclusions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exclusions"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            unique_writer_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueWriterIdentity"),
-            ),
-            writer_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writerIdentity"),
-            ),
+            bigquery_options: o.get_field("bigqueryOptions"),
+            custom_writer_identity: o.get_field("customWriterIdentity"),
+            description: o.get_field("description"),
+            destination: o.get_field("destination"),
+            disabled: o.get_field("disabled"),
+            exclusions: o.get_field("exclusions"),
+            filter: o.get_field("filter"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            unique_writer_identity: o.get_field("uniqueWriterIdentity"),
+            writer_identity: o.get_field("writerIdentity"),
         }
     }
 }

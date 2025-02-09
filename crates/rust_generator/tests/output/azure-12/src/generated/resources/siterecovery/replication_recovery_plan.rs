@@ -102,109 +102,81 @@ pub mod replication_recovery_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReplicationRecoveryPlanArgs,
     ) -> ReplicationRecoveryPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let azure_to_azure_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let azure_to_azure_settings_binding = args
             .azure_to_azure_settings
             .get_output(context);
-        let azure_to_azure_settings_binding = azure_to_azure_settings_binding_1
-            .get_inner();
-        let boot_recovery_groups_binding_1 = args
-            .boot_recovery_groups
-            .get_output(context);
-        let boot_recovery_groups_binding = boot_recovery_groups_binding_1.get_inner();
-        let failover_recovery_group_binding_1 = args
+        let boot_recovery_groups_binding = args.boot_recovery_groups.get_output(context);
+        let failover_recovery_group_binding = args
             .failover_recovery_group
             .get_output(context);
-        let failover_recovery_group_binding = failover_recovery_group_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
-        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
-        let shutdown_recovery_group_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let recovery_vault_id_binding = args.recovery_vault_id.get_output(context);
+        let shutdown_recovery_group_binding = args
             .shutdown_recovery_group
             .get_output(context);
-        let shutdown_recovery_group_binding = shutdown_recovery_group_binding_1
-            .get_inner();
-        let source_recovery_fabric_id_binding_1 = args
+        let source_recovery_fabric_id_binding = args
             .source_recovery_fabric_id
             .get_output(context);
-        let source_recovery_fabric_id_binding = source_recovery_fabric_id_binding_1
-            .get_inner();
-        let target_recovery_fabric_id_binding_1 = args
+        let target_recovery_fabric_id_binding = args
             .target_recovery_fabric_id
             .get_output(context);
-        let target_recovery_fabric_id_binding = target_recovery_fabric_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureToAzureSettings".into(),
-                    value: &azure_to_azure_settings_binding,
+                    value: azure_to_azure_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootRecoveryGroups".into(),
-                    value: &boot_recovery_groups_binding,
+                    value: boot_recovery_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverRecoveryGroup".into(),
-                    value: &failover_recovery_group_binding,
+                    value: failover_recovery_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultId".into(),
-                    value: &recovery_vault_id_binding,
+                    value: recovery_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shutdownRecoveryGroup".into(),
-                    value: &shutdown_recovery_group_binding,
+                    value: shutdown_recovery_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRecoveryFabricId".into(),
-                    value: &source_recovery_fabric_id_binding,
+                    value: source_recovery_fabric_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRecoveryFabricId".into(),
-                    value: &target_recovery_fabric_id_binding,
+                    value: target_recovery_fabric_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReplicationRecoveryPlanResult {
-            azure_to_azure_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureToAzureSettings"),
-            ),
-            boot_recovery_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootRecoveryGroups"),
-            ),
-            failover_recovery_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failoverRecoveryGroup"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recovery_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryVaultId"),
-            ),
-            shutdown_recovery_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shutdownRecoveryGroup"),
-            ),
-            source_recovery_fabric_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRecoveryFabricId"),
-            ),
-            target_recovery_fabric_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRecoveryFabricId"),
-            ),
+            azure_to_azure_settings: o.get_field("azureToAzureSettings"),
+            boot_recovery_groups: o.get_field("bootRecoveryGroups"),
+            failover_recovery_group: o.get_field("failoverRecoveryGroup"),
+            name: o.get_field("name"),
+            recovery_vault_id: o.get_field("recoveryVaultId"),
+            shutdown_recovery_group: o.get_field("shutdownRecoveryGroup"),
+            source_recovery_fabric_id: o.get_field("sourceRecoveryFabricId"),
+            target_recovery_fabric_id: o.get_field("targetRecoveryFabricId"),
         }
     }
 }

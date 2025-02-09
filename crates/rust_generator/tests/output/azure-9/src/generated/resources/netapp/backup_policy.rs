@@ -111,106 +111,82 @@ pub mod backup_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackupPolicyArgs,
     ) -> BackupPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let daily_backups_to_keep_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let daily_backups_to_keep_binding = args
             .daily_backups_to_keep
             .get_output(context);
-        let daily_backups_to_keep_binding = daily_backups_to_keep_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let monthly_backups_to_keep_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let monthly_backups_to_keep_binding = args
             .monthly_backups_to_keep
             .get_output(context);
-        let monthly_backups_to_keep_binding = monthly_backups_to_keep_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let weekly_backups_to_keep_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let weekly_backups_to_keep_binding = args
             .weekly_backups_to_keep
             .get_output(context);
-        let weekly_backups_to_keep_binding = weekly_backups_to_keep_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:netapp/backupPolicy:BackupPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyBackupsToKeep".into(),
-                    value: &daily_backups_to_keep_binding,
+                    value: daily_backups_to_keep_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monthlyBackupsToKeep".into(),
-                    value: &monthly_backups_to_keep_binding,
+                    value: monthly_backups_to_keep_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyBackupsToKeep".into(),
-                    value: &weekly_backups_to_keep_binding,
+                    value: weekly_backups_to_keep_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackupPolicyResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            daily_backups_to_keep: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyBackupsToKeep"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            monthly_backups_to_keep: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monthlyBackupsToKeep"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            weekly_backups_to_keep: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weeklyBackupsToKeep"),
-            ),
+            account_name: o.get_field("accountName"),
+            daily_backups_to_keep: o.get_field("dailyBackupsToKeep"),
+            enabled: o.get_field("enabled"),
+            location: o.get_field("location"),
+            monthly_backups_to_keep: o.get_field("monthlyBackupsToKeep"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            weekly_backups_to_keep: o.get_field("weeklyBackupsToKeep"),
         }
     }
 }

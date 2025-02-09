@@ -232,111 +232,84 @@ pub mod metric_descriptor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MetricDescriptorArgs,
     ) -> MetricDescriptorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let launch_stage_binding_1 = args.launch_stage.get_output(context);
-        let launch_stage_binding = launch_stage_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let metric_kind_binding_1 = args.metric_kind.get_output(context);
-        let metric_kind_binding = metric_kind_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let unit_binding_1 = args.unit.get_output(context);
-        let unit_binding = unit_binding_1.get_inner();
-        let value_type_binding_1 = args.value_type.get_output(context);
-        let value_type_binding = value_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let launch_stage_binding = args.launch_stage.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let metric_kind_binding = args.metric_kind.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let unit_binding = args.unit.get_output(context);
+        let value_type_binding = args.value_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:monitoring/metricDescriptor:MetricDescriptor".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchStage".into(),
-                    value: &launch_stage_binding,
+                    value: launch_stage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricKind".into(),
-                    value: &metric_kind_binding,
+                    value: metric_kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "unit".into(),
-                    value: &unit_binding,
+                    value: unit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "valueType".into(),
-                    value: &value_type_binding,
+                    value: value_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MetricDescriptorResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            launch_stage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchStage"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            metric_kind: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricKind"),
-            ),
-            monitored_resource_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoredResourceTypes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            unit: pulumi_gestalt_rust::__private::into_domain(o.extract_field("unit")),
-            value_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("valueType"),
-            ),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            labels: o.get_field("labels"),
+            launch_stage: o.get_field("launchStage"),
+            metadata: o.get_field("metadata"),
+            metric_kind: o.get_field("metricKind"),
+            monitored_resource_types: o.get_field("monitoredResourceTypes"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            type_: o.get_field("type"),
+            unit: o.get_field("unit"),
+            value_type: o.get_field("valueType"),
         }
     }
 }

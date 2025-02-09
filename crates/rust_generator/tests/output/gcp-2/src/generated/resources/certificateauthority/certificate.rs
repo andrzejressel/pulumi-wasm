@@ -621,138 +621,93 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_authority_binding = args
             .certificate_authority
             .get_output(context);
-        let certificate_authority_binding = certificate_authority_binding_1.get_inner();
-        let certificate_template_binding_1 = args
-            .certificate_template
-            .get_output(context);
-        let certificate_template_binding = certificate_template_binding_1.get_inner();
-        let config_binding_1 = args.config.get_output(context);
-        let config_binding = config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let lifetime_binding_1 = args.lifetime.get_output(context);
-        let lifetime_binding = lifetime_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let pem_csr_binding_1 = args.pem_csr.get_output(context);
-        let pem_csr_binding = pem_csr_binding_1.get_inner();
-        let pool_binding_1 = args.pool.get_output(context);
-        let pool_binding = pool_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let certificate_template_binding = args.certificate_template.get_output(context);
+        let config_binding = args.config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let lifetime_binding = args.lifetime.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let pem_csr_binding = args.pem_csr.get_output(context);
+        let pool_binding = args.pool.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:certificateauthority/certificate:Certificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthority".into(),
-                    value: &certificate_authority_binding,
+                    value: certificate_authority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateTemplate".into(),
-                    value: &certificate_template_binding,
+                    value: certificate_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: &config_binding,
+                    value: config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifetime".into(),
-                    value: &lifetime_binding,
+                    value: lifetime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pemCsr".into(),
-                    value: &pem_csr_binding,
+                    value: pem_csr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pool".into(),
-                    value: &pool_binding,
+                    value: pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateResult {
-            certificate_authority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthority"),
-            ),
-            certificate_descriptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateDescriptions"),
-            ),
-            certificate_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateTemplate"),
-            ),
-            config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("config"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            issuer_certificate_authority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuerCertificateAuthority"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            lifetime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifetime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pem_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pemCertificate"),
-            ),
-            pem_certificate_chains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pemCertificateChains"),
-            ),
-            pem_csr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pemCsr"),
-            ),
-            pool: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pool")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            revocation_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationDetails"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            certificate_authority: o.get_field("certificateAuthority"),
+            certificate_descriptions: o.get_field("certificateDescriptions"),
+            certificate_template: o.get_field("certificateTemplate"),
+            config: o.get_field("config"),
+            create_time: o.get_field("createTime"),
+            effective_labels: o.get_field("effectiveLabels"),
+            issuer_certificate_authority: o.get_field("issuerCertificateAuthority"),
+            labels: o.get_field("labels"),
+            lifetime: o.get_field("lifetime"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            pem_certificate: o.get_field("pemCertificate"),
+            pem_certificate_chains: o.get_field("pemCertificateChains"),
+            pem_csr: o.get_field("pemCsr"),
+            pool: o.get_field("pool"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            revocation_details: o.get_field("revocationDetails"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

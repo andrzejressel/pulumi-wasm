@@ -27,30 +27,28 @@ pub mod get_group_lookup {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetGroupLookupArgs,
     ) -> GetGroupLookupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_key_binding_1 = args.group_key.get_output(context);
-        let group_key_binding = group_key_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_key_binding = args.group_key.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:cloudidentity/getGroupLookup:getGroupLookup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupKey".into(),
-                    value: &group_key_binding,
+                    value: group_key_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetGroupLookupResult {
-            group_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupKey"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            group_key: o.get_field("groupKey"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
         }
     }
 }

@@ -44,57 +44,43 @@ pub mod get_compute_environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetComputeEnvironmentArgs,
     ) -> GetComputeEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_environment_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let compute_environment_name_binding = args
             .compute_environment_name
             .get_output(context);
-        let compute_environment_name_binding = compute_environment_name_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:batch/getComputeEnvironment:getComputeEnvironment".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeEnvironmentName".into(),
-                    value: &compute_environment_name_binding,
+                    value: compute_environment_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetComputeEnvironmentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            compute_environment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeEnvironmentName"),
-            ),
-            ecs_cluster_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ecsClusterArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            service_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRole"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusReason"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatePolicies"),
-            ),
+            arn: o.get_field("arn"),
+            compute_environment_name: o.get_field("computeEnvironmentName"),
+            ecs_cluster_arn: o.get_field("ecsClusterArn"),
+            id: o.get_field("id"),
+            service_role: o.get_field("serviceRole"),
+            state: o.get_field("state"),
+            status: o.get_field("status"),
+            status_reason: o.get_field("statusReason"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
+            update_policies: o.get_field("updatePolicies"),
         }
     }
 }

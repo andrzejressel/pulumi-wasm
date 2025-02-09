@@ -172,104 +172,79 @@ pub mod cx_entity_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CxEntityTypeArgs,
     ) -> CxEntityTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_expansion_mode_binding_1 = args.auto_expansion_mode.get_output(context);
-        let auto_expansion_mode_binding = auto_expansion_mode_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_fuzzy_extraction_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_expansion_mode_binding = args.auto_expansion_mode.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_fuzzy_extraction_binding = args
             .enable_fuzzy_extraction
             .get_output(context);
-        let enable_fuzzy_extraction_binding = enable_fuzzy_extraction_binding_1
-            .get_inner();
-        let entities_binding_1 = args.entities.get_output(context);
-        let entities_binding = entities_binding_1.get_inner();
-        let excluded_phrases_binding_1 = args.excluded_phrases.get_output(context);
-        let excluded_phrases_binding = excluded_phrases_binding_1.get_inner();
-        let kind_binding_1 = args.kind.get_output(context);
-        let kind_binding = kind_binding_1.get_inner();
-        let language_code_binding_1 = args.language_code.get_output(context);
-        let language_code_binding = language_code_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let redact_binding_1 = args.redact.get_output(context);
-        let redact_binding = redact_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let entities_binding = args.entities.get_output(context);
+        let excluded_phrases_binding = args.excluded_phrases.get_output(context);
+        let kind_binding = args.kind.get_output(context);
+        let language_code_binding = args.language_code.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let redact_binding = args.redact.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/cxEntityType:CxEntityType".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoExpansionMode".into(),
-                    value: &auto_expansion_mode_binding,
+                    value: auto_expansion_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableFuzzyExtraction".into(),
-                    value: &enable_fuzzy_extraction_binding,
+                    value: enable_fuzzy_extraction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entities".into(),
-                    value: &entities_binding,
+                    value: entities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedPhrases".into(),
-                    value: &excluded_phrases_binding,
+                    value: excluded_phrases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: &kind_binding,
+                    value: kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: &language_code_binding,
+                    value: language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redact".into(),
-                    value: &redact_binding,
+                    value: redact_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CxEntityTypeResult {
-            auto_expansion_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoExpansionMode"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enable_fuzzy_extraction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableFuzzyExtraction"),
-            ),
-            entities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entities"),
-            ),
-            excluded_phrases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludedPhrases"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            redact: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redact"),
-            ),
+            auto_expansion_mode: o.get_field("autoExpansionMode"),
+            display_name: o.get_field("displayName"),
+            enable_fuzzy_extraction: o.get_field("enableFuzzyExtraction"),
+            entities: o.get_field("entities"),
+            excluded_phrases: o.get_field("excludedPhrases"),
+            kind: o.get_field("kind"),
+            language_code: o.get_field("languageCode"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            redact: o.get_field("redact"),
         }
     }
 }

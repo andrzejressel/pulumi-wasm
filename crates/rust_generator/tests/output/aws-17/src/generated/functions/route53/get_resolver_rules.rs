@@ -39,70 +39,52 @@ pub mod get_resolver_rules {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResolverRulesArgs,
     ) -> GetResolverRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_regex_binding_1 = args.name_regex.get_output(context);
-        let name_regex_binding = name_regex_binding_1.get_inner();
-        let owner_id_binding_1 = args.owner_id.get_output(context);
-        let owner_id_binding = owner_id_binding_1.get_inner();
-        let resolver_endpoint_id_binding_1 = args
-            .resolver_endpoint_id
-            .get_output(context);
-        let resolver_endpoint_id_binding = resolver_endpoint_id_binding_1.get_inner();
-        let rule_type_binding_1 = args.rule_type.get_output(context);
-        let rule_type_binding = rule_type_binding_1.get_inner();
-        let share_status_binding_1 = args.share_status.get_output(context);
-        let share_status_binding = share_status_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_regex_binding = args.name_regex.get_output(context);
+        let owner_id_binding = args.owner_id.get_output(context);
+        let resolver_endpoint_id_binding = args.resolver_endpoint_id.get_output(context);
+        let rule_type_binding = args.rule_type.get_output(context);
+        let share_status_binding = args.share_status.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getResolverRules:getResolverRules".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameRegex".into(),
-                    value: &name_regex_binding,
+                    value: name_regex_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerId".into(),
-                    value: &owner_id_binding,
+                    value: owner_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverEndpointId".into(),
-                    value: &resolver_endpoint_id_binding,
+                    value: resolver_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleType".into(),
-                    value: &rule_type_binding,
+                    value: rule_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareStatus".into(),
-                    value: &share_status_binding,
+                    value: share_status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResolverRulesResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name_regex: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameRegex"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            resolver_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverEndpointId"),
-            ),
-            resolver_rule_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverRuleIds"),
-            ),
-            rule_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleType"),
-            ),
-            share_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareStatus"),
-            ),
+            id: o.get_field("id"),
+            name_regex: o.get_field("nameRegex"),
+            owner_id: o.get_field("ownerId"),
+            resolver_endpoint_id: o.get_field("resolverEndpointId"),
+            resolver_rule_ids: o.get_field("resolverRuleIds"),
+            rule_type: o.get_field("ruleType"),
+            share_status: o.get_field("shareStatus"),
         }
     }
 }

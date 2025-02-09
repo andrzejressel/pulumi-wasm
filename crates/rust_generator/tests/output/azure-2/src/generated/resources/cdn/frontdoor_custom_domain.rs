@@ -156,71 +156,56 @@ pub mod frontdoor_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorCustomDomainArgs,
     ) -> FrontdoorCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cdn_frontdoor_profile_id_binding = args
             .cdn_frontdoor_profile_id
             .get_output(context);
-        let cdn_frontdoor_profile_id_binding = cdn_frontdoor_profile_id_binding_1
-            .get_inner();
-        let dns_zone_id_binding_1 = args.dns_zone_id.get_output(context);
-        let dns_zone_id_binding = dns_zone_id_binding_1.get_inner();
-        let host_name_binding_1 = args.host_name.get_output(context);
-        let host_name_binding = host_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tls_binding_1 = args.tls.get_output(context);
-        let tls_binding = tls_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let dns_zone_id_binding = args.dns_zone_id.get_output(context);
+        let host_name_binding = args.host_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tls_binding = args.tls.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorProfileId".into(),
-                    value: &cdn_frontdoor_profile_id_binding,
+                    value: cdn_frontdoor_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsZoneId".into(),
-                    value: &dns_zone_id_binding,
+                    value: dns_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostName".into(),
-                    value: &host_name_binding,
+                    value: host_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls".into(),
-                    value: &tls_binding,
+                    value: tls_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorCustomDomainResult {
-            cdn_frontdoor_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorProfileId"),
-            ),
-            dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsZoneId"),
-            ),
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tls")),
-            validation_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationToken"),
-            ),
+            cdn_frontdoor_profile_id: o.get_field("cdnFrontdoorProfileId"),
+            dns_zone_id: o.get_field("dnsZoneId"),
+            expiration_date: o.get_field("expirationDate"),
+            host_name: o.get_field("hostName"),
+            name: o.get_field("name"),
+            tls: o.get_field("tls"),
+            validation_token: o.get_field("validationToken"),
         }
     }
 }

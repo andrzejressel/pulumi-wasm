@@ -110,135 +110,96 @@ pub mod namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NamespaceArgs,
     ) -> NamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_password_secret_kms_key_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_password_secret_kms_key_id_binding = args
             .admin_password_secret_kms_key_id
             .get_output(context);
-        let admin_password_secret_kms_key_id_binding = admin_password_secret_kms_key_id_binding_1
-            .get_inner();
-        let admin_user_password_binding_1 = args.admin_user_password.get_output(context);
-        let admin_user_password_binding = admin_user_password_binding_1.get_inner();
-        let admin_username_binding_1 = args.admin_username.get_output(context);
-        let admin_username_binding = admin_username_binding_1.get_inner();
-        let db_name_binding_1 = args.db_name.get_output(context);
-        let db_name_binding = db_name_binding_1.get_inner();
-        let default_iam_role_arn_binding_1 = args
-            .default_iam_role_arn
-            .get_output(context);
-        let default_iam_role_arn_binding = default_iam_role_arn_binding_1.get_inner();
-        let iam_roles_binding_1 = args.iam_roles.get_output(context);
-        let iam_roles_binding = iam_roles_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let log_exports_binding_1 = args.log_exports.get_output(context);
-        let log_exports_binding = log_exports_binding_1.get_inner();
-        let manage_admin_password_binding_1 = args
+        let admin_user_password_binding = args.admin_user_password.get_output(context);
+        let admin_username_binding = args.admin_username.get_output(context);
+        let db_name_binding = args.db_name.get_output(context);
+        let default_iam_role_arn_binding = args.default_iam_role_arn.get_output(context);
+        let iam_roles_binding = args.iam_roles.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let log_exports_binding = args.log_exports.get_output(context);
+        let manage_admin_password_binding = args
             .manage_admin_password
             .get_output(context);
-        let manage_admin_password_binding = manage_admin_password_binding_1.get_inner();
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshiftserverless/namespace:Namespace".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminPasswordSecretKmsKeyId".into(),
-                    value: &admin_password_secret_kms_key_id_binding,
+                    value: admin_password_secret_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminUserPassword".into(),
-                    value: &admin_user_password_binding,
+                    value: admin_user_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminUsername".into(),
-                    value: &admin_username_binding,
+                    value: admin_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbName".into(),
-                    value: &db_name_binding,
+                    value: db_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultIamRoleArn".into(),
-                    value: &default_iam_role_arn_binding,
+                    value: default_iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoles".into(),
-                    value: &iam_roles_binding,
+                    value: iam_roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logExports".into(),
-                    value: &log_exports_binding,
+                    value: log_exports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageAdminPassword".into(),
-                    value: &manage_admin_password_binding,
+                    value: manage_admin_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NamespaceResult {
-            admin_password_secret_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminPasswordSecretArn"),
-            ),
-            admin_password_secret_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminPasswordSecretKmsKeyId"),
-            ),
-            admin_user_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminUserPassword"),
-            ),
-            admin_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminUsername"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            db_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbName"),
-            ),
-            default_iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultIamRoleArn"),
-            ),
-            iam_roles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoles"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            log_exports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logExports"),
-            ),
-            manage_admin_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manageAdminPassword"),
-            ),
-            namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceId"),
-            ),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            admin_password_secret_arn: o.get_field("adminPasswordSecretArn"),
+            admin_password_secret_kms_key_id: o.get_field("adminPasswordSecretKmsKeyId"),
+            admin_user_password: o.get_field("adminUserPassword"),
+            admin_username: o.get_field("adminUsername"),
+            arn: o.get_field("arn"),
+            db_name: o.get_field("dbName"),
+            default_iam_role_arn: o.get_field("defaultIamRoleArn"),
+            iam_roles: o.get_field("iamRoles"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            log_exports: o.get_field("logExports"),
+            manage_admin_password: o.get_field("manageAdminPassword"),
+            namespace_id: o.get_field("namespaceId"),
+            namespace_name: o.get_field("namespaceName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

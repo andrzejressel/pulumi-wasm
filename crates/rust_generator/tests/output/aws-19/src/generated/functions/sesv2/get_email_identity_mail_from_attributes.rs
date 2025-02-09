@@ -23,36 +23,30 @@ pub mod get_email_identity_mail_from_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEmailIdentityMailFromAttributesArgs,
     ) -> GetEmailIdentityMailFromAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_identity_binding_1 = args.email_identity.get_output(context);
-        let email_identity_binding = email_identity_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let email_identity_binding = args.email_identity.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailIdentity".into(),
-                    value: &email_identity_binding,
+                    value: email_identity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEmailIdentityMailFromAttributesResult {
-            behavior_on_mx_failure: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("behaviorOnMxFailure"),
-            ),
-            email_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailIdentity"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            mail_from_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mailFromDomain"),
-            ),
+            behavior_on_mx_failure: o.get_field("behaviorOnMxFailure"),
+            email_identity: o.get_field("emailIdentity"),
+            id: o.get_field("id"),
+            mail_from_domain: o.get_field("mailFromDomain"),
         }
     }
 }

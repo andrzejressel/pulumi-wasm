@@ -100,66 +100,52 @@ pub mod default_route_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DefaultRouteTableArgs,
     ) -> DefaultRouteTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_route_table_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_route_table_id_binding = args
             .default_route_table_id
             .get_output(context);
-        let default_route_table_id_binding = default_route_table_id_binding_1
-            .get_inner();
-        let propagating_vgws_binding_1 = args.propagating_vgws.get_output(context);
-        let propagating_vgws_binding = propagating_vgws_binding_1.get_inner();
-        let routes_binding_1 = args.routes.get_output(context);
-        let routes_binding = routes_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let propagating_vgws_binding = args.propagating_vgws.get_output(context);
+        let routes_binding = args.routes.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/defaultRouteTable:DefaultRouteTable".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRouteTableId".into(),
-                    value: &default_route_table_id_binding,
+                    value: default_route_table_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propagatingVgws".into(),
-                    value: &propagating_vgws_binding,
+                    value: propagating_vgws_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: &routes_binding,
+                    value: routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DefaultRouteTableResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRouteTableId"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            propagating_vgws: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("propagatingVgws"),
-            ),
-            routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routes"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            default_route_table_id: o.get_field("defaultRouteTableId"),
+            owner_id: o.get_field("ownerId"),
+            propagating_vgws: o.get_field("propagatingVgws"),
+            routes: o.get_field("routes"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

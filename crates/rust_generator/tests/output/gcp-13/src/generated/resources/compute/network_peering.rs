@@ -118,105 +118,78 @@ pub mod network_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkPeeringArgs,
     ) -> NetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let export_custom_routes_binding_1 = args
-            .export_custom_routes
-            .get_output(context);
-        let export_custom_routes_binding = export_custom_routes_binding_1.get_inner();
-        let export_subnet_routes_with_public_ip_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let export_custom_routes_binding = args.export_custom_routes.get_output(context);
+        let export_subnet_routes_with_public_ip_binding = args
             .export_subnet_routes_with_public_ip
             .get_output(context);
-        let export_subnet_routes_with_public_ip_binding = export_subnet_routes_with_public_ip_binding_1
-            .get_inner();
-        let import_custom_routes_binding_1 = args
-            .import_custom_routes
-            .get_output(context);
-        let import_custom_routes_binding = import_custom_routes_binding_1.get_inner();
-        let import_subnet_routes_with_public_ip_binding_1 = args
+        let import_custom_routes_binding = args.import_custom_routes.get_output(context);
+        let import_subnet_routes_with_public_ip_binding = args
             .import_subnet_routes_with_public_ip
             .get_output(context);
-        let import_subnet_routes_with_public_ip_binding = import_subnet_routes_with_public_ip_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let peer_network_binding_1 = args.peer_network.get_output(context);
-        let peer_network_binding = peer_network_binding_1.get_inner();
-        let stack_type_binding_1 = args.stack_type.get_output(context);
-        let stack_type_binding = stack_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let peer_network_binding = args.peer_network.get_output(context);
+        let stack_type_binding = args.stack_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/networkPeering:NetworkPeering".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportCustomRoutes".into(),
-                    value: &export_custom_routes_binding,
+                    value: export_custom_routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportSubnetRoutesWithPublicIp".into(),
-                    value: &export_subnet_routes_with_public_ip_binding,
+                    value: export_subnet_routes_with_public_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importCustomRoutes".into(),
-                    value: &import_custom_routes_binding,
+                    value: import_custom_routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importSubnetRoutesWithPublicIp".into(),
-                    value: &import_subnet_routes_with_public_ip_binding,
+                    value: import_subnet_routes_with_public_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerNetwork".into(),
-                    value: &peer_network_binding,
+                    value: peer_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackType".into(),
-                    value: &stack_type_binding,
+                    value: stack_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkPeeringResult {
-            export_custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportCustomRoutes"),
-            ),
-            export_subnet_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportSubnetRoutesWithPublicIp"),
-            ),
-            import_custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importCustomRoutes"),
-            ),
-            import_subnet_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importSubnetRoutesWithPublicIp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            peer_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerNetwork"),
-            ),
-            stack_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackType"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateDetails"),
-            ),
+            export_custom_routes: o.get_field("exportCustomRoutes"),
+            export_subnet_routes_with_public_ip: o
+                .get_field("exportSubnetRoutesWithPublicIp"),
+            import_custom_routes: o.get_field("importCustomRoutes"),
+            import_subnet_routes_with_public_ip: o
+                .get_field("importSubnetRoutesWithPublicIp"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            peer_network: o.get_field("peerNetwork"),
+            stack_type: o.get_field("stackType"),
+            state: o.get_field("state"),
+            state_details: o.get_field("stateDetails"),
         }
     }
 }

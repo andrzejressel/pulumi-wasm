@@ -124,67 +124,54 @@ pub mod bgp_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BgpConnectionArgs,
     ) -> BgpConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let peer_asn_binding_1 = args.peer_asn.get_output(context);
-        let peer_asn_binding = peer_asn_binding_1.get_inner();
-        let peer_ip_binding_1 = args.peer_ip.get_output(context);
-        let peer_ip_binding = peer_ip_binding_1.get_inner();
-        let virtual_hub_id_binding_1 = args.virtual_hub_id.get_output(context);
-        let virtual_hub_id_binding = virtual_hub_id_binding_1.get_inner();
-        let virtual_network_connection_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let peer_asn_binding = args.peer_asn.get_output(context);
+        let peer_ip_binding = args.peer_ip.get_output(context);
+        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context);
+        let virtual_network_connection_id_binding = args
             .virtual_network_connection_id
             .get_output(context);
-        let virtual_network_connection_id_binding = virtual_network_connection_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/bgpConnection:BgpConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAsn".into(),
-                    value: &peer_asn_binding,
+                    value: peer_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIp".into(),
-                    value: &peer_ip_binding,
+                    value: peer_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: &virtual_hub_id_binding,
+                    value: virtual_hub_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkConnectionId".into(),
-                    value: &virtual_network_connection_id_binding,
+                    value: virtual_network_connection_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BgpConnectionResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peer_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerAsn"),
-            ),
-            peer_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerIp"),
-            ),
-            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualHubId"),
-            ),
-            virtual_network_connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkConnectionId"),
-            ),
+            name: o.get_field("name"),
+            peer_asn: o.get_field("peerAsn"),
+            peer_ip: o.get_field("peerIp"),
+            virtual_hub_id: o.get_field("virtualHubId"),
+            virtual_network_connection_id: o.get_field("virtualNetworkConnectionId"),
         }
     }
 }

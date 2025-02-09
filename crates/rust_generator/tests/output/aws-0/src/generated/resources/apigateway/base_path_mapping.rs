@@ -65,66 +65,52 @@ pub mod base_path_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BasePathMappingArgs,
     ) -> BasePathMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_path_binding_1 = args.base_path.get_output(context);
-        let base_path_binding = base_path_binding_1.get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let domain_name_id_binding_1 = args.domain_name_id.get_output(context);
-        let domain_name_id_binding = domain_name_id_binding_1.get_inner();
-        let rest_api_binding_1 = args.rest_api.get_output(context);
-        let rest_api_binding = rest_api_binding_1.get_inner();
-        let stage_name_binding_1 = args.stage_name.get_output(context);
-        let stage_name_binding = stage_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let base_path_binding = args.base_path.get_output(context);
+        let domain_name_binding = args.domain_name.get_output(context);
+        let domain_name_id_binding = args.domain_name_id.get_output(context);
+        let rest_api_binding = args.rest_api.get_output(context);
+        let stage_name_binding = args.stage_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/basePathMapping:BasePathMapping".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePath".into(),
-                    value: &base_path_binding,
+                    value: base_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameId".into(),
-                    value: &domain_name_id_binding,
+                    value: domain_name_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: &rest_api_binding,
+                    value: rest_api_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: &stage_name_binding,
+                    value: stage_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BasePathMappingResult {
-            base_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basePath"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_name_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNameId"),
-            ),
-            rest_api: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApi"),
-            ),
-            stage_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stageName"),
-            ),
+            base_path: o.get_field("basePath"),
+            domain_name: o.get_field("domainName"),
+            domain_name_id: o.get_field("domainNameId"),
+            rest_api: o.get_field("restApi"),
+            stage_name: o.get_field("stageName"),
         }
     }
 }

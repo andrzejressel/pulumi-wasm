@@ -74,71 +74,56 @@ pub mod tape_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TapePoolArgs,
     ) -> TapePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let pool_name_binding_1 = args.pool_name.get_output(context);
-        let pool_name_binding = pool_name_binding_1.get_inner();
-        let retention_lock_time_in_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let pool_name_binding = args.pool_name.get_output(context);
+        let retention_lock_time_in_days_binding = args
             .retention_lock_time_in_days
             .get_output(context);
-        let retention_lock_time_in_days_binding = retention_lock_time_in_days_binding_1
-            .get_inner();
-        let retention_lock_type_binding_1 = args.retention_lock_type.get_output(context);
-        let retention_lock_type_binding = retention_lock_type_binding_1.get_inner();
-        let storage_class_binding_1 = args.storage_class.get_output(context);
-        let storage_class_binding = storage_class_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let retention_lock_type_binding = args.retention_lock_type.get_output(context);
+        let storage_class_binding = args.storage_class.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:storagegateway/tapePool:TapePool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "poolName".into(),
-                    value: &pool_name_binding,
+                    value: pool_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionLockTimeInDays".into(),
-                    value: &retention_lock_time_in_days_binding,
+                    value: retention_lock_time_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionLockType".into(),
-                    value: &retention_lock_type_binding,
+                    value: retention_lock_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageClass".into(),
-                    value: &storage_class_binding,
+                    value: storage_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TapePoolResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            pool_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("poolName"),
-            ),
-            retention_lock_time_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionLockTimeInDays"),
-            ),
-            retention_lock_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionLockType"),
-            ),
-            storage_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageClass"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            pool_name: o.get_field("poolName"),
+            retention_lock_time_in_days: o.get_field("retentionLockTimeInDays"),
+            retention_lock_type: o.get_field("retentionLockType"),
+            storage_class: o.get_field("storageClass"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

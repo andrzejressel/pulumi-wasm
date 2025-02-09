@@ -324,130 +324,86 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let desired_state_binding_1 = args.desired_state.get_output(context);
-        let desired_state_binding = desired_state_binding_1.get_inner();
-        let disable_proxy_access_binding_1 = args
-            .disable_proxy_access
-            .get_output(context);
-        let disable_proxy_access_binding = disable_proxy_access_binding_1.get_inner();
-        let gce_setup_binding_1 = args.gce_setup.get_output(context);
-        let gce_setup_binding = gce_setup_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let instance_owners_binding_1 = args.instance_owners.get_output(context);
-        let instance_owners_binding = instance_owners_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let desired_state_binding = args.desired_state.get_output(context);
+        let disable_proxy_access_binding = args.disable_proxy_access.get_output(context);
+        let gce_setup_binding = args.gce_setup.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let instance_owners_binding = args.instance_owners.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:workbench/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredState".into(),
-                    value: &desired_state_binding,
+                    value: desired_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableProxyAccess".into(),
-                    value: &disable_proxy_access_binding,
+                    value: disable_proxy_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gceSetup".into(),
-                    value: &gce_setup_binding,
+                    value: gce_setup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceOwners".into(),
-                    value: &instance_owners_binding,
+                    value: instance_owners_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            creator: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creator"),
-            ),
-            desired_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredState"),
-            ),
-            disable_proxy_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableProxyAccess"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            gce_setup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gceSetup"),
-            ),
-            health_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthInfos"),
-            ),
-            health_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthState"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            instance_owners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceOwners"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            proxy_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyUri"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            upgrade_histories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradeHistories"),
-            ),
+            create_time: o.get_field("createTime"),
+            creator: o.get_field("creator"),
+            desired_state: o.get_field("desiredState"),
+            disable_proxy_access: o.get_field("disableProxyAccess"),
+            effective_labels: o.get_field("effectiveLabels"),
+            gce_setup: o.get_field("gceSetup"),
+            health_infos: o.get_field("healthInfos"),
+            health_state: o.get_field("healthState"),
+            instance_id: o.get_field("instanceId"),
+            instance_owners: o.get_field("instanceOwners"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            proxy_uri: o.get_field("proxyUri"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            state: o.get_field("state"),
+            update_time: o.get_field("updateTime"),
+            upgrade_histories: o.get_field("upgradeHistories"),
         }
     }
 }

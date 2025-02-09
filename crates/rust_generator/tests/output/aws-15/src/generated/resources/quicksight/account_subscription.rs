@@ -128,173 +128,126 @@ pub mod account_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountSubscriptionArgs,
     ) -> AccountSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let active_directory_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let active_directory_name_binding = args
             .active_directory_name
             .get_output(context);
-        let active_directory_name_binding = active_directory_name_binding_1.get_inner();
-        let admin_groups_binding_1 = args.admin_groups.get_output(context);
-        let admin_groups_binding = admin_groups_binding_1.get_inner();
-        let authentication_method_binding_1 = args
+        let admin_groups_binding = args.admin_groups.get_output(context);
+        let authentication_method_binding = args
             .authentication_method
             .get_output(context);
-        let authentication_method_binding = authentication_method_binding_1.get_inner();
-        let author_groups_binding_1 = args.author_groups.get_output(context);
-        let author_groups_binding = author_groups_binding_1.get_inner();
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let contact_number_binding_1 = args.contact_number.get_output(context);
-        let contact_number_binding = contact_number_binding_1.get_inner();
-        let directory_id_binding_1 = args.directory_id.get_output(context);
-        let directory_id_binding = directory_id_binding_1.get_inner();
-        let edition_binding_1 = args.edition.get_output(context);
-        let edition_binding = edition_binding_1.get_inner();
-        let email_address_binding_1 = args.email_address.get_output(context);
-        let email_address_binding = email_address_binding_1.get_inner();
-        let first_name_binding_1 = args.first_name.get_output(context);
-        let first_name_binding = first_name_binding_1.get_inner();
-        let iam_identity_center_instance_arn_binding_1 = args
+        let author_groups_binding = args.author_groups.get_output(context);
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let contact_number_binding = args.contact_number.get_output(context);
+        let directory_id_binding = args.directory_id.get_output(context);
+        let edition_binding = args.edition.get_output(context);
+        let email_address_binding = args.email_address.get_output(context);
+        let first_name_binding = args.first_name.get_output(context);
+        let iam_identity_center_instance_arn_binding = args
             .iam_identity_center_instance_arn
             .get_output(context);
-        let iam_identity_center_instance_arn_binding = iam_identity_center_instance_arn_binding_1
-            .get_inner();
-        let last_name_binding_1 = args.last_name.get_output(context);
-        let last_name_binding = last_name_binding_1.get_inner();
-        let notification_email_binding_1 = args.notification_email.get_output(context);
-        let notification_email_binding = notification_email_binding_1.get_inner();
-        let reader_groups_binding_1 = args.reader_groups.get_output(context);
-        let reader_groups_binding = reader_groups_binding_1.get_inner();
-        let realm_binding_1 = args.realm.get_output(context);
-        let realm_binding = realm_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let last_name_binding = args.last_name.get_output(context);
+        let notification_email_binding = args.notification_email.get_output(context);
+        let reader_groups_binding = args.reader_groups.get_output(context);
+        let realm_binding = args.realm.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/accountSubscription:AccountSubscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeDirectoryName".into(),
-                    value: &active_directory_name_binding,
+                    value: active_directory_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminGroups".into(),
-                    value: &admin_groups_binding,
+                    value: admin_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMethod".into(),
-                    value: &authentication_method_binding,
+                    value: authentication_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorGroups".into(),
-                    value: &author_groups_binding,
+                    value: author_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactNumber".into(),
-                    value: &contact_number_binding,
+                    value: contact_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: &directory_id_binding,
+                    value: directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: &edition_binding,
+                    value: edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: &email_address_binding,
+                    value: email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstName".into(),
-                    value: &first_name_binding,
+                    value: first_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamIdentityCenterInstanceArn".into(),
-                    value: &iam_identity_center_instance_arn_binding,
+                    value: iam_identity_center_instance_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastName".into(),
-                    value: &last_name_binding,
+                    value: last_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationEmail".into(),
-                    value: &notification_email_binding,
+                    value: notification_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readerGroups".into(),
-                    value: &reader_groups_binding,
+                    value: reader_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "realm".into(),
-                    value: &realm_binding,
+                    value: realm_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountSubscriptionResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            account_subscription_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountSubscriptionStatus"),
-            ),
-            active_directory_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeDirectoryName"),
-            ),
-            admin_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminGroups"),
-            ),
-            authentication_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationMethod"),
-            ),
-            author_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorGroups"),
-            ),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            contact_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactNumber"),
-            ),
-            directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryId"),
-            ),
-            edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edition"),
-            ),
-            email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddress"),
-            ),
-            first_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstName"),
-            ),
-            iam_identity_center_instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamIdentityCenterInstanceArn"),
-            ),
-            last_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastName"),
-            ),
-            notification_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationEmail"),
-            ),
-            reader_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readerGroups"),
-            ),
-            realm: pulumi_gestalt_rust::__private::into_domain(o.extract_field("realm")),
+            account_name: o.get_field("accountName"),
+            account_subscription_status: o.get_field("accountSubscriptionStatus"),
+            active_directory_name: o.get_field("activeDirectoryName"),
+            admin_groups: o.get_field("adminGroups"),
+            authentication_method: o.get_field("authenticationMethod"),
+            author_groups: o.get_field("authorGroups"),
+            aws_account_id: o.get_field("awsAccountId"),
+            contact_number: o.get_field("contactNumber"),
+            directory_id: o.get_field("directoryId"),
+            edition: o.get_field("edition"),
+            email_address: o.get_field("emailAddress"),
+            first_name: o.get_field("firstName"),
+            iam_identity_center_instance_arn: o
+                .get_field("iamIdentityCenterInstanceArn"),
+            last_name: o.get_field("lastName"),
+            notification_email: o.get_field("notificationEmail"),
+            reader_groups: o.get_field("readerGroups"),
+            realm: o.get_field("realm"),
         }
     }
 }

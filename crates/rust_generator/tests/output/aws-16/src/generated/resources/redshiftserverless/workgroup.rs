@@ -120,128 +120,92 @@ pub mod workgroup {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkgroupArgs,
     ) -> WorkgroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_capacity_binding_1 = args.base_capacity.get_output(context);
-        let base_capacity_binding = base_capacity_binding_1.get_inner();
-        let config_parameters_binding_1 = args.config_parameters.get_output(context);
-        let config_parameters_binding = config_parameters_binding_1.get_inner();
-        let enhanced_vpc_routing_binding_1 = args
-            .enhanced_vpc_routing
-            .get_output(context);
-        let enhanced_vpc_routing_binding = enhanced_vpc_routing_binding_1.get_inner();
-        let max_capacity_binding_1 = args.max_capacity.get_output(context);
-        let max_capacity_binding = max_capacity_binding_1.get_inner();
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
-        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
-        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let base_capacity_binding = args.base_capacity.get_output(context);
+        let config_parameters_binding = args.config_parameters.get_output(context);
+        let enhanced_vpc_routing_binding = args.enhanced_vpc_routing.get_output(context);
+        let max_capacity_binding = args.max_capacity.get_output(context);
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let publicly_accessible_binding = args.publicly_accessible.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let workgroup_name_binding = args.workgroup_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshiftserverless/workgroup:Workgroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseCapacity".into(),
-                    value: &base_capacity_binding,
+                    value: base_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configParameters".into(),
-                    value: &config_parameters_binding,
+                    value: config_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedVpcRouting".into(),
-                    value: &enhanced_vpc_routing_binding,
+                    value: enhanced_vpc_routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxCapacity".into(),
-                    value: &max_capacity_binding,
+                    value: max_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publiclyAccessible".into(),
-                    value: &publicly_accessible_binding,
+                    value: publicly_accessible_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: &workgroup_name_binding,
+                    value: workgroup_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkgroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            base_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseCapacity"),
-            ),
-            config_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configParameters"),
-            ),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            enhanced_vpc_routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enhancedVpcRouting"),
-            ),
-            max_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxCapacity"),
-            ),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            workgroup_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workgroupId"),
-            ),
-            workgroup_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workgroupName"),
-            ),
+            arn: o.get_field("arn"),
+            base_capacity: o.get_field("baseCapacity"),
+            config_parameters: o.get_field("configParameters"),
+            endpoints: o.get_field("endpoints"),
+            enhanced_vpc_routing: o.get_field("enhancedVpcRouting"),
+            max_capacity: o.get_field("maxCapacity"),
+            namespace_name: o.get_field("namespaceName"),
+            port: o.get_field("port"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            workgroup_id: o.get_field("workgroupId"),
+            workgroup_name: o.get_field("workgroupName"),
         }
     }
 }

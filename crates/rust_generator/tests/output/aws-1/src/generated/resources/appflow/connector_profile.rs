@@ -122,80 +122,62 @@ pub mod connector_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectorProfileArgs,
     ) -> ConnectorProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_mode_binding_1 = args.connection_mode.get_output(context);
-        let connection_mode_binding = connection_mode_binding_1.get_inner();
-        let connector_label_binding_1 = args.connector_label.get_output(context);
-        let connector_label_binding = connector_label_binding_1.get_inner();
-        let connector_profile_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_mode_binding = args.connection_mode.get_output(context);
+        let connector_label_binding = args.connector_label.get_output(context);
+        let connector_profile_config_binding = args
             .connector_profile_config
             .get_output(context);
-        let connector_profile_config_binding = connector_profile_config_binding_1
-            .get_inner();
-        let connector_type_binding_1 = args.connector_type.get_output(context);
-        let connector_type_binding = connector_type_binding_1.get_inner();
-        let kms_arn_binding_1 = args.kms_arn.get_output(context);
-        let kms_arn_binding = kms_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let connector_type_binding = args.connector_type.get_output(context);
+        let kms_arn_binding = args.kms_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appflow/connectorProfile:ConnectorProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionMode".into(),
-                    value: &connection_mode_binding,
+                    value: connection_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectorLabel".into(),
-                    value: &connector_label_binding,
+                    value: connector_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectorProfileConfig".into(),
-                    value: &connector_profile_config_binding,
+                    value: connector_profile_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectorType".into(),
-                    value: &connector_type_binding,
+                    value: connector_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsArn".into(),
-                    value: &kms_arn_binding,
+                    value: kms_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectorProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            connection_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionMode"),
-            ),
-            connector_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectorLabel"),
-            ),
-            connector_profile_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectorProfileConfig"),
-            ),
-            connector_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectorType"),
-            ),
-            credentials_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentialsArn"),
-            ),
-            kms_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            arn: o.get_field("arn"),
+            connection_mode: o.get_field("connectionMode"),
+            connector_label: o.get_field("connectorLabel"),
+            connector_profile_config: o.get_field("connectorProfileConfig"),
+            connector_type: o.get_field("connectorType"),
+            credentials_arn: o.get_field("credentialsArn"),
+            kms_arn: o.get_field("kmsArn"),
+            name: o.get_field("name"),
         }
     }
 }

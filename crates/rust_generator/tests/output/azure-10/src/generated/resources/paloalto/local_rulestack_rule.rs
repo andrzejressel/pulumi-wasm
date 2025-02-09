@@ -190,193 +190,138 @@ pub mod local_rulestack_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocalRulestackRuleArgs,
     ) -> LocalRulestackRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let applications_binding_1 = args.applications.get_output(context);
-        let applications_binding = applications_binding_1.get_inner();
-        let audit_comment_binding_1 = args.audit_comment.get_output(context);
-        let audit_comment_binding = audit_comment_binding_1.get_inner();
-        let category_binding_1 = args.category.get_output(context);
-        let category_binding = category_binding_1.get_inner();
-        let decryption_rule_type_binding_1 = args
-            .decryption_rule_type
-            .get_output(context);
-        let decryption_rule_type_binding = decryption_rule_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let inspection_certificate_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let applications_binding = args.applications.get_output(context);
+        let audit_comment_binding = args.audit_comment.get_output(context);
+        let category_binding = args.category.get_output(context);
+        let decryption_rule_type_binding = args.decryption_rule_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let destination_binding = args.destination.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let inspection_certificate_id_binding = args
             .inspection_certificate_id
             .get_output(context);
-        let inspection_certificate_id_binding = inspection_certificate_id_binding_1
-            .get_inner();
-        let logging_enabled_binding_1 = args.logging_enabled.get_output(context);
-        let logging_enabled_binding = logging_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let negate_destination_binding_1 = args.negate_destination.get_output(context);
-        let negate_destination_binding = negate_destination_binding_1.get_inner();
-        let negate_source_binding_1 = args.negate_source.get_output(context);
-        let negate_source_binding = negate_source_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let protocol_ports_binding_1 = args.protocol_ports.get_output(context);
-        let protocol_ports_binding = protocol_ports_binding_1.get_inner();
-        let rulestack_id_binding_1 = args.rulestack_id.get_output(context);
-        let rulestack_id_binding = rulestack_id_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let logging_enabled_binding = args.logging_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let negate_destination_binding = args.negate_destination.get_output(context);
+        let negate_source_binding = args.negate_source.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let protocol_ports_binding = args.protocol_ports.get_output(context);
+        let rulestack_id_binding = args.rulestack_id.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackRule:LocalRulestackRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applications".into(),
-                    value: &applications_binding,
+                    value: applications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditComment".into(),
-                    value: &audit_comment_binding,
+                    value: audit_comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "category".into(),
-                    value: &category_binding,
+                    value: category_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "decryptionRuleType".into(),
-                    value: &decryption_rule_type_binding,
+                    value: decryption_rule_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inspectionCertificateId".into(),
-                    value: &inspection_certificate_id_binding,
+                    value: inspection_certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingEnabled".into(),
-                    value: &logging_enabled_binding,
+                    value: logging_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "negateDestination".into(),
-                    value: &negate_destination_binding,
+                    value: negate_destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "negateSource".into(),
-                    value: &negate_source_binding,
+                    value: negate_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolPorts".into(),
-                    value: &protocol_ports_binding,
+                    value: protocol_ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulestackId".into(),
-                    value: &rulestack_id_binding,
+                    value: rulestack_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocalRulestackRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            applications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applications"),
-            ),
-            audit_comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditComment"),
-            ),
-            category: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("category"),
-            ),
-            decryption_rule_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("decryptionRuleType"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            inspection_certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inspectionCertificateId"),
-            ),
-            logging_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            negate_destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("negateDestination"),
-            ),
-            negate_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("negateSource"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            protocol_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolPorts"),
-            ),
-            rulestack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rulestackId"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            action: o.get_field("action"),
+            applications: o.get_field("applications"),
+            audit_comment: o.get_field("auditComment"),
+            category: o.get_field("category"),
+            decryption_rule_type: o.get_field("decryptionRuleType"),
+            description: o.get_field("description"),
+            destination: o.get_field("destination"),
+            enabled: o.get_field("enabled"),
+            inspection_certificate_id: o.get_field("inspectionCertificateId"),
+            logging_enabled: o.get_field("loggingEnabled"),
+            name: o.get_field("name"),
+            negate_destination: o.get_field("negateDestination"),
+            negate_source: o.get_field("negateSource"),
+            priority: o.get_field("priority"),
+            protocol: o.get_field("protocol"),
+            protocol_ports: o.get_field("protocolPorts"),
+            rulestack_id: o.get_field("rulestackId"),
+            source: o.get_field("source"),
+            tags: o.get_field("tags"),
         }
     }
 }

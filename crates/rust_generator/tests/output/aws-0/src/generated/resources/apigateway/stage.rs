@@ -143,157 +143,111 @@ pub mod stage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StageArgs,
     ) -> StageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_log_settings_binding_1 = args.access_log_settings.get_output(context);
-        let access_log_settings_binding = access_log_settings_binding_1.get_inner();
-        let cache_cluster_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_log_settings_binding = args.access_log_settings.get_output(context);
+        let cache_cluster_enabled_binding = args
             .cache_cluster_enabled
             .get_output(context);
-        let cache_cluster_enabled_binding = cache_cluster_enabled_binding_1.get_inner();
-        let cache_cluster_size_binding_1 = args.cache_cluster_size.get_output(context);
-        let cache_cluster_size_binding = cache_cluster_size_binding_1.get_inner();
-        let canary_settings_binding_1 = args.canary_settings.get_output(context);
-        let canary_settings_binding = canary_settings_binding_1.get_inner();
-        let client_certificate_id_binding_1 = args
+        let cache_cluster_size_binding = args.cache_cluster_size.get_output(context);
+        let canary_settings_binding = args.canary_settings.get_output(context);
+        let client_certificate_id_binding = args
             .client_certificate_id
             .get_output(context);
-        let client_certificate_id_binding = client_certificate_id_binding_1.get_inner();
-        let deployment_binding_1 = args.deployment.get_output(context);
-        let deployment_binding = deployment_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let documentation_version_binding_1 = args
+        let deployment_binding = args.deployment.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let documentation_version_binding = args
             .documentation_version
             .get_output(context);
-        let documentation_version_binding = documentation_version_binding_1.get_inner();
-        let rest_api_binding_1 = args.rest_api.get_output(context);
-        let rest_api_binding = rest_api_binding_1.get_inner();
-        let stage_name_binding_1 = args.stage_name.get_output(context);
-        let stage_name_binding = stage_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let variables_binding_1 = args.variables.get_output(context);
-        let variables_binding = variables_binding_1.get_inner();
-        let xray_tracing_enabled_binding_1 = args
-            .xray_tracing_enabled
-            .get_output(context);
-        let xray_tracing_enabled_binding = xray_tracing_enabled_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let rest_api_binding = args.rest_api.get_output(context);
+        let stage_name_binding = args.stage_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let variables_binding = args.variables.get_output(context);
+        let xray_tracing_enabled_binding = args.xray_tracing_enabled.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/stage:Stage".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLogSettings".into(),
-                    value: &access_log_settings_binding,
+                    value: access_log_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheClusterEnabled".into(),
-                    value: &cache_cluster_enabled_binding,
+                    value: cache_cluster_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheClusterSize".into(),
-                    value: &cache_cluster_size_binding,
+                    value: cache_cluster_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "canarySettings".into(),
-                    value: &canary_settings_binding,
+                    value: canary_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateId".into(),
-                    value: &client_certificate_id_binding,
+                    value: client_certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployment".into(),
-                    value: &deployment_binding,
+                    value: deployment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentationVersion".into(),
-                    value: &documentation_version_binding,
+                    value: documentation_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: &rest_api_binding,
+                    value: rest_api_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: &stage_name_binding,
+                    value: stage_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "variables".into(),
-                    value: &variables_binding,
+                    value: variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xrayTracingEnabled".into(),
-                    value: &xray_tracing_enabled_binding,
+                    value: xray_tracing_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StageResult {
-            access_log_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessLogSettings"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cache_cluster_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheClusterEnabled"),
-            ),
-            cache_cluster_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheClusterSize"),
-            ),
-            canary_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("canarySettings"),
-            ),
-            client_certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateId"),
-            ),
-            deployment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deployment"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            documentation_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentationVersion"),
-            ),
-            execution_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionArn"),
-            ),
-            invoke_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invokeUrl"),
-            ),
-            rest_api: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApi"),
-            ),
-            stage_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stageName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("variables"),
-            ),
-            web_acl_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webAclArn"),
-            ),
-            xray_tracing_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("xrayTracingEnabled"),
-            ),
+            access_log_settings: o.get_field("accessLogSettings"),
+            arn: o.get_field("arn"),
+            cache_cluster_enabled: o.get_field("cacheClusterEnabled"),
+            cache_cluster_size: o.get_field("cacheClusterSize"),
+            canary_settings: o.get_field("canarySettings"),
+            client_certificate_id: o.get_field("clientCertificateId"),
+            deployment: o.get_field("deployment"),
+            description: o.get_field("description"),
+            documentation_version: o.get_field("documentationVersion"),
+            execution_arn: o.get_field("executionArn"),
+            invoke_url: o.get_field("invokeUrl"),
+            rest_api: o.get_field("restApi"),
+            stage_name: o.get_field("stageName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            variables: o.get_field("variables"),
+            web_acl_arn: o.get_field("webAclArn"),
+            xray_tracing_enabled: o.get_field("xrayTracingEnabled"),
         }
     }
 }

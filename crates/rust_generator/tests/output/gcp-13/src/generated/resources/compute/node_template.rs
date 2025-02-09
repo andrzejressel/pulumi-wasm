@@ -251,126 +251,92 @@ pub mod node_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NodeTemplateArgs,
     ) -> NodeTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerators_binding_1 = args.accelerators.get_output(context);
-        let accelerators_binding = accelerators_binding_1.get_inner();
-        let cpu_overcommit_type_binding_1 = args.cpu_overcommit_type.get_output(context);
-        let cpu_overcommit_type_binding = cpu_overcommit_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disks_binding_1 = args.disks.get_output(context);
-        let disks_binding = disks_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_affinity_labels_binding_1 = args
-            .node_affinity_labels
-            .get_output(context);
-        let node_affinity_labels_binding = node_affinity_labels_binding_1.get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let node_type_flexibility_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accelerators_binding = args.accelerators.get_output(context);
+        let cpu_overcommit_type_binding = args.cpu_overcommit_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disks_binding = args.disks.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_affinity_labels_binding = args.node_affinity_labels.get_output(context);
+        let node_type_binding = args.node_type.get_output(context);
+        let node_type_flexibility_binding = args
             .node_type_flexibility
             .get_output(context);
-        let node_type_flexibility_binding = node_type_flexibility_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let server_binding_binding_1 = args.server_binding.get_output(context);
-        let server_binding_binding = server_binding_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let server_binding_binding = args.server_binding.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/nodeTemplate:NodeTemplate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accelerators".into(),
-                    value: &accelerators_binding,
+                    value: accelerators_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuOvercommitType".into(),
-                    value: &cpu_overcommit_type_binding,
+                    value: cpu_overcommit_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disks".into(),
-                    value: &disks_binding,
+                    value: disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeAffinityLabels".into(),
-                    value: &node_affinity_labels_binding,
+                    value: node_affinity_labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeTypeFlexibility".into(),
-                    value: &node_type_flexibility_binding,
+                    value: node_type_flexibility_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverBinding".into(),
-                    value: &server_binding_binding,
+                    value: server_binding_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NodeTemplateResult {
-            accelerators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accelerators"),
-            ),
-            cpu_overcommit_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuOvercommitType"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disks: pulumi_gestalt_rust::__private::into_domain(o.extract_field("disks")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_affinity_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeAffinityLabels"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            node_type_flexibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeTypeFlexibility"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            server_binding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverBinding"),
-            ),
+            accelerators: o.get_field("accelerators"),
+            cpu_overcommit_type: o.get_field("cpuOvercommitType"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            disks: o.get_field("disks"),
+            name: o.get_field("name"),
+            node_affinity_labels: o.get_field("nodeAffinityLabels"),
+            node_type: o.get_field("nodeType"),
+            node_type_flexibility: o.get_field("nodeTypeFlexibility"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            server_binding: o.get_field("serverBinding"),
         }
     }
 }

@@ -30,50 +30,40 @@ pub mod get_addon_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAddonVersionArgs,
     ) -> GetAddonVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_name_binding_1 = args.addon_name.get_output(context);
-        let addon_name_binding = addon_name_binding_1.get_inner();
-        let kubernetes_version_binding_1 = args.kubernetes_version.get_output(context);
-        let kubernetes_version_binding = kubernetes_version_binding_1.get_inner();
-        let most_recent_binding_1 = args.most_recent.get_output(context);
-        let most_recent_binding = most_recent_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let addon_name_binding = args.addon_name.get_output(context);
+        let kubernetes_version_binding = args.kubernetes_version.get_output(context);
+        let most_recent_binding = args.most_recent.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:eks/getAddonVersion:getAddonVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonName".into(),
-                    value: &addon_name_binding,
+                    value: addon_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesVersion".into(),
-                    value: &kubernetes_version_binding,
+                    value: kubernetes_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: &most_recent_binding,
+                    value: most_recent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAddonVersionResult {
-            addon_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addonName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesVersion"),
-            ),
-            most_recent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecent"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            addon_name: o.get_field("addonName"),
+            id: o.get_field("id"),
+            kubernetes_version: o.get_field("kubernetesVersion"),
+            most_recent: o.get_field("mostRecent"),
+            version: o.get_field("version"),
         }
     }
 }

@@ -254,179 +254,130 @@ pub mod action_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ActionGroupArgs,
     ) -> ActionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arm_role_receivers_binding_1 = args.arm_role_receivers.get_output(context);
-        let arm_role_receivers_binding = arm_role_receivers_binding_1.get_inner();
-        let automation_runbook_receivers_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arm_role_receivers_binding = args.arm_role_receivers.get_output(context);
+        let automation_runbook_receivers_binding = args
             .automation_runbook_receivers
             .get_output(context);
-        let automation_runbook_receivers_binding = automation_runbook_receivers_binding_1
-            .get_inner();
-        let azure_app_push_receivers_binding_1 = args
+        let azure_app_push_receivers_binding = args
             .azure_app_push_receivers
             .get_output(context);
-        let azure_app_push_receivers_binding = azure_app_push_receivers_binding_1
-            .get_inner();
-        let azure_function_receivers_binding_1 = args
+        let azure_function_receivers_binding = args
             .azure_function_receivers
             .get_output(context);
-        let azure_function_receivers_binding = azure_function_receivers_binding_1
-            .get_inner();
-        let email_receivers_binding_1 = args.email_receivers.get_output(context);
-        let email_receivers_binding = email_receivers_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let event_hub_receivers_binding_1 = args.event_hub_receivers.get_output(context);
-        let event_hub_receivers_binding = event_hub_receivers_binding_1.get_inner();
-        let itsm_receivers_binding_1 = args.itsm_receivers.get_output(context);
-        let itsm_receivers_binding = itsm_receivers_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logic_app_receivers_binding_1 = args.logic_app_receivers.get_output(context);
-        let logic_app_receivers_binding = logic_app_receivers_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let short_name_binding_1 = args.short_name.get_output(context);
-        let short_name_binding = short_name_binding_1.get_inner();
-        let sms_receivers_binding_1 = args.sms_receivers.get_output(context);
-        let sms_receivers_binding = sms_receivers_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let voice_receivers_binding_1 = args.voice_receivers.get_output(context);
-        let voice_receivers_binding = voice_receivers_binding_1.get_inner();
-        let webhook_receivers_binding_1 = args.webhook_receivers.get_output(context);
-        let webhook_receivers_binding = webhook_receivers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let email_receivers_binding = args.email_receivers.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let event_hub_receivers_binding = args.event_hub_receivers.get_output(context);
+        let itsm_receivers_binding = args.itsm_receivers.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let logic_app_receivers_binding = args.logic_app_receivers.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let short_name_binding = args.short_name.get_output(context);
+        let sms_receivers_binding = args.sms_receivers.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let voice_receivers_binding = args.voice_receivers.get_output(context);
+        let webhook_receivers_binding = args.webhook_receivers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:monitoring/actionGroup:ActionGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "armRoleReceivers".into(),
-                    value: &arm_role_receivers_binding,
+                    value: arm_role_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationRunbookReceivers".into(),
-                    value: &automation_runbook_receivers_binding,
+                    value: automation_runbook_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureAppPushReceivers".into(),
-                    value: &azure_app_push_receivers_binding,
+                    value: azure_app_push_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureFunctionReceivers".into(),
-                    value: &azure_function_receivers_binding,
+                    value: azure_function_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailReceivers".into(),
-                    value: &email_receivers_binding,
+                    value: email_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHubReceivers".into(),
-                    value: &event_hub_receivers_binding,
+                    value: event_hub_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "itsmReceivers".into(),
-                    value: &itsm_receivers_binding,
+                    value: itsm_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicAppReceivers".into(),
-                    value: &logic_app_receivers_binding,
+                    value: logic_app_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortName".into(),
-                    value: &short_name_binding,
+                    value: short_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsReceivers".into(),
-                    value: &sms_receivers_binding,
+                    value: sms_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceReceivers".into(),
-                    value: &voice_receivers_binding,
+                    value: voice_receivers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhookReceivers".into(),
-                    value: &webhook_receivers_binding,
+                    value: webhook_receivers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ActionGroupResult {
-            arm_role_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("armRoleReceivers"),
-            ),
-            automation_runbook_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationRunbookReceivers"),
-            ),
-            azure_app_push_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureAppPushReceivers"),
-            ),
-            azure_function_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureFunctionReceivers"),
-            ),
-            email_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailReceivers"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            event_hub_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubReceivers"),
-            ),
-            itsm_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("itsmReceivers"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logic_app_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicAppReceivers"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            short_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortName"),
-            ),
-            sms_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsReceivers"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            voice_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceReceivers"),
-            ),
-            webhook_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webhookReceivers"),
-            ),
+            arm_role_receivers: o.get_field("armRoleReceivers"),
+            automation_runbook_receivers: o.get_field("automationRunbookReceivers"),
+            azure_app_push_receivers: o.get_field("azureAppPushReceivers"),
+            azure_function_receivers: o.get_field("azureFunctionReceivers"),
+            email_receivers: o.get_field("emailReceivers"),
+            enabled: o.get_field("enabled"),
+            event_hub_receivers: o.get_field("eventHubReceivers"),
+            itsm_receivers: o.get_field("itsmReceivers"),
+            location: o.get_field("location"),
+            logic_app_receivers: o.get_field("logicAppReceivers"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            short_name: o.get_field("shortName"),
+            sms_receivers: o.get_field("smsReceivers"),
+            tags: o.get_field("tags"),
+            voice_receivers: o.get_field("voiceReceivers"),
+            webhook_receivers: o.get_field("webhookReceivers"),
         }
     }
 }

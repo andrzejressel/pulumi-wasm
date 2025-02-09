@@ -144,82 +144,64 @@ pub mod app_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppConnectionArgs,
     ) -> AppConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding_1 = args.authentication.get_output(context);
-        let authentication_binding = authentication_binding_1.get_inner();
-        let client_type_binding_1 = args.client_type.get_output(context);
-        let client_type_binding = client_type_binding_1.get_inner();
-        let function_app_id_binding_1 = args.function_app_id.get_output(context);
-        let function_app_id_binding = function_app_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let secret_store_binding_1 = args.secret_store.get_output(context);
-        let secret_store_binding = secret_store_binding_1.get_inner();
-        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
-        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
-        let vnet_solution_binding_1 = args.vnet_solution.get_output(context);
-        let vnet_solution_binding = vnet_solution_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_binding = args.authentication.get_output(context);
+        let client_type_binding = args.client_type.get_output(context);
+        let function_app_id_binding = args.function_app_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let secret_store_binding = args.secret_store.get_output(context);
+        let target_resource_id_binding = args.target_resource_id.get_output(context);
+        let vnet_solution_binding = args.vnet_solution.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/appConnection:AppConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: &authentication_binding,
+                    value: authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientType".into(),
-                    value: &client_type_binding,
+                    value: client_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionAppId".into(),
-                    value: &function_app_id_binding,
+                    value: function_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretStore".into(),
-                    value: &secret_store_binding,
+                    value: secret_store_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: &target_resource_id_binding,
+                    value: target_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vnetSolution".into(),
-                    value: &vnet_solution_binding,
+                    value: vnet_solution_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppConnectionResult {
-            authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authentication"),
-            ),
-            client_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientType"),
-            ),
-            function_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionAppId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            secret_store: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretStore"),
-            ),
-            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceId"),
-            ),
-            vnet_solution: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vnetSolution"),
-            ),
+            authentication: o.get_field("authentication"),
+            client_type: o.get_field("clientType"),
+            function_app_id: o.get_field("functionAppId"),
+            name: o.get_field("name"),
+            secret_store: o.get_field("secretStore"),
+            target_resource_id: o.get_field("targetResourceId"),
+            vnet_solution: o.get_field("vnetSolution"),
         }
     }
 }

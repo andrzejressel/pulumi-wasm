@@ -114,131 +114,96 @@ pub mod random_password {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RandomPasswordArgs,
     ) -> RandomPasswordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let keepers_binding_1 = args.keepers.get_output(context);
-        let keepers_binding = keepers_binding_1.get_inner();
-        let length_binding_1 = args.length.get_output(context);
-        let length_binding = length_binding_1.get_inner();
-        let lower_binding_1 = args.lower.get_output(context);
-        let lower_binding = lower_binding_1.get_inner();
-        let min_lower_binding_1 = args.min_lower.get_output(context);
-        let min_lower_binding = min_lower_binding_1.get_inner();
-        let min_numeric_binding_1 = args.min_numeric.get_output(context);
-        let min_numeric_binding = min_numeric_binding_1.get_inner();
-        let min_special_binding_1 = args.min_special.get_output(context);
-        let min_special_binding = min_special_binding_1.get_inner();
-        let min_upper_binding_1 = args.min_upper.get_output(context);
-        let min_upper_binding = min_upper_binding_1.get_inner();
-        let number_binding_1 = args.number.get_output(context);
-        let number_binding = number_binding_1.get_inner();
-        let numeric_binding_1 = args.numeric.get_output(context);
-        let numeric_binding = numeric_binding_1.get_inner();
-        let override_special_binding_1 = args.override_special.get_output(context);
-        let override_special_binding = override_special_binding_1.get_inner();
-        let special_binding_1 = args.special.get_output(context);
-        let special_binding = special_binding_1.get_inner();
-        let upper_binding_1 = args.upper.get_output(context);
-        let upper_binding = upper_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let keepers_binding = args.keepers.get_output(context);
+        let length_binding = args.length.get_output(context);
+        let lower_binding = args.lower.get_output(context);
+        let min_lower_binding = args.min_lower.get_output(context);
+        let min_numeric_binding = args.min_numeric.get_output(context);
+        let min_special_binding = args.min_special.get_output(context);
+        let min_upper_binding = args.min_upper.get_output(context);
+        let number_binding = args.number.get_output(context);
+        let numeric_binding = args.numeric.get_output(context);
+        let override_special_binding = args.override_special.get_output(context);
+        let special_binding = args.special.get_output(context);
+        let upper_binding = args.upper.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "random:index/randomPassword:RandomPassword".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: &keepers_binding,
+                    value: keepers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "length".into(),
-                    value: &length_binding,
+                    value: length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lower".into(),
-                    value: &lower_binding,
+                    value: lower_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minLower".into(),
-                    value: &min_lower_binding,
+                    value: min_lower_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minNumeric".into(),
-                    value: &min_numeric_binding,
+                    value: min_numeric_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSpecial".into(),
-                    value: &min_special_binding,
+                    value: min_special_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minUpper".into(),
-                    value: &min_upper_binding,
+                    value: min_upper_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "number".into(),
-                    value: &number_binding,
+                    value: number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numeric".into(),
-                    value: &numeric_binding,
+                    value: numeric_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideSpecial".into(),
-                    value: &override_special_binding,
+                    value: override_special_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "special".into(),
-                    value: &special_binding,
+                    value: special_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upper".into(),
-                    value: &upper_binding,
+                    value: upper_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RandomPasswordResult {
-            bcrypt_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bcryptHash"),
-            ),
-            keepers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepers"),
-            ),
-            length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("length"),
-            ),
-            lower: pulumi_gestalt_rust::__private::into_domain(o.extract_field("lower")),
-            min_lower: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minLower"),
-            ),
-            min_numeric: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minNumeric"),
-            ),
-            min_special: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minSpecial"),
-            ),
-            min_upper: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minUpper"),
-            ),
-            number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("number"),
-            ),
-            numeric: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numeric"),
-            ),
-            override_special: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrideSpecial"),
-            ),
-            result: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("result"),
-            ),
-            special: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("special"),
-            ),
-            upper: pulumi_gestalt_rust::__private::into_domain(o.extract_field("upper")),
+            bcrypt_hash: o.get_field("bcryptHash"),
+            keepers: o.get_field("keepers"),
+            length: o.get_field("length"),
+            lower: o.get_field("lower"),
+            min_lower: o.get_field("minLower"),
+            min_numeric: o.get_field("minNumeric"),
+            min_special: o.get_field("minSpecial"),
+            min_upper: o.get_field("minUpper"),
+            number: o.get_field("number"),
+            numeric: o.get_field("numeric"),
+            override_special: o.get_field("overrideSpecial"),
+            result: o.get_field("result"),
+            special: o.get_field("special"),
+            upper: o.get_field("upper"),
         }
     }
 }

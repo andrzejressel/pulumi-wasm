@@ -160,153 +160,112 @@ pub mod sql_container {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SqlContainerArgs,
     ) -> SqlContainerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let analytical_storage_ttl_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let analytical_storage_ttl_binding = args
             .analytical_storage_ttl
             .get_output(context);
-        let analytical_storage_ttl_binding = analytical_storage_ttl_binding_1
-            .get_inner();
-        let autoscale_settings_binding_1 = args.autoscale_settings.get_output(context);
-        let autoscale_settings_binding = autoscale_settings_binding_1.get_inner();
-        let conflict_resolution_policy_binding_1 = args
+        let autoscale_settings_binding = args.autoscale_settings.get_output(context);
+        let conflict_resolution_policy_binding = args
             .conflict_resolution_policy
             .get_output(context);
-        let conflict_resolution_policy_binding = conflict_resolution_policy_binding_1
-            .get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let default_ttl_binding_1 = args.default_ttl.get_output(context);
-        let default_ttl_binding = default_ttl_binding_1.get_inner();
-        let indexing_policy_binding_1 = args.indexing_policy.get_output(context);
-        let indexing_policy_binding = indexing_policy_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partition_key_kind_binding_1 = args.partition_key_kind.get_output(context);
-        let partition_key_kind_binding = partition_key_kind_binding_1.get_inner();
-        let partition_key_paths_binding_1 = args.partition_key_paths.get_output(context);
-        let partition_key_paths_binding = partition_key_paths_binding_1.get_inner();
-        let partition_key_version_binding_1 = args
+        let database_name_binding = args.database_name.get_output(context);
+        let default_ttl_binding = args.default_ttl.get_output(context);
+        let indexing_policy_binding = args.indexing_policy.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let partition_key_kind_binding = args.partition_key_kind.get_output(context);
+        let partition_key_paths_binding = args.partition_key_paths.get_output(context);
+        let partition_key_version_binding = args
             .partition_key_version
             .get_output(context);
-        let partition_key_version_binding = partition_key_version_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let throughput_binding_1 = args.throughput.get_output(context);
-        let throughput_binding = throughput_binding_1.get_inner();
-        let unique_keys_binding_1 = args.unique_keys.get_output(context);
-        let unique_keys_binding = unique_keys_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let throughput_binding = args.throughput.get_output(context);
+        let unique_keys_binding = args.unique_keys.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/sqlContainer:SqlContainer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticalStorageTtl".into(),
-                    value: &analytical_storage_ttl_binding,
+                    value: analytical_storage_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscaleSettings".into(),
-                    value: &autoscale_settings_binding,
+                    value: autoscale_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conflictResolutionPolicy".into(),
-                    value: &conflict_resolution_policy_binding,
+                    value: conflict_resolution_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtl".into(),
-                    value: &default_ttl_binding,
+                    value: default_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexingPolicy".into(),
-                    value: &indexing_policy_binding,
+                    value: indexing_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyKind".into(),
-                    value: &partition_key_kind_binding,
+                    value: partition_key_kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyPaths".into(),
-                    value: &partition_key_paths_binding,
+                    value: partition_key_paths_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyVersion".into(),
-                    value: &partition_key_version_binding,
+                    value: partition_key_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughput".into(),
-                    value: &throughput_binding,
+                    value: throughput_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uniqueKeys".into(),
-                    value: &unique_keys_binding,
+                    value: unique_keys_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SqlContainerResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            analytical_storage_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyticalStorageTtl"),
-            ),
-            autoscale_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscaleSettings"),
-            ),
-            conflict_resolution_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conflictResolutionPolicy"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            default_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTtl"),
-            ),
-            indexing_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexingPolicy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partition_key_kind: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKeyKind"),
-            ),
-            partition_key_paths: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKeyPaths"),
-            ),
-            partition_key_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKeyVersion"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughput"),
-            ),
-            unique_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueKeys"),
-            ),
+            account_name: o.get_field("accountName"),
+            analytical_storage_ttl: o.get_field("analyticalStorageTtl"),
+            autoscale_settings: o.get_field("autoscaleSettings"),
+            conflict_resolution_policy: o.get_field("conflictResolutionPolicy"),
+            database_name: o.get_field("databaseName"),
+            default_ttl: o.get_field("defaultTtl"),
+            indexing_policy: o.get_field("indexingPolicy"),
+            name: o.get_field("name"),
+            partition_key_kind: o.get_field("partitionKeyKind"),
+            partition_key_paths: o.get_field("partitionKeyPaths"),
+            partition_key_version: o.get_field("partitionKeyVersion"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            throughput: o.get_field("throughput"),
+            unique_keys: o.get_field("uniqueKeys"),
         }
     }
 }

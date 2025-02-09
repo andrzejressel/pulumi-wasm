@@ -37,58 +37,42 @@ pub mod get_virtual_network_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVirtualNetworkPeeringArgs,
     ) -> GetVirtualNetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
-        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let virtual_network_id_binding = args.virtual_network_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: &virtual_network_id_binding,
+                    value: virtual_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVirtualNetworkPeeringResult {
-            allow_forwarded_traffic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowForwardedTraffic"),
-            ),
-            allow_gateway_transit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowGatewayTransit"),
-            ),
-            allow_virtual_network_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowVirtualNetworkAccess"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            only_ipv6_peering_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onlyIpv6PeeringEnabled"),
-            ),
-            peer_complete_virtual_networks_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerCompleteVirtualNetworksEnabled"),
-            ),
-            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteVirtualNetworkId"),
-            ),
-            use_remote_gateways: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useRemoteGateways"),
-            ),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
+            allow_forwarded_traffic: o.get_field("allowForwardedTraffic"),
+            allow_gateway_transit: o.get_field("allowGatewayTransit"),
+            allow_virtual_network_access: o.get_field("allowVirtualNetworkAccess"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            only_ipv6_peering_enabled: o.get_field("onlyIpv6PeeringEnabled"),
+            peer_complete_virtual_networks_enabled: o
+                .get_field("peerCompleteVirtualNetworksEnabled"),
+            remote_virtual_network_id: o.get_field("remoteVirtualNetworkId"),
+            use_remote_gateways: o.get_field("useRemoteGateways"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
         }
     }
 }

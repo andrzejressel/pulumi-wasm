@@ -183,118 +183,89 @@ pub mod time_series_database_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TimeSeriesDatabaseConnectionArgs,
     ) -> TimeSeriesDatabaseConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let digital_twins_id_binding_1 = args.digital_twins_id.get_output(context);
-        let digital_twins_id_binding = digital_twins_id_binding_1.get_inner();
-        let eventhub_consumer_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let digital_twins_id_binding = args.digital_twins_id.get_output(context);
+        let eventhub_consumer_group_name_binding = args
             .eventhub_consumer_group_name
             .get_output(context);
-        let eventhub_consumer_group_name_binding = eventhub_consumer_group_name_binding_1
-            .get_inner();
-        let eventhub_name_binding_1 = args.eventhub_name.get_output(context);
-        let eventhub_name_binding = eventhub_name_binding_1.get_inner();
-        let eventhub_namespace_endpoint_uri_binding_1 = args
+        let eventhub_name_binding = args.eventhub_name.get_output(context);
+        let eventhub_namespace_endpoint_uri_binding = args
             .eventhub_namespace_endpoint_uri
             .get_output(context);
-        let eventhub_namespace_endpoint_uri_binding = eventhub_namespace_endpoint_uri_binding_1
-            .get_inner();
-        let eventhub_namespace_id_binding_1 = args
+        let eventhub_namespace_id_binding = args
             .eventhub_namespace_id
             .get_output(context);
-        let eventhub_namespace_id_binding = eventhub_namespace_id_binding_1.get_inner();
-        let kusto_cluster_id_binding_1 = args.kusto_cluster_id.get_output(context);
-        let kusto_cluster_id_binding = kusto_cluster_id_binding_1.get_inner();
-        let kusto_cluster_uri_binding_1 = args.kusto_cluster_uri.get_output(context);
-        let kusto_cluster_uri_binding = kusto_cluster_uri_binding_1.get_inner();
-        let kusto_database_name_binding_1 = args.kusto_database_name.get_output(context);
-        let kusto_database_name_binding = kusto_database_name_binding_1.get_inner();
-        let kusto_table_name_binding_1 = args.kusto_table_name.get_output(context);
-        let kusto_table_name_binding = kusto_table_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kusto_cluster_id_binding = args.kusto_cluster_id.get_output(context);
+        let kusto_cluster_uri_binding = args.kusto_cluster_uri.get_output(context);
+        let kusto_database_name_binding = args.kusto_database_name.get_output(context);
+        let kusto_table_name_binding = args.kusto_table_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "digitalTwinsId".into(),
-                    value: &digital_twins_id_binding,
+                    value: digital_twins_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubConsumerGroupName".into(),
-                    value: &eventhub_consumer_group_name_binding,
+                    value: eventhub_consumer_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubName".into(),
-                    value: &eventhub_name_binding,
+                    value: eventhub_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubNamespaceEndpointUri".into(),
-                    value: &eventhub_namespace_endpoint_uri_binding,
+                    value: eventhub_namespace_endpoint_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubNamespaceId".into(),
-                    value: &eventhub_namespace_id_binding,
+                    value: eventhub_namespace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoClusterId".into(),
-                    value: &kusto_cluster_id_binding,
+                    value: kusto_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoClusterUri".into(),
-                    value: &kusto_cluster_uri_binding,
+                    value: kusto_cluster_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoDatabaseName".into(),
-                    value: &kusto_database_name_binding,
+                    value: kusto_database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoTableName".into(),
-                    value: &kusto_table_name_binding,
+                    value: kusto_table_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TimeSeriesDatabaseConnectionResult {
-            digital_twins_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digitalTwinsId"),
-            ),
-            eventhub_consumer_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubConsumerGroupName"),
-            ),
-            eventhub_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubName"),
-            ),
-            eventhub_namespace_endpoint_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubNamespaceEndpointUri"),
-            ),
-            eventhub_namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubNamespaceId"),
-            ),
-            kusto_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoClusterId"),
-            ),
-            kusto_cluster_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoClusterUri"),
-            ),
-            kusto_database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoDatabaseName"),
-            ),
-            kusto_table_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoTableName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            digital_twins_id: o.get_field("digitalTwinsId"),
+            eventhub_consumer_group_name: o.get_field("eventhubConsumerGroupName"),
+            eventhub_name: o.get_field("eventhubName"),
+            eventhub_namespace_endpoint_uri: o.get_field("eventhubNamespaceEndpointUri"),
+            eventhub_namespace_id: o.get_field("eventhubNamespaceId"),
+            kusto_cluster_id: o.get_field("kustoClusterId"),
+            kusto_cluster_uri: o.get_field("kustoClusterUri"),
+            kusto_database_name: o.get_field("kustoDatabaseName"),
+            kusto_table_name: o.get_field("kustoTableName"),
+            name: o.get_field("name"),
         }
     }
 }

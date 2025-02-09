@@ -322,96 +322,74 @@ pub mod service_perimeter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServicePerimeterArgs,
     ) -> ServicePerimeterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let perimeter_type_binding_1 = args.perimeter_type.get_output(context);
-        let perimeter_type_binding = perimeter_type_binding_1.get_inner();
-        let spec_binding_1 = args.spec.get_output(context);
-        let spec_binding = spec_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let title_binding_1 = args.title.get_output(context);
-        let title_binding = title_binding_1.get_inner();
-        let use_explicit_dry_run_spec_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let perimeter_type_binding = args.perimeter_type.get_output(context);
+        let spec_binding = args.spec.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let title_binding = args.title.get_output(context);
+        let use_explicit_dry_run_spec_binding = args
             .use_explicit_dry_run_spec
             .get_output(context);
-        let use_explicit_dry_run_spec_binding = use_explicit_dry_run_spec_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeter:ServicePerimeter".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perimeterType".into(),
-                    value: &perimeter_type_binding,
+                    value: perimeter_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: &spec_binding,
+                    value: spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: &title_binding,
+                    value: title_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useExplicitDryRunSpec".into(),
-                    value: &use_explicit_dry_run_spec_binding,
+                    value: use_explicit_dry_run_spec_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServicePerimeterResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            perimeter_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perimeterType"),
-            ),
-            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            use_explicit_dry_run_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useExplicitDryRunSpec"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            perimeter_type: o.get_field("perimeterType"),
+            spec: o.get_field("spec"),
+            status: o.get_field("status"),
+            title: o.get_field("title"),
+            update_time: o.get_field("updateTime"),
+            use_explicit_dry_run_spec: o.get_field("useExplicitDryRunSpec"),
         }
     }
 }

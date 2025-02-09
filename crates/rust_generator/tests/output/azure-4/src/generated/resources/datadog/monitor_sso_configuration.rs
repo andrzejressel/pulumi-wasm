@@ -80,65 +80,52 @@ pub mod monitor_sso_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MonitorSsoConfigurationArgs,
     ) -> MonitorSsoConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let datadog_monitor_id_binding_1 = args.datadog_monitor_id.get_output(context);
-        let datadog_monitor_id_binding = datadog_monitor_id_binding_1.get_inner();
-        let enterprise_application_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let datadog_monitor_id_binding = args.datadog_monitor_id.get_output(context);
+        let enterprise_application_id_binding = args
             .enterprise_application_id
             .get_output(context);
-        let enterprise_application_id_binding = enterprise_application_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let single_sign_on_enabled_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let single_sign_on_enabled_binding = args
             .single_sign_on_enabled
             .get_output(context);
-        let single_sign_on_enabled_binding = single_sign_on_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datadogMonitorId".into(),
-                    value: &datadog_monitor_id_binding,
+                    value: datadog_monitor_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enterpriseApplicationId".into(),
-                    value: &enterprise_application_id_binding,
+                    value: enterprise_application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleSignOnEnabled".into(),
-                    value: &single_sign_on_enabled_binding,
+                    value: single_sign_on_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MonitorSsoConfigurationResult {
-            datadog_monitor_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datadogMonitorId"),
-            ),
-            enterprise_application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enterpriseApplicationId"),
-            ),
-            login_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loginUrl"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            single_sign_on_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleSignOnEnabled"),
-            ),
+            datadog_monitor_id: o.get_field("datadogMonitorId"),
+            enterprise_application_id: o.get_field("enterpriseApplicationId"),
+            login_url: o.get_field("loginUrl"),
+            name: o.get_field("name"),
+            single_sign_on_enabled: o.get_field("singleSignOnEnabled"),
         }
     }
 }

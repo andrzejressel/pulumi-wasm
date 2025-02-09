@@ -73,67 +73,51 @@ pub mod user_login_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserLoginProfileArgs,
     ) -> UserLoginProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let password_length_binding_1 = args.password_length.get_output(context);
-        let password_length_binding = password_length_binding_1.get_inner();
-        let password_reset_required_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let password_length_binding = args.password_length.get_output(context);
+        let password_reset_required_binding = args
             .password_reset_required
             .get_output(context);
-        let password_reset_required_binding = password_reset_required_binding_1
-            .get_inner();
-        let pgp_key_binding_1 = args.pgp_key.get_output(context);
-        let pgp_key_binding = pgp_key_binding_1.get_inner();
-        let user_binding_1 = args.user.get_output(context);
-        let user_binding = user_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let pgp_key_binding = args.pgp_key.get_output(context);
+        let user_binding = args.user.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/userLoginProfile:UserLoginProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordLength".into(),
-                    value: &password_length_binding,
+                    value: password_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordResetRequired".into(),
-                    value: &password_reset_required_binding,
+                    value: password_reset_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pgpKey".into(),
-                    value: &pgp_key_binding,
+                    value: pgp_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: &user_binding,
+                    value: user_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserLoginProfileResult {
-            encrypted_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptedPassword"),
-            ),
-            key_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyFingerprint"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            password_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passwordLength"),
-            ),
-            password_reset_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passwordResetRequired"),
-            ),
-            pgp_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pgpKey"),
-            ),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
+            encrypted_password: o.get_field("encryptedPassword"),
+            key_fingerprint: o.get_field("keyFingerprint"),
+            password: o.get_field("password"),
+            password_length: o.get_field("passwordLength"),
+            password_reset_required: o.get_field("passwordResetRequired"),
+            pgp_key: o.get_field("pgpKey"),
+            user: o.get_field("user"),
         }
     }
 }

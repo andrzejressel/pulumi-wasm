@@ -50,68 +50,45 @@ pub mod get_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServerArgs,
     ) -> GetServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let server_id_binding = args.server_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:transfer/getServer:getServer".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identity_provider_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityProviderType"),
-            ),
-            invocation_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invocationRole"),
-            ),
-            logging_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingRole"),
-            ),
-            protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocols"),
-            ),
-            security_policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPolicyName"),
-            ),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
-            structured_log_destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("structuredLogDestinations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            arn: o.get_field("arn"),
+            certificate: o.get_field("certificate"),
+            domain: o.get_field("domain"),
+            endpoint: o.get_field("endpoint"),
+            endpoint_type: o.get_field("endpointType"),
+            id: o.get_field("id"),
+            identity_provider_type: o.get_field("identityProviderType"),
+            invocation_role: o.get_field("invocationRole"),
+            logging_role: o.get_field("loggingRole"),
+            protocols: o.get_field("protocols"),
+            security_policy_name: o.get_field("securityPolicyName"),
+            server_id: o.get_field("serverId"),
+            structured_log_destinations: o.get_field("structuredLogDestinations"),
+            tags: o.get_field("tags"),
+            url: o.get_field("url"),
         }
     }
 }

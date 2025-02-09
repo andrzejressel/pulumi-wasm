@@ -112,106 +112,78 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let close_on_deletion_binding_1 = args.close_on_deletion.get_output(context);
-        let close_on_deletion_binding = close_on_deletion_binding_1.get_inner();
-        let create_govcloud_binding_1 = args.create_govcloud.get_output(context);
-        let create_govcloud_binding = create_govcloud_binding_1.get_inner();
-        let email_binding_1 = args.email.get_output(context);
-        let email_binding = email_binding_1.get_inner();
-        let iam_user_access_to_billing_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let close_on_deletion_binding = args.close_on_deletion.get_output(context);
+        let create_govcloud_binding = args.create_govcloud.get_output(context);
+        let email_binding = args.email.get_output(context);
+        let iam_user_access_to_billing_binding = args
             .iam_user_access_to_billing
             .get_output(context);
-        let iam_user_access_to_billing_binding = iam_user_access_to_billing_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_id_binding_1 = args.parent_id.get_output(context);
-        let parent_id_binding = parent_id_binding_1.get_inner();
-        let role_name_binding_1 = args.role_name.get_output(context);
-        let role_name_binding = role_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let parent_id_binding = args.parent_id.get_output(context);
+        let role_name_binding = args.role_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:organizations/account:Account".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "closeOnDeletion".into(),
-                    value: &close_on_deletion_binding,
+                    value: close_on_deletion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createGovcloud".into(),
-                    value: &create_govcloud_binding,
+                    value: create_govcloud_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: &email_binding,
+                    value: email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamUserAccessToBilling".into(),
-                    value: &iam_user_access_to_billing_binding,
+                    value: iam_user_access_to_billing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentId".into(),
-                    value: &parent_id_binding,
+                    value: parent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: &role_name_binding,
+                    value: role_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            close_on_deletion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("closeOnDeletion"),
-            ),
-            create_govcloud: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createGovcloud"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            govcloud_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("govcloudId"),
-            ),
-            iam_user_access_to_billing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamUserAccessToBilling"),
-            ),
-            joined_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("joinedMethod"),
-            ),
-            joined_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("joinedTimestamp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentId"),
-            ),
-            role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleName"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            close_on_deletion: o.get_field("closeOnDeletion"),
+            create_govcloud: o.get_field("createGovcloud"),
+            email: o.get_field("email"),
+            govcloud_id: o.get_field("govcloudId"),
+            iam_user_access_to_billing: o.get_field("iamUserAccessToBilling"),
+            joined_method: o.get_field("joinedMethod"),
+            joined_timestamp: o.get_field("joinedTimestamp"),
+            name: o.get_field("name"),
+            parent_id: o.get_field("parentId"),
+            role_name: o.get_field("roleName"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

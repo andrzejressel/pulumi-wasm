@@ -301,119 +301,89 @@ pub mod dataset_access {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatasetAccessArgs,
     ) -> DatasetAccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorized_dataset_binding_1 = args.authorized_dataset.get_output(context);
-        let authorized_dataset_binding = authorized_dataset_binding_1.get_inner();
-        let dataset_id_binding_1 = args.dataset_id.get_output(context);
-        let dataset_id_binding = dataset_id_binding_1.get_inner();
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let group_by_email_binding_1 = args.group_by_email.get_output(context);
-        let group_by_email_binding = group_by_email_binding_1.get_inner();
-        let iam_member_binding_1 = args.iam_member.get_output(context);
-        let iam_member_binding = iam_member_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let routine_binding_1 = args.routine.get_output(context);
-        let routine_binding = routine_binding_1.get_inner();
-        let special_group_binding_1 = args.special_group.get_output(context);
-        let special_group_binding = special_group_binding_1.get_inner();
-        let user_by_email_binding_1 = args.user_by_email.get_output(context);
-        let user_by_email_binding = user_by_email_binding_1.get_inner();
-        let view_binding_1 = args.view.get_output(context);
-        let view_binding = view_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorized_dataset_binding = args.authorized_dataset.get_output(context);
+        let dataset_id_binding = args.dataset_id.get_output(context);
+        let domain_binding = args.domain.get_output(context);
+        let group_by_email_binding = args.group_by_email.get_output(context);
+        let iam_member_binding = args.iam_member.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let routine_binding = args.routine.get_output(context);
+        let special_group_binding = args.special_group.get_output(context);
+        let user_by_email_binding = args.user_by_email.get_output(context);
+        let view_binding = args.view.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/datasetAccess:DatasetAccess".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedDataset".into(),
-                    value: &authorized_dataset_binding,
+                    value: authorized_dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: &dataset_id_binding,
+                    value: dataset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupByEmail".into(),
-                    value: &group_by_email_binding,
+                    value: group_by_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamMember".into(),
-                    value: &iam_member_binding,
+                    value: iam_member_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routine".into(),
-                    value: &routine_binding,
+                    value: routine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "specialGroup".into(),
-                    value: &special_group_binding,
+                    value: special_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userByEmail".into(),
-                    value: &user_by_email_binding,
+                    value: user_by_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "view".into(),
-                    value: &view_binding,
+                    value: view_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatasetAccessResult {
-            api_updated_member: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiUpdatedMember"),
-            ),
-            authorized_dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedDataset"),
-            ),
-            dataset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datasetId"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            group_by_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupByEmail"),
-            ),
-            iam_member: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamMember"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            routine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routine"),
-            ),
-            special_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("specialGroup"),
-            ),
-            user_by_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userByEmail"),
-            ),
-            view: pulumi_gestalt_rust::__private::into_domain(o.extract_field("view")),
+            api_updated_member: o.get_field("apiUpdatedMember"),
+            authorized_dataset: o.get_field("authorizedDataset"),
+            dataset_id: o.get_field("datasetId"),
+            domain: o.get_field("domain"),
+            group_by_email: o.get_field("groupByEmail"),
+            iam_member: o.get_field("iamMember"),
+            project: o.get_field("project"),
+            role: o.get_field("role"),
+            routine: o.get_field("routine"),
+            special_group: o.get_field("specialGroup"),
+            user_by_email: o.get_field("userByEmail"),
+            view: o.get_field("view"),
         }
     }
 }

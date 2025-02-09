@@ -115,124 +115,93 @@ pub mod firewall {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirewallArgs,
     ) -> FirewallResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delete_protection_binding_1 = args.delete_protection.get_output(context);
-        let delete_protection_binding = delete_protection_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let encryption_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delete_protection_binding = args.delete_protection.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let encryption_configuration_binding = args
             .encryption_configuration
             .get_output(context);
-        let encryption_configuration_binding = encryption_configuration_binding_1
-            .get_inner();
-        let firewall_policy_arn_binding_1 = args.firewall_policy_arn.get_output(context);
-        let firewall_policy_arn_binding = firewall_policy_arn_binding_1.get_inner();
-        let firewall_policy_change_protection_binding_1 = args
+        let firewall_policy_arn_binding = args.firewall_policy_arn.get_output(context);
+        let firewall_policy_change_protection_binding = args
             .firewall_policy_change_protection
             .get_output(context);
-        let firewall_policy_change_protection_binding = firewall_policy_change_protection_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let subnet_change_protection_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let subnet_change_protection_binding = args
             .subnet_change_protection
             .get_output(context);
-        let subnet_change_protection_binding = subnet_change_protection_binding_1
-            .get_inner();
-        let subnet_mappings_binding_1 = args.subnet_mappings.get_output(context);
-        let subnet_mappings_binding = subnet_mappings_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subnet_mappings_binding = args.subnet_mappings.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkfirewall/firewall:Firewall".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteProtection".into(),
-                    value: &delete_protection_binding,
+                    value: delete_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: &encryption_configuration_binding,
+                    value: encryption_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicyArn".into(),
-                    value: &firewall_policy_arn_binding,
+                    value: firewall_policy_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicyChangeProtection".into(),
-                    value: &firewall_policy_change_protection_binding,
+                    value: firewall_policy_change_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetChangeProtection".into(),
-                    value: &subnet_change_protection_binding,
+                    value: subnet_change_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetMappings".into(),
-                    value: &subnet_mappings_binding,
+                    value: subnet_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirewallResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            delete_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteProtection"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfiguration"),
-            ),
-            firewall_policy_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallPolicyArn"),
-            ),
-            firewall_policy_change_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallPolicyChangeProtection"),
-            ),
-            firewall_statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallStatuses"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            subnet_change_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetChangeProtection"),
-            ),
-            subnet_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetMappings"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            update_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateToken"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            delete_protection: o.get_field("deleteProtection"),
+            description: o.get_field("description"),
+            encryption_configuration: o.get_field("encryptionConfiguration"),
+            firewall_policy_arn: o.get_field("firewallPolicyArn"),
+            firewall_policy_change_protection: o
+                .get_field("firewallPolicyChangeProtection"),
+            firewall_statuses: o.get_field("firewallStatuses"),
+            name: o.get_field("name"),
+            subnet_change_protection: o.get_field("subnetChangeProtection"),
+            subnet_mappings: o.get_field("subnetMappings"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            update_token: o.get_field("updateToken"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

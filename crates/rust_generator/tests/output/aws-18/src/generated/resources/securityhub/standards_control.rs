@@ -76,69 +76,49 @@ pub mod standards_control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StandardsControlArgs,
     ) -> StandardsControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let control_status_binding_1 = args.control_status.get_output(context);
-        let control_status_binding = control_status_binding_1.get_inner();
-        let disabled_reason_binding_1 = args.disabled_reason.get_output(context);
-        let disabled_reason_binding = disabled_reason_binding_1.get_inner();
-        let standards_control_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let control_status_binding = args.control_status.get_output(context);
+        let disabled_reason_binding = args.disabled_reason.get_output(context);
+        let standards_control_arn_binding = args
             .standards_control_arn
             .get_output(context);
-        let standards_control_arn_binding = standards_control_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:securityhub/standardsControl:StandardsControl".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlStatus".into(),
-                    value: &control_status_binding,
+                    value: control_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabledReason".into(),
-                    value: &disabled_reason_binding,
+                    value: disabled_reason_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standardsControlArn".into(),
-                    value: &standards_control_arn_binding,
+                    value: standards_control_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StandardsControlResult {
-            control_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlId"),
-            ),
-            control_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlStatus"),
-            ),
-            control_status_updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlStatusUpdatedAt"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disabled_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabledReason"),
-            ),
-            related_requirements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relatedRequirements"),
-            ),
-            remediation_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remediationUrl"),
-            ),
-            severity_rating: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("severityRating"),
-            ),
-            standards_control_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("standardsControlArn"),
-            ),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            control_id: o.get_field("controlId"),
+            control_status: o.get_field("controlStatus"),
+            control_status_updated_at: o.get_field("controlStatusUpdatedAt"),
+            description: o.get_field("description"),
+            disabled_reason: o.get_field("disabledReason"),
+            related_requirements: o.get_field("relatedRequirements"),
+            remediation_url: o.get_field("remediationUrl"),
+            severity_rating: o.get_field("severityRating"),
+            standards_control_arn: o.get_field("standardsControlArn"),
+            title: o.get_field("title"),
         }
     }
 }

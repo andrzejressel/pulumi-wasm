@@ -211,134 +211,98 @@ pub mod maintenance_window_task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MaintenanceWindowTaskArgs,
     ) -> MaintenanceWindowTaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cutoff_behavior_binding_1 = args.cutoff_behavior.get_output(context);
-        let cutoff_behavior_binding = cutoff_behavior_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let max_concurrency_binding_1 = args.max_concurrency.get_output(context);
-        let max_concurrency_binding = max_concurrency_binding_1.get_inner();
-        let max_errors_binding_1 = args.max_errors.get_output(context);
-        let max_errors_binding = max_errors_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let service_role_arn_binding_1 = args.service_role_arn.get_output(context);
-        let service_role_arn_binding = service_role_arn_binding_1.get_inner();
-        let targets_binding_1 = args.targets.get_output(context);
-        let targets_binding = targets_binding_1.get_inner();
-        let task_arn_binding_1 = args.task_arn.get_output(context);
-        let task_arn_binding = task_arn_binding_1.get_inner();
-        let task_invocation_parameters_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cutoff_behavior_binding = args.cutoff_behavior.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let max_concurrency_binding = args.max_concurrency.get_output(context);
+        let max_errors_binding = args.max_errors.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let service_role_arn_binding = args.service_role_arn.get_output(context);
+        let targets_binding = args.targets.get_output(context);
+        let task_arn_binding = args.task_arn.get_output(context);
+        let task_invocation_parameters_binding = args
             .task_invocation_parameters
             .get_output(context);
-        let task_invocation_parameters_binding = task_invocation_parameters_binding_1
-            .get_inner();
-        let task_type_binding_1 = args.task_type.get_output(context);
-        let task_type_binding = task_type_binding_1.get_inner();
-        let window_id_binding_1 = args.window_id.get_output(context);
-        let window_id_binding = window_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let task_type_binding = args.task_type.get_output(context);
+        let window_id_binding = args.window_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindowTask:MaintenanceWindowTask".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cutoffBehavior".into(),
-                    value: &cutoff_behavior_binding,
+                    value: cutoff_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxConcurrency".into(),
-                    value: &max_concurrency_binding,
+                    value: max_concurrency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxErrors".into(),
-                    value: &max_errors_binding,
+                    value: max_errors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRoleArn".into(),
-                    value: &service_role_arn_binding,
+                    value: service_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: &targets_binding,
+                    value: targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskArn".into(),
-                    value: &task_arn_binding,
+                    value: task_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskInvocationParameters".into(),
-                    value: &task_invocation_parameters_binding,
+                    value: task_invocation_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskType".into(),
-                    value: &task_type_binding,
+                    value: task_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowId".into(),
-                    value: &window_id_binding,
+                    value: window_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MaintenanceWindowTaskResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cutoff_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cutoffBehavior"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            max_concurrency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxConcurrency"),
-            ),
-            max_errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxErrors"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRoleArn"),
-            ),
-            targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targets"),
-            ),
-            task_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskArn"),
-            ),
-            task_invocation_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskInvocationParameters"),
-            ),
-            task_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskType"),
-            ),
-            window_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowId"),
-            ),
-            window_task_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowTaskId"),
-            ),
+            arn: o.get_field("arn"),
+            cutoff_behavior: o.get_field("cutoffBehavior"),
+            description: o.get_field("description"),
+            max_concurrency: o.get_field("maxConcurrency"),
+            max_errors: o.get_field("maxErrors"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            service_role_arn: o.get_field("serviceRoleArn"),
+            targets: o.get_field("targets"),
+            task_arn: o.get_field("taskArn"),
+            task_invocation_parameters: o.get_field("taskInvocationParameters"),
+            task_type: o.get_field("taskType"),
+            window_id: o.get_field("windowId"),
+            window_task_id: o.get_field("windowTaskId"),
         }
     }
 }

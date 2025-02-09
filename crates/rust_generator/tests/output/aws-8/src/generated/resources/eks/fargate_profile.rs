@@ -98,85 +98,63 @@ pub mod fargate_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FargateProfileArgs,
     ) -> FargateProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let fargate_profile_name_binding_1 = args
-            .fargate_profile_name
-            .get_output(context);
-        let fargate_profile_name_binding = fargate_profile_name_binding_1.get_inner();
-        let pod_execution_role_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let fargate_profile_name_binding = args.fargate_profile_name.get_output(context);
+        let pod_execution_role_arn_binding = args
             .pod_execution_role_arn
             .get_output(context);
-        let pod_execution_role_arn_binding = pod_execution_role_arn_binding_1
-            .get_inner();
-        let selectors_binding_1 = args.selectors.get_output(context);
-        let selectors_binding = selectors_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let selectors_binding = args.selectors.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:eks/fargateProfile:FargateProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fargateProfileName".into(),
-                    value: &fargate_profile_name_binding,
+                    value: fargate_profile_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "podExecutionRoleArn".into(),
-                    value: &pod_execution_role_arn_binding,
+                    value: pod_execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectors".into(),
-                    value: &selectors_binding,
+                    value: selectors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FargateProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            fargate_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fargateProfileName"),
-            ),
-            pod_execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("podExecutionRoleArn"),
-            ),
-            selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selectors"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            cluster_name: o.get_field("clusterName"),
+            fargate_profile_name: o.get_field("fargateProfileName"),
+            pod_execution_role_arn: o.get_field("podExecutionRoleArn"),
+            selectors: o.get_field("selectors"),
+            status: o.get_field("status"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

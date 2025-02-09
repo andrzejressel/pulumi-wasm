@@ -61,96 +61,59 @@ pub mod get_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTableArgs,
     ) -> GetTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let server_side_encryption_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let server_side_encryption_binding = args
             .server_side_encryption
             .get_output(context);
-        let server_side_encryption_binding = server_side_encryption_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:dynamodb/getTable:getTable".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryption".into(),
-                    value: &server_side_encryption_binding,
+                    value: server_side_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTableResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            billing_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingMode"),
-            ),
-            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtectionEnabled"),
-            ),
-            global_secondary_indexes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalSecondaryIndexes"),
-            ),
-            hash_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hashKey"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            local_secondary_indexes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localSecondaryIndexes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_recovery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeRecovery"),
-            ),
-            range_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rangeKey"),
-            ),
-            read_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readCapacity"),
-            ),
-            replicas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicas"),
-            ),
-            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryption"),
-            ),
-            stream_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamArn"),
-            ),
-            stream_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamEnabled"),
-            ),
-            stream_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamLabel"),
-            ),
-            stream_view_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamViewType"),
-            ),
-            table_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableClass"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
-            write_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writeCapacity"),
-            ),
+            arn: o.get_field("arn"),
+            attributes: o.get_field("attributes"),
+            billing_mode: o.get_field("billingMode"),
+            deletion_protection_enabled: o.get_field("deletionProtectionEnabled"),
+            global_secondary_indexes: o.get_field("globalSecondaryIndexes"),
+            hash_key: o.get_field("hashKey"),
+            id: o.get_field("id"),
+            local_secondary_indexes: o.get_field("localSecondaryIndexes"),
+            name: o.get_field("name"),
+            point_in_time_recovery: o.get_field("pointInTimeRecovery"),
+            range_key: o.get_field("rangeKey"),
+            read_capacity: o.get_field("readCapacity"),
+            replicas: o.get_field("replicas"),
+            server_side_encryption: o.get_field("serverSideEncryption"),
+            stream_arn: o.get_field("streamArn"),
+            stream_enabled: o.get_field("streamEnabled"),
+            stream_label: o.get_field("streamLabel"),
+            stream_view_type: o.get_field("streamViewType"),
+            table_class: o.get_field("tableClass"),
+            tags: o.get_field("tags"),
+            ttl: o.get_field("ttl"),
+            write_capacity: o.get_field("writeCapacity"),
         }
     }
 }

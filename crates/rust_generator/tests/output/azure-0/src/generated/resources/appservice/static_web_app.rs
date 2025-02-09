@@ -136,140 +136,103 @@ pub mod static_web_app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StaticWebAppArgs,
     ) -> StaticWebAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_settings_binding_1 = args.app_settings.get_output(context);
-        let app_settings_binding = app_settings_binding_1.get_inner();
-        let basic_auth_binding_1 = args.basic_auth.get_output(context);
-        let basic_auth_binding = basic_auth_binding_1.get_inner();
-        let configuration_file_changes_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_settings_binding = args.app_settings.get_output(context);
+        let basic_auth_binding = args.basic_auth.get_output(context);
+        let configuration_file_changes_enabled_binding = args
             .configuration_file_changes_enabled
             .get_output(context);
-        let configuration_file_changes_enabled_binding = configuration_file_changes_enabled_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let preview_environments_enabled_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let preview_environments_enabled_binding = args
             .preview_environments_enabled
             .get_output(context);
-        let preview_environments_enabled_binding = preview_environments_enabled_binding_1
-            .get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_size_binding_1 = args.sku_size.get_output(context);
-        let sku_size_binding = sku_size_binding_1.get_inner();
-        let sku_tier_binding_1 = args.sku_tier.get_output(context);
-        let sku_tier_binding = sku_tier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_size_binding = args.sku_size.get_output(context);
+        let sku_tier_binding = args.sku_tier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/staticWebApp:StaticWebApp".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appSettings".into(),
-                    value: &app_settings_binding,
+                    value: app_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicAuth".into(),
-                    value: &basic_auth_binding,
+                    value: basic_auth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationFileChangesEnabled".into(),
-                    value: &configuration_file_changes_enabled_binding,
+                    value: configuration_file_changes_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "previewEnvironmentsEnabled".into(),
-                    value: &preview_environments_enabled_binding,
+                    value: preview_environments_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuSize".into(),
-                    value: &sku_size_binding,
+                    value: sku_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuTier".into(),
-                    value: &sku_tier_binding,
+                    value: sku_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StaticWebAppResult {
-            api_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKey"),
-            ),
-            app_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appSettings"),
-            ),
-            basic_auth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basicAuth"),
-            ),
-            configuration_file_changes_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationFileChangesEnabled"),
-            ),
-            default_host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultHostName"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            preview_environments_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("previewEnvironmentsEnabled"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuSize"),
-            ),
-            sku_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuTier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            api_key: o.get_field("apiKey"),
+            app_settings: o.get_field("appSettings"),
+            basic_auth: o.get_field("basicAuth"),
+            configuration_file_changes_enabled: o
+                .get_field("configurationFileChangesEnabled"),
+            default_host_name: o.get_field("defaultHostName"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            preview_environments_enabled: o.get_field("previewEnvironmentsEnabled"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_size: o.get_field("skuSize"),
+            sku_tier: o.get_field("skuTier"),
+            tags: o.get_field("tags"),
         }
     }
 }

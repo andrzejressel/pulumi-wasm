@@ -55,43 +55,37 @@ pub mod email_identity_feedback_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EmailIdentityFeedbackAttributesArgs,
     ) -> EmailIdentityFeedbackAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_forwarding_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let email_forwarding_enabled_binding = args
             .email_forwarding_enabled
             .get_output(context);
-        let email_forwarding_enabled_binding = email_forwarding_enabled_binding_1
-            .get_inner();
-        let email_identity_binding_1 = args.email_identity.get_output(context);
-        let email_identity_binding = email_identity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let email_identity_binding = args.email_identity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailForwardingEnabled".into(),
-                    value: &email_forwarding_enabled_binding,
+                    value: email_forwarding_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailIdentity".into(),
-                    value: &email_identity_binding,
+                    value: email_identity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EmailIdentityFeedbackAttributesResult {
-            email_forwarding_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailForwardingEnabled"),
-            ),
-            email_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailIdentity"),
-            ),
+            email_forwarding_enabled: o.get_field("emailForwardingEnabled"),
+            email_identity: o.get_field("emailIdentity"),
         }
     }
 }

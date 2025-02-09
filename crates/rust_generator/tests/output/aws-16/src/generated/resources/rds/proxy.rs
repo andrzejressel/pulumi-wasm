@@ -88,115 +88,87 @@ pub mod proxy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProxyArgs,
     ) -> ProxyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auths_binding_1 = args.auths.get_output(context);
-        let auths_binding = auths_binding_1.get_inner();
-        let debug_logging_binding_1 = args.debug_logging.get_output(context);
-        let debug_logging_binding = debug_logging_binding_1.get_inner();
-        let engine_family_binding_1 = args.engine_family.get_output(context);
-        let engine_family_binding = engine_family_binding_1.get_inner();
-        let idle_client_timeout_binding_1 = args.idle_client_timeout.get_output(context);
-        let idle_client_timeout_binding = idle_client_timeout_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let require_tls_binding_1 = args.require_tls.get_output(context);
-        let require_tls_binding = require_tls_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auths_binding = args.auths.get_output(context);
+        let debug_logging_binding = args.debug_logging.get_output(context);
+        let engine_family_binding = args.engine_family.get_output(context);
+        let idle_client_timeout_binding = args.idle_client_timeout.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let require_tls_binding = args.require_tls.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let vpc_subnet_ids_binding_1 = args.vpc_subnet_ids.get_output(context);
-        let vpc_subnet_ids_binding = vpc_subnet_ids_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/proxy:Proxy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auths".into(),
-                    value: &auths_binding,
+                    value: auths_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "debugLogging".into(),
-                    value: &debug_logging_binding,
+                    value: debug_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineFamily".into(),
-                    value: &engine_family_binding,
+                    value: engine_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleClientTimeout".into(),
-                    value: &idle_client_timeout_binding,
+                    value: idle_client_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireTls".into(),
-                    value: &require_tls_binding,
+                    value: require_tls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSubnetIds".into(),
-                    value: &vpc_subnet_ids_binding,
+                    value: vpc_subnet_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProxyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auths: pulumi_gestalt_rust::__private::into_domain(o.extract_field("auths")),
-            debug_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("debugLogging"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            engine_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineFamily"),
-            ),
-            idle_client_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleClientTimeout"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            require_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireTls"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
-            vpc_subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSubnetIds"),
-            ),
+            arn: o.get_field("arn"),
+            auths: o.get_field("auths"),
+            debug_logging: o.get_field("debugLogging"),
+            endpoint: o.get_field("endpoint"),
+            engine_family: o.get_field("engineFamily"),
+            idle_client_timeout: o.get_field("idleClientTimeout"),
+            name: o.get_field("name"),
+            require_tls: o.get_field("requireTls"),
+            role_arn: o.get_field("roleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
+            vpc_subnet_ids: o.get_field("vpcSubnetIds"),
         }
     }
 }

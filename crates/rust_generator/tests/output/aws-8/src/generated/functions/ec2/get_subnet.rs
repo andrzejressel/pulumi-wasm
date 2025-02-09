@@ -93,146 +93,98 @@ pub mod get_subnet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSubnetArgs,
     ) -> GetSubnetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let availability_zone_id_binding_1 = args
-            .availability_zone_id
-            .get_output(context);
-        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
-        let cidr_block_binding_1 = args.cidr_block.get_output(context);
-        let cidr_block_binding = cidr_block_binding_1.get_inner();
-        let default_for_az_binding_1 = args.default_for_az.get_output(context);
-        let default_for_az_binding = default_for_az_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
-        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let availability_zone_id_binding = args.availability_zone_id.get_output(context);
+        let cidr_block_binding = args.cidr_block.get_output(context);
+        let default_for_az_binding = args.default_for_az.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getSubnet:getSubnet".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneId".into(),
-                    value: &availability_zone_id_binding,
+                    value: availability_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: &cidr_block_binding,
+                    value: cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultForAz".into(),
-                    value: &default_for_az_binding,
+                    value: default_for_az_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: &ipv6_cidr_block_binding,
+                    value: ipv6_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSubnetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            assign_ipv6_address_on_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignIpv6AddressOnCreation"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            available_ip_address_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableIpAddressCount"),
-            ),
-            cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlock"),
-            ),
-            customer_owned_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerOwnedIpv4Pool"),
-            ),
-            default_for_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultForAz"),
-            ),
-            enable_dns64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDns64"),
-            ),
-            enable_lni_at_device_index: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLniAtDeviceIndex"),
-            ),
-            enable_resource_name_dns_a_record_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableResourceNameDnsARecordOnLaunch"),
-            ),
-            enable_resource_name_dns_aaaa_record_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableResourceNameDnsAaaaRecordOnLaunch"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlock"),
-            ),
-            ipv6_cidr_block_association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlockAssociationId"),
-            ),
-            ipv6_native: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Native"),
-            ),
-            map_customer_owned_ip_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mapCustomerOwnedIpOnLaunch"),
-            ),
-            map_public_ip_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mapPublicIpOnLaunch"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            private_dns_hostname_type_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsHostnameTypeOnLaunch"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            assign_ipv6_address_on_creation: o.get_field("assignIpv6AddressOnCreation"),
+            availability_zone: o.get_field("availabilityZone"),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            available_ip_address_count: o.get_field("availableIpAddressCount"),
+            cidr_block: o.get_field("cidrBlock"),
+            customer_owned_ipv4_pool: o.get_field("customerOwnedIpv4Pool"),
+            default_for_az: o.get_field("defaultForAz"),
+            enable_dns64: o.get_field("enableDns64"),
+            enable_lni_at_device_index: o.get_field("enableLniAtDeviceIndex"),
+            enable_resource_name_dns_a_record_on_launch: o
+                .get_field("enableResourceNameDnsARecordOnLaunch"),
+            enable_resource_name_dns_aaaa_record_on_launch: o
+                .get_field("enableResourceNameDnsAaaaRecordOnLaunch"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ipv6_cidr_block: o.get_field("ipv6CidrBlock"),
+            ipv6_cidr_block_association_id: o.get_field("ipv6CidrBlockAssociationId"),
+            ipv6_native: o.get_field("ipv6Native"),
+            map_customer_owned_ip_on_launch: o.get_field("mapCustomerOwnedIpOnLaunch"),
+            map_public_ip_on_launch: o.get_field("mapPublicIpOnLaunch"),
+            outpost_arn: o.get_field("outpostArn"),
+            owner_id: o.get_field("ownerId"),
+            private_dns_hostname_type_on_launch: o
+                .get_field("privateDnsHostnameTypeOnLaunch"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

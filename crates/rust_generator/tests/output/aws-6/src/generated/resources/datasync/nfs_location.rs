@@ -90,69 +90,55 @@ pub mod nfs_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NfsLocationArgs,
     ) -> NfsLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mount_options_binding_1 = args.mount_options.get_output(context);
-        let mount_options_binding = mount_options_binding_1.get_inner();
-        let on_prem_config_binding_1 = args.on_prem_config.get_output(context);
-        let on_prem_config_binding = on_prem_config_binding_1.get_inner();
-        let server_hostname_binding_1 = args.server_hostname.get_output(context);
-        let server_hostname_binding = server_hostname_binding_1.get_inner();
-        let subdirectory_binding_1 = args.subdirectory.get_output(context);
-        let subdirectory_binding = subdirectory_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mount_options_binding = args.mount_options.get_output(context);
+        let on_prem_config_binding = args.on_prem_config.get_output(context);
+        let server_hostname_binding = args.server_hostname.get_output(context);
+        let subdirectory_binding = args.subdirectory.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/nfsLocation:NfsLocation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mountOptions".into(),
-                    value: &mount_options_binding,
+                    value: mount_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onPremConfig".into(),
-                    value: &on_prem_config_binding,
+                    value: on_prem_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverHostname".into(),
-                    value: &server_hostname_binding,
+                    value: server_hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: &subdirectory_binding,
+                    value: subdirectory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NfsLocationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            mount_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountOptions"),
-            ),
-            on_prem_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onPremConfig"),
-            ),
-            server_hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverHostname"),
-            ),
-            subdirectory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdirectory"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            arn: o.get_field("arn"),
+            mount_options: o.get_field("mountOptions"),
+            on_prem_config: o.get_field("onPremConfig"),
+            server_hostname: o.get_field("serverHostname"),
+            subdirectory: o.get_field("subdirectory"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uri: o.get_field("uri"),
         }
     }
 }

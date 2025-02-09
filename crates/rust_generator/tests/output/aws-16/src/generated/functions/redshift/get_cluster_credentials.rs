@@ -43,80 +43,59 @@ pub mod get_cluster_credentials {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterCredentialsArgs,
     ) -> GetClusterCredentialsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_create_binding_1 = args.auto_create.get_output(context);
-        let auto_create_binding = auto_create_binding_1.get_inner();
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let db_groups_binding_1 = args.db_groups.get_output(context);
-        let db_groups_binding = db_groups_binding_1.get_inner();
-        let db_name_binding_1 = args.db_name.get_output(context);
-        let db_name_binding = db_name_binding_1.get_inner();
-        let db_user_binding_1 = args.db_user.get_output(context);
-        let db_user_binding = db_user_binding_1.get_inner();
-        let duration_seconds_binding_1 = args.duration_seconds.get_output(context);
-        let duration_seconds_binding = duration_seconds_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_create_binding = args.auto_create.get_output(context);
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let db_groups_binding = args.db_groups.get_output(context);
+        let db_name_binding = args.db_name.get_output(context);
+        let db_user_binding = args.db_user.get_output(context);
+        let duration_seconds_binding = args.duration_seconds.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:redshift/getClusterCredentials:getClusterCredentials".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoCreate".into(),
-                    value: &auto_create_binding,
+                    value: auto_create_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbGroups".into(),
-                    value: &db_groups_binding,
+                    value: db_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbName".into(),
-                    value: &db_name_binding,
+                    value: db_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbUser".into(),
-                    value: &db_user_binding,
+                    value: db_user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationSeconds".into(),
-                    value: &duration_seconds_binding,
+                    value: duration_seconds_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterCredentialsResult {
-            auto_create: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoCreate"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            db_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbGroups"),
-            ),
-            db_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbName"),
-            ),
-            db_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbPassword"),
-            ),
-            db_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbUser"),
-            ),
-            duration_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("durationSeconds"),
-            ),
-            expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiration"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            auto_create: o.get_field("autoCreate"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            db_groups: o.get_field("dbGroups"),
+            db_name: o.get_field("dbName"),
+            db_password: o.get_field("dbPassword"),
+            db_user: o.get_field("dbUser"),
+            duration_seconds: o.get_field("durationSeconds"),
+            expiration: o.get_field("expiration"),
+            id: o.get_field("id"),
         }
     }
 }

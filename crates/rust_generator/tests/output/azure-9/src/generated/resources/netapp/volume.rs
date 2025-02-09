@@ -216,314 +216,225 @@ pub mod volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VolumeArgs,
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let azure_vmware_data_store_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let azure_vmware_data_store_enabled_binding = args
             .azure_vmware_data_store_enabled
             .get_output(context);
-        let azure_vmware_data_store_enabled_binding = azure_vmware_data_store_enabled_binding_1
-            .get_inner();
-        let create_from_snapshot_resource_id_binding_1 = args
+        let create_from_snapshot_resource_id_binding = args
             .create_from_snapshot_resource_id
             .get_output(context);
-        let create_from_snapshot_resource_id_binding = create_from_snapshot_resource_id_binding_1
-            .get_inner();
-        let data_protection_backup_policy_binding_1 = args
+        let data_protection_backup_policy_binding = args
             .data_protection_backup_policy
             .get_output(context);
-        let data_protection_backup_policy_binding = data_protection_backup_policy_binding_1
-            .get_inner();
-        let data_protection_replication_binding_1 = args
+        let data_protection_replication_binding = args
             .data_protection_replication
             .get_output(context);
-        let data_protection_replication_binding = data_protection_replication_binding_1
-            .get_inner();
-        let data_protection_snapshot_policy_binding_1 = args
+        let data_protection_snapshot_policy_binding = args
             .data_protection_snapshot_policy
             .get_output(context);
-        let data_protection_snapshot_policy_binding = data_protection_snapshot_policy_binding_1
-            .get_inner();
-        let encryption_key_source_binding_1 = args
+        let encryption_key_source_binding = args
             .encryption_key_source
             .get_output(context);
-        let encryption_key_source_binding = encryption_key_source_binding_1.get_inner();
-        let export_policy_rules_binding_1 = args.export_policy_rules.get_output(context);
-        let export_policy_rules_binding = export_policy_rules_binding_1.get_inner();
-        let kerberos_enabled_binding_1 = args.kerberos_enabled.get_output(context);
-        let kerberos_enabled_binding = kerberos_enabled_binding_1.get_inner();
-        let key_vault_private_endpoint_id_binding_1 = args
+        let export_policy_rules_binding = args.export_policy_rules.get_output(context);
+        let kerberos_enabled_binding = args.kerberos_enabled.get_output(context);
+        let key_vault_private_endpoint_id_binding = args
             .key_vault_private_endpoint_id
             .get_output(context);
-        let key_vault_private_endpoint_id_binding = key_vault_private_endpoint_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_features_binding_1 = args.network_features.get_output(context);
-        let network_features_binding = network_features_binding_1.get_inner();
-        let pool_name_binding_1 = args.pool_name.get_output(context);
-        let pool_name_binding = pool_name_binding_1.get_inner();
-        let protocols_binding_1 = args.protocols.get_output(context);
-        let protocols_binding = protocols_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let security_style_binding_1 = args.security_style.get_output(context);
-        let security_style_binding = security_style_binding_1.get_inner();
-        let service_level_binding_1 = args.service_level.get_output(context);
-        let service_level_binding = service_level_binding_1.get_inner();
-        let smb3_protocol_encryption_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_features_binding = args.network_features.get_output(context);
+        let pool_name_binding = args.pool_name.get_output(context);
+        let protocols_binding = args.protocols.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let security_style_binding = args.security_style.get_output(context);
+        let service_level_binding = args.service_level.get_output(context);
+        let smb3_protocol_encryption_enabled_binding = args
             .smb3_protocol_encryption_enabled
             .get_output(context);
-        let smb3_protocol_encryption_enabled_binding = smb3_protocol_encryption_enabled_binding_1
-            .get_inner();
-        let smb_access_based_enumeration_enabled_binding_1 = args
+        let smb_access_based_enumeration_enabled_binding = args
             .smb_access_based_enumeration_enabled
             .get_output(context);
-        let smb_access_based_enumeration_enabled_binding = smb_access_based_enumeration_enabled_binding_1
-            .get_inner();
-        let smb_continuous_availability_enabled_binding_1 = args
+        let smb_continuous_availability_enabled_binding = args
             .smb_continuous_availability_enabled
             .get_output(context);
-        let smb_continuous_availability_enabled_binding = smb_continuous_availability_enabled_binding_1
-            .get_inner();
-        let smb_non_browsable_enabled_binding_1 = args
+        let smb_non_browsable_enabled_binding = args
             .smb_non_browsable_enabled
             .get_output(context);
-        let smb_non_browsable_enabled_binding = smb_non_browsable_enabled_binding_1
-            .get_inner();
-        let snapshot_directory_visible_binding_1 = args
+        let snapshot_directory_visible_binding = args
             .snapshot_directory_visible
             .get_output(context);
-        let snapshot_directory_visible_binding = snapshot_directory_visible_binding_1
-            .get_inner();
-        let storage_quota_in_gb_binding_1 = args.storage_quota_in_gb.get_output(context);
-        let storage_quota_in_gb_binding = storage_quota_in_gb_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let throughput_in_mibps_binding_1 = args.throughput_in_mibps.get_output(context);
-        let throughput_in_mibps_binding = throughput_in_mibps_binding_1.get_inner();
-        let volume_path_binding_1 = args.volume_path.get_output(context);
-        let volume_path_binding = volume_path_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_quota_in_gb_binding = args.storage_quota_in_gb.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let throughput_in_mibps_binding = args.throughput_in_mibps.get_output(context);
+        let volume_path_binding = args.volume_path.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:netapp/volume:Volume".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureVmwareDataStoreEnabled".into(),
-                    value: &azure_vmware_data_store_enabled_binding,
+                    value: azure_vmware_data_store_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createFromSnapshotResourceId".into(),
-                    value: &create_from_snapshot_resource_id_binding,
+                    value: create_from_snapshot_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataProtectionBackupPolicy".into(),
-                    value: &data_protection_backup_policy_binding,
+                    value: data_protection_backup_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataProtectionReplication".into(),
-                    value: &data_protection_replication_binding,
+                    value: data_protection_replication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataProtectionSnapshotPolicy".into(),
-                    value: &data_protection_snapshot_policy_binding,
+                    value: data_protection_snapshot_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionKeySource".into(),
-                    value: &encryption_key_source_binding,
+                    value: encryption_key_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportPolicyRules".into(),
-                    value: &export_policy_rules_binding,
+                    value: export_policy_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosEnabled".into(),
-                    value: &kerberos_enabled_binding,
+                    value: kerberos_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultPrivateEndpointId".into(),
-                    value: &key_vault_private_endpoint_id_binding,
+                    value: key_vault_private_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkFeatures".into(),
-                    value: &network_features_binding,
+                    value: network_features_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "poolName".into(),
-                    value: &pool_name_binding,
+                    value: pool_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocols".into(),
-                    value: &protocols_binding,
+                    value: protocols_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityStyle".into(),
-                    value: &security_style_binding,
+                    value: security_style_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceLevel".into(),
-                    value: &service_level_binding,
+                    value: service_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smb3ProtocolEncryptionEnabled".into(),
-                    value: &smb3_protocol_encryption_enabled_binding,
+                    value: smb3_protocol_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbAccessBasedEnumerationEnabled".into(),
-                    value: &smb_access_based_enumeration_enabled_binding,
+                    value: smb_access_based_enumeration_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbContinuousAvailabilityEnabled".into(),
-                    value: &smb_continuous_availability_enabled_binding,
+                    value: smb_continuous_availability_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbNonBrowsableEnabled".into(),
-                    value: &smb_non_browsable_enabled_binding,
+                    value: smb_non_browsable_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotDirectoryVisible".into(),
-                    value: &snapshot_directory_visible_binding,
+                    value: snapshot_directory_visible_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageQuotaInGb".into(),
-                    value: &storage_quota_in_gb_binding,
+                    value: storage_quota_in_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughputInMibps".into(),
-                    value: &throughput_in_mibps_binding,
+                    value: throughput_in_mibps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumePath".into(),
-                    value: &volume_path_binding,
+                    value: volume_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VolumeResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            azure_vmware_data_store_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureVmwareDataStoreEnabled"),
-            ),
-            create_from_snapshot_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createFromSnapshotResourceId"),
-            ),
-            data_protection_backup_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataProtectionBackupPolicy"),
-            ),
-            data_protection_replication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataProtectionReplication"),
-            ),
-            data_protection_snapshot_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataProtectionSnapshotPolicy"),
-            ),
-            encryption_key_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionKeySource"),
-            ),
-            export_policy_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportPolicyRules"),
-            ),
-            kerberos_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosEnabled"),
-            ),
-            key_vault_private_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultPrivateEndpointId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mount_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountIpAddresses"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkFeatures"),
-            ),
-            pool_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("poolName"),
-            ),
-            protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocols"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            security_style: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityStyle"),
-            ),
-            service_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceLevel"),
-            ),
-            smb3_protocol_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smb3ProtocolEncryptionEnabled"),
-            ),
-            smb_access_based_enumeration_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbAccessBasedEnumerationEnabled"),
-            ),
-            smb_continuous_availability_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbContinuousAvailabilityEnabled"),
-            ),
-            smb_non_browsable_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbNonBrowsableEnabled"),
-            ),
-            snapshot_directory_visible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotDirectoryVisible"),
-            ),
-            storage_quota_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageQuotaInGb"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            throughput_in_mibps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughputInMibps"),
-            ),
-            volume_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumePath"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            account_name: o.get_field("accountName"),
+            azure_vmware_data_store_enabled: o.get_field("azureVmwareDataStoreEnabled"),
+            create_from_snapshot_resource_id: o
+                .get_field("createFromSnapshotResourceId"),
+            data_protection_backup_policy: o.get_field("dataProtectionBackupPolicy"),
+            data_protection_replication: o.get_field("dataProtectionReplication"),
+            data_protection_snapshot_policy: o.get_field("dataProtectionSnapshotPolicy"),
+            encryption_key_source: o.get_field("encryptionKeySource"),
+            export_policy_rules: o.get_field("exportPolicyRules"),
+            kerberos_enabled: o.get_field("kerberosEnabled"),
+            key_vault_private_endpoint_id: o.get_field("keyVaultPrivateEndpointId"),
+            location: o.get_field("location"),
+            mount_ip_addresses: o.get_field("mountIpAddresses"),
+            name: o.get_field("name"),
+            network_features: o.get_field("networkFeatures"),
+            pool_name: o.get_field("poolName"),
+            protocols: o.get_field("protocols"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            security_style: o.get_field("securityStyle"),
+            service_level: o.get_field("serviceLevel"),
+            smb3_protocol_encryption_enabled: o
+                .get_field("smb3ProtocolEncryptionEnabled"),
+            smb_access_based_enumeration_enabled: o
+                .get_field("smbAccessBasedEnumerationEnabled"),
+            smb_continuous_availability_enabled: o
+                .get_field("smbContinuousAvailabilityEnabled"),
+            smb_non_browsable_enabled: o.get_field("smbNonBrowsableEnabled"),
+            snapshot_directory_visible: o.get_field("snapshotDirectoryVisible"),
+            storage_quota_in_gb: o.get_field("storageQuotaInGb"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            throughput_in_mibps: o.get_field("throughputInMibps"),
+            volume_path: o.get_field("volumePath"),
+            zone: o.get_field("zone"),
         }
     }
 }

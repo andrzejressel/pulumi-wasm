@@ -43,60 +43,47 @@ pub mod get_control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetControlArgs,
     ) -> GetControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let control_mapping_sources_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let control_mapping_sources_binding = args
             .control_mapping_sources
             .get_output(context);
-        let control_mapping_sources_binding = control_mapping_sources_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let name_binding = args.name.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:auditmanager/getControl:getControl".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlMappingSources".into(),
-                    value: &control_mapping_sources_binding,
+                    value: control_mapping_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetControlResult {
-            action_plan_instructions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionPlanInstructions"),
-            ),
-            action_plan_title: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionPlanTitle"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            control_mapping_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlMappingSources"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            testing_information: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testingInformation"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            action_plan_instructions: o.get_field("actionPlanInstructions"),
+            action_plan_title: o.get_field("actionPlanTitle"),
+            arn: o.get_field("arn"),
+            control_mapping_sources: o.get_field("controlMappingSources"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            testing_information: o.get_field("testingInformation"),
+            type_: o.get_field("type"),
         }
     }
 }

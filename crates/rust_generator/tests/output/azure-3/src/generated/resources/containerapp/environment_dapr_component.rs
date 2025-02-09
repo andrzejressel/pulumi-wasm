@@ -133,104 +133,79 @@ pub mod environment_dapr_component {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentDaprComponentArgs,
     ) -> EnvironmentDaprComponentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let component_type_binding_1 = args.component_type.get_output(context);
-        let component_type_binding = component_type_binding_1.get_inner();
-        let container_app_environment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let component_type_binding = args.component_type.get_output(context);
+        let container_app_environment_id_binding = args
             .container_app_environment_id
             .get_output(context);
-        let container_app_environment_id_binding = container_app_environment_id_binding_1
-            .get_inner();
-        let ignore_errors_binding_1 = args.ignore_errors.get_output(context);
-        let ignore_errors_binding = ignore_errors_binding_1.get_inner();
-        let init_timeout_binding_1 = args.init_timeout.get_output(context);
-        let init_timeout_binding = init_timeout_binding_1.get_inner();
-        let metadatas_binding_1 = args.metadatas.get_output(context);
-        let metadatas_binding = metadatas_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let scopes_binding_1 = args.scopes.get_output(context);
-        let scopes_binding = scopes_binding_1.get_inner();
-        let secrets_binding_1 = args.secrets.get_output(context);
-        let secrets_binding = secrets_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ignore_errors_binding = args.ignore_errors.get_output(context);
+        let init_timeout_binding = args.init_timeout.get_output(context);
+        let metadatas_binding = args.metadatas.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let scopes_binding = args.scopes.get_output(context);
+        let secrets_binding = args.secrets.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "componentType".into(),
-                    value: &component_type_binding,
+                    value: component_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: &container_app_environment_id_binding,
+                    value: container_app_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreErrors".into(),
-                    value: &ignore_errors_binding,
+                    value: ignore_errors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initTimeout".into(),
-                    value: &init_timeout_binding,
+                    value: init_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadatas".into(),
-                    value: &metadatas_binding,
+                    value: metadatas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: &scopes_binding,
+                    value: scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secrets".into(),
-                    value: &secrets_binding,
+                    value: secrets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentDaprComponentResult {
-            component_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("componentType"),
-            ),
-            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppEnvironmentId"),
-            ),
-            ignore_errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreErrors"),
-            ),
-            init_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initTimeout"),
-            ),
-            metadatas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadatas"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopes"),
-            ),
-            secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secrets"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            component_type: o.get_field("componentType"),
+            container_app_environment_id: o.get_field("containerAppEnvironmentId"),
+            ignore_errors: o.get_field("ignoreErrors"),
+            init_timeout: o.get_field("initTimeout"),
+            metadatas: o.get_field("metadatas"),
+            name: o.get_field("name"),
+            scopes: o.get_field("scopes"),
+            secrets: o.get_field("secrets"),
+            version: o.get_field("version"),
         }
     }
 }

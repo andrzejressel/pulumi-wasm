@@ -202,71 +202,53 @@ pub mod network_peering_routes_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkPeeringRoutesConfigArgs,
     ) -> NetworkPeeringRoutesConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let export_custom_routes_binding_1 = args
-            .export_custom_routes
-            .get_output(context);
-        let export_custom_routes_binding = export_custom_routes_binding_1.get_inner();
-        let import_custom_routes_binding_1 = args
-            .import_custom_routes
-            .get_output(context);
-        let import_custom_routes_binding = import_custom_routes_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let peering_binding_1 = args.peering.get_output(context);
-        let peering_binding = peering_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let export_custom_routes_binding = args.export_custom_routes.get_output(context);
+        let import_custom_routes_binding = args.import_custom_routes.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let peering_binding = args.peering.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/networkPeeringRoutesConfig:NetworkPeeringRoutesConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportCustomRoutes".into(),
-                    value: &export_custom_routes_binding,
+                    value: export_custom_routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importCustomRoutes".into(),
-                    value: &import_custom_routes_binding,
+                    value: import_custom_routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peering".into(),
-                    value: &peering_binding,
+                    value: peering_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkPeeringRoutesConfigResult {
-            export_custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportCustomRoutes"),
-            ),
-            import_custom_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importCustomRoutes"),
-            ),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            peering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peering"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            export_custom_routes: o.get_field("exportCustomRoutes"),
+            import_custom_routes: o.get_field("importCustomRoutes"),
+            network: o.get_field("network"),
+            peering: o.get_field("peering"),
+            project: o.get_field("project"),
         }
     }
 }

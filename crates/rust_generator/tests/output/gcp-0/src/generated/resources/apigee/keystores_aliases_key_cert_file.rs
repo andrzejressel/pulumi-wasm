@@ -93,89 +93,72 @@ pub mod keystores_aliases_key_cert_file {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeystoresAliasesKeyCertFileArgs,
     ) -> KeystoresAliasesKeyCertFileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let cert_binding_1 = args.cert.get_output(context);
-        let cert_binding = cert_binding_1.get_inner();
-        let certs_info_binding_1 = args.certs_info.get_output(context);
-        let certs_info_binding = certs_info_binding_1.get_inner();
-        let environment_binding_1 = args.environment.get_output(context);
-        let environment_binding = environment_binding_1.get_inner();
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let keystore_binding_1 = args.keystore.get_output(context);
-        let keystore_binding = keystore_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let cert_binding = args.cert.get_output(context);
+        let certs_info_binding = args.certs_info.get_output(context);
+        let environment_binding = args.environment.get_output(context);
+        let key_binding = args.key.get_output(context);
+        let keystore_binding = args.keystore.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/keystoresAliasesKeyCertFile:KeystoresAliasesKeyCertFile"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cert".into(),
-                    value: &cert_binding,
+                    value: cert_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certsInfo".into(),
-                    value: &certs_info_binding,
+                    value: certs_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: &environment_binding,
+                    value: environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keystore".into(),
-                    value: &keystore_binding,
+                    value: keystore_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeystoresAliasesKeyCertFileResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            cert: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cert")),
-            certs_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certsInfo"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            keystore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keystore"),
-            ),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            alias: o.get_field("alias"),
+            cert: o.get_field("cert"),
+            certs_info: o.get_field("certsInfo"),
+            environment: o.get_field("environment"),
+            key: o.get_field("key"),
+            keystore: o.get_field("keystore"),
+            org_id: o.get_field("orgId"),
+            password: o.get_field("password"),
+            type_: o.get_field("type"),
         }
     }
 }

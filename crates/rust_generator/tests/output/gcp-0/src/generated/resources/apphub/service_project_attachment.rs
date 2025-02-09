@@ -138,57 +138,46 @@ pub mod service_project_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceProjectAttachmentArgs,
     ) -> ServiceProjectAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_project_binding_1 = args.service_project.get_output(context);
-        let service_project_binding = service_project_binding_1.get_inner();
-        let service_project_attachment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let project_binding = args.project.get_output(context);
+        let service_project_binding = args.service_project.get_output(context);
+        let service_project_attachment_id_binding = args
             .service_project_attachment_id
             .get_output(context);
-        let service_project_attachment_id_binding = service_project_attachment_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apphub/serviceProjectAttachment:ServiceProjectAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceProject".into(),
-                    value: &service_project_binding,
+                    value: service_project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceProjectAttachmentId".into(),
-                    value: &service_project_attachment_id_binding,
+                    value: service_project_attachment_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceProjectAttachmentResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            service_project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceProject"),
-            ),
-            service_project_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceProjectAttachmentId"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            create_time: o.get_field("createTime"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            service_project: o.get_field("serviceProject"),
+            service_project_attachment_id: o.get_field("serviceProjectAttachmentId"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
         }
     }
 }

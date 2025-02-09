@@ -26,43 +26,36 @@ pub mod get_service_consumers_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceConsumersIamPolicyArgs,
     ) -> GetServiceConsumersIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let consumer_project_binding_1 = args.consumer_project.get_output(context);
-        let consumer_project_binding = consumer_project_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let consumer_project_binding = args.consumer_project.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:endpoints/getServiceConsumersIamPolicy:getServiceConsumersIamPolicy"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerProject".into(),
-                    value: &consumer_project_binding,
+                    value: consumer_project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceConsumersIamPolicyResult {
-            consumer_project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumerProject"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
+            consumer_project: o.get_field("consumerProject"),
+            etag: o.get_field("etag"),
+            id: o.get_field("id"),
+            policy_data: o.get_field("policyData"),
+            service_name: o.get_field("serviceName"),
         }
     }
 }

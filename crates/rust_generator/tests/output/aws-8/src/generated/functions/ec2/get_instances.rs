@@ -48,59 +48,43 @@ pub mod get_instances {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstancesArgs,
     ) -> GetInstancesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let instance_state_names_binding_1 = args
-            .instance_state_names
-            .get_output(context);
-        let instance_state_names_binding = instance_state_names_binding_1.get_inner();
-        let instance_tags_binding_1 = args.instance_tags.get_output(context);
-        let instance_tags_binding = instance_tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let instance_state_names_binding = args.instance_state_names.get_output(context);
+        let instance_tags_binding = args.instance_tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getInstances:getInstances".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceStateNames".into(),
-                    value: &instance_state_names_binding,
+                    value: instance_state_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceTags".into(),
-                    value: &instance_tags_binding,
+                    value: instance_tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstancesResult {
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
-            instance_state_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceStateNames"),
-            ),
-            instance_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceTags"),
-            ),
-            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Addresses"),
-            ),
-            private_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIps"),
-            ),
-            public_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIps"),
-            ),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ids: o.get_field("ids"),
+            instance_state_names: o.get_field("instanceStateNames"),
+            instance_tags: o.get_field("instanceTags"),
+            ipv6_addresses: o.get_field("ipv6Addresses"),
+            private_ips: o.get_field("privateIps"),
+            public_ips: o.get_field("publicIps"),
         }
     }
 }

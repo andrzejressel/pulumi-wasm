@@ -90,55 +90,46 @@ pub mod subscription_pricing {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubscriptionPricingArgs,
     ) -> SubscriptionPricingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let extensions_binding_1 = args.extensions.get_output(context);
-        let extensions_binding = extensions_binding_1.get_inner();
-        let resource_type_binding_1 = args.resource_type.get_output(context);
-        let resource_type_binding = resource_type_binding_1.get_inner();
-        let subplan_binding_1 = args.subplan.get_output(context);
-        let subplan_binding = subplan_binding_1.get_inner();
-        let tier_binding_1 = args.tier.get_output(context);
-        let tier_binding = tier_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let extensions_binding = args.extensions.get_output(context);
+        let resource_type_binding = args.resource_type.get_output(context);
+        let subplan_binding = args.subplan.get_output(context);
+        let tier_binding = args.tier.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:securitycenter/subscriptionPricing:SubscriptionPricing".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensions".into(),
-                    value: &extensions_binding,
+                    value: extensions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: &resource_type_binding,
+                    value: resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subplan".into(),
-                    value: &subplan_binding,
+                    value: subplan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: &tier_binding,
+                    value: tier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubscriptionPricingResult {
-            extensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extensions"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            subplan: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subplan"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
+            extensions: o.get_field("extensions"),
+            resource_type: o.get_field("resourceType"),
+            subplan: o.get_field("subplan"),
+            tier: o.get_field("tier"),
         }
     }
 }

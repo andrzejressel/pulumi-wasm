@@ -118,61 +118,48 @@ pub mod domain_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainMappingArgs,
     ) -> DomainMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let override_strategy_binding_1 = args.override_strategy.get_output(context);
-        let override_strategy_binding = override_strategy_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let ssl_settings_binding_1 = args.ssl_settings.get_output(context);
-        let ssl_settings_binding = ssl_settings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let override_strategy_binding = args.override_strategy.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let ssl_settings_binding = args.ssl_settings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:appengine/domainMapping:DomainMapping".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideStrategy".into(),
-                    value: &override_strategy_binding,
+                    value: override_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslSettings".into(),
-                    value: &ssl_settings_binding,
+                    value: ssl_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainMappingResult {
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            override_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrideStrategy"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            resource_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceRecords"),
-            ),
-            ssl_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslSettings"),
-            ),
+            domain_name: o.get_field("domainName"),
+            name: o.get_field("name"),
+            override_strategy: o.get_field("overrideStrategy"),
+            project: o.get_field("project"),
+            resource_records: o.get_field("resourceRecords"),
+            ssl_settings: o.get_field("sslSettings"),
         }
     }
 }

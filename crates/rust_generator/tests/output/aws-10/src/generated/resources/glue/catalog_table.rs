@@ -185,156 +185,115 @@ pub mod catalog_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CatalogTableArgs,
     ) -> CatalogTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let open_table_format_input_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let open_table_format_input_binding = args
             .open_table_format_input
             .get_output(context);
-        let open_table_format_input_binding = open_table_format_input_binding_1
-            .get_inner();
-        let owner_binding_1 = args.owner.get_output(context);
-        let owner_binding = owner_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let partition_indices_binding_1 = args.partition_indices.get_output(context);
-        let partition_indices_binding = partition_indices_binding_1.get_inner();
-        let partition_keys_binding_1 = args.partition_keys.get_output(context);
-        let partition_keys_binding = partition_keys_binding_1.get_inner();
-        let retention_binding_1 = args.retention.get_output(context);
-        let retention_binding = retention_binding_1.get_inner();
-        let storage_descriptor_binding_1 = args.storage_descriptor.get_output(context);
-        let storage_descriptor_binding = storage_descriptor_binding_1.get_inner();
-        let table_type_binding_1 = args.table_type.get_output(context);
-        let table_type_binding = table_type_binding_1.get_inner();
-        let target_table_binding_1 = args.target_table.get_output(context);
-        let target_table_binding = target_table_binding_1.get_inner();
-        let view_expanded_text_binding_1 = args.view_expanded_text.get_output(context);
-        let view_expanded_text_binding = view_expanded_text_binding_1.get_inner();
-        let view_original_text_binding_1 = args.view_original_text.get_output(context);
-        let view_original_text_binding = view_original_text_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let owner_binding = args.owner.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let partition_indices_binding = args.partition_indices.get_output(context);
+        let partition_keys_binding = args.partition_keys.get_output(context);
+        let retention_binding = args.retention.get_output(context);
+        let storage_descriptor_binding = args.storage_descriptor.get_output(context);
+        let table_type_binding = args.table_type.get_output(context);
+        let target_table_binding = args.target_table.get_output(context);
+        let view_expanded_text_binding = args.view_expanded_text.get_output(context);
+        let view_original_text_binding = args.view_original_text.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/catalogTable:CatalogTable".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openTableFormatInput".into(),
-                    value: &open_table_format_input_binding,
+                    value: open_table_format_input_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: &owner_binding,
+                    value: owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionIndices".into(),
-                    value: &partition_indices_binding,
+                    value: partition_indices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeys".into(),
-                    value: &partition_keys_binding,
+                    value: partition_keys_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retention".into(),
-                    value: &retention_binding,
+                    value: retention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageDescriptor".into(),
-                    value: &storage_descriptor_binding,
+                    value: storage_descriptor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableType".into(),
-                    value: &table_type_binding,
+                    value: table_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetTable".into(),
-                    value: &target_table_binding,
+                    value: target_table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewExpandedText".into(),
-                    value: &view_expanded_text_binding,
+                    value: view_expanded_text_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewOriginalText".into(),
-                    value: &view_original_text_binding,
+                    value: view_original_text_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CatalogTableResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            open_table_format_input: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openTableFormatInput"),
-            ),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            partition_indices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionIndices"),
-            ),
-            partition_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKeys"),
-            ),
-            retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retention"),
-            ),
-            storage_descriptor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageDescriptor"),
-            ),
-            table_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableType"),
-            ),
-            target_table: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetTable"),
-            ),
-            view_expanded_text: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("viewExpandedText"),
-            ),
-            view_original_text: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("viewOriginalText"),
-            ),
+            arn: o.get_field("arn"),
+            catalog_id: o.get_field("catalogId"),
+            database_name: o.get_field("databaseName"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            open_table_format_input: o.get_field("openTableFormatInput"),
+            owner: o.get_field("owner"),
+            parameters: o.get_field("parameters"),
+            partition_indices: o.get_field("partitionIndices"),
+            partition_keys: o.get_field("partitionKeys"),
+            retention: o.get_field("retention"),
+            storage_descriptor: o.get_field("storageDescriptor"),
+            table_type: o.get_field("tableType"),
+            target_table: o.get_field("targetTable"),
+            view_expanded_text: o.get_field("viewExpandedText"),
+            view_original_text: o.get_field("viewOriginalText"),
         }
     }
 }

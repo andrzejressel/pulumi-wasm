@@ -151,107 +151,81 @@ pub mod spring_cloud_gateway_route_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudGatewayRouteConfigArgs,
     ) -> SpringCloudGatewayRouteConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let open_api_binding_1 = args.open_api.get_output(context);
-        let open_api_binding = open_api_binding_1.get_inner();
-        let predicates_binding_1 = args.predicates.get_output(context);
-        let predicates_binding = predicates_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let routes_binding_1 = args.routes.get_output(context);
-        let routes_binding = routes_binding_1.get_inner();
-        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
-        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
-        let spring_cloud_gateway_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let open_api_binding = args.open_api.get_output(context);
+        let predicates_binding = args.predicates.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let routes_binding = args.routes.get_output(context);
+        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_output(context);
+        let spring_cloud_gateway_id_binding = args
             .spring_cloud_gateway_id
             .get_output(context);
-        let spring_cloud_gateway_id_binding = spring_cloud_gateway_id_binding_1
-            .get_inner();
-        let sso_validation_enabled_binding_1 = args
+        let sso_validation_enabled_binding = args
             .sso_validation_enabled
             .get_output(context);
-        let sso_validation_enabled_binding = sso_validation_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openApi".into(),
-                    value: &open_api_binding,
+                    value: open_api_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predicates".into(),
-                    value: &predicates_binding,
+                    value: predicates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: &routes_binding,
+                    value: routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: &spring_cloud_app_id_binding,
+                    value: spring_cloud_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudGatewayId".into(),
-                    value: &spring_cloud_gateway_id_binding,
+                    value: spring_cloud_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ssoValidationEnabled".into(),
-                    value: &sso_validation_enabled_binding,
+                    value: sso_validation_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudGatewayRouteConfigResult {
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            open_api: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openApi"),
-            ),
-            predicates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predicates"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routes"),
-            ),
-            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudAppId"),
-            ),
-            spring_cloud_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudGatewayId"),
-            ),
-            sso_validation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ssoValidationEnabled"),
-            ),
+            filters: o.get_field("filters"),
+            name: o.get_field("name"),
+            open_api: o.get_field("openApi"),
+            predicates: o.get_field("predicates"),
+            protocol: o.get_field("protocol"),
+            routes: o.get_field("routes"),
+            spring_cloud_app_id: o.get_field("springCloudAppId"),
+            spring_cloud_gateway_id: o.get_field("springCloudGatewayId"),
+            sso_validation_enabled: o.get_field("ssoValidationEnabled"),
         }
     }
 }

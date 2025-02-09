@@ -117,103 +117,74 @@ pub mod dps_shared_access_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DpsSharedAccessPolicyArgs,
     ) -> DpsSharedAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enrollment_read_binding_1 = args.enrollment_read.get_output(context);
-        let enrollment_read_binding = enrollment_read_binding_1.get_inner();
-        let enrollment_write_binding_1 = args.enrollment_write.get_output(context);
-        let enrollment_write_binding = enrollment_write_binding_1.get_inner();
-        let iothub_dps_name_binding_1 = args.iothub_dps_name.get_output(context);
-        let iothub_dps_name_binding = iothub_dps_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let registration_read_binding_1 = args.registration_read.get_output(context);
-        let registration_read_binding = registration_read_binding_1.get_inner();
-        let registration_write_binding_1 = args.registration_write.get_output(context);
-        let registration_write_binding = registration_write_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_config_binding_1 = args.service_config.get_output(context);
-        let service_config_binding = service_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let enrollment_read_binding = args.enrollment_read.get_output(context);
+        let enrollment_write_binding = args.enrollment_write.get_output(context);
+        let iothub_dps_name_binding = args.iothub_dps_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let registration_read_binding = args.registration_read.get_output(context);
+        let registration_write_binding = args.registration_write.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_config_binding = args.service_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrollmentRead".into(),
-                    value: &enrollment_read_binding,
+                    value: enrollment_read_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrollmentWrite".into(),
-                    value: &enrollment_write_binding,
+                    value: enrollment_write_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubDpsName".into(),
-                    value: &iothub_dps_name_binding,
+                    value: iothub_dps_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationRead".into(),
-                    value: &registration_read_binding,
+                    value: registration_read_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationWrite".into(),
-                    value: &registration_write_binding,
+                    value: registration_write_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceConfig".into(),
-                    value: &service_config_binding,
+                    value: service_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DpsSharedAccessPolicyResult {
-            enrollment_read: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enrollmentRead"),
-            ),
-            enrollment_write: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enrollmentWrite"),
-            ),
-            iothub_dps_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iothubDpsName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            registration_read: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrationRead"),
-            ),
-            registration_write: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrationWrite"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            service_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceConfig"),
-            ),
+            enrollment_read: o.get_field("enrollmentRead"),
+            enrollment_write: o.get_field("enrollmentWrite"),
+            iothub_dps_name: o.get_field("iothubDpsName"),
+            name: o.get_field("name"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            primary_key: o.get_field("primaryKey"),
+            registration_read: o.get_field("registrationRead"),
+            registration_write: o.get_field("registrationWrite"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            secondary_key: o.get_field("secondaryKey"),
+            service_config: o.get_field("serviceConfig"),
         }
     }
 }

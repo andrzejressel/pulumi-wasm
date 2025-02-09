@@ -103,90 +103,69 @@ pub mod routing_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RoutingProfileArgs,
     ) -> RoutingProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_outbound_queue_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_outbound_queue_id_binding = args
             .default_outbound_queue_id
             .get_output(context);
-        let default_outbound_queue_id_binding = default_outbound_queue_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let media_concurrencies_binding_1 = args.media_concurrencies.get_output(context);
-        let media_concurrencies_binding = media_concurrencies_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let queue_configs_binding_1 = args.queue_configs.get_output(context);
-        let queue_configs_binding = queue_configs_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let media_concurrencies_binding = args.media_concurrencies.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let queue_configs_binding = args.queue_configs.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:connect/routingProfile:RoutingProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultOutboundQueueId".into(),
-                    value: &default_outbound_queue_id_binding,
+                    value: default_outbound_queue_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mediaConcurrencies".into(),
-                    value: &media_concurrencies_binding,
+                    value: media_concurrencies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueConfigs".into(),
-                    value: &queue_configs_binding,
+                    value: queue_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RoutingProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            default_outbound_queue_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultOutboundQueueId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            media_concurrencies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mediaConcurrencies"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            queue_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueConfigs"),
-            ),
-            routing_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingProfileId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            default_outbound_queue_id: o.get_field("defaultOutboundQueueId"),
+            description: o.get_field("description"),
+            instance_id: o.get_field("instanceId"),
+            media_concurrencies: o.get_field("mediaConcurrencies"),
+            name: o.get_field("name"),
+            queue_configs: o.get_field("queueConfigs"),
+            routing_profile_id: o.get_field("routingProfileId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

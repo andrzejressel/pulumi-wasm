@@ -401,66 +401,52 @@ pub mod bucket_notification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketNotificationArgs,
     ) -> BucketNotificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let eventbridge_binding_1 = args.eventbridge.get_output(context);
-        let eventbridge_binding = eventbridge_binding_1.get_inner();
-        let lambda_functions_binding_1 = args.lambda_functions.get_output(context);
-        let lambda_functions_binding = lambda_functions_binding_1.get_inner();
-        let queues_binding_1 = args.queues.get_output(context);
-        let queues_binding = queues_binding_1.get_inner();
-        let topics_binding_1 = args.topics.get_output(context);
-        let topics_binding = topics_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let eventbridge_binding = args.eventbridge.get_output(context);
+        let lambda_functions_binding = args.lambda_functions.get_output(context);
+        let queues_binding = args.queues.get_output(context);
+        let topics_binding = args.topics.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/bucketNotification:BucketNotification".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventbridge".into(),
-                    value: &eventbridge_binding,
+                    value: eventbridge_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaFunctions".into(),
-                    value: &lambda_functions_binding,
+                    value: lambda_functions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queues".into(),
-                    value: &queues_binding,
+                    value: queues_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topics".into(),
-                    value: &topics_binding,
+                    value: topics_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketNotificationResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            eventbridge: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventbridge"),
-            ),
-            lambda_functions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaFunctions"),
-            ),
-            queues: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queues"),
-            ),
-            topics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topics"),
-            ),
+            bucket: o.get_field("bucket"),
+            eventbridge: o.get_field("eventbridge"),
+            lambda_functions: o.get_field("lambdaFunctions"),
+            queues: o.get_field("queues"),
+            topics: o.get_field("topics"),
         }
     }
 }

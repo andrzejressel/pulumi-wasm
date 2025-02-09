@@ -58,48 +58,40 @@ pub mod lb_stickiness_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LbStickinessPolicyArgs,
     ) -> LbStickinessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cookie_duration_binding_1 = args.cookie_duration.get_output(context);
-        let cookie_duration_binding = cookie_duration_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let lb_name_binding_1 = args.lb_name.get_output(context);
-        let lb_name_binding = lb_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cookie_duration_binding = args.cookie_duration.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let lb_name_binding = args.lb_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/lbStickinessPolicy:LbStickinessPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cookieDuration".into(),
-                    value: &cookie_duration_binding,
+                    value: cookie_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbName".into(),
-                    value: &lb_name_binding,
+                    value: lb_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LbStickinessPolicyResult {
-            cookie_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cookieDuration"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            lb_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lbName"),
-            ),
+            cookie_duration: o.get_field("cookieDuration"),
+            enabled: o.get_field("enabled"),
+            lb_name: o.get_field("lbName"),
         }
     }
 }

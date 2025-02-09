@@ -97,79 +97,63 @@ pub mod container_immutability_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContainerImmutabilityPolicyArgs,
     ) -> ContainerImmutabilityPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let immutability_period_in_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let immutability_period_in_days_binding = args
             .immutability_period_in_days
             .get_output(context);
-        let immutability_period_in_days_binding = immutability_period_in_days_binding_1
-            .get_inner();
-        let locked_binding_1 = args.locked.get_output(context);
-        let locked_binding = locked_binding_1.get_inner();
-        let protected_append_writes_all_enabled_binding_1 = args
+        let locked_binding = args.locked.get_output(context);
+        let protected_append_writes_all_enabled_binding = args
             .protected_append_writes_all_enabled
             .get_output(context);
-        let protected_append_writes_all_enabled_binding = protected_append_writes_all_enabled_binding_1
-            .get_inner();
-        let protected_append_writes_enabled_binding_1 = args
+        let protected_append_writes_enabled_binding = args
             .protected_append_writes_enabled
             .get_output(context);
-        let protected_append_writes_enabled_binding = protected_append_writes_enabled_binding_1
-            .get_inner();
-        let storage_container_resource_manager_id_binding_1 = args
+        let storage_container_resource_manager_id_binding = args
             .storage_container_resource_manager_id
             .get_output(context);
-        let storage_container_resource_manager_id_binding = storage_container_resource_manager_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "immutabilityPeriodInDays".into(),
-                    value: &immutability_period_in_days_binding,
+                    value: immutability_period_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locked".into(),
-                    value: &locked_binding,
+                    value: locked_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedAppendWritesAllEnabled".into(),
-                    value: &protected_append_writes_all_enabled_binding,
+                    value: protected_append_writes_all_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedAppendWritesEnabled".into(),
-                    value: &protected_append_writes_enabled_binding,
+                    value: protected_append_writes_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerResourceManagerId".into(),
-                    value: &storage_container_resource_manager_id_binding,
+                    value: storage_container_resource_manager_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContainerImmutabilityPolicyResult {
-            immutability_period_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("immutabilityPeriodInDays"),
-            ),
-            locked: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locked"),
-            ),
-            protected_append_writes_all_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectedAppendWritesAllEnabled"),
-            ),
-            protected_append_writes_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectedAppendWritesEnabled"),
-            ),
-            storage_container_resource_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageContainerResourceManagerId"),
-            ),
+            immutability_period_in_days: o.get_field("immutabilityPeriodInDays"),
+            locked: o.get_field("locked"),
+            protected_append_writes_all_enabled: o
+                .get_field("protectedAppendWritesAllEnabled"),
+            protected_append_writes_enabled: o.get_field("protectedAppendWritesEnabled"),
+            storage_container_resource_manager_id: o
+                .get_field("storageContainerResourceManagerId"),
         }
     }
 }

@@ -127,70 +127,54 @@ pub mod role_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RoleAssignmentArgs,
     ) -> RoleAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let principal_id_binding_1 = args.principal_id.get_output(context);
-        let principal_id_binding = principal_id_binding_1.get_inner();
-        let principal_type_binding_1 = args.principal_type.get_output(context);
-        let principal_type_binding = principal_type_binding_1.get_inner();
-        let role_name_binding_1 = args.role_name.get_output(context);
-        let role_name_binding = role_name_binding_1.get_inner();
-        let synapse_spark_pool_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let principal_id_binding = args.principal_id.get_output(context);
+        let principal_type_binding = args.principal_type.get_output(context);
+        let role_name_binding = args.role_name.get_output(context);
+        let synapse_spark_pool_id_binding = args
             .synapse_spark_pool_id
             .get_output(context);
-        let synapse_spark_pool_id_binding = synapse_spark_pool_id_binding_1.get_inner();
-        let synapse_workspace_id_binding_1 = args
-            .synapse_workspace_id
-            .get_output(context);
-        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let synapse_workspace_id_binding = args.synapse_workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:synapse/roleAssignment:RoleAssignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: &principal_id_binding,
+                    value: principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: &principal_type_binding,
+                    value: principal_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: &role_name_binding,
+                    value: role_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseSparkPoolId".into(),
-                    value: &synapse_spark_pool_id_binding,
+                    value: synapse_spark_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: &synapse_workspace_id_binding,
+                    value: synapse_workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RoleAssignmentResult {
-            principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalId"),
-            ),
-            principal_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalType"),
-            ),
-            role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleName"),
-            ),
-            synapse_spark_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synapseSparkPoolId"),
-            ),
-            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synapseWorkspaceId"),
-            ),
+            principal_id: o.get_field("principalId"),
+            principal_type: o.get_field("principalType"),
+            role_name: o.get_field("roleName"),
+            synapse_spark_pool_id: o.get_field("synapseSparkPoolId"),
+            synapse_workspace_id: o.get_field("synapseWorkspaceId"),
         }
     }
 }

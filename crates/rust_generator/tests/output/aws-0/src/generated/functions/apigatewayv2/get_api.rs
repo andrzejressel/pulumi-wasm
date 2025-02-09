@@ -54,65 +54,44 @@ pub mod get_api {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApiArgs,
     ) -> GetApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_id_binding = args.api_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:apigatewayv2/getApi:getApi".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApiResult {
-            api_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiEndpoint"),
-            ),
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            api_key_selection_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKeySelectionExpression"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cors_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("corsConfigurations"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_execute_api_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableExecuteApiEndpoint"),
-            ),
-            execution_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocol_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolType"),
-            ),
-            route_selection_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeSelectionExpression"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            api_endpoint: o.get_field("apiEndpoint"),
+            api_id: o.get_field("apiId"),
+            api_key_selection_expression: o.get_field("apiKeySelectionExpression"),
+            arn: o.get_field("arn"),
+            cors_configurations: o.get_field("corsConfigurations"),
+            description: o.get_field("description"),
+            disable_execute_api_endpoint: o.get_field("disableExecuteApiEndpoint"),
+            execution_arn: o.get_field("executionArn"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            protocol_type: o.get_field("protocolType"),
+            route_selection_expression: o.get_field("routeSelectionExpression"),
+            tags: o.get_field("tags"),
+            version: o.get_field("version"),
         }
     }
 }

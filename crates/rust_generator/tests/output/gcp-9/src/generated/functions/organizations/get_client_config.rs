@@ -20,32 +20,23 @@ pub mod get_client_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
-    ) -> GetClientConfigResult {
+    pub fn invoke(context: &pulumi_gestalt_rust::Context) -> GetClientConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:organizations/getClientConfig:getClientConfig".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClientConfigResult {
-            access_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessToken"),
-            ),
-            default_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultLabels"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            access_token: o.get_field("accessToken"),
+            default_labels: o.get_field("defaultLabels"),
+            id: o.get_field("id"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            zone: o.get_field("zone"),
         }
     }
 }

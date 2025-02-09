@@ -200,177 +200,132 @@ pub mod cache {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CacheArgs,
     ) -> CacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatically_rotate_key_to_latest_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automatically_rotate_key_to_latest_enabled_binding = args
             .automatically_rotate_key_to_latest_enabled
             .get_output(context);
-        let automatically_rotate_key_to_latest_enabled_binding = automatically_rotate_key_to_latest_enabled_binding_1
-            .get_inner();
-        let cache_size_in_gb_binding_1 = args.cache_size_in_gb.get_output(context);
-        let cache_size_in_gb_binding = cache_size_in_gb_binding_1.get_inner();
-        let default_access_policy_binding_1 = args
+        let cache_size_in_gb_binding = args.cache_size_in_gb.get_output(context);
+        let default_access_policy_binding = args
             .default_access_policy
             .get_output(context);
-        let default_access_policy_binding = default_access_policy_binding_1.get_inner();
-        let directory_active_directory_binding_1 = args
+        let directory_active_directory_binding = args
             .directory_active_directory
             .get_output(context);
-        let directory_active_directory_binding = directory_active_directory_binding_1
-            .get_inner();
-        let directory_flat_file_binding_1 = args.directory_flat_file.get_output(context);
-        let directory_flat_file_binding = directory_flat_file_binding_1.get_inner();
-        let directory_ldap_binding_1 = args.directory_ldap.get_output(context);
-        let directory_ldap_binding = directory_ldap_binding_1.get_inner();
-        let dns_binding_1 = args.dns.get_output(context);
-        let dns_binding = dns_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mtu_binding_1 = args.mtu.get_output(context);
-        let mtu_binding = mtu_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let ntp_server_binding_1 = args.ntp_server.get_output(context);
-        let ntp_server_binding = ntp_server_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let directory_flat_file_binding = args.directory_flat_file.get_output(context);
+        let directory_ldap_binding = args.directory_ldap.get_output(context);
+        let dns_binding = args.dns.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mtu_binding = args.mtu.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let ntp_server_binding = args.ntp_server.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:hpc/cache:Cache".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticallyRotateKeyToLatestEnabled".into(),
-                    value: &automatically_rotate_key_to_latest_enabled_binding,
+                    value: automatically_rotate_key_to_latest_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheSizeInGb".into(),
-                    value: &cache_size_in_gb_binding,
+                    value: cache_size_in_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAccessPolicy".into(),
-                    value: &default_access_policy_binding,
+                    value: default_access_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryActiveDirectory".into(),
-                    value: &directory_active_directory_binding,
+                    value: directory_active_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryFlatFile".into(),
-                    value: &directory_flat_file_binding,
+                    value: directory_flat_file_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryLdap".into(),
-                    value: &directory_ldap_binding,
+                    value: directory_ldap_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dns".into(),
-                    value: &dns_binding,
+                    value: dns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtu".into(),
-                    value: &mtu_binding,
+                    value: mtu_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ntpServer".into(),
-                    value: &ntp_server_binding,
+                    value: ntp_server_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CacheResult {
-            automatically_rotate_key_to_latest_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticallyRotateKeyToLatestEnabled"),
-            ),
-            cache_size_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheSizeInGb"),
-            ),
-            default_access_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAccessPolicy"),
-            ),
-            directory_active_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryActiveDirectory"),
-            ),
-            directory_flat_file: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryFlatFile"),
-            ),
-            directory_ldap: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryLdap"),
-            ),
-            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mount_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountAddresses"),
-            ),
-            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            ntp_server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ntpServer"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            automatically_rotate_key_to_latest_enabled: o
+                .get_field("automaticallyRotateKeyToLatestEnabled"),
+            cache_size_in_gb: o.get_field("cacheSizeInGb"),
+            default_access_policy: o.get_field("defaultAccessPolicy"),
+            directory_active_directory: o.get_field("directoryActiveDirectory"),
+            directory_flat_file: o.get_field("directoryFlatFile"),
+            directory_ldap: o.get_field("directoryLdap"),
+            dns: o.get_field("dns"),
+            identity: o.get_field("identity"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            location: o.get_field("location"),
+            mount_addresses: o.get_field("mountAddresses"),
+            mtu: o.get_field("mtu"),
+            name: o.get_field("name"),
+            ntp_server: o.get_field("ntpServer"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
         }
     }
 }

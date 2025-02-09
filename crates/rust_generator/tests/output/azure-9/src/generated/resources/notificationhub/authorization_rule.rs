@@ -118,94 +118,70 @@ pub mod authorization_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthorizationRuleArgs,
     ) -> AuthorizationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let listen_binding_1 = args.listen.get_output(context);
-        let listen_binding = listen_binding_1.get_inner();
-        let manage_binding_1 = args.manage.get_output(context);
-        let manage_binding = manage_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let notification_hub_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let listen_binding = args.listen.get_output(context);
+        let manage_binding = args.manage.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let notification_hub_name_binding = args
             .notification_hub_name
             .get_output(context);
-        let notification_hub_name_binding = notification_hub_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let send_binding_1 = args.send.get_output(context);
-        let send_binding = send_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let send_binding = args.send.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:notificationhub/authorizationRule:AuthorizationRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listen".into(),
-                    value: &listen_binding,
+                    value: listen_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manage".into(),
-                    value: &manage_binding,
+                    value: manage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationHubName".into(),
-                    value: &notification_hub_name_binding,
+                    value: notification_hub_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "send".into(),
-                    value: &send_binding,
+                    value: send_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthorizationRuleResult {
-            listen: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listen"),
-            ),
-            manage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manage"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            notification_hub_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationHubName"),
-            ),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            send: pulumi_gestalt_rust::__private::into_domain(o.extract_field("send")),
+            listen: o.get_field("listen"),
+            manage: o.get_field("manage"),
+            name: o.get_field("name"),
+            namespace_name: o.get_field("namespaceName"),
+            notification_hub_name: o.get_field("notificationHubName"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            send: o.get_field("send"),
         }
     }
 }

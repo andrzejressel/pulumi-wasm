@@ -330,106 +330,78 @@ pub mod topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TopicArgs,
     ) -> TopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ingestion_data_source_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ingestion_data_source_settings_binding = args
             .ingestion_data_source_settings
             .get_output(context);
-        let ingestion_data_source_settings_binding = ingestion_data_source_settings_binding_1
-            .get_inner();
-        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
-        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let message_retention_duration_binding_1 = args
+        let kms_key_name_binding = args.kms_key_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let message_retention_duration_binding = args
             .message_retention_duration
             .get_output(context);
-        let message_retention_duration_binding = message_retention_duration_binding_1
-            .get_inner();
-        let message_storage_policy_binding_1 = args
+        let message_storage_policy_binding = args
             .message_storage_policy
             .get_output(context);
-        let message_storage_policy_binding = message_storage_policy_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let schema_settings_binding_1 = args.schema_settings.get_output(context);
-        let schema_settings_binding = schema_settings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let schema_settings_binding = args.schema_settings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:pubsub/topic:Topic".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionDataSourceSettings".into(),
-                    value: &ingestion_data_source_settings_binding,
+                    value: ingestion_data_source_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: &kms_key_name_binding,
+                    value: kms_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageRetentionDuration".into(),
-                    value: &message_retention_duration_binding,
+                    value: message_retention_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageStoragePolicy".into(),
-                    value: &message_storage_policy_binding,
+                    value: message_storage_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaSettings".into(),
-                    value: &schema_settings_binding,
+                    value: schema_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TopicResult {
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            ingestion_data_source_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingestionDataSourceSettings"),
-            ),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            message_retention_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageRetentionDuration"),
-            ),
-            message_storage_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageStoragePolicy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            schema_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaSettings"),
-            ),
+            effective_labels: o.get_field("effectiveLabels"),
+            ingestion_data_source_settings: o.get_field("ingestionDataSourceSettings"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            labels: o.get_field("labels"),
+            message_retention_duration: o.get_field("messageRetentionDuration"),
+            message_storage_policy: o.get_field("messageStoragePolicy"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            schema_settings: o.get_field("schemaSettings"),
         }
     }
 }

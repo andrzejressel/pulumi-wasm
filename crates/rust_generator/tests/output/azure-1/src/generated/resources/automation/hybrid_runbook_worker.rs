@@ -162,82 +162,59 @@ pub mod hybrid_runbook_worker {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HybridRunbookWorkerArgs,
     ) -> HybridRunbookWorkerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automation_account_name_binding = args
             .automation_account_name
             .get_output(context);
-        let automation_account_name_binding = automation_account_name_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let vm_resource_id_binding_1 = args.vm_resource_id.get_output(context);
-        let vm_resource_id_binding = vm_resource_id_binding_1.get_inner();
-        let worker_group_name_binding_1 = args.worker_group_name.get_output(context);
-        let worker_group_name_binding = worker_group_name_binding_1.get_inner();
-        let worker_id_binding_1 = args.worker_id.get_output(context);
-        let worker_id_binding = worker_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let vm_resource_id_binding = args.vm_resource_id.get_output(context);
+        let worker_group_name_binding = args.worker_group_name.get_output(context);
+        let worker_id_binding = args.worker_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automation/hybridRunbookWorker:HybridRunbookWorker".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountName".into(),
-                    value: &automation_account_name_binding,
+                    value: automation_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmResourceId".into(),
-                    value: &vm_resource_id_binding,
+                    value: vm_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerGroupName".into(),
-                    value: &worker_group_name_binding,
+                    value: worker_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerId".into(),
-                    value: &worker_id_binding,
+                    value: worker_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HybridRunbookWorkerResult {
-            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountName"),
-            ),
-            ip: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ip")),
-            last_seen_date_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastSeenDateTime"),
-            ),
-            registration_date_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrationDateTime"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            vm_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmResourceId"),
-            ),
-            worker_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerGroupName"),
-            ),
-            worker_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerId"),
-            ),
-            worker_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerName"),
-            ),
-            worker_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerType"),
-            ),
+            automation_account_name: o.get_field("automationAccountName"),
+            ip: o.get_field("ip"),
+            last_seen_date_time: o.get_field("lastSeenDateTime"),
+            registration_date_time: o.get_field("registrationDateTime"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            vm_resource_id: o.get_field("vmResourceId"),
+            worker_group_name: o.get_field("workerGroupName"),
+            worker_id: o.get_field("workerId"),
+            worker_name: o.get_field("workerName"),
+            worker_type: o.get_field("workerType"),
         }
     }
 }

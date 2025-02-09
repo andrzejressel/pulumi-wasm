@@ -114,76 +114,56 @@ pub mod backend_address_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackendAddressPoolArgs,
     ) -> BackendAddressPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
-        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let synchronous_mode_binding_1 = args.synchronous_mode.get_output(context);
-        let synchronous_mode_binding = synchronous_mode_binding_1.get_inner();
-        let tunnel_interfaces_binding_1 = args.tunnel_interfaces.get_output(context);
-        let tunnel_interfaces_binding = tunnel_interfaces_binding_1.get_inner();
-        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
-        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let loadbalancer_id_binding = args.loadbalancer_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let synchronous_mode_binding = args.synchronous_mode.get_output(context);
+        let tunnel_interfaces_binding = args.tunnel_interfaces.get_output(context);
+        let virtual_network_id_binding = args.virtual_network_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:lb/backendAddressPool:BackendAddressPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: &loadbalancer_id_binding,
+                    value: loadbalancer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synchronousMode".into(),
-                    value: &synchronous_mode_binding,
+                    value: synchronous_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnelInterfaces".into(),
-                    value: &tunnel_interfaces_binding,
+                    value: tunnel_interfaces_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: &virtual_network_id_binding,
+                    value: virtual_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackendAddressPoolResult {
-            backend_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendIpConfigurations"),
-            ),
-            inbound_nat_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inboundNatRules"),
-            ),
-            load_balancing_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingRules"),
-            ),
-            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadbalancerId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundRules"),
-            ),
-            synchronous_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("synchronousMode"),
-            ),
-            tunnel_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnelInterfaces"),
-            ),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
+            backend_ip_configurations: o.get_field("backendIpConfigurations"),
+            inbound_nat_rules: o.get_field("inboundNatRules"),
+            load_balancing_rules: o.get_field("loadBalancingRules"),
+            loadbalancer_id: o.get_field("loadbalancerId"),
+            name: o.get_field("name"),
+            outbound_rules: o.get_field("outboundRules"),
+            synchronous_mode: o.get_field("synchronousMode"),
+            tunnel_interfaces: o.get_field("tunnelInterfaces"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
         }
     }
 }

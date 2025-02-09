@@ -208,133 +208,90 @@ pub mod global_replication_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GlobalReplicationGroupArgs,
     ) -> GlobalReplicationGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_failover_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automatic_failover_enabled_binding = args
             .automatic_failover_enabled
             .get_output(context);
-        let automatic_failover_enabled_binding = automatic_failover_enabled_binding_1
-            .get_inner();
-        let cache_node_type_binding_1 = args.cache_node_type.get_output(context);
-        let cache_node_type_binding = cache_node_type_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let global_replication_group_description_binding_1 = args
+        let cache_node_type_binding = args.cache_node_type.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let global_replication_group_description_binding = args
             .global_replication_group_description
             .get_output(context);
-        let global_replication_group_description_binding = global_replication_group_description_binding_1
-            .get_inner();
-        let global_replication_group_id_suffix_binding_1 = args
+        let global_replication_group_id_suffix_binding = args
             .global_replication_group_id_suffix
             .get_output(context);
-        let global_replication_group_id_suffix_binding = global_replication_group_id_suffix_binding_1
-            .get_inner();
-        let num_node_groups_binding_1 = args.num_node_groups.get_output(context);
-        let num_node_groups_binding = num_node_groups_binding_1.get_inner();
-        let parameter_group_name_binding_1 = args
-            .parameter_group_name
-            .get_output(context);
-        let parameter_group_name_binding = parameter_group_name_binding_1.get_inner();
-        let primary_replication_group_id_binding_1 = args
+        let num_node_groups_binding = args.num_node_groups.get_output(context);
+        let parameter_group_name_binding = args.parameter_group_name.get_output(context);
+        let primary_replication_group_id_binding = args
             .primary_replication_group_id
             .get_output(context);
-        let primary_replication_group_id_binding = primary_replication_group_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elasticache/globalReplicationGroup:GlobalReplicationGroup"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticFailoverEnabled".into(),
-                    value: &automatic_failover_enabled_binding,
+                    value: automatic_failover_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheNodeType".into(),
-                    value: &cache_node_type_binding,
+                    value: cache_node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalReplicationGroupDescription".into(),
-                    value: &global_replication_group_description_binding,
+                    value: global_replication_group_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalReplicationGroupIdSuffix".into(),
-                    value: &global_replication_group_id_suffix_binding,
+                    value: global_replication_group_id_suffix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numNodeGroups".into(),
-                    value: &num_node_groups_binding,
+                    value: num_node_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterGroupName".into(),
-                    value: &parameter_group_name_binding,
+                    value: parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryReplicationGroupId".into(),
-                    value: &primary_replication_group_id_binding,
+                    value: primary_replication_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GlobalReplicationGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            at_rest_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("atRestEncryptionEnabled"),
-            ),
-            auth_token_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authTokenEnabled"),
-            ),
-            automatic_failover_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticFailoverEnabled"),
-            ),
-            cache_node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheNodeType"),
-            ),
-            cluster_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterEnabled"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            engine_version_actual: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersionActual"),
-            ),
-            global_node_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalNodeGroups"),
-            ),
-            global_replication_group_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalReplicationGroupDescription"),
-            ),
-            global_replication_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalReplicationGroupId"),
-            ),
-            global_replication_group_id_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalReplicationGroupIdSuffix"),
-            ),
-            num_node_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numNodeGroups"),
-            ),
-            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterGroupName"),
-            ),
-            primary_replication_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReplicationGroupId"),
-            ),
-            transit_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitEncryptionEnabled"),
-            ),
+            arn: o.get_field("arn"),
+            at_rest_encryption_enabled: o.get_field("atRestEncryptionEnabled"),
+            auth_token_enabled: o.get_field("authTokenEnabled"),
+            automatic_failover_enabled: o.get_field("automaticFailoverEnabled"),
+            cache_node_type: o.get_field("cacheNodeType"),
+            cluster_enabled: o.get_field("clusterEnabled"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            engine_version_actual: o.get_field("engineVersionActual"),
+            global_node_groups: o.get_field("globalNodeGroups"),
+            global_replication_group_description: o
+                .get_field("globalReplicationGroupDescription"),
+            global_replication_group_id: o.get_field("globalReplicationGroupId"),
+            global_replication_group_id_suffix: o
+                .get_field("globalReplicationGroupIdSuffix"),
+            num_node_groups: o.get_field("numNodeGroups"),
+            parameter_group_name: o.get_field("parameterGroupName"),
+            primary_replication_group_id: o.get_field("primaryReplicationGroupId"),
+            transit_encryption_enabled: o.get_field("transitEncryptionEnabled"),
         }
     }
 }

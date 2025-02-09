@@ -100,139 +100,98 @@ pub mod get_vpc_peering_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVpcPeeringConnectionArgs,
     ) -> GetVpcPeeringConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding_1 = args.cidr_block.get_output(context);
-        let cidr_block_binding = cidr_block_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let owner_id_binding_1 = args.owner_id.get_output(context);
-        let owner_id_binding = owner_id_binding_1.get_inner();
-        let peer_cidr_block_binding_1 = args.peer_cidr_block.get_output(context);
-        let peer_cidr_block_binding = peer_cidr_block_binding_1.get_inner();
-        let peer_owner_id_binding_1 = args.peer_owner_id.get_output(context);
-        let peer_owner_id_binding = peer_owner_id_binding_1.get_inner();
-        let peer_region_binding_1 = args.peer_region.get_output(context);
-        let peer_region_binding = peer_region_binding_1.get_inner();
-        let peer_vpc_id_binding_1 = args.peer_vpc_id.get_output(context);
-        let peer_vpc_id_binding = peer_vpc_id_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_block_binding = args.cidr_block.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let owner_id_binding = args.owner_id.get_output(context);
+        let peer_cidr_block_binding = args.peer_cidr_block.get_output(context);
+        let peer_owner_id_binding = args.peer_owner_id.get_output(context);
+        let peer_region_binding = args.peer_region.get_output(context);
+        let peer_vpc_id_binding = args.peer_vpc_id.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: &cidr_block_binding,
+                    value: cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerId".into(),
-                    value: &owner_id_binding,
+                    value: owner_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerCidrBlock".into(),
-                    value: &peer_cidr_block_binding,
+                    value: peer_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerOwnerId".into(),
-                    value: &peer_owner_id_binding,
+                    value: peer_owner_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerRegion".into(),
-                    value: &peer_region_binding,
+                    value: peer_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerVpcId".into(),
-                    value: &peer_vpc_id_binding,
+                    value: peer_vpc_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVpcPeeringConnectionResult {
-            accepter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accepter"),
-            ),
-            cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlock"),
-            ),
-            cidr_block_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlockSets"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ipv6_cidr_block_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlockSets"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            peer_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerCidrBlock"),
-            ),
-            peer_cidr_block_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerCidrBlockSets"),
-            ),
-            peer_ipv6_cidr_block_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerIpv6CidrBlockSets"),
-            ),
-            peer_owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerOwnerId"),
-            ),
-            peer_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerRegion"),
-            ),
-            peer_vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerVpcId"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            requester: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requester"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            accepter: o.get_field("accepter"),
+            cidr_block: o.get_field("cidrBlock"),
+            cidr_block_sets: o.get_field("cidrBlockSets"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ipv6_cidr_block_sets: o.get_field("ipv6CidrBlockSets"),
+            owner_id: o.get_field("ownerId"),
+            peer_cidr_block: o.get_field("peerCidrBlock"),
+            peer_cidr_block_sets: o.get_field("peerCidrBlockSets"),
+            peer_ipv6_cidr_block_sets: o.get_field("peerIpv6CidrBlockSets"),
+            peer_owner_id: o.get_field("peerOwnerId"),
+            peer_region: o.get_field("peerRegion"),
+            peer_vpc_id: o.get_field("peerVpcId"),
+            region: o.get_field("region"),
+            requester: o.get_field("requester"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

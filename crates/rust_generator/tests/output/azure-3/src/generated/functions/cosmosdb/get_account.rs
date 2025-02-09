@@ -93,119 +93,70 @@ pub mod get_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccountArgs,
     ) -> GetAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:cosmosdb/getAccount:getAccount".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccountResult {
-            automatic_failover_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticFailoverEnabled"),
-            ),
-            capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capabilities"),
-            ),
-            consistency_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consistencyPolicies"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            free_tier_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("freeTierEnabled"),
-            ),
-            geo_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoLocations"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_range_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipRangeFilter"),
-            ),
-            is_virtual_network_filter_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isVirtualNetworkFilterEnabled"),
-            ),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            multiple_write_locations_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multipleWriteLocationsEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            offer_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("offerType"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            primary_mongodb_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryMongodbConnectionString"),
-            ),
-            primary_readonly_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReadonlyKey"),
-            ),
-            primary_readonly_mongodb_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReadonlyMongodbConnectionString"),
-            ),
-            primary_readonly_sql_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReadonlySqlConnectionString"),
-            ),
-            primary_sql_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primarySqlConnectionString"),
-            ),
-            read_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readEndpoints"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            secondary_mongodb_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryMongodbConnectionString"),
-            ),
-            secondary_readonly_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryReadonlyKey"),
-            ),
-            secondary_readonly_mongodb_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryReadonlyMongodbConnectionString"),
-            ),
-            secondary_readonly_sql_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryReadonlySqlConnectionString"),
-            ),
-            secondary_sql_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondarySqlConnectionString"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_network_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkRules"),
-            ),
-            write_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writeEndpoints"),
-            ),
+            automatic_failover_enabled: o.get_field("automaticFailoverEnabled"),
+            capabilities: o.get_field("capabilities"),
+            consistency_policies: o.get_field("consistencyPolicies"),
+            endpoint: o.get_field("endpoint"),
+            free_tier_enabled: o.get_field("freeTierEnabled"),
+            geo_locations: o.get_field("geoLocations"),
+            id: o.get_field("id"),
+            ip_range_filter: o.get_field("ipRangeFilter"),
+            is_virtual_network_filter_enabled: o
+                .get_field("isVirtualNetworkFilterEnabled"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            multiple_write_locations_enabled: o
+                .get_field("multipleWriteLocationsEnabled"),
+            name: o.get_field("name"),
+            offer_type: o.get_field("offerType"),
+            primary_key: o.get_field("primaryKey"),
+            primary_mongodb_connection_string: o
+                .get_field("primaryMongodbConnectionString"),
+            primary_readonly_key: o.get_field("primaryReadonlyKey"),
+            primary_readonly_mongodb_connection_string: o
+                .get_field("primaryReadonlyMongodbConnectionString"),
+            primary_readonly_sql_connection_string: o
+                .get_field("primaryReadonlySqlConnectionString"),
+            primary_sql_connection_string: o.get_field("primarySqlConnectionString"),
+            read_endpoints: o.get_field("readEndpoints"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_key: o.get_field("secondaryKey"),
+            secondary_mongodb_connection_string: o
+                .get_field("secondaryMongodbConnectionString"),
+            secondary_readonly_key: o.get_field("secondaryReadonlyKey"),
+            secondary_readonly_mongodb_connection_string: o
+                .get_field("secondaryReadonlyMongodbConnectionString"),
+            secondary_readonly_sql_connection_string: o
+                .get_field("secondaryReadonlySqlConnectionString"),
+            secondary_sql_connection_string: o.get_field("secondarySqlConnectionString"),
+            tags: o.get_field("tags"),
+            virtual_network_rules: o.get_field("virtualNetworkRules"),
+            write_endpoints: o.get_field("writeEndpoints"),
         }
     }
 }

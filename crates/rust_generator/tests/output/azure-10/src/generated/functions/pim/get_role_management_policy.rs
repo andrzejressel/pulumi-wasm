@@ -47,52 +47,39 @@ pub mod get_role_management_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRoleManagementPolicyArgs,
     ) -> GetRoleManagementPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
-        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let role_definition_id_binding = args.role_definition_id.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:pim/getRoleManagementPolicy:getRoleManagementPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: &role_definition_id_binding,
+                    value: role_definition_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRoleManagementPolicyResult {
-            activation_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activationRules"),
-            ),
-            active_assignment_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeAssignmentRules"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            eligible_assignment_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eligibleAssignmentRules"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationRules"),
-            ),
-            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleDefinitionId"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            activation_rules: o.get_field("activationRules"),
+            active_assignment_rules: o.get_field("activeAssignmentRules"),
+            description: o.get_field("description"),
+            eligible_assignment_rules: o.get_field("eligibleAssignmentRules"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            notification_rules: o.get_field("notificationRules"),
+            role_definition_id: o.get_field("roleDefinitionId"),
+            scope: o.get_field("scope"),
         }
     }
 }

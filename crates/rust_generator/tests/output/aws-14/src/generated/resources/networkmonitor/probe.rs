@@ -104,93 +104,69 @@ pub mod probe {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProbeArgs,
     ) -> ProbeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let destination_port_binding_1 = args.destination_port.get_output(context);
-        let destination_port_binding = destination_port_binding_1.get_inner();
-        let monitor_name_binding_1 = args.monitor_name.get_output(context);
-        let monitor_name_binding = monitor_name_binding_1.get_inner();
-        let packet_size_binding_1 = args.packet_size.get_output(context);
-        let packet_size_binding = packet_size_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let source_arn_binding_1 = args.source_arn.get_output(context);
-        let source_arn_binding = source_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_binding = args.destination.get_output(context);
+        let destination_port_binding = args.destination_port.get_output(context);
+        let monitor_name_binding = args.monitor_name.get_output(context);
+        let packet_size_binding = args.packet_size.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let source_arn_binding = args.source_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkmonitor/probe:Probe".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPort".into(),
-                    value: &destination_port_binding,
+                    value: destination_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorName".into(),
-                    value: &monitor_name_binding,
+                    value: monitor_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packetSize".into(),
-                    value: &packet_size_binding,
+                    value: packet_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArn".into(),
-                    value: &source_arn_binding,
+                    value: source_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProbeResult {
-            address_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressFamily"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            destination_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationPort"),
-            ),
-            monitor_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitorName"),
-            ),
-            packet_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packetSize"),
-            ),
-            probe_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("probeId"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            source_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            address_family: o.get_field("addressFamily"),
+            arn: o.get_field("arn"),
+            destination: o.get_field("destination"),
+            destination_port: o.get_field("destinationPort"),
+            monitor_name: o.get_field("monitorName"),
+            packet_size: o.get_field("packetSize"),
+            probe_id: o.get_field("probeId"),
+            protocol: o.get_field("protocol"),
+            source_arn: o.get_field("sourceArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

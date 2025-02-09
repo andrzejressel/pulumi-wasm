@@ -221,222 +221,151 @@ pub mod threat_intelligence_indicator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ThreatIntelligenceIndicatorArgs,
     ) -> ThreatIntelligenceIndicatorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let confidence_binding_1 = args.confidence.get_output(context);
-        let confidence_binding = confidence_binding_1.get_inner();
-        let created_by_binding_1 = args.created_by.get_output(context);
-        let created_by_binding = created_by_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let extension_binding_1 = args.extension.get_output(context);
-        let extension_binding = extension_binding_1.get_inner();
-        let external_references_binding_1 = args.external_references.get_output(context);
-        let external_references_binding = external_references_binding_1.get_inner();
-        let granular_markings_binding_1 = args.granular_markings.get_output(context);
-        let granular_markings_binding = granular_markings_binding_1.get_inner();
-        let kill_chain_phases_binding_1 = args.kill_chain_phases.get_output(context);
-        let kill_chain_phases_binding = kill_chain_phases_binding_1.get_inner();
-        let language_binding_1 = args.language.get_output(context);
-        let language_binding = language_binding_1.get_inner();
-        let object_marking_refs_binding_1 = args.object_marking_refs.get_output(context);
-        let object_marking_refs_binding = object_marking_refs_binding_1.get_inner();
-        let pattern_binding_1 = args.pattern.get_output(context);
-        let pattern_binding = pattern_binding_1.get_inner();
-        let pattern_type_binding_1 = args.pattern_type.get_output(context);
-        let pattern_type_binding = pattern_type_binding_1.get_inner();
-        let pattern_version_binding_1 = args.pattern_version.get_output(context);
-        let pattern_version_binding = pattern_version_binding_1.get_inner();
-        let revoked_binding_1 = args.revoked.get_output(context);
-        let revoked_binding = revoked_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let threat_types_binding_1 = args.threat_types.get_output(context);
-        let threat_types_binding = threat_types_binding_1.get_inner();
-        let validate_from_utc_binding_1 = args.validate_from_utc.get_output(context);
-        let validate_from_utc_binding = validate_from_utc_binding_1.get_inner();
-        let validate_until_utc_binding_1 = args.validate_until_utc.get_output(context);
-        let validate_until_utc_binding = validate_until_utc_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let confidence_binding = args.confidence.get_output(context);
+        let created_by_binding = args.created_by.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let extension_binding = args.extension.get_output(context);
+        let external_references_binding = args.external_references.get_output(context);
+        let granular_markings_binding = args.granular_markings.get_output(context);
+        let kill_chain_phases_binding = args.kill_chain_phases.get_output(context);
+        let language_binding = args.language.get_output(context);
+        let object_marking_refs_binding = args.object_marking_refs.get_output(context);
+        let pattern_binding = args.pattern.get_output(context);
+        let pattern_type_binding = args.pattern_type.get_output(context);
+        let pattern_version_binding = args.pattern_version.get_output(context);
+        let revoked_binding = args.revoked.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let threat_types_binding = args.threat_types.get_output(context);
+        let validate_from_utc_binding = args.validate_from_utc.get_output(context);
+        let validate_until_utc_binding = args.validate_until_utc.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confidence".into(),
-                    value: &confidence_binding,
+                    value: confidence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createdBy".into(),
-                    value: &created_by_binding,
+                    value: created_by_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extension".into(),
-                    value: &extension_binding,
+                    value: extension_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalReferences".into(),
-                    value: &external_references_binding,
+                    value: external_references_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "granularMarkings".into(),
-                    value: &granular_markings_binding,
+                    value: granular_markings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "killChainPhases".into(),
-                    value: &kill_chain_phases_binding,
+                    value: kill_chain_phases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "language".into(),
-                    value: &language_binding,
+                    value: language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectMarkingRefs".into(),
-                    value: &object_marking_refs_binding,
+                    value: object_marking_refs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pattern".into(),
-                    value: &pattern_binding,
+                    value: pattern_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patternType".into(),
-                    value: &pattern_type_binding,
+                    value: pattern_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patternVersion".into(),
-                    value: &pattern_version_binding,
+                    value: pattern_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revoked".into(),
-                    value: &revoked_binding,
+                    value: revoked_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatTypes".into(),
-                    value: &threat_types_binding,
+                    value: threat_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validateFromUtc".into(),
-                    value: &validate_from_utc_binding,
+                    value: validate_from_utc_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validateUntilUtc".into(),
-                    value: &validate_until_utc_binding,
+                    value: validate_until_utc_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ThreatIntelligenceIndicatorResult {
-            confidence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confidence"),
-            ),
-            created_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdBy"),
-            ),
-            created_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdOn"),
-            ),
-            defanged: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defanged"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            extension: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extension"),
-            ),
-            external_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalId"),
-            ),
-            external_last_updated_time_utc: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalLastUpdatedTimeUtc"),
-            ),
-            external_references: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalReferences"),
-            ),
-            granular_markings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("granularMarkings"),
-            ),
-            guid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("guid")),
-            indicator_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indicatorTypes"),
-            ),
-            kill_chain_phases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("killChainPhases"),
-            ),
-            language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("language"),
-            ),
-            last_updated_time_utc: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTimeUtc"),
-            ),
-            object_marking_refs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectMarkingRefs"),
-            ),
-            parsed_patterns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parsedPatterns"),
-            ),
-            pattern: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pattern"),
-            ),
-            pattern_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patternType"),
-            ),
-            pattern_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patternVersion"),
-            ),
-            revoked: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revoked"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            threat_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatTypes"),
-            ),
-            validate_from_utc: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validateFromUtc"),
-            ),
-            validate_until_utc: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validateUntilUtc"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            confidence: o.get_field("confidence"),
+            created_by: o.get_field("createdBy"),
+            created_on: o.get_field("createdOn"),
+            defanged: o.get_field("defanged"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            extension: o.get_field("extension"),
+            external_id: o.get_field("externalId"),
+            external_last_updated_time_utc: o.get_field("externalLastUpdatedTimeUtc"),
+            external_references: o.get_field("externalReferences"),
+            granular_markings: o.get_field("granularMarkings"),
+            guid: o.get_field("guid"),
+            indicator_types: o.get_field("indicatorTypes"),
+            kill_chain_phases: o.get_field("killChainPhases"),
+            language: o.get_field("language"),
+            last_updated_time_utc: o.get_field("lastUpdatedTimeUtc"),
+            object_marking_refs: o.get_field("objectMarkingRefs"),
+            parsed_patterns: o.get_field("parsedPatterns"),
+            pattern: o.get_field("pattern"),
+            pattern_type: o.get_field("patternType"),
+            pattern_version: o.get_field("patternVersion"),
+            revoked: o.get_field("revoked"),
+            source: o.get_field("source"),
+            tags: o.get_field("tags"),
+            threat_types: o.get_field("threatTypes"),
+            validate_from_utc: o.get_field("validateFromUtc"),
+            validate_until_utc: o.get_field("validateUntilUtc"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

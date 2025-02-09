@@ -102,79 +102,58 @@ pub mod slot_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SlotTypeArgs,
     ) -> SlotTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let create_version_binding_1 = args.create_version.get_output(context);
-        let create_version_binding = create_version_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enumeration_values_binding_1 = args.enumeration_values.get_output(context);
-        let enumeration_values_binding = enumeration_values_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let value_selection_strategy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let create_version_binding = args.create_version.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enumeration_values_binding = args.enumeration_values.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let value_selection_strategy_binding = args
             .value_selection_strategy
             .get_output(context);
-        let value_selection_strategy_binding = value_selection_strategy_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/slotType:SlotType".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createVersion".into(),
-                    value: &create_version_binding,
+                    value: create_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enumerationValues".into(),
-                    value: &enumeration_values_binding,
+                    value: enumeration_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "valueSelectionStrategy".into(),
-                    value: &value_selection_strategy_binding,
+                    value: value_selection_strategy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SlotTypeResult {
-            checksum: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksum"),
-            ),
-            create_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createVersion"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enumeration_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enumerationValues"),
-            ),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            value_selection_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("valueSelectionStrategy"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            checksum: o.get_field("checksum"),
+            create_version: o.get_field("createVersion"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            enumeration_values: o.get_field("enumerationValues"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            name: o.get_field("name"),
+            value_selection_strategy: o.get_field("valueSelectionStrategy"),
+            version: o.get_field("version"),
         }
     }
 }

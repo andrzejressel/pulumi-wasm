@@ -106,65 +106,50 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding_1 = args.active.get_output(context);
-        let active_binding = active_binding_1.get_inner();
-        let ca_pem_binding_1 = args.ca_pem.get_output(context);
-        let ca_pem_binding = ca_pem_binding_1.get_inner();
-        let certificate_pem_binding_1 = args.certificate_pem.get_output(context);
-        let certificate_pem_binding = certificate_pem_binding_1.get_inner();
-        let csr_binding_1 = args.csr.get_output(context);
-        let csr_binding = csr_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let active_binding = args.active.get_output(context);
+        let ca_pem_binding = args.ca_pem.get_output(context);
+        let certificate_pem_binding = args.certificate_pem.get_output(context);
+        let csr_binding = args.csr.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iot/certificate:Certificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: &active_binding,
+                    value: active_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caPem".into(),
-                    value: &ca_pem_binding,
+                    value: ca_pem_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificatePem".into(),
-                    value: &certificate_pem_binding,
+                    value: certificate_pem_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csr".into(),
-                    value: &csr_binding,
+                    value: csr_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateResult {
-            active: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("active"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            ca_certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertificateId"),
-            ),
-            ca_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caPem"),
-            ),
-            certificate_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificatePem"),
-            ),
-            csr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("csr")),
-            private_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateKey"),
-            ),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
+            active: o.get_field("active"),
+            arn: o.get_field("arn"),
+            ca_certificate_id: o.get_field("caCertificateId"),
+            ca_pem: o.get_field("caPem"),
+            certificate_pem: o.get_field("certificatePem"),
+            csr: o.get_field("csr"),
+            private_key: o.get_field("privateKey"),
+            public_key: o.get_field("publicKey"),
         }
     }
 }

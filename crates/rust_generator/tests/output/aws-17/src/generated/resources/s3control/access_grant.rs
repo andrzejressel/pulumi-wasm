@@ -124,100 +124,73 @@ pub mod access_grant {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessGrantArgs,
     ) -> AccessGrantResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_grants_location_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_grants_location_configuration_binding = args
             .access_grants_location_configuration
             .get_output(context);
-        let access_grants_location_configuration_binding = access_grants_location_configuration_binding_1
-            .get_inner();
-        let access_grants_location_id_binding_1 = args
+        let access_grants_location_id_binding = args
             .access_grants_location_id
             .get_output(context);
-        let access_grants_location_id_binding = access_grants_location_id_binding_1
-            .get_inner();
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let grantee_binding_1 = args.grantee.get_output(context);
-        let grantee_binding = grantee_binding_1.get_inner();
-        let permission_binding_1 = args.permission.get_output(context);
-        let permission_binding = permission_binding_1.get_inner();
-        let s3_prefix_type_binding_1 = args.s3_prefix_type.get_output(context);
-        let s3_prefix_type_binding = s3_prefix_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let account_id_binding = args.account_id.get_output(context);
+        let grantee_binding = args.grantee.get_output(context);
+        let permission_binding = args.permission.get_output(context);
+        let s3_prefix_type_binding = args.s3_prefix_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3control/accessGrant:AccessGrant".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessGrantsLocationConfiguration".into(),
-                    value: &access_grants_location_configuration_binding,
+                    value: access_grants_location_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessGrantsLocationId".into(),
-                    value: &access_grants_location_id_binding,
+                    value: access_grants_location_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantee".into(),
-                    value: &grantee_binding,
+                    value: grantee_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permission".into(),
-                    value: &permission_binding,
+                    value: permission_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3PrefixType".into(),
-                    value: &s3_prefix_type_binding,
+                    value: s3_prefix_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessGrantResult {
-            access_grant_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessGrantArn"),
-            ),
-            access_grant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessGrantId"),
-            ),
-            access_grants_location_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessGrantsLocationConfiguration"),
-            ),
-            access_grants_location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessGrantsLocationId"),
-            ),
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            grant_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantScope"),
-            ),
-            grantee: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantee"),
-            ),
-            permission: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permission"),
-            ),
-            s3_prefix_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3PrefixType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            access_grant_arn: o.get_field("accessGrantArn"),
+            access_grant_id: o.get_field("accessGrantId"),
+            access_grants_location_configuration: o
+                .get_field("accessGrantsLocationConfiguration"),
+            access_grants_location_id: o.get_field("accessGrantsLocationId"),
+            account_id: o.get_field("accountId"),
+            grant_scope: o.get_field("grantScope"),
+            grantee: o.get_field("grantee"),
+            permission: o.get_field("permission"),
+            s3_prefix_type: o.get_field("s3PrefixType"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

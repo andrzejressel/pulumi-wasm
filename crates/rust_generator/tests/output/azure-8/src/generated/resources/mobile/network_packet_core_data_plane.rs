@@ -134,105 +134,82 @@ pub mod network_packet_core_data_plane {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkPacketCoreDataPlaneArgs,
     ) -> NetworkPacketCoreDataPlaneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mobile_network_packet_core_control_plane_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let mobile_network_packet_core_control_plane_id_binding = args
             .mobile_network_packet_core_control_plane_id
             .get_output(context);
-        let mobile_network_packet_core_control_plane_id_binding = mobile_network_packet_core_control_plane_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_plane_access_ipv4_address_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_plane_access_ipv4_address_binding = args
             .user_plane_access_ipv4_address
             .get_output(context);
-        let user_plane_access_ipv4_address_binding = user_plane_access_ipv4_address_binding_1
-            .get_inner();
-        let user_plane_access_ipv4_gateway_binding_1 = args
+        let user_plane_access_ipv4_gateway_binding = args
             .user_plane_access_ipv4_gateway
             .get_output(context);
-        let user_plane_access_ipv4_gateway_binding = user_plane_access_ipv4_gateway_binding_1
-            .get_inner();
-        let user_plane_access_ipv4_subnet_binding_1 = args
+        let user_plane_access_ipv4_subnet_binding = args
             .user_plane_access_ipv4_subnet
             .get_output(context);
-        let user_plane_access_ipv4_subnet_binding = user_plane_access_ipv4_subnet_binding_1
-            .get_inner();
-        let user_plane_access_name_binding_1 = args
+        let user_plane_access_name_binding = args
             .user_plane_access_name
             .get_output(context);
-        let user_plane_access_name_binding = user_plane_access_name_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkPacketCoreControlPlaneId".into(),
-                    value: &mobile_network_packet_core_control_plane_id_binding,
+                    value: mobile_network_packet_core_control_plane_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Address".into(),
-                    value: &user_plane_access_ipv4_address_binding,
+                    value: user_plane_access_ipv4_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Gateway".into(),
-                    value: &user_plane_access_ipv4_gateway_binding,
+                    value: user_plane_access_ipv4_gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessIpv4Subnet".into(),
-                    value: &user_plane_access_ipv4_subnet_binding,
+                    value: user_plane_access_ipv4_subnet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPlaneAccessName".into(),
-                    value: &user_plane_access_name_binding,
+                    value: user_plane_access_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkPacketCoreDataPlaneResult {
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mobile_network_packet_core_control_plane_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobileNetworkPacketCoreControlPlaneId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_plane_access_ipv4_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Address"),
-            ),
-            user_plane_access_ipv4_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Gateway"),
-            ),
-            user_plane_access_ipv4_subnet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessIpv4Subnet"),
-            ),
-            user_plane_access_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPlaneAccessName"),
-            ),
+            location: o.get_field("location"),
+            mobile_network_packet_core_control_plane_id: o
+                .get_field("mobileNetworkPacketCoreControlPlaneId"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            user_plane_access_ipv4_address: o.get_field("userPlaneAccessIpv4Address"),
+            user_plane_access_ipv4_gateway: o.get_field("userPlaneAccessIpv4Gateway"),
+            user_plane_access_ipv4_subnet: o.get_field("userPlaneAccessIpv4Subnet"),
+            user_plane_access_name: o.get_field("userPlaneAccessName"),
         }
     }
 }

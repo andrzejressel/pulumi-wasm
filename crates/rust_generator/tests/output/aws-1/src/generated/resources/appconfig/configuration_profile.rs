@@ -101,103 +101,79 @@ pub mod configuration_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigurationProfileArgs,
     ) -> ConfigurationProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kms_key_identifier_binding_1 = args.kms_key_identifier.get_output(context);
-        let kms_key_identifier_binding = kms_key_identifier_binding_1.get_inner();
-        let location_uri_binding_1 = args.location_uri.get_output(context);
-        let location_uri_binding = location_uri_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let retrieval_role_arn_binding_1 = args.retrieval_role_arn.get_output(context);
-        let retrieval_role_arn_binding = retrieval_role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let validators_binding_1 = args.validators.get_output(context);
-        let validators_binding = validators_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let kms_key_identifier_binding = args.kms_key_identifier.get_output(context);
+        let location_uri_binding = args.location_uri.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let retrieval_role_arn_binding = args.retrieval_role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let validators_binding = args.validators.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appconfig/configurationProfile:ConfigurationProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyIdentifier".into(),
-                    value: &kms_key_identifier_binding,
+                    value: kms_key_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationUri".into(),
-                    value: &location_uri_binding,
+                    value: location_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retrievalRoleArn".into(),
-                    value: &retrieval_role_arn_binding,
+                    value: retrieval_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validators".into(),
-                    value: &validators_binding,
+                    value: validators_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigurationProfileResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configuration_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationProfileId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            kms_key_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyIdentifier"),
-            ),
-            location_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationUri"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            retrieval_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retrievalRoleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            validators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validators"),
-            ),
+            application_id: o.get_field("applicationId"),
+            arn: o.get_field("arn"),
+            configuration_profile_id: o.get_field("configurationProfileId"),
+            description: o.get_field("description"),
+            kms_key_identifier: o.get_field("kmsKeyIdentifier"),
+            location_uri: o.get_field("locationUri"),
+            name: o.get_field("name"),
+            retrieval_role_arn: o.get_field("retrievalRoleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            validators: o.get_field("validators"),
         }
     }
 }

@@ -79,87 +79,60 @@ pub mod member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MemberArgs,
     ) -> MemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let disable_email_notification_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let disable_email_notification_binding = args
             .disable_email_notification
             .get_output(context);
-        let disable_email_notification_binding = disable_email_notification_binding_1
-            .get_inner();
-        let email_address_binding_1 = args.email_address.get_output(context);
-        let email_address_binding = email_address_binding_1.get_inner();
-        let graph_arn_binding_1 = args.graph_arn.get_output(context);
-        let graph_arn_binding = graph_arn_binding_1.get_inner();
-        let message_binding_1 = args.message.get_output(context);
-        let message_binding = message_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let email_address_binding = args.email_address.get_output(context);
+        let graph_arn_binding = args.graph_arn.get_output(context);
+        let message_binding = args.message.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:detective/member:Member".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableEmailNotification".into(),
-                    value: &disable_email_notification_binding,
+                    value: disable_email_notification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: &email_address_binding,
+                    value: email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "graphArn".into(),
-                    value: &graph_arn_binding,
+                    value: graph_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "message".into(),
-                    value: &message_binding,
+                    value: message_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MemberResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            administrator_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorId"),
-            ),
-            disable_email_notification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableEmailNotification"),
-            ),
-            disabled_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabledReason"),
-            ),
-            email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddress"),
-            ),
-            graph_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("graphArn"),
-            ),
-            invited_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invitedTime"),
-            ),
-            message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("message"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedTime"),
-            ),
-            volume_usage_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeUsageInBytes"),
-            ),
+            account_id: o.get_field("accountId"),
+            administrator_id: o.get_field("administratorId"),
+            disable_email_notification: o.get_field("disableEmailNotification"),
+            disabled_reason: o.get_field("disabledReason"),
+            email_address: o.get_field("emailAddress"),
+            graph_arn: o.get_field("graphArn"),
+            invited_time: o.get_field("invitedTime"),
+            message: o.get_field("message"),
+            status: o.get_field("status"),
+            updated_time: o.get_field("updatedTime"),
+            volume_usage_in_bytes: o.get_field("volumeUsageInBytes"),
         }
     }
 }

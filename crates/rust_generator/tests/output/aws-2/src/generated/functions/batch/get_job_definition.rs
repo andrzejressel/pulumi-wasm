@@ -56,75 +56,54 @@ pub mod get_job_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetJobDefinitionArgs,
     ) -> GetJobDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let revision_binding_1 = args.revision.get_output(context);
-        let revision_binding = revision_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let revision_binding = args.revision.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:batch/getJobDefinition:getJobDefinition".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revision".into(),
-                    value: &revision_binding,
+                    value: revision_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetJobDefinitionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            arn_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arnPrefix"),
-            ),
-            container_orchestration_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerOrchestrationType"),
-            ),
-            eks_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eksProperties"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeProperties"),
-            ),
-            retry_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryStrategies"),
-            ),
-            revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revision"),
-            ),
-            scheduling_priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedulingPriority"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            arn_prefix: o.get_field("arnPrefix"),
+            container_orchestration_type: o.get_field("containerOrchestrationType"),
+            eks_properties: o.get_field("eksProperties"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            node_properties: o.get_field("nodeProperties"),
+            retry_strategies: o.get_field("retryStrategies"),
+            revision: o.get_field("revision"),
+            scheduling_priority: o.get_field("schedulingPriority"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            timeouts: o.get_field("timeouts"),
+            type_: o.get_field("type"),
         }
     }
 }

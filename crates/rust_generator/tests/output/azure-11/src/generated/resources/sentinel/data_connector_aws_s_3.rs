@@ -92,67 +92,54 @@ pub mod data_connector_aws_s_3 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataConnectorAwsS3Args,
     ) -> DataConnectorAwsS3Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_role_arn_binding_1 = args.aws_role_arn.get_output(context);
-        let aws_role_arn_binding = aws_role_arn_binding_1.get_inner();
-        let destination_table_binding_1 = args.destination_table.get_output(context);
-        let destination_table_binding = destination_table_binding_1.get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_role_arn_binding = args.aws_role_arn.get_output(context);
+        let destination_table_binding = args.destination_table.get_output(context);
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let sqs_urls_binding_1 = args.sqs_urls.get_output(context);
-        let sqs_urls_binding = sqs_urls_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let sqs_urls_binding = args.sqs_urls.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsRoleArn".into(),
-                    value: &aws_role_arn_binding,
+                    value: aws_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationTable".into(),
-                    value: &destination_table_binding,
+                    value: destination_table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsUrls".into(),
-                    value: &sqs_urls_binding,
+                    value: sqs_urls_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataConnectorAwsS3Result {
-            aws_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsRoleArn"),
-            ),
-            destination_table: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationTable"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sqs_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqsUrls"),
-            ),
+            aws_role_arn: o.get_field("awsRoleArn"),
+            destination_table: o.get_field("destinationTable"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            name: o.get_field("name"),
+            sqs_urls: o.get_field("sqsUrls"),
         }
     }
 }

@@ -38,55 +38,40 @@ pub mod get_managed_hardware_security_module_role_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetManagedHardwareSecurityModuleRoleDefinitionArgs,
     ) -> GetManagedHardwareSecurityModuleRoleDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_hsm_id_binding_1 = args.managed_hsm_id.get_output(context);
-        let managed_hsm_id_binding = managed_hsm_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let managed_hsm_id_binding = args.managed_hsm_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmId".into(),
-                    value: &managed_hsm_id_binding,
+                    value: managed_hsm_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetManagedHardwareSecurityModuleRoleDefinitionResult {
-            assignable_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignableScopes"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            managed_hsm_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedHsmId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            resource_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceManagerId"),
-            ),
-            role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleName"),
-            ),
-            role_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleType"),
-            ),
+            assignable_scopes: o.get_field("assignableScopes"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            managed_hsm_id: o.get_field("managedHsmId"),
+            name: o.get_field("name"),
+            permissions: o.get_field("permissions"),
+            resource_manager_id: o.get_field("resourceManagerId"),
+            role_name: o.get_field("roleName"),
+            role_type: o.get_field("roleType"),
         }
     }
 }

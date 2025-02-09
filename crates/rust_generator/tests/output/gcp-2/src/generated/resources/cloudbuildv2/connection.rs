@@ -299,134 +299,94 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let bitbucket_cloud_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let bitbucket_cloud_config_binding = args
             .bitbucket_cloud_config
             .get_output(context);
-        let bitbucket_cloud_config_binding = bitbucket_cloud_config_binding_1
-            .get_inner();
-        let bitbucket_data_center_config_binding_1 = args
+        let bitbucket_data_center_config_binding = args
             .bitbucket_data_center_config
             .get_output(context);
-        let bitbucket_data_center_config_binding = bitbucket_data_center_config_binding_1
-            .get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let github_config_binding_1 = args.github_config.get_output(context);
-        let github_config_binding = github_config_binding_1.get_inner();
-        let github_enterprise_config_binding_1 = args
+        let disabled_binding = args.disabled.get_output(context);
+        let github_config_binding = args.github_config.get_output(context);
+        let github_enterprise_config_binding = args
             .github_enterprise_config
             .get_output(context);
-        let github_enterprise_config_binding = github_enterprise_config_binding_1
-            .get_inner();
-        let gitlab_config_binding_1 = args.gitlab_config.get_output(context);
-        let gitlab_config_binding = gitlab_config_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let gitlab_config_binding = args.gitlab_config.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudbuildv2/connection:Connection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bitbucketCloudConfig".into(),
-                    value: &bitbucket_cloud_config_binding,
+                    value: bitbucket_cloud_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bitbucketDataCenterConfig".into(),
-                    value: &bitbucket_data_center_config_binding,
+                    value: bitbucket_data_center_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "githubConfig".into(),
-                    value: &github_config_binding,
+                    value: github_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "githubEnterpriseConfig".into(),
-                    value: &github_enterprise_config_binding,
+                    value: github_enterprise_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitlabConfig".into(),
-                    value: &gitlab_config_binding,
+                    value: gitlab_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectionResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            bitbucket_cloud_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bitbucketCloudConfig"),
-            ),
-            bitbucket_data_center_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bitbucketDataCenterConfig"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            github_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("githubConfig"),
-            ),
-            github_enterprise_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("githubEnterpriseConfig"),
-            ),
-            gitlab_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gitlabConfig"),
-            ),
-            installation_states: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("installationStates"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            annotations: o.get_field("annotations"),
+            bitbucket_cloud_config: o.get_field("bitbucketCloudConfig"),
+            bitbucket_data_center_config: o.get_field("bitbucketDataCenterConfig"),
+            create_time: o.get_field("createTime"),
+            disabled: o.get_field("disabled"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            etag: o.get_field("etag"),
+            github_config: o.get_field("githubConfig"),
+            github_enterprise_config: o.get_field("githubEnterpriseConfig"),
+            gitlab_config: o.get_field("gitlabConfig"),
+            installation_states: o.get_field("installationStates"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            reconciling: o.get_field("reconciling"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

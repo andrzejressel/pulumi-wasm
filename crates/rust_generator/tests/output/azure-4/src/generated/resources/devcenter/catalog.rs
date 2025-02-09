@@ -36,64 +36,52 @@ pub mod catalog {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CatalogArgs,
     ) -> CatalogResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_adogit_binding_1 = args.catalog_adogit.get_output(context);
-        let catalog_adogit_binding = catalog_adogit_binding_1.get_inner();
-        let catalog_github_binding_1 = args.catalog_github.get_output(context);
-        let catalog_github_binding = catalog_github_binding_1.get_inner();
-        let dev_center_id_binding_1 = args.dev_center_id.get_output(context);
-        let dev_center_id_binding = dev_center_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_adogit_binding = args.catalog_adogit.get_output(context);
+        let catalog_github_binding = args.catalog_github.get_output(context);
+        let dev_center_id_binding = args.dev_center_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:devcenter/catalog:Catalog".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogAdogit".into(),
-                    value: &catalog_adogit_binding,
+                    value: catalog_adogit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogGithub".into(),
-                    value: &catalog_github_binding,
+                    value: catalog_github_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterId".into(),
-                    value: &dev_center_id_binding,
+                    value: dev_center_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CatalogResult {
-            catalog_adogit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogAdogit"),
-            ),
-            catalog_github: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogGithub"),
-            ),
-            dev_center_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("devCenterId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            catalog_adogit: o.get_field("catalogAdogit"),
+            catalog_github: o.get_field("catalogGithub"),
+            dev_center_id: o.get_field("devCenterId"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

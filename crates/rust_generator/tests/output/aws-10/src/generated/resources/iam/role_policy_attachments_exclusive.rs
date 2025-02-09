@@ -78,40 +78,35 @@ pub mod role_policy_attachments_exclusive {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RolePolicyAttachmentsExclusiveArgs,
     ) -> RolePolicyAttachmentsExclusiveResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_arns_binding_1 = args.policy_arns.get_output(context);
-        let policy_arns_binding = policy_arns_binding_1.get_inner();
-        let role_name_binding_1 = args.role_name.get_output(context);
-        let role_name_binding = role_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let policy_arns_binding = args.policy_arns.get_output(context);
+        let role_name_binding = args.role_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArns".into(),
-                    value: &policy_arns_binding,
+                    value: policy_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: &role_name_binding,
+                    value: role_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RolePolicyAttachmentsExclusiveResult {
-            policy_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyArns"),
-            ),
-            role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleName"),
-            ),
+            policy_arns: o.get_field("policyArns"),
+            role_name: o.get_field("roleName"),
         }
     }
 }

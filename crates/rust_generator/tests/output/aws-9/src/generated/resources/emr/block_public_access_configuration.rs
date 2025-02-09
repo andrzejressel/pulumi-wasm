@@ -136,46 +136,41 @@ pub mod block_public_access_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BlockPublicAccessConfigurationArgs,
     ) -> BlockPublicAccessConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_public_security_group_rules_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let block_public_security_group_rules_binding = args
             .block_public_security_group_rules
             .get_output(context);
-        let block_public_security_group_rules_binding = block_public_security_group_rules_binding_1
-            .get_inner();
-        let permitted_public_security_group_rule_ranges_binding_1 = args
+        let permitted_public_security_group_rule_ranges_binding = args
             .permitted_public_security_group_rule_ranges
             .get_output(context);
-        let permitted_public_security_group_rule_ranges_binding = permitted_public_security_group_rule_ranges_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPublicSecurityGroupRules".into(),
-                    value: &block_public_security_group_rules_binding,
+                    value: block_public_security_group_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permittedPublicSecurityGroupRuleRanges".into(),
-                    value: &permitted_public_security_group_rule_ranges_binding,
+                    value: permitted_public_security_group_rule_ranges_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BlockPublicAccessConfigurationResult {
-            block_public_security_group_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockPublicSecurityGroupRules"),
-            ),
-            permitted_public_security_group_rule_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permittedPublicSecurityGroupRuleRanges"),
-            ),
+            block_public_security_group_rules: o
+                .get_field("blockPublicSecurityGroupRules"),
+            permitted_public_security_group_rule_ranges: o
+                .get_field("permittedPublicSecurityGroupRuleRanges"),
         }
     }
 }

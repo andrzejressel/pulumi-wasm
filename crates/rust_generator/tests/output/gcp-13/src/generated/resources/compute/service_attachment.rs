@@ -552,158 +552,115 @@ pub mod service_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceAttachmentArgs,
     ) -> ServiceAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_preference_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_preference_binding = args
             .connection_preference
             .get_output(context);
-        let connection_preference_binding = connection_preference_binding_1.get_inner();
-        let consumer_accept_lists_binding_1 = args
+        let consumer_accept_lists_binding = args
             .consumer_accept_lists
             .get_output(context);
-        let consumer_accept_lists_binding = consumer_accept_lists_binding_1.get_inner();
-        let consumer_reject_lists_binding_1 = args
+        let consumer_reject_lists_binding = args
             .consumer_reject_lists
             .get_output(context);
-        let consumer_reject_lists_binding = consumer_reject_lists_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let domain_names_binding_1 = args.domain_names.get_output(context);
-        let domain_names_binding = domain_names_binding_1.get_inner();
-        let enable_proxy_protocol_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let domain_names_binding = args.domain_names.get_output(context);
+        let enable_proxy_protocol_binding = args
             .enable_proxy_protocol
             .get_output(context);
-        let enable_proxy_protocol_binding = enable_proxy_protocol_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nat_subnets_binding_1 = args.nat_subnets.get_output(context);
-        let nat_subnets_binding = nat_subnets_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let propagated_connection_limit_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let nat_subnets_binding = args.nat_subnets.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let propagated_connection_limit_binding = args
             .propagated_connection_limit
             .get_output(context);
-        let propagated_connection_limit_binding = propagated_connection_limit_binding_1
-            .get_inner();
-        let reconcile_connections_binding_1 = args
+        let reconcile_connections_binding = args
             .reconcile_connections
             .get_output(context);
-        let reconcile_connections_binding = reconcile_connections_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let target_service_binding_1 = args.target_service.get_output(context);
-        let target_service_binding = target_service_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let region_binding = args.region.get_output(context);
+        let target_service_binding = args.target_service.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/serviceAttachment:ServiceAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionPreference".into(),
-                    value: &connection_preference_binding,
+                    value: connection_preference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerAcceptLists".into(),
-                    value: &consumer_accept_lists_binding,
+                    value: consumer_accept_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerRejectLists".into(),
-                    value: &consumer_reject_lists_binding,
+                    value: consumer_reject_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNames".into(),
-                    value: &domain_names_binding,
+                    value: domain_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableProxyProtocol".into(),
-                    value: &enable_proxy_protocol_binding,
+                    value: enable_proxy_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natSubnets".into(),
-                    value: &nat_subnets_binding,
+                    value: nat_subnets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propagatedConnectionLimit".into(),
-                    value: &propagated_connection_limit_binding,
+                    value: propagated_connection_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reconcileConnections".into(),
-                    value: &reconcile_connections_binding,
+                    value: reconcile_connections_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetService".into(),
-                    value: &target_service_binding,
+                    value: target_service_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceAttachmentResult {
-            connected_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectedEndpoints"),
-            ),
-            connection_preference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionPreference"),
-            ),
-            consumer_accept_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumerAcceptLists"),
-            ),
-            consumer_reject_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumerRejectLists"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            domain_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNames"),
-            ),
-            enable_proxy_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableProxyProtocol"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nat_subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natSubnets"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            propagated_connection_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("propagatedConnectionLimit"),
-            ),
-            reconcile_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconcileConnections"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            target_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetService"),
-            ),
+            connected_endpoints: o.get_field("connectedEndpoints"),
+            connection_preference: o.get_field("connectionPreference"),
+            consumer_accept_lists: o.get_field("consumerAcceptLists"),
+            consumer_reject_lists: o.get_field("consumerRejectLists"),
+            description: o.get_field("description"),
+            domain_names: o.get_field("domainNames"),
+            enable_proxy_protocol: o.get_field("enableProxyProtocol"),
+            fingerprint: o.get_field("fingerprint"),
+            name: o.get_field("name"),
+            nat_subnets: o.get_field("natSubnets"),
+            project: o.get_field("project"),
+            propagated_connection_limit: o.get_field("propagatedConnectionLimit"),
+            reconcile_connections: o.get_field("reconcileConnections"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            target_service: o.get_field("targetService"),
         }
     }
 }

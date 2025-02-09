@@ -84,65 +84,53 @@ pub mod data_source_windows_event {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataSourceWindowsEventArgs,
     ) -> DataSourceWindowsEventResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let event_log_name_binding_1 = args.event_log_name.get_output(context);
-        let event_log_name_binding = event_log_name_binding_1.get_inner();
-        let event_types_binding_1 = args.event_types.get_output(context);
-        let event_types_binding = event_types_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let workspace_name_binding_1 = args.workspace_name.get_output(context);
-        let workspace_name_binding = workspace_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let event_log_name_binding = args.event_log_name.get_output(context);
+        let event_types_binding = args.event_types.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let workspace_name_binding = args.workspace_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventLogName".into(),
-                    value: &event_log_name_binding,
+                    value: event_log_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTypes".into(),
-                    value: &event_types_binding,
+                    value: event_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceName".into(),
-                    value: &workspace_name_binding,
+                    value: workspace_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataSourceWindowsEventResult {
-            event_log_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventLogName"),
-            ),
-            event_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventTypes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            workspace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceName"),
-            ),
+            event_log_name: o.get_field("eventLogName"),
+            event_types: o.get_field("eventTypes"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            workspace_name: o.get_field("workspaceName"),
         }
     }
 }

@@ -63,48 +63,40 @@ pub mod archive_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ArchiveRuleArgs,
     ) -> ArchiveRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let analyzer_name_binding_1 = args.analyzer_name.get_output(context);
-        let analyzer_name_binding = analyzer_name_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let rule_name_binding_1 = args.rule_name.get_output(context);
-        let rule_name_binding = rule_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let analyzer_name_binding = args.analyzer_name.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let rule_name_binding = args.rule_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:accessanalyzer/archiveRule:ArchiveRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyzerName".into(),
-                    value: &analyzer_name_binding,
+                    value: analyzer_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: &rule_name_binding,
+                    value: rule_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ArchiveRuleResult {
-            analyzer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyzerName"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleName"),
-            ),
+            analyzer_name: o.get_field("analyzerName"),
+            filters: o.get_field("filters"),
+            rule_name: o.get_field("ruleName"),
         }
     }
 }

@@ -302,133 +302,98 @@ pub mod app_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppProfileArgs,
     ) -> AppProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_profile_id_binding_1 = args.app_profile_id.get_output(context);
-        let app_profile_id_binding = app_profile_id_binding_1.get_inner();
-        let data_boost_isolation_read_only_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_profile_id_binding = args.app_profile_id.get_output(context);
+        let data_boost_isolation_read_only_binding = args
             .data_boost_isolation_read_only
             .get_output(context);
-        let data_boost_isolation_read_only_binding = data_boost_isolation_read_only_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ignore_warnings_binding_1 = args.ignore_warnings.get_output(context);
-        let ignore_warnings_binding = ignore_warnings_binding_1.get_inner();
-        let instance_binding_1 = args.instance.get_output(context);
-        let instance_binding = instance_binding_1.get_inner();
-        let multi_cluster_routing_cluster_ids_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let ignore_warnings_binding = args.ignore_warnings.get_output(context);
+        let instance_binding = args.instance.get_output(context);
+        let multi_cluster_routing_cluster_ids_binding = args
             .multi_cluster_routing_cluster_ids
             .get_output(context);
-        let multi_cluster_routing_cluster_ids_binding = multi_cluster_routing_cluster_ids_binding_1
-            .get_inner();
-        let multi_cluster_routing_use_any_binding_1 = args
+        let multi_cluster_routing_use_any_binding = args
             .multi_cluster_routing_use_any
             .get_output(context);
-        let multi_cluster_routing_use_any_binding = multi_cluster_routing_use_any_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let row_affinity_binding_1 = args.row_affinity.get_output(context);
-        let row_affinity_binding = row_affinity_binding_1.get_inner();
-        let single_cluster_routing_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let row_affinity_binding = args.row_affinity.get_output(context);
+        let single_cluster_routing_binding = args
             .single_cluster_routing
             .get_output(context);
-        let single_cluster_routing_binding = single_cluster_routing_binding_1
-            .get_inner();
-        let standard_isolation_binding_1 = args.standard_isolation.get_output(context);
-        let standard_isolation_binding = standard_isolation_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let standard_isolation_binding = args.standard_isolation.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/appProfile:AppProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appProfileId".into(),
-                    value: &app_profile_id_binding,
+                    value: app_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataBoostIsolationReadOnly".into(),
-                    value: &data_boost_isolation_read_only_binding,
+                    value: data_boost_isolation_read_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreWarnings".into(),
-                    value: &ignore_warnings_binding,
+                    value: ignore_warnings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: &instance_binding,
+                    value: instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiClusterRoutingClusterIds".into(),
-                    value: &multi_cluster_routing_cluster_ids_binding,
+                    value: multi_cluster_routing_cluster_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiClusterRoutingUseAny".into(),
-                    value: &multi_cluster_routing_use_any_binding,
+                    value: multi_cluster_routing_use_any_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowAffinity".into(),
-                    value: &row_affinity_binding,
+                    value: row_affinity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleClusterRouting".into(),
-                    value: &single_cluster_routing_binding,
+                    value: single_cluster_routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standardIsolation".into(),
-                    value: &standard_isolation_binding,
+                    value: standard_isolation_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppProfileResult {
-            app_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appProfileId"),
-            ),
-            data_boost_isolation_read_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataBoostIsolationReadOnly"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            ignore_warnings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreWarnings"),
-            ),
-            instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instance"),
-            ),
-            multi_cluster_routing_cluster_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiClusterRoutingClusterIds"),
-            ),
-            multi_cluster_routing_use_any: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiClusterRoutingUseAny"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            row_affinity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowAffinity"),
-            ),
-            single_cluster_routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleClusterRouting"),
-            ),
-            standard_isolation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("standardIsolation"),
-            ),
+            app_profile_id: o.get_field("appProfileId"),
+            data_boost_isolation_read_only: o.get_field("dataBoostIsolationReadOnly"),
+            description: o.get_field("description"),
+            ignore_warnings: o.get_field("ignoreWarnings"),
+            instance: o.get_field("instance"),
+            multi_cluster_routing_cluster_ids: o
+                .get_field("multiClusterRoutingClusterIds"),
+            multi_cluster_routing_use_any: o.get_field("multiClusterRoutingUseAny"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            row_affinity: o.get_field("rowAffinity"),
+            single_cluster_routing: o.get_field("singleClusterRouting"),
+            standard_isolation: o.get_field("standardIsolation"),
         }
     }
 }

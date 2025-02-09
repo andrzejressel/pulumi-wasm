@@ -142,87 +142,68 @@ pub mod cassandra_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CassandraTableArgs,
     ) -> CassandraTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let analytical_storage_ttl_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let analytical_storage_ttl_binding = args
             .analytical_storage_ttl
             .get_output(context);
-        let analytical_storage_ttl_binding = analytical_storage_ttl_binding_1
-            .get_inner();
-        let autoscale_settings_binding_1 = args.autoscale_settings.get_output(context);
-        let autoscale_settings_binding = autoscale_settings_binding_1.get_inner();
-        let cassandra_keyspace_id_binding_1 = args
+        let autoscale_settings_binding = args.autoscale_settings.get_output(context);
+        let cassandra_keyspace_id_binding = args
             .cassandra_keyspace_id
             .get_output(context);
-        let cassandra_keyspace_id_binding = cassandra_keyspace_id_binding_1.get_inner();
-        let default_ttl_binding_1 = args.default_ttl.get_output(context);
-        let default_ttl_binding = default_ttl_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let schema_binding_1 = args.schema.get_output(context);
-        let schema_binding = schema_binding_1.get_inner();
-        let throughput_binding_1 = args.throughput.get_output(context);
-        let throughput_binding = throughput_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let default_ttl_binding = args.default_ttl.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let schema_binding = args.schema.get_output(context);
+        let throughput_binding = args.throughput.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/cassandraTable:CassandraTable".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticalStorageTtl".into(),
-                    value: &analytical_storage_ttl_binding,
+                    value: analytical_storage_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscaleSettings".into(),
-                    value: &autoscale_settings_binding,
+                    value: autoscale_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cassandraKeyspaceId".into(),
-                    value: &cassandra_keyspace_id_binding,
+                    value: cassandra_keyspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtl".into(),
-                    value: &default_ttl_binding,
+                    value: default_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: &schema_binding,
+                    value: schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughput".into(),
-                    value: &throughput_binding,
+                    value: throughput_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CassandraTableResult {
-            analytical_storage_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyticalStorageTtl"),
-            ),
-            autoscale_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscaleSettings"),
-            ),
-            cassandra_keyspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cassandraKeyspaceId"),
-            ),
-            default_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTtl"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schema"),
-            ),
-            throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughput"),
-            ),
+            analytical_storage_ttl: o.get_field("analyticalStorageTtl"),
+            autoscale_settings: o.get_field("autoscaleSettings"),
+            cassandra_keyspace_id: o.get_field("cassandraKeyspaceId"),
+            default_ttl: o.get_field("defaultTtl"),
+            name: o.get_field("name"),
+            schema: o.get_field("schema"),
+            throughput: o.get_field("throughput"),
         }
     }
 }

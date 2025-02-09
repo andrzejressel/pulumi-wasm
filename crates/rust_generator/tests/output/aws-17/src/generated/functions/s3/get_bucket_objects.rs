@@ -49,90 +49,66 @@ pub mod get_bucket_objects {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBucketObjectsArgs,
     ) -> GetBucketObjectsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let delimiter_binding_1 = args.delimiter.get_output(context);
-        let delimiter_binding = delimiter_binding_1.get_inner();
-        let encoding_type_binding_1 = args.encoding_type.get_output(context);
-        let encoding_type_binding = encoding_type_binding_1.get_inner();
-        let fetch_owner_binding_1 = args.fetch_owner.get_output(context);
-        let fetch_owner_binding = fetch_owner_binding_1.get_inner();
-        let max_keys_binding_1 = args.max_keys.get_output(context);
-        let max_keys_binding = max_keys_binding_1.get_inner();
-        let prefix_binding_1 = args.prefix.get_output(context);
-        let prefix_binding = prefix_binding_1.get_inner();
-        let start_after_binding_1 = args.start_after.get_output(context);
-        let start_after_binding = start_after_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let delimiter_binding = args.delimiter.get_output(context);
+        let encoding_type_binding = args.encoding_type.get_output(context);
+        let fetch_owner_binding = args.fetch_owner.get_output(context);
+        let max_keys_binding = args.max_keys.get_output(context);
+        let prefix_binding = args.prefix.get_output(context);
+        let start_after_binding = args.start_after.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:s3/getBucketObjects:getBucketObjects".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delimiter".into(),
-                    value: &delimiter_binding,
+                    value: delimiter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encodingType".into(),
-                    value: &encoding_type_binding,
+                    value: encoding_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fetchOwner".into(),
-                    value: &fetch_owner_binding,
+                    value: fetch_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxKeys".into(),
-                    value: &max_keys_binding,
+                    value: max_keys_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: &prefix_binding,
+                    value: prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startAfter".into(),
-                    value: &start_after_binding,
+                    value: start_after_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBucketObjectsResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            common_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commonPrefixes"),
-            ),
-            delimiter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delimiter"),
-            ),
-            encoding_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encodingType"),
-            ),
-            fetch_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fetchOwner"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            keys: pulumi_gestalt_rust::__private::into_domain(o.extract_field("keys")),
-            max_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxKeys"),
-            ),
-            owners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("owners"),
-            ),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
-            start_after: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startAfter"),
-            ),
+            bucket: o.get_field("bucket"),
+            common_prefixes: o.get_field("commonPrefixes"),
+            delimiter: o.get_field("delimiter"),
+            encoding_type: o.get_field("encodingType"),
+            fetch_owner: o.get_field("fetchOwner"),
+            id: o.get_field("id"),
+            keys: o.get_field("keys"),
+            max_keys: o.get_field("maxKeys"),
+            owners: o.get_field("owners"),
+            prefix: o.get_field("prefix"),
+            start_after: o.get_field("startAfter"),
         }
     }
 }

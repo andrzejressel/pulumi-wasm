@@ -154,144 +154,107 @@ pub mod receipt_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReceiptRuleArgs,
     ) -> ReceiptRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_header_actions_binding_1 = args.add_header_actions.get_output(context);
-        let add_header_actions_binding = add_header_actions_binding_1.get_inner();
-        let after_binding_1 = args.after.get_output(context);
-        let after_binding = after_binding_1.get_inner();
-        let bounce_actions_binding_1 = args.bounce_actions.get_output(context);
-        let bounce_actions_binding = bounce_actions_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let lambda_actions_binding_1 = args.lambda_actions.get_output(context);
-        let lambda_actions_binding = lambda_actions_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recipients_binding_1 = args.recipients.get_output(context);
-        let recipients_binding = recipients_binding_1.get_inner();
-        let rule_set_name_binding_1 = args.rule_set_name.get_output(context);
-        let rule_set_name_binding = rule_set_name_binding_1.get_inner();
-        let s3_actions_binding_1 = args.s3_actions.get_output(context);
-        let s3_actions_binding = s3_actions_binding_1.get_inner();
-        let scan_enabled_binding_1 = args.scan_enabled.get_output(context);
-        let scan_enabled_binding = scan_enabled_binding_1.get_inner();
-        let sns_actions_binding_1 = args.sns_actions.get_output(context);
-        let sns_actions_binding = sns_actions_binding_1.get_inner();
-        let stop_actions_binding_1 = args.stop_actions.get_output(context);
-        let stop_actions_binding = stop_actions_binding_1.get_inner();
-        let tls_policy_binding_1 = args.tls_policy.get_output(context);
-        let tls_policy_binding = tls_policy_binding_1.get_inner();
-        let workmail_actions_binding_1 = args.workmail_actions.get_output(context);
-        let workmail_actions_binding = workmail_actions_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let add_header_actions_binding = args.add_header_actions.get_output(context);
+        let after_binding = args.after.get_output(context);
+        let bounce_actions_binding = args.bounce_actions.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let lambda_actions_binding = args.lambda_actions.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let recipients_binding = args.recipients.get_output(context);
+        let rule_set_name_binding = args.rule_set_name.get_output(context);
+        let s3_actions_binding = args.s3_actions.get_output(context);
+        let scan_enabled_binding = args.scan_enabled.get_output(context);
+        let sns_actions_binding = args.sns_actions.get_output(context);
+        let stop_actions_binding = args.stop_actions.get_output(context);
+        let tls_policy_binding = args.tls_policy.get_output(context);
+        let workmail_actions_binding = args.workmail_actions.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ses/receiptRule:ReceiptRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addHeaderActions".into(),
-                    value: &add_header_actions_binding,
+                    value: add_header_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "after".into(),
-                    value: &after_binding,
+                    value: after_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bounceActions".into(),
-                    value: &bounce_actions_binding,
+                    value: bounce_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaActions".into(),
-                    value: &lambda_actions_binding,
+                    value: lambda_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recipients".into(),
-                    value: &recipients_binding,
+                    value: recipients_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleSetName".into(),
-                    value: &rule_set_name_binding,
+                    value: rule_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Actions".into(),
-                    value: &s3_actions_binding,
+                    value: s3_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanEnabled".into(),
-                    value: &scan_enabled_binding,
+                    value: scan_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsActions".into(),
-                    value: &sns_actions_binding,
+                    value: sns_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopActions".into(),
-                    value: &stop_actions_binding,
+                    value: stop_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsPolicy".into(),
-                    value: &tls_policy_binding,
+                    value: tls_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workmailActions".into(),
-                    value: &workmail_actions_binding,
+                    value: workmail_actions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReceiptRuleResult {
-            add_header_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addHeaderActions"),
-            ),
-            after: pulumi_gestalt_rust::__private::into_domain(o.extract_field("after")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bounce_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bounceActions"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            lambda_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaActions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recipients: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recipients"),
-            ),
-            rule_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleSetName"),
-            ),
-            s3_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Actions"),
-            ),
-            scan_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scanEnabled"),
-            ),
-            sns_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsActions"),
-            ),
-            stop_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stopActions"),
-            ),
-            tls_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsPolicy"),
-            ),
-            workmail_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workmailActions"),
-            ),
+            add_header_actions: o.get_field("addHeaderActions"),
+            after: o.get_field("after"),
+            arn: o.get_field("arn"),
+            bounce_actions: o.get_field("bounceActions"),
+            enabled: o.get_field("enabled"),
+            lambda_actions: o.get_field("lambdaActions"),
+            name: o.get_field("name"),
+            recipients: o.get_field("recipients"),
+            rule_set_name: o.get_field("ruleSetName"),
+            s3_actions: o.get_field("s3Actions"),
+            scan_enabled: o.get_field("scanEnabled"),
+            sns_actions: o.get_field("snsActions"),
+            stop_actions: o.get_field("stopActions"),
+            tls_policy: o.get_field("tlsPolicy"),
+            workmail_actions: o.get_field("workmailActions"),
         }
     }
 }

@@ -127,120 +127,88 @@ pub mod api_operation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiOperationArgs,
     ) -> ApiOperationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let api_name_binding_1 = args.api_name.get_output(context);
-        let api_name_binding = api_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let method_binding_1 = args.method.get_output(context);
-        let method_binding = method_binding_1.get_inner();
-        let operation_id_binding_1 = args.operation_id.get_output(context);
-        let operation_id_binding = operation_id_binding_1.get_inner();
-        let request_binding_1 = args.request.get_output(context);
-        let request_binding = request_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let responses_binding_1 = args.responses.get_output(context);
-        let responses_binding = responses_binding_1.get_inner();
-        let template_parameters_binding_1 = args.template_parameters.get_output(context);
-        let template_parameters_binding = template_parameters_binding_1.get_inner();
-        let url_template_binding_1 = args.url_template.get_output(context);
-        let url_template_binding = url_template_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let api_name_binding = args.api_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let method_binding = args.method.get_output(context);
+        let operation_id_binding = args.operation_id.get_output(context);
+        let request_binding = args.request.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let responses_binding = args.responses.get_output(context);
+        let template_parameters_binding = args.template_parameters.get_output(context);
+        let url_template_binding = args.url_template.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/apiOperation:ApiOperation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiName".into(),
-                    value: &api_name_binding,
+                    value: api_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: &method_binding,
+                    value: method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationId".into(),
-                    value: &operation_id_binding,
+                    value: operation_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "request".into(),
-                    value: &request_binding,
+                    value: request_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responses".into(),
-                    value: &responses_binding,
+                    value: responses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateParameters".into(),
-                    value: &template_parameters_binding,
+                    value: template_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlTemplate".into(),
-                    value: &url_template_binding,
+                    value: url_template_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiOperationResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            api_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("method"),
-            ),
-            operation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operationId"),
-            ),
-            request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("request"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            responses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responses"),
-            ),
-            template_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateParameters"),
-            ),
-            url_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("urlTemplate"),
-            ),
+            api_management_name: o.get_field("apiManagementName"),
+            api_name: o.get_field("apiName"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            method: o.get_field("method"),
+            operation_id: o.get_field("operationId"),
+            request: o.get_field("request"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            responses: o.get_field("responses"),
+            template_parameters: o.get_field("templateParameters"),
+            url_template: o.get_field("urlTemplate"),
         }
     }
 }

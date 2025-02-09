@@ -74,91 +74,55 @@ pub mod get_node_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNodeGroupArgs,
     ) -> GetNodeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let node_group_name_binding_1 = args.node_group_name.get_output(context);
-        let node_group_name_binding = node_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let node_group_name_binding = args.node_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:eks/getNodeGroup:getNodeGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeGroupName".into(),
-                    value: &node_group_name_binding,
+                    value: node_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNodeGroupResult {
-            ami_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amiType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            capacity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityType"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            disk_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSize"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceTypes"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            launch_templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTemplates"),
-            ),
-            node_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeGroupName"),
-            ),
-            node_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeRoleArn"),
-            ),
-            release_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseVersion"),
-            ),
-            remote_accesses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteAccesses"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            scaling_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingConfigs"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            taints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taints"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            ami_type: o.get_field("amiType"),
+            arn: o.get_field("arn"),
+            capacity_type: o.get_field("capacityType"),
+            cluster_name: o.get_field("clusterName"),
+            disk_size: o.get_field("diskSize"),
+            id: o.get_field("id"),
+            instance_types: o.get_field("instanceTypes"),
+            labels: o.get_field("labels"),
+            launch_templates: o.get_field("launchTemplates"),
+            node_group_name: o.get_field("nodeGroupName"),
+            node_role_arn: o.get_field("nodeRoleArn"),
+            release_version: o.get_field("releaseVersion"),
+            remote_accesses: o.get_field("remoteAccesses"),
+            resources: o.get_field("resources"),
+            scaling_configs: o.get_field("scalingConfigs"),
+            status: o.get_field("status"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            taints: o.get_field("taints"),
+            version: o.get_field("version"),
         }
     }
 }

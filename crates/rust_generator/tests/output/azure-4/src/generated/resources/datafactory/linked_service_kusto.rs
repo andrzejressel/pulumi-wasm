@@ -167,147 +167,106 @@ pub mod linked_service_kusto {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkedServiceKustoArgs,
     ) -> LinkedServiceKustoResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_properties_binding = args
             .additional_properties
             .get_output(context);
-        let additional_properties_binding = additional_properties_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let integration_runtime_name_binding_1 = args
+        let annotations_binding = args.annotations.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let integration_runtime_name_binding = args
             .integration_runtime_name
             .get_output(context);
-        let integration_runtime_name_binding = integration_runtime_name_binding_1
-            .get_inner();
-        let kusto_database_name_binding_1 = args.kusto_database_name.get_output(context);
-        let kusto_database_name_binding = kusto_database_name_binding_1.get_inner();
-        let kusto_endpoint_binding_1 = args.kusto_endpoint.get_output(context);
-        let kusto_endpoint_binding = kusto_endpoint_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let service_principal_id_binding_1 = args
-            .service_principal_id
-            .get_output(context);
-        let service_principal_id_binding = service_principal_id_binding_1.get_inner();
-        let service_principal_key_binding_1 = args
+        let kusto_database_name_binding = args.kusto_database_name.get_output(context);
+        let kusto_endpoint_binding = args.kusto_endpoint.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let service_principal_id_binding = args.service_principal_id.get_output(context);
+        let service_principal_key_binding = args
             .service_principal_key
             .get_output(context);
-        let service_principal_key_binding = service_principal_key_binding_1.get_inner();
-        let tenant_binding_1 = args.tenant.get_output(context);
-        let tenant_binding = tenant_binding_1.get_inner();
-        let use_managed_identity_binding_1 = args
-            .use_managed_identity
-            .get_output(context);
-        let use_managed_identity_binding = use_managed_identity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tenant_binding = args.tenant.get_output(context);
+        let use_managed_identity_binding = args.use_managed_identity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceKusto:LinkedServiceKusto".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: &additional_properties_binding,
+                    value: additional_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationRuntimeName".into(),
-                    value: &integration_runtime_name_binding,
+                    value: integration_runtime_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoDatabaseName".into(),
-                    value: &kusto_database_name_binding,
+                    value: kusto_database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoEndpoint".into(),
-                    value: &kusto_endpoint_binding,
+                    value: kusto_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipalId".into(),
-                    value: &service_principal_id_binding,
+                    value: service_principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipalKey".into(),
-                    value: &service_principal_key_binding,
+                    value: service_principal_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenant".into(),
-                    value: &tenant_binding,
+                    value: tenant_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useManagedIdentity".into(),
-                    value: &use_managed_identity_binding,
+                    value: use_managed_identity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkedServiceKustoResult {
-            additional_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalProperties"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationRuntimeName"),
-            ),
-            kusto_database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoDatabaseName"),
-            ),
-            kusto_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustoEndpoint"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            service_principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipalId"),
-            ),
-            service_principal_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipalKey"),
-            ),
-            tenant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenant"),
-            ),
-            use_managed_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useManagedIdentity"),
-            ),
+            additional_properties: o.get_field("additionalProperties"),
+            annotations: o.get_field("annotations"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            integration_runtime_name: o.get_field("integrationRuntimeName"),
+            kusto_database_name: o.get_field("kustoDatabaseName"),
+            kusto_endpoint: o.get_field("kustoEndpoint"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            service_principal_id: o.get_field("servicePrincipalId"),
+            service_principal_key: o.get_field("servicePrincipalKey"),
+            tenant: o.get_field("tenant"),
+            use_managed_identity: o.get_field("useManagedIdentity"),
         }
     }
 }

@@ -126,183 +126,128 @@ pub mod default_subnet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DefaultSubnetArgs,
     ) -> DefaultSubnetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assign_ipv6_address_on_creation_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assign_ipv6_address_on_creation_binding = args
             .assign_ipv6_address_on_creation
             .get_output(context);
-        let assign_ipv6_address_on_creation_binding = assign_ipv6_address_on_creation_binding_1
-            .get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let customer_owned_ipv4_pool_binding_1 = args
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let customer_owned_ipv4_pool_binding = args
             .customer_owned_ipv4_pool
             .get_output(context);
-        let customer_owned_ipv4_pool_binding = customer_owned_ipv4_pool_binding_1
-            .get_inner();
-        let enable_dns64_binding_1 = args.enable_dns64.get_output(context);
-        let enable_dns64_binding = enable_dns64_binding_1.get_inner();
-        let enable_resource_name_dns_a_record_on_launch_binding_1 = args
+        let enable_dns64_binding = args.enable_dns64.get_output(context);
+        let enable_resource_name_dns_a_record_on_launch_binding = args
             .enable_resource_name_dns_a_record_on_launch
             .get_output(context);
-        let enable_resource_name_dns_a_record_on_launch_binding = enable_resource_name_dns_a_record_on_launch_binding_1
-            .get_inner();
-        let enable_resource_name_dns_aaaa_record_on_launch_binding_1 = args
+        let enable_resource_name_dns_aaaa_record_on_launch_binding = args
             .enable_resource_name_dns_aaaa_record_on_launch
             .get_output(context);
-        let enable_resource_name_dns_aaaa_record_on_launch_binding = enable_resource_name_dns_aaaa_record_on_launch_binding_1
-            .get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
-        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
-        let ipv6_native_binding_1 = args.ipv6_native.get_output(context);
-        let ipv6_native_binding = ipv6_native_binding_1.get_inner();
-        let map_customer_owned_ip_on_launch_binding_1 = args
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_output(context);
+        let ipv6_native_binding = args.ipv6_native.get_output(context);
+        let map_customer_owned_ip_on_launch_binding = args
             .map_customer_owned_ip_on_launch
             .get_output(context);
-        let map_customer_owned_ip_on_launch_binding = map_customer_owned_ip_on_launch_binding_1
-            .get_inner();
-        let map_public_ip_on_launch_binding_1 = args
+        let map_public_ip_on_launch_binding = args
             .map_public_ip_on_launch
             .get_output(context);
-        let map_public_ip_on_launch_binding = map_public_ip_on_launch_binding_1
-            .get_inner();
-        let private_dns_hostname_type_on_launch_binding_1 = args
+        let private_dns_hostname_type_on_launch_binding = args
             .private_dns_hostname_type_on_launch
             .get_output(context);
-        let private_dns_hostname_type_on_launch_binding = private_dns_hostname_type_on_launch_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/defaultSubnet:DefaultSubnet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignIpv6AddressOnCreation".into(),
-                    value: &assign_ipv6_address_on_creation_binding,
+                    value: assign_ipv6_address_on_creation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerOwnedIpv4Pool".into(),
-                    value: &customer_owned_ipv4_pool_binding,
+                    value: customer_owned_ipv4_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDns64".into(),
-                    value: &enable_dns64_binding,
+                    value: enable_dns64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableResourceNameDnsARecordOnLaunch".into(),
-                    value: &enable_resource_name_dns_a_record_on_launch_binding,
+                    value: enable_resource_name_dns_a_record_on_launch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableResourceNameDnsAaaaRecordOnLaunch".into(),
-                    value: &enable_resource_name_dns_aaaa_record_on_launch_binding,
+                    value: enable_resource_name_dns_aaaa_record_on_launch_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: &ipv6_cidr_block_binding,
+                    value: ipv6_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Native".into(),
-                    value: &ipv6_native_binding,
+                    value: ipv6_native_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mapCustomerOwnedIpOnLaunch".into(),
-                    value: &map_customer_owned_ip_on_launch_binding,
+                    value: map_customer_owned_ip_on_launch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mapPublicIpOnLaunch".into(),
-                    value: &map_public_ip_on_launch_binding,
+                    value: map_public_ip_on_launch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsHostnameTypeOnLaunch".into(),
-                    value: &private_dns_hostname_type_on_launch_binding,
+                    value: private_dns_hostname_type_on_launch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DefaultSubnetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            assign_ipv6_address_on_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignIpv6AddressOnCreation"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlock"),
-            ),
-            customer_owned_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerOwnedIpv4Pool"),
-            ),
-            enable_dns64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDns64"),
-            ),
-            enable_lni_at_device_index: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLniAtDeviceIndex"),
-            ),
-            enable_resource_name_dns_a_record_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableResourceNameDnsARecordOnLaunch"),
-            ),
-            enable_resource_name_dns_aaaa_record_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableResourceNameDnsAaaaRecordOnLaunch"),
-            ),
-            existing_default_subnet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("existingDefaultSubnet"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlock"),
-            ),
-            ipv6_cidr_block_association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlockAssociationId"),
-            ),
-            ipv6_native: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Native"),
-            ),
-            map_customer_owned_ip_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mapCustomerOwnedIpOnLaunch"),
-            ),
-            map_public_ip_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mapPublicIpOnLaunch"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            private_dns_hostname_type_on_launch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsHostnameTypeOnLaunch"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            assign_ipv6_address_on_creation: o.get_field("assignIpv6AddressOnCreation"),
+            availability_zone: o.get_field("availabilityZone"),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            cidr_block: o.get_field("cidrBlock"),
+            customer_owned_ipv4_pool: o.get_field("customerOwnedIpv4Pool"),
+            enable_dns64: o.get_field("enableDns64"),
+            enable_lni_at_device_index: o.get_field("enableLniAtDeviceIndex"),
+            enable_resource_name_dns_a_record_on_launch: o
+                .get_field("enableResourceNameDnsARecordOnLaunch"),
+            enable_resource_name_dns_aaaa_record_on_launch: o
+                .get_field("enableResourceNameDnsAaaaRecordOnLaunch"),
+            existing_default_subnet: o.get_field("existingDefaultSubnet"),
+            force_destroy: o.get_field("forceDestroy"),
+            ipv6_cidr_block: o.get_field("ipv6CidrBlock"),
+            ipv6_cidr_block_association_id: o.get_field("ipv6CidrBlockAssociationId"),
+            ipv6_native: o.get_field("ipv6Native"),
+            map_customer_owned_ip_on_launch: o.get_field("mapCustomerOwnedIpOnLaunch"),
+            map_public_ip_on_launch: o.get_field("mapPublicIpOnLaunch"),
+            outpost_arn: o.get_field("outpostArn"),
+            owner_id: o.get_field("ownerId"),
+            private_dns_hostname_type_on_launch: o
+                .get_field("privateDnsHostnameTypeOnLaunch"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

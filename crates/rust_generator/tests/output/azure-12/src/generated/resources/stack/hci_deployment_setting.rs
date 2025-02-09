@@ -51,59 +51,46 @@ pub mod hci_deployment_setting {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HciDeploymentSettingArgs,
     ) -> HciDeploymentSettingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arc_resource_ids_binding_1 = args.arc_resource_ids.get_output(context);
-        let arc_resource_ids_binding = arc_resource_ids_binding_1.get_inner();
-        let scale_units_binding_1 = args.scale_units.get_output(context);
-        let scale_units_binding = scale_units_binding_1.get_inner();
-        let stack_hci_cluster_id_binding_1 = args
-            .stack_hci_cluster_id
-            .get_output(context);
-        let stack_hci_cluster_id_binding = stack_hci_cluster_id_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arc_resource_ids_binding = args.arc_resource_ids.get_output(context);
+        let scale_units_binding = args.scale_units.get_output(context);
+        let stack_hci_cluster_id_binding = args.stack_hci_cluster_id.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:stack/hciDeploymentSetting:HciDeploymentSetting".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arcResourceIds".into(),
-                    value: &arc_resource_ids_binding,
+                    value: arc_resource_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scaleUnits".into(),
-                    value: &scale_units_binding,
+                    value: scale_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackHciClusterId".into(),
-                    value: &stack_hci_cluster_id_binding,
+                    value: stack_hci_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HciDeploymentSettingResult {
-            arc_resource_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arcResourceIds"),
-            ),
-            scale_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scaleUnits"),
-            ),
-            stack_hci_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackHciClusterId"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arc_resource_ids: o.get_field("arcResourceIds"),
+            scale_units: o.get_field("scaleUnits"),
+            stack_hci_cluster_id: o.get_field("stackHciClusterId"),
+            version: o.get_field("version"),
         }
     }
 }

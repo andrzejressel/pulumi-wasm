@@ -165,93 +165,73 @@ pub mod implicit_data_disk_from_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ImplicitDataDiskFromSourceArgs,
     ) -> ImplicitDataDiskFromSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let caching_binding_1 = args.caching.get_output(context);
-        let caching_binding = caching_binding_1.get_inner();
-        let create_option_binding_1 = args.create_option.get_output(context);
-        let create_option_binding = create_option_binding_1.get_inner();
-        let disk_size_gb_binding_1 = args.disk_size_gb.get_output(context);
-        let disk_size_gb_binding = disk_size_gb_binding_1.get_inner();
-        let lun_binding_1 = args.lun.get_output(context);
-        let lun_binding = lun_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
-        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
-        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
-        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
-        let write_accelerator_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let caching_binding = args.caching.get_output(context);
+        let create_option_binding = args.create_option.get_output(context);
+        let disk_size_gb_binding = args.disk_size_gb.get_output(context);
+        let lun_binding = args.lun.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let source_resource_id_binding = args.source_resource_id.get_output(context);
+        let virtual_machine_id_binding = args.virtual_machine_id.get_output(context);
+        let write_accelerator_enabled_binding = args
             .write_accelerator_enabled
             .get_output(context);
-        let write_accelerator_enabled_binding = write_accelerator_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caching".into(),
-                    value: &caching_binding,
+                    value: caching_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createOption".into(),
-                    value: &create_option_binding,
+                    value: create_option_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSizeGb".into(),
-                    value: &disk_size_gb_binding,
+                    value: disk_size_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lun".into(),
-                    value: &lun_binding,
+                    value: lun_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceResourceId".into(),
-                    value: &source_resource_id_binding,
+                    value: source_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: &virtual_machine_id_binding,
+                    value: virtual_machine_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeAcceleratorEnabled".into(),
-                    value: &write_accelerator_enabled_binding,
+                    value: write_accelerator_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ImplicitDataDiskFromSourceResult {
-            caching: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caching"),
-            ),
-            create_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createOption"),
-            ),
-            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSizeGb"),
-            ),
-            lun: pulumi_gestalt_rust::__private::into_domain(o.extract_field("lun")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceResourceId"),
-            ),
-            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineId"),
-            ),
-            write_accelerator_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writeAcceleratorEnabled"),
-            ),
+            caching: o.get_field("caching"),
+            create_option: o.get_field("createOption"),
+            disk_size_gb: o.get_field("diskSizeGb"),
+            lun: o.get_field("lun"),
+            name: o.get_field("name"),
+            source_resource_id: o.get_field("sourceResourceId"),
+            virtual_machine_id: o.get_field("virtualMachineId"),
+            write_accelerator_enabled: o.get_field("writeAcceleratorEnabled"),
         }
     }
 }

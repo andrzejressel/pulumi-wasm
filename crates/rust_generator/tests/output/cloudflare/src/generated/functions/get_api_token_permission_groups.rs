@@ -24,28 +24,25 @@ pub mod get_api_token_permission_groups {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
     ) -> GetApiTokenPermissionGroupsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "cloudflare:index/getApiTokenPermissionGroups:getApiTokenPermissionGroups"
                 .into(),
             version: super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApiTokenPermissionGroupsResult {
-            account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("account"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            r2: pulumi_gestalt_rust::__private::into_domain(o.extract_field("r2")),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            account: o.get_field("account"),
+            id: o.get_field("id"),
+            permissions: o.get_field("permissions"),
+            r2: o.get_field("r2"),
+            user: o.get_field("user"),
+            zone: o.get_field("zone"),
         }
     }
 }

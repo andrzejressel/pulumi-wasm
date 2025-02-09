@@ -442,91 +442,70 @@ pub mod feature_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FeatureMembershipArgs,
     ) -> FeatureMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configmanagement_binding_1 = args.configmanagement.get_output(context);
-        let configmanagement_binding = configmanagement_binding_1.get_inner();
-        let feature_binding_1 = args.feature.get_output(context);
-        let feature_binding = feature_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let membership_binding_1 = args.membership.get_output(context);
-        let membership_binding = membership_binding_1.get_inner();
-        let membership_location_binding_1 = args.membership_location.get_output(context);
-        let membership_location_binding = membership_location_binding_1.get_inner();
-        let mesh_binding_1 = args.mesh.get_output(context);
-        let mesh_binding = mesh_binding_1.get_inner();
-        let policycontroller_binding_1 = args.policycontroller.get_output(context);
-        let policycontroller_binding = policycontroller_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configmanagement_binding = args.configmanagement.get_output(context);
+        let feature_binding = args.feature.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let membership_binding = args.membership.get_output(context);
+        let membership_location_binding = args.membership_location.get_output(context);
+        let mesh_binding = args.mesh.get_output(context);
+        let policycontroller_binding = args.policycontroller.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:gkehub/featureMembership:FeatureMembership".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configmanagement".into(),
-                    value: &configmanagement_binding,
+                    value: configmanagement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feature".into(),
-                    value: &feature_binding,
+                    value: feature_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "membership".into(),
-                    value: &membership_binding,
+                    value: membership_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "membershipLocation".into(),
-                    value: &membership_location_binding,
+                    value: membership_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mesh".into(),
-                    value: &mesh_binding,
+                    value: mesh_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policycontroller".into(),
-                    value: &policycontroller_binding,
+                    value: policycontroller_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FeatureMembershipResult {
-            configmanagement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configmanagement"),
-            ),
-            feature: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("feature"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            membership: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("membership"),
-            ),
-            membership_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("membershipLocation"),
-            ),
-            mesh: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mesh")),
-            policycontroller: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policycontroller"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            configmanagement: o.get_field("configmanagement"),
+            feature: o.get_field("feature"),
+            location: o.get_field("location"),
+            membership: o.get_field("membership"),
+            membership_location: o.get_field("membershipLocation"),
+            mesh: o.get_field("mesh"),
+            policycontroller: o.get_field("policycontroller"),
+            project: o.get_field("project"),
         }
     }
 }

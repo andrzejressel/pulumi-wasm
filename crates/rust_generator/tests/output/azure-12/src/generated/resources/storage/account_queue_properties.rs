@@ -118,66 +118,52 @@ pub mod account_queue_properties {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountQueuePropertiesArgs,
     ) -> AccountQueuePropertiesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cors_rules_binding_1 = args.cors_rules.get_output(context);
-        let cors_rules_binding = cors_rules_binding_1.get_inner();
-        let hour_metrics_binding_1 = args.hour_metrics.get_output(context);
-        let hour_metrics_binding = hour_metrics_binding_1.get_inner();
-        let logging_binding_1 = args.logging.get_output(context);
-        let logging_binding = logging_binding_1.get_inner();
-        let minute_metrics_binding_1 = args.minute_metrics.get_output(context);
-        let minute_metrics_binding = minute_metrics_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cors_rules_binding = args.cors_rules.get_output(context);
+        let hour_metrics_binding = args.hour_metrics.get_output(context);
+        let logging_binding = args.logging.get_output(context);
+        let minute_metrics_binding = args.minute_metrics.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/accountQueueProperties:AccountQueueProperties".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsRules".into(),
-                    value: &cors_rules_binding,
+                    value: cors_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hourMetrics".into(),
-                    value: &hour_metrics_binding,
+                    value: hour_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logging".into(),
-                    value: &logging_binding,
+                    value: logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minuteMetrics".into(),
-                    value: &minute_metrics_binding,
+                    value: minute_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountQueuePropertiesResult {
-            cors_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("corsRules"),
-            ),
-            hour_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hourMetrics"),
-            ),
-            logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logging"),
-            ),
-            minute_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minuteMetrics"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
+            cors_rules: o.get_field("corsRules"),
+            hour_metrics: o.get_field("hourMetrics"),
+            logging: o.get_field("logging"),
+            minute_metrics: o.get_field("minuteMetrics"),
+            storage_account_id: o.get_field("storageAccountId"),
         }
     }
 }

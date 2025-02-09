@@ -138,89 +138,67 @@ pub mod membership_rbac_role_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MembershipRbacRoleBindingArgs,
     ) -> MembershipRbacRoleBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let membership_id_binding_1 = args.membership_id.get_output(context);
-        let membership_id_binding = membership_id_binding_1.get_inner();
-        let membership_rbac_role_binding_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let membership_id_binding = args.membership_id.get_output(context);
+        let membership_rbac_role_binding_id_binding = args
             .membership_rbac_role_binding_id
             .get_output(context);
-        let membership_rbac_role_binding_id_binding = membership_rbac_role_binding_id_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let user_binding_1 = args.user.get_output(context);
-        let user_binding = user_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let user_binding = args.user.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:gkehub/membershipRbacRoleBinding:MembershipRbacRoleBinding"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "membershipId".into(),
-                    value: &membership_id_binding,
+                    value: membership_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "membershipRbacRoleBindingId".into(),
-                    value: &membership_rbac_role_binding_id_binding,
+                    value: membership_rbac_role_binding_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: &user_binding,
+                    value: user_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MembershipRbacRoleBindingResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            membership_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("membershipId"),
-            ),
-            membership_rbac_role_binding_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("membershipRbacRoleBindingId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            states: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("states"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
+            create_time: o.get_field("createTime"),
+            delete_time: o.get_field("deleteTime"),
+            location: o.get_field("location"),
+            membership_id: o.get_field("membershipId"),
+            membership_rbac_role_binding_id: o.get_field("membershipRbacRoleBindingId"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            role: o.get_field("role"),
+            states: o.get_field("states"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            user: o.get_field("user"),
         }
     }
 }

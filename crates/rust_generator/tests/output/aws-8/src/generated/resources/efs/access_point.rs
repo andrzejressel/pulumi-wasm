@@ -77,65 +77,50 @@ pub mod access_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessPointArgs,
     ) -> AccessPointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let file_system_id_binding_1 = args.file_system_id.get_output(context);
-        let file_system_id_binding = file_system_id_binding_1.get_inner();
-        let posix_user_binding_1 = args.posix_user.get_output(context);
-        let posix_user_binding = posix_user_binding_1.get_inner();
-        let root_directory_binding_1 = args.root_directory.get_output(context);
-        let root_directory_binding = root_directory_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let file_system_id_binding = args.file_system_id.get_output(context);
+        let posix_user_binding = args.posix_user.get_output(context);
+        let root_directory_binding = args.root_directory.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:efs/accessPoint:AccessPoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: &file_system_id_binding,
+                    value: file_system_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "posixUser".into(),
-                    value: &posix_user_binding,
+                    value: posix_user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootDirectory".into(),
-                    value: &root_directory_binding,
+                    value: root_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessPointResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            file_system_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemArn"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            posix_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("posixUser"),
-            ),
-            root_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootDirectory"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            file_system_arn: o.get_field("fileSystemArn"),
+            file_system_id: o.get_field("fileSystemId"),
+            owner_id: o.get_field("ownerId"),
+            posix_user: o.get_field("posixUser"),
+            root_directory: o.get_field("rootDirectory"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

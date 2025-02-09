@@ -115,57 +115,46 @@ pub mod load_balancer_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LoadBalancerPolicyArgs,
     ) -> LoadBalancerPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let load_balancer_name_binding_1 = args.load_balancer_name.get_output(context);
-        let load_balancer_name_binding = load_balancer_name_binding_1.get_inner();
-        let policy_attributes_binding_1 = args.policy_attributes.get_output(context);
-        let policy_attributes_binding = policy_attributes_binding_1.get_inner();
-        let policy_name_binding_1 = args.policy_name.get_output(context);
-        let policy_name_binding = policy_name_binding_1.get_inner();
-        let policy_type_name_binding_1 = args.policy_type_name.get_output(context);
-        let policy_type_name_binding = policy_type_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let load_balancer_name_binding = args.load_balancer_name.get_output(context);
+        let policy_attributes_binding = args.policy_attributes.get_output(context);
+        let policy_name_binding = args.policy_name.get_output(context);
+        let policy_type_name_binding = args.policy_type_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elb/loadBalancerPolicy:LoadBalancerPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerName".into(),
-                    value: &load_balancer_name_binding,
+                    value: load_balancer_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyAttributes".into(),
-                    value: &policy_attributes_binding,
+                    value: policy_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyName".into(),
-                    value: &policy_name_binding,
+                    value: policy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyTypeName".into(),
-                    value: &policy_type_name_binding,
+                    value: policy_type_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LoadBalancerPolicyResult {
-            load_balancer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerName"),
-            ),
-            policy_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyAttributes"),
-            ),
-            policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyName"),
-            ),
-            policy_type_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyTypeName"),
-            ),
+            load_balancer_name: o.get_field("loadBalancerName"),
+            policy_attributes: o.get_field("policyAttributes"),
+            policy_name: o.get_field("policyName"),
+            policy_type_name: o.get_field("policyTypeName"),
         }
     }
 }

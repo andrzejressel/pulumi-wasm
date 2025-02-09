@@ -367,133 +367,96 @@ pub mod database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_integration_mode_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_engine_integration_mode_binding = args
             .app_engine_integration_mode
             .get_output(context);
-        let app_engine_integration_mode_binding = app_engine_integration_mode_binding_1
-            .get_inner();
-        let cmek_config_binding_1 = args.cmek_config.get_output(context);
-        let cmek_config_binding = cmek_config_binding_1.get_inner();
-        let concurrency_mode_binding_1 = args.concurrency_mode.get_output(context);
-        let concurrency_mode_binding = concurrency_mode_binding_1.get_inner();
-        let delete_protection_state_binding_1 = args
+        let cmek_config_binding = args.cmek_config.get_output(context);
+        let concurrency_mode_binding = args.concurrency_mode.get_output(context);
+        let delete_protection_state_binding = args
             .delete_protection_state
             .get_output(context);
-        let delete_protection_state_binding = delete_protection_state_binding_1
-            .get_inner();
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let location_id_binding_1 = args.location_id.get_output(context);
-        let location_id_binding = location_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let point_in_time_recovery_enablement_binding_1 = args
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let location_id_binding = args.location_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let point_in_time_recovery_enablement_binding = args
             .point_in_time_recovery_enablement
             .get_output(context);
-        let point_in_time_recovery_enablement_binding = point_in_time_recovery_enablement_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firestore/database:Database".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngineIntegrationMode".into(),
-                    value: &app_engine_integration_mode_binding,
+                    value: app_engine_integration_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cmekConfig".into(),
-                    value: &cmek_config_binding,
+                    value: cmek_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "concurrencyMode".into(),
-                    value: &concurrency_mode_binding,
+                    value: concurrency_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteProtectionState".into(),
-                    value: &delete_protection_state_binding,
+                    value: delete_protection_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationId".into(),
-                    value: &location_id_binding,
+                    value: location_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRecoveryEnablement".into(),
-                    value: &point_in_time_recovery_enablement_binding,
+                    value: point_in_time_recovery_enablement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatabaseResult {
-            app_engine_integration_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appEngineIntegrationMode"),
-            ),
-            cmek_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cmekConfig"),
-            ),
-            concurrency_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("concurrencyMode"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_protection_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteProtectionState"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            earliest_version_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("earliestVersionTime"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            key_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyPrefix"),
-            ),
-            location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_recovery_enablement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeRecoveryEnablement"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            version_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionRetentionPeriod"),
-            ),
+            app_engine_integration_mode: o.get_field("appEngineIntegrationMode"),
+            cmek_config: o.get_field("cmekConfig"),
+            concurrency_mode: o.get_field("concurrencyMode"),
+            create_time: o.get_field("createTime"),
+            delete_protection_state: o.get_field("deleteProtectionState"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            earliest_version_time: o.get_field("earliestVersionTime"),
+            etag: o.get_field("etag"),
+            key_prefix: o.get_field("keyPrefix"),
+            location_id: o.get_field("locationId"),
+            name: o.get_field("name"),
+            point_in_time_recovery_enablement: o
+                .get_field("pointInTimeRecoveryEnablement"),
+            project: o.get_field("project"),
+            type_: o.get_field("type"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            version_retention_period: o.get_field("versionRetentionPeriod"),
         }
     }
 }

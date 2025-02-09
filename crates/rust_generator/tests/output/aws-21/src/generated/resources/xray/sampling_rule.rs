@@ -123,138 +123,102 @@ pub mod sampling_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SamplingRuleArgs,
     ) -> SamplingRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding_1 = args.attributes.get_output(context);
-        let attributes_binding = attributes_binding_1.get_inner();
-        let fixed_rate_binding_1 = args.fixed_rate.get_output(context);
-        let fixed_rate_binding = fixed_rate_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let http_method_binding_1 = args.http_method.get_output(context);
-        let http_method_binding = http_method_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let reservoir_size_binding_1 = args.reservoir_size.get_output(context);
-        let reservoir_size_binding = reservoir_size_binding_1.get_inner();
-        let resource_arn_binding_1 = args.resource_arn.get_output(context);
-        let resource_arn_binding = resource_arn_binding_1.get_inner();
-        let rule_name_binding_1 = args.rule_name.get_output(context);
-        let rule_name_binding = rule_name_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let service_type_binding_1 = args.service_type.get_output(context);
-        let service_type_binding = service_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let url_path_binding_1 = args.url_path.get_output(context);
-        let url_path_binding = url_path_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attributes_binding = args.attributes.get_output(context);
+        let fixed_rate_binding = args.fixed_rate.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let http_method_binding = args.http_method.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let reservoir_size_binding = args.reservoir_size.get_output(context);
+        let resource_arn_binding = args.resource_arn.get_output(context);
+        let rule_name_binding = args.rule_name.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let service_type_binding = args.service_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let url_path_binding = args.url_path.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:xray/samplingRule:SamplingRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: &attributes_binding,
+                    value: attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fixedRate".into(),
-                    value: &fixed_rate_binding,
+                    value: fixed_rate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpMethod".into(),
-                    value: &http_method_binding,
+                    value: http_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservoirSize".into(),
-                    value: &reservoir_size_binding,
+                    value: reservoir_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: &resource_arn_binding,
+                    value: resource_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: &rule_name_binding,
+                    value: rule_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceType".into(),
-                    value: &service_type_binding,
+                    value: service_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlPath".into(),
-                    value: &url_path_binding,
+                    value: url_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SamplingRuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            fixed_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fixedRate"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            http_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpMethod"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            reservoir_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservoirSize"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
-            rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleName"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            service_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("urlPath"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arn: o.get_field("arn"),
+            attributes: o.get_field("attributes"),
+            fixed_rate: o.get_field("fixedRate"),
+            host: o.get_field("host"),
+            http_method: o.get_field("httpMethod"),
+            priority: o.get_field("priority"),
+            reservoir_size: o.get_field("reservoirSize"),
+            resource_arn: o.get_field("resourceArn"),
+            rule_name: o.get_field("ruleName"),
+            service_name: o.get_field("serviceName"),
+            service_type: o.get_field("serviceType"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url_path: o.get_field("urlPath"),
+            version: o.get_field("version"),
         }
     }
 }

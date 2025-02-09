@@ -262,66 +262,54 @@ pub mod namespace_customer_managed_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NamespaceCustomerManagedKeyArgs,
     ) -> NamespaceCustomerManagedKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let eventhub_namespace_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let eventhub_namespace_id_binding = args
             .eventhub_namespace_id
             .get_output(context);
-        let eventhub_namespace_id_binding = eventhub_namespace_id_binding_1.get_inner();
-        let infrastructure_encryption_enabled_binding_1 = args
+        let infrastructure_encryption_enabled_binding = args
             .infrastructure_encryption_enabled
             .get_output(context);
-        let infrastructure_encryption_enabled_binding = infrastructure_encryption_enabled_binding_1
-            .get_inner();
-        let key_vault_key_ids_binding_1 = args.key_vault_key_ids.get_output(context);
-        let key_vault_key_ids_binding = key_vault_key_ids_binding_1.get_inner();
-        let user_assigned_identity_id_binding_1 = args
+        let key_vault_key_ids_binding = args.key_vault_key_ids.get_output(context);
+        let user_assigned_identity_id_binding = args
             .user_assigned_identity_id
             .get_output(context);
-        let user_assigned_identity_id_binding = user_assigned_identity_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubNamespaceId".into(),
-                    value: &eventhub_namespace_id_binding,
+                    value: eventhub_namespace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureEncryptionEnabled".into(),
-                    value: &infrastructure_encryption_enabled_binding,
+                    value: infrastructure_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyIds".into(),
-                    value: &key_vault_key_ids_binding,
+                    value: key_vault_key_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAssignedIdentityId".into(),
-                    value: &user_assigned_identity_id_binding,
+                    value: user_assigned_identity_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NamespaceCustomerManagedKeyResult {
-            eventhub_namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubNamespaceId"),
-            ),
-            infrastructure_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureEncryptionEnabled"),
-            ),
-            key_vault_key_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyIds"),
-            ),
-            user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userAssignedIdentityId"),
-            ),
+            eventhub_namespace_id: o.get_field("eventhubNamespaceId"),
+            infrastructure_encryption_enabled: o
+                .get_field("infrastructureEncryptionEnabled"),
+            key_vault_key_ids: o.get_field("keyVaultKeyIds"),
+            user_assigned_identity_id: o.get_field("userAssignedIdentityId"),
         }
     }
 }

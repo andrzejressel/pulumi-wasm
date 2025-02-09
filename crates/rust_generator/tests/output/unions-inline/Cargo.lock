@@ -514,14 +514,33 @@ version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "bon",
+ "pulumi_gestalt_rust_adapter",
+ "pulumi_gestalt_rust_adapter_wasm",
+ "pulumi_gestalt_wit",
+ "serde",
+ "serde_json",
+ "wit-bindgen 0.39.0",
+]
+
+[[package]]
+name = "pulumi_gestalt_rust_adapter"
+version = "0.0.0-DEV"
+dependencies = [
+ "serde",
+]
+
+[[package]]
+name = "pulumi_gestalt_rust_adapter_wasm"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
  "log",
- "once_cell",
+ "pulumi_gestalt_rust_adapter",
  "pulumi_gestalt_rust_common",
  "pulumi_gestalt_wit",
  "serde",
  "serde_json",
  "uuid",
- "wit-bindgen 0.39.0",
 ]
 
 [[package]]

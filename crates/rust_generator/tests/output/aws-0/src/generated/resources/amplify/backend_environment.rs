@@ -67,60 +67,47 @@ pub mod backend_environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackendEnvironmentArgs,
     ) -> BackendEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding_1 = args.app_id.get_output(context);
-        let app_id_binding = app_id_binding_1.get_inner();
-        let deployment_artifacts_binding_1 = args
-            .deployment_artifacts
-            .get_output(context);
-        let deployment_artifacts_binding = deployment_artifacts_binding_1.get_inner();
-        let environment_name_binding_1 = args.environment_name.get_output(context);
-        let environment_name_binding = environment_name_binding_1.get_inner();
-        let stack_name_binding_1 = args.stack_name.get_output(context);
-        let stack_name_binding = stack_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_id_binding = args.app_id.get_output(context);
+        let deployment_artifacts_binding = args.deployment_artifacts.get_output(context);
+        let environment_name_binding = args.environment_name.get_output(context);
+        let stack_name_binding = args.stack_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:amplify/backendEnvironment:BackendEnvironment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: &app_id_binding,
+                    value: app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentArtifacts".into(),
-                    value: &deployment_artifacts_binding,
+                    value: deployment_artifacts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentName".into(),
-                    value: &environment_name_binding,
+                    value: environment_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackName".into(),
-                    value: &stack_name_binding,
+                    value: stack_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackendEnvironmentResult {
-            app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            deployment_artifacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentArtifacts"),
-            ),
-            environment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentName"),
-            ),
-            stack_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackName"),
-            ),
+            app_id: o.get_field("appId"),
+            arn: o.get_field("arn"),
+            deployment_artifacts: o.get_field("deploymentArtifacts"),
+            environment_name: o.get_field("environmentName"),
+            stack_name: o.get_field("stackName"),
         }
     }
 }

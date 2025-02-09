@@ -155,80 +155,64 @@ pub mod list_item {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ListItemArgs,
     ) -> ListItemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let asn_binding_1 = args.asn.get_output(context);
-        let asn_binding = asn_binding_1.get_inner();
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let ip_binding_1 = args.ip.get_output(context);
-        let ip_binding = ip_binding_1.get_inner();
-        let list_id_binding_1 = args.list_id.get_output(context);
-        let list_id_binding = list_id_binding_1.get_inner();
-        let redirect_binding_1 = args.redirect.get_output(context);
-        let redirect_binding = redirect_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let asn_binding = args.asn.get_output(context);
+        let comment_binding = args.comment.get_output(context);
+        let hostname_binding = args.hostname.get_output(context);
+        let ip_binding = args.ip.get_output(context);
+        let list_id_binding = args.list_id.get_output(context);
+        let redirect_binding = args.redirect.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/listItem:ListItem".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "asn".into(),
-                    value: &asn_binding,
+                    value: asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ip".into(),
-                    value: &ip_binding,
+                    value: ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listId".into(),
-                    value: &list_id_binding,
+                    value: list_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirect".into(),
-                    value: &redirect_binding,
+                    value: redirect_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ListItemResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            asn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("asn")),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            ip: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ip")),
-            list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listId"),
-            ),
-            redirect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redirect"),
-            ),
+            account_id: o.get_field("accountId"),
+            asn: o.get_field("asn"),
+            comment: o.get_field("comment"),
+            hostname: o.get_field("hostname"),
+            ip: o.get_field("ip"),
+            list_id: o.get_field("listId"),
+            redirect: o.get_field("redirect"),
         }
     }
 }

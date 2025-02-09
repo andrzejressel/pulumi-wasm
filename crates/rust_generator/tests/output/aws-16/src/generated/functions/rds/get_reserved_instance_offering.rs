@@ -41,75 +41,55 @@ pub mod get_reserved_instance_offering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReservedInstanceOfferingArgs,
     ) -> GetReservedInstanceOfferingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_instance_class_binding_1 = args.db_instance_class.get_output(context);
-        let db_instance_class_binding = db_instance_class_binding_1.get_inner();
-        let duration_binding_1 = args.duration.get_output(context);
-        let duration_binding = duration_binding_1.get_inner();
-        let multi_az_binding_1 = args.multi_az.get_output(context);
-        let multi_az_binding = multi_az_binding_1.get_inner();
-        let offering_type_binding_1 = args.offering_type.get_output(context);
-        let offering_type_binding = offering_type_binding_1.get_inner();
-        let product_description_binding_1 = args.product_description.get_output(context);
-        let product_description_binding = product_description_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let db_instance_class_binding = args.db_instance_class.get_output(context);
+        let duration_binding = args.duration.get_output(context);
+        let multi_az_binding = args.multi_az.get_output(context);
+        let offering_type_binding = args.offering_type.get_output(context);
+        let product_description_binding = args.product_description.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:rds/getReservedInstanceOffering:getReservedInstanceOffering"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceClass".into(),
-                    value: &db_instance_class_binding,
+                    value: db_instance_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: &duration_binding,
+                    value: duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiAz".into(),
-                    value: &multi_az_binding,
+                    value: multi_az_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offeringType".into(),
-                    value: &offering_type_binding,
+                    value: offering_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productDescription".into(),
-                    value: &product_description_binding,
+                    value: product_description_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReservedInstanceOfferingResult {
-            currency_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currencyCode"),
-            ),
-            db_instance_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstanceClass"),
-            ),
-            duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duration"),
-            ),
-            fixed_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fixedPrice"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            multi_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAz"),
-            ),
-            offering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("offeringId"),
-            ),
-            offering_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("offeringType"),
-            ),
-            product_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productDescription"),
-            ),
+            currency_code: o.get_field("currencyCode"),
+            db_instance_class: o.get_field("dbInstanceClass"),
+            duration: o.get_field("duration"),
+            fixed_price: o.get_field("fixedPrice"),
+            id: o.get_field("id"),
+            multi_az: o.get_field("multiAz"),
+            offering_id: o.get_field("offeringId"),
+            offering_type: o.get_field("offeringType"),
+            product_description: o.get_field("productDescription"),
         }
     }
 }

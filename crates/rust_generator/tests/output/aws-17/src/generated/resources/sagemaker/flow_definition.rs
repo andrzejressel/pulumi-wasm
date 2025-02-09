@@ -215,94 +215,70 @@ pub mod flow_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FlowDefinitionArgs,
     ) -> FlowDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let flow_definition_name_binding_1 = args
-            .flow_definition_name
-            .get_output(context);
-        let flow_definition_name_binding = flow_definition_name_binding_1.get_inner();
-        let human_loop_activation_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let flow_definition_name_binding = args.flow_definition_name.get_output(context);
+        let human_loop_activation_config_binding = args
             .human_loop_activation_config
             .get_output(context);
-        let human_loop_activation_config_binding = human_loop_activation_config_binding_1
-            .get_inner();
-        let human_loop_config_binding_1 = args.human_loop_config.get_output(context);
-        let human_loop_config_binding = human_loop_config_binding_1.get_inner();
-        let human_loop_request_source_binding_1 = args
+        let human_loop_config_binding = args.human_loop_config.get_output(context);
+        let human_loop_request_source_binding = args
             .human_loop_request_source
             .get_output(context);
-        let human_loop_request_source_binding = human_loop_request_source_binding_1
-            .get_inner();
-        let output_config_binding_1 = args.output_config.get_output(context);
-        let output_config_binding = output_config_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let output_config_binding = args.output_config.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/flowDefinition:FlowDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flowDefinitionName".into(),
-                    value: &flow_definition_name_binding,
+                    value: flow_definition_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "humanLoopActivationConfig".into(),
-                    value: &human_loop_activation_config_binding,
+                    value: human_loop_activation_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "humanLoopConfig".into(),
-                    value: &human_loop_config_binding,
+                    value: human_loop_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "humanLoopRequestSource".into(),
-                    value: &human_loop_request_source_binding,
+                    value: human_loop_request_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputConfig".into(),
-                    value: &output_config_binding,
+                    value: output_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FlowDefinitionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            flow_definition_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("flowDefinitionName"),
-            ),
-            human_loop_activation_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("humanLoopActivationConfig"),
-            ),
-            human_loop_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("humanLoopConfig"),
-            ),
-            human_loop_request_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("humanLoopRequestSource"),
-            ),
-            output_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputConfig"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            flow_definition_name: o.get_field("flowDefinitionName"),
+            human_loop_activation_config: o.get_field("humanLoopActivationConfig"),
+            human_loop_config: o.get_field("humanLoopConfig"),
+            human_loop_request_source: o.get_field("humanLoopRequestSource"),
+            output_config: o.get_field("outputConfig"),
+            role_arn: o.get_field("roleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

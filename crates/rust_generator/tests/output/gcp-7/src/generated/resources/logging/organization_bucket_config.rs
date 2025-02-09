@@ -106,89 +106,67 @@ pub mod organization_bucket_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationBucketConfigArgs,
     ) -> OrganizationBucketConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_id_binding_1 = args.bucket_id.get_output(context);
-        let bucket_id_binding = bucket_id_binding_1.get_inner();
-        let cmek_settings_binding_1 = args.cmek_settings.get_output(context);
-        let cmek_settings_binding = cmek_settings_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let index_configs_binding_1 = args.index_configs.get_output(context);
-        let index_configs_binding = index_configs_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let organization_binding_1 = args.organization.get_output(context);
-        let organization_binding = organization_binding_1.get_inner();
-        let retention_days_binding_1 = args.retention_days.get_output(context);
-        let retention_days_binding = retention_days_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_id_binding = args.bucket_id.get_output(context);
+        let cmek_settings_binding = args.cmek_settings.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let index_configs_binding = args.index_configs.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let organization_binding = args.organization.get_output(context);
+        let retention_days_binding = args.retention_days.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:logging/organizationBucketConfig:OrganizationBucketConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketId".into(),
-                    value: &bucket_id_binding,
+                    value: bucket_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cmekSettings".into(),
-                    value: &cmek_settings_binding,
+                    value: cmek_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexConfigs".into(),
-                    value: &index_configs_binding,
+                    value: index_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: &organization_binding,
+                    value: organization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDays".into(),
-                    value: &retention_days_binding,
+                    value: retention_days_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationBucketConfigResult {
-            bucket_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketId"),
-            ),
-            cmek_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cmekSettings"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            index_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexConfigs"),
-            ),
-            lifecycle_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleState"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organization"),
-            ),
-            retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionDays"),
-            ),
+            bucket_id: o.get_field("bucketId"),
+            cmek_settings: o.get_field("cmekSettings"),
+            description: o.get_field("description"),
+            index_configs: o.get_field("indexConfigs"),
+            lifecycle_state: o.get_field("lifecycleState"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            organization: o.get_field("organization"),
+            retention_days: o.get_field("retentionDays"),
         }
     }
 }

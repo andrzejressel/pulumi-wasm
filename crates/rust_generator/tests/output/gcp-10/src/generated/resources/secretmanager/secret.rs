@@ -271,131 +271,93 @@ pub mod secret {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecretArgs,
     ) -> SecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let expire_time_binding_1 = args.expire_time.get_output(context);
-        let expire_time_binding = expire_time_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let replication_binding_1 = args.replication.get_output(context);
-        let replication_binding = replication_binding_1.get_inner();
-        let rotation_binding_1 = args.rotation.get_output(context);
-        let rotation_binding = rotation_binding_1.get_inner();
-        let secret_id_binding_1 = args.secret_id.get_output(context);
-        let secret_id_binding = secret_id_binding_1.get_inner();
-        let topics_binding_1 = args.topics.get_output(context);
-        let topics_binding = topics_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let version_aliases_binding_1 = args.version_aliases.get_output(context);
-        let version_aliases_binding = version_aliases_binding_1.get_inner();
-        let version_destroy_ttl_binding_1 = args.version_destroy_ttl.get_output(context);
-        let version_destroy_ttl_binding = version_destroy_ttl_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let expire_time_binding = args.expire_time.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let replication_binding = args.replication.get_output(context);
+        let rotation_binding = args.rotation.get_output(context);
+        let secret_id_binding = args.secret_id.get_output(context);
+        let topics_binding = args.topics.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let version_aliases_binding = args.version_aliases.get_output(context);
+        let version_destroy_ttl_binding = args.version_destroy_ttl.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:secretmanager/secret:Secret".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expireTime".into(),
-                    value: &expire_time_binding,
+                    value: expire_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replication".into(),
-                    value: &replication_binding,
+                    value: replication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotation".into(),
-                    value: &rotation_binding,
+                    value: rotation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: &secret_id_binding,
+                    value: secret_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topics".into(),
-                    value: &topics_binding,
+                    value: topics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionAliases".into(),
-                    value: &version_aliases_binding,
+                    value: version_aliases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionDestroyTtl".into(),
-                    value: &version_destroy_ttl_binding,
+                    value: version_destroy_ttl_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecretResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            expire_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireTime"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            replication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replication"),
-            ),
-            rotation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rotation"),
-            ),
-            secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretId"),
-            ),
-            topics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topics"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
-            version_aliases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionAliases"),
-            ),
-            version_destroy_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionDestroyTtl"),
-            ),
+            annotations: o.get_field("annotations"),
+            create_time: o.get_field("createTime"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            expire_time: o.get_field("expireTime"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            replication: o.get_field("replication"),
+            rotation: o.get_field("rotation"),
+            secret_id: o.get_field("secretId"),
+            topics: o.get_field("topics"),
+            ttl: o.get_field("ttl"),
+            version_aliases: o.get_field("versionAliases"),
+            version_destroy_ttl: o.get_field("versionDestroyTtl"),
         }
     }
 }

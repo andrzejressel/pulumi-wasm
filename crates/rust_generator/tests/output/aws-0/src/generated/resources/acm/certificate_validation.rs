@@ -66,42 +66,36 @@ pub mod certificate_validation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateValidationArgs,
     ) -> CertificateValidationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
-        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
-        let validation_record_fqdns_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_arn_binding = args.certificate_arn.get_output(context);
+        let validation_record_fqdns_binding = args
             .validation_record_fqdns
             .get_output(context);
-        let validation_record_fqdns_binding = validation_record_fqdns_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:acm/certificateValidation:CertificateValidation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: &certificate_arn_binding,
+                    value: certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationRecordFqdns".into(),
-                    value: &validation_record_fqdns_binding,
+                    value: validation_record_fqdns_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateValidationResult {
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            validation_record_fqdns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationRecordFqdns"),
-            ),
+            certificate_arn: o.get_field("certificateArn"),
+            validation_record_fqdns: o.get_field("validationRecordFqdns"),
         }
     }
 }

@@ -120,114 +120,86 @@ pub mod source_control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SourceControlArgs,
     ) -> SourceControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_sync_binding_1 = args.automatic_sync.get_output(context);
-        let automatic_sync_binding = automatic_sync_binding_1.get_inner();
-        let automation_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automatic_sync_binding = args.automatic_sync.get_output(context);
+        let automation_account_id_binding = args
             .automation_account_id
             .get_output(context);
-        let automation_account_id_binding = automation_account_id_binding_1.get_inner();
-        let branch_binding_1 = args.branch.get_output(context);
-        let branch_binding = branch_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let folder_path_binding_1 = args.folder_path.get_output(context);
-        let folder_path_binding = folder_path_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let publish_runbook_enabled_binding_1 = args
+        let branch_binding = args.branch.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let folder_path_binding = args.folder_path.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let publish_runbook_enabled_binding = args
             .publish_runbook_enabled
             .get_output(context);
-        let publish_runbook_enabled_binding = publish_runbook_enabled_binding_1
-            .get_inner();
-        let repository_url_binding_1 = args.repository_url.get_output(context);
-        let repository_url_binding = repository_url_binding_1.get_inner();
-        let security_binding_1 = args.security.get_output(context);
-        let security_binding = security_binding_1.get_inner();
-        let source_control_type_binding_1 = args.source_control_type.get_output(context);
-        let source_control_type_binding = source_control_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let repository_url_binding = args.repository_url.get_output(context);
+        let security_binding = args.security.get_output(context);
+        let source_control_type_binding = args.source_control_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automation/sourceControl:SourceControl".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticSync".into(),
-                    value: &automatic_sync_binding,
+                    value: automatic_sync_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountId".into(),
-                    value: &automation_account_id_binding,
+                    value: automation_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branch".into(),
-                    value: &branch_binding,
+                    value: branch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderPath".into(),
-                    value: &folder_path_binding,
+                    value: folder_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publishRunbookEnabled".into(),
-                    value: &publish_runbook_enabled_binding,
+                    value: publish_runbook_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryUrl".into(),
-                    value: &repository_url_binding,
+                    value: repository_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "security".into(),
-                    value: &security_binding,
+                    value: security_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceControlType".into(),
-                    value: &source_control_type_binding,
+                    value: source_control_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SourceControlResult {
-            automatic_sync: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticSync"),
-            ),
-            automation_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountId"),
-            ),
-            branch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("branch"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            folder_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folderPath"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            publish_runbook_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publishRunbookEnabled"),
-            ),
-            repository_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryUrl"),
-            ),
-            security: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("security"),
-            ),
-            source_control_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceControlType"),
-            ),
+            automatic_sync: o.get_field("automaticSync"),
+            automation_account_id: o.get_field("automationAccountId"),
+            branch: o.get_field("branch"),
+            description: o.get_field("description"),
+            folder_path: o.get_field("folderPath"),
+            name: o.get_field("name"),
+            publish_runbook_enabled: o.get_field("publishRunbookEnabled"),
+            repository_url: o.get_field("repositoryUrl"),
+            security: o.get_field("security"),
+            source_control_type: o.get_field("sourceControlType"),
         }
     }
 }

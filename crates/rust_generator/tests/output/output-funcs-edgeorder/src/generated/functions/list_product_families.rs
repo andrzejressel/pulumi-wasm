@@ -38,52 +38,46 @@ pub mod list_product_families {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: ListProductFamiliesArgs,
     ) -> ListProductFamiliesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_subscription_details_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let customer_subscription_details_binding = args
             .customer_subscription_details
             .get_output(context);
-        let customer_subscription_details_binding = customer_subscription_details_binding_1
-            .get_inner();
-        let expand_binding_1 = args.expand.get_output(context);
-        let expand_binding = expand_binding_1.get_inner();
-        let filterable_properties_binding_1 = args
+        let expand_binding = args.expand.get_output(context);
+        let filterable_properties_binding = args
             .filterable_properties
             .get_output(context);
-        let filterable_properties_binding = filterable_properties_binding_1.get_inner();
-        let skip_token_binding_1 = args.skip_token.get_output(context);
-        let skip_token_binding = skip_token_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let skip_token_binding = args.skip_token.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "myedgeorder::listProductFamilies".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerSubscriptionDetails".into(),
-                    value: &customer_subscription_details_binding,
+                    value: customer_subscription_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expand".into(),
-                    value: &expand_binding,
+                    value: expand_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterableProperties".into(),
-                    value: &filterable_properties_binding,
+                    value: filterable_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipToken".into(),
-                    value: &skip_token_binding,
+                    value: skip_token_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         ListProductFamiliesResult {
-            next_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextLink"),
-            ),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            next_link: o.get_field("nextLink"),
+            value: o.get_field("value"),
         }
     }
 }

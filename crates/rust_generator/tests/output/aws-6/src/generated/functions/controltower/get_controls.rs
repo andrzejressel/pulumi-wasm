@@ -21,32 +21,28 @@ pub mod get_controls {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetControlsArgs,
     ) -> GetControlsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let target_identifier_binding_1 = args.target_identifier.get_output(context);
-        let target_identifier_binding = target_identifier_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let target_identifier_binding = args.target_identifier.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:controltower/getControls:getControls".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetIdentifier".into(),
-                    value: &target_identifier_binding,
+                    value: target_identifier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetControlsResult {
-            enabled_controls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledControls"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            target_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetIdentifier"),
-            ),
+            enabled_controls: o.get_field("enabledControls"),
+            id: o.get_field("id"),
+            target_identifier: o.get_field("targetIdentifier"),
         }
     }
 }

@@ -100,102 +100,74 @@ pub mod member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MemberArgs,
     ) -> MemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let email_binding_1 = args.email.get_output(context);
-        let email_binding = email_binding_1.get_inner();
-        let invitation_disable_email_notification_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let email_binding = args.email.get_output(context);
+        let invitation_disable_email_notification_binding = args
             .invitation_disable_email_notification
             .get_output(context);
-        let invitation_disable_email_notification_binding = invitation_disable_email_notification_binding_1
-            .get_inner();
-        let invitation_message_binding_1 = args.invitation_message.get_output(context);
-        let invitation_message_binding = invitation_message_binding_1.get_inner();
-        let invite_binding_1 = args.invite.get_output(context);
-        let invite_binding = invite_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let invitation_message_binding = args.invitation_message.get_output(context);
+        let invite_binding = args.invite.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:macie2/member:Member".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: &email_binding,
+                    value: email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invitationDisableEmailNotification".into(),
-                    value: &invitation_disable_email_notification_binding,
+                    value: invitation_disable_email_notification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invitationMessage".into(),
-                    value: &invitation_message_binding,
+                    value: invitation_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invite".into(),
-                    value: &invite_binding,
+                    value: invite_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MemberResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            administrator_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorAccountId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            invitation_disable_email_notification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invitationDisableEmailNotification"),
-            ),
-            invitation_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invitationMessage"),
-            ),
-            invite: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invite"),
-            ),
-            invited_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invitedAt"),
-            ),
-            master_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterAccountId"),
-            ),
-            relationship_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relationshipStatus"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
+            account_id: o.get_field("accountId"),
+            administrator_account_id: o.get_field("administratorAccountId"),
+            arn: o.get_field("arn"),
+            email: o.get_field("email"),
+            invitation_disable_email_notification: o
+                .get_field("invitationDisableEmailNotification"),
+            invitation_message: o.get_field("invitationMessage"),
+            invite: o.get_field("invite"),
+            invited_at: o.get_field("invitedAt"),
+            master_account_id: o.get_field("masterAccountId"),
+            relationship_status: o.get_field("relationshipStatus"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            updated_at: o.get_field("updatedAt"),
         }
     }
 }

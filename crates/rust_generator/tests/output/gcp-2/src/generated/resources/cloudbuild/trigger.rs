@@ -892,234 +892,166 @@ pub mod trigger {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TriggerArgs,
     ) -> TriggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let approval_config_binding_1 = args.approval_config.get_output(context);
-        let approval_config_binding = approval_config_binding_1.get_inner();
-        let bitbucket_server_trigger_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let approval_config_binding = args.approval_config.get_output(context);
+        let bitbucket_server_trigger_config_binding = args
             .bitbucket_server_trigger_config
             .get_output(context);
-        let bitbucket_server_trigger_config_binding = bitbucket_server_trigger_config_binding_1
-            .get_inner();
-        let build_binding_1 = args.build.get_output(context);
-        let build_binding = build_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let filename_binding_1 = args.filename.get_output(context);
-        let filename_binding = filename_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let git_file_source_binding_1 = args.git_file_source.get_output(context);
-        let git_file_source_binding = git_file_source_binding_1.get_inner();
-        let github_binding_1 = args.github.get_output(context);
-        let github_binding = github_binding_1.get_inner();
-        let ignored_files_binding_1 = args.ignored_files.get_output(context);
-        let ignored_files_binding = ignored_files_binding_1.get_inner();
-        let include_build_logs_binding_1 = args.include_build_logs.get_output(context);
-        let include_build_logs_binding = include_build_logs_binding_1.get_inner();
-        let included_files_binding_1 = args.included_files.get_output(context);
-        let included_files_binding = included_files_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let pubsub_config_binding_1 = args.pubsub_config.get_output(context);
-        let pubsub_config_binding = pubsub_config_binding_1.get_inner();
-        let repository_event_config_binding_1 = args
+        let build_binding = args.build.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let filename_binding = args.filename.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let git_file_source_binding = args.git_file_source.get_output(context);
+        let github_binding = args.github.get_output(context);
+        let ignored_files_binding = args.ignored_files.get_output(context);
+        let include_build_logs_binding = args.include_build_logs.get_output(context);
+        let included_files_binding = args.included_files.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let pubsub_config_binding = args.pubsub_config.get_output(context);
+        let repository_event_config_binding = args
             .repository_event_config
             .get_output(context);
-        let repository_event_config_binding = repository_event_config_binding_1
-            .get_inner();
-        let service_account_binding_1 = args.service_account.get_output(context);
-        let service_account_binding = service_account_binding_1.get_inner();
-        let source_to_build_binding_1 = args.source_to_build.get_output(context);
-        let source_to_build_binding = source_to_build_binding_1.get_inner();
-        let substitutions_binding_1 = args.substitutions.get_output(context);
-        let substitutions_binding = substitutions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let trigger_template_binding_1 = args.trigger_template.get_output(context);
-        let trigger_template_binding = trigger_template_binding_1.get_inner();
-        let webhook_config_binding_1 = args.webhook_config.get_output(context);
-        let webhook_config_binding = webhook_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let service_account_binding = args.service_account.get_output(context);
+        let source_to_build_binding = args.source_to_build.get_output(context);
+        let substitutions_binding = args.substitutions.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let trigger_template_binding = args.trigger_template.get_output(context);
+        let webhook_config_binding = args.webhook_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudbuild/trigger:Trigger".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalConfig".into(),
-                    value: &approval_config_binding,
+                    value: approval_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bitbucketServerTriggerConfig".into(),
-                    value: &bitbucket_server_trigger_config_binding,
+                    value: bitbucket_server_trigger_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "build".into(),
-                    value: &build_binding,
+                    value: build_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filename".into(),
-                    value: &filename_binding,
+                    value: filename_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitFileSource".into(),
-                    value: &git_file_source_binding,
+                    value: git_file_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "github".into(),
-                    value: &github_binding,
+                    value: github_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoredFiles".into(),
-                    value: &ignored_files_binding,
+                    value: ignored_files_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeBuildLogs".into(),
-                    value: &include_build_logs_binding,
+                    value: include_build_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includedFiles".into(),
-                    value: &included_files_binding,
+                    value: included_files_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pubsubConfig".into(),
-                    value: &pubsub_config_binding,
+                    value: pubsub_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryEventConfig".into(),
-                    value: &repository_event_config_binding,
+                    value: repository_event_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccount".into(),
-                    value: &service_account_binding,
+                    value: service_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceToBuild".into(),
-                    value: &source_to_build_binding,
+                    value: source_to_build_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "substitutions".into(),
-                    value: &substitutions_binding,
+                    value: substitutions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerTemplate".into(),
-                    value: &trigger_template_binding,
+                    value: trigger_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhookConfig".into(),
-                    value: &webhook_config_binding,
+                    value: webhook_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TriggerResult {
-            approval_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalConfig"),
-            ),
-            bitbucket_server_trigger_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bitbucketServerTriggerConfig"),
-            ),
-            build: pulumi_gestalt_rust::__private::into_domain(o.extract_field("build")),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            filename: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filename"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            git_file_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gitFileSource"),
-            ),
-            github: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("github"),
-            ),
-            ignored_files: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoredFiles"),
-            ),
-            include_build_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeBuildLogs"),
-            ),
-            included_files: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includedFiles"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pubsub_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pubsubConfig"),
-            ),
-            repository_event_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryEventConfig"),
-            ),
-            service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccount"),
-            ),
-            source_to_build: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceToBuild"),
-            ),
-            substitutions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("substitutions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            trigger_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerId"),
-            ),
-            trigger_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerTemplate"),
-            ),
-            webhook_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webhookConfig"),
-            ),
+            approval_config: o.get_field("approvalConfig"),
+            bitbucket_server_trigger_config: o.get_field("bitbucketServerTriggerConfig"),
+            build: o.get_field("build"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            disabled: o.get_field("disabled"),
+            filename: o.get_field("filename"),
+            filter: o.get_field("filter"),
+            git_file_source: o.get_field("gitFileSource"),
+            github: o.get_field("github"),
+            ignored_files: o.get_field("ignoredFiles"),
+            include_build_logs: o.get_field("includeBuildLogs"),
+            included_files: o.get_field("includedFiles"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pubsub_config: o.get_field("pubsubConfig"),
+            repository_event_config: o.get_field("repositoryEventConfig"),
+            service_account: o.get_field("serviceAccount"),
+            source_to_build: o.get_field("sourceToBuild"),
+            substitutions: o.get_field("substitutions"),
+            tags: o.get_field("tags"),
+            trigger_id: o.get_field("triggerId"),
+            trigger_template: o.get_field("triggerTemplate"),
+            webhook_config: o.get_field("webhookConfig"),
         }
     }
 }

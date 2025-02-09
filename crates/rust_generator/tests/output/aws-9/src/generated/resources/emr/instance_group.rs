@@ -131,106 +131,78 @@ pub mod instance_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceGroupArgs,
     ) -> InstanceGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_policy_binding_1 = args.autoscaling_policy.get_output(context);
-        let autoscaling_policy_binding = autoscaling_policy_binding_1.get_inner();
-        let bid_price_binding_1 = args.bid_price.get_output(context);
-        let bid_price_binding = bid_price_binding_1.get_inner();
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let configurations_json_binding_1 = args.configurations_json.get_output(context);
-        let configurations_json_binding = configurations_json_binding_1.get_inner();
-        let ebs_configs_binding_1 = args.ebs_configs.get_output(context);
-        let ebs_configs_binding = ebs_configs_binding_1.get_inner();
-        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
-        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
-        let instance_count_binding_1 = args.instance_count.get_output(context);
-        let instance_count_binding = instance_count_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_policy_binding = args.autoscaling_policy.get_output(context);
+        let bid_price_binding = args.bid_price.get_output(context);
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let configurations_json_binding = args.configurations_json.get_output(context);
+        let ebs_configs_binding = args.ebs_configs.get_output(context);
+        let ebs_optimized_binding = args.ebs_optimized.get_output(context);
+        let instance_count_binding = args.instance_count.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:emr/instanceGroup:InstanceGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingPolicy".into(),
-                    value: &autoscaling_policy_binding,
+                    value: autoscaling_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bidPrice".into(),
-                    value: &bid_price_binding,
+                    value: bid_price_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationsJson".into(),
-                    value: &configurations_json_binding,
+                    value: configurations_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsConfigs".into(),
-                    value: &ebs_configs_binding,
+                    value: ebs_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsOptimized".into(),
-                    value: &ebs_optimized_binding,
+                    value: ebs_optimized_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: &instance_count_binding,
+                    value: instance_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceGroupResult {
-            autoscaling_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingPolicy"),
-            ),
-            bid_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bidPrice"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            configurations_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationsJson"),
-            ),
-            ebs_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsConfigs"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            running_instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runningInstanceCount"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            autoscaling_policy: o.get_field("autoscalingPolicy"),
+            bid_price: o.get_field("bidPrice"),
+            cluster_id: o.get_field("clusterId"),
+            configurations_json: o.get_field("configurationsJson"),
+            ebs_configs: o.get_field("ebsConfigs"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            instance_count: o.get_field("instanceCount"),
+            instance_type: o.get_field("instanceType"),
+            name: o.get_field("name"),
+            running_instance_count: o.get_field("runningInstanceCount"),
+            status: o.get_field("status"),
         }
     }
 }

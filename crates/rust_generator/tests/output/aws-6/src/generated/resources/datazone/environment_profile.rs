@@ -178,103 +178,76 @@ pub mod environment_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentProfileArgs,
     ) -> EnvironmentProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let aws_account_region_binding_1 = args.aws_account_region.get_output(context);
-        let aws_account_region_binding = aws_account_region_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
-        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
-        let environment_blueprint_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let aws_account_region_binding = args.aws_account_region.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let domain_identifier_binding = args.domain_identifier.get_output(context);
+        let environment_blueprint_identifier_binding = args
             .environment_blueprint_identifier
             .get_output(context);
-        let environment_blueprint_identifier_binding = environment_blueprint_identifier_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_identifier_binding_1 = args.project_identifier.get_output(context);
-        let project_identifier_binding = project_identifier_binding_1.get_inner();
-        let user_parameters_binding_1 = args.user_parameters.get_output(context);
-        let user_parameters_binding = user_parameters_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let project_identifier_binding = args.project_identifier.get_output(context);
+        let user_parameters_binding = args.user_parameters.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datazone/environmentProfile:EnvironmentProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountRegion".into(),
-                    value: &aws_account_region_binding,
+                    value: aws_account_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainIdentifier".into(),
-                    value: &domain_identifier_binding,
+                    value: domain_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentBlueprintIdentifier".into(),
-                    value: &environment_blueprint_identifier_binding,
+                    value: environment_blueprint_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectIdentifier".into(),
-                    value: &project_identifier_binding,
+                    value: project_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userParameters".into(),
-                    value: &user_parameters_binding,
+                    value: user_parameters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentProfileResult {
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            aws_account_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountRegion"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            created_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdBy"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainIdentifier"),
-            ),
-            environment_blueprint_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentBlueprintIdentifier"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectIdentifier"),
-            ),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
-            user_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userParameters"),
-            ),
+            aws_account_id: o.get_field("awsAccountId"),
+            aws_account_region: o.get_field("awsAccountRegion"),
+            created_at: o.get_field("createdAt"),
+            created_by: o.get_field("createdBy"),
+            description: o.get_field("description"),
+            domain_identifier: o.get_field("domainIdentifier"),
+            environment_blueprint_identifier: o
+                .get_field("environmentBlueprintIdentifier"),
+            name: o.get_field("name"),
+            project_identifier: o.get_field("projectIdentifier"),
+            updated_at: o.get_field("updatedAt"),
+            user_parameters: o.get_field("userParameters"),
         }
     }
 }

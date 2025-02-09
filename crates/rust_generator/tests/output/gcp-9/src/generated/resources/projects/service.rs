@@ -94,72 +94,57 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let check_if_service_has_usage_on_destroy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let check_if_service_has_usage_on_destroy_binding = args
             .check_if_service_has_usage_on_destroy
             .get_output(context);
-        let check_if_service_has_usage_on_destroy_binding = check_if_service_has_usage_on_destroy_binding_1
-            .get_inner();
-        let disable_dependent_services_binding_1 = args
+        let disable_dependent_services_binding = args
             .disable_dependent_services
             .get_output(context);
-        let disable_dependent_services_binding = disable_dependent_services_binding_1
-            .get_inner();
-        let disable_on_destroy_binding_1 = args.disable_on_destroy.get_output(context);
-        let disable_on_destroy_binding = disable_on_destroy_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let disable_on_destroy_binding = args.disable_on_destroy.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_binding = args.service.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:projects/service:Service".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkIfServiceHasUsageOnDestroy".into(),
-                    value: &check_if_service_has_usage_on_destroy_binding,
+                    value: check_if_service_has_usage_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableDependentServices".into(),
-                    value: &disable_dependent_services_binding,
+                    value: disable_dependent_services_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableOnDestroy".into(),
-                    value: &disable_on_destroy_binding,
+                    value: disable_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceResult {
-            check_if_service_has_usage_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checkIfServiceHasUsageOnDestroy"),
-            ),
-            disable_dependent_services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableDependentServices"),
-            ),
-            disable_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableOnDestroy"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
+            check_if_service_has_usage_on_destroy: o
+                .get_field("checkIfServiceHasUsageOnDestroy"),
+            disable_dependent_services: o.get_field("disableDependentServices"),
+            disable_on_destroy: o.get_field("disableOnDestroy"),
+            project: o.get_field("project"),
+            service: o.get_field("service"),
         }
     }
 }

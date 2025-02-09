@@ -137,122 +137,96 @@ pub mod backend {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackendArgs,
     ) -> BackendResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let credentials_binding_1 = args.credentials.get_output(context);
-        let credentials_binding = credentials_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let proxy_binding_1 = args.proxy.get_output(context);
-        let proxy_binding = proxy_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let service_fabric_cluster_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let credentials_binding = args.credentials.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let proxy_binding = args.proxy.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let resource_id_binding = args.resource_id.get_output(context);
+        let service_fabric_cluster_binding = args
             .service_fabric_cluster
             .get_output(context);
-        let service_fabric_cluster_binding = service_fabric_cluster_binding_1
-            .get_inner();
-        let title_binding_1 = args.title.get_output(context);
-        let title_binding = title_binding_1.get_inner();
-        let tls_binding_1 = args.tls.get_output(context);
-        let tls_binding = tls_binding_1.get_inner();
-        let url_binding_1 = args.url.get_output(context);
-        let url_binding = url_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let title_binding = args.title.get_output(context);
+        let tls_binding = args.tls.get_output(context);
+        let url_binding = args.url.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/backend:Backend".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentials".into(),
-                    value: &credentials_binding,
+                    value: credentials_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxy".into(),
-                    value: &proxy_binding,
+                    value: proxy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceFabricCluster".into(),
-                    value: &service_fabric_cluster_binding,
+                    value: service_fabric_cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: &title_binding,
+                    value: title_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls".into(),
-                    value: &tls_binding,
+                    value: tls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: &url_binding,
+                    value: url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackendResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentials"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            proxy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("proxy")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            service_fabric_cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceFabricCluster"),
-            ),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
-            tls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tls")),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            api_management_name: o.get_field("apiManagementName"),
+            credentials: o.get_field("credentials"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            protocol: o.get_field("protocol"),
+            proxy: o.get_field("proxy"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            resource_id: o.get_field("resourceId"),
+            service_fabric_cluster: o.get_field("serviceFabricCluster"),
+            title: o.get_field("title"),
+            tls: o.get_field("tls"),
+            url: o.get_field("url"),
         }
     }
 }

@@ -32,40 +32,35 @@ pub mod group_policy_attachments_exclusive {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupPolicyAttachmentsExclusiveArgs,
     ) -> GroupPolicyAttachmentsExclusiveResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_name_binding_1 = args.group_name.get_output(context);
-        let group_name_binding = group_name_binding_1.get_inner();
-        let policy_arns_binding_1 = args.policy_arns.get_output(context);
-        let policy_arns_binding = policy_arns_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_name_binding = args.group_name.get_output(context);
+        let policy_arns_binding = args.policy_arns.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: &group_name_binding,
+                    value: group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArns".into(),
-                    value: &policy_arns_binding,
+                    value: policy_arns_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupPolicyAttachmentsExclusiveResult {
-            group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupName"),
-            ),
-            policy_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyArns"),
-            ),
+            group_name: o.get_field("groupName"),
+            policy_arns: o.get_field("policyArns"),
         }
     }
 }

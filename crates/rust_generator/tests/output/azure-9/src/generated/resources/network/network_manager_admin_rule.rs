@@ -162,125 +162,93 @@ pub mod network_manager_admin_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkManagerAdminRuleArgs,
     ) -> NetworkManagerAdminRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let admin_rule_collection_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let admin_rule_collection_id_binding = args
             .admin_rule_collection_id
             .get_output(context);
-        let admin_rule_collection_id_binding = admin_rule_collection_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_port_ranges_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let destination_port_ranges_binding = args
             .destination_port_ranges
             .get_output(context);
-        let destination_port_ranges_binding = destination_port_ranges_binding_1
-            .get_inner();
-        let destinations_binding_1 = args.destinations.get_output(context);
-        let destinations_binding = destinations_binding_1.get_inner();
-        let direction_binding_1 = args.direction.get_output(context);
-        let direction_binding = direction_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let source_port_ranges_binding_1 = args.source_port_ranges.get_output(context);
-        let source_port_ranges_binding = source_port_ranges_binding_1.get_inner();
-        let sources_binding_1 = args.sources.get_output(context);
-        let sources_binding = sources_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let destinations_binding = args.destinations.get_output(context);
+        let direction_binding = args.direction.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let source_port_ranges_binding = args.source_port_ranges.get_output(context);
+        let sources_binding = args.sources.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkManagerAdminRule:NetworkManagerAdminRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminRuleCollectionId".into(),
-                    value: &admin_rule_collection_id_binding,
+                    value: admin_rule_collection_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPortRanges".into(),
-                    value: &destination_port_ranges_binding,
+                    value: destination_port_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinations".into(),
-                    value: &destinations_binding,
+                    value: destinations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: &direction_binding,
+                    value: direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortRanges".into(),
-                    value: &source_port_ranges_binding,
+                    value: source_port_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sources".into(),
-                    value: &sources_binding,
+                    value: sources_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkManagerAdminRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            admin_rule_collection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminRuleCollectionId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_port_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationPortRanges"),
-            ),
-            destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinations"),
-            ),
-            direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("direction"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            source_port_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourcePortRanges"),
-            ),
-            sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sources"),
-            ),
+            action: o.get_field("action"),
+            admin_rule_collection_id: o.get_field("adminRuleCollectionId"),
+            description: o.get_field("description"),
+            destination_port_ranges: o.get_field("destinationPortRanges"),
+            destinations: o.get_field("destinations"),
+            direction: o.get_field("direction"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            protocol: o.get_field("protocol"),
+            source_port_ranges: o.get_field("sourcePortRanges"),
+            sources: o.get_field("sources"),
         }
     }
 }

@@ -387,524 +387,357 @@ pub mod s_3_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: S3EndpointArgs,
     ) -> S3EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_column_name_binding_1 = args.add_column_name.get_output(context);
-        let add_column_name_binding = add_column_name_binding_1.get_inner();
-        let add_trailing_padding_character_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let add_column_name_binding = args.add_column_name.get_output(context);
+        let add_trailing_padding_character_binding = args
             .add_trailing_padding_character
             .get_output(context);
-        let add_trailing_padding_character_binding = add_trailing_padding_character_binding_1
-            .get_inner();
-        let bucket_folder_binding_1 = args.bucket_folder.get_output(context);
-        let bucket_folder_binding = bucket_folder_binding_1.get_inner();
-        let bucket_name_binding_1 = args.bucket_name.get_output(context);
-        let bucket_name_binding = bucket_name_binding_1.get_inner();
-        let canned_acl_for_objects_binding_1 = args
+        let bucket_folder_binding = args.bucket_folder.get_output(context);
+        let bucket_name_binding = args.bucket_name.get_output(context);
+        let canned_acl_for_objects_binding = args
             .canned_acl_for_objects
             .get_output(context);
-        let canned_acl_for_objects_binding = canned_acl_for_objects_binding_1
-            .get_inner();
-        let cdc_inserts_and_updates_binding_1 = args
+        let cdc_inserts_and_updates_binding = args
             .cdc_inserts_and_updates
             .get_output(context);
-        let cdc_inserts_and_updates_binding = cdc_inserts_and_updates_binding_1
-            .get_inner();
-        let cdc_inserts_only_binding_1 = args.cdc_inserts_only.get_output(context);
-        let cdc_inserts_only_binding = cdc_inserts_only_binding_1.get_inner();
-        let cdc_max_batch_interval_binding_1 = args
+        let cdc_inserts_only_binding = args.cdc_inserts_only.get_output(context);
+        let cdc_max_batch_interval_binding = args
             .cdc_max_batch_interval
             .get_output(context);
-        let cdc_max_batch_interval_binding = cdc_max_batch_interval_binding_1
-            .get_inner();
-        let cdc_min_file_size_binding_1 = args.cdc_min_file_size.get_output(context);
-        let cdc_min_file_size_binding = cdc_min_file_size_binding_1.get_inner();
-        let cdc_path_binding_1 = args.cdc_path.get_output(context);
-        let cdc_path_binding = cdc_path_binding_1.get_inner();
-        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
-        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
-        let compression_type_binding_1 = args.compression_type.get_output(context);
-        let compression_type_binding = compression_type_binding_1.get_inner();
-        let csv_delimiter_binding_1 = args.csv_delimiter.get_output(context);
-        let csv_delimiter_binding = csv_delimiter_binding_1.get_inner();
-        let csv_no_sup_value_binding_1 = args.csv_no_sup_value.get_output(context);
-        let csv_no_sup_value_binding = csv_no_sup_value_binding_1.get_inner();
-        let csv_null_value_binding_1 = args.csv_null_value.get_output(context);
-        let csv_null_value_binding = csv_null_value_binding_1.get_inner();
-        let csv_row_delimiter_binding_1 = args.csv_row_delimiter.get_output(context);
-        let csv_row_delimiter_binding = csv_row_delimiter_binding_1.get_inner();
-        let data_format_binding_1 = args.data_format.get_output(context);
-        let data_format_binding = data_format_binding_1.get_inner();
-        let data_page_size_binding_1 = args.data_page_size.get_output(context);
-        let data_page_size_binding = data_page_size_binding_1.get_inner();
-        let date_partition_delimiter_binding_1 = args
+        let cdc_min_file_size_binding = args.cdc_min_file_size.get_output(context);
+        let cdc_path_binding = args.cdc_path.get_output(context);
+        let certificate_arn_binding = args.certificate_arn.get_output(context);
+        let compression_type_binding = args.compression_type.get_output(context);
+        let csv_delimiter_binding = args.csv_delimiter.get_output(context);
+        let csv_no_sup_value_binding = args.csv_no_sup_value.get_output(context);
+        let csv_null_value_binding = args.csv_null_value.get_output(context);
+        let csv_row_delimiter_binding = args.csv_row_delimiter.get_output(context);
+        let data_format_binding = args.data_format.get_output(context);
+        let data_page_size_binding = args.data_page_size.get_output(context);
+        let date_partition_delimiter_binding = args
             .date_partition_delimiter
             .get_output(context);
-        let date_partition_delimiter_binding = date_partition_delimiter_binding_1
-            .get_inner();
-        let date_partition_enabled_binding_1 = args
+        let date_partition_enabled_binding = args
             .date_partition_enabled
             .get_output(context);
-        let date_partition_enabled_binding = date_partition_enabled_binding_1
-            .get_inner();
-        let date_partition_sequence_binding_1 = args
+        let date_partition_sequence_binding = args
             .date_partition_sequence
             .get_output(context);
-        let date_partition_sequence_binding = date_partition_sequence_binding_1
-            .get_inner();
-        let date_partition_timezone_binding_1 = args
+        let date_partition_timezone_binding = args
             .date_partition_timezone
             .get_output(context);
-        let date_partition_timezone_binding = date_partition_timezone_binding_1
-            .get_inner();
-        let detach_target_on_lob_lookup_failure_parquet_binding_1 = args
+        let detach_target_on_lob_lookup_failure_parquet_binding = args
             .detach_target_on_lob_lookup_failure_parquet
             .get_output(context);
-        let detach_target_on_lob_lookup_failure_parquet_binding = detach_target_on_lob_lookup_failure_parquet_binding_1
-            .get_inner();
-        let dict_page_size_limit_binding_1 = args
-            .dict_page_size_limit
-            .get_output(context);
-        let dict_page_size_limit_binding = dict_page_size_limit_binding_1.get_inner();
-        let enable_statistics_binding_1 = args.enable_statistics.get_output(context);
-        let enable_statistics_binding = enable_statistics_binding_1.get_inner();
-        let encoding_type_binding_1 = args.encoding_type.get_output(context);
-        let encoding_type_binding = encoding_type_binding_1.get_inner();
-        let encryption_mode_binding_1 = args.encryption_mode.get_output(context);
-        let encryption_mode_binding = encryption_mode_binding_1.get_inner();
-        let endpoint_id_binding_1 = args.endpoint_id.get_output(context);
-        let endpoint_id_binding = endpoint_id_binding_1.get_inner();
-        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
-        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
-        let expected_bucket_owner_binding_1 = args
+        let dict_page_size_limit_binding = args.dict_page_size_limit.get_output(context);
+        let enable_statistics_binding = args.enable_statistics.get_output(context);
+        let encoding_type_binding = args.encoding_type.get_output(context);
+        let encryption_mode_binding = args.encryption_mode.get_output(context);
+        let endpoint_id_binding = args.endpoint_id.get_output(context);
+        let endpoint_type_binding = args.endpoint_type.get_output(context);
+        let expected_bucket_owner_binding = args
             .expected_bucket_owner
             .get_output(context);
-        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
-        let external_table_definition_binding_1 = args
+        let external_table_definition_binding = args
             .external_table_definition
             .get_output(context);
-        let external_table_definition_binding = external_table_definition_binding_1
-            .get_inner();
-        let glue_catalog_generation_binding_1 = args
+        let glue_catalog_generation_binding = args
             .glue_catalog_generation
             .get_output(context);
-        let glue_catalog_generation_binding = glue_catalog_generation_binding_1
-            .get_inner();
-        let ignore_header_rows_binding_1 = args.ignore_header_rows.get_output(context);
-        let ignore_header_rows_binding = ignore_header_rows_binding_1.get_inner();
-        let include_op_for_full_load_binding_1 = args
+        let ignore_header_rows_binding = args.ignore_header_rows.get_output(context);
+        let include_op_for_full_load_binding = args
             .include_op_for_full_load
             .get_output(context);
-        let include_op_for_full_load_binding = include_op_for_full_load_binding_1
-            .get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let max_file_size_binding_1 = args.max_file_size.get_output(context);
-        let max_file_size_binding = max_file_size_binding_1.get_inner();
-        let parquet_timestamp_in_millisecond_binding_1 = args
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let max_file_size_binding = args.max_file_size.get_output(context);
+        let parquet_timestamp_in_millisecond_binding = args
             .parquet_timestamp_in_millisecond
             .get_output(context);
-        let parquet_timestamp_in_millisecond_binding = parquet_timestamp_in_millisecond_binding_1
-            .get_inner();
-        let parquet_version_binding_1 = args.parquet_version.get_output(context);
-        let parquet_version_binding = parquet_version_binding_1.get_inner();
-        let preserve_transactions_binding_1 = args
+        let parquet_version_binding = args.parquet_version.get_output(context);
+        let preserve_transactions_binding = args
             .preserve_transactions
             .get_output(context);
-        let preserve_transactions_binding = preserve_transactions_binding_1.get_inner();
-        let rfc4180_binding_1 = args.rfc4180.get_output(context);
-        let rfc4180_binding = rfc4180_binding_1.get_inner();
-        let row_group_length_binding_1 = args.row_group_length.get_output(context);
-        let row_group_length_binding = row_group_length_binding_1.get_inner();
-        let server_side_encryption_kms_key_id_binding_1 = args
+        let rfc4180_binding = args.rfc4180.get_output(context);
+        let row_group_length_binding = args.row_group_length.get_output(context);
+        let server_side_encryption_kms_key_id_binding = args
             .server_side_encryption_kms_key_id
             .get_output(context);
-        let server_side_encryption_kms_key_id_binding = server_side_encryption_kms_key_id_binding_1
-            .get_inner();
-        let service_access_role_arn_binding_1 = args
+        let service_access_role_arn_binding = args
             .service_access_role_arn
             .get_output(context);
-        let service_access_role_arn_binding = service_access_role_arn_binding_1
-            .get_inner();
-        let ssl_mode_binding_1 = args.ssl_mode.get_output(context);
-        let ssl_mode_binding = ssl_mode_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timestamp_column_name_binding_1 = args
+        let ssl_mode_binding = args.ssl_mode.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timestamp_column_name_binding = args
             .timestamp_column_name
             .get_output(context);
-        let timestamp_column_name_binding = timestamp_column_name_binding_1.get_inner();
-        let use_csv_no_sup_value_binding_1 = args
-            .use_csv_no_sup_value
-            .get_output(context);
-        let use_csv_no_sup_value_binding = use_csv_no_sup_value_binding_1.get_inner();
-        let use_task_start_time_for_full_load_timestamp_binding_1 = args
+        let use_csv_no_sup_value_binding = args.use_csv_no_sup_value.get_output(context);
+        let use_task_start_time_for_full_load_timestamp_binding = args
             .use_task_start_time_for_full_load_timestamp
             .get_output(context);
-        let use_task_start_time_for_full_load_timestamp_binding = use_task_start_time_for_full_load_timestamp_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dms/s3Endpoint:S3Endpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addColumnName".into(),
-                    value: &add_column_name_binding,
+                    value: add_column_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addTrailingPaddingCharacter".into(),
-                    value: &add_trailing_padding_character_binding,
+                    value: add_trailing_padding_character_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketFolder".into(),
-                    value: &bucket_folder_binding,
+                    value: bucket_folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: &bucket_name_binding,
+                    value: bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cannedAclForObjects".into(),
-                    value: &canned_acl_for_objects_binding,
+                    value: canned_acl_for_objects_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcInsertsAndUpdates".into(),
-                    value: &cdc_inserts_and_updates_binding,
+                    value: cdc_inserts_and_updates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcInsertsOnly".into(),
-                    value: &cdc_inserts_only_binding,
+                    value: cdc_inserts_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcMaxBatchInterval".into(),
-                    value: &cdc_max_batch_interval_binding,
+                    value: cdc_max_batch_interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcMinFileSize".into(),
-                    value: &cdc_min_file_size_binding,
+                    value: cdc_min_file_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcPath".into(),
-                    value: &cdc_path_binding,
+                    value: cdc_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: &certificate_arn_binding,
+                    value: certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compressionType".into(),
-                    value: &compression_type_binding,
+                    value: compression_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvDelimiter".into(),
-                    value: &csv_delimiter_binding,
+                    value: csv_delimiter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvNoSupValue".into(),
-                    value: &csv_no_sup_value_binding,
+                    value: csv_no_sup_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvNullValue".into(),
-                    value: &csv_null_value_binding,
+                    value: csv_null_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvRowDelimiter".into(),
-                    value: &csv_row_delimiter_binding,
+                    value: csv_row_delimiter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFormat".into(),
-                    value: &data_format_binding,
+                    value: data_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPageSize".into(),
-                    value: &data_page_size_binding,
+                    value: data_page_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datePartitionDelimiter".into(),
-                    value: &date_partition_delimiter_binding,
+                    value: date_partition_delimiter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datePartitionEnabled".into(),
-                    value: &date_partition_enabled_binding,
+                    value: date_partition_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datePartitionSequence".into(),
-                    value: &date_partition_sequence_binding,
+                    value: date_partition_sequence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datePartitionTimezone".into(),
-                    value: &date_partition_timezone_binding,
+                    value: date_partition_timezone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detachTargetOnLobLookupFailureParquet".into(),
-                    value: &detach_target_on_lob_lookup_failure_parquet_binding,
+                    value: detach_target_on_lob_lookup_failure_parquet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dictPageSizeLimit".into(),
-                    value: &dict_page_size_limit_binding,
+                    value: dict_page_size_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStatistics".into(),
-                    value: &enable_statistics_binding,
+                    value: enable_statistics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encodingType".into(),
-                    value: &encoding_type_binding,
+                    value: encoding_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionMode".into(),
-                    value: &encryption_mode_binding,
+                    value: encryption_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointId".into(),
-                    value: &endpoint_id_binding,
+                    value: endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: &endpoint_type_binding,
+                    value: endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: &expected_bucket_owner_binding,
+                    value: expected_bucket_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalTableDefinition".into(),
-                    value: &external_table_definition_binding,
+                    value: external_table_definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glueCatalogGeneration".into(),
-                    value: &glue_catalog_generation_binding,
+                    value: glue_catalog_generation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreHeaderRows".into(),
-                    value: &ignore_header_rows_binding,
+                    value: ignore_header_rows_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeOpForFullLoad".into(),
-                    value: &include_op_for_full_load_binding,
+                    value: include_op_for_full_load_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxFileSize".into(),
-                    value: &max_file_size_binding,
+                    value: max_file_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parquetTimestampInMillisecond".into(),
-                    value: &parquet_timestamp_in_millisecond_binding,
+                    value: parquet_timestamp_in_millisecond_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parquetVersion".into(),
-                    value: &parquet_version_binding,
+                    value: parquet_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preserveTransactions".into(),
-                    value: &preserve_transactions_binding,
+                    value: preserve_transactions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rfc4180".into(),
-                    value: &rfc4180_binding,
+                    value: rfc4180_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowGroupLength".into(),
-                    value: &row_group_length_binding,
+                    value: row_group_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryptionKmsKeyId".into(),
-                    value: &server_side_encryption_kms_key_id_binding,
+                    value: server_side_encryption_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccessRoleArn".into(),
-                    value: &service_access_role_arn_binding,
+                    value: service_access_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslMode".into(),
-                    value: &ssl_mode_binding,
+                    value: ssl_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timestampColumnName".into(),
-                    value: &timestamp_column_name_binding,
+                    value: timestamp_column_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useCsvNoSupValue".into(),
-                    value: &use_csv_no_sup_value_binding,
+                    value: use_csv_no_sup_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useTaskStartTimeForFullLoadTimestamp".into(),
-                    value: &use_task_start_time_for_full_load_timestamp_binding,
+                    value: use_task_start_time_for_full_load_timestamp_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         S3EndpointResult {
-            add_column_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addColumnName"),
-            ),
-            add_trailing_padding_character: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addTrailingPaddingCharacter"),
-            ),
-            bucket_folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketFolder"),
-            ),
-            bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketName"),
-            ),
-            canned_acl_for_objects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cannedAclForObjects"),
-            ),
-            cdc_inserts_and_updates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcInsertsAndUpdates"),
-            ),
-            cdc_inserts_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcInsertsOnly"),
-            ),
-            cdc_max_batch_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcMaxBatchInterval"),
-            ),
-            cdc_min_file_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcMinFileSize"),
-            ),
-            cdc_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcPath"),
-            ),
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            compression_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compressionType"),
-            ),
-            csv_delimiter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("csvDelimiter"),
-            ),
-            csv_no_sup_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("csvNoSupValue"),
-            ),
-            csv_null_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("csvNullValue"),
-            ),
-            csv_row_delimiter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("csvRowDelimiter"),
-            ),
-            data_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFormat"),
-            ),
-            data_page_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataPageSize"),
-            ),
-            date_partition_delimiter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datePartitionDelimiter"),
-            ),
-            date_partition_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datePartitionEnabled"),
-            ),
-            date_partition_sequence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datePartitionSequence"),
-            ),
-            date_partition_timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datePartitionTimezone"),
-            ),
-            detach_target_on_lob_lookup_failure_parquet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detachTargetOnLobLookupFailureParquet"),
-            ),
-            dict_page_size_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dictPageSizeLimit"),
-            ),
-            enable_statistics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableStatistics"),
-            ),
-            encoding_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encodingType"),
-            ),
-            encryption_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionMode"),
-            ),
-            endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointArn"),
-            ),
-            endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointId"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            engine_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineDisplayName"),
-            ),
-            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expectedBucketOwner"),
-            ),
-            external_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalId"),
-            ),
-            external_table_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalTableDefinition"),
-            ),
-            glue_catalog_generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("glueCatalogGeneration"),
-            ),
-            ignore_header_rows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreHeaderRows"),
-            ),
-            include_op_for_full_load: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeOpForFullLoad"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            max_file_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxFileSize"),
-            ),
-            parquet_timestamp_in_millisecond: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parquetTimestampInMillisecond"),
-            ),
-            parquet_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parquetVersion"),
-            ),
-            preserve_transactions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preserveTransactions"),
-            ),
-            rfc4180: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rfc4180"),
-            ),
-            row_group_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowGroupLength"),
-            ),
-            server_side_encryption_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryptionKmsKeyId"),
-            ),
-            service_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccessRoleArn"),
-            ),
-            ssl_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslMode"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timestamp_column_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timestampColumnName"),
-            ),
-            use_csv_no_sup_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useCsvNoSupValue"),
-            ),
-            use_task_start_time_for_full_load_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useTaskStartTimeForFullLoadTimestamp"),
-            ),
+            add_column_name: o.get_field("addColumnName"),
+            add_trailing_padding_character: o.get_field("addTrailingPaddingCharacter"),
+            bucket_folder: o.get_field("bucketFolder"),
+            bucket_name: o.get_field("bucketName"),
+            canned_acl_for_objects: o.get_field("cannedAclForObjects"),
+            cdc_inserts_and_updates: o.get_field("cdcInsertsAndUpdates"),
+            cdc_inserts_only: o.get_field("cdcInsertsOnly"),
+            cdc_max_batch_interval: o.get_field("cdcMaxBatchInterval"),
+            cdc_min_file_size: o.get_field("cdcMinFileSize"),
+            cdc_path: o.get_field("cdcPath"),
+            certificate_arn: o.get_field("certificateArn"),
+            compression_type: o.get_field("compressionType"),
+            csv_delimiter: o.get_field("csvDelimiter"),
+            csv_no_sup_value: o.get_field("csvNoSupValue"),
+            csv_null_value: o.get_field("csvNullValue"),
+            csv_row_delimiter: o.get_field("csvRowDelimiter"),
+            data_format: o.get_field("dataFormat"),
+            data_page_size: o.get_field("dataPageSize"),
+            date_partition_delimiter: o.get_field("datePartitionDelimiter"),
+            date_partition_enabled: o.get_field("datePartitionEnabled"),
+            date_partition_sequence: o.get_field("datePartitionSequence"),
+            date_partition_timezone: o.get_field("datePartitionTimezone"),
+            detach_target_on_lob_lookup_failure_parquet: o
+                .get_field("detachTargetOnLobLookupFailureParquet"),
+            dict_page_size_limit: o.get_field("dictPageSizeLimit"),
+            enable_statistics: o.get_field("enableStatistics"),
+            encoding_type: o.get_field("encodingType"),
+            encryption_mode: o.get_field("encryptionMode"),
+            endpoint_arn: o.get_field("endpointArn"),
+            endpoint_id: o.get_field("endpointId"),
+            endpoint_type: o.get_field("endpointType"),
+            engine_display_name: o.get_field("engineDisplayName"),
+            expected_bucket_owner: o.get_field("expectedBucketOwner"),
+            external_id: o.get_field("externalId"),
+            external_table_definition: o.get_field("externalTableDefinition"),
+            glue_catalog_generation: o.get_field("glueCatalogGeneration"),
+            ignore_header_rows: o.get_field("ignoreHeaderRows"),
+            include_op_for_full_load: o.get_field("includeOpForFullLoad"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            max_file_size: o.get_field("maxFileSize"),
+            parquet_timestamp_in_millisecond: o
+                .get_field("parquetTimestampInMillisecond"),
+            parquet_version: o.get_field("parquetVersion"),
+            preserve_transactions: o.get_field("preserveTransactions"),
+            rfc4180: o.get_field("rfc4180"),
+            row_group_length: o.get_field("rowGroupLength"),
+            server_side_encryption_kms_key_id: o
+                .get_field("serverSideEncryptionKmsKeyId"),
+            service_access_role_arn: o.get_field("serviceAccessRoleArn"),
+            ssl_mode: o.get_field("sslMode"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timestamp_column_name: o.get_field("timestampColumnName"),
+            use_csv_no_sup_value: o.get_field("useCsvNoSupValue"),
+            use_task_start_time_for_full_load_timestamp: o
+                .get_field("useTaskStartTimeForFullLoadTimestamp"),
         }
     }
 }

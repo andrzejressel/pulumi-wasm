@@ -211,133 +211,95 @@ pub mod cx_intent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CxIntentArgs,
     ) -> CxIntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let is_default_negative_intent_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let is_default_negative_intent_binding = args
             .is_default_negative_intent
             .get_output(context);
-        let is_default_negative_intent_binding = is_default_negative_intent_binding_1
-            .get_inner();
-        let is_default_welcome_intent_binding_1 = args
+        let is_default_welcome_intent_binding = args
             .is_default_welcome_intent
             .get_output(context);
-        let is_default_welcome_intent_binding = is_default_welcome_intent_binding_1
-            .get_inner();
-        let is_fallback_binding_1 = args.is_fallback.get_output(context);
-        let is_fallback_binding = is_fallback_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let language_code_binding_1 = args.language_code.get_output(context);
-        let language_code_binding = language_code_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let training_phrases_binding_1 = args.training_phrases.get_output(context);
-        let training_phrases_binding = training_phrases_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let is_fallback_binding = args.is_fallback.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let language_code_binding = args.language_code.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let training_phrases_binding = args.training_phrases.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/cxIntent:CxIntent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDefaultNegativeIntent".into(),
-                    value: &is_default_negative_intent_binding,
+                    value: is_default_negative_intent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDefaultWelcomeIntent".into(),
-                    value: &is_default_welcome_intent_binding,
+                    value: is_default_welcome_intent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isFallback".into(),
-                    value: &is_fallback_binding,
+                    value: is_fallback_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: &language_code_binding,
+                    value: language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trainingPhrases".into(),
-                    value: &training_phrases_binding,
+                    value: training_phrases_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CxIntentResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            is_default_negative_intent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefaultNegativeIntent"),
-            ),
-            is_default_welcome_intent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefaultWelcomeIntent"),
-            ),
-            is_fallback: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isFallback"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            training_phrases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trainingPhrases"),
-            ),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            is_default_negative_intent: o.get_field("isDefaultNegativeIntent"),
+            is_default_welcome_intent: o.get_field("isDefaultWelcomeIntent"),
+            is_fallback: o.get_field("isFallback"),
+            labels: o.get_field("labels"),
+            language_code: o.get_field("languageCode"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            parent: o.get_field("parent"),
+            priority: o.get_field("priority"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            training_phrases: o.get_field("trainingPhrases"),
         }
     }
 }

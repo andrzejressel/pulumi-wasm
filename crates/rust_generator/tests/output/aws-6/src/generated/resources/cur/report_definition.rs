@@ -119,139 +119,100 @@ pub mod report_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReportDefinitionArgs,
     ) -> ReportDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_artifacts_binding_1 = args
-            .additional_artifacts
-            .get_output(context);
-        let additional_artifacts_binding = additional_artifacts_binding_1.get_inner();
-        let additional_schema_elements_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_artifacts_binding = args.additional_artifacts.get_output(context);
+        let additional_schema_elements_binding = args
             .additional_schema_elements
             .get_output(context);
-        let additional_schema_elements_binding = additional_schema_elements_binding_1
-            .get_inner();
-        let compression_binding_1 = args.compression.get_output(context);
-        let compression_binding = compression_binding_1.get_inner();
-        let format_binding_1 = args.format.get_output(context);
-        let format_binding = format_binding_1.get_inner();
-        let refresh_closed_reports_binding_1 = args
+        let compression_binding = args.compression.get_output(context);
+        let format_binding = args.format.get_output(context);
+        let refresh_closed_reports_binding = args
             .refresh_closed_reports
             .get_output(context);
-        let refresh_closed_reports_binding = refresh_closed_reports_binding_1
-            .get_inner();
-        let report_name_binding_1 = args.report_name.get_output(context);
-        let report_name_binding = report_name_binding_1.get_inner();
-        let report_versioning_binding_1 = args.report_versioning.get_output(context);
-        let report_versioning_binding = report_versioning_binding_1.get_inner();
-        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
-        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
-        let s3_prefix_binding_1 = args.s3_prefix.get_output(context);
-        let s3_prefix_binding = s3_prefix_binding_1.get_inner();
-        let s3_region_binding_1 = args.s3_region.get_output(context);
-        let s3_region_binding = s3_region_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let time_unit_binding_1 = args.time_unit.get_output(context);
-        let time_unit_binding = time_unit_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let report_name_binding = args.report_name.get_output(context);
+        let report_versioning_binding = args.report_versioning.get_output(context);
+        let s3_bucket_binding = args.s3_bucket.get_output(context);
+        let s3_prefix_binding = args.s3_prefix.get_output(context);
+        let s3_region_binding = args.s3_region.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let time_unit_binding = args.time_unit.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cur/reportDefinition:ReportDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalArtifacts".into(),
-                    value: &additional_artifacts_binding,
+                    value: additional_artifacts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalSchemaElements".into(),
-                    value: &additional_schema_elements_binding,
+                    value: additional_schema_elements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compression".into(),
-                    value: &compression_binding,
+                    value: compression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "format".into(),
-                    value: &format_binding,
+                    value: format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshClosedReports".into(),
-                    value: &refresh_closed_reports_binding,
+                    value: refresh_closed_reports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reportName".into(),
-                    value: &report_name_binding,
+                    value: report_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reportVersioning".into(),
-                    value: &report_versioning_binding,
+                    value: report_versioning_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Bucket".into(),
-                    value: &s3_bucket_binding,
+                    value: s3_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Prefix".into(),
-                    value: &s3_prefix_binding,
+                    value: s3_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Region".into(),
-                    value: &s3_region_binding,
+                    value: s3_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeUnit".into(),
-                    value: &time_unit_binding,
+                    value: time_unit_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReportDefinitionResult {
-            additional_artifacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalArtifacts"),
-            ),
-            additional_schema_elements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalSchemaElements"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            compression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compression"),
-            ),
-            format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("format"),
-            ),
-            refresh_closed_reports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("refreshClosedReports"),
-            ),
-            report_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportName"),
-            ),
-            report_versioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportVersioning"),
-            ),
-            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Bucket"),
-            ),
-            s3_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Prefix"),
-            ),
-            s3_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Region"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            time_unit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeUnit"),
-            ),
+            additional_artifacts: o.get_field("additionalArtifacts"),
+            additional_schema_elements: o.get_field("additionalSchemaElements"),
+            arn: o.get_field("arn"),
+            compression: o.get_field("compression"),
+            format: o.get_field("format"),
+            refresh_closed_reports: o.get_field("refreshClosedReports"),
+            report_name: o.get_field("reportName"),
+            report_versioning: o.get_field("reportVersioning"),
+            s3_bucket: o.get_field("s3Bucket"),
+            s3_prefix: o.get_field("s3Prefix"),
+            s3_region: o.get_field("s3Region"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            time_unit: o.get_field("timeUnit"),
         }
     }
 }

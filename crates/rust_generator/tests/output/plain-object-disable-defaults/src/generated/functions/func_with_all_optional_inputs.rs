@@ -22,32 +22,31 @@ pub mod func_with_all_optional_inputs {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: FuncWithAllOptionalInputsArgs,
     ) -> FuncWithAllOptionalInputsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let a_binding_1 = args.a.get_output(context);
-        let a_binding = a_binding_1.get_inner();
-        let b_binding_1 = args.b.get_output(context);
-        let b_binding = b_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let a_binding = args.a.get_output(context);
+        let b_binding = args.b.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "mypkg::funcWithAllOptionalInputs".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "a".into(),
-                    value: &a_binding,
+                    value: a_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "b".into(),
-                    value: &b_binding,
+                    value: b_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         FuncWithAllOptionalInputsResult {
-            r: pulumi_gestalt_rust::__private::into_domain(o.extract_field("r")),
+            r: o.get_field("r"),
         }
     }
 }

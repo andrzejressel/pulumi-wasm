@@ -53,76 +53,47 @@ pub mod get_bot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBotArgs,
     ) -> GetBotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lex/getBot:getBot".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBotResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            checksum: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksum"),
-            ),
-            child_directed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("childDirected"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            detect_sentiment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectSentiment"),
-            ),
-            enable_model_improvements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableModelImprovements"),
-            ),
-            failure_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureReason"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            idle_session_ttl_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleSessionTtlInSeconds"),
-            ),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            locale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locale"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nlu_intent_confidence_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nluIntentConfidenceThreshold"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            voice_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceId"),
-            ),
+            arn: o.get_field("arn"),
+            checksum: o.get_field("checksum"),
+            child_directed: o.get_field("childDirected"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            detect_sentiment: o.get_field("detectSentiment"),
+            enable_model_improvements: o.get_field("enableModelImprovements"),
+            failure_reason: o.get_field("failureReason"),
+            id: o.get_field("id"),
+            idle_session_ttl_in_seconds: o.get_field("idleSessionTtlInSeconds"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            locale: o.get_field("locale"),
+            name: o.get_field("name"),
+            nlu_intent_confidence_threshold: o.get_field("nluIntentConfidenceThreshold"),
+            status: o.get_field("status"),
+            version: o.get_field("version"),
+            voice_id: o.get_field("voiceId"),
         }
     }
 }

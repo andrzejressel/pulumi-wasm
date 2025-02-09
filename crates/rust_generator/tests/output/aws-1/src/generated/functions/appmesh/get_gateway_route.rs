@@ -50,74 +50,56 @@ pub mod get_gateway_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetGatewayRouteArgs,
     ) -> GetGatewayRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mesh_name_binding_1 = args.mesh_name.get_output(context);
-        let mesh_name_binding = mesh_name_binding_1.get_inner();
-        let mesh_owner_binding_1 = args.mesh_owner.get_output(context);
-        let mesh_owner_binding = mesh_owner_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_gateway_name_binding_1 = args
-            .virtual_gateway_name
-            .get_output(context);
-        let virtual_gateway_name_binding = virtual_gateway_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mesh_name_binding = args.mesh_name.get_output(context);
+        let mesh_owner_binding = args.mesh_owner.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let virtual_gateway_name_binding = args.virtual_gateway_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:appmesh/getGatewayRoute:getGatewayRoute".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshName".into(),
-                    value: &mesh_name_binding,
+                    value: mesh_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshOwner".into(),
-                    value: &mesh_owner_binding,
+                    value: mesh_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualGatewayName".into(),
-                    value: &virtual_gateway_name_binding,
+                    value: virtual_gateway_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetGatewayRouteResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            mesh_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("meshName"),
-            ),
-            mesh_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("meshOwner"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceOwner"),
-            ),
-            specs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("specs")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_gateway_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualGatewayName"),
-            ),
+            arn: o.get_field("arn"),
+            created_date: o.get_field("createdDate"),
+            id: o.get_field("id"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            mesh_name: o.get_field("meshName"),
+            mesh_owner: o.get_field("meshOwner"),
+            name: o.get_field("name"),
+            resource_owner: o.get_field("resourceOwner"),
+            specs: o.get_field("specs"),
+            tags: o.get_field("tags"),
+            virtual_gateway_name: o.get_field("virtualGatewayName"),
         }
     }
 }

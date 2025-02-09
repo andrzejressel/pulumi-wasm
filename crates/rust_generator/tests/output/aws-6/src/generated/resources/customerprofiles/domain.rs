@@ -154,94 +154,72 @@ pub mod domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainArgs,
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dead_letter_queue_url_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dead_letter_queue_url_binding = args
             .dead_letter_queue_url
             .get_output(context);
-        let dead_letter_queue_url_binding = dead_letter_queue_url_binding_1.get_inner();
-        let default_encryption_key_binding_1 = args
+        let default_encryption_key_binding = args
             .default_encryption_key
             .get_output(context);
-        let default_encryption_key_binding = default_encryption_key_binding_1
-            .get_inner();
-        let default_expiration_days_binding_1 = args
+        let default_expiration_days_binding = args
             .default_expiration_days
             .get_output(context);
-        let default_expiration_days_binding = default_expiration_days_binding_1
-            .get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let matching_binding_1 = args.matching.get_output(context);
-        let matching_binding = matching_binding_1.get_inner();
-        let rule_based_matching_binding_1 = args.rule_based_matching.get_output(context);
-        let rule_based_matching_binding = rule_based_matching_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let domain_name_binding = args.domain_name.get_output(context);
+        let matching_binding = args.matching.get_output(context);
+        let rule_based_matching_binding = args.rule_based_matching.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:customerprofiles/domain:Domain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterQueueUrl".into(),
-                    value: &dead_letter_queue_url_binding,
+                    value: dead_letter_queue_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEncryptionKey".into(),
-                    value: &default_encryption_key_binding,
+                    value: default_encryption_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultExpirationDays".into(),
-                    value: &default_expiration_days_binding,
+                    value: default_expiration_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matching".into(),
-                    value: &matching_binding,
+                    value: matching_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleBasedMatching".into(),
-                    value: &rule_based_matching_binding,
+                    value: rule_based_matching_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            dead_letter_queue_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetterQueueUrl"),
-            ),
-            default_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultEncryptionKey"),
-            ),
-            default_expiration_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultExpirationDays"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            matching: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("matching"),
-            ),
-            rule_based_matching: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleBasedMatching"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            dead_letter_queue_url: o.get_field("deadLetterQueueUrl"),
+            default_encryption_key: o.get_field("defaultEncryptionKey"),
+            default_expiration_days: o.get_field("defaultExpirationDays"),
+            domain_name: o.get_field("domainName"),
+            matching: o.get_field("matching"),
+            rule_based_matching: o.get_field("ruleBasedMatching"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

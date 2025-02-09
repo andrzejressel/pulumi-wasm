@@ -156,89 +156,69 @@ pub mod file_system_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FileSystemAssociationArgs,
     ) -> FileSystemAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_destination_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audit_destination_arn_binding = args
             .audit_destination_arn
             .get_output(context);
-        let audit_destination_arn_binding = audit_destination_arn_binding_1.get_inner();
-        let cache_attributes_binding_1 = args.cache_attributes.get_output(context);
-        let cache_attributes_binding = cache_attributes_binding_1.get_inner();
-        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
-        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
-        let location_arn_binding_1 = args.location_arn.get_output(context);
-        let location_arn_binding = location_arn_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let cache_attributes_binding = args.cache_attributes.get_output(context);
+        let gateway_arn_binding = args.gateway_arn.get_output(context);
+        let location_arn_binding = args.location_arn.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:storagegateway/fileSystemAssociation:FileSystemAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditDestinationArn".into(),
-                    value: &audit_destination_arn_binding,
+                    value: audit_destination_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheAttributes".into(),
-                    value: &cache_attributes_binding,
+                    value: cache_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: &gateway_arn_binding,
+                    value: gateway_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationArn".into(),
-                    value: &location_arn_binding,
+                    value: location_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FileSystemAssociationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            audit_destination_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditDestinationArn"),
-            ),
-            cache_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheAttributes"),
-            ),
-            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayArn"),
-            ),
-            location_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationArn"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            arn: o.get_field("arn"),
+            audit_destination_arn: o.get_field("auditDestinationArn"),
+            cache_attributes: o.get_field("cacheAttributes"),
+            gateway_arn: o.get_field("gatewayArn"),
+            location_arn: o.get_field("locationArn"),
+            password: o.get_field("password"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            username: o.get_field("username"),
         }
     }
 }

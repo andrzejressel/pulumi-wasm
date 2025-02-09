@@ -70,87 +70,69 @@ pub mod trust_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrustStoreArgs,
     ) -> TrustStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ca_certificates_bundle_s3_bucket_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ca_certificates_bundle_s3_bucket_binding = args
             .ca_certificates_bundle_s3_bucket
             .get_output(context);
-        let ca_certificates_bundle_s3_bucket_binding = ca_certificates_bundle_s3_bucket_binding_1
-            .get_inner();
-        let ca_certificates_bundle_s3_key_binding_1 = args
+        let ca_certificates_bundle_s3_key_binding = args
             .ca_certificates_bundle_s3_key
             .get_output(context);
-        let ca_certificates_bundle_s3_key_binding = ca_certificates_bundle_s3_key_binding_1
-            .get_inner();
-        let ca_certificates_bundle_s3_object_version_binding_1 = args
+        let ca_certificates_bundle_s3_object_version_binding = args
             .ca_certificates_bundle_s3_object_version
             .get_output(context);
-        let ca_certificates_bundle_s3_object_version_binding = ca_certificates_bundle_s3_object_version_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lb/trustStore:TrustStore".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificatesBundleS3Bucket".into(),
-                    value: &ca_certificates_bundle_s3_bucket_binding,
+                    value: ca_certificates_bundle_s3_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificatesBundleS3Key".into(),
-                    value: &ca_certificates_bundle_s3_key_binding,
+                    value: ca_certificates_bundle_s3_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificatesBundleS3ObjectVersion".into(),
-                    value: &ca_certificates_bundle_s3_object_version_binding,
+                    value: ca_certificates_bundle_s3_object_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrustStoreResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            arn_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arnSuffix"),
-            ),
-            ca_certificates_bundle_s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertificatesBundleS3Bucket"),
-            ),
-            ca_certificates_bundle_s3_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertificatesBundleS3Key"),
-            ),
-            ca_certificates_bundle_s3_object_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertificatesBundleS3ObjectVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            arn_suffix: o.get_field("arnSuffix"),
+            ca_certificates_bundle_s3_bucket: o
+                .get_field("caCertificatesBundleS3Bucket"),
+            ca_certificates_bundle_s3_key: o.get_field("caCertificatesBundleS3Key"),
+            ca_certificates_bundle_s3_object_version: o
+                .get_field("caCertificatesBundleS3ObjectVersion"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

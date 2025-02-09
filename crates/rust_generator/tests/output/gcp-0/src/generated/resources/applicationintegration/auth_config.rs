@@ -192,136 +192,89 @@ pub mod auth_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthConfigArgs,
     ) -> AuthConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_certificate_binding_1 = args.client_certificate.get_output(context);
-        let client_certificate_binding = client_certificate_binding_1.get_inner();
-        let decrypted_credential_binding_1 = args
-            .decrypted_credential
-            .get_output(context);
-        let decrypted_credential_binding = decrypted_credential_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let expiry_notification_durations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_certificate_binding = args.client_certificate.get_output(context);
+        let decrypted_credential_binding = args.decrypted_credential.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let expiry_notification_durations_binding = args
             .expiry_notification_durations
             .get_output(context);
-        let expiry_notification_durations_binding = expiry_notification_durations_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let override_valid_time_binding_1 = args.override_valid_time.get_output(context);
-        let override_valid_time_binding = override_valid_time_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let visibility_binding_1 = args.visibility.get_output(context);
-        let visibility_binding = visibility_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let override_valid_time_binding = args.override_valid_time.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let visibility_binding = args.visibility.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:applicationintegration/authConfig:AuthConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificate".into(),
-                    value: &client_certificate_binding,
+                    value: client_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "decryptedCredential".into(),
-                    value: &decrypted_credential_binding,
+                    value: decrypted_credential_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiryNotificationDurations".into(),
-                    value: &expiry_notification_durations_binding,
+                    value: expiry_notification_durations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideValidTime".into(),
-                    value: &override_valid_time_binding,
+                    value: override_valid_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibility".into(),
-                    value: &visibility_binding,
+                    value: visibility_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthConfigResult {
-            certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateId"),
-            ),
-            client_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificate"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            creator_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creatorEmail"),
-            ),
-            credential_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentialType"),
-            ),
-            decrypted_credential: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("decryptedCredential"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            encrypted_credential: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptedCredential"),
-            ),
-            expiry_notification_durations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiryNotificationDurations"),
-            ),
-            last_modifier_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifierEmail"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            override_valid_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrideValidTime"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reason"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            valid_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validTime"),
-            ),
-            visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibility"),
-            ),
+            certificate_id: o.get_field("certificateId"),
+            client_certificate: o.get_field("clientCertificate"),
+            create_time: o.get_field("createTime"),
+            creator_email: o.get_field("creatorEmail"),
+            credential_type: o.get_field("credentialType"),
+            decrypted_credential: o.get_field("decryptedCredential"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            encrypted_credential: o.get_field("encryptedCredential"),
+            expiry_notification_durations: o.get_field("expiryNotificationDurations"),
+            last_modifier_email: o.get_field("lastModifierEmail"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            override_valid_time: o.get_field("overrideValidTime"),
+            project: o.get_field("project"),
+            reason: o.get_field("reason"),
+            state: o.get_field("state"),
+            update_time: o.get_field("updateTime"),
+            valid_time: o.get_field("validTime"),
+            visibility: o.get_field("visibility"),
         }
     }
 }

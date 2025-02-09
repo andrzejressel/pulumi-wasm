@@ -69,42 +69,35 @@ pub mod dashboard {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DashboardArgs,
     ) -> DashboardResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dashboard_body_binding_1 = args.dashboard_body.get_output(context);
-        let dashboard_body_binding = dashboard_body_binding_1.get_inner();
-        let dashboard_name_binding_1 = args.dashboard_name.get_output(context);
-        let dashboard_name_binding = dashboard_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dashboard_body_binding = args.dashboard_body.get_output(context);
+        let dashboard_name_binding = args.dashboard_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/dashboard:Dashboard".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dashboardBody".into(),
-                    value: &dashboard_body_binding,
+                    value: dashboard_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dashboardName".into(),
-                    value: &dashboard_name_binding,
+                    value: dashboard_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DashboardResult {
-            dashboard_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dashboardArn"),
-            ),
-            dashboard_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dashboardBody"),
-            ),
-            dashboard_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dashboardName"),
-            ),
+            dashboard_arn: o.get_field("dashboardArn"),
+            dashboard_body: o.get_field("dashboardBody"),
+            dashboard_name: o.get_field("dashboardName"),
         }
     }
 }

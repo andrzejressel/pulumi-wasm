@@ -49,72 +49,53 @@ pub mod get_nat_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNatGatewayArgs,
     ) -> GetNatGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_ip_address_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let public_ip_address_ids_binding = args
             .public_ip_address_ids
             .get_output(context);
-        let public_ip_address_ids_binding = public_ip_address_ids_binding_1.get_inner();
-        let public_ip_prefix_ids_binding_1 = args
-            .public_ip_prefix_ids
-            .get_output(context);
-        let public_ip_prefix_ids_binding = public_ip_prefix_ids_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let public_ip_prefix_ids_binding = args.public_ip_prefix_ids.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getNatGateway:getNatGateway".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpAddressIds".into(),
-                    value: &public_ip_address_ids_binding,
+                    value: public_ip_address_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpPrefixIds".into(),
-                    value: &public_ip_prefix_ids_binding,
+                    value: public_ip_prefix_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNatGatewayResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeoutInMinutes"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_ip_address_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddressIds"),
-            ),
-            public_ip_prefix_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpPrefixIds"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            resource_guid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGuid"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            id: o.get_field("id"),
+            idle_timeout_in_minutes: o.get_field("idleTimeoutInMinutes"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            public_ip_address_ids: o.get_field("publicIpAddressIds"),
+            public_ip_prefix_ids: o.get_field("publicIpPrefixIds"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            resource_guid: o.get_field("resourceGuid"),
+            sku_name: o.get_field("skuName"),
+            tags: o.get_field("tags"),
+            zones: o.get_field("zones"),
         }
     }
 }

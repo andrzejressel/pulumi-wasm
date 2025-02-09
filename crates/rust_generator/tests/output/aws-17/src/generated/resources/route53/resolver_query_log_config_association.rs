@@ -51,43 +51,37 @@ pub mod resolver_query_log_config_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResolverQueryLogConfigAssociationArgs,
     ) -> ResolverQueryLogConfigAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resolver_query_log_config_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let resolver_query_log_config_id_binding = args
             .resolver_query_log_config_id
             .get_output(context);
-        let resolver_query_log_config_id_binding = resolver_query_log_config_id_binding_1
-            .get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_id_binding = args.resource_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverQueryLogConfigId".into(),
-                    value: &resolver_query_log_config_id_binding,
+                    value: resolver_query_log_config_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResolverQueryLogConfigAssociationResult {
-            resolver_query_log_config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverQueryLogConfigId"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
+            resolver_query_log_config_id: o.get_field("resolverQueryLogConfigId"),
+            resource_id: o.get_field("resourceId"),
         }
     }
 }

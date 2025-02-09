@@ -124,76 +124,59 @@ pub mod dataset_data_lake_gen_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatasetDataLakeGen2Args,
     ) -> DatasetDataLakeGen2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let file_path_binding_1 = args.file_path.get_output(context);
-        let file_path_binding = file_path_binding_1.get_inner();
-        let file_system_name_binding_1 = args.file_system_name.get_output(context);
-        let file_system_name_binding = file_system_name_binding_1.get_inner();
-        let folder_path_binding_1 = args.folder_path.get_output(context);
-        let folder_path_binding = folder_path_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let share_id_binding_1 = args.share_id.get_output(context);
-        let share_id_binding = share_id_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let file_path_binding = args.file_path.get_output(context);
+        let file_system_name_binding = args.file_system_name.get_output(context);
+        let folder_path_binding = args.folder_path.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let share_id_binding = args.share_id.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filePath".into(),
-                    value: &file_path_binding,
+                    value: file_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemName".into(),
-                    value: &file_system_name_binding,
+                    value: file_system_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderPath".into(),
-                    value: &folder_path_binding,
+                    value: folder_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareId".into(),
-                    value: &share_id_binding,
+                    value: share_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatasetDataLakeGen2Result {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            file_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filePath"),
-            ),
-            file_system_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemName"),
-            ),
-            folder_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folderPath"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            share_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareId"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
+            display_name: o.get_field("displayName"),
+            file_path: o.get_field("filePath"),
+            file_system_name: o.get_field("fileSystemName"),
+            folder_path: o.get_field("folderPath"),
+            name: o.get_field("name"),
+            share_id: o.get_field("shareId"),
+            storage_account_id: o.get_field("storageAccountId"),
         }
     }
 }

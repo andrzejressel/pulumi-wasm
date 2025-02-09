@@ -33,44 +33,35 @@ pub mod search {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: SearchArgs,
     ) -> SearchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let query_string_binding_1 = args.query_string.get_output(context);
-        let query_string_binding = query_string_binding_1.get_inner();
-        let view_arn_binding_1 = args.view_arn.get_output(context);
-        let view_arn_binding = view_arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let query_string_binding = args.query_string.get_output(context);
+        let view_arn_binding = args.view_arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:resourceexplorer/search:Search".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryString".into(),
-                    value: &query_string_binding,
+                    value: query_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewArn".into(),
-                    value: &view_arn_binding,
+                    value: view_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         SearchResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            query_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryString"),
-            ),
-            resource_counts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceCounts"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            view_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("viewArn"),
-            ),
+            id: o.get_field("id"),
+            query_string: o.get_field("queryString"),
+            resource_counts: o.get_field("resourceCounts"),
+            resources: o.get_field("resources"),
+            view_arn: o.get_field("viewArn"),
         }
     }
 }
